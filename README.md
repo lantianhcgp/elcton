@@ -62,6 +62,13 @@
   （[AlanLinYu/huawei-lite-watch-development](https://github.com/AlanLinYu/huawei-lite-watch-development)，MIT，
   含本项目追加的错误码总表与实战实录）
 
+## 参考源码库（references/source-apps/）
+
+社区收集的成品表应用源码，供 AI 开发时对照实现。命名 `<应用>-<系列>`，
+括号内 **GT/FIT 为华为不同手表系列**（同属华为体系，屏幕与 API 档位有差异）。
+详见 [`references/README.md`](references/README.md)（含版权说明与 AI 使用指引）。
+
+
 ## 致谢
 
 - 签名方案：[kqakqakqa/hap-sign-utils](https://github.com/kqakqakqa/hap-sign-utils)
