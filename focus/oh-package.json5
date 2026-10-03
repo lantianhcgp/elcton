@@ -1,0 +1,9 @@
+{
+  "name": "com.example.focus",
+  "modelVersion": "6.1.1",
+  "description": "Focus timer (pomodoro) for HarmonyOS Lite Wearable - FIT3",
+  "dependencies": {},
+  "devDependencies": {
+    "@ohos/hypium": "1.0.25"
+  }
+}

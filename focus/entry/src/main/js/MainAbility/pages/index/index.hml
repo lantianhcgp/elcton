@@ -1,0 +1,25 @@
+<div class="page">
+  <div class="header">
+    <text class="title">{{ $t('strings.title') }}</text>
+    <text class="today">{{ todayText }}</text>
+  </div>
+  <text class="time">{{ timeText }}</text>
+  <div class="track">
+    <div class="fill" style="width: {{ barWidth }};"></div>
+  </div>
+  <text class="status" style="color: {{ statusColor }};">{{ statusText }}</text>
+  <div class="presets">
+    <div class="preset" for="{{ (idx, item) in presets }}" @click="pick(item.min)" style="background-color: {{ item.bg }};">
+      <text class="preset-text" style="color: {{ item.fg }};">{{ item.label }}</text>
+    </div>
+  </div>
+  <div class="controls">
+    <div class="btn-main" @click="toggle">
+      <text class="btn-text">{{ toggleText }}</text>
+    </div>
+    <div class="btn-ghost" @click="reset">
+      <text class="btn-text">{{ $t('strings.reset') }}</text>
+    </div>
+  </div>
+  <text class="hint">{{ $t('strings.hint') }}</text>
+</div>

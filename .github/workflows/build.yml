@@ -15,6 +15,8 @@ jobs:
             path: "."
           - project: clan
             path: clan
+          - project: focus
+            path: focus
     steps:
       - uses: actions/checkout@v4
 

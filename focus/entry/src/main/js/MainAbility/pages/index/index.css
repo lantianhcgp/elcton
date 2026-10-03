@@ -1,0 +1,103 @@
+.page {
+  width: 100%;
+  height: 100%;
+  background-color: #0d0d0d;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.header {
+  width: 88%;
+  height: 48px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+.title {
+  font-size: 26px;
+  color: #ffffff;
+}
+.today {
+  font-size: 18px;
+  color: #6c6c80;
+}
+.time {
+  font-size: 68px;
+  color: #ffffff;
+  margin-top: 6px;
+  text-align: center;
+}
+.track {
+  width: 76%;
+  height: 10px;
+  background-color: #21213a;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+.fill {
+  width: 0%;
+  height: 10px;
+  background-color: #6c63ff;
+  border-radius: 5px;
+}
+.status {
+  font-size: 20px;
+  color: #8e8ea0;
+  margin-top: 8px;
+  text-align: center;
+}
+.presets {
+  width: 88%;
+  height: 46px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+}
+.preset {
+  width: 30%;
+  height: 46px;
+  border-radius: 23px;
+  justify-content: center;
+  align-items: center;
+}
+.preset-text {
+  font-size: 20px;
+  text-align: center;
+}
+.controls {
+  width: 88%;
+  height: 58px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+}
+.btn-main {
+  width: 47%;
+  height: 58px;
+  background-color: #6c63ff;
+  border-radius: 29px;
+  justify-content: center;
+  align-items: center;
+}
+.btn-ghost {
+  width: 47%;
+  height: 58px;
+  background-color: #1a1a2e;
+  border-radius: 29px;
+  justify-content: center;
+  align-items: center;
+}
+.btn-text {
+  font-size: 24px;
+  color: #ffffff;
+  text-align: center;
+}
+.hint {
+  font-size: 15px;
+  color: #4a4a5e;
+  margin-top: 12px;
+  text-align: center;
+}
