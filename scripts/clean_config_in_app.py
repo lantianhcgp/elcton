@@ -40,6 +40,15 @@ def fix_config_text(text: str) -> "tuple[str, list[str]]":
             if k in av:
                 av.pop(k)
                 removed.append("app.apiVersion." + k)
+    dc = cfg.get("deviceConfig")
+    if isinstance(dc, dict):
+        dflt = dc.get("default")
+        if isinstance(dflt, dict) and isinstance(dflt, dict):
+            if "debug" in dflt:
+                dflt.pop("debug")
+                removed.append("deviceConfig.default.debug")
+            if not dflt:
+                dc.pop("default")  # 收敛为 {} —— 与已装成功包形态一致
     mod = cfg.get("module") or {}
     pkg = mod.get("package")
     if isinstance(pkg, str) and pkg.startswith("com.example"):
