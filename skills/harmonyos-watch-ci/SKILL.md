@@ -42,6 +42,10 @@ setup-ohos@v2 (CLT 6.1.1.280, cache) → ohpm install --all
 
 ## FIT3 已验证 config profile（从装成功的包逆向，改动前先对齐）
 
+> 换目标机型先查**机型规格矩阵**（`references/watch-model-matrix.md` + 原图，双仓 references/；
+> skill 侧 `huawei-lite-watch-development/references/device-compatibility.md`）：
+> compatible/target 上限按机型档位选（GT3=API7?、GT2=API3、FIT2/D=API7 都装不上 4.0.0(10)），布局用适配分辨率。
+
 ```
 app.apiVersion.compatible = 40000010   # 4.0.0(10) —— 表支持的老 API，新值会 40
 app.apiVersion.target     = 60101024   # 6.1.1(24)
