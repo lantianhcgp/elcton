@@ -34,12 +34,16 @@ async function signHap(appBuffer, p7bBuffer) {
   // 修改 config.json
   const configStr = await hapLoad.file("config.json").async("text");
   const config = JSON.parse(configStr);
-  config.app.bundleName = bundleName;
+  // 默认保留项目 config 自身的包名（安装按包内 config 识别应用身份，
+  // 各项目互不覆盖）；设置 FORCE_P7B_BUNDLE=1 时才强制改写为证书包名
+  if (process.env.FORCE_P7B_BUNDLE === "1") {
+    config.app.bundleName = bundleName;
+  }
   config.app.version.code = 0;
   hapLoad.file("config.json", JSON.stringify(config));
 
   // 转换 & 签名
-  const unsignedBin = await hapToBin(hapLoad, bundleName);
+  const unsignedBin = await hapToBin(hapLoad, config.app.bundleName || bundleName);
   const signedBin = await signBin({
     unsignedBin,
     p7bUint8Array: new Uint8Array(p7bBuffer),
