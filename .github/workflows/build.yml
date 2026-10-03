@@ -59,7 +59,7 @@ jobs:
             cp -r tools/sign /tmp/sign && cd /tmp/sign
             npm install --no-audit --no-fund
             cd -
-            node /tmp/sign/sign-app-to-hap.js "${{ matrix.path }}"/build/outputs/default/*.app certs/app.p7b "dist/${{ matrix.project }}.hap"
+            FORCE_P7B_BUNDLE=1 node /tmp/sign/sign-app-to-hap.js "${{ matrix.path }}"/build/outputs/default/*.app certs/app.p7b "dist/${{ matrix.project }}.hap"
           else
             echo "certs/app.p7b 不存在 → 本次只交付未签名 .app"
           fi
