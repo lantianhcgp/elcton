@@ -10,7 +10,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: [elcton, clan]
+        include:
+          - project: elcton
+            path: "."
+          - project: clan
+            path: clan
     steps:
       - uses: actions/checkout@v4
 
@@ -38,15 +42,15 @@ jobs:
           command -v ohpm || true
 
       - name: Install project dependencies
-        working-directory: ${{ matrix.project }}
+        working-directory: ${{ matrix.path }}
         run: ohpm install --all
 
       - name: Build unsigned App
-        working-directory: ${{ matrix.project }}
+        working-directory: ${{ matrix.path }}
         run: hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license
 
       - name: Sanitize packed config.json (Lite schema)
-        run: python3 scripts/clean_config_in_app.py "${{ matrix.project }}"/build/outputs/default/*.app
+        run: python3 scripts/clean_config_in_app.py "${{ matrix.path }}"/build/outputs/default/*.app
 
       - name: Sign (needs certs/app.p7b)
         run: |
@@ -55,7 +59,7 @@ jobs:
             cp -r tools/sign /tmp/sign && cd /tmp/sign
             npm install --no-audit --no-fund
             cd -
-            node /tmp/sign/sign-app-to-hap.js "${{ matrix.project }}"/build/outputs/default/*.app certs/app.p7b "dist/${{ matrix.project }}.hap"
+            node /tmp/sign/sign-app-to-hap.js "${{ matrix.path }}"/build/outputs/default/*.app certs/app.p7b "dist/${{ matrix.project }}.hap"
           else
             echo "certs/app.p7b 不存在 → 本次只交付未签名 .app"
           fi
@@ -63,7 +67,7 @@ jobs:
       - name: Collect artifacts
         run: |
           mkdir -p dist
-          cp "${{ matrix.project }}"/build/outputs/default/*.app dist/ 2>/dev/null || true
+          cp "${{ matrix.path }}"/build/outputs/default/*.app dist/ 2>/dev/null || true
           ls -la dist/
 
       - uses: actions/upload-artifact@v4
