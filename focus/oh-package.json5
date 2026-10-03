@@ -1,5 +1,5 @@
 {
-  "name": "com.example.focus",
+  "name": "com.hcbiu.focus",
   "modelVersion": "6.1.1",
   "description": "Focus timer (pomodoro) for HarmonyOS Lite Wearable - FIT3",
   "dependencies": {},
