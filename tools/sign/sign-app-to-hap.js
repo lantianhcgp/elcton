@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import { fileURLToPath } from "url";
 import crypto from "crypto";
 
 import jsrsasign from "jsrsasign";
@@ -220,7 +221,7 @@ function getTimeStr(d = new Date()) {
 
 export { signHap };
 
-if (process.argv[1] === import.meta.filename) {
+if (process.argv[1] && process.argv[1] === fileURLToPath(import.meta.url)) {
   const args = process.argv.slice(2);
   if (args.length < 2) {
     console.log("用法: node sign-app-to-hap.js <input.app> <input.p7b> [output.hap]");
