@@ -1,0 +1,9 @@
+build/
+.preview/
+.hvigor/
+node_modules/
+oh_modules/
+local.properties
+.idea/
+*.hqw
+.certs-tmp/
