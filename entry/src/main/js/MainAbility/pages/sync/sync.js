@@ -5,7 +5,9 @@ import router from '../../common/router.js';
  * 串行 + 每条 6s 看门狗：lite 真机并发 fetch 会卡死、回调可能不回来（参照签到 app 实测经验）
  */
 var PROBES = [
-    { name: '手机内网 :8123', url: 'http://192.168.1.200:8123/t.json', key: 'lan' },
+    { name: '手机Wi-Fi :8123', url: 'http://192.168.1.200:8123/t.json', key: 'lan' },
+    { name: 'BLE网关 44.1', url: 'http://192.168.44.1:8123/t.json', key: 'lan' },
+    { name: '热点网关 49.1', url: 'http://192.168.49.1:8123/t.json', key: 'lan' },
     { name: '表本机 127.0.0.1', url: 'http://127.0.0.1:8123/t.json', key: 'self' },
     { name: '公网 HTTP', url: 'http://connect.rom.miui.com/generate_204', key: 'net' },
     { name: '公网 HTTPS', url: 'https://ws.fseatech.cn/', key: 'https' }
@@ -114,7 +116,7 @@ export default {
                             finish(true, '✓ 通 HTTP ' + code, '#4caf50');
                         }
                         if (!self.dead) {
-                            self.detail = 'LAN 响应(' + code + '): ' + raw.substring(0, 60);
+                            self.detail = p.name + ' 响应(' + code + '): ' + raw.substring(0, 56);
                         }
                         return;
                     }
