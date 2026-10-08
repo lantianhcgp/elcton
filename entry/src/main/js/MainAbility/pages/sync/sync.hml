@@ -1,7 +1,7 @@
 <div class="container">
     <div class="header-bar">
-        <text class="title">同步测试</text>
-        <text class="subtitle">LAN 可达性</text>
+        <text class="title">&#x540C;&#x6B65;&#x6D4B;&#x8BD5;</text>
+        <text class="subtitle">LAN &#x53EF;&#x8FBE;&#x6027;</text>
     </div>
     <list class="probe-list">
         <list-item class="probe-item" for="{{ (idx, item) in probes }}">
@@ -16,10 +16,10 @@
     </div>
     <div class="bottom-bar">
         <div class="nav-btn-alt" @click="onBack">
-            <text class="nav-btn-text">返回</text>
+            <text class="nav-btn-text">&#x8FD4;&#x56DE;</text>
         </div>
         <div class="nav-btn" @click="onRun">
-            <text class="nav-btn-text">重测</text>
+            <text class="nav-btn-text">&#x91CD;&#x6D4B;</text>
         </div>
     </div>
 </div>

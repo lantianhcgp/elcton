@@ -1,3 +1,5 @@
+/* 布局硬约束（FIT3 实测）：屏 412×484、圆角 R≈105，y≥420 是圆角危险区
+ * → 底栏按钮底必须 ≤410、左右留 ≥24px；故内容总高控制在 422 内（底栏带 padding-bottom）*/
 .container {
     width: 100%;
     height: 100%;
@@ -6,7 +8,7 @@
 }
 .header-bar {
     width: 100%;
-    height: 64px;
+    height: 60px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -14,7 +16,7 @@
     padding-right: 24px;
 }
 .title {
-    font-size: 34px;
+    font-size: 32px;
     color: #ffffff;
 }
 .subtitle {
@@ -23,36 +25,36 @@
 }
 .probe-list {
     width: 100%;
-    height: 264px;
+    height: 224px;
     flex-direction: column;
 }
 .probe-item {
     width: 100%;
-    height: 66px;
+    height: 56px;
     justify-content: center;
     align-items: center;
 }
 .probe-bg {
-    width: 92%;
-    height: 56px;
+    width: 90%;
+    height: 48px;
     background-color: #1a1a2e;
     border-radius: 16px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-left: 18px;
-    padding-right: 18px;
+    padding-left: 16px;
+    padding-right: 16px;
 }
 .probe-name {
-    font-size: 26px;
+    font-size: 24px;
     color: #e8e8f0;
 }
 .probe-status {
-    font-size: 24px;
+    font-size: 22px;
 }
 .detail-box {
     width: 100%;
-    height: 64px;
+    height: 60px;
     padding-left: 24px;
     padding-right: 24px;
     flex-direction: column;
@@ -64,7 +66,8 @@
 }
 .bottom-bar {
     width: 100%;
-    height: 80px;
+    height: 66px;
+    padding-bottom: 12px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
