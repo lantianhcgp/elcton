@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="header-bar">
+        <text class="title">同步测试</text>
+        <text class="subtitle">LAN 可达性</text>
+    </div>
+    <list class="probe-list">
+        <list-item class="probe-item" for="{{ (idx, item) in probes }}">
+            <div class="probe-bg">
+                <text class="probe-name">{{ item.name }}</text>
+                <text class="probe-status" style="color: {{ item.color }};">{{ item.status }}</text>
+            </div>
+        </list-item>
+    </list>
+    <div class="detail-box">
+        <text class="detail-text">{{ detail }}</text>
+    </div>
+    <div class="bottom-bar">
+        <div class="nav-btn-alt" @click="onBack">
+            <text class="nav-btn-text">返回</text>
+        </div>
+        <div class="nav-btn" @click="onRun">
+            <text class="nav-btn-text">重测</text>
+        </div>
+    </div>
+</div>

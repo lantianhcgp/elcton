@@ -22,5 +22,8 @@
         <div class="nav-btn" @click="onWeekViewClick">
             <text class="nav-btn-text">&#x5468;&#x89c6;&#x56fe;</text>
         </div>
+        <div class="nav-btn" @click="onSyncClick">
+            <text class="nav-btn-text">&#x540c;&#x6b65;</text>
+        </div>
     </div>
 </div>

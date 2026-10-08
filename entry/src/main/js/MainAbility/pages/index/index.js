@@ -91,6 +91,9 @@ export default {
     onWeekViewClick: function () {
         router.push({ uri: 'pages/week/week' });
     },
+    onSyncClick: function () {
+        router.push({ uri: 'pages/sync/sync' });
+    },
     onSwipe: function (e) {
         if (e.direction === 'right' && e.distance >= 150) { router.back(); }
     }
