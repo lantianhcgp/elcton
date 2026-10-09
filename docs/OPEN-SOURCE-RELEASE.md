@@ -28,7 +28,7 @@ git 历史中曾新增（`git log --diff-filter=A` 可查）：
 | AGC appid `118599721` | `README.md`（公开版已移除）、`skills/.../build-install-error-catalog.md` | 搜索替换删除 |
 | 个人包名 `com.hcbiu.elcton` | `entry/src/main/config.json`、`certs/README.md`、skill 实录 | 改 `com.example.elcton`（签名时 FORCE 会用证书包名覆写，**功能无损**） |
 | 证书身份串 `drt.sign.*` / `hap.sign.2026*` | `skills/*/SKILL.md`、`references/install-error-codes.md` | 泛化为 `<你的证书包名>`；保留 `hap.sign.20260805124057` 作为反面案例说明亦可（它只暴露证书名，风险低——自行取舍） |
-| 课程数据 | `entry/.../rawfile/default-schedule.json` | ✅ 已是 demo 数据（c_demo_*），无需处理 |
+| 课程数据 | `entry/.../rawfile/seed-schedule.json` | ✅ 已是 demo 数据（c_d*，随包种子），无需处理 |
 | CI secrets | `.github/workflows/build.yml` | ✅ 仅用默认 `GITHUB_TOKEN`，无自定义密钥 |
 | Termux/本机路径 | `skills/harmonyos-watch-ci`（如 `~/lw_build`、`/storage/emulated/0`） | 可保留（无隐私），介意则泛化为 `<工作目录>` |
 
