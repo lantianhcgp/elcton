@@ -1,7 +1,7 @@
 /* 布局硬约束（FIT3 实测）：屏 412×484、圆角 R≈105，y≥420 是圆角危险区
- * → 底栏按钮底必须 ≤410、左右留 ≥24px
- * 高度预算：header 56 + 列表 6×38=228 + 详情 44 = 328；底栏 66(+padding-bottom 12)
- * → 按钮底 = 328+59 = 387 ≤410；总高 406 ≤484 */
+ * → 按钮底 ≤410、左右留 ≥24px
+ * v2 高度预算（7 条探测）：header 56 + 列表 7×32=224 + 详情 44 = 324
+ * → 按钮底 = 324+59 = 383 ≤410；总高 402 ≤484 */
 .container {
     width: 100%;
     height: 100%;
@@ -27,20 +27,20 @@
 }
 .probe-list {
     width: 100%;
-    height: 228px;
+    height: 224px;
     flex-direction: column;
 }
 .probe-item {
     width: 100%;
-    height: 38px;
+    height: 32px;
     justify-content: center;
     align-items: center;
 }
 .probe-bg {
     width: 90%;
-    height: 34px;
+    height: 28px;
     background-color: #1a1a2e;
-    border-radius: 14px;
+    border-radius: 12px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -48,11 +48,11 @@
     padding-right: 14px;
 }
 .probe-name {
-    font-size: 22px;
+    font-size: 20px;
     color: #e8e8f0;
 }
 .probe-status {
-    font-size: 20px;
+    font-size: 18px;
 }
 .detail-box {
     width: 100%;
@@ -63,7 +63,7 @@
     justify-content: center;
 }
 .detail-text {
-    font-size: 18px;
+    font-size: 17px;
     color: #6c6c80;
 }
 .bottom-bar {
