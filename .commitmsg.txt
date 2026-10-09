@@ -1,7 +1,28 @@
-feat(sync): 路线 A 最后一验 —— 内网探针改 192.168.1.199 + 新增蜂窝回环候选（v7）
+feat(sync): 课表同步上线 —— 手机网页编辑 → 云端落盘 → 手表拉取导入
 
-用户已连上 Wi-Fi，要求验证手机自己部署的页面能否被手表打到。
-- 手机 Wi-Fi 地址又变（45.224 → 192.168.1.199），更新 LAN 探针地址；
-- 新增 http://10.39.178.59:8123/t.json：手机蜂窝口地址，**不依赖 Wi-Fi**，
-  表借手机网出去、打到手机自身地址应本地回环，命中即证明路线 A 成立且长期可用；
-- 手机侧自检：lan-server 对 10.39.178.59 / 192.168.1.199 / tun0 均返回 200。
+路线判定（docs/lan-sync-probe.md 终版）：
+- 路线 A（手机内网）证伪：IP 正确 + 服务自检 200 + 关代理三条件下重测仍 -6，
+  带时间戳的服务端日志整个探测窗口零请求 → 表借手机网不给回包
+- 路线 B（云中转）成立：签到服 HTTPS 四轮全 200；223.5.5.5 每轮真实 404
+
+端点（docs/sync-endpoint.md）：用户自己的香港虚拟主机，国内直连、零部署
+  http://listenword.qingyun3.com/elcton/schedule.json  ← 手表拉取
+  http://listenword.qingyun3.com/elcton/save.php       ← 网页保存（rev 服务端单调递增）
+  http://listenword.qingyun3.com/elcton/               ← 手机端编辑页
+
+手表端（pages/sync 由探测页改造为同步页）：
+- 三行状态：本地课表 / 云端课表 / 连通自检（进页面自动打探活，点行可重跑）
+- 导入五条规则：schema 校验；version 高于本端拒绝导入；先比内容签名再比 rev
+  （store.persist 每次落盘 rev+1，只看 rev 会永远误判「本地较新」）；
+  本地有改动时需再点一次才强制覆盖，不静默吃掉本地数据
+- 沿用 v6 稳定模式：running 互斥 + gen 代际 + 15s 看门狗 + 回调全包 try
+
+手机端（web/ 源码入库，主机上是同一份）：
+- index.html：单页编辑器，中文暗色、无外部依赖、按天分组、冲突保护
+- save.php：口令校验 + schema 校验 + rev=max(当前,传入)+1 + 原子写 + 留档 prev
+
+安全：public 仓库里的 save.php/index.html 口令改成 CHANGE_ME 占位，
+真实口令只存主机与本地 600 配置文件。
+
+回归：scripts/test-persistence.mjs 20/20 通过；sync.hml 纯 ASCII（无裸中文）；
+sync.js 无正则字面量。

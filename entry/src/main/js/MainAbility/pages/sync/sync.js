@@ -1,51 +1,41 @@
 import router from '../../common/router.js';
+import data from '../../common/data.js';
 
-/* LAN 可达性探测（课程表同步功能的前置实测）—— v7
+/* 课程表同步页 —— 从手机侧虚拟主机拉取 schedule.json 导入本地
  *
- * v7：用户要求验证「手机自己部署的页面能不能通」（路线 A 最后一验）。
- *   手机 Wi-Fi 重连后地址又变了（192.168.45.224 → 192.168.1.199），同步更新；
- *   另加蜂窝口 10.39.178.59 作为**不依赖 Wi-Fi 的回环候选** —— 表借手机网出去，
- *   打到手机自己的地址就该本地回环到 8123。
+ * 云端：http://listenword.qingyun3.com/elcton/
+ *   schedule.json  ← 手机网页编辑保存（save.php 落盘，rev 服务端单调递增）
+ *   health.txt     ← 几字节探活，进页面自动打一次，用来分清「网络不通」和「数据有问题」
  *
- * 第四轮真机结果（用户多轮重测）已确认三件事：
- *   1) 公网可达：签到服 HTTPS → 200、百度 HTTPS → 200（间歇）、
- *      223.5.5.5 → 404（404 是真实 HTTP 响应 = 纯 IP 直连也通，DNS 不是凶手）。
- *      此前那轮 -6/-9/超时，归因手机侧代理/VPN（当时挂着 tun0 fake-IP 隧道）。
- *   2) 127.0.0.1 永远 -6：表的回环指的是表自己，不是手机 —— 这是设计内的阴性对照。
- *   3) 内网探针 192.168.1.200 是过期地址（手机 Wi-Fi 网络已换成 192.168.45.224），
- *      过期地址必然 -6。本轮换成 192.168.45.224，给内网路线最后一次机会。
+ * 导入规则（docs/schedule-format.md §四）：
+ *   1. schema 必须是 elcton.schedule；version 高于本端 → 拒绝导入（防读不懂的数据）
+ *   2. 先比内容签名（id/名称/星期/节次/时间/周型），相同 → 已是最新，不动本地
+ *   3. 签名不同：云端 rev > 本地 rev → 直接导入；否则视为「本地有改动」，
+ *      第一次点给提示，再点一次才强制覆盖（不会静默吃掉本地改动）
+ *   4. 导入走 data.replaceDoc → store.persist，本地 rev 自动 +1（规范要求每次落盘自增）
  *
- * v6 修崩溃（用户报「重测时应用闪退」）：
- *   A. onRun 无互斥 → 上一轮未结束时再点会开第二条链，两链并发 fetch、老回调回写 idx 乱套。
- *      Lite 平台并发 fetch 已知会挂起/崩溃。修法：running 互斥 + 代际 gen 守卫，
- *      任何过期回调（gen 不匹配）一律 no-op，且链尾/销毁都推进代际。
- *   B. brief() 中 JSON.stringify 可能返回 undefined（function/symbol 值），
- *      紧接着 .length 即 TypeError；而 success/fail 回调体原本没包 try ——
- *      异常抛进平台回调会直接闪退。修法：brief 结果兜底 + finish 全体 try/catch。
+ * 复用探测页的稳定模式：互斥 running + 代际 gen 丢弃过期回调 + 15s 看门狗
+ * + 全部回调包 try（Lite 上任何抛进平台的异常都是闪退，v6 已踩过）。
  */
-var PROBES = [
-    { name: '公网IP 223.5.5.5', url: 'http://223.5.5.5/', key: 'ip' },
-    { name: '域名 HTTP qq', url: 'http://www.qq.com/', key: 'http' },
-    { name: '域名 HTTPS 百度', url: 'https://www.baidu.com/', key: 'https' },
-    { name: '签到服 HTTPS', url: 'https://ws.fseatech.cn/', key: 'relay' },
-    { name: '手机Wi-Fi 1.199', url: 'http://192.168.1.199:8123/t.json', key: 'lan' },
-    { name: '手机蜂窝 10.39', url: 'http://10.39.178.59:8123/t.json', key: 'lan' },
-    { name: '表本机 127.0.0.1', url: 'http://127.0.0.1:8123/t.json', key: 'self' }
-];
-var WATCHDOG_MS = 10000;   /* 第三轮放宽后公网拿到过响应，保持 10s */
+var BASE = 'http://listenword.qingyun3.com/elcton/';
+var SCHEDULE_URL = BASE + 'schedule.json';
+var HEALTH_URL = BASE + 'health.txt';
+var SCHEMA = 'elcton.schedule';
+var VERSION = 1;
+var WATCHDOG_MS = 15000;   /* 手机侧实测该主机 ~2.5s，留 15s 余量覆盖弱网 */
 
 function brief(v, n) {
     if (v === undefined || v === null) { return ''; }
     var s;
     if (typeof v === 'object') {
         try { s = JSON.stringify(v); } catch (e) { s = null; }
-        if (typeof s !== 'string') {   /* 循环引用 → null；function → undefined：都兜底 */
+        if (typeof s !== 'string') {
             try { s = String(v); } catch (e2) { s = '[unstringifiable]'; }
         }
     } else {
         s = String(v);
     }
-    /* 不能用正则字面量（JerryScript 构建 profile 关掉）→ 手工压掉换行/制表 */
+    /* 无正则字面量（JerryScript profile）→ 手工压掉换行/制表 */
     var out = '';
     for (var i = 0; i < s.length; i++) {
         var cc = s.charCodeAt(i);
@@ -54,154 +44,328 @@ function brief(v, n) {
     return out.length > n ? (out.substring(0, n) + '…') : out;
 }
 
+function str(v) { return (v === undefined || v === null) ? '' : String(v); }
+function num(v, d) { var n = Number(v); return isNaN(n) ? d : n; }
+
+/* 内容签名：与 rev/updatedAt 无关，只看课本身 → 判断「内容是否真的变了」
+ * 不这么做的后果：replaceDoc 落盘会 rev+1，本地 rev 永远比云端大，
+ * 下次拉取就会误判成「本地较新」而永远不再更新。 */
+function sig(doc) {
+    var list = doc.courses.slice().sort(function (a, b) {
+        return str(a.id) < str(b.id) ? -1 : (str(a.id) > str(b.id) ? 1 : 0);
+    });
+    var s = '';
+    for (var i = 0; i < list.length; i++) {
+        var c = list[i];
+        s += str(c.id) + '|' + str(c.name) + '|' + num(c.dayOfWeek, 0) + '|' +
+             num(c.startPeriod, 0) + '|' + num(c.endPeriod, 0) + '|' +
+             str(c.startTime) + '|' + str(c.endTime) + '|' + str(c.weekType) + ';';
+    }
+    return s;
+}
+
+/* 归一化：replaceDoc 直接把对象挂进缓存，字段缺失会让 serialize 出问题 → 先补齐 */
+function normalize(remote) {
+    var s = (remote.settings && typeof remote.settings === 'object') ? remote.settings : {};
+    var out = {
+        schema: SCHEMA,
+        version: num(remote.version, VERSION),
+        rev: num(remote.rev, 0),
+        updatedAt: num(remote.updatedAt, 0),
+        settings: {
+            semesterStart: str(s.semesterStart) || '2026-09-01',
+            currentWeek: num(s.currentWeek, 1),
+            vibrationEnabled: s.vibrationEnabled === undefined ? true : !!s.vibrationEnabled,
+            reminderMinutes: num(s.reminderMinutes, 5)
+        },
+        courses: []
+    };
+    var list = (remote.courses && remote.courses.length) ? remote.courses : [];
+    for (var i = 0; i < list.length; i++) {
+        var c = list[i];
+        if (!c || typeof c !== 'object' || !c.id) { continue; }   /* 无 id 不入内存（规范 §二） */
+        var weeks = [];
+        if (c.weeks && c.weeks.length) {
+            for (var k = 0; k < c.weeks.length; k++) { weeks.push(num(c.weeks[k], 0)); }
+        }
+        out.courses.push({
+            id: str(c.id), name: str(c.name), location: str(c.location), teacher: str(c.teacher),
+            dayOfWeek: num(c.dayOfWeek, 1), startPeriod: num(c.startPeriod, 1), endPeriod: num(c.endPeriod, 1),
+            startTime: str(c.startTime), endTime: str(c.endTime),
+            weekType: str(c.weekType) || 'all', weeks: weeks, colorIndex: num(c.colorIndex, 0)
+        });
+    }
+    return out;
+}
+
+function mk(name, status, color) {
+    return { name: name, status: status, color: color };
+}
+
 export default {
     data: {
-        probes: [],
-        details: [],
+        rows: [],
         detail: ''
     },
     onInit: function () {
-        this.dead = false;
-        this.running = false;   /* 互斥：一轮未结束禁止重入 */
-        this.gen = 0;           /* 代际：过期回调一律丢弃 */
-        this.wdTimer = null;
-        this.chainTimer = null;
-        this.reset();
-        this.runAll();
+        var self = this;
+        self.dead = false;
+        self.running = false;
+        self.gen = 0;
+        self.wdTimer = null;
+        self.fetchApi = null;
+        self.localRev = 0;
+        self.localCount = 0;
+        self.pendingForce = false;
+        try { self.fetchApi = require('@system.fetch'); } catch (e) { self.fetchApi = null; }
+
+        self.rows = [
+            mk('本地课表', '读取中…', '#6c6c80'),
+            mk('云端课表', '待拉取', '#6c6c80'),
+            mk('连通自检', '待测', '#6c6c80')
+        ];
+        self.detail = '云端 ' + BASE;
+
+        self.refreshLocal(function () {
+            self.health();
+        });
     },
     onDestroy: function () {
         this.dead = true;
-        this.gen++;             /* 让所有在途回调失效 */
+        this.gen++;
         try { clearTimeout(this.wdTimer); } catch (e) {}
-        try { clearTimeout(this.chainTimer); } catch (e) {}
         this.wdTimer = null;
-        this.chainTimer = null;
-    },
-    reset: function () {
-        var list = [];
-        var det = [];
-        for (var i = 0; i < PROBES.length; i++) {
-            list.push({ name: PROBES[i].name, status: '待测', color: '#6c6c80' });
-            det.push('—');
-        }
-        this.probes = list;
-        this.details = det;
-        this.detail = '';
-    },
-    onRun: function () {
-        if (this.running) {                 /* 互斥：杜绝双链并发 fetch */
-            this.detail = '上一轮还没跑完，跑完再重测';
-            return;
-        }
-        this.reset();
-        this.runAll();
     },
     onBack: function () {
         router.back();
     },
+    /* 点行 = 上下文动作：自检行重跑自检、课表行刷新本地、其余只看详情 */
     onRowClick: function (idx) {
-        var d = this.details[idx];
-        if (d && d !== '—') { this.detail = d; }
+        var r = this.rows[idx];
+        if (!r) { return; }
+        if (idx === 2) { this.detail = '重跑自检…'; this.health(); return; }
+        if (idx === 0) { this.detail = '刷新本地…'; this.refreshLocal(function () {}); return; }
+        this.detail = r.name + '：' + r.status;
     },
-    runAll: function () {
+    setRow: function (i, status, color) {
+        var list = this.rows.slice();
+        if (!list[i]) { return; }
+        list[i] = { name: list[i].name, status: status, color: color };
+        this.rows = list;      /* 顶层赋值才触发刷新 */
+    },
+    refreshLocal: function (cb) {
         var self = this;
-        var f = null;
-        try { f = require('@system.fetch'); } catch (e) { f = null; }
-        if (!f || !f.fetch) {
-            self.markAll('联网模块不可用', '#f44336');
-            self.detail = '@system.fetch 加载失败（未声明权限或运行时不支持）';
-            return;
+        try {
+            data.getDoc(function (doc) {
+                if (!self.dead && doc) {
+                    self.localRev = num(doc.rev, 0);
+                    self.localCount = (doc.courses && doc.courses.length) ? doc.courses.length : 0;
+                    self.setRow(0, 'rev ' + self.localRev + ' · ' + self.localCount + ' 门', '#7c86e0');
+                }
+                if (cb) { cb(); }
+            });
+        } catch (e) {
+            self.setRow(0, '读取异常', '#f44336');
+            if (cb) { cb(); }
         }
-        self.running = true;
-        self.idx = 0;
-        self.gen++;
-        self.fetchApi = f;
-        self.next(self.gen);
     },
-    markAll: function (text, color) {
-        var list = [];
-        for (var i = 0; i < this.probes.length; i++) {
-            list.push({ name: this.probes[i].name, status: text, color: color });
-        }
-        this.probes = list;
-    },
-    next: function (gen) {
-        var self = this;
-        if (self.dead || gen !== self.gen) { return; }
-        if (self.idx >= PROBES.length) {
-            self.running = false;
-            self.detail = '全部完成：点任意一行看该条原始证据';
-            return;
-        }
-        var i = self.idx;
-        var p = PROBES[i];
-        var t0 = new Date().getTime();
-        self.setStatus(i, '测试中…', '#ffc107');
-        var done = false;
 
-        var finish = function (text, color, evidence) {
+    /* ── 通用 GET：看门狗 + 代际守卫 + 回调全包 try ── */
+    httpGet: function (url, gen, cb) {
+        var self = this;
+        if (!self.fetchApi || !self.fetchApi.fetch) {
+            cb(false, '@system.fetch 不可用', -100);
+            return;
+        }
+        var done = false;
+        var finish = function (ok, payload, code) {
             if (done || self.dead || gen !== self.gen) { return; }
             done = true;
             try { clearTimeout(self.wdTimer); } catch (e) {}
-            try {
-                var ms = new Date().getTime() - t0;
-                self.setStatus(i, text, color);
-                var det = self.details.slice();
-                det[i] = p.name + ' | ' + (ms < 1000 ? ms + 'ms' : (ms / 1000).toFixed(1) + 's') + ' | ' + evidence;
-                self.details = det;
-                self.detail = det[i];
-                self.idx = i + 1;
-                self.chainTimer = setTimeout(function () { self.next(gen); }, 50);
-            } catch (e) {
-                /* 回调体内部任何异常都不得抛进平台代码（会闪退） */
-                self.running = false;
-            }
+            cb(ok, payload, code);
         };
-
         try {
             self.wdTimer = setTimeout(function () {
-                finish('超时10s', '#f44336', '看门狗到点，无任何回调（请求挂在链路上）');
+                finish(false, '看门狗 ' + (WATCHDOG_MS / 1000) + 's 到点，无回调', -99);
             }, WATCHDOG_MS);
         } catch (e) {}
-
         try {
             self.fetchApi.fetch({
-                url: p.url,
+                url: url,
                 method: 'GET',
                 header: { 'Accept': 'application/json, text/plain' },
                 success: function (res) {
                     try {
-                        var code = res ? res.code : 0;
-                        var raw = (res && res.data !== undefined && res.data !== null) ? String(res.data) : '';
-                        if (p.key === 'lan') {
-                            if (raw.indexOf('lanok') >= 0) {
-                                finish('✓ 通，有内容', '#4caf50',
-                                    'HTTP ' + code + ' 拿到 lanok；服务端日志来源 IP = 手表真实子网');
-                            } else {
-                                finish('✓ 通 HTTP ' + code, '#4caf50', 'HTTP ' + code + ' body=' + brief(raw, 36));
-                            }
-                            return;
-                        }
-                        finish('✓ 通 HTTP ' + code, '#4caf50',
-                            'HTTP ' + code + ' body=' + brief(raw, 36) +
-                            (raw.length > 36 ? ' (' + raw.length + 'B)' : ''));
-                    } catch (e) { finish('✗ 回调异常', '#f44336', 'success 回调抛出: ' + brief(e, 60)); }
+                        var body = (res && res.data !== undefined && res.data !== null) ? String(res.data) : '';
+                        finish(true, body, res ? res.code : 0);
+                    } catch (e) { finish(false, 'success 抛出 ' + brief(e, 40), -98); }
                 },
                 fail: function (res, code) {
                     try {
-                        finish('✗ ' + (code === undefined || code === null ? '失败' : code), '#f44336',
-                            'fail code=' + brief(code, 8) + ' data=' + brief(res, 60));
-                    } catch (e) { finish('✗ 回调异常', '#f44336', 'fail 回调抛出: ' + brief(e, 60)); }
+                        finish(false, brief(res, 70), (code === undefined || code === null) ? -97 : code);
+                    } catch (e) { finish(false, 'fail 抛出 ' + brief(e, 40), -96); }
                 }
             });
         } catch (e) {
-            finish('✗ 异常', '#f44336', '抛异常: ' + brief(e, 60));
+            finish(false, '发起异常 ' + brief(e, 50), -95);
         }
     },
-    setStatus: function (i, text, color) {
-        var list = this.probes.slice();
-        if (!list[i]) { return; }   /* 保护：避免越界读 name 二次崩溃 */
-        list[i] = { name: list[i].name, status: text, color: color };
-        this.probes = list;
+
+    /* ── 进页面自动打一次探活（几字节，最快，用来分清网络问题和数据问题） ── */
+    health: function () {
+        var self = this;
+        if (self.running) { return; }
+        if (!self.fetchApi) {
+            self.setRow(2, 'fetch 模块不可用', '#f44336');
+            self.detail = '@system.fetch 加载失败';
+            return;
+        }
+        self.running = true;
+        self.gen++;
+        var gen = self.gen;
+        self.setRow(2, '测试中…', '#ffc107');
+        self.httpGet(HEALTH_URL, gen, function (ok, payload, code) {
+            self.running = false;
+            if (ok && String(payload).indexOf('ok') >= 0) {
+                self.setRow(2, '✓ 通 ' + code, '#4caf50');
+                self.detail = '自检 ' + brief(payload, 40);
+            } else if (ok) {
+                self.setRow(2, '✓ 通但内容异常', '#ffc107');
+                self.detail = 'HTTP ' + code + ' body=' + brief(payload, 50);
+            } else {
+                self.setRow(2, '✗ ' + code, '#f44336');
+                self.detail = '自检失败 code=' + brief(code, 8) + ' data=' + brief(payload, 60);
+            }
+        });
+    },
+
+    /* ── 拉取课表 ── */
+    onPull: function () {
+        var self = this;
+        if (self.running) {
+            self.detail = '上一个请求还在跑，等它回来';
+            return;
+        }
+        if (!self.fetchApi) {
+            self.setRow(1, 'fetch 模块不可用', '#f44336');
+            self.detail = '@system.fetch 加载失败';
+            return;
+        }
+        self.running = true;
+        self.gen++;
+        var gen = self.gen;
+        self.setRow(1, '拉取中…', '#ffc107');
+        self.detail = 'GET ' + SCHEDULE_URL;
+
+        self.httpGet(SCHEDULE_URL, gen, function (ok, payload, code) {
+            if (!ok) {
+                self.running = false;
+                self.setRow(1, '✗ ' + code, '#f44336');
+                self.detail = '拉取失败 code=' + brief(code, 8) + ' data=' + brief(payload, 60);
+                return;
+            }
+            if (code >= 400) {
+                self.running = false;
+                self.setRow(1, '✗ HTTP ' + code, '#f44336');
+                self.detail = '服务端返回 HTTP ' + code + ' body=' + brief(payload, 50);
+                return;
+            }
+            var remote = null;
+            try { remote = JSON.parse(payload); } catch (e) { remote = null; }
+            if (!remote || typeof remote !== 'object') {
+                self.running = false;
+                self.setRow(1, '✗ 不是合法 JSON', '#f44336');
+                self.detail = '解析失败 body=' + brief(payload, 60);
+                return;
+            }
+            if (remote.schema !== SCHEMA) {
+                self.running = false;
+                self.setRow(1, '✗ schema 不匹配', '#f44336');
+                self.detail = 'schema=' + brief(remote.schema, 30) + '，不是课表文档，拒绝导入';
+                return;
+            }
+            if (num(remote.version, 0) > VERSION) {
+                self.running = false;
+                self.setRow(1, '✗ 云端格式更新', '#f44336');
+                self.detail = '云端 version=' + remote.version + ' > 本端 v' + VERSION +
+                              '，按规范禁止导入，请升级手表端';
+                return;
+            }
+            var normalized = normalize(remote);
+            self.decide(normalized, gen);
+        });
+    },
+
+    decide: function (remote, gen) {
+        var self = this;
+        try {
+            data.getDoc(function (local) {
+                if (self.dead || gen !== self.gen) { return; }
+                if (!local) {
+                    self.running = false;
+                    self.setRow(1, '✗ 本地读取失败', '#f44336');
+                    self.detail = 'getDoc 返回空，先看本地课表是否损坏';
+                    return;
+                }
+                var same = false;
+                try { same = (sig(local) === sig(remote)); } catch (e) { same = false; }
+
+                if (same) {
+                    self.running = false;
+                    self.pendingForce = false;
+                    self.setRow(1, '✓ 已是最新 rev ' + remote.rev, '#4caf50');
+                    self.detail = '内容与本地完全一致（' + remote.courses.length + ' 门），无需导入';
+                    return;
+                }
+                var localRev = num(local.rev, 0);
+                if (remote.rev <= localRev && !self.pendingForce) {
+                    self.running = false;
+                    self.pendingForce = true;
+                    self.setRow(1, '本地有改动', '#ffc107');
+                    self.detail = '本地 rev ' + localRev + ' ≥ 云端 rev ' + remote.rev +
+                                  ' 且内容不同。再点一次「拉取」= 强制用云端覆盖本地';
+                    return;
+                }
+                self.apply(remote, gen);
+            });
+        } catch (e) {
+            self.running = false;
+            self.setRow(1, '✗ 异常', '#f44336');
+            self.detail = '比对阶段抛出 ' + brief(e, 60);
+        }
+    },
+
+    apply: function (remote, gen) {
+        var self = this;
+        try {
+            data.replaceDoc(remote, function (ok) {
+                if (self.dead || gen !== self.gen) { return; }
+                self.running = false;
+                if (ok) {
+                    self.pendingForce = false;
+                    self.setRow(1, '✓ 已导入 rev ' + remote.rev, '#4caf50');
+                    self.detail = '导入 ' + remote.courses.length + ' 门课；落盘后本地 rev 自增（规范 §四.3）';
+                    self.refreshLocal(function () { self.setRow(1, '✓ 已导入 · 本地 rev ' + self.localRev, '#4caf50'); });
+                } else {
+                    self.setRow(1, '✗ 落盘失败', '#f44336');
+                    self.detail = 'replaceDoc 回调 false：文件写入失败（空间不足或文件被占用）';
+                }
+            });
+        } catch (e) {
+            self.running = false;
+            self.setRow(1, '✗ 异常', '#f44336');
+            self.detail = '导入阶段抛出 ' + brief(e, 60);
+        }
+    },
+
+    onRetry: function () {
+        var self = this;
+        self.pendingForce = false;
+        self.gen++;                 /* 丢弃在途回调，重新开始 */
+        try { clearTimeout(self.wdTimer); } catch (e) {}
+        self.running = false;
+        self.setRow(1, '待拉取', '#6c6c80');
+        self.setRow(2, '待测', '#6c6c80');
+        self.refreshLocal(function () { self.health(); });
     }
 };

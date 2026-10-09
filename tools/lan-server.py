@@ -27,12 +27,15 @@ class H(BaseHTTPRequestHandler):
         self.wfile.write(data)
 
     def do_GET(self):
+        ts = time.strftime("%H:%M:%S")
         src = "%s:%s" % (self.client_address[0], self.client_address[1])
+        ua = self.headers.get("User-Agent", "-")
         if self.path.startswith("/t.json"):
-            print("[HIT] %s -> %s (手表内网可达性证据)" % (src, self.path), flush=True)
+            print("[%s] [HIT] %s -> %s UA=%s (手表内网可达性证据)"
+                  % (ts, src, self.path, ua[:60]), flush=True)
             self._send(200, '{"ok":true,"src":"lanok","ts":%d}' % int(time.time()))
         else:
-            print("[HIT] %s -> %s" % (src, self.path), flush=True)
+            print("[%s] [HIT] %s -> %s UA=%s" % (ts, src, self.path, ua[:60]), flush=True)
             self._send(404, '{"ok":false,"msg":"not found"}')
 
     def log_message(self, fmt, *args):  # 关掉默认日志（自己打印了）

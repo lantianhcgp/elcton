@@ -1,7 +1,7 @@
-/* 布局硬约束（FIT3 实测）：屏 412×484、圆角 R≈105，y≥420 是圆角危险区
+/* 同步页 · 布局硬约束（FIT3 实测）：屏 412×484、圆角 R≈105，y≥420 是圆角危险区
  * → 按钮底 ≤410、左右留 ≥24px
- * v4 高度预算（6 条探测）：header 56 + 列表 6×36=216 + 详情 44 = 316
- * → 按钮底 = 316+59 = 375 ≤410；总高 394 ≤484 */
+ * 高度预算：header 56 + endpoint 26 + 列表 3×44=132 + 详情 52 = 266
+ * → 底栏从 266 起，按钮 52 高 → 按钮底 = 266+52+12 = 330 ≤410；总高 332 ≤484 */
 .container {
     width: 100%;
     height: 100%;
@@ -25,20 +25,32 @@
     font-size: 18px;
     color: #6c6c80;
 }
+.endpoint-bar {
+    width: 100%;
+    height: 26px;
+    padding-left: 24px;
+    padding-right: 24px;
+    flex-direction: row;
+    align-items: center;
+}
+.endpoint-text {
+    font-size: 15px;
+    color: #4a4a58;
+}
 .probe-list {
     width: 100%;
-    height: 216px;
+    height: 132px;
     flex-direction: column;
 }
 .probe-item {
     width: 100%;
-    height: 36px;
+    height: 44px;
     justify-content: center;
     align-items: center;
 }
 .probe-bg {
     width: 90%;
-    height: 32px;
+    height: 40px;
     background-color: #1a1a2e;
     border-radius: 14px;
     flex-direction: row;
@@ -56,7 +68,7 @@
 }
 .detail-box {
     width: 100%;
-    height: 44px;
+    height: 52px;
     padding-left: 24px;
     padding-right: 24px;
     flex-direction: column;
