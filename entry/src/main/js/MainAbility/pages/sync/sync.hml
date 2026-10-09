@@ -4,7 +4,7 @@
         <text class="subtitle">LAN &#x53EF;&#x8FBE;&#x6027;</text>
     </div>
     <list class="probe-list">
-        <list-item class="probe-item" for="{{ (idx, item) in probes }}">
+        <list-item class="probe-item" for="{{ (idx, item) in probes }}" @click="onRowClick(idx)">
             <div class="probe-bg">
                 <text class="probe-name">{{ item.name }}</text>
                 <text class="probe-status" style="color: {{ item.color }};">{{ item.status }}</text>

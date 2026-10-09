@@ -4,11 +4,12 @@ import router from '../../common/router.js';
  * 7 条：3 个手机侧候选地址 + 表本机对照 + 公网HTTP(带body) + 公网HTTPS + 签到服HTTPS
  * 串行 + 每条 6s 看门狗：lite 真机并发 fetch 会卡死、回调可能不回来（签到 app 实测经验）
  *
- * v2（2026-10-09 首轮真机结果驱动）：
- * - 首轮 4 个本地地址全 -6、公网HTTP 超时后 fail(204)、HTTPS -9，且 -6/-9 无公开码表
- *   → 失败时把 fail 的 **原始 data** 一并打出来，用证据代替猜码
- * - 晚到的回调会覆盖详情（首轮「超时6s」被后来的204顶掉）→ 详情统一在 finish 里写
- * - 行高压到 32px 塞下 7 条（按钮底 383 ≤410，仍让开圆角危险区）
+ * v3（第二轮真机结果驱动）：
+ * - v2 的详情被结束语「测试完成」顶掉，且「点行看详情」根本没实现 → 每行结果独立存
+ *   details[]，行可点，点了才显示该行的完整证据
+ * - 加耗时：分清「秒拒（路由/协议层）」和「挂住（链路层）」——第一轮 4 本地全是秒拒，
+ *   公网 HTTP 是挂到看门狗，这两种失败的排查方向完全不同
+ * - fail 的原始 data 仍全程带出（-6/-9 无公开码表，只能拿证据）
  */
 var PROBES = [
     { name: 'Wi-Fi 1.200:8123', url: 'http://192.168.1.200:8123/t.json', key: 'lan' },
@@ -36,6 +37,7 @@ function brief(v, n) {
 export default {
     data: {
         probes: [],
+        details: [],
         detail: ''
     },
     onInit: function () {
@@ -54,10 +56,13 @@ export default {
     },
     reset: function () {
         var list = [];
+        var det = [];
         for (var i = 0; i < PROBES.length; i++) {
             list.push({ name: PROBES[i].name, status: '待测', color: '#6c6c80' });
+            det.push('—');
         }
         this.probes = list;
+        this.details = det;
         this.detail = '';
     },
     onRun: function () {
@@ -66,6 +71,11 @@ export default {
     },
     onBack: function () {
         router.back();
+    },
+    /* 点某一行 → 底部显示该行的完整证据（fail 的 code + 原始 data + 耗时） */
+    onRowClick: function (idx) {
+        var d = this.details[idx];
+        if (d && d !== '—') { this.detail = d; }
     },
     runAll: function () {
         var self = this;
@@ -91,30 +101,34 @@ export default {
         var self = this;
         if (self.dead) { return; }
         if (self.idx >= PROBES.length) {
-            self.detail = '测试完成（点行看详情，点重测再跑）';
+            self.detail = '全部完成：点任意一行看该条的原始证据';
             return;
         }
         var i = self.idx;
         var p = PROBES[i];
+        var t0 = new Date().getTime();
         self.setStatus(i, '测试中…', '#ffc107');
         var done = false;
 
-        /* 详情一律在这里写：晚到的回调不再覆盖已完成的结论 */
-        var finish = function (text, color, detailText) {
-            if (done || self.dead) { return false; }
+        /* 结果与证据都在这里落：晚到的回调一律不再改（v2 之前的覆盖 bug） */
+        var finish = function (text, color, evidence) {
+            if (done || self.dead) { return; }
             done = true;
             try { clearTimeout(self.wdTimer); } catch (e) {}
+            var ms = new Date().getTime() - t0;
             self.setStatus(i, text, color);
-            self.detail = detailText || '';
+            var det = self.details.slice();
+            det[i] = p.name + ' | ' + (ms < 1000 ? ms + 'ms' : (ms / 1000).toFixed(1) + 's') + ' | ' + evidence;
+            self.details = det;
+            self.detail = det[i];
             self.idx = i + 1;
             self.chainTimer = setTimeout(function () { self.next(); }, 50);
-            return true;
         };
 
         try {
             self.wdTimer = setTimeout(function () {
                 finish('超时 6s', '#f44336',
-                    p.name + ' 六秒无回应（有响应码也没回来）');
+                    '看门狗到点，无任何回调（请求挂在链路上）');
             }, WATCHDOG_MS);
         } catch (e) {}
 
@@ -129,24 +143,25 @@ export default {
                     if (p.key === 'lan') {
                         if (raw.indexOf('lanok') >= 0) {
                             finish('✓ 通，有内容', '#4caf50',
-                                p.name + ' 拿到 lanok（HTTP ' + code + '），来源即手表子网');
+                                'HTTP ' + code + ' 拿到 lanok；服务端日志里的来源 IP = 手表真实子网');
                         } else {
                             finish('✓ 通 HTTP ' + code, '#4caf50',
-                                p.name + ' 响应 ' + brief(raw, 40));
+                                'HTTP ' + code + ' body=' + brief(raw, 36));
                         }
                         return;
                     }
                     finish('✓ 通 HTTP ' + code, '#4caf50',
-                        p.name + ' 返回 ' + brief(raw, 40) + (raw.length > 40 ? ' (' + raw.length + 'B)' : ''));
+                        'HTTP ' + code + ' body=' + brief(raw, 36) +
+                        (raw.length > 36 ? ' (' + raw.length + 'B)' : ''));
                 },
                 fail: function (res, code) {
-                    /* code 语义无公开码表（首轮 -6/-9/204 无法对号入座）→ 把 data 原样带出 */
+                    /* -6/-9/204 无公开码表 → 必须带原始 data 才能对号 */
                     finish('✗ ' + (code === undefined || code === null ? '失败' : code), '#f44336',
-                        p.name + ' fail code=' + brief(code, 8) + ' data=' + brief(res, 44));
+                        'fail code=' + brief(code, 8) + ' data=' + brief(res, 60));
                 }
             });
         } catch (e) {
-            finish('✗ 异常', '#f44336', p.name + ' 抛异常: ' + brief(e, 44));
+            finish('✗ 异常', '#f44336', '抛异常: ' + brief(e, 60));
         }
     },
     setStatus: function (i, text, color) {
