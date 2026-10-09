@@ -1,27 +1,28 @@
-feat(pickup): 取件码系统 v2 + 签名私钥移出仓库
+feat(ui): 移除课程编辑功能，只留删除；课程表拿到专属签名身份
 
-一、真机反馈：取件码拉取失败「schema 不匹配，schema=」
-根因：v1 的 get 把课表包在 {"code","doc":{...}} 里，手表读顶层 remote.schema
-拿到空。改成把 doc 字段摊平到顶层（**服务端改完即修复，无需重打包**），
-手表端另加拆包兼容兜底。
+一、删掉 codex 做的编辑功能（用户：「还是有问题的，相关部分都删掉」）
+- 删除 pages/add-course/、pages/course-edit/ 三个文件×2页，config.json 注册摘除
+- week 页：点课程改为进详情页（原直奔 course-edit），去掉「+」新增按钮
+- detail 页：删 onEdit/编辑按钮；删除按钮不再受 source=week 限制，任何入口都能删
 
-二、权限模型 v2（用户拍板，推翻 v1 的编辑链接方案）
-「不要非得让用户保存编辑链接，只要记录用户标识，下次进站识别是不是同一个人，
-换设备再另外用编辑密码」
-- 取件码 6 位纯数字 → 只读，手表拉课表
-- 设备标识 did 32hex → 存 localStorage，进站 mine 自动识别免密进编辑
-- 编辑密码 6 位数字+字母（31 字符表去混淆，31^6≈8.9 亿）→ 换设备 unlock 后自动登记
-- 仍可分别重新生成取件码/密码，旧的立即失效；不做限速（用户要求）
-- 数据模型 v2：r_<id> 本体 + p_/d_/w_ 三个索引；v1 数据已原地迁移
-  （取件码不变，手表不用重输），新发编辑密码
+二、重做删除课程（其余内容一律走同步）
+- 详情页常显「删除」→ 二次确认弹窗 → data.deleteCourse 落盘 → 按来源返回
+- 首页/周视图点课程 → 详情（nav_source 正确回传，week 之前漏写这个字段）
 
-三、安全：签名私钥移出公开仓库（用户拍板的第 1 步止血）
-- tools/sign/sign-app-to-hap.js 里的明文 PKCS8 私钥 → loadSignKey()：
-  优先读环境变量 SIGN_P12_PEM（CI Secret），回落本地 600 文件，都没有则抛错
-- workflow Sign 步注入 secrets.SIGN_P12_PEM
-- Secret 已用 gh 写入（gh 2.102.0 装到 Termux）
-- 验证：私钥与 app.p7b 叶子证书公钥配对一致（sha256 ac2ad970…）
+三、顺手修掉两处真机 bug（lite-sim 体检抓的）
+- detail.hml 4 个 list-item 顶层放了 2 个 text → Lite 会丢弃多余子节点
+  （表现：星期/时间/教师/周次只有标签没有值）→ 包一层 .detail-row
+- detail.hml 事件前缀 on:swipe 真机不注册 → 改 @swipe
+- 体检：基线 20 issues(16 err/4 warn) → 现在 3 issues(0 err/3 warn)，0 异常；
+  headless 冒烟 6/6 通过（SMOKE_OK x12）
 
-自测：test_api2.py 17/17（create/mine 自动识别/陌生设备 404/unlock 登记/
-put 权限 403/手表顶层 schema/迁移数据可读/换码换密码旧失效/格式校验 422/
-数据直读 404 无泄露）；回归 test-persistence 20/20；workflow YAML 合法。
+四、课程表安装覆盖 todo 的根因与修复（本次重点）
+根因：三工程共用 certs/app.p7b + FORCE_P7B_BUNDLE=1，签完包内 config 一律是
+drt.sign.yzm.nexus.jvor1 → 谁装谁互相覆盖；老课程表是 8 月 hap.sign.20260805124057
+（另一身份），所以它没被更新、被覆盖的是 memo-todo。
+修复：课程表独立证书 certs/elcton.p7b（身份 watchapp.nexus.0zzip，绑 FIT3，
+效期至 2027-10，私钥进 Secret SIGN_P12_PEM_ELCTON），workflow 按 matrix.project
+分流证书与私钥；clan/focus 沿用原证书不受影响。
+本地预演：新证书签包成功，config 包名=watchapp.nexus.0zzip，与 drt.sign 不冲突。
+
+自测：语法/YAML 全过，回归 20/20，泄密扫描仅文档提及 ghp_ 格式说明。

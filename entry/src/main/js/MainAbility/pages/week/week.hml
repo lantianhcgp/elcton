@@ -36,9 +36,6 @@
         <list-item class="empty-bottom"></list-item>
     </list>
     <div class="bottom-bar">
-        <div class="action-btn add-btn" @click="onAddClick">
-            <text class="add-btn-text">+</text>
-        </div>
         <div class="action-btn back-btn" @click="onBack">
             <text class="back-btn-text">&#x8fd4;&#x56de;</text>
         </div>

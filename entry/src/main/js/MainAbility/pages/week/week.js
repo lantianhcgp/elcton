@@ -81,16 +81,13 @@ export default {
             key: 'nav_courseId',
             value: courseId,
             success: function () {
-                router.push({ uri: 'pages/course-edit/course-edit' });
-            }
-        });
-    },
-    onAddClick: function () {
-        storage.set({
-            key: 'nav_source',
-            value: 'week',
-            success: function () {
-                router.push({ uri: 'pages/add-course/add-course', params: { mode: 'add' } });
+                storage.set({
+                    key: 'nav_source',
+                    value: 'week',
+                    success: function () {
+                        router.push({ uri: 'pages/detail/detail' });
+                    }
+                });
             }
         });
     },

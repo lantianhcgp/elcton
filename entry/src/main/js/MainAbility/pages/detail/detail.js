@@ -15,7 +15,6 @@ export default {
         weekTypeText: '',
         color: '',
         showDeleteConfirm: false,
-        showEdit: false,
         source: 'main'
     },
     onInit: function () {
@@ -35,7 +34,6 @@ export default {
                     default: 'main',
                     success: function (src) {
                         self.source = src;
-                        self.showEdit = (src === 'week');
                         if (cid) {
                             self.courseId = cid;
                             self.loadCourse();
@@ -65,12 +63,6 @@ export default {
             }
             page.weekTypeText = wt;
             page.color = COURSE_COLORS[course.colorIndex || 0];
-        });
-    },
-    onEdit: function () {
-        router.push({
-            uri: 'pages/add-course/add-course',
-            params: { mode: 'edit', courseId: this.courseId }
         });
     },
     onDelete: function () {

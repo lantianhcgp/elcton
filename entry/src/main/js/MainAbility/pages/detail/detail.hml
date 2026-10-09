@@ -1,4 +1,4 @@
-<div class="page" on:swipe="onSwipe">
+<div class="page" @swipe="onSwipe">
     <div class="header-bar">
         <text class="page-title">&#x8bfe;&#x7a0b;&#x8be6;&#x60c5;</text>
     </div>
@@ -8,27 +8,30 @@
             <text class="detail-name">{{ courseName }}</text>
         </list-item>
         <list-item class="detail-item">
-            <text class="detail-label">&#x661f;&#x671f;</text>
-            <text class="detail-value">{{ dayName }}</text>
-        </list-item>
-        <list-item class="detail-item">
-            <text class="detail-label">&#x65f6;&#x95f4;</text>
-            <text class="detail-value">{{ timeRange }} ({{ periodText }})</text>
-        </list-item>
-        <list-item class="detail-item">
-            <text class="detail-label">&#x6559;&#x5e08;</text>
-            <text class="detail-value">{{ teacher }}</text>
-        </list-item>
-        <list-item class="detail-item">
-            <text class="detail-label">&#x5468;&#x6b21;</text>
-            <text class="detail-value">{{ weekTypeText }}</text>
-        </list-item>
-        <list-item class="action-item" if="{{ showEdit }}" @click="onEdit">
-            <div class="action-btn edit-btn">
-                <text class="action-btn-text">&#x7f16;&#x8f91;</text>
+            <div class="detail-row">
+                <text class="detail-label">&#x661f;&#x671f;</text>
+                <text class="detail-value">{{ dayName }}</text>
             </div>
         </list-item>
-        <list-item class="action-item" if="{{ showEdit }}" @click="onDelete">
+        <list-item class="detail-item">
+            <div class="detail-row">
+                <text class="detail-label">&#x65f6;&#x95f4;</text>
+                <text class="detail-value">{{ timeRange }} ({{ periodText }})</text>
+            </div>
+        </list-item>
+        <list-item class="detail-item">
+            <div class="detail-row">
+                <text class="detail-label">&#x6559;&#x5e08;</text>
+                <text class="detail-value">{{ teacher }}</text>
+            </div>
+        </list-item>
+        <list-item class="detail-item">
+            <div class="detail-row">
+                <text class="detail-label">&#x5468;&#x6b21;</text>
+                <text class="detail-value">{{ weekTypeText }}</text>
+            </div>
+        </list-item>
+        <list-item class="action-item" @click="onDelete">
             <div class="action-btn del-btn">
                 <text class="action-btn-text">&#x5220;&#x9664;</text>
             </div>

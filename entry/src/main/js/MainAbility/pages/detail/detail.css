@@ -35,15 +35,19 @@
 .detail-item {
     width: 100%;
     height: 52px;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 28px;
-    padding-right: 28px;
     background-color: #1a1a2e;
     margin-left: 16px;
     margin-right: 16px;
     margin-bottom: 3px;
     border-radius: 12px;
+}
+.detail-row {
+    width: 100%;
+    height: 52px;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 28px;
+    padding-right: 28px;
 }
 .detail-label {
     font-size: 22px;
@@ -67,9 +71,6 @@
     border-radius: 25px;
     justify-content: center;
     align-items: center;
-}
-.edit-btn {
-    background-color: #6c63ff;
 }
 .del-btn {
     background-color: #ef5350;

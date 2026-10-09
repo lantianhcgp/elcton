@@ -55,18 +55,24 @@ jobs:
         run: python3 scripts/clean_config_in_app.py "${{ matrix.path }}"/build/outputs/default/*.app
 
       # 私钥来自仓库 Secret（不入库，见 tools/sign/sign-app-to-hap.js 的 loadSignKey）
-      - name: Sign (needs certs/app.p7b)
+      # 证书按项目分流（FORCE 会把 config 包名 ← 证书包名，所以**一个 p7b = 一个安装身份**）：
+      #   elcton → certs/elcton.p7b  身份 watchapp.nexus.0zzip（课程表专属，绑 FIT3，效期 2027-10）
+      #   其余   → certs/app.p7b     身份 drt.sign.yzm.nexus.jvor1（clan/focus 共用）
+      # 曾经三工程共用一张证书 → 装课程表把 memo-todo 覆盖了（2026-10-09 实测），勿再合并。
+      - name: Sign (needs certs/*.p7b)
         env:
-          SIGN_P12_PEM: ${{ secrets.SIGN_P12_PEM }}
+          SIGN_P12_PEM: ${{ matrix.project == 'elcton' && secrets.SIGN_P12_PEM_ELCTON || secrets.SIGN_P12_PEM }}
         run: |
           mkdir -p dist
-          if [ -f certs/app.p7b ]; then
+          P7B=certs/app.p7b
+          if [ "${{ matrix.project }}" = "elcton" ]; then P7B=certs/elcton.p7b; fi
+          if [ -f "$P7B" ]; then
             cp -r tools/sign /tmp/sign && cd /tmp/sign
             npm install --no-audit --no-fund
             cd -
-            FORCE_P7B_BUNDLE=1 node /tmp/sign/sign-app-to-hap.js "${{ matrix.path }}"/build/outputs/default/*.app certs/app.p7b "dist/${{ matrix.project }}.hap"
+            FORCE_P7B_BUNDLE=1 node /tmp/sign/sign-app-to-hap.js "${{ matrix.path }}"/build/outputs/default/*.app "$P7B" "dist/${{ matrix.project }}.hap"
           else
-            echo "certs/app.p7b 不存在 → 本次只交付未签名 .app"
+            echo "$P7B 不存在 → 本次只交付未签名 .app"
           fi
 
       - name: Collect artifacts
