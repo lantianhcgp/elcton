@@ -1,28 +1,28 @@
-feat(sync): 课表同步上线 —— 手机网页编辑 → 云端落盘 → 手表拉取导入
+feat(pickup): 多用户取件码系统 —— 网页建表发码，手表输码拉取
 
-路线判定（docs/lan-sync-probe.md 终版）：
-- 路线 A（手机内网）证伪：IP 正确 + 服务自检 200 + 关代理三条件下重测仍 -6，
-  带时间戳的服务端日志整个探测窗口零请求 → 表借手机网不给回包
-- 路线 B（云中转）成立：签到服 HTTPS 四轮全 200；223.5.5.5 每轮真实 404
+需求（用户拍板）：任何人打开网站建自己的课表 → 得 6 位取件码 → 手表端输码拉取。
+- 取件码 6 位纯数字、**只读**；编辑钥匙 24 位十六进制，只存网页 URL/localStorage
+- 网站内可「重新生成取件码」，旧码立即失效
+- 数据永久保留，180 天未访问自动清理；不做限速（用户要求不加）
 
-端点（docs/sync-endpoint.md）：用户自己的香港虚拟主机，国内直连、零部署
-  http://listenword.qingyun3.com/elcton/schedule.json  ← 手表拉取
-  http://listenword.qingyun3.com/elcton/save.php       ← 网页保存（rev 服务端单调递增）
-  http://listenword.qingyun3.com/elcton/               ← 手机端编辑页
+站点：独立域名 kebiao.qingyun3.com → 目录 /kebiao/（与听写站隔离）。
+账号域名绑定上限 2，已删失效的 listenword.jinshe8.top 腾名额。
 
-手表端（pages/sync 由探测页改造为同步页）：
-- 三行状态：本地课表 / 云端课表 / 连通自检（进页面自动打探活，点行可重跑）
-- 导入五条规则：schema 校验；version 高于本端拒绝导入；先比内容签名再比 rev
-  （store.persist 每次落盘 rev+1，只看 rev 会永远误判「本地较新」）；
-  本地有改动时需再点一次才强制覆盖，不静默吃掉本地数据
-- 沿用 v6 稳定模式：running 互斥 + gen 代际 + 15s 看门狗 + 回调全包 try
+服务端 web/api.php：
+- create/get/put/info/regen 五动作；rev = max(当前,传入)+1 单调递增
+- schema/version 硬门槛 422；取件码/钥匙格式强校验（挡路径穿越）
+- 数据存 data/p_<code>.php + data/k_<key>.php，每个文件头部包一层
+  `<?php http_response_code(404); exit; ?>` —— nginx 不吃 .htaccess，
+  用这种方式让数据文件被直读时只回 404 空体（实测无泄露，目录列表 403）
 
-手机端（web/ 源码入库，主机上是同一份）：
-- index.html：单页编辑器，中文暗色、无外部依赖、按天分组、冲突保护
-- save.php：口令校验 + schema 校验 + rev=max(当前,传入)+1 + 原子写 + 留档 prev
+手表端：
+- 新增 pages/code/code：自绘 3×4 数字键盘（Lite 无系统输入法，真机实测
+  input 一碰就崩），存 internal://app/sync.code.txt（6 字节）
+- sync 页改四行（本地/云端/取件码/连通自检），有码走 api.php、没码走个人
+  schedule.json，点取件码行跳键盘页、保存后自动回同步页
+- config.json 注册新页面；sync.css 高度预算按 4 行重算（按钮底 363 ≤410）
 
-安全：public 仓库里的 save.php/index.html 口令改成 CHANGE_ME 占位，
-真实口令只存主机与本地 600 配置文件。
-
-回归：scripts/test-persistence.mjs 20/20 通过；sync.hml 纯 ASCII（无裸中文）；
-sync.js 无正则字面量。
+自测：test_api.py 15 项（create/get/put/读回/info/错钥匙/regen 换码/
+数据直读 404 无泄露/目录 403/非数字 422/穿越 422/不存在 404/坏 schema 422）
+→ 14 PASS，第 15 项是我断言写死 404 而实际 403（更严格）。
+回归 test-persistence 20/20；两份 HML 纯 ASCII、JS 无正则字面量。

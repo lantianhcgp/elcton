@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b0b0d">
+<title>课表同步 · 取件码</title>
+<style>
+:root{
+  --bg:#0b0b0d; --surface:#141417; --surface2:#1b1b20; --line:#27272d;
+  --fg:#ececf0; --fg2:#9a9aa4; --fg3:#6b6b75;
+  --accent:#5e6ad2; --accent2:#7c86e0; --ok:#3fb27f; --warn:#d9a441; --err:#e0554e;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:var(--bg);color:var(--fg);
+  font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;
+  padding-bottom:calc(76px + env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select{font:inherit;color:inherit}
+button{cursor:pointer;background:none;border:none;padding:0}
+.hide{display:none !important}
+
+header{
+  position:sticky;top:0;z-index:20;background:rgba(11,11,13,.92);
+  backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line);
+  padding:calc(10px + env(safe-area-inset-top)) 16px 10px;
+}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+h1{margin:0;font-size:17px;font-weight:600;letter-spacing:.2px}
+.rev{font-size:12px;color:var(--fg3);text-align:right;line-height:1.35}
+.rev b{color:var(--fg2);font-weight:600}
+.days{display:flex;gap:6px;margin-top:12px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.days::-webkit-scrollbar{display:none}
+.day{
+  flex:0 0 auto;min-width:42px;text-align:center;padding:7px 0;border-radius:8px;
+  background:var(--surface);border:1px solid var(--line);color:var(--fg2);
+  font-size:13px;transition:.15s;
+}
+.day small{display:block;font-size:10px;color:var(--fg3);margin-top:1px}
+.day.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.day.on small{color:rgba(255,255,255,.75)}
+
+main{padding:16px}
+.meta{font-size:12px;color:var(--fg3);margin:2px 2px 12px;display:flex;gap:10px;flex-wrap:wrap}
+.card{
+  background:var(--surface);border:1px solid var(--line);border-radius:12px;
+  padding:13px 14px;margin-bottom:10px;display:flex;gap:12px;align-items:flex-start;transition:.12s;
+}
+.card:active{background:var(--surface2)}
+.bar{width:3px;align-self:stretch;border-radius:3px;flex:0 0 3px}
+.body{flex:1;min-width:0}
+.nm{font-size:15.5px;font-weight:600;letter-spacing:.1px;word-break:break-word}
+.sub{font-size:12.5px;color:var(--fg2);margin-top:4px;display:flex;flex-wrap:wrap;gap:4px 10px}
+.sub i{font-style:normal;color:var(--fg3)}
+.pill{
+  display:inline-block;font-size:10.5px;padding:1px 6px;border-radius:5px;
+  background:var(--surface2);border:1px solid var(--line);color:var(--fg2);margin-top:6px
+}
+.empty{text-align:center;color:var(--fg3);font-size:13.5px;padding:44px 20px;border:1px dashed var(--line);border-radius:12px}
+.empty b{display:block;color:var(--fg2);font-weight:600;font-size:14.5px;margin-bottom:6px}
+
+/* 首页 */
+.hero{padding:8px 2px 4px}
+.hero h2{margin:0 0 6px;font-size:22px;font-weight:650;letter-spacing:.3px}
+.hero p{margin:0;color:var(--fg2);font-size:13.5px;line-height:1.6}
+.panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:14px;
+  padding:16px;margin-top:16px;
+}
+.panel h3{margin:0 0 4px;font-size:15px;font-weight:600}
+.panel .hint{font-size:12.5px;color:var(--fg3);margin:0 0 12px;line-height:1.55}
+.codeinput{
+  width:100%;height:56px;text-align:center;letter-spacing:10px;font-size:26px;font-weight:650;
+  background:var(--bg);border:1px solid var(--line);border-radius:10px;outline:none;
+}
+.codeinput:focus{border-color:var(--accent)}
+.keyinput{
+  width:100%;height:42px;padding:0 12px;background:var(--bg);border:1px solid var(--line);
+  border-radius:9px;outline:none;font-size:13px;
+}
+.keyinput:focus{border-color:var(--accent)}
+.link{display:inline-block;margin-top:8px;font-size:13px;color:var(--accent2);text-decoration:none}
+
+/* 取件码大字展示 */
+.pickup{
+  background:linear-gradient(180deg,#171728,#12121c);border:1px solid #2d2d4a;
+  border-radius:14px;padding:16px;text-align:center;margin-top:14px;
+}
+.pickup .label{font-size:12px;color:var(--fg3);letter-spacing:2px}
+.pickup .digits{
+  font-size:44px;font-weight:700;letter-spacing:8px;margin:6px 0 2px;
+  font-variant-numeric:tabular-nums;color:#fff;
+}
+.pickup .tip{font-size:12.5px;color:var(--fg2);margin-top:6px;line-height:1.5}
+.pickup .btns{display:flex;gap:8px;margin-top:12px}
+.mini{
+  flex:1;height:36px;border-radius:8px;background:var(--surface2);
+  border:1px solid var(--line);color:var(--fg2);font-size:13px;
+}
+.mini:active{background:#242430}
+.warn{font-size:12.5px;color:var(--warn);margin-top:10px;line-height:1.55}
+.err{color:var(--err)}
+
+.dock{
+  position:fixed;left:0;right:0;bottom:0;z-index:30;
+  background:rgba(11,11,13,.94);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;gap:10px;
+}
+.btn{
+  flex:1;height:44px;border-radius:10px;font-size:15px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:6px;transition:.15s;
+}
+.btn.ghost{background:var(--surface);border:1px solid var(--line);color:var(--fg2)}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.primary:active{background:var(--accent2)}
+.btn.primary[disabled]{opacity:.5}
+.btn.wide{flex:2}
+
+.mask{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:40;opacity:0;pointer-events:none;transition:.18s}
+.mask.on{opacity:1;pointer-events:auto}
+.sheet{
+  position:fixed;left:0;right:0;bottom:0;z-index:41;background:var(--surface);
+  border-top:1px solid var(--line);border-radius:16px 16px 0 0;
+  padding:8px 18px calc(20px + env(safe-area-inset-bottom));
+  transform:translateY(102%);transition:transform .22s cubic-bezier(.32,.72,0,1);
+  max-height:88vh;overflow-y:auto;
+}
+.sheet.on{transform:translateY(0)}
+.grab{width:36px;height:4px;background:#34343c;border-radius:4px;margin:6px auto 14px}
+.sheet h2{margin:0 0 14px;font-size:16px;font-weight:600}
+.f{margin-bottom:13px}
+.f label{display:block;font-size:12.5px;color:var(--fg2);margin-bottom:6px}
+.f input,.f select{width:100%;height:42px;padding:0 12px;background:var(--bg);border:1px solid var(--line);border-radius:9px;outline:none}
+.f input:focus,.f select:focus{border-color:var(--accent)}
+.row{display:flex;gap:10px}
+.row .f{flex:1}
+.swatches{display:flex;gap:9px;flex-wrap:wrap}
+.sw{width:28px;height:28px;border-radius:50%;border:2px solid transparent;transition:.12s}
+.sw.on{border-color:#fff;transform:scale(1.08)}
+.actions{display:flex;gap:10px;margin-top:18px}
+.del{color:var(--err);font-size:14px;padding:10px 0 2px;width:100%;text-align:center}
+
+.toast{
+  position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(10px);
+  background:#232329;border:1px solid var(--line);color:var(--fg);
+  padding:10px 16px;border-radius:10px;font-size:13.5px;z-index:60;
+  opacity:0;pointer-events:none;transition:.2s;max-width:88vw;text-align:center;
+}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast.err{border-color:#5a2b28;color:#f0b6b3}
+.toast.ok{border-color:#2a4d3f;color:#a9e0c7}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top">
+    <h1 id="title">课表同步</h1>
+    <div class="rev" id="revBox">—</div>
+  </div>
+  <div class="days hide" id="days"></div>
+</header>
+
+<!-- ══ 首页 ══ -->
+<main id="viewHome">
+  <div class="hero">
+    <h2>把课表带到手表上</h2>
+    <p>在这里建好课表，拿一个<b>取件码</b>，到手表的「同步」页输进去，课表就到表上了。</p>
+  </div>
+
+  <div class="panel">
+    <h3>用取件码看课表</h3>
+    <p class="hint">6 位数字。只读，改不了别人的课表。</p>
+    <input class="codeinput" id="codeInput" inputmode="numeric" maxlength="6" placeholder="······">
+    <div class="actions"><button class="btn primary" id="btnOpenCode">查看</button></div>
+  </div>
+
+  <div class="panel">
+    <h3>我建过课表</h3>
+    <p class="hint">粘贴你的编辑链接（或者里面那串钥匙），可以继续改。</p>
+    <input class="keyinput" id="keyInput" placeholder="粘贴编辑链接或 24 位钥匙">
+    <a class="link" href="#" id="linkHelp">编辑链接是什么？存哪了？</a>
+    <div class="actions"><button class="btn ghost" id="btnOpenKey">进入编辑</button></div>
+  </div>
+
+  <div class="panel" style="text-align:center">
+    <h3>还没有课表？</h3>
+    <p class="hint">新建一份，马上拿到取件码和编辑链接。</p>
+    <button class="btn primary" id="btnCreate" style="width:100%">新建我的课表</button>
+  </div>
+</main>
+
+<!-- ══ 编辑器 ══ -->
+<main id="viewEdit" class="hide">
+  <div class="pickup" id="pickupBox">
+    <div class="label">取 件 码</div>
+    <div class="digits" id="pickupDigits">——————</div>
+    <div class="tip">在手表「同步」页输入这 6 位，就能拉到你的课表</div>
+    <div class="btns">
+      <button class="mini" id="btnCopy">复制</button>
+      <button class="mini" id="btnRegen">重新生成</button>
+      <button class="mini" id="btnCopyLink">复制编辑链接</button>
+    </div>
+    <div class="warn" id="regenWarn">重新生成后，<b>旧取件码立刻失效</b>，手表上要重新输一次。</div>
+  </div>
+
+  <div class="meta" id="meta" style="margin-top:14px"></div>
+  <div id="list"></div>
+</main>
+
+<!-- ══ 只读查看 ══ -->
+<main id="viewRead" class="hide">
+  <div class="pickup">
+    <div class="label">取 件 码</div>
+    <div class="digits" id="readDigits">——————</div>
+    <div class="tip">只读预览 · 该课表归对方所有</div>
+  </div>
+  <div class="meta" id="readMeta" style="margin-top:14px"></div>
+  <div id="readList"></div>
+</main>
+
+<div class="dock" id="dock"></div>
+
+<div class="mask" id="mask"></div>
+<div class="sheet" id="sheet">
+  <div class="grab"></div>
+  <h2 id="sheetTitle">编辑课程</h2>
+  <div class="f"><label>课程名称</label><input id="f_name" placeholder="如：高等数学" maxlength="40"></div>
+  <div class="row">
+    <div class="f"><label>教室</label><input id="f_loc" placeholder="A301" maxlength="20"></div>
+    <div class="f"><label>教师</label><input id="f_tea" placeholder="王老师" maxlength="20"></div>
+  </div>
+  <div class="row">
+    <div class="f"><label>星期</label><select id="f_day"></select></div>
+    <div class="f"><label>周次类型</label>
+      <select id="f_week"><option value="all">每周</option><option value="odd">单周</option><option value="even">双周</option></select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="f"><label>开始节</label><input id="f_sp" type="number" min="1" max="20" inputmode="numeric"></div>
+    <div class="f"><label>结束节</label><input id="f_ep" type="number" min="1" max="20" inputmode="numeric"></div>
+  </div>
+  <div class="row">
+    <div class="f"><label>开始时间</label><input id="f_st" type="time"></div>
+    <div class="f"><label>结束时间</label><input id="f_et" type="time"></div>
+  </div>
+  <div class="f"><label>颜色</label><div class="swatches" id="f_color"></div></div>
+  <div class="actions">
+    <button class="btn ghost" id="btnCancel">取消</button>
+    <button class="btn primary" id="btnOk">确定</button>
+  </div>
+  <button class="del" id="btnDel">删除这门课</button>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+'use strict';
+/* ───────────────────────────────────────────────────────────────
+   多用户课表（取件码系统）
+   服务端 api.php：
+     GET  ?action=get&pickup=123456      只读拉取（手表走这条）
+     POST create / put / info / regen    后三个都要编辑钥匙
+   权限模型（用户拍板）：取件码只读；编辑钥匙只存本页 URL 和 localStorage，
+   不会出现在取件码里；可在页面内重新生成取件码。
+   ─────────────────────────────────────────────────────────────── */
+var API = 'api.php';
+var COLORS = ['#5e6ad2','#3fb27f','#d9a441','#e0554e','#8b5cf6','#2ba3c9','#d96aa8','#7a8a99'];
+var DAYNAME = ['一','二','三','四','五','六','日'];
+var LS_KEY = 'elcton.key';
+
+var key = null;        // 编辑钥匙
+var pickup = null;     // 取件码
+var doc = null;        // 课表文档
+var mode = 'home';     // home | edit | read
+var viewDay = 1;
+var editing = null;
+
+function $(id){ return document.getElementById(id); }
+function fmtTime(ms){
+  if(!ms) return '从未保存';
+  var d=new Date(ms), p=function(n){return (n<10?'0':'')+n;};
+  return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
+}
+function toast(msg,kind){
+  var t=$('toast'); t.textContent=msg; t.className='toast on'+(kind?' '+kind:'');
+  clearTimeout(t._t); t._t=setTimeout(function(){ t.className='toast'; },2800);
+}
+function emptyDoc(){
+  return {schema:'elcton.schedule', version:1, rev:0, updatedAt:0,
+          settings:{semesterStart:'', currentWeek:1, vibrationEnabled:true, reminderMinutes:5},
+          courses:[]};
+}
+function api(action, payload){
+  var body = Object.assign({action:action}, payload||{});
+  return fetch(API, {method:'POST', headers:{'Content-Type':'application/json'},
+                     body:JSON.stringify(body)})
+    .then(function(r){ return r.json().then(function(j){ return {s:r.status, j:j}; }); });
+}
+function apiGet(pickupCode){
+  return fetch(API+'?action=get&pickup='+encodeURIComponent(pickupCode), {cache:'no-store'})
+    .then(function(r){ return r.json().then(function(j){ return {s:r.status, j:j}; }); });
+}
+
+/* ── 视图切换 ── */
+function setMode(m){
+  mode = m;
+  $('viewHome').classList.toggle('hide', m!=='home');
+  $('viewEdit').classList.toggle('hide', m!=='edit');
+  $('viewRead').classList.toggle('hide', m!=='read');
+  $('days').classList.toggle('hide', m==='home');
+  $('title').textContent = m==='home' ? '课表同步' : (m==='edit' ? '编辑课表' : '查看课表');
+  renderDock();
+  if(m==='home') $('revBox').textContent = key ? '已记住编辑钥匙' : '—';
+}
+function renderDock(){
+  var h='';
+  if(mode==='home'){
+    h = '<button class="btn ghost" id="d_home1">说明</button>'+
+        '<button class="btn primary wide" id="d_create">新建我的课表</button>';
+  } else if(mode==='edit'){
+    h = '<button class="btn ghost" id="d_back">返回</button>'+
+        '<button class="btn ghost" id="d_add">添加课程</button>'+
+        '<button class="btn primary wide" id="d_save">保存</button>';
+  } else {
+    h = '<button class="btn ghost" id="d_back">返回</button>'+
+        '<button class="btn primary wide" id="d_took">这个码我拿到了</button>';
+  }
+  $('dock').innerHTML = h;
+  var b1=$('d_home1'), bc=$('d_create'), bb=$('d_back'), ba=$('d_add'), bs=$('d_save'), bt=$('d_took');
+  if(b1) b1.onclick=function(){ showHelp(); };
+  if(bc) bc.onclick=function(){ createSchedule(); };
+  if(bb) bb.onclick=function(){ goHome(); };
+  if(ba) ba.onclick=function(){ openSheet(null); };
+  if(bs) bs.onclick=function(){ save(); };
+  if(bt) bt.onclick=function(){ toast('复制取件码后回手表输就行','ok'); };
+}
+
+/* ── 首页动作 ── */
+function createSchedule(){
+  var btn=$('btnCreate'); btn.disabled=true; btn.textContent='创建中…';
+  api('create', {doc: emptyDoc()}).then(function(res){
+    btn.disabled=false; btn.textContent='新建我的课表';
+    if(res.s!==200 || res.j.code!=='ok'){ toast('创建失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    key = res.j.key; pickup = res.j.pickup;
+    try{ localStorage.setItem(LS_KEY, key); }catch(e){}
+    location.hash = 'k='+key;
+    doc = emptyDoc(); doc.rev = res.j.rev||1;
+    setMode('edit'); render();
+    toast('课表已创建，把取件码填进手表','ok');
+  }).catch(function(e){
+    btn.disabled=false; btn.textContent='新建我的课表';
+    toast('网络异常：'+e.message,'err');
+  });
+}
+function openByCode(){
+  var v = ($('codeInput').value||'').replace(/\D/g,'');
+  if(v.length!==6){ toast('取件码是 6 位数字','err'); return; }
+  $('btnOpenCode').disabled=true;
+  apiGet(v).then(function(res){
+    $('btnOpenCode').disabled=false;
+    if(res.s!==200 || res.j.code!=='ok'){ toast('查不到：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    pickup = v; doc = res.j.doc;
+    if(doc.settings) doc.settings = doc.settings;
+    viewDay = new Date().getDay()||1;
+    setMode('read'); render();
+  }).catch(function(e){ $('btnOpenCode').disabled=false; toast('网络异常：'+e.message,'err'); });
+}
+function openByKey(raw){
+  var v = (raw||'').trim();
+  var m = v.match(/([a-f0-9]{24})/i);
+  if(v.indexOf('http')===0 && !m){ toast('链接里没找到钥匙','err'); return; }
+  if(!m){ toast('钥匙是 24 位十六进制','err'); return; }
+  key = m[1].toLowerCase();
+  $('btnOpenKey').disabled=true;
+  api('info', {key:key}).then(function(res){
+    $('btnOpenKey').disabled=false;
+    if(res.s!==200 || res.j.code!=='ok'){
+      try{ localStorage.removeItem(LS_KEY); }catch(e){}
+      toast('钥匙无效：'+(res.j.code||('HTTP '+res.s)),'err'); return;
+    }
+    try{ localStorage.setItem(LS_KEY, key); }catch(e){}
+    pickup = res.j.pickup; doc = res.j.doc;
+    location.hash = 'k='+key;
+    setMode('edit'); render();
+    toast('已载入你的课表','ok');
+  }).catch(function(e){ $('btnOpenKey').disabled=false; toast('网络异常：'+e.message,'err'); });
+}
+function goHome(){ location.hash=''; doc=null; pickup=null; setMode('home'); }
+function showHelp(){
+  toast('编辑链接里 #k= 后面那 24 位就是钥匙，存书签就行','ok');
+}
+
+/* ── 取件码操作 ── */
+function copyText(t, okMsg){
+  var done=function(){ toast(okMsg||'已复制','ok'); };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); });
+  } else { fallback(); }
+  function fallback(){
+    var ta=document.createElement('textarea'); ta.value=t;
+    ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta);
+    ta.select(); try{ document.execCommand('copy'); done(); }catch(e){ toast('复制失败，请手动长按选择','err'); }
+    document.body.removeChild(ta);
+  }
+}
+function regen(){
+  if(!key) return;
+  if(!confirm('重新生成取件码？\n\n旧码立刻失效，手表上要重新输一次新的。')) return;
+  api('regen', {key:key}).then(function(res){
+    if(res.s!==200 || res.j.code!=='ok'){ toast('换码失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    pickup = res.j.pickup;
+    $('pickupDigits').textContent = pickup;
+    copyText(pickup, '新取件码已复制：'+pickup);
+    render();
+  }).catch(function(e){ toast('网络异常：'+e.message,'err'); });
+}
+
+/* ── 保存 ── */
+function save(){
+  if(!doc || !key){ toast('没有编辑钥匙，无法保存','err'); return; }
+  var btn=$('d_save'); if(btn){ btn.disabled=true; btn.textContent='保存中…'; }
+  api('put', {pickup:pickup, key:key, doc:doc}).then(function(res){
+    if(btn){ btn.disabled=false; btn.textContent='保存'; }
+    if(res.s!==200 || res.j.code!=='ok'){ toast('保存失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    doc.rev = res.j.rev; doc.updatedAt = res.j.updatedAt;
+    if(res.j.pickup && res.j.pickup!==pickup){ pickup=res.j.pickup; $('pickupDigits').textContent=pickup; }
+    render();
+    toast('已保存 · rev '+res.j.rev+' · 手表拉取即可同步','ok');
+  }).catch(function(e){ if(btn){ btn.disabled=false; btn.textContent='保存'; } toast('网络异常：'+e.message,'err'); });
+}
+
+/* ── 渲染 ── */
+function render(){
+  if(mode==='edit'){
+    $('pickupDigits').textContent = pickup || '——————';
+    $('revBox').innerHTML = 'rev <b>'+(doc?doc.rev:'-')+'</b><br>'+fmtTime(doc?doc.updatedAt:0);
+    $('meta').innerHTML = doc ? (courseCount(doc)+' 门 · 学期起始 '+(doc.settings.semesterStart||'—')+
+      ' · 当前第 '+(doc.settings.currentWeek||1)+' 周') : '';
+    renderDays(); renderList('list', false);
+  } else if(mode==='read'){
+    $('readDigits').textContent = pickup || '——————';
+    $('revBox').innerHTML = 'rev <b>'+(doc?doc.rev:'-')+'</b><br>'+fmtTime(doc?doc.updatedAt:0);
+    $('readMeta').innerHTML = doc ? (courseCount(doc)+' 门 · 更新于 '+fmtTime(doc.updatedAt)) : '';
+    renderDays(); renderList('readList', true);
+  }
+}
+function courseCount(d){ return (d && d.courses) ? d.courses.length : 0; }
+function coursesOfDay(d){
+  if(!doc) return [];
+  return doc.courses.filter(function(c){ return c.dayOfWeek===d; })
+    .sort(function(a,b){ return a.startPeriod-b.startPeriod; });
+}
+function renderDays(){
+  var h='';
+  for(var i=1;i<=7;i++){
+    var n=coursesOfDay(i).length;
+    h+='<button class="day'+(i===viewDay?' on':'')+'" data-d="'+i+'">'+DAYNAME[i-1]+
+       (n?'<small>'+n+'节</small>':'<small>—</small>')+'</button>';
+  }
+  $('days').innerHTML=h;
+}
+function renderList(target, readonly){
+  var list=coursesOfDay(viewDay);
+  if(!list.length){
+    $(target).innerHTML='<div class="empty"><b>周'+DAYNAME[viewDay-1]+'没有课</b>'+
+      (readonly?'这一天是空的':'点下方「添加课程」新增一门')+'</div>';
+    return;
+  }
+  var h='';
+  list.forEach(function(c){
+    var time=(c.startTime||'')+'–'+(c.endTime||'');
+    h+='<div class="card"'+(readonly?'':' data-id="'+esc(c.id)+'"')+'>'+
+       '<div class="bar" style="background:'+COLORS[(c.colorIndex||0)%8]+'"></div>'+
+       '<div class="body"><div class="nm">'+esc(c.name||'(未命名)')+'</div>'+
+       '<div class="sub"><span>第'+c.startPeriod+'-'+c.endPeriod+'节</span>'+
+       (time!=='–'?'<span>'+time+'</span>':'')+
+       (c.location?'<span>'+esc(c.location)+'</span>':'')+
+       (c.teacher?'<i>'+esc(c.teacher)+'</i>':'')+'</div>'+
+       (c.weekType&&c.weekType!=='all'?'<span class="pill">'+(c.weekType==='odd'?'单周':'双周')+
+         (c.weeks&&c.weeks.length?' · 第'+c.weeks.join(',')+'周':'')+'</span>':'')+
+       '</div></div>';
+  });
+  $(target).innerHTML=h;
+}
+function esc(s){
+  return String(s).replace(/[&<>"]/g,function(m){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[m];
+  });
+}
+
+/* ── 课程编辑弹层 ── */
+function openSheet(id){
+  if(mode!=='edit'){ return; }
+  editing=id||null;
+  var c=id?doc.courses.filter(function(x){return x.id===id;})[0]:null;
+  $('sheetTitle').textContent=c?'编辑课程':'添加课程';
+  $('f_name').value=c?(c.name||''):''; $('f_loc').value=c?(c.location||''):'';
+  $('f_tea').value=c?(c.teacher||''):''; $('f_day').value=c?c.dayOfWeek:viewDay;
+  $('f_week').value=c?(c.weekType||'all'):'all';
+  $('f_sp').value=c?c.startPeriod:1; $('f_ep').value=c?c.endPeriod:2;
+  $('f_st').value=c?(c.startTime||''):''; $('f_et').value=c?(c.endTime||''):'';
+  paintSw(c?(c.colorIndex||0):(doc.courses.length%8));
+  $('btnDel').style.display=c?'block':'none';
+  $('mask').classList.add('on'); $('sheet').classList.add('on');
+}
+function closeSheet(){ $('mask').classList.remove('on'); $('sheet').classList.remove('on'); }
+function paintSw(idx){
+  var h='';
+  for(var i=0;i<8;i++) h+='<button class="sw'+(i===idx?' on':'')+'" data-c="'+i+'" style="background:'+COLORS[i]+'"></button>';
+  $('f_color').innerHTML=h;
+}
+function currentColor(){ var on=$('f_color').querySelector('.sw.on'); return on?parseInt(on.getAttribute('data-c'),10):0; }
+function okSheet(){
+  var name=$('f_name').value.trim();
+  if(!name){ toast('请填写课程名称','err'); return; }
+  var sp=parseInt($('f_sp').value,10)||1, ep=parseInt($('f_ep').value,10)||sp;
+  if(ep<sp){ toast('结束节不能小于开始节','err'); return; }
+  var st=$('f_st').value, et=$('f_et').value;
+  if(st&&et&&et<st){ toast('结束时间不能早于开始时间','err'); return; }
+  var c={ id: editing||('c_'+Date.now().toString(36)+Math.random().toString(36).slice(2,6)),
+    name:name, location:$('f_loc').value.trim(), teacher:$('f_tea').value.trim(),
+    dayOfWeek:parseInt($('f_day').value,10), startPeriod:sp, endPeriod:ep,
+    startTime:st||'', endTime:et||'', weekType:$('f_week').value, weeks:[], colorIndex:currentColor() };
+  if(editing){ doc.courses=doc.courses.map(function(x){ return x.id===editing?c:x; }); }
+  else { doc.courses.push(c); }
+  viewDay=c.dayOfWeek; closeSheet(); render(); toast('已改内存中，记得点保存','ok');
+}
+function delSheet(){
+  if(!editing) return;
+  if(!confirm('确定删除这门课？')) return;
+  doc.courses=doc.courses.filter(function(x){return x.id!==editing;});
+  closeSheet(); render(); toast('已删除，记得点保存','ok');
+}
+
+/* ── 事件 ── */
+$('btnCreate').addEventListener('click', createSchedule);
+$('btnOpenCode').addEventListener('click', openByCode);
+$('btnOpenKey').addEventListener('click', function(){ openByKey($('keyInput').value); });
+$('linkHelp').addEventListener('click', function(e){ e.preventDefault(); showHelp(); });
+$('codeInput').addEventListener('input', function(){
+  this.value=this.value.replace(/\D/g,'').slice(0,6);
+  if(this.value.length===6) openByCode();
+});
+$('keyInput').addEventListener('change', function(){ openByKey(this.value); });
+$('btnCopy').addEventListener('click', function(){ copyText(pickup||'', '取件码已复制'); });
+$('btnCopyLink').addEventListener('click', function(){
+  copyText(location.origin+location.pathname+'#k='+key, '编辑链接已复制，存到书签');
+});
+$('btnRegen').addEventListener('click', regen);
+$('days').addEventListener('click', function(e){
+  var b=e.target.closest('.day'); if(!b) return;
+  viewDay=parseInt(b.getAttribute('data-d'),10); render();
+});
+$('list').addEventListener('click', function(e){
+  var c=e.target.closest('.card'); if(!c) return;
+  openSheet(c.getAttribute('data-id'));
+});
+$('btnCancel').addEventListener('click', closeSheet);
+$('mask').addEventListener('click', closeSheet);
+$('btnOk').addEventListener('click', okSheet);
+$('btnDel').addEventListener('click', delSheet);
+$('f_color').addEventListener('click', function(e){
+  var b=e.target.closest('.sw'); if(!b) return;
+  paintSw(parseInt(b.getAttribute('data-c'),10));
+});
+(function(){ var h=''; for(var i=1;i<=7;i++) h+='<option value="'+i+'">周'+DAYNAME[i-1]+'</option>'; $('f_day').innerHTML=h; })();
+
+/* ── 启动：URL 钥匙 > localStorage > 首页 ── */
+(function boot(){
+  viewDay = new Date().getDay()||1;
+  var h = location.hash||'';
+  var m = h.match(/k=([a-f0-9]{24})/i);
+  if(m){ openByKey(m[1]); return; }
+  var saved=null; try{ saved=localStorage.getItem(LS_KEY); }catch(e){}
+  if(saved){ openByKey(saved); return; }
+  setMode('home');
+})();
+</script>
+</body>
+</html>

@@ -4,7 +4,7 @@
         <text class="subtitle">&#x8BFE;&#x8868;</text>
     </div>
     <div class="endpoint-bar">
-        <text class="endpoint-text">listenword.qingyun3.com</text>
+        <text class="endpoint-text">{{ endpoint }}</text>
     </div>
     <list class="probe-list">
         <list-item class="probe-item" for="{{ (idx, item) in rows }}" @click="onRowClick(idx)">

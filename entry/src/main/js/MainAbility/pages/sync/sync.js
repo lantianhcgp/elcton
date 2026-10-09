@@ -1,5 +1,6 @@
 import router from '../../common/router.js';
 import data from '../../common/data.js';
+import fs from '../../common/fs.js';
 
 /* 课程表同步页 —— 从手机侧虚拟主机拉取 schedule.json 导入本地
  *
@@ -17,9 +18,15 @@ import data from '../../common/data.js';
  * 复用探测页的稳定模式：互斥 running + 代际 gen 丢弃过期回调 + 15s 看门狗
  * + 全部回调包 try（Lite 上任何抛进平台的异常都是闪退，v6 已踩过）。
  */
-var BASE = 'http://listenword.qingyun3.com/elcton/';
-var SCHEDULE_URL = BASE + 'schedule.json';
-var HEALTH_URL = BASE + 'health.txt';
+/* 两套端点：
+ *   有取件码 → 多用户站 kebiao.qingyun3.com/api.php?action=get&pickup=xxxxxx（只读）
+ *   没取件码 → 个人课表 listenword.../elcton/schedule.json（历史路线，保持可用）
+ * 码存在 internal://app/sync.code.txt（6 字节，键盘页写入） */
+var SITE = 'http://kebiao.qingyun3.com/';
+var LEGACY = 'http://listenword.qingyun3.com/elcton/';
+var CODE_URI = 'internal://app/sync.code.txt';
+var SCHEDULE_URL = LEGACY + 'schedule.json';    /* 运行时按是否设码切换 */
+var HEALTH_URL = SITE + 'health.txt';
 var SCHEMA = 'elcton.schedule';
 var VERSION = 1;
 var WATCHDOG_MS = 15000;   /* 手机侧实测该主机 ~2.5s，留 15s 余量覆盖弱网 */
@@ -105,7 +112,8 @@ function mk(name, status, color) {
 export default {
     data: {
         rows: [],
-        detail: ''
+        detail: '',
+        endpoint: 'kebiao.qingyun3.com'
     },
     onInit: function () {
         var self = this;
@@ -122,12 +130,20 @@ export default {
         self.rows = [
             mk('本地课表', '读取中…', '#6c6c80'),
             mk('云端课表', '待拉取', '#6c6c80'),
+            mk('取件码', '读取中…', '#6c6c80'),
             mk('连通自检', '待测', '#6c6c80')
         ];
-        self.detail = '云端 ' + BASE;
+        self.pickupCode = '';
+        self.detail = '读取取件码中…';
 
-        self.refreshLocal(function () {
-            self.health();
+        self.loadCode(function () {
+            self.detail = '云端 ' + self.scheduleUrl();
+            self.endpoint = (self.pickupCode.length === 6)
+                ? 'kebiao.qingyun3.com（取件码）'
+                : 'listenword.qingyun3.com/elcton（个人）';
+            self.refreshLocal(function () {
+                self.health();
+            });
         });
     },
     onDestroy: function () {
@@ -143,7 +159,8 @@ export default {
     onRowClick: function (idx) {
         var r = this.rows[idx];
         if (!r) { return; }
-        if (idx === 2) { this.detail = '重跑自检…'; this.health(); return; }
+        if (idx === 2) { router.push({ uri: 'pages/code/code' }); return; }
+        if (idx === 3) { this.detail = '重跑自检…'; this.health(); return; }
         if (idx === 0) { this.detail = '刷新本地…'; this.refreshLocal(function () {}); return; }
         this.detail = r.name + '：' + r.status;
     },
@@ -153,6 +170,40 @@ export default {
         list[i] = { name: list[i].name, status: status, color: color };
         this.rows = list;      /* 顶层赋值才触发刷新 */
     },
+    /* 读取件码（键盘页写在 internal://app/sync.code.txt，6 字节） */
+    loadCode: function (cb) {
+        var self = this;
+        var done = function (v) {
+            self.pickupCode = v;
+            if (v.length === 6) {
+                self.setRow(2, '已设置 ' + v, '#4caf50');
+            } else {
+                self.setRow(2, '未设置 · 点这里填', '#ffc107');
+            }
+            if (cb) { cb(); }
+        };
+        try {
+            fs.readFile(CODE_URI, function (err, text) {
+                if (self.dead) { return; }
+                var v = '';
+                if (err === undefined || err === null) {
+                    var t = String(text === undefined || text === null ? '' : text);
+                    for (var i = 0; i < t.length; i++) {
+                        var cc = t.charCodeAt(i);
+                        if (cc >= 48 && cc <= 57 && v.length < 6) { v += t.charAt(i); }
+                    }
+                }
+                done(v);
+            });
+        } catch (e) { done(''); }
+    },
+    scheduleUrl: function () {
+        if (this.pickupCode && this.pickupCode.length === 6) {
+            return SITE + 'api.php?action=get&pickup=' + this.pickupCode;
+        }
+        return LEGACY + 'schedule.json';
+    },
+
     refreshLocal: function (cb) {
         var self = this;
         try {
@@ -216,24 +267,24 @@ export default {
         var self = this;
         if (self.running) { return; }
         if (!self.fetchApi) {
-            self.setRow(2, 'fetch 模块不可用', '#f44336');
+            self.setRow(3, 'fetch 模块不可用', '#f44336');
             self.detail = '@system.fetch 加载失败';
             return;
         }
         self.running = true;
         self.gen++;
         var gen = self.gen;
-        self.setRow(2, '测试中…', '#ffc107');
+        self.setRow(3, '测试中…', '#ffc107');
         self.httpGet(HEALTH_URL, gen, function (ok, payload, code) {
             self.running = false;
             if (ok && String(payload).indexOf('ok') >= 0) {
-                self.setRow(2, '✓ 通 ' + code, '#4caf50');
+                self.setRow(3, '✓ 通 ' + code, '#4caf50');
                 self.detail = '自检 ' + brief(payload, 40);
             } else if (ok) {
-                self.setRow(2, '✓ 通但内容异常', '#ffc107');
+                self.setRow(3, '✓ 通但内容异常', '#ffc107');
                 self.detail = 'HTTP ' + code + ' body=' + brief(payload, 50);
             } else {
-                self.setRow(2, '✗ ' + code, '#f44336');
+                self.setRow(3, '✗ ' + code, '#f44336');
                 self.detail = '自检失败 code=' + brief(code, 8) + ' data=' + brief(payload, 60);
             }
         });
@@ -254,10 +305,11 @@ export default {
         self.running = true;
         self.gen++;
         var gen = self.gen;
+        var url = self.scheduleUrl();
         self.setRow(1, '拉取中…', '#ffc107');
-        self.detail = 'GET ' + SCHEDULE_URL;
+        self.detail = 'GET ' + url;
 
-        self.httpGet(SCHEDULE_URL, gen, function (ok, payload, code) {
+        self.httpGet(url, gen, function (ok, payload, code) {
             if (!ok) {
                 self.running = false;
                 self.setRow(1, '✗ ' + code, '#f44336');
@@ -365,7 +417,7 @@ export default {
         try { clearTimeout(self.wdTimer); } catch (e) {}
         self.running = false;
         self.setRow(1, '待拉取', '#6c6c80');
-        self.setRow(2, '待测', '#6c6c80');
+        self.setRow(3, '待测', '#6c6c80');
         self.refreshLocal(function () { self.health(); });
     }
 };

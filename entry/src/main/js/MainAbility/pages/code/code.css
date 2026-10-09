@@ -1,7 +1,8 @@
-/* 同步页 · 布局硬约束（FIT3 实测）：屏 412×484、圆角 R≈105，y≥420 是圆角危险区
+/* 取件码键盘页 · FIT3 硬约束：屏 412×484、圆角 R≈105，y≥420 危险区
  * → 按钮底 ≤410、左右留 ≥24px
- * 高度预算（v2：4 行，加取件码行）：header 56 + endpoint 26 + 列表 4×44=176 + 详情 52 = 310
- * → 底栏从 310 起，按钮 52 高 → 按钮底 ≈ 310+53 = 363 ≤410；总高 376 ≤484 */
+ * 高度预算：header 56 + 显示 56 + 提示 24 + 键盘 4×50+3×6=218 + 底栏 66 = 420
+ * → 底栏起点 354，按钮 52 高 → 按钮底 ≈ 354+53 = 407 ≤410（贴边但合规）
+ * 为留余量：显示区 52、提示 20 → 实际按钮底 ≈ 399 */
 .container {
     width: 100%;
     height: 100%;
@@ -22,61 +23,55 @@
     color: #ffffff;
 }
 .subtitle {
-    font-size: 18px;
-    color: #6c6c80;
-}
-.endpoint-bar {
-    width: 100%;
-    height: 26px;
-    padding-left: 24px;
-    padding-right: 24px;
-    flex-direction: row;
-    align-items: center;
-}
-.endpoint-text {
-    font-size: 15px;
-    color: #4a4a58;
-}
-.probe-list {
-    width: 100%;
-    height: 176px;
-    flex-direction: column;
-}
-.probe-item {
-    width: 100%;
-    height: 44px;
-    justify-content: center;
-    align-items: center;
-}
-.probe-bg {
-    width: 90%;
-    height: 40px;
-    background-color: #1a1a2e;
-    border-radius: 14px;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 14px;
-    padding-right: 14px;
-}
-.probe-name {
-    font-size: 21px;
-    color: #e8e8f0;
-}
-.probe-status {
-    font-size: 18px;
-}
-.detail-box {
-    width: 100%;
-    height: 52px;
-    padding-left: 24px;
-    padding-right: 24px;
-    flex-direction: column;
-    justify-content: center;
-}
-.detail-text {
     font-size: 17px;
     color: #6c6c80;
+}
+.display {
+    width: 100%;
+    height: 52px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.digits {
+    font-size: 34px;
+    color: #ffffff;
+    letter-spacing: 4px;
+}
+.hintbox {
+    width: 100%;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 24px;
+    padding-right: 24px;
+}
+.hint {
+    font-size: 15px;
+    color: #d9a441;
+}
+.pad {
+    width: 100%;
+    height: 218px;
+    padding-left: 24px;
+    padding-right: 24px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+.key {
+    width: 116px;
+    height: 50px;
+    background-color: #1a1a2e;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+}
+.keytext {
+    font-size: 26px;
+    color: #e8e8f0;
 }
 .bottom-bar {
     width: 100%;
