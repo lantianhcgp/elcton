@@ -1,6 +1,11 @@
 import router from '../../common/router.js';
 
-/* LAN 可达性探测（课程表同步功能的前置实测）—— v6
+/* LAN 可达性探测（课程表同步功能的前置实测）—— v7
+ *
+ * v7：用户要求验证「手机自己部署的页面能不能通」（路线 A 最后一验）。
+ *   手机 Wi-Fi 重连后地址又变了（192.168.45.224 → 192.168.1.199），同步更新；
+ *   另加蜂窝口 10.39.178.59 作为**不依赖 Wi-Fi 的回环候选** —— 表借手机网出去，
+ *   打到手机自己的地址就该本地回环到 8123。
  *
  * 第四轮真机结果（用户多轮重测）已确认三件事：
  *   1) 公网可达：签到服 HTTPS → 200、百度 HTTPS → 200（间歇）、
@@ -23,7 +28,8 @@ var PROBES = [
     { name: '域名 HTTP qq', url: 'http://www.qq.com/', key: 'http' },
     { name: '域名 HTTPS 百度', url: 'https://www.baidu.com/', key: 'https' },
     { name: '签到服 HTTPS', url: 'https://ws.fseatech.cn/', key: 'relay' },
-    { name: '手机Wi-Fi 45.224', url: 'http://192.168.45.224:8123/t.json', key: 'lan' },
+    { name: '手机Wi-Fi 1.199', url: 'http://192.168.1.199:8123/t.json', key: 'lan' },
+    { name: '手机蜂窝 10.39', url: 'http://10.39.178.59:8123/t.json', key: 'lan' },
     { name: '表本机 127.0.0.1', url: 'http://127.0.0.1:8123/t.json', key: 'self' }
 ];
 var WATCHDOG_MS = 10000;   /* 第三轮放宽后公网拿到过响应，保持 10s */
