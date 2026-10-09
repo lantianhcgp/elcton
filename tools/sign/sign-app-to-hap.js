@@ -6,7 +6,19 @@ import crypto from "crypto";
 import jsrsasign from "jsrsasign";
 import JsZip from "jszip";
 
-const p12Pem = "***REMOVED***";
+/* 签名私钥不入库（本仓库 public）：CI 读仓库 Secret SIGN_P12_PEM，
+ * 本地回落 ~/.hermes/secrets/elcton_sign_key.pem（600）。都没有则抛错。 */
+function loadSignKey() {
+  const env = process.env.SIGN_P12_PEM;
+  if (env && env.trim()) {
+    return env.indexOf("\\n") >= 0 ? env.split("\\n").join("\n") : env;
+  }
+  const file = process.env.SIGN_P12_PEM_FILE ||
+    path.join(process.env.HOME || "", ".hermes", "secrets", "elcton_sign_key.pem");
+  if (fs.existsSync(file)) { return fs.readFileSync(file, "utf8"); }
+  throw new Error("找不到签名私钥：请设置环境变量 SIGN_P12_PEM，或放置文件 " + file);
+}
+const p12Pem = loadSignKey();
 const cerRoot = "-----BEGIN CERTIFICATE-----\nMIICGjCCAaGgAwIBAgIIShhpn519jNAwCgYIKoZIzj0EAwMwUzELMAkGA1UEBhMC\nQ04xDzANBgNVBAoMBkh1YXdlaTETMBEGA1UECwwKSHVhd2VpIENCRzEeMBwGA1UE\nAwwVSHVhd2VpIENCRyBSb290IENBIEcyMB4XDTIwMDMxNjAzMDQzOVoXDTQ5MDMx\nNjAzMDQzOVowUzELMAkGA1UEBhMCQ04xDzANBgNVBAoMBkh1YXdlaTETMBEGA1UE\nCwwKSHVhd2VpIENCRzEeMBwGA1UEAwwVSHVhd2VpIENCRyBSb290IENBIEcyMHYw\nEAYHKoZIzj0CAQYFK4EEACIDYgAEWidkGnDSOw3/HE2y2GHl+fpWBIa5S+IlnNrs\nGUvwC1I2QWvtqCHWmwFlFK95zKXiM8s9yV3VVXh7ivN8ZJO3SC5N1TCrvB2lpHMB\nwcz4DA0kgHCMm/wDec6kOHx1xvCRo0IwQDAOBgNVHQ8BAf8EBAMCAQYwDwYDVR0T\nAQH/BAUwAwEB/zAdBgNVHQ4EFgQUo45a9Vq8cYwqaiVyfkiS4pLcIAAwCgYIKoZI\nzj0EAwMDZwAwZAIwMypeB7P0IbY7c6gpWcClhRznOJFj8uavrNu2PIoz9KIqr3jn\nBlBHJs0myI7ntYpEAjBbm8eDMZY5zq5iMZUC6H7UzYSix4Uy1YlsLVV738PtKP9h\nFTjgDHctXJlC5L7+ZDY=\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIIDATCCAoigAwIBAgIIXmuDXbWpOB8wCgYIKoZIzj0EAwMwUzELMAkGA1UEBhMC\nQ04xDzANBgNVBAoMBkh1YXdlaTETMBEGA1UECwwKSHVhd2VpIENCRzEeMBwGA1UE\nAwwVSHVhd2VpIENCRyBSb290IENBIEcyMB4XDTIwMDcwOTAyMDQyNFoXDTMwMDcw\nNzAyMDQyNFowYjELMAkGA1UEBgwCQ04xDzANBgNVBAoMBkh1YXdlaTETMBEGA1UE\nCwwKSHVhd2VpIENCRzEtMCsGA1UEAwwkSHVhd2VpIENCRyBEZXZlbG9wZXIgUmVs\nYXRpb25zIENBIEcyMHYwEAYHKoZIzj0CAQYFK4EEACIDYgAE65LdoIZh1hlpZ2gP\nbJ6gPhHsvYSRe22KETgdqeVeYnrbRHI9wsPT6RGYS+pU4mPl6wxzgDMqN6SY/BoZ\nluhkE1PzaHoPoNIWIq0O33hpyKyyYwAacIUEjYurkw1E9r9no4IBGDCCARQwHwYD\nVR0jBBgwFoAUo45a9Vq8cYwqaiVyfkiS4pLcIAAwHQYDVR0OBBYEFNtek7Ij6NDk\n/nF6Zumkc0dbf/NeMEYGA1UdIAQ/MD0wOwYEVR0gADAzMDEGCCsGAQUFBwIBFiVo\ndHRwOi8vY3BraS1jYXdlYi5odWF3ZWkuY29tL2Nwa2kvY3BzMBIGA1UdEwEB/wQI\nMAYBAf8CAQAwDgYDVR0PAQH/BAQDAgEGMGYGA1UdHwRfMF0wW6BZoFeGVWh0dHA6\nLy9jcGtpLWNhd2ViLmh1YXdlaS5jb20vY3BraS9zZXJ2bGV0L2NybEZpbGVEb3du\nLmNybD9jZXJ0eXBlPTEwJi9yb290X2cyX2NybC5jcmwwCgYIKoZIzj0EAwMDZwAw\nZAIwWO1X5q2MdfpR1Q237GpUHGbL1C13rGyFg2p3AYo44FpZ2/A9ss0wOHKM4KDl\nZPqdAjBLkf8NPZy7KVog98+iCTLq35DJ2ZVxkCxknA9YhiHVyXf4HPm4JlT7rW7o\nQ+FzM3c=\n-----END CERTIFICATE-----\n";
 
 async function signHap(appBuffer, p7bBuffer) {
