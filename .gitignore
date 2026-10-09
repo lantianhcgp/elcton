@@ -7,3 +7,5 @@ local.properties
 .idea/
 *.hqw
 .certs-tmp/
+
+.commitmsg.txt
