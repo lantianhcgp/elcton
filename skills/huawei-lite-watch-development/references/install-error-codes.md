@@ -35,6 +35,10 @@
   实测现役课程表 bundle=`hap.sign.20260805124057`（8 月网站工具把 config 改写成证书包名所致）——
   **禁止**再用签过课程表的老证书以 FORCE 改包名方式签其他应用，否则覆盖课程表数据。
   多项目并存：各项目保留自己的 config 包名（表端是否强校验 28 待实测），或每项目单独 p7b。
+- **2026-10-09 覆盖事故**：三工程（elcton/clan/focus）共用一张 p7b + FORCE →
+  包内 config 一律 `drt.sign.yzm.nexus.jvor1` → 装课程表把 memo-todo 顶掉了，
+  老课程表（`hap.sign.20260805124057`，8 月装的）因为**不是同一身份**反而没被更新。
+  修法 = 每项目一张 p7b（课程表已换 `certs/elcton.p7b` → `watchapp.nexus.0zzip`）。
 - **读包内包名的方法**：signed.bin 结构 = `0xBE` + int32 长度 + bundleName，
   后续字节里可 grep `"bundleName":"..."`（config.json 内嵌）。用于装前核对身份。
 - 82（i18n）：elcton/clan 均含 i18n 目录，FIT3 若报 82 按表删除。

@@ -33,7 +33,12 @@ setup-ohos@v2 (CLT 6.1.1.280, cache) → ohpm install --all
 
 1. **CLT 版本 = 工程 modelVersion**（6.1.1.280）。勿升 26.x——faMode/LiteWearable 老工程形态。
 2. **matrix 用 path 变量**：elcton 在仓库根 → `path: "."`；直接写项目名会因目录不存在失败。
-3. **FORCE_P7B_BUNDLE=1 必开**：签名时 config 包名 ← 证书包名，满足错误码 28 的
+3. **一个 p7b = 一个安装身份**（2026-10-09 血案）：三工程共用一张证书时，
+   签完包内 config 全是同一个包名 → 装课程表把 memo-todo 覆盖了、老课程表反而没更新。
+   现已分流：elcton → `certs/elcton.p7b`（身份 `watchapp.nexus.0zzip`，Secret `SIGN_P12_PEM_ELCTON`），
+   clan/focus → `certs/app.p7b`（`drt.sign.yzm.nexus.jvor1`，Secret `SIGN_P12_PEM`）。
+   **新项目各自申请证书，禁止复用**。
+4. **FORCE_P7B_BUNDLE=1 必开**：签名时 config 包名 ← 证书包名，满足错误码 28 的
    「签名包名与 config 一致」；证书身份唯一 → 装表 = 新应用，不覆盖现役应用数据。
 4. **证书**：`certs/app.p7b` = `drt.sign.yzm.nexus.jvor1`（2026-09-27 签发，**有效至 2027-09-27**），
    CSR 备份 `certs/default.csr`。换证书 = 替文件 + push。旧日历证书
