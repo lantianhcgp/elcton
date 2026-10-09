@@ -1,0 +1,18 @@
+fix(sync): 修重测闪退 + 内网探针换成手机当前 IP（探测 v6）
+
+用户第四轮真机重测结论：
+- 签到服 HTTPS → 200、百度 HTTPS → 200（间歇）、223.5.5.5 → 404（真实响应）
+  → 公网全链路（DNS/TLS/HTTP）实测通，路线 B（云中转）成立；纯 IP 也通，
+    DNS 不是凶手。第 3 轮 -6/-9 归因手机侧代理/VPN 干扰。
+- 192.168.1.200 → -6：地址已过期，手机 Wi-Fi 现为 192.168.45.224。
+- 127.0.0.1 → -6：设计内阴性对照（表上的回环是表自己）。
+
+修闪退（重测时应用直接退出）：
+1. onRun 无互斥 → 上一轮未结束再点会开第二条链，两链并发 fetch（Lite 并发
+   fetch 已知会挂/崩），老回调回写 idx 乱套。加 running 互斥 + gen 代际守卫，
+   过期回调一律 no-op，链尾/销毁都推进代际。
+2. brief() 中 JSON.stringify 对循环引用/function 返回 null/undefined，紧接着
+   .length 即 TypeError；success/fail 回调体原本没包 try，异常会抛进平台回调
+   代码 → 闪退。加类型兜底 + finish/两个回调全包 try/catch + setStatus 越界保护。
+
+docs/lan-sync-probe.md 同步更新为四轮实测证据与判读结论。
