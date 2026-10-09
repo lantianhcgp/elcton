@@ -330,6 +330,11 @@ export default {
                 self.detail = '解析失败 body=' + brief(payload, 60);
                 return;
             }
+            /* 兼容包装：服务端可能把课表放在 {code,doc:{...}} 里（v1 接口就是
+             * 这样，真机实测报过「schema 不匹配」且 schema= 为空）→ 拆包再校验 */
+            if (!remote.schema && remote.doc && typeof remote.doc === 'object') {
+                remote = remote.doc;
+            }
             if (remote.schema !== SCHEMA) {
                 self.running = false;
                 self.setRow(1, '✗ schema 不匹配', '#f44336');

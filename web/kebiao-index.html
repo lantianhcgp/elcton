@@ -62,39 +62,41 @@ main{padding:16px}
 .empty{text-align:center;color:var(--fg3);font-size:13.5px;padding:44px 20px;border:1px dashed var(--line);border-radius:12px}
 .empty b{display:block;color:var(--fg2);font-weight:600;font-size:14.5px;margin-bottom:6px}
 
-/* 首页 */
 .hero{padding:8px 2px 4px}
 .hero h2{margin:0 0 6px;font-size:22px;font-weight:650;letter-spacing:.3px}
 .hero p{margin:0;color:var(--fg2);font-size:13.5px;line-height:1.6}
-.panel{
-  background:var(--surface);border:1px solid var(--line);border-radius:14px;
-  padding:16px;margin-top:16px;
-}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;margin-top:16px}
 .panel h3{margin:0 0 4px;font-size:15px;font-weight:600}
 .panel .hint{font-size:12.5px;color:var(--fg3);margin:0 0 12px;line-height:1.55}
 .codeinput{
-  width:100%;height:56px;text-align:center;letter-spacing:10px;font-size:26px;font-weight:650;
+  width:100%;height:56px;text-align:center;letter-spacing:8px;font-size:26px;font-weight:650;
   background:var(--bg);border:1px solid var(--line);border-radius:10px;outline:none;
+  text-transform:lowercase;
 }
 .codeinput:focus{border-color:var(--accent)}
-.keyinput{
-  width:100%;height:42px;padding:0 12px;background:var(--bg);border:1px solid var(--line);
-  border-radius:9px;outline:none;font-size:13px;
+.badge{
+  display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;
+  background:#1c2b23;border:1px solid #2a4d3f;color:#7fd6ae;margin-left:6px;
 }
-.keyinput:focus{border-color:var(--accent)}
-.link{display:inline-block;margin-top:8px;font-size:13px;color:var(--accent2);text-decoration:none}
+.badge.gray{background:#1e1e24;border-color:var(--line);color:var(--fg3)}
 
-/* 取件码大字展示 */
 .pickup{
   background:linear-gradient(180deg,#171728,#12121c);border:1px solid #2d2d4a;
   border-radius:14px;padding:16px;text-align:center;margin-top:14px;
 }
 .pickup .label{font-size:12px;color:var(--fg3);letter-spacing:2px}
 .pickup .digits{
-  font-size:44px;font-weight:700;letter-spacing:8px;margin:6px 0 2px;
+  font-size:42px;font-weight:700;letter-spacing:7px;margin:6px 0 2px;
   font-variant-numeric:tabular-nums;color:#fff;
 }
-.pickup .tip{font-size:12.5px;color:var(--fg2);margin-top:6px;line-height:1.5}
+.pickup .passbox{
+  margin-top:14px;padding-top:12px;border-top:1px dashed #2d2d4a;
+}
+.pickup .passdigits{
+  font-size:26px;font-weight:650;letter-spacing:5px;color:#cfd2ff;
+  font-variant-numeric:tabular-nums;
+}
+.pickup .tip{font-size:12.5px;color:var(--fg2);margin-top:6px;line-height:1.55}
 .pickup .btns{display:flex;gap:8px;margin-top:12px}
 .mini{
   flex:1;height:36px;border-radius:8px;background:var(--surface2);
@@ -102,7 +104,6 @@ main{padding:16px}
 }
 .mini:active{background:#242430}
 .warn{font-size:12.5px;color:var(--warn);margin-top:10px;line-height:1.55}
-.err{color:var(--err)}
 
 .dock{
   position:fixed;left:0;right:0;bottom:0;z-index:30;
@@ -172,23 +173,22 @@ main{padding:16px}
   </div>
 
   <div class="panel">
-    <h3>用取件码看课表</h3>
-    <p class="hint">6 位数字。只读，改不了别人的课表。</p>
+    <h3>用取件码看课表<span class="badge gray">只读</span></h3>
+    <p class="hint">6 位数字。只能看，改不了别人的课表。</p>
     <input class="codeinput" id="codeInput" inputmode="numeric" maxlength="6" placeholder="······">
     <div class="actions"><button class="btn primary" id="btnOpenCode">查看</button></div>
   </div>
 
   <div class="panel">
-    <h3>我建过课表</h3>
-    <p class="hint">粘贴你的编辑链接（或者里面那串钥匙），可以继续改。</p>
-    <input class="keyinput" id="keyInput" placeholder="粘贴编辑链接或 24 位钥匙">
-    <a class="link" href="#" id="linkHelp">编辑链接是什么？存哪了？</a>
-    <div class="actions"><button class="btn ghost" id="btnOpenKey">进入编辑</button></div>
+    <h3>换设备 / 换浏览器？<span class="badge">编辑</span></h3>
+    <p class="hint">用 6 位<b>编辑密码</b>（数字+字母）进入。进过一次，这台设备就自动认得你，下次直接进。</p>
+    <input class="codeinput" id="passInput" maxlength="6" placeholder="······" autocapitalize="off" autocomplete="off" spellcheck="false">
+    <div class="actions"><button class="btn ghost" id="btnUnlock">解锁编辑</button></div>
   </div>
 
   <div class="panel" style="text-align:center">
     <h3>还没有课表？</h3>
-    <p class="hint">新建一份，马上拿到取件码和编辑链接。</p>
+    <p class="hint">新建一份，马上拿到取件码和编辑密码。</p>
     <button class="btn primary" id="btnCreate" style="width:100%">新建我的课表</button>
   </div>
 </main>
@@ -196,15 +196,25 @@ main{padding:16px}
 <!-- ══ 编辑器 ══ -->
 <main id="viewEdit" class="hide">
   <div class="pickup" id="pickupBox">
-    <div class="label">取 件 码</div>
+    <div class="label">取 件 码 · 手表用这个</div>
     <div class="digits" id="pickupDigits">——————</div>
-    <div class="tip">在手表「同步」页输入这 6 位，就能拉到你的课表</div>
+    <div class="tip">在手表「同步」页输这 6 位，课表就拉过去了</div>
     <div class="btns">
-      <button class="mini" id="btnCopy">复制</button>
-      <button class="mini" id="btnRegen">重新生成</button>
-      <button class="mini" id="btnCopyLink">复制编辑链接</button>
+      <button class="mini" id="btnCopy">复制取件码</button>
+      <button class="mini" id="btnRegenPickup">换一个码</button>
     </div>
-    <div class="warn" id="regenWarn">重新生成后，<b>旧取件码立刻失效</b>，手表上要重新输一次。</div>
+
+    <div class="passbox">
+      <div class="label">编 辑 密 码 · 换设备用这个</div>
+      <div class="passdigits" id="passDigits">——————</div>
+      <div class="tip">换手机、换浏览器时用它进入；<b>本机进过一次就自动记住</b>，不用存链接</div>
+      <div class="btns">
+        <button class="mini" id="btnCopyPass">复制密码</button>
+        <button class="mini" id="btnRegenPass">换密码</button>
+      </div>
+    </div>
+
+    <div class="warn">换码后<b>旧取件码立刻失效</b>（手表要重输）；换密码后旧密码立刻失效。</div>
   </div>
 
   <div class="meta" id="meta" style="margin-top:14px"></div>
@@ -214,7 +224,7 @@ main{padding:16px}
 <!-- ══ 只读查看 ══ -->
 <main id="viewRead" class="hide">
   <div class="pickup">
-    <div class="label">取 件 码</div>
+    <div class="label">取 件 码 · 只读</div>
     <div class="digits" id="readDigits">——————</div>
     <div class="tip">只读预览 · 该课表归对方所有</div>
   </div>
@@ -260,22 +270,23 @@ main{padding:16px}
 <script>
 'use strict';
 /* ───────────────────────────────────────────────────────────────
-   多用户课表（取件码系统）
-   服务端 api.php：
-     GET  ?action=get&pickup=123456      只读拉取（手表走这条）
-     POST create / put / info / regen    后三个都要编辑钥匙
-   权限模型（用户拍板）：取件码只读；编辑钥匙只存本页 URL 和 localStorage，
-   不会出现在取件码里；可在页面内重新生成取件码。
+   多用户课表 v2（设备标识自动识别 + 编辑密码）
+   权限：
+     取件码 pickup  6 位数字     → 只读，手表拉课表走这条
+     设备标识 did   32 位 hex    → 存本机 localStorage，进站自动 mine 识别，
+                                   免密直接进编辑（用户要求：别让用户存链接）
+     编辑密码 pass  6 位数字+字母 → 换设备时解锁，解锁后该设备自动登记
    ─────────────────────────────────────────────────────────────── */
 var API = 'api.php';
 var COLORS = ['#5e6ad2','#3fb27f','#d9a441','#e0554e','#8b5cf6','#2ba3c9','#d96aa8','#7a8a99'];
 var DAYNAME = ['一','二','三','四','五','六','日'];
-var LS_KEY = 'elcton.key';
+var LS_DID = 'elcton.did';
 
-var key = null;        // 编辑钥匙
-var pickup = null;     // 取件码
-var doc = null;        // 课表文档
-var mode = 'home';     // home | edit | read
+var did = '';        // 本机设备标识
+var pickup = null;   // 取件码
+var pass = null;     // 编辑密码
+var doc = null;
+var mode = 'home';   // home | edit | read
 var viewDay = 1;
 var editing = null;
 
@@ -294,44 +305,64 @@ function emptyDoc(){
           settings:{semesterStart:'', currentWeek:1, vibrationEnabled:true, reminderMinutes:5},
           courses:[]};
 }
+/* 设备标识：首次访问生成并记住（这就是「记录用户标识」） */
+function ensureDid(){
+  var d='';
+  try{ d=localStorage.getItem(LS_DID)||''; }catch(e){}
+  if(!/^[a-f0-9]{32}$/.test(d)){
+    var s='';
+    if(window.crypto&&crypto.getRandomValues){
+      var a=crypto.getRandomValues(new Uint8Array(16));
+      for(var i=0;i<16;i++){ s+=('0'+a[i].toString(16)).slice(-2); }
+    } else {
+      for(var k=0;k<32;k++){ s+='0123456789abcdef'[Math.floor(Math.random()*16)]; }
+    }
+    d=s;
+    try{ localStorage.setItem(LS_DID,d); }catch(e){}
+  }
+  did=d;
+  return d;
+}
 function api(action, payload){
-  var body = Object.assign({action:action}, payload||{});
-  return fetch(API, {method:'POST', headers:{'Content-Type':'application/json'},
-                     body:JSON.stringify(body)})
-    .then(function(r){ return r.json().then(function(j){ return {s:r.status, j:j}; }); });
+  var body=Object.assign({action:action, did:did}, payload||{});
+  return fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify(body)})
+    .then(function(r){ return r.json().then(function(j){ return {s:r.status,j:j}; }); });
 }
-function apiGet(pickupCode){
-  return fetch(API+'?action=get&pickup='+encodeURIComponent(pickupCode), {cache:'no-store'})
-    .then(function(r){ return r.json().then(function(j){ return {s:r.status, j:j}; }); });
+function apiGet(code){
+  return fetch(API+'?action=get&pickup='+encodeURIComponent(code),{cache:'no-store'})
+    .then(function(r){ return r.json().then(function(j){ return {s:r.status,j:j}; }); });
 }
+/* 响应里课表可能在 j.doc 或直接摊在顶层（get 接口是摊平的） */
+function pickDoc(j){ return (j && j.doc && typeof j.doc==='object') ? j.doc : j; }
 
-/* ── 视图切换 ── */
+/* ── 视图 ── */
 function setMode(m){
-  mode = m;
+  mode=m;
   $('viewHome').classList.toggle('hide', m!=='home');
   $('viewEdit').classList.toggle('hide', m!=='edit');
   $('viewRead').classList.toggle('hide', m!=='read');
   $('days').classList.toggle('hide', m==='home');
-  $('title').textContent = m==='home' ? '课表同步' : (m==='edit' ? '编辑课表' : '查看课表');
+  $('title').textContent = m==='home'?'课表同步':(m==='edit'?'编辑课表':'查看课表');
   renderDock();
-  if(m==='home') $('revBox').textContent = key ? '已记住编辑钥匙' : '—';
+  if(m==='home') $('revBox').textContent='—';
 }
 function renderDock(){
   var h='';
   if(mode==='home'){
-    h = '<button class="btn ghost" id="d_home1">说明</button>'+
-        '<button class="btn primary wide" id="d_create">新建我的课表</button>';
+    h='<button class="btn ghost" id="d_demo">看看示例</button>'+
+      '<button class="btn primary wide" id="d_create">新建我的课表</button>';
   } else if(mode==='edit'){
-    h = '<button class="btn ghost" id="d_back">返回</button>'+
-        '<button class="btn ghost" id="d_add">添加课程</button>'+
-        '<button class="btn primary wide" id="d_save">保存</button>';
+    h='<button class="btn ghost" id="d_back">返回</button>'+
+      '<button class="btn ghost" id="d_add">添加课程</button>'+
+      '<button class="btn primary wide" id="d_save">保存</button>';
   } else {
-    h = '<button class="btn ghost" id="d_back">返回</button>'+
-        '<button class="btn primary wide" id="d_took">这个码我拿到了</button>';
+    h='<button class="btn ghost" id="d_back">返回</button>'+
+      '<button class="btn primary wide" id="d_took">这个码我拿到了</button>';
   }
-  $('dock').innerHTML = h;
-  var b1=$('d_home1'), bc=$('d_create'), bb=$('d_back'), ba=$('d_add'), bs=$('d_save'), bt=$('d_took');
-  if(b1) b1.onclick=function(){ showHelp(); };
+  $('dock').innerHTML=h;
+  var b1=$('d_demo'),bc=$('d_create'),bb=$('d_back'),ba=$('d_add'),bs=$('d_save'),bt=$('d_took');
+  if(b1) b1.onclick=function(){ toast('取件码是「只读」的，进别人课表请用上面的取件码查看',''); };
   if(bc) bc.onclick=function(){ createSchedule(); };
   if(bb) bb.onclick=function(){ goHome(); };
   if(ba) ba.onclick=function(){ openSheet(null); };
@@ -339,67 +370,65 @@ function renderDock(){
   if(bt) bt.onclick=function(){ toast('复制取件码后回手表输就行','ok'); };
 }
 
-/* ── 首页动作 ── */
+/* ── 建 / 识别 / 解锁 ── */
 function createSchedule(){
   var btn=$('btnCreate'); btn.disabled=true; btn.textContent='创建中…';
-  api('create', {doc: emptyDoc()}).then(function(res){
+  api('create',{doc:emptyDoc()}).then(function(res){
     btn.disabled=false; btn.textContent='新建我的课表';
-    if(res.s!==200 || res.j.code!=='ok'){ toast('创建失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
-    key = res.j.key; pickup = res.j.pickup;
-    try{ localStorage.setItem(LS_KEY, key); }catch(e){}
-    location.hash = 'k='+key;
-    doc = emptyDoc(); doc.rev = res.j.rev||1;
+    if(res.s!==200||res.j.code!=='ok'){ toast('创建失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    pickup=res.j.pickup; pass=res.j.pass;
+    doc=emptyDoc(); doc.rev=res.j.rev||1;
     setMode('edit'); render();
-    toast('课表已创建，把取件码填进手表','ok');
+    toast('建好了，取件码和编辑密码都在上面','ok');
   }).catch(function(e){
     btn.disabled=false; btn.textContent='新建我的课表';
     toast('网络异常：'+e.message,'err');
   });
 }
+/* 进站自动识别：这台设备之前建过/解锁过 → 直接进编辑器 */
+function autoIdentify(){
+  api('mine').then(function(res){
+    if(res.s===200&&res.j.code==='ok'){
+      pickup=res.j.pickup; pass=res.j.pass; doc=pickDoc(res.j);
+      setMode('edit'); render();
+      toast('认出你了，直接进编辑','ok');
+    } else {
+      setMode('home');
+    }
+  }).catch(function(){ setMode('home'); });
+}
+function unlockByPass(){
+  var v=($('passInput').value||'').trim().toLowerCase();
+  if(!/^[0-9a-z]{6}$/.test(v)){ toast('编辑密码是 6 位数字或字母','err'); return; }
+  $('btnUnlock').disabled=true;
+  api('unlock',{pass:v}).then(function(res){
+    $('btnUnlock').disabled=false;
+    if(res.s!==200||res.j.code!=='ok'){ toast('密码不对：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    pickup=res.j.pickup; pass=res.j.pass; doc=pickDoc(res.j);
+    setMode('edit'); render();
+    toast('解锁成功，这台设备已登记','ok');
+  }).catch(function(e){ $('btnUnlock').disabled=false; toast('网络异常：'+e.message,'err'); });
+}
 function openByCode(){
-  var v = ($('codeInput').value||'').replace(/\D/g,'');
+  var v=($('codeInput').value||'').replace(/\D/g,'');
   if(v.length!==6){ toast('取件码是 6 位数字','err'); return; }
   $('btnOpenCode').disabled=true;
   apiGet(v).then(function(res){
     $('btnOpenCode').disabled=false;
-    if(res.s!==200 || res.j.code!=='ok'){ toast('查不到：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
-    pickup = v; doc = res.j.doc;
-    if(doc.settings) doc.settings = doc.settings;
-    viewDay = new Date().getDay()||1;
+    if(res.s!==200||res.j.code!=='ok'){ toast('查不到：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    pickup=v; doc=pickDoc(res.j);
+    viewDay=new Date().getDay()||1;
     setMode('read'); render();
   }).catch(function(e){ $('btnOpenCode').disabled=false; toast('网络异常：'+e.message,'err'); });
 }
-function openByKey(raw){
-  var v = (raw||'').trim();
-  var m = v.match(/([a-f0-9]{24})/i);
-  if(v.indexOf('http')===0 && !m){ toast('链接里没找到钥匙','err'); return; }
-  if(!m){ toast('钥匙是 24 位十六进制','err'); return; }
-  key = m[1].toLowerCase();
-  $('btnOpenKey').disabled=true;
-  api('info', {key:key}).then(function(res){
-    $('btnOpenKey').disabled=false;
-    if(res.s!==200 || res.j.code!=='ok'){
-      try{ localStorage.removeItem(LS_KEY); }catch(e){}
-      toast('钥匙无效：'+(res.j.code||('HTTP '+res.s)),'err'); return;
-    }
-    try{ localStorage.setItem(LS_KEY, key); }catch(e){}
-    pickup = res.j.pickup; doc = res.j.doc;
-    location.hash = 'k='+key;
-    setMode('edit'); render();
-    toast('已载入你的课表','ok');
-  }).catch(function(e){ $('btnOpenKey').disabled=false; toast('网络异常：'+e.message,'err'); });
-}
-function goHome(){ location.hash=''; doc=null; pickup=null; setMode('home'); }
-function showHelp(){
-  toast('编辑链接里 #k= 后面那 24 位就是钥匙，存书签就行','ok');
-}
+function goHome(){ location.hash=''; doc=null; pickup=null; pass=null; setMode('home'); }
 
-/* ── 取件码操作 ── */
-function copyText(t, okMsg){
+/* ── 凭据操作 ── */
+function copyText(t,okMsg){
   var done=function(){ toast(okMsg||'已复制','ok'); };
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(t).then(done).catch(function(){ fallback(); });
-  } else { fallback(); }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(done).catch(fallback);
+  } else fallback();
   function fallback(){
     var ta=document.createElement('textarea'); ta.value=t;
     ta.style.position='fixed'; ta.style.opacity='0'; document.body.appendChild(ta);
@@ -407,27 +436,30 @@ function copyText(t, okMsg){
     document.body.removeChild(ta);
   }
 }
-function regen(){
-  if(!key) return;
-  if(!confirm('重新生成取件码？\n\n旧码立刻失效，手表上要重新输一次新的。')) return;
-  api('regen', {key:key}).then(function(res){
-    if(res.s!==200 || res.j.code!=='ok'){ toast('换码失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
-    pickup = res.j.pickup;
-    $('pickupDigits').textContent = pickup;
-    copyText(pickup, '新取件码已复制：'+pickup);
+function regen(what){
+  var isPickup = what==='pickup';
+  var tip = isPickup
+    ? '换一个取件码？\n\n旧码立刻失效，手表上要重新输一次新的。'
+    : '换一个编辑密码？\n\n旧密码立刻失效，其它设备要用新密码才能进入。';
+  if(!confirm(tip)) return;
+  api('regen',{what:what}).then(function(res){
+    if(res.s!==200||res.j.code!=='ok'){ toast('换失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    if(isPickup){ pickup=res.j.value; $('pickupDigits').textContent=pickup; copyText(pickup,'新取件码已复制：'+pickup); }
+    else { pass=res.j.value; $('passDigits').textContent=pass; copyText(pass,'新密码已复制：'+pass); }
     render();
   }).catch(function(e){ toast('网络异常：'+e.message,'err'); });
 }
 
 /* ── 保存 ── */
 function save(){
-  if(!doc || !key){ toast('没有编辑钥匙，无法保存','err'); return; }
+  if(!doc){ toast('没有课表可保存','err'); return; }
   var btn=$('d_save'); if(btn){ btn.disabled=true; btn.textContent='保存中…'; }
-  api('put', {pickup:pickup, key:key, doc:doc}).then(function(res){
+  api('put',{doc:doc}).then(function(res){
     if(btn){ btn.disabled=false; btn.textContent='保存'; }
-    if(res.s!==200 || res.j.code!=='ok'){ toast('保存失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
-    doc.rev = res.j.rev; doc.updatedAt = res.j.updatedAt;
-    if(res.j.pickup && res.j.pickup!==pickup){ pickup=res.j.pickup; $('pickupDigits').textContent=pickup; }
+    if(res.s!==200||res.j.code!=='ok'){ toast('保存失败：'+(res.j.code||('HTTP '+res.s)),'err'); return; }
+    doc.rev=res.j.rev; doc.updatedAt=res.j.updatedAt;
+    if(res.j.pickup) pickup=res.j.pickup;
+    if(res.j.pass) pass=res.j.pass;
     render();
     toast('已保存 · rev '+res.j.rev+' · 手表拉取即可同步','ok');
   }).catch(function(e){ if(btn){ btn.disabled=false; btn.textContent='保存'; } toast('网络异常：'+e.message,'err'); });
@@ -436,19 +468,20 @@ function save(){
 /* ── 渲染 ── */
 function render(){
   if(mode==='edit'){
-    $('pickupDigits').textContent = pickup || '——————';
-    $('revBox').innerHTML = 'rev <b>'+(doc?doc.rev:'-')+'</b><br>'+fmtTime(doc?doc.updatedAt:0);
-    $('meta').innerHTML = doc ? (courseCount(doc)+' 门 · 学期起始 '+(doc.settings.semesterStart||'—')+
-      ' · 当前第 '+(doc.settings.currentWeek||1)+' 周') : '';
-    renderDays(); renderList('list', false);
+    $('pickupDigits').textContent=pickup||'——————';
+    $('passDigits').textContent=pass||'——————';
+    $('revBox').innerHTML='rev <b>'+(doc?doc.rev:'-')+'</b><br>'+fmtTime(doc?doc.updatedAt:0);
+    $('meta').innerHTML=doc?(courseCount(doc)+' 门 · 学期起始 '+(doc.settings.semesterStart||'—')+
+      ' · 当前第 '+(doc.settings.currentWeek||1)+' 周'):'';
+    renderDays(); renderList('list',false);
   } else if(mode==='read'){
-    $('readDigits').textContent = pickup || '——————';
-    $('revBox').innerHTML = 'rev <b>'+(doc?doc.rev:'-')+'</b><br>'+fmtTime(doc?doc.updatedAt:0);
-    $('readMeta').innerHTML = doc ? (courseCount(doc)+' 门 · 更新于 '+fmtTime(doc.updatedAt)) : '';
-    renderDays(); renderList('readList', true);
+    $('readDigits').textContent=pickup||'——————';
+    $('revBox').innerHTML='rev <b>'+(doc?doc.rev:'-')+'</b><br>'+fmtTime(doc?doc.updatedAt:0);
+    $('readMeta').innerHTML=doc?(courseCount(doc)+' 门 · 更新于 '+fmtTime(doc.updatedAt)):'';
+    renderDays(); renderList('readList',true);
   }
 }
-function courseCount(d){ return (d && d.courses) ? d.courses.length : 0; }
+function courseCount(d){ return (d&&d.courses)?d.courses.length:0; }
 function coursesOfDay(d){
   if(!doc) return [];
   return doc.courses.filter(function(c){ return c.dayOfWeek===d; })
@@ -463,7 +496,7 @@ function renderDays(){
   }
   $('days').innerHTML=h;
 }
-function renderList(target, readonly){
+function renderList(target,readonly){
   var list=coursesOfDay(viewDay);
   if(!list.length){
     $(target).innerHTML='<div class="empty"><b>周'+DAYNAME[viewDay-1]+'没有课</b>'+
@@ -492,9 +525,9 @@ function esc(s){
   });
 }
 
-/* ── 课程编辑弹层 ── */
+/* ── 课程弹层 ── */
 function openSheet(id){
-  if(mode!=='edit'){ return; }
+  if(mode!=='edit') return;
   editing=id||null;
   var c=id?doc.courses.filter(function(x){return x.id===id;})[0]:null;
   $('sheetTitle').textContent=c?'编辑课程':'添加课程';
@@ -539,18 +572,19 @@ function delSheet(){
 /* ── 事件 ── */
 $('btnCreate').addEventListener('click', createSchedule);
 $('btnOpenCode').addEventListener('click', openByCode);
-$('btnOpenKey').addEventListener('click', function(){ openByKey($('keyInput').value); });
-$('linkHelp').addEventListener('click', function(e){ e.preventDefault(); showHelp(); });
+$('btnUnlock').addEventListener('click', unlockByPass);
 $('codeInput').addEventListener('input', function(){
   this.value=this.value.replace(/\D/g,'').slice(0,6);
   if(this.value.length===6) openByCode();
 });
-$('keyInput').addEventListener('change', function(){ openByKey(this.value); });
-$('btnCopy').addEventListener('click', function(){ copyText(pickup||'', '取件码已复制'); });
-$('btnCopyLink').addEventListener('click', function(){
-  copyText(location.origin+location.pathname+'#k='+key, '编辑链接已复制，存到书签');
+$('passInput').addEventListener('input', function(){
+  this.value=this.value.replace(/[^0-9a-zA-Z]/g,'').toLowerCase().slice(0,6);
 });
-$('btnRegen').addEventListener('click', regen);
+$('passInput').addEventListener('change', function(){ if(this.value.length===6) unlockByPass(); });
+$('btnCopy').addEventListener('click', function(){ copyText(pickup||'','取件码已复制'); });
+$('btnCopyPass').addEventListener('click', function(){ copyText(pass||'','编辑密码已复制'); });
+$('btnRegenPickup').addEventListener('click', function(){ regen('pickup'); });
+$('btnRegenPass').addEventListener('click', function(){ regen('pass'); });
 $('days').addEventListener('click', function(e){
   var b=e.target.closest('.day'); if(!b) return;
   viewDay=parseInt(b.getAttribute('data-d'),10); render();
@@ -569,15 +603,11 @@ $('f_color').addEventListener('click', function(e){
 });
 (function(){ var h=''; for(var i=1;i<=7;i++) h+='<option value="'+i+'">周'+DAYNAME[i-1]+'</option>'; $('f_day').innerHTML=h; })();
 
-/* ── 启动：URL 钥匙 > localStorage > 首页 ── */
+/* ── 启动：先登记本机标识，再自动识别是不是同一个人 ── */
 (function boot(){
-  viewDay = new Date().getDay()||1;
-  var h = location.hash||'';
-  var m = h.match(/k=([a-f0-9]{24})/i);
-  if(m){ openByKey(m[1]); return; }
-  var saved=null; try{ saved=localStorage.getItem(LS_KEY); }catch(e){}
-  if(saved){ openByKey(saved); return; }
-  setMode('home');
+  viewDay=new Date().getDay()||1;
+  ensureDid();
+  autoIdentify();
 })();
 </script>
 </body>

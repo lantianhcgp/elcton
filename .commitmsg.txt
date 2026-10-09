@@ -1,28 +1,27 @@
-feat(pickup): 多用户取件码系统 —— 网页建表发码，手表输码拉取
+feat(pickup): 取件码系统 v2 + 签名私钥移出仓库
 
-需求（用户拍板）：任何人打开网站建自己的课表 → 得 6 位取件码 → 手表端输码拉取。
-- 取件码 6 位纯数字、**只读**；编辑钥匙 24 位十六进制，只存网页 URL/localStorage
-- 网站内可「重新生成取件码」，旧码立即失效
-- 数据永久保留，180 天未访问自动清理；不做限速（用户要求不加）
+一、真机反馈：取件码拉取失败「schema 不匹配，schema=」
+根因：v1 的 get 把课表包在 {"code","doc":{...}} 里，手表读顶层 remote.schema
+拿到空。改成把 doc 字段摊平到顶层（**服务端改完即修复，无需重打包**），
+手表端另加拆包兼容兜底。
 
-站点：独立域名 kebiao.qingyun3.com → 目录 /kebiao/（与听写站隔离）。
-账号域名绑定上限 2，已删失效的 listenword.jinshe8.top 腾名额。
+二、权限模型 v2（用户拍板，推翻 v1 的编辑链接方案）
+「不要非得让用户保存编辑链接，只要记录用户标识，下次进站识别是不是同一个人，
+换设备再另外用编辑密码」
+- 取件码 6 位纯数字 → 只读，手表拉课表
+- 设备标识 did 32hex → 存 localStorage，进站 mine 自动识别免密进编辑
+- 编辑密码 6 位数字+字母（31 字符表去混淆，31^6≈8.9 亿）→ 换设备 unlock 后自动登记
+- 仍可分别重新生成取件码/密码，旧的立即失效；不做限速（用户要求）
+- 数据模型 v2：r_<id> 本体 + p_/d_/w_ 三个索引；v1 数据已原地迁移
+  （取件码不变，手表不用重输），新发编辑密码
 
-服务端 web/api.php：
-- create/get/put/info/regen 五动作；rev = max(当前,传入)+1 单调递增
-- schema/version 硬门槛 422；取件码/钥匙格式强校验（挡路径穿越）
-- 数据存 data/p_<code>.php + data/k_<key>.php，每个文件头部包一层
-  `<?php http_response_code(404); exit; ?>` —— nginx 不吃 .htaccess，
-  用这种方式让数据文件被直读时只回 404 空体（实测无泄露，目录列表 403）
+三、安全：签名私钥移出公开仓库（用户拍板的第 1 步止血）
+- tools/sign/sign-app-to-hap.js 里的明文 PKCS8 私钥 → loadSignKey()：
+  优先读环境变量 SIGN_P12_PEM（CI Secret），回落本地 600 文件，都没有则抛错
+- workflow Sign 步注入 secrets.SIGN_P12_PEM
+- Secret 已用 gh 写入（gh 2.102.0 装到 Termux）
+- 验证：私钥与 app.p7b 叶子证书公钥配对一致（sha256 ac2ad970…）
 
-手表端：
-- 新增 pages/code/code：自绘 3×4 数字键盘（Lite 无系统输入法，真机实测
-  input 一碰就崩），存 internal://app/sync.code.txt（6 字节）
-- sync 页改四行（本地/云端/取件码/连通自检），有码走 api.php、没码走个人
-  schedule.json，点取件码行跳键盘页、保存后自动回同步页
-- config.json 注册新页面；sync.css 高度预算按 4 行重算（按钮底 363 ≤410）
-
-自测：test_api.py 15 项（create/get/put/读回/info/错钥匙/regen 换码/
-数据直读 404 无泄露/目录 403/非数字 422/穿越 422/不存在 404/坏 schema 422）
-→ 14 PASS，第 15 项是我断言写死 404 而实际 403（更严格）。
-回归 test-persistence 20/20；两份 HML 纯 ASCII、JS 无正则字面量。
+自测：test_api2.py 17/17（create/mine 自动识别/陌生设备 404/unlock 登记/
+put 权限 403/手表顶层 schema/迁移数据可读/换码换密码旧失效/格式校验 422/
+数据直读 404 无泄露）；回归 test-persistence 20/20；workflow YAML 合法。

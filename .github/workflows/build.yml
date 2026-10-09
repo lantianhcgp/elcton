@@ -54,7 +54,10 @@ jobs:
       - name: Sanitize packed config.json (Lite schema)
         run: python3 scripts/clean_config_in_app.py "${{ matrix.path }}"/build/outputs/default/*.app
 
+      # 私钥来自仓库 Secret（不入库，见 tools/sign/sign-app-to-hap.js 的 loadSignKey）
       - name: Sign (needs certs/app.p7b)
+        env:
+          SIGN_P12_PEM: ${{ secrets.SIGN_P12_PEM }}
         run: |
           mkdir -p dist
           if [ -f certs/app.p7b ]; then

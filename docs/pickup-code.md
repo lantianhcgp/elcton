@@ -15,24 +15,34 @@
 > 域名是面板的免费二级域名，绑定目录 `kebiao`。账号域名绑定数上限 2，
 > 已删除失效的 `listenword.jinshe8.top`（DNS 解析不了、HTTP 000）腾出名额。
 
-## 权限模型（拍板结论）
+## 权限模型（v2 拍板结论，2026-10-09 第二版）
 
 | 凭据 | 形式 | 能做什么 | 存在哪 |
 |---|---|---|---|
 | **取件码** | 6 位纯数字 | **只读**拉课表 | 网页展示、手表 `internal://app/sync.code.txt` |
-| **编辑钥匙** | 24 位十六进制 | 改课表、**重新生成取件码** | 网页 `#k=` 锚点 + localStorage，不进服务器日志 |
+| **设备标识 did** | 32 位 hex | **自动识别本人**：进站免密直接进编辑 | 网页 `localStorage['elcton.did']`，服务器只存索引 `d_<did>` |
+| **编辑密码 pass** | 6 位数字+字母（31 字符表，去掉 0/1/O/I/l） | 换设备/换浏览器时解锁；解锁后该设备自动登记 | 服务器 `w_<pass>` 索引，网页展示可复制 |
 
-不做限速（用户明确要求不加）；安全性靠「码只读 + 钥匙另存」+ 数据文件防直读。
+> v1 让用户存 24 位编辑链接——用户否掉了：「不要非得让用户保存那个编辑链接，
+> 你只要记录用户标识，下次进站识别一下是不是同一个人就行了，换设备再用编辑密码」。
+
+不做限速（用户明确要求不加）；安全性靠「码只读 + 设备标识 128bit + 密码 31^6」+ 数据文件防直读。
 
 ## 接口
 
 ```
-GET  api.php?action=get&pickup=123456   → {code:"ok", doc:{...}}      手表走这条
-POST {"action":"create","doc":{...}}    → {code:"ok", pickup, key}
-POST {"action":"put","pickup","key","doc"} → {code:"ok", rev}
-POST {"action":"info","key"}            → {code:"ok", pickup, doc}     找回自己的码
-POST {"action":"regen","key"}           → {code:"ok", pickup}          换码，旧码立即 404
+GET  api.php?action=get&pickup=123456              → doc 字段**摊平在顶层**（手表读 remote.schema）
+POST {"action":"create","did","doc"}               → {code, pickup, pass}
+POST {"action":"mine","did"}                       → {code, pickup, pass, doc}   本人免密进
+POST {"action":"unlock","pass","did"}              → {code, pickup, pass, doc}   换设备解锁
+POST {"action":"put","did","doc"}                  → {code, rev}
+POST {"action":"info","did"}                       → {code, pickup, pass, doc}
+POST {"action":"regen","did","what":"pickup"|"pass"} → {code, value}             换码/换密码
 ```
+
+> **真机踩坑**：v1 的 `get` 把课表包在 `{"code","doc":{...}}` 里，手表读顶层 `remote.schema`
+> 拿到空 → 「schema 不匹配，schema=」。改成摊平到顶层后，**不重打包就好**；
+> 手表端仍保留拆包兼容（`sync.js`）以防以后再包一层。
 
 - `rev` 由服务端 `max(当前, 传入) + 1` 单调递增（与 `docs/schedule-format.md` §四一致）
 - `schema` 不匹配 / `version` 高于本端 → `422`，拒绝写入
@@ -41,8 +51,10 @@ POST {"action":"regen","key"}           → {code:"ok", pickup}          换码�
 ## 存储
 
 ```
-kebiao/data/p_<取件码>.php   → {"key":"..."}                    取件码 → 钥匙
-kebiao/data/k_<钥匙>.php     → {"key","pickup","createdAt","lastAccess","doc"}
+kebiao/data/p_<取件码>.php   → {"id":"..."}     取件码 → 本体
+kebiao/data/d_<设备标识>.php → {"id":"..."}     设备 → 本体（免密识别依据）
+kebiao/data/w_<编辑密码>.php → {"id":"..."}     密码 → 本体
+kebiao/data/r_<内部id>.php   → {id,pickup,pass,dids[],createdAt,lastAccess,doc}
 ```
 
 每个数据文件都以 `<?php http_response_code(404); exit; ?>` 开头包装：
