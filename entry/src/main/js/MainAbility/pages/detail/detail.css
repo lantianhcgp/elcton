@@ -1,10 +1,13 @@
+/* 详情页 · 弹性布局测试版（2026-10-10）：
+ * 主内容 56/4/352/72 → 11%/1%/73%/15% = 100%（484 上 list=353 ≥ 内容 352 不溢出）。
+ * 删除确认弹窗区保持上轮验收原样（258 行/118 钮/180 高一行未动）。 */
 .page {
     width: 100%;
     height: 100%;
     flex-direction: column;
     background-color: #0B0E14;
 }
-/* 主内容列：确认框弹出时整列让位（纯 flex 换位，不依赖 position，避免被排到屏幕外） */
+/* 主内容列：确认框弹出时整列让位（纯 flex 换位，不依赖 position） */
 .main {
     width: 100%;
     height: 100%;
@@ -12,7 +15,7 @@
 }
 .header-bar {
     width: 100%;
-    height: 56px;
+    height: 11%;
     justify-content: center;
     align-items: center;
 }
@@ -22,12 +25,12 @@
 }
 .color-bar {
     width: 100%;
-    height: 4px;
+    height: 1%;
 }
-/* 484 - 56(标题) - 4(色条) - 72(底部) = 352：内容正好 72+4*(52+2)+64=352，删除按钮不再被裁 */
+/* list 高 73%：FIT3 上 353px ≥ 内容 352；矮屏上自动转为可滚动 */
 .detail-list {
     width: 100%;
-    height: 352px;
+    height: 73%;
 }
 .detail-name-item {
     width: 100%;
@@ -88,7 +91,7 @@
 }
 .bottom-bar {
     width: 100%;
-    height: 72px;
+    height: 15%;
     justify-content: center;
     align-items: center;
 }

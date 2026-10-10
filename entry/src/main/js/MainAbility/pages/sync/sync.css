@@ -1,7 +1,6 @@
-/* 同步页 · 布局硬约束（FIT3 实测）：屏 412×484、圆角 R≈105，y≥420 是圆角危险区
- * → 按钮底 ≤410、左右留 ≥24px
- * 高度预算（v2：4 行，加取件码行）：header 56 + endpoint 26 + 列表 4×44=176 + 详情 52 = 310
- * → 底栏从 310 起，按钮 52 高 → 按钮底 ≈ 310+53 = 363 ≤410；总高 376 ≤484 */
+/* 同步页 · 弹性布局测试版（2026-10-10）：
+ * 56/26/176/52/66 → 11%/5%/36%/11%/14%（和 77%，底部留白与原版等比）。
+ * y≥420 危险区规则在 412x484 上仍满足：底栏起点 373 + 钮 52 居中 ≈ 386-438。 */
 .container {
     width: 100%;
     height: 100%;
@@ -10,7 +9,7 @@
 }
 .header-bar {
     width: 100%;
-    height: 56px;
+    height: 11%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -27,7 +26,7 @@
 }
 .endpoint-bar {
     width: 100%;
-    height: 26px;
+    height: 5%;
     padding-left: 24px;
     padding-right: 24px;
     flex-direction: row;
@@ -39,7 +38,7 @@
 }
 .probe-list {
     width: 100%;
-    height: 176px;
+    height: 36%;
     flex-direction: column;
 }
 .probe-item {
@@ -49,7 +48,7 @@
     align-items: center;
 }
 .probe-bg {
-    width: 372px;
+    width: 90%;
     height: 40px;
     background-color: #171B28;
     border-radius: 16px;
@@ -68,7 +67,7 @@
 }
 .detail-box {
     width: 100%;
-    height: 52px;
+    height: 11%;
     padding-left: 24px;
     padding-right: 24px;
     flex-direction: column;
@@ -80,14 +79,14 @@
 }
 .bottom-bar {
     width: 100%;
-    height: 66px;
+    height: 14%;
     padding-bottom: 12px;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 .nav-btn {
-    width: 150px;
+    width: 36%;
     height: 52px;
     background-color: #6c63ff;
     border-radius: 26px;
@@ -97,7 +96,7 @@
     margin-right: 10px;
 }
 .nav-btn-alt {
-    width: 150px;
+    width: 36%;
     height: 52px;
     background-color: #1E2333;
     border-radius: 26px;

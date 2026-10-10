@@ -1,7 +1,7 @@
-/* 首页 · 设计系统 v2（2026-10-10 UI 改版）：
- * 背景 #0B0E14 / 卡片 #171B28 / 次级 #1E2333
- * 文字 #F0F3FA(主) #99A1B8(次) #626A80(弱)  主色 #6C63FF 仅用于主操作
- * 高度预算：header 64 + 列表 344 + 底栏 76 = 484（FIT3 精确满屏） */
+/* 首页 · 弹性布局测试版（2026-10-10）：
+ * 骨架高度/宽度全部百分比化（原 64/344/76 = 13%/71%/16%），满屏自适应；
+ * 内容类尺寸（文字行高、卡片内文字组）保持 px。
+ * FIT3 412x484 基准换算误差 ≤1.4px。 */
 .container {
     width: 100%;
     height: 100%;
@@ -10,7 +10,7 @@
 }
 .header-bar {
     width: 100%;
-    height: 64px;
+    height: 13%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -27,7 +27,7 @@
 }
 .course-list {
     width: 100%;
-    height: 344px;
+    height: 71%;
     flex-direction: column;
 }
 .item {
@@ -37,7 +37,7 @@
     align-items: center;
 }
 .item-bg {
-    width: 372px;
+    width: 90%;
     height: 78px;
     background-color: #171B28;
     border-radius: 16px;
@@ -47,8 +47,6 @@
     padding-left: 18px;
     padding-right: 18px;
 }
-/* 真机教训链：无显式尺寸的容器一律塌（模拟器测不出）。
- * 显式：item-bg 372x78 → item-left 210x56 → item-main 186x56 → text 显式高 */
 .item-left {
     flex-direction: row;
     align-items: center;
@@ -88,7 +86,7 @@
 }
 .bottom-bar {
     width: 100%;
-    height: 76px;
+    height: 16%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -96,7 +94,7 @@
     padding-bottom: 4px;
 }
 .nav-btn {
-    width: 176px;
+    width: 42%;
     height: 50px;
     background-color: #1E2333;
     border-radius: 25px;

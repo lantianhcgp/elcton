@@ -1,5 +1,6 @@
-/* 周视图 · 设计系统 v2（2026-10-10 UI 改版，与首页同一套 token）
- * 高度预算：header 56 + 日期条 52 + 列表 304 + 底栏 72 = 484（FIT3 满屏） */
+/* 周视图 · 弹性布局测试版（2026-10-10）：
+ * 骨架 56/52/304/72 → 11%/11%/63%/15% = 100%，满屏自适应。
+ * 日期 tab/卡片文字组等内容尺寸保持 px。 */
 .container {
     width: 100%;
     height: 100%;
@@ -8,7 +9,7 @@
 }
 .header-bar {
     width: 100%;
-    height: 56px;
+    height: 11%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -23,18 +24,16 @@
     font-size: 21px;
     color: #99A1B8;
 }
-/* 日期条：去通栏底色，7 天靠两端分布，选中紫底、未选纯字——更透气 */
+/* 日期条：div 承载背景、text 只放字（真机 text 背景错位的修复保持） */
 .day-tabs {
     width: 100%;
-    height: 52px;
+    height: 11%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding-left: 16px;
     padding-right: 16px;
 }
-/* div 承载背景圆、text 只放文字：真机 text 元素的 flex 居中不生效，
- * 背景与文字会错位（2026-10-10 用户截图反馈） */
 .day-tab {
     width: 44px;
     height: 38px;
@@ -59,7 +58,7 @@
 }
 .course-list {
     width: 100%;
-    height: 304px;
+    height: 63%;
 }
 .item {
     width: 100%;
@@ -68,7 +67,7 @@
     align-items: center;
 }
 .item-bg {
-    width: 372px;
+    width: 90%;
     height: 78px;
     background-color: #171B28;
     border-radius: 16px;
@@ -78,8 +77,6 @@
     padding-left: 18px;
     padding-right: 18px;
 }
-/* 真机教训链：无显式尺寸的容器一律塌（模拟器测不出）。
- * 显式：item-bg 372x78 → item-left 210x56 → item-main 186x56 → text 显式高 */
 .item-left {
     flex-direction: row;
     align-items: center;
@@ -123,7 +120,7 @@
 }
 .bottom-bar {
     width: 100%;
-    height: 72px;
+    height: 15%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
@@ -137,7 +134,7 @@
     margin-right: 10px;
 }
 .back-btn {
-    width: 150px;
+    width: 36%;
     background-color: #1E2333;
 }
 .back-btn-text {
@@ -145,7 +142,7 @@
     color: #B9C0D4;
 }
 .sync-btn {
-    width: 150px;
+    width: 36%;
     background-color: #6C63FF;
 }
 .sync-btn-text {
