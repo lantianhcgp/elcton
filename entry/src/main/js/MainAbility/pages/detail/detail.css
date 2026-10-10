@@ -128,11 +128,12 @@
 }
 .dialog-row {
   flex-direction: row;
-  width: 100%;
+  width: 258px;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
   height: 50px;
+}
+.dialog-cancel {
+  margin-right: 22px;
 }
 .dialog-btn {
   width: 118px;
