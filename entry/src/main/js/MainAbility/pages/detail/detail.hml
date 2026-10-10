@@ -1,5 +1,7 @@
 <div class="page" @swipe="onSwipe">
-    <div class="header-bar">
+    <!-- 主内容：确认框弹出时整体让位，否则弹窗会被纵向 flex 排到 y=433 掉出屏幕 -->
+    <div class="main" if="{{ !showDeleteConfirm }}">
+        <div class="header-bar">
         <text class="page-title">&#x8bfe;&#x7a0b;&#x8be6;&#x60c5;</text>
     </div>
     <div class="color-bar" style="background-color: {{ color }};"></div>
@@ -37,9 +39,10 @@
             </div>
         </list-item>
     </list>
-    <div class="bottom-bar">
-        <div class="back-btn" @click="onBack">
-            <text class="back-btn-text">&#x8fd4;&#x56de;</text>
+        <div class="bottom-bar">
+            <div class="back-btn" @click="onBack">
+                <text class="back-btn-text">&#x8fd4;&#x56de;</text>
+            </div>
         </div>
     </div>
     <div class="overlay" if="{{ showDeleteConfirm }}">
