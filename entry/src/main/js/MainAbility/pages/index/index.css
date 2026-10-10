@@ -59,6 +59,8 @@
 }
 .item-main {
     flex-direction: column;
+    height: 52px;
+    justify-content: center;
 }
 .item-name {
     font-size: 25px;

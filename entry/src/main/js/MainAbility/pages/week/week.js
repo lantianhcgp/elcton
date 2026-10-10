@@ -79,6 +79,9 @@ export default {
             self.isEmpty = list.length === 0;
         });
     },
+    onSyncClick: function () {
+        router.push({ uri: 'pages/sync/sync' });
+    },
     onCourseClick: function (courseId) {
         if (!courseId) return;
         storage.set({
