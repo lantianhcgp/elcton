@@ -112,32 +112,34 @@
     align-items: center;
 }
 .dialog {
-    width: 70%;
-    height: 170px; /* 真机 column-auto 会塌成 0（2026-10-10 截图实测只剩54px=padding），必须显式 */
-    flex-direction: column;
-    background-color: #1a1a2e;
-    border-radius: 20px;
-    padding: 28px;
-    align-items: center;
+  width: 82%;
+  flex-direction: column;
+  background-color: #1a1a2e;
+  border-radius: 22px;
+  height: 180px;
+  padding: 30px;
+  align-items: center;
 }
 .dialog-title {
-    height: 42px; /* text 显式高，否则真机 0 高不显示 */
-    font-size: 28px;
-    color: #e8e8f0;
-    margin-bottom: 24px;
+  font-size: 30px;
+  color: #e8e8f0;
+  margin-bottom: 24px;
+  height: 46px;
 }
 .dialog-row {
-    height: 48px; /* row 显式高 */
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-around;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 50px;
 }
 .dialog-btn {
-    width: 40%;
-    height: 48px;
-    border-radius: 24px;
-    justify-content: center;
-    align-items: center;
+  width: 118px;
+  height: 50px;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
 }
 .dialog-cancel {
     background-color: #2a2a3e;
@@ -146,7 +148,7 @@
     background-color: #ef5350;
 }
 .dialog-btn-text {
-    height: 36px; /* 按钮内 text 显式高 */
-    font-size: 24px;
-    color: #ffffff;
+  font-size: 25px;
+  color: #ffffff;
+  height: 40px;
 }
