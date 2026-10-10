@@ -75,6 +75,18 @@ jobs:
             echo "$P7B 不存在 → 本次只交付未签名 .app"
           fi
 
+      # ★签名闸门：key 与 p7b 证书不配对时（如 Secret 偶发取不到被表达式回退到别的身份）
+      #   直接失败、不产出 artifact —— 2026-10-10 错误30 事故的根治（结构断言查不出，必须密码学验签）
+      - name: Verify signature (fail loud)
+        run: |
+          P7B=certs/app.p7b
+          if [ "${{ matrix.project }}" = "elcton" ]; then P7B=certs/elcton.p7b; fi
+          if [ -f "dist/${{ matrix.project }}.hap" ]; then
+            python3 tools/sign/verify_sign.py "dist/${{ matrix.project }}.hap" "$P7B"
+          else
+            echo "无签名产物（仅未签名 .app），跳过验签"
+          fi
+
       - name: Collect artifacts
         run: |
           mkdir -p dist
