@@ -9,3 +9,6 @@ local.properties
 .certs-tmp/
 
 .commitmsg.txt
+
+# 本地 php 测试数据（线上数据在虚拟主机，不进 git）
+web/data/

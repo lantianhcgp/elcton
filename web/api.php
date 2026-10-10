@@ -146,9 +146,34 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     if (!$rec || !isset($rec['doc'])) { out('课表不存在', 404); }
     $rec['lastAccess'] = time();
     saveFile(pRec($id), $rec);
+    $doc = $rec['doc'];
+    /* ── 切片模式：&page=N 时按 20 课/页返回（手表端 Lite 单次大响应会卡死，
+     *     60 课 ≈ 12KB 超出其承受力 → 分 3 页 ×4KB 串行拉取）。
+     *     不带 page 参数 → 走下面整份路径（网页端/旧表完全兼容）。 ── */
+    if (isset($_GET['page'])) {
+        $page = intval($_GET['page']);
+        $all = (isset($doc['courses']) && is_array($doc['courses'])) ? array_values($doc['courses']) : array();
+        $size = 20;
+        $total = count($all);
+        $pages = ($total === 0) ? 1 : max(1, (int) ceil($total / $size));
+        if ($page < 0 || $page >= $pages) { out('页码超出范围 0..' . ($pages - 1), 422); }
+        out('ok', 200, array(
+            'slice'     => true,
+            'page'      => $page,
+            'pages'     => $pages,
+            'sliceSize' => $size,
+            'total'     => $total,
+            'schema'    => isset($doc['schema']) ? $doc['schema'] : '',
+            'version'   => isset($doc['version']) ? intval($doc['version']) : 1,
+            'rev'       => isset($doc['rev']) ? intval($doc['rev']) : 0,
+            'updatedAt' => isset($doc['updatedAt']) ? intval($doc['updatedAt']) : 0,
+            'settings'  => isset($doc['settings']) ? $doc['settings'] : new stdClass(),
+            'courses'   => array_slice($all, $page * $size, $size),
+        ));
+    }
     /* 把 doc 字段摊到顶层：手表端读的是 remote.schema / remote.courses。
      * v1 包了一层 {code,doc:{...}}，真机实测报「schema 不匹配」且 schema= 为空。 */
-    $extra = $rec['doc'];
+    $extra = $doc;
     $extra['pickup'] = $pickup;
     out('ok', 200, $extra);
 }

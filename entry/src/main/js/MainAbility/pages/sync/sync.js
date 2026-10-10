@@ -290,7 +290,11 @@ export default {
         });
     },
 
-    /* ── 拉取课表 ── */
+    /* ── 拉取课表（切片版）：
+     * 60 课整份 ≈12KB 一次给 Lite 会卡死（2026-10-10 真机事故）→ 服务端按
+     * 20课/页 切片，这里逐页串行拉：页间 50ms 放行（Lite 回调可能同步派发，
+     * 直接递归=变相并发=卡死）、页间 rev/updatedAt 一致性校验。
+     * 服务端不支持 page 参数时忽略之并返回整份 → 无 slice 字段走老流程（降级）。 */
     onPull: function () {
         var self = this;
         if (self.running) {
@@ -305,11 +309,22 @@ export default {
         self.running = true;
         self.gen++;
         var gen = self.gen;
-        var url = self.scheduleUrl();
-        self.setRow(1, '拉取中…', '#ffc107');
-        self.detail = 'GET ' + url;
+        self.acc = [];
+        self.meta = null;
+        self.pullPage(0, gen);
+    },
+
+    pullPage: function (n, gen) {
+        var self = this;
+        if (self.dead || gen !== self.gen) { return; }
+        var base = self.scheduleUrl();
+        var isPickup = !!(self.pickupCode && self.pickupCode.length === 6);
+        var url = isPickup ? (base + '&page=' + n) : base;
+        if (n === 0) { self.detail = 'GET ' + url; }
+        self.setRow(1, self.meta ? ('拉取第 ' + (n + 1) + '/' + self.meta.pages + ' 页…') : '拉取中…', '#ffc107');
 
         self.httpGet(url, gen, function (ok, payload, code) {
+            if (self.dead || gen !== self.gen) { return; }
             if (!ok) {
                 self.running = false;
                 self.setRow(1, '✗ ' + code, '#f44336');
@@ -330,27 +345,107 @@ export default {
                 self.detail = '解析失败 body=' + brief(payload, 60);
                 return;
             }
-            /* 兼容包装：服务端可能把课表放在 {code,doc:{...}} 里（v1 接口就是
-             * 这样，真机实测报过「schema 不匹配」且 schema= 为空）→ 拆包再校验 */
-            if (!remote.schema && remote.doc && typeof remote.doc === 'object') {
-                remote = remote.doc;
-            }
-            if (remote.schema !== SCHEMA) {
-                self.running = false;
-                self.setRow(1, '✗ schema 不匹配', '#f44336');
-                self.detail = 'schema=' + brief(remote.schema, 30) + '，不是课表文档，拒绝导入';
-                return;
-            }
-            if (num(remote.version, 0) > VERSION) {
-                self.running = false;
-                self.setRow(1, '✗ 云端格式更新', '#f44336');
-                self.detail = '云端 version=' + remote.version + ' > 本端 v' + VERSION +
-                              '，按规范禁止导入，请升级手表端';
-                return;
-            }
-            var normalized = normalize(remote);
-            self.decide(normalized, gen);
+            if (remote.slice === true) { self.gotSlice(remote, n, gen); return; }
+            /* 整份响应（老服务端忽略 page / 无码 legacy 路线）→ 老流程 */
+            self.finishDoc(remote, gen);
         });
+    },
+
+    /* 一页到手：校验 → 累积 → 串行下一页 / 收齐组装进 decide */
+    gotSlice: function (r, n, gen) {
+        var self = this;
+        if (self.dead || gen !== self.gen) { return; }
+        if (r.schema !== SCHEMA) {
+            self.running = false;
+            self.setRow(1, '✗ schema 不匹配', '#f44336');
+            self.detail = 'schema=' + brief(r.schema, 30) + '，不是课表文档，拒绝导入';
+            return;
+        }
+        if (num(r.version, 0) > VERSION) {
+            self.running = false;
+            self.setRow(1, '✗ 云端格式更新', '#f44336');
+            self.detail = '云端 version=' + r.version + ' > 本端 v' + VERSION + '，按规范禁止导入，请升级手表端';
+            return;
+        }
+        if (n === 0) {
+            self.meta = {
+                schema: r.schema, version: num(r.version, 1),
+                rev: num(r.rev, 0), updatedAt: num(r.updatedAt, 0),
+                pages: num(r.pages, 1), settings: (r.settings && typeof r.settings === 'object') ? r.settings : {},
+                total: num(r.total, 0)
+            };
+            self.acc = [];
+        } else if (!self.meta || num(r.rev, -1) !== self.meta.rev || num(r.updatedAt, -1) !== self.meta.updatedAt) {
+            self.running = false;
+            self.setRow(1, '✗ 云端中途变更', '#f44336');
+            self.detail = '第 ' + (n + 1) + ' 页 rev/updatedAt 与首页不一致（网页可能刚保存过），再点一次「拉取」重来';
+            return;
+        }
+        if (num(r.pages, 1) !== self.meta.pages) {
+            self.running = false;
+            self.setRow(1, '✗ 页数不一致', '#f44336');
+            self.detail = '首页 pages=' + self.meta.pages + '，第 ' + (n + 1) + ' 页 pages=' + r.pages;
+            return;
+        }
+        var list = (r.courses && r.courses.length) ? r.courses : [];
+        for (var i = 0; i < list.length; i++) { self.acc.push(list[i]); }
+        self.setRow(1, '拉取 ' + (n + 1) + '/' + self.meta.pages + ' 页 · ' + self.acc.length + ' 课', '#ffc107');
+        self.detail = '切片进度 ' + (n + 1) + '/' + self.meta.pages + '（' + self.acc.length + '/' + self.meta.total + ' 课）';
+        if ((n + 1) < self.meta.pages) {
+            /* 页间 50ms 放行：Lite 回调可能同步派发，直接递归连发 = 变相并发 = 卡死 */
+            setTimeout(function () {
+                if (self.dead || gen !== self.gen) { return; }
+                self.pullPage(n + 1, gen);
+            }, 50);
+            return;
+        }
+        /* 收齐 → 组装整份走现有 decide/apply（后半段零改动） */
+        var full = {
+            schema: self.meta.schema, version: self.meta.version,
+            rev: self.meta.rev, updatedAt: self.meta.updatedAt,
+            settings: self.meta.settings, courses: self.acc
+        };
+        var normalized = null;
+        var normErr = null;
+        try { normalized = normalize(full); } catch (e) { normalized = null; normErr = e; }
+        if (!normalized) {
+            self.running = false;
+            self.setRow(1, '✗ 归一化失败', '#f44336');
+            self.detail = '合并 ' + self.acc.length + ' 课后 normalize 抛出 ' + brief(normErr, 50);
+            return;
+        }
+        self.decide(normalized, gen);
+    },
+
+    /* 整份响应处理（老流程）：兼容包装 → schema/version 校验 → decide */
+    finishDoc: function (remote, gen) {
+        var self = this;
+        if (!remote.schema && remote.doc && typeof remote.doc === 'object') {
+            remote = remote.doc;
+        }
+        if (remote.schema !== SCHEMA) {
+            self.running = false;
+            self.setRow(1, '✗ schema 不匹配', '#f44336');
+            self.detail = 'schema=' + brief(remote.schema, 30) + '，不是课表文档，拒绝导入';
+            return;
+        }
+        if (num(remote.version, 0) > VERSION) {
+            self.running = false;
+            self.setRow(1, '✗ 云端格式更新', '#f44336');
+            self.detail = '云端 version=' + remote.version + ' > 本端 v' + VERSION +
+                          '，按规范禁止导入，请升级手表端';
+            return;
+        }
+        var normalized = null;
+        var normErr = null;
+        try { normalized = normalize(remote); } catch (e2) { normalized = null; normErr = e2; }
+        if (!normalized) {
+            self.running = false;
+            self.setRow(1, '✗ 归一化失败', '#f44336');
+            self.detail = 'normalize 抛出 ' + brief(normErr, 50);
+            return;
+        }
+        self.decide(normalized, gen);
     },
 
     decide: function (remote, gen) {
