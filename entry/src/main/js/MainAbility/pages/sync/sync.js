@@ -151,7 +151,11 @@ export default {
         this.dead = true;
         this.gen++;
         try { clearTimeout(this.wdTimer); } catch (e) {}
+        try { clearTimeout(this.reqTimer); } catch (e) {}
+        try { clearTimeout(this.pageTimer); } catch (e) {}
         this.wdTimer = null;
+        this.reqTimer = null;
+        this.pageTimer = null;
     },
     onBack: function () {
         router.back();
@@ -170,6 +174,33 @@ export default {
         if (!list[i]) { return; }
         list[i] = { name: list[i].name, status: status, color: color };
         this.rows = list;      /* 顶层赋值才触发刷新 */
+    },
+    /* ── 诊断事件环：关键状态打短标记；拉取行尾附最后标记，
+     * 真机再卡死时截图一行状态即可定位死点（2026-10-10 卡死排查保险丝）── */
+    pushTrace: function (tag) {
+        if (!this.trace) { this.trace = []; }
+        this.trace.push(tag);
+        if (this.trace.length > 6) { this.trace.shift(); }
+    },
+    traceLast: function () {
+        return (this.trace && this.trace.length) ? this.trace[this.trace.length - 1] : '';
+    },
+    traceStr: function () {
+        return (this.trace && this.trace.length) ? this.trace.join(' ') : '';
+    },
+    /* 全程滑动看门狗：每页到手都重置；页间定时器失效 / fetch 不回调 /
+     * 处理链冻结——任何一种 15s 后都显式报错，绝不无声卡死 */
+    pokeWatchdog: function (gen) {
+        var self = this;
+        try { clearTimeout(self.wdTimer); } catch (e) {}
+        self.wdTimer = setTimeout(function () {
+            /* running=false = 链已停（报错/完成），遗留 timer 直接忽略，不许覆盖状态 */
+            if (self.dead || gen !== self.gen || !self.running) { return; }
+            self.running = false;
+            self.pushTrace('TO');
+            self.setRow(1, '✗ 停滞超时', '#f44336');
+            self.detail = '看门狗超时 · 最后位置: ' + self.traceStr();
+        }, self.watchdogMs || 15000);
     },
     /* 读取件码（键盘页写在 internal://app/sync.code.txt，6 字节） */
     loadCode: function (cb) {
@@ -233,11 +264,19 @@ export default {
         var finish = function (ok, payload, code) {
             if (done || self.dead || gen !== self.gen) { return; }
             done = true;
-            try { clearTimeout(self.wdTimer); } catch (e) {}
-            cb(ok, payload, code);
+            try { clearTimeout(self.reqTimer); } catch (e) {}
+            /* cb 抛异常绝不能被外层 catch 吞：吞掉 = 链断 + 单请求看门狗已清 +
+             * 无任何报错 = 无声冻结（2026-10-10 真机 4/6 卡死的放大器）→ 显式报出 */
+            try { cb(ok, payload, code); }
+            catch (e) {
+                self.running = false;
+                self.pushTrace('Ecb');
+                self.setRow(1, '✗ 处理异常', '#f44336');
+                self.detail = '回调异常 ' + brief(e, 50) + ' · ' + self.traceStr();
+            }
         };
         try {
-            self.wdTimer = setTimeout(function () {
+            self.reqTimer = setTimeout(function () {
                 finish(false, '看门狗 ' + (WATCHDOG_MS / 1000) + 's 到点，无回调', -99);
             }, WATCHDOG_MS);
         } catch (e) {}
@@ -310,8 +349,15 @@ export default {
         self.running = true;
         self.gen++;
         var gen = self.gen;
-        self.acc = [];
+        self.trace = [];
+        /* 文本累积：每页 courses 序列化成字符串存放，页对象立即可回收。
+         * 不再让 60 课对象树随页数渐进增长——几十 KB 的 JerryScript 堆上
+         * 渐进到 40 课即逼近 OOM（两版切片都恰好卡在累计 40 课） */
+        self.accText = [];
+        self.accCount = 0;
         self.meta = null;
+        self.pushTrace('go');
+        self.pokeWatchdog(gen);
         self.pullPage(0, gen);
     },
 
@@ -322,7 +368,9 @@ export default {
         var isPickup = !!(self.pickupCode && self.pickupCode.length === 6);
         var url = isPickup ? (base + '&page=' + n) : base;
         if (n === 0) { self.detail = 'GET ' + url; }
-        self.setRow(1, self.meta ? ('拉取第 ' + (n + 1) + '/' + self.meta.pages + ' 页…') : '拉取中…', '#ffc107');
+        self.pushTrace('p' + n + '>');
+        self.setRow(1, (self.meta ? ('拉取第 ' + (n + 1) + '/' + self.meta.pages + ' 页…') : '拉取中…') +
+                      ' ‹' + self.traceLast() + '›', '#ffc107');
 
         self.httpGet(url, gen, function (ok, payload, code) {
             if (self.dead || gen !== self.gen) { return; }
@@ -352,10 +400,12 @@ export default {
         });
     },
 
-    /* 一页到手：校验 → 累积 → 串行下一页 / 收齐组装进 decide */
+    /* 一页到手：校验 → 文本累积 → 串行下一页 / 收齐合并 */
     gotSlice: function (r, n, gen) {
         var self = this;
         if (self.dead || gen !== self.gen) { return; }
+        self.pushTrace('p' + n + '<');
+        self.pokeWatchdog(gen);
         if (r.schema !== SCHEMA) {
             self.running = false;
             self.setRow(1, '✗ schema 不匹配', '#f44336');
@@ -375,7 +425,6 @@ export default {
                 pages: num(r.pages, 1), settings: (r.settings && typeof r.settings === 'object') ? r.settings : {},
                 total: num(r.total, 0)
             };
-            self.acc = [];
         } else if (!self.meta || num(r.rev, -1) !== self.meta.rev || num(r.updatedAt, -1) !== self.meta.updatedAt) {
             self.running = false;
             self.setRow(1, '✗ 云端中途变更', '#f44336');
@@ -389,43 +438,85 @@ export default {
             return;
         }
         var list = (r.courses && r.courses.length) ? r.courses : [];
-        for (var i = 0; i < list.length; i++) { self.acc.push(list[i]); }
-        self.setRow(1, '拉取 ' + (n + 1) + '/' + self.meta.pages + ' 页 · ' + self.acc.length + ' 课', '#ffc107');
-        self.detail = '切片进度 ' + (n + 1) + '/' + self.meta.pages + '（' + self.acc.length + '/' + self.meta.total + ' 课）';
+        /* 文本累积：本页序列化成字符串后即丢，页对象可回收——对象树渐进到
+         * 40 课就在几十 KB 的 JerryScript 堆上逼近 OOM（两版都恰好卡在 40 课）。
+         * 段格式='{..},{..}'（无外层数组括号）→ 合并时统一包一层，防双重嵌套 */
+        if (list.length) {
+            var parts = [];
+            for (var i = 0; i < list.length; i++) { parts.push(JSON.stringify(list[i])); }
+            self.accText.push(parts.join(','));
+            self.accCount += list.length;
+        }
+        self.setRow(1, '拉取 ' + (n + 1) + '/' + self.meta.pages + ' 页 · ' + self.accCount + ' 课' +
+                      ' ‹' + self.traceLast() + '›', '#ffc107');
+        self.detail = '切片进度 ' + (n + 1) + '/' + self.meta.pages + '（' + self.accCount + '/' + self.meta.total + ' 课）';
         if ((n + 1) < self.meta.pages) {
             /* 页间 400ms 放行：Lite 回调可能同步派发（直接递归=变相并发=卡死），
-             * 且每页后要给网络栈/事件循环喘息——50ms 间隔真机仍卡死（2026-10-10 第2轮）*/
-            setTimeout(function () {
-                if (self.dead || gen !== self.gen) { return; }
-                self.pullPage(n + 1, gen);
-            }, 400);
+             * 且每页后给网络栈/事件循环喘息——回调内再包 try，异常显式报出 */
+            self.pushTrace('w');
+            try {
+                self.pageTimer = setTimeout(function () {
+                    if (self.dead || gen !== self.gen) { return; }
+                    try { self.pullPage(n + 1, gen); }
+                    catch (e) {
+                        self.running = false;
+                        self.pushTrace('Epg');
+                        self.setRow(1, '✗ 分页异常', '#f44336');
+                        self.detail = 'pullPage 抛出 ' + brief(e, 50) + ' · ' + self.traceStr();
+                    }
+                }, 400);
+            } catch (e) {
+                self.running = false;
+                self.setRow(1, '✗ 定时器失败', '#f44336');
+                self.detail = '页间定时器创建失败 ' + brief(e, 40);
+            }
             return;
         }
         /* 收齐 → 最重的整份处理（合并/normalize/比对/落盘）延后 100ms 单独一拍，
-         * 不与最后一次 fetch 回调挤在同一个事件循环里 */
+         * 不与最后一次 fetch 回调挤在同一个事件循环里；整段包 try 显式报错 */
+        self.pushTrace('mg');
         setTimeout(function () {
             if (self.dead || gen !== self.gen) { return; }
-            var full = {
-                schema: self.meta.schema, version: self.meta.version,
-                rev: self.meta.rev, updatedAt: self.meta.updatedAt,
-                settings: self.meta.settings, courses: self.acc
-            };
-            var normalized = null;
-            var normErr = null;
-            try { normalized = normalize(full); } catch (e) { normalized = null; normErr = e; }
-            if (!normalized) {
+            try {
+                /* 逐段解析而非一次性 join 大串：源串+对象树会双份占堆（64/256KB），
+                 * 分段后峰值 = 已累积对象 + 1.8KB 段文本；每段解析完立即置空释放 */
+                var courses = [];
+                var k, j;
+                for (k = 0; k < self.accText.length; k++) {
+                    var segCourses = null;
+                    segCourses = JSON.parse('[' + self.accText[k] + ']');
+                    for (j = 0; j < segCourses.length; j++) { courses.push(segCourses[j]); }
+                    self.accText[k] = '';
+                }
+                self.accText = [];
+                var full = {
+                    schema: self.meta.schema, version: self.meta.version,
+                    rev: self.meta.rev, updatedAt: self.meta.updatedAt,
+                    settings: self.meta.settings, courses: courses
+                };
+                var normalized = null;
+                var normErr = null;
+                try { normalized = normalize(full); } catch (e) { normalized = null; normErr = e; }
+                if (!normalized) {
+                    self.running = false;
+                    self.setRow(1, '✗ 归一化失败', '#f44336');
+                    self.detail = '合并 ' + courses.length + ' 课 normalize 抛出 ' + brief(normErr, 50);
+                    return;
+                }
+                self.decide(normalized, gen);
+            } catch (e2) {
                 self.running = false;
-                self.setRow(1, '✗ 归一化失败', '#f44336');
-                self.detail = '合并 ' + self.acc.length + ' 课后 normalize 抛出 ' + brief(normErr, 50);
-                return;
+                self.pushTrace('Emg');
+                self.setRow(1, '✗ 合并异常', '#f44336');
+                self.detail = '合并抛出 ' + brief(e2, 50) + ' · ' + self.traceStr();
             }
-            self.decide(normalized, gen);
         }, 100);
     },
 
     /* 整份响应处理（老流程）：兼容包装 → schema/version 校验 → decide */
     finishDoc: function (remote, gen) {
         var self = this;
+        self.pushTrace('doc');
         if (!remote.schema && remote.doc && typeof remote.doc === 'object') {
             remote = remote.doc;
         }
@@ -456,6 +547,7 @@ export default {
 
     decide: function (remote, gen) {
         var self = this;
+        self.pushTrace('dec');
         try {
             data.getDoc(function (local) {
                 if (self.dead || gen !== self.gen) { return; }
@@ -466,7 +558,12 @@ export default {
                     return;
                 }
                 var same = false;
-                try { same = (sig(local) === sig(remote)); } catch (e) { same = false; }
+                try {
+                    /* 长度短路：课数不同必不等 → 跳过两次 sig 构造
+                     * （60 课 sig≈4KB ×2，几十 KB 堆上是可观的瞬时峰值） */
+                    var lc = (local.courses && local.courses.length) ? local.courses.length : 0;
+                    if (lc === remote.courses.length) { same = (sig(local) === sig(remote)); }
+                } catch (e) { same = false; }
 
                 if (same) {
                     self.running = false;
@@ -495,12 +592,14 @@ export default {
 
     apply: function (remote, gen) {
         var self = this;
+        self.pushTrace('app');
         try {
             data.replaceDoc(remote, function (ok) {
                 if (self.dead || gen !== self.gen) { return; }
                 self.running = false;
                 if (ok) {
                     self.pendingForce = false;
+                    self.pushTrace('ok');
                     self.setRow(1, '✓ 已导入 rev ' + remote.rev, '#4caf50');
                     self.detail = '导入 ' + remote.courses.length + ' 门课；落盘后本地 rev 自增（规范 §四.3）';
                     self.refreshLocal(function () { self.setRow(1, '✓ 已导入 · 本地 rev ' + self.localRev, '#4caf50'); });
@@ -511,8 +610,9 @@ export default {
             });
         } catch (e) {
             self.running = false;
+            self.pushTrace('Eap');
             self.setRow(1, '✗ 异常', '#f44336');
-            self.detail = '导入阶段抛出 ' + brief(e, 60);
+            self.detail = '导入阶段抛出 ' + brief(e, 60) + ' · ' + self.traceStr();
         }
     },
 
@@ -521,7 +621,10 @@ export default {
         self.pendingForce = false;
         self.gen++;                 /* 丢弃在途回调，重新开始 */
         try { clearTimeout(self.wdTimer); } catch (e) {}
+        try { clearTimeout(self.reqTimer); } catch (e) {}
+        try { clearTimeout(self.pageTimer); } catch (e) {}
         self.running = false;
+        self.trace = [];
         self.setRow(1, '待拉取', '#6c6c80');
         self.setRow(3, '待测', '#6c6c80');
         self.refreshLocal(function () { self.health(); });
