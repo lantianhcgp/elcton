@@ -32,6 +32,7 @@
 
 ```
 GET  api.php?action=get&pickup=123456              → doc 字段**摊平在顶层**（手表读 remote.schema）
+GET  api.php?action=get&pickup=123456&page=0       → **切片**（20课/页）：{slice:true,page,pages,total,rev,updatedAt,settings,courses[≤20]}
 POST {"action":"create","did","doc"}               → {code, pickup, pass}
 POST {"action":"mine","did"}                       → {code, pickup, pass, doc}   本人免密进
 POST {"action":"unlock","pass","did"}              → {code, pickup, pass, doc}   换设备解锁
@@ -43,6 +44,11 @@ POST {"action":"regen","did","what":"pickup"|"pass"} → {code, value}          
 > **真机踩坑**：v1 的 `get` 把课表包在 `{"code","doc":{...}}` 里，手表读顶层 `remote.schema`
 > 拿到空 → 「schema 不匹配，schema=」。改成摊平到顶层后，**不重打包就好**；
 > 手表端仍保留拆包兼容（`sync.js`）以防以后再包一层。
+
+> **真机踩坑（2026-10-10 卡死事故）**：60 课整份 ≈11KB 一次 fetch 打给 Lite 手表 →
+> 点「拉取」直接卡死。修复 = `&page=N` 切片（20课/页 ≈3.8KB）+ 手表端串行逐页拉
+> （页间 50ms 放行、页间 rev/updatedAt 一致性校验、响应无 `slice` 字段自动走整份老流程）。
+> 协议向后兼容：不带 `page` 参数的响应形状未变，网页端/旧手表不受影响。
 
 - `rev` 由服务端 `max(当前, 传入) + 1` 单调递增（与 `docs/schedule-format.md` §四一致）
 - `schema` 不匹配 / `version` 高于本端 → `422`，拒绝写入
