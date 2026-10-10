@@ -47,9 +47,13 @@
     padding-left: 18px;
     padding-right: 18px;
 }
+/* 真机教训链：无显式尺寸的容器一律塌（模拟器测不出）。
+ * 显式：item-bg 372x78 → item-left 210x56 → item-main 186x56 → text 显式高 */
 .item-left {
     flex-direction: row;
     align-items: center;
+    width: 210px;
+    height: 56px;
 }
 .status-dot {
     width: 10px;
@@ -59,17 +63,20 @@
 }
 .item-main {
     flex-direction: column;
-    height: 52px;
+    width: 186px;
+    height: 56px;
     justify-content: center;
 }
 .item-name {
     font-size: 25px;
     color: #F0F3FA;
+    height: 30px;
 }
 .item-teacher {
     font-size: 18px;
     color: #99A1B8;
     margin-top: 2px;
+    height: 22px;
 }
 .item-time {
     font-size: 19px;
