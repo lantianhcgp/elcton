@@ -147,13 +147,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $rec['lastAccess'] = time();
     saveFile(pRec($id), $rec);
     $doc = $rec['doc'];
-    /* ── 切片模式：&page=N 时按 20 课/页返回（手表端 Lite 单次大响应会卡死，
-     *     60 课 ≈ 12KB 超出其承受力 → 分 3 页 ×4KB 串行拉取）。
+    /* ── 切片模式：&page=N 时按 10 课/页返回（手表端 Lite 单次大响应会卡死，
+     *     60 课 ≈ 11KB 超出其承受力 → 分 6 页 ×~1.9KB 串行拉取，页间留间隔）。
      *     不带 page 参数 → 走下面整份路径（网页端/旧表完全兼容）。 ── */
     if (isset($_GET['page'])) {
         $page = intval($_GET['page']);
         $all = (isset($doc['courses']) && is_array($doc['courses'])) ? array_values($doc['courses']) : array();
-        $size = 20;
+        $size = 10;
         $total = count($all);
         $pages = ($total === 0) ? 1 : max(1, (int) ceil($total / $size));
         if ($page < 0 || $page >= $pages) { out('页码超出范围 0..' . ($pages - 1), 422); }

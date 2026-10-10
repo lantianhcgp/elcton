@@ -61,14 +61,15 @@ function sig(doc) {
     var list = doc.courses.slice().sort(function (a, b) {
         return str(a.id) < str(b.id) ? -1 : (str(a.id) > str(b.id) ? 1 : 0);
     });
-    var s = '';
+    /* 数组 join 而非 s += 循环：60 课 O(n²) 拼接在 Lite 上是 CPU 峰值（卡死嫌疑之一）*/
+    var parts = [];
     for (var i = 0; i < list.length; i++) {
         var c = list[i];
-        s += str(c.id) + '|' + str(c.name) + '|' + num(c.dayOfWeek, 0) + '|' +
-             num(c.startPeriod, 0) + '|' + num(c.endPeriod, 0) + '|' +
-             str(c.startTime) + '|' + str(c.endTime) + '|' + str(c.weekType) + ';';
+        parts.push(str(c.id) + '|' + str(c.name) + '|' + num(c.dayOfWeek, 0) + '|' +
+                   num(c.startPeriod, 0) + '|' + num(c.endPeriod, 0) + '|' +
+                   str(c.startTime) + '|' + str(c.endTime) + '|' + str(c.weekType) + ';');
     }
-    return s;
+    return parts.join('');
 }
 
 /* 归一化：replaceDoc 直接把对象挂进缓存，字段缺失会让 serialize 出问题 → 先补齐 */
@@ -392,29 +393,34 @@ export default {
         self.setRow(1, '拉取 ' + (n + 1) + '/' + self.meta.pages + ' 页 · ' + self.acc.length + ' 课', '#ffc107');
         self.detail = '切片进度 ' + (n + 1) + '/' + self.meta.pages + '（' + self.acc.length + '/' + self.meta.total + ' 课）';
         if ((n + 1) < self.meta.pages) {
-            /* 页间 50ms 放行：Lite 回调可能同步派发，直接递归连发 = 变相并发 = 卡死 */
+            /* 页间 400ms 放行：Lite 回调可能同步派发（直接递归=变相并发=卡死），
+             * 且每页后要给网络栈/事件循环喘息——50ms 间隔真机仍卡死（2026-10-10 第2轮）*/
             setTimeout(function () {
                 if (self.dead || gen !== self.gen) { return; }
                 self.pullPage(n + 1, gen);
-            }, 50);
+            }, 400);
             return;
         }
-        /* 收齐 → 组装整份走现有 decide/apply（后半段零改动） */
-        var full = {
-            schema: self.meta.schema, version: self.meta.version,
-            rev: self.meta.rev, updatedAt: self.meta.updatedAt,
-            settings: self.meta.settings, courses: self.acc
-        };
-        var normalized = null;
-        var normErr = null;
-        try { normalized = normalize(full); } catch (e) { normalized = null; normErr = e; }
-        if (!normalized) {
-            self.running = false;
-            self.setRow(1, '✗ 归一化失败', '#f44336');
-            self.detail = '合并 ' + self.acc.length + ' 课后 normalize 抛出 ' + brief(normErr, 50);
-            return;
-        }
-        self.decide(normalized, gen);
+        /* 收齐 → 最重的整份处理（合并/normalize/比对/落盘）延后 100ms 单独一拍，
+         * 不与最后一次 fetch 回调挤在同一个事件循环里 */
+        setTimeout(function () {
+            if (self.dead || gen !== self.gen) { return; }
+            var full = {
+                schema: self.meta.schema, version: self.meta.version,
+                rev: self.meta.rev, updatedAt: self.meta.updatedAt,
+                settings: self.meta.settings, courses: self.acc
+            };
+            var normalized = null;
+            var normErr = null;
+            try { normalized = normalize(full); } catch (e) { normalized = null; normErr = e; }
+            if (!normalized) {
+                self.running = false;
+                self.setRow(1, '✗ 归一化失败', '#f44336');
+                self.detail = '合并 ' + self.acc.length + ' 课后 normalize 抛出 ' + brief(normErr, 50);
+                return;
+            }
+            self.decide(normalized, gen);
+        }, 100);
     },
 
     /* 整份响应处理（老流程）：兼容包装 → schema/version 校验 → decide */
