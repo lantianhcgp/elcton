@@ -6,7 +6,7 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
-    background-color: #0d0d0d;
+    background-color: #0B0E14;
 }
 .header-bar {
     width: 100%;
@@ -19,11 +19,11 @@
 }
 .title {
     font-size: 30px;
-    color: #ffffff;
+    color: #F0F3FA;
 }
 .subtitle {
     font-size: 18px;
-    color: #6c6c80;
+    color: #99A1B8;
 }
 .endpoint-bar {
     width: 100%;
@@ -34,8 +34,8 @@
     align-items: center;
 }
 .endpoint-text {
-    font-size: 15px;
-    color: #4a4a58;
+    font-size: 16px;
+    color: #626A80;
 }
 .probe-list {
     width: 100%;
@@ -49,10 +49,10 @@
     align-items: center;
 }
 .probe-bg {
-    width: 90%;
+    width: 372px;
     height: 40px;
-    background-color: #1a1a2e;
-    border-radius: 14px;
+    background-color: #171B28;
+    border-radius: 16px;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -61,7 +61,7 @@
 }
 .probe-name {
     font-size: 21px;
-    color: #e8e8f0;
+    color: #F0F3FA;
 }
 .probe-status {
     font-size: 18px;
@@ -76,7 +76,7 @@
 }
 .detail-text {
     font-size: 17px;
-    color: #6c6c80;
+    color: #99A1B8;
 }
 .bottom-bar {
     width: 100%;
@@ -99,7 +99,7 @@
 .nav-btn-alt {
     width: 150px;
     height: 52px;
-    background-color: #2a2a3e;
+    background-color: #1E2333;
     border-radius: 26px;
     justify-content: center;
     align-items: center;
@@ -108,5 +108,5 @@
 }
 .nav-btn-text {
     font-size: 24px;
-    color: #ffffff;
+    color: #E8ECF4;
 }

@@ -35,7 +35,11 @@ export default {
                     success: function (src) {
                         self.source = src;
                         if (cid) {
+                            /* 脏检查：onInit+onShow 连读两次，同 id 跳过第二次
+                             * 全量加载渲染（性能优化 2026-10-10） */
+                            if (self.courseId === cid && self._courseLoaded) { return; }
                             self.courseId = cid;
+                            self._courseLoaded = true;
                             self.loadCourse();
                         }
                     }

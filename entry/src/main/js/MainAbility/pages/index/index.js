@@ -60,6 +60,11 @@ export default {
                         statusColor: statusColor
                     });
                 }
+                /* 脏检查：onInit+onShow 会连调两次，数据没变跳过整体重建，
+                 * 避免 Lite 上的重复列表渲染（性能优化 2026-10-10） */
+                var key = JSON.stringify(list);
+                if (self._listKey === key) { return; }
+                self._listKey = key;
                 self.todayCourses = list;
                 self.isEmpty = list.length === 0;
                 if (currentIdx > 0) {
@@ -68,7 +73,7 @@ export default {
                         if (listRef && listRef.scrollTo) {
                             listRef.scrollTo({ index: currentIdx });
                         }
-                    }, 100);
+                    }, 32);
                 }
             });
         });

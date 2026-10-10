@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
     flex-direction: column;
-    background-color: #0d0d0d;
+    background-color: #0B0E14;
 }
 .header-bar {
     width: 100%;
@@ -20,11 +20,11 @@
 }
 .title {
     font-size: 30px;
-    color: #ffffff;
+    color: #F0F3FA;
 }
 .subtitle {
     font-size: 17px;
-    color: #6c6c80;
+    color: #99A1B8;
 }
 .display {
     width: 100%;
@@ -35,9 +35,9 @@
     padding-right: 24px;
 }
 .digits {
-    font-size: 34px;
-    color: #ffffff;
-    letter-spacing: 4px;
+    font-size: 36px;
+    color: #F0F3FA;
+    letter-spacing: 6px;
 }
 .hintbox {
     width: 100%;
@@ -64,14 +64,14 @@
 .key {
     width: 116px;
     height: 50px;
-    background-color: #1a1a2e;
-    border-radius: 12px;
+    background-color: #1F2434;
+    border-radius: 14px;
     justify-content: center;
     align-items: center;
 }
 .keytext {
     font-size: 26px;
-    color: #e8e8f0;
+    color: #E8ECF4;
 }
 .bottom-bar {
     width: 100%;
@@ -94,7 +94,7 @@
 .nav-btn-alt {
     width: 150px;
     height: 52px;
-    background-color: #2a2a3e;
+    background-color: #1E2333;
     border-radius: 26px;
     justify-content: center;
     align-items: center;
@@ -103,5 +103,5 @@
 }
 .nav-btn-text {
     font-size: 24px;
-    color: #ffffff;
+    color: #E8ECF4;
 }
