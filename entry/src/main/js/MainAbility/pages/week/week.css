@@ -22,7 +22,14 @@
 }
 .week-label {
     font-size: 21px;
-    color: #99A1B8;
+    color: #C9CFFF;
+    background-color: #1E2333;
+    border-radius: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    text-align: center;
 }
 /* 日期条：div 承载背景、text 只放字（真机 text 背景错位的修复保持） */
 .day-tabs {

@@ -60,10 +60,16 @@ function generateId() {
 
 function calculateCurrentWeek(semesterStart) {
   if (!semesterStart) return 1;
-  var start = new Date(semesterStart);
+  /* 本地零点解析（YYYY-MM-DD 被 new Date() 按 UTC 午夜解释，与本地时间混算差半天）
+   * + 周界对齐到周一（课表第N周以周一起算，否则学期起始非周一时奇偶周中错位） */
+  var start = new Date(semesterStart + 'T00:00:00');
+  if (isNaN(start.getTime())) { start = new Date(semesterStart); }
+  if (isNaN(start.getTime())) return 1;
   var now = new Date();
-  var diffMs = now.getTime() - start.getTime();
-  var diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var dow = (start.getDay() + 6) % 7;               /* 周一=0 … 周日=6 */
+  var week1Monday = start.getTime() - dow * 86400000;
+  var diffDays = Math.floor((today.getTime() - week1Monday) / (1000 * 60 * 60 * 24));
   if (diffDays < 0) return 1;
   return Math.floor(diffDays / 7) + 1;
 }

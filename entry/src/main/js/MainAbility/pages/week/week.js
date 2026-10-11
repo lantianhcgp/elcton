@@ -8,6 +8,7 @@ export default {
     data: {
         currentWeek: 1,
         weekDisplay: '',
+        weekMode: 'auto',   /* auto=跟随当前周 | odd=单周课 | even=双周课 */
         selectedDay: 1,
         dayCourses: [],
         isEmpty: true
@@ -36,17 +37,37 @@ export default {
         this.selectedDay = day;
         this.loadDayCourses();
     },
+    /* 单双周切换按钮（2026-10-11 反馈）：点 header 右侧标签循环
+     * 本周(自动) → 单周课 → 双周课 → 本周，标签始终标注当前显示的是单还是双 */
+    onWeekModeClick: function () {
+        var next = { auto: 'odd', odd: 'even', even: 'auto' };
+        this.weekMode = next[this.weekMode] || 'auto';
+        this.refreshLabel();
+        this.loadDayCourses();
+    },
+    refreshLabel: function () {
+        if (this.weekMode === 'odd') { this.weekDisplay = '单周课'; return; }
+        if (this.weekMode === 'even') { this.weekDisplay = '双周课'; return; }
+        var par = (this.currentWeek % 2 === 1) ? '单' : '双';
+        this.weekDisplay = '第' + this.currentWeek + '周·' + par;
+    },
+    effectiveWeek: function () {
+        if (this.weekMode === 'odd') { return 1; }    /* 奇数周代表（过滤只看奇偶） */
+        if (this.weekMode === 'even') { return 2; }   /* 偶数周代表 */
+        return this.currentWeek;
+    },
     loadData: function () {
         var self = this;
         data.loadSettings(function (settings) {
             self.currentWeek = utils.calculateCurrentWeek(settings.semesterStart);
             self.weekDisplay = '\u7b2c' + self.currentWeek + '\u5468';
+            self.refreshLabel();
             self.loadDayCourses();
         });
     },
     loadDayCourses: function () {
         var self = this;
-        data.getCoursesForDay(self.selectedDay, self.currentWeek, function (courses) {
+        data.getCoursesForDay(self.selectedDay, self.effectiveWeek(), function (courses) {
             var list = [];
             var now = utils.getCurrentMinutes();
             var today = utils.getDayOfWeek();
