@@ -14,6 +14,9 @@ export default {
         isEmpty: true
     },
     onInit: function () {
+        var self = this;
+        self.weekDisplay = 'INIT';                                  /* 生命周期标记 */
+        setTimeout(function () { self.weekDisplay = 'TMR'; }, 500); /* 定时器标记 */
         this.selectedDay = utils.getDayOfWeek();
         this.loadData();
     },
