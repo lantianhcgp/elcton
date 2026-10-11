@@ -1,7 +1,7 @@
 <div class="container">
     <div class="header-bar">
         <text class="page-title">&#x5468;&#x89c6;&#x56fe;</text>
-        <text class="week-label" @click="onWeekModeClick">{{ weekDisplay }}</text>
+        <div class="week-label-bg" @click="onWeekModeClick"><text class="week-label">{{ weekDisplay }}</text></div>
     </div>
     <div class="day-tabs">
         <div class="day-tab" if="{{ selectedDay === 1 }}" @click="onDaySelect(1)"><text class="day-tab-text">&#x4e00;</text></div>
