@@ -59,10 +59,16 @@ export default {
     loadData: function () {
         var self = this;
         data.loadSettings(function (settings) {
+            var tag = (settings && settings.__fb) ? 'FB|' : 'CB|';   /* 诊断:FB=IO兜底 CB=存储回调 */
+            try {
             self.currentWeek = utils.calculateCurrentWeek(settings.semesterStart);
             self.weekDisplay = '\u7b2c' + self.currentWeek + '\u5468';
-            self.refreshLabel();
-            self.loadDayCourses();
+                self.refreshLabel();
+                self.weekDisplay = tag + self.weekDisplay;   /* 前缀:回调来源可见 */
+                self.loadDayCourses();
+            } catch (e) {
+                self.weekDisplay = tag + 'ERR';
+            }
         });
     },
     loadDayCourses: function () {

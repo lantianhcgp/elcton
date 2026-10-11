@@ -47,6 +47,7 @@ function ensureLoaded(cb) {
         docCache = DEMO;
         coursesCache = DEMO.courses;
         settingsCache = DEMO.settings;
+        settingsCache.__fb = true;   /* 诊断标记:本 settings 来自 IO 兜底 */
         loading = false;
         var q = loadWaiters;
         loadWaiters = [];
