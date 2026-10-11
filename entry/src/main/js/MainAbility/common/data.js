@@ -12,13 +12,50 @@ var docCache = null;
 var loading = false;
 var loadWaiters = [];
 
+/* IO 挂死兜底（2026-10-11）：真机文件读取毫秒级；官方模拟器对 @system.file
+ * internal:// 静默不回调，导致 store.load 永不返回 → 页面死等空数据。
+ * 1s 未返回视为挂死 → 用默认设置+演示课表先渲染；真实数据后到也不覆盖本会话
+ * （真机正常路径 1s 内返回，清掉定时器，兜底永不触发）。 */
+var DEMO = {
+    schema: 'elcton.schedule', version: 1, rev: 0, updatedAt: 0,
+    settings: { semesterStart: '2026-09-01', currentWeek: 1, vibrationEnabled: true, reminderMinutes: 5 },
+    courses: [
+        { id: 'dm1', name: '语文', dayOfWeek: 1, startTime: '08:00', endTime: '08:45' },
+        { id: 'dm2', name: '数学', dayOfWeek: 2, startTime: '08:00', endTime: '08:45' },
+        { id: 'dm3', name: '英语', dayOfWeek: 3, startTime: '08:00', endTime: '08:45' },
+        { id: 'dm4', name: '物理', dayOfWeek: 4, startTime: '08:00', endTime: '08:45' },
+        { id: 'dm5', name: '化学', dayOfWeek: 5, startTime: '08:00', endTime: '08:45' },
+        { id: 'dm6', name: '生物', dayOfWeek: 6, startTime: '08:00', endTime: '08:45' },
+        { id: 'dm7', name: '体育', dayOfWeek: 7, startTime: '08:00', endTime: '08:45' },
+        { id: 'dm8', name: '程序设计', dayOfWeek: 2, startTime: '10:00', endTime: '10:45', weekType: 'odd' },
+        { id: 'dm9', name: '美术', dayOfWeek: 2, startTime: '14:00', endTime: '14:45', weekType: 'even' }
+    ]
+};
+var fbTimer = null, fbFired = false;
+
 /* 首次访问才读文件；并发调用共享同一次读，读完统一放行 */
 function ensureLoaded(cb) {
     if (docCache) { cb(); return; }
     loadWaiters.push(cb);
     if (loading) { return; }
     loading = true;
+    fbFired = false;
+    if (fbTimer) { clearTimeout(fbTimer); fbTimer = null; }
+    fbTimer = setTimeout(function () {
+        if (fbFired) { return; }
+        fbFired = true;
+        docCache = DEMO;
+        coursesCache = DEMO.courses;
+        settingsCache = DEMO.settings;
+        loading = false;
+        var q = loadWaiters;
+        loadWaiters = [];
+        for (var i = 0; i < q.length; i++) { q[i](); }
+    }, 1000);
     store.load(function (err, doc) {
+        if (fbFired) { return; }       /* 已按兜底渲染：迟到数据本会话不覆盖 */
+        fbFired = true;
+        if (fbTimer) { clearTimeout(fbTimer); fbTimer = null; }
         docCache = doc;
         coursesCache = doc.courses;
         settingsCache = doc.settings;
