@@ -11,6 +11,7 @@ import systemFile from '@system.file';
 var CHUNK = 4096;
 
 function readFile(uri, cb) {
+    try {
     systemFile.get({
         uri: uri,
         success: function (meta) {
@@ -23,6 +24,7 @@ function readFile(uri, cb) {
             var step = function () {
                 if (done) { return; }
                 if (idx >= count) { done = true; cb(undefined, temp); temp = null; return; }
+                try {
                 systemFile.readText({
                     uri: uri,
                     position: idx * CHUNK,
@@ -43,6 +45,9 @@ function readFile(uri, cb) {
                         }
                     }
                 });
+                } catch (e2) {
+                    if (idx === 0) { done = true; cb(301, e2); } else { idx++; step(); }
+                }
             };
             step();
         },
@@ -50,15 +55,18 @@ function readFile(uri, cb) {
             cb(code, meta);
         }
     });
+    } catch (e) { cb(301, e); }
 }
 
 function writeFile(uri, text, cb) {
+    try {
     systemFile.writeText({
         uri: uri,
         text: text,
         success: function () { cb(undefined, true); },
         fail: function (d, code) { cb(code, d); }
     });
+    } catch (e) { cb(999, e); }
 }
 
 function backup(uri, text, cb) {

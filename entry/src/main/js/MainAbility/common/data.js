@@ -58,8 +58,12 @@ function ensureLoaded(cb) {
         fbFired = true;
         if (fbTimer) { clearTimeout(fbTimer); fbTimer = null; }
         docCache = doc;
-        coursesCache = doc.courses;
-        settingsCache = doc.settings;
+        if (!docCache || !docCache.courses || docCache.courses.length === 0) {
+            docCache = DEMO;              /* 种子也失败(无文档/空课表)→演示数据兜底 */
+            DEMO.settings.__fb = true;
+        }
+        coursesCache = docCache.courses;
+        settingsCache = docCache.settings;
         loading = false;
         var q = loadWaiters;
         loadWaiters = [];
