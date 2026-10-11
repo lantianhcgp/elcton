@@ -7,16 +7,17 @@ import { DAY_NAMES, DAY_NAMES_SHORT, COURSE_COLORS, PERIOD_TIMES } from '../../c
 export default {
     data: {
         currentWeek: 1,
-        weekDisplay: '',
+        /* 胶囊初值：模块加载即同步算好，不依赖 onInit/onShow 生命周期（模拟器不触发时也能显示） */
+        weekDisplay: (function () {
+            var w = utils.calculateCurrentWeek('2026-09-01');
+            return '\u7b2c' + w + '\u5468\u00b7' + (w % 2 === 1 ? '\u5355' : '\u53cc');
+        })(),
         weekMode: 'auto',   /* auto=跟随当前周 | odd=单周课 | even=双周课 */
         selectedDay: 1,
         dayCourses: [],
         isEmpty: true
     },
     onInit: function () {
-        var self = this;
-        self.weekDisplay = 'INIT';                                  /* 生命周期标记 */
-        setTimeout(function () { self.weekDisplay = 'TMR'; }, 500); /* 定时器标记 */
         this.selectedDay = utils.getDayOfWeek();
         this.loadData();
     },
@@ -62,16 +63,9 @@ export default {
     loadData: function () {
         var self = this;
         data.loadSettings(function (settings) {
-            var tag = (settings && settings.__fb) ? 'FB|' : 'CB|';   /* 诊断:FB=IO兜底 CB=存储回调 */
-            try {
             self.currentWeek = utils.calculateCurrentWeek(settings.semesterStart);
-            self.weekDisplay = '\u7b2c' + self.currentWeek + '\u5468';
-                self.refreshLabel();
-                self.weekDisplay = tag + self.weekDisplay;   /* 前缀:回调来源可见 */
-                self.loadDayCourses();
-            } catch (e) {
-                self.weekDisplay = tag + 'ERR';
-            }
+            self.refreshLabel();
+            self.loadDayCourses();
         });
     },
     loadDayCourses: function () {
