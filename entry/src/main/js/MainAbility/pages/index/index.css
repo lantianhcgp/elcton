@@ -14,8 +14,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-left: 22px;
-    padding-right: 22px;
+    /* 圆角安全区：FIT3 屏角 R≈110，星期/日期内缩避开被屏角切掉（2026-10-12） */
+    padding-top: 12px;
+    padding-left: 60px;
+    padding-right: 60px;
 }
 .day-label {
     font-size: 34px;
@@ -29,6 +31,8 @@
     width: 100%;
     height: 71%;
     flex-direction: column;
+    /* 列表默认底色是黑：显式铺页面底色，去掉卡片两侧黑条 */
+    background-color: #0B0E14;
 }
 .item {
     width: 100%;
