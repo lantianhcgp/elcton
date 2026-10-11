@@ -10,25 +10,27 @@
 }
 .header-bar {
     width: 100%;
-    height: 13%;
+    height: 19%;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding-left: 22px;
-    padding-right: 22px;
+    padding-top: 12px;
 }
 .day-label {
-    font-size: 34px;
+    font-size: 30px;
     color: #F0F3FA;
+    margin-right: 10px;
 }
 .date-label {
-    font-size: 21px;
+    font-size: 18px;
     color: #99A1B8;
 }
 .course-list {
     width: 100%;
-    height: 71%;
+    height: 65%;
     flex-direction: column;
+    /* 列表默认底色是黑：显式铺页面底色，去掉卡片两侧黑条 */
+    background-color: #0B0E14;
 }
 .item {
     width: 100%;
@@ -91,10 +93,10 @@
     justify-content: center;
     align-items: center;
     background-color: #12151F;
-    padding-bottom: 4px;
+    padding-bottom: 16px;
 }
 .nav-btn {
-    width: 42%;
+    width: 36%;
     height: 50px;
     background-color: #1E2333;
     border-radius: 25px;
