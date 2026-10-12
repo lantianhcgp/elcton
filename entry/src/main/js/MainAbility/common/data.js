@@ -20,13 +20,13 @@ var DEMO = {
     schema: 'elcton.schedule', version: 1, rev: 0, updatedAt: 0,
     settings: { semesterStart: '2026-09-01', currentWeek: 1, vibrationEnabled: true, reminderMinutes: 5 },
     courses: [
-        { id: 'dm1', name: '语文', dayOfWeek: 1, startTime: '08:00', endTime: '08:45' },
-        { id: 'dm2', name: '数学', dayOfWeek: 2, startTime: '08:00', endTime: '08:45' },
-        { id: 'dm3', name: '英语', dayOfWeek: 3, startTime: '08:00', endTime: '08:45' },
-        { id: 'dm4', name: '物理', dayOfWeek: 4, startTime: '08:00', endTime: '08:45' },
-        { id: 'dm5', name: '化学', dayOfWeek: 5, startTime: '08:00', endTime: '08:45' },
-        { id: 'dm6', name: '生物', dayOfWeek: 6, startTime: '08:00', endTime: '08:45' },
-        { id: 'dm7', name: '体育', dayOfWeek: 7, startTime: '08:00', endTime: '08:45' },
+        { id: 'dm1', name: '语文', dayOfWeek: 1, startTime: '08:00', endTime: '08:45', weekType: 'all' },
+        { id: 'dm2', name: '数学', dayOfWeek: 2, startTime: '08:00', endTime: '08:45', weekType: 'all' },
+        { id: 'dm3', name: '英语', dayOfWeek: 3, startTime: '08:00', endTime: '08:45', weekType: 'all' },
+        { id: 'dm4', name: '物理', dayOfWeek: 4, startTime: '08:00', endTime: '08:45', weekType: 'all' },
+        { id: 'dm5', name: '化学', dayOfWeek: 5, startTime: '08:00', endTime: '08:45', weekType: 'all' },
+        { id: 'dm6', name: '生物', dayOfWeek: 6, startTime: '08:00', endTime: '08:45', weekType: 'all' },
+        { id: 'dm7', name: '体育', dayOfWeek: 7, startTime: '08:00', endTime: '08:45', weekType: 'all' },
         { id: 'dm8', name: '程序设计', dayOfWeek: 2, startTime: '10:00', endTime: '10:45', weekType: 'odd' },
         { id: 'dm9', name: '美术', dayOfWeek: 2, startTime: '14:00', endTime: '14:45', weekType: 'even' }
     ]
@@ -134,7 +134,7 @@ function getCoursesForDay(dayOfWeek, currentWeek, callback) {
         for (var i = 0; i < c.length; i++) {
             var x = c[i];
             if (x.dayOfWeek !== dayOfWeek) { continue; }
-            if (x.weekType === 'all') { r.push(x); }
+            if (!x.weekType || x.weekType === 'all') { r.push(x); }
             else if (x.weekType === 'odd' && currentWeek % 2 === 1) { r.push(x); }
             else if (x.weekType === 'even' && currentWeek % 2 === 0) { r.push(x); }
         }
