@@ -1,6 +1,7 @@
 <div class="container">
     <div class="header-bar">
         <text class="page-title">&#x5468;&#x89c6;&#x56fe;</text>
+        <!-- 胶囊：整块可点；容器必须给死宽高(day-tab 同理)，否则引擎把自适应文字量成 0 宽 -->
         <div class="week-label-bg" @click="onWeekModeClick"><text class="week-label">{{ weekDisplay }}</text></div>
     </div>
     <div class="day-tabs">

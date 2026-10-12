@@ -6,12 +6,10 @@ import { DAY_NAMES, DAY_NAMES_SHORT, COURSE_COLORS, PERIOD_TIMES } from '../../c
 
 export default {
     data: {
+        /* data 初值必须是字面量：非字面量(IIFE/函数调用)在编译期会被丢掉，属性进不了 VM，
+         * 之后再赋值也不触发重绘 —— 胶囊空文字的根因。真实值由 onInit 同步算出(同索引页日期)。 */
         currentWeek: 1,
-        /* 胶囊初值：模块加载即同步算好，不依赖 onInit/onShow 生命周期（模拟器不触发时也能显示） */
-        weekDisplay: (function () {
-            var w = utils.calculateCurrentWeek('2026-09-01');
-            return '\u7b2c' + w + '\u5468\u00b7' + (w % 2 === 1 ? '\u5355' : '\u53cc');
-        })(),
+        weekDisplay: '\u672c\u5468',   /* '本周'，兜底非空 */
         weekMode: 'auto',   /* auto=跟随当前周 | odd=单周课 | even=双周课 */
         selectedDay: 1,
         dayCourses: [],
@@ -19,6 +17,9 @@ export default {
     },
     onInit: function () {
         this.selectedDay = utils.getDayOfWeek();
+        /* 同步算一次（不等 IO 回调）：先按默认学期起始算，loadSettings 回调回来再按设置校正 */
+        this.currentWeek = utils.calculateCurrentWeek('2026-09-01');
+        this.refreshLabel();
         this.loadData();
     },
     onShow: function () {
