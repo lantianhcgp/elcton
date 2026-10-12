@@ -22,18 +22,13 @@
     font-size: 28px;
     color: #F0F3FA;
 }
-/* 铁律（day-tab 同款）：div 承载背景/点击，text 只放字——背景挂 text 会文字错位丢失 */
-.week-label-wrap {
-    justify-content: center;
-    align-items: center;
-}
+/* 铁律（day-tab 同款）：div 承载背景/点击，text 只放字——背景挂 text 会文字错位丢失。
+ * 容器必须给死宽高：无宽度时父容器靠子文字量宽、文字又靠父容器量宽 → 引擎解成 0 宽 → 字空(实测) */
 .week-label-bg {
+    width: 150px;
+    height: 44px;
     background-color: #1E2333;
     border-radius: 20px;
-    padding-left: 16px;
-    padding-right: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
     justify-content: center;
     align-items: center;
 }
@@ -41,8 +36,6 @@
     font-size: 24px;
     color: #C9CFFF;
     text-align: center;
-    /* 显式宽度：模拟器对"padding 父容器+自适应文字"会算成 0 宽 → 字被裁成空（真机正常） */
-    width: 118px;
 }
 /* 日期条：div 承载背景、text 只放字（真机 text 背景错位的修复保持） */
 .day-tabs {
