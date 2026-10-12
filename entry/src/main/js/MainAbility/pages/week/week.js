@@ -89,7 +89,7 @@ export default {
                 list.push({
                     id: c.id,
                     name: c.name,
-                    teacher: c.teacher,
+                    teacher: c.teacher || '',
                     
                     timeRange: c.startTime + ' - ' + c.endTime,
                     periodText: c.startPeriod + '-' + c.endPeriod + '\u8282',
