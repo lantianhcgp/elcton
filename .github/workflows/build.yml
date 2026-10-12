@@ -13,8 +13,6 @@ jobs:
         include:
           - project: elcton
             path: "."
-          - project: clan
-            path: clan
           - project: focus
             path: focus
     steps:
@@ -57,7 +55,7 @@ jobs:
       # 私钥来自仓库 Secret（不入库，见 tools/sign/sign-app-to-hap.js 的 loadSignKey）
       # 证书按项目分流（FORCE 会把 config 包名 ← 证书包名，所以**一个 p7b = 一个安装身份**）：
       #   elcton → certs/elcton.p7b  身份 watchapp.nexus.0zzip（课程表专属，绑 FIT3，效期 2027-10）
-      #   其余   → certs/app.p7b     身份 drt.sign.yzm.nexus.jvor1（clan/focus 共用）
+      #   其余   → certs/app.p7b     身份 drt.sign.yzm.nexus.jvor1（focus 用）
       # 曾经三工程共用一张证书 → 装课程表把 memo-todo 覆盖了（2026-10-09 实测），勿再合并。
       - name: Sign (needs certs/*.p7b)
         env:

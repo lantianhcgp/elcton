@@ -3,9 +3,8 @@
 华为轻智能手表（FIT3 方屏 408x480，Lite Wearable / faMode）上的课程表与日历应用，
 以及一条**全自动的 GitHub Actions 构建 + 签名流水线**——push 代码，直接拿到可安装的 `.hap`。
 
-> 本仓库包含两个应用：
+> 本仓库主应用：
 > - **elcton**（仓库根）：课程表——今日/周视图、课程 CRUD、当前课高亮、单双周、振动提醒、持久化
-> - **clan/**（子目录）：日历——月视图/日视图（开发中）
 
 技术栈：HML + CSS + JavaScript（JerryScript Lite ES6 子集），纯 FA 工程，零第三方依赖。
 
@@ -13,7 +12,6 @@
 
 ```
 ├── entry/                     # elcton 主工程（课程表）
-├── clan/                      # 日历工程（独立 DevEco 工程）
 ├── scripts/
 │   └── clean_config_in_app.py # 构建后 config.json Lite schema 清洗（5 类修复）
 ├── tools/sign/                # 纯 JS HAP 签名器（源自 kqakqakqa/hap-sign-utils, MIT）
@@ -29,7 +27,7 @@
 1. **准备签名材料**（一次性）：用任意 CSR（可从 hap-sign-utils 网站下载）在
    [AGC](https://developer.huawei.com/consumer/cn/service/josp/agc/index.html)
    创建调试证书并下载 `.p7b` → 放到 `certs/app.p7b`
-2. `git push` 触发 CI，产物在 artifact `elcton-<run>` / `clan-<run>`：
+2. `git push` 触发 CI，产物在 artifact `elcton-<run>` / `focus-<run>`：
    - `<name>-default-unsigned.app` —— 未签名包
    - `<name>.hap` —— **签名完成、可直接安装**
 3. 通过华为穿戴 App 安装到手表

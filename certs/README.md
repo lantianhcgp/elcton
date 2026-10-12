@@ -7,7 +7,7 @@
 | 文件 | 安装身份（bundle-name） | 用在 | 私钥位置 |
 |---|---|---|---|
 | `elcton.p7b` | `watchapp.nexus.0zzip` | 课程表 elcton | Secret `SIGN_P12_PEM_ELCTON` |
-| `app.p7b` | `drt.sign.yzm.nexus.jvor1` | clan / focus | Secret `SIGN_P12_PEM` |
+| `app.p7b` | `drt.sign.yzm.nexus.jvor1` | focus | Secret `SIGN_P12_PEM` |
 
 - **elcton 专属证书**（2026-10-09 申请）：绑 FIT3（UDID `18A007CB…20E3`），
   有效期 2026-10-08 → 2027-10-08；私钥不入库，本地在 `~/hw_watch/agc-cert/key.pem`（600）。
