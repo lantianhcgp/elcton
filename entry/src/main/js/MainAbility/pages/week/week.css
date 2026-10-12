@@ -37,6 +37,8 @@
     font-size: 24px;
     color: #C9CFFF;
     text-align: center;
+    /* 显式宽度：模拟器对"padding 父容器+自适应文字"会算成 0 宽 → 字被裁成空（真机正常） */
+    width: 118px;
 }
 /* 日期条：div 承载背景、text 只放字（真机 text 背景错位的修复保持） */
 .day-tabs {

@@ -6,7 +6,8 @@ import { DAY_NAMES, DAY_NAMES_SHORT, COURSE_COLORS, PERIOD_TIMES } from '../../c
 
 export default {
     data: {
-        currentWeek: 1,
+        /* 当前周与胶囊同源：模块加载即按默认学期起始算好，onInit/设置回调只做校正 */
+        currentWeek: utils.calculateCurrentWeek('2026-09-01'),
         /* 胶囊初值：模块加载即同步算好，不依赖 onInit/onShow 生命周期（模拟器不触发时也能显示） */
         weekDisplay: (function () {
             var w = utils.calculateCurrentWeek('2026-09-01');
@@ -19,6 +20,8 @@ export default {
     },
     onInit: function () {
         this.selectedDay = utils.getDayOfWeek();
+        /* 同步算一次标签，不等 IO 回调：回调慢/不触发时胶囊也不会空着 */
+        this.refreshLabel();
         this.loadData();
     },
     onShow: function () {
