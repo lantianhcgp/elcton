@@ -57,7 +57,7 @@ export default {
                         nextIdx = i;
                     }
                     list.push({
-                        id: c.id, name: c.name, teacher: c.teacher,
+                        id: c.id, name: c.name, teacher: c.teacher || '',
                         timeRange: c.startTime + ' - ' + c.endTime,
                         periodText: c.startPeriod + '-' + c.endPeriod + '\u8282',
                         statusColor: statusColor

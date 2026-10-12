@@ -11,14 +11,18 @@
     width: 100%;
     height: 11%;
     flex-direction: row;
-    justify-content: space-between;
+    /* 圆屏安全区（移植方屏 69d928a 的同款修复，按 GT4 圆几何重算）：
+     * 466 圆 y≈16 文字行安全宽仅 172，左右分列(padding24) 整段落在圆外被裁 →
+     * 居中收紧：「同步+课表」总宽 106 ≤ 172(466)/167(454)/137(390) 全档在圆内 */
+    justify-content: center;
     align-items: center;
-    padding-left: 24px;
-    padding-right: 24px;
+    padding-top: 12px;
 }
 .title {
     font-size: 30px;
     color: #F0F3FA;
+    /* 居中后两段相邻，留 10px 间距（同 index day-label） */
+    margin-right: 10px;
 }
 .subtitle {
     font-size: 18px;
@@ -31,6 +35,8 @@
     padding-right: 24px;
     flex-direction: row;
     align-items: center;
+    /* 圆屏：y≈55 处安全区 x≥82，左对齐(24px) URL 头部被圆弧切 → 居中（152px 宽全档在圆内） */
+    justify-content: center;
 }
 .endpoint-text {
     font-size: 16px;
@@ -48,7 +54,8 @@
     align-items: center;
 }
 .probe-bg {
-    width: 90%;
+    /* 圆屏收窄：首行 y≈86 安全区 x∈[52,414]，90% 时行首文字/行尾状态贴弧被裁 → 80% 全档内收 */
+    width: 80%;
     height: 40px;
     background-color: #171B28;
     border-radius: 16px;

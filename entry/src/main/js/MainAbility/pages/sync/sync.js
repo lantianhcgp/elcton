@@ -165,7 +165,16 @@ export default {
         var r = this.rows[idx];
         if (!r) { return; }
         if (idx === 2) { router.push({ uri: 'pages/code/code' }); return; }
-        if (idx === 3) { this.detail = '重跑自检…'; this.health(); return; }
+        if (idx === 3) {
+            /* 手动强制复位：上一次请求挂死（断网时 fetch 无回包）会把 running 卡 true，
+             * health() 入口互斥把后续点击静默吞掉 → 点了永远"检测中"（2026-10-12 实测）。
+             * running 复位 + gen+1 作废旧回调/旧看门狗（httpGet finish 有 gen 守卫），再重发 */
+            this.running = false;
+            this.gen++;
+            this.detail = '重跑自检…';
+            this.health();
+            return;
+        }
         if (idx === 0) { this.detail = '刷新本地…'; this.refreshLocal(function () {}); return; }
         this.detail = r.name + '：' + r.status;
     },
