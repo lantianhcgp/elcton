@@ -9,7 +9,7 @@ export default {
         /* data 初值必须是字面量：非字面量(IIFE/函数调用)在编译期会被丢掉，属性进不了 VM，
          * 之后再赋值也不触发重绘 —— 胶囊空文字的根因。真实值由 onInit 同步算出(同索引页日期)。 */
         currentWeek: 1,
-        weekDisplay: '\u672c\u5468',   /* '本周'，兜底非空 */
+        weekDisplay: '单',   /* 兜底非空，与 refreshLabel 首帧一致 */
         weekMode: 'auto',   /* auto=跟随当前周 | odd=单周课 | even=双周课 */
         selectedDay: 1,
         dayCourses: [],
@@ -51,10 +51,11 @@ export default {
         this.loadDayCourses();
     },
     refreshLabel: function () {
-        if (this.weekMode === 'odd') { this.weekDisplay = '单周课'; return; }
-        if (this.weekMode === 'even') { this.weekDisplay = '双周课'; return; }
+        /* 只留「单/双」两字：加"第X周"整行会超出胶囊被截（用户真机截图实证） */
         var par = (this.currentWeek % 2 === 1) ? '单' : '双';
-        this.weekDisplay = '第' + this.currentWeek + '周·' + par;
+        if (this.weekMode === 'odd') { par = '单'; }
+        if (this.weekMode === 'even') { par = '双'; }
+        this.weekDisplay = par;
     },
     effectiveWeek: function () {
         if (this.weekMode === 'odd') { return 1; }    /* 奇数周代表（过滤只看奇偶） */

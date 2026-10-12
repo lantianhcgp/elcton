@@ -25,7 +25,7 @@
 /* 铁律（day-tab 同款）：div 承载背景/点击，text 只放字——背景挂 text 会文字错位丢失。
  * 容器必须给死宽高：无宽度时父容器靠子文字量宽、文字又靠父容器量宽 → 引擎解成 0 宽 → 字空(实测) */
 .week-label-bg {
-    width: 150px;
+    width: 76px;    /* 只放「单/双」一个字；死宽是空字修复的关键，不能改回自适应 */
     height: 44px;
     background-color: #1E2333;
     border-radius: 20px;
