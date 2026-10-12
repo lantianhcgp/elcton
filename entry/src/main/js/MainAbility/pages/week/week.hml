@@ -1,8 +1,13 @@
 <div class="container">
     <div class="header-bar">
         <text class="page-title">&#x5468;&#x89c6;&#x56fe;</text>
-        <!-- 兜底：weekDisplay 为空时至少显示"本周"，不让胶囊出现空标签（模拟器实测空渲染） -->
-        <div class="week-label-bg" @click="onWeekModeClick"><text class="week-label">{{ weekDisplay || '本周' }}</text></div>
+        <!-- 胶囊：外层只接点击，内层只管外观 —— 实测带 @click 的容器里动态 text 不渲染 -->
+        <div class="week-label-wrap" @click="onWeekModeClick">
+            <div class="week-label-bg">
+                <text class="week-label" if="{{ weekDisplay === '' }}">空</text>
+                <text class="week-label">{{ weekDisplay }}</text>
+            </div>
+        </div>
     </div>
     <div class="day-tabs">
         <div class="day-tab" if="{{ selectedDay === 1 }}" @click="onDaySelect(1)"><text class="day-tab-text">&#x4e00;</text></div>

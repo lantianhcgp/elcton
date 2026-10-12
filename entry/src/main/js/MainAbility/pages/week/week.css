@@ -23,6 +23,10 @@
     color: #F0F3FA;
 }
 /* 铁律（day-tab 同款）：div 承载背景/点击，text 只放字——背景挂 text 会文字错位丢失 */
+.week-label-wrap {
+    justify-content: center;
+    align-items: center;
+}
 .week-label-bg {
     background-color: #1E2333;
     border-radius: 20px;
