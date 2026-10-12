@@ -13,8 +13,6 @@ jobs:
         include:
           - project: elcton
             path: "."
-          - project: clan
-            path: clan
           - project: focus
             path: focus
     steps:
