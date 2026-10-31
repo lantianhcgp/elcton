@@ -10,7 +10,7 @@ function adapter() {
         writeText(uri,text,append,c){files.set(uri,(append?(files.get(uri)||''):'')+text);c.success();},
         getInfo(uri,c){files.has(uri)?c.success({size:files.get(uri).length,exist:true}):c.fail('missing',301);}
     }});
-    const source=fs.readFileSync('../elcton-sim-qa/js/runtime/apiSim_file.js','utf8');
+    const source=fs.readFileSync((process.env.HMLWSIM_ROOT || '../elcton-sim-qa') + '/js/runtime/apiSim_file.js','utf8');
     const api=vm.runInContext(source+'\nApiSimFile;',ctx);return api;
 }
 test('hmlwsim file adapter reads actual UTF-8 byte windows and reports length through get',()=>{

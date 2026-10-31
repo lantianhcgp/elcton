@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-const source=fs.readFileSync('../elcton-sim-qa/js/runtime/deviceFeature_virtualFS.js','utf8');
+const source=fs.readFileSync((process.env.HMLWSIM_ROOT || '../elcton-sim-qa') + '/js/runtime/deviceFeature_virtualFS.js','utf8');
 test('hmlwsim reads rawfile assets as text at the runtime URI instead of base64',()=>{
  const data=new Map(); const localStorage={length:0,setItem(k,v){data.set(k,v)},getItem(k){return data.get(k)},removeItem(k){data.delete(k)},key(){return null}};
  const c=vm.createContext({Map,TextEncoder,TextDecoder,ArrayBuffer,Uint8Array,Object,localStorage,btoa:s=>Buffer.from(s,'binary').toString('base64')});

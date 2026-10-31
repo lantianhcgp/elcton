@@ -14,7 +14,20 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Checkout the fixed simulator QA dependency
+        uses: actions/checkout@v4
+        with:
+          repository: kqakqakqa/hmlwsim
+          ref: 2b28919fc14ea25eaed46f895817d58e481a8657
+          path: .qa-hmlwsim
+          persist-credentials: false
+      - name: Apply disclosed simulator compatibility patches
+        run: |
+          git -C .qa-hmlwsim apply --check "$GITHUB_WORKSPACE/qa/hmlwsim-compat.patch"
+          git -C .qa-hmlwsim apply "$GITHUB_WORKSPACE/qa/hmlwsim-compat.patch"
       - name: Protocol and persistence regression tests
+        env:
+          HMLWSIM_ROOT: ./.qa-hmlwsim
         run: |
           npm ci --prefix tools/sign --no-audit --no-fund
           node --experimental-default-type=module --test tests/*.test.mjs

@@ -1,0 +1,102 @@
+diff --git a/js/runtime/apiSim_file.js b/js/runtime/apiSim_file.js
+index 006edc6..858946e 100644
+--- a/js/runtime/apiSim_file.js
++++ b/js/runtime/apiSim_file.js
+@@ -4,9 +4,29 @@
+  * Delegates to DeviceFeatureVirtualFS with parameter formatting.
+  */
+ const ApiSimFile = (() => {
++  // QA compatibility patch: readText offsets are UTF-8 byte windows, not characters.
+   function readText(params) {
+     DeviceFeatureVirtualFS.readText(params.uri, {
+-      success: params.success,
++      success: (data) => {
++        const bytes = new TextEncoder().encode(data.text);
++        const start = Math.max(0, Number(params.position) || 0);
++        const size = params.length === undefined ? 4096 : Number(params.length);
++        if (!(size >= 0 && size <= 4096)) {
++          if (params.fail) params.fail('Invalid read length', 302);
++          return;
++        }
++        if (params.success) params.success({ text: new TextDecoder().decode(bytes.slice(start, start + size)) });
++      },
++      fail: params.fail,
++      complete: params.complete,
++    });
++  }
++
++  function get(params) {
++    DeviceFeatureVirtualFS.readText(params.uri, {
++      success: (data) => {
++        if (params.success) params.success({ uri: params.uri, length: new TextEncoder().encode(data.text).length, type: 'file' });
++      },
+       fail: params.fail,
+       complete: params.complete,
+     });
+@@ -68,5 +88,5 @@ const ApiSimFile = (() => {
+     });
+   }
+ 
+-  return { readText, writeText, list, mkdir, delete: delete_, move, copy, getInfo };
++  return { readText, writeText, list, mkdir, delete: delete_, move, copy, get, getInfo };
+ })();
+diff --git a/js/runtime/deviceFeature_phoneLink.js b/js/runtime/deviceFeature_phoneLink.js
+index 39a5db7..65372bc 100644
+--- a/js/runtime/deviceFeature_phoneLink.js
++++ b/js/runtime/deviceFeature_phoneLink.js
+@@ -36,25 +36,14 @@ const DeviceFeaturePhoneLink = (() => {
+    */
+   function sendToPhone(message) {
+     console.log('[PhoneLink] sendToPhone:', message);
+-    _incomingMessages.push({
+-      time: new Date().toISOString(),
+-      source: 'sent',
+-      type: 'message',
+-      content: message,
+-      isSuccess: true,
+-    });
+-
+-    // Notify subscribers about sent messages too
+-    _msgSubscribers.forEach(cb => {
+-      cb({ isRegister: false, isFileType: false, message: message });
+-    });
++    // QA route: outgoing traffic is not an inbound watch message.
+   }
+ 
+   /**
+    * Receive a message from the phone (called from UI panel)
+    */
+   function receiveFromPhone(text) {
+-    _incomingMessages.push({
++    if (_msgSubscribers.length === 0) _incomingMessages.push({
+       time: new Date().toISOString(),
+       source: 'received',
+       type: 'message',
+@@ -71,7 +60,7 @@ const DeviceFeaturePhoneLink = (() => {
+    * Receive a file from the phone (called from UI panel)
+    */
+   function receiveFileFromPhone(filename) {
+-    _incomingMessages.push({
++    if (_msgSubscribers.length === 0) _incomingMessages.push({
+       time: new Date().toISOString(),
+       source: 'received',
+       type: 'file',
+diff --git a/js/runtime/deviceFeature_virtualFS.js b/js/runtime/deviceFeature_virtualFS.js
+index 5983b69..5ccc672 100644
+--- a/js/runtime/deviceFeature_virtualFS.js
++++ b/js/runtime/deviceFeature_virtualFS.js
+@@ -258,6 +258,14 @@ const DeviceFeatureVirtualFS = (() => {
+       }
+       store.set(normalized, stored);
+       try { localStorage.setItem(LS_PREFIX + normalized, stored); } catch (e) {}
++      // QA asset mount: Lite rawfile resources are visible at internal://app/rawfile/.
++      const rawPrefix = 'assets/entry/resources/rawfile/';
++      if (bundleName && path.startsWith(rawPrefix)) {
++        const assetPath = resolvePath('/user/ace/data/' + bundleName + '/rawfile/' + path.substring(rawPrefix.length));
++        const isText = /\.(json|txt|csv|md)$/i.test(path);
++        const asset = content instanceof ArrayBuffer && isText ? new TextDecoder().decode(content) : stored;
++        store.set(assetPath, asset);
++      }
+     }
+   }
+ 
