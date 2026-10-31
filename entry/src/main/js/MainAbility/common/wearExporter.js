@@ -13,6 +13,11 @@ function createExporter(load) {
         function reply(type) { return {protocol:'elcton.sync',version:1,sender:'watch',type:type,transferId:msg.transferId}; }
         function error(code) { var r=reply('ERROR');r.code=String(code);cb(r); }
         if (msg.type === 'EXPORT_REQUEST') {
+            if (frozen) {
+                if (frozen.id !== msg.transferId) { error('BUSY'); return; }
+                var repeated=reply('EXPORT_META');repeated.length=frozen.text.length;repeated.digest=protocol.crc32(frozen.text);
+                repeated.chunks=Math.ceil(frozen.text.length/300);repeated.sourceRevision=frozen.revision;cb(repeated);return;
+            }
             var generation=++gen;
             load(function (err,doc) {
                 if (generation!==gen) { error('CANCELLED'); return; }

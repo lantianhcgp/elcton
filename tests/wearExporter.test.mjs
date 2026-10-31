@@ -20,3 +20,11 @@ test('export publishes only a checksum-verified sequence frozen at request time'
  assert.equal(text,protocol.snapshot(doc));assert.equal(protocol.crc32(text),meta.digest);
  assert.equal((await request(exporter,'EXPORT_NEXT',0)).data,text.slice(0,300));
 });
+
+test('repeated export request with the same id keeps its original frozen snapshot',async()=>{
+ let current=doc;const exporter=create(cb=>cb(null,current));
+ const first=await request(exporter,'EXPORT_REQUEST');
+ current={...doc,courses:[]};
+ const repeated=await request(exporter,'EXPORT_REQUEST');
+ assert.deepEqual(repeated,first);
+});

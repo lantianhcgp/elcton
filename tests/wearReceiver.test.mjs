@@ -73,3 +73,11 @@ test('cancel during append discards the late callback and allows a new transacti
     assert.equal(store.current,null);
     assert.equal((await send(receiver,{...messages[0],transferId:'t-next'})).type,'ACK');
 });
+
+test('a locally changed document cannot acknowledge an obsolete END as current saved bytes',async()=>{
+    const store=storage();
+    store.load=cb=>cb(null,{text:wire,meta:{datasetId:'school',sourceRevision:1,transferId:'t-one',appliedDigest:protocol.crc32(wire),localDirty:true}});
+    const receiver=makeReceiver(store,{maxBytes:8192});
+    const reply=await send(receiver,messages.at(-1));
+    assert.equal(reply.type,'ERROR');assert.equal(reply.code,'LOCAL_CHANGED');
+});

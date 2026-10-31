@@ -72,6 +72,7 @@ function createReceiver(storage, options) {
             if (msg.type === 'END') {
                 storage.load(function (err, record) {
                     if (err || !record || !record.meta || record.meta.transferId !== msg.transferId) { error(err || 'NO_TRANSFER', msg.transferId, cb); return; }
+                    if (record.meta.localDirty) { error('LOCAL_CHANGED', msg.transferId, cb); return; }
                     var applied = answer('APPLIED', msg.transferId); applied.digest = record.meta.appliedDigest;
                     applied.sourceRevision = record.meta.sourceRevision; cb(applied);
                 });
