@@ -64,7 +64,7 @@ function harness(name, options = {}) {
         get(p) {state.storageGets.push(p); if (options.storageGet) options.storageGet(p, state); else p.success(p.key === 'nav_courseId' ? 'c1' : 'main');},
         set(p) {state.storageSets.push(p); if (options.storageSet) options.storageSet(p, state); else p.success();}
     };
-    const ui = loader({device})('common/watchUi.js');
+
     const focusSource = fs.readFileSync(path.join(root, 'common/crownFocus.js'), 'utf8').replace('export default ', 'return ');
     const crownFocus = Function('setTimeout','clearTimeout',focusSource)(time.setTimeout,time.clearTimeout);
     const constants = {DAY_NAMES:['','Mon','Tue','Wed','Thu','Fri','Sat','Sun'], DAY_NAMES_SHORT:[],
@@ -73,7 +73,7 @@ function harness(name, options = {}) {
     const utils = {getDayOfWeek() {return 1;}, calculateCurrentWeek() {return 1;}, getDateString() {return '2026-11-01';},
         getCurrentMinutes() {return 500;}, timeToMinutes(v) {const [h,m] = v.split(':').map(Number); return h*60+m;}};
     const deps = {'../../common/data.js':data, '../../common/fs.js':file, '../../common/router.js':router,
-        '../../common/watchUi.js':ui, '../../common/crownFocus.js':crownFocus, '../../common/wearProtocol.js':protocol,
+        '../../common/crownFocus.js':crownFocus, '../../common/wearProtocol.js':protocol,
         '../../common/utils.js':utils, '../../common/constants.js':constants, '@system.storage':storage};
     const fetchApi = {fetch(p) {
         state.requests.push({url:p.url, method:p.method, at:time.now(), p});
@@ -262,11 +262,10 @@ test('sync frozen health remains manually restartable without overlapping old ca
 
 for (const name of ['index','week','detail','code','sync']) {
     for (const method of ['onHide','onDestroy']) {
-        test(name + ' rejects late getInfo callbacks after ' + method, () => {
+        test(name + ' retains its original layout without device queries after ' + method, () => {
             const h = harness(name, {deferDevice:true}); hide(h.page, method);
-            const before = JSON.stringify([h.page.ready,h.page.w,h.page.layoutError]);
-            for (const p of h.state.deviceReads) {p.success({windowWidth:280,windowHeight:456,screenShape:'rect'}); p.fail();}
-            assert.equal(JSON.stringify([h.page.ready,h.page.w,h.page.layoutError]), before);
+            assert.deepEqual(h.state.deviceReads, []);
+            assert.equal(h.page.dead, true);
         });
     }
 }
@@ -292,16 +291,13 @@ for (const name of ['index','week']) {
     });
 }
 for (const name of ['index','week']) {
-    test(name + ' does not focus a stale list before asynchronous window layout finishes', () => {
+    test(name + ' restores the original mounted list focus without querying a new layout', () => {
         const h=harness(name,{deferDevice:true});
         h.page.onShow();
-        assert.equal(h.page.ready,false);
-        assert.equal(h.state.rotations.filter(v=>v===true).length,0,'No focus before getInfo returns');
-        const latest=h.state.deviceReads[h.state.deviceReads.length-1];
-        latest.success({windowWidth:412,windowHeight:484,screenShape:'rect'});
+        assert.deepEqual(h.state.deviceReads,[]);
+        assert.equal(h.state.rotations.filter(v=>v===true).length,0,'Focus is deferred until mounting');
         h.time.tick(64);
-        assert.equal(h.page.ready,true);
-        assert.ok(h.state.rotations.includes(true),'Focus restored after actual layout');
+        assert.ok(h.state.rotations.includes(true),'Focus restored on the original list');
         h.page.onDestroy();
     });
 }

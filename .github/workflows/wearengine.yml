@@ -1,7 +1,7 @@
 name: wearengine-watch
 on:
   push:
-    branches: [feat/wearengine-sync]
+    branches: [feat/wearengine-sync, fix/preserve-watch-design]
   workflow_dispatch:
 permissions:
   contents: read

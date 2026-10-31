@@ -3,25 +3,23 @@ import data from '../../common/data.js';
 import storage from '@system.storage';
 import utils from '../../common/utils.js';
 import { DAY_NAMES, COURSE_COLORS } from '../../common/constants.js';
-import ui from '../../common/watchUi.js';
 import crownFocus from '../../common/crownFocus.js';
 
 export default {
     data: {
-        ready: false, layoutError: '', w:0, h:0, top:0, bottom:0, paneW:0, headerH:0, bodyH:0, footerH:0,
-        titleSize:18, textSize:14, smallSize:13, titleH:0, subtitleH:0, rowH:0, cardH:0, cardW:0,
-        cardInnerW:0, cardNameH:0, cardMetaH:0, cardTimeH:0, buttonW:0, buttonH:0, gap:0,
         dayName: '',
         weekDisplay: '',
         todayCourses: [],
         isEmpty: true
     },
     onInit: function () {
-        this.dead = false; ui.init(this, 'index', crownFocus);
+        this.dead = false; this._uiGen = 0;
+        crownFocus(this);
         this.loadData();
     },
     onShow: function () {
-        this.dead = false; ui.init(this, 'index', crownFocus);
+        this.dead = false; this._uiGen = (this._uiGen || 0) + 1;
+        crownFocus(this);
         data.clearCache();
         this.loadData();
     },
@@ -47,7 +45,6 @@ export default {
         self.dayName = DAY_NAMES[day];
         data.loadSettings(function (settings) {
             if (self.dead || gen!==self._loadGen) { return; }
-            self.loadError = settings.__loadError || '';
             var week = utils.calculateCurrentWeek(settings.semesterStart);
             self.weekDisplay = utils.getDateString() + ' \u7b2c' + week + '\u5468';
             data.getCoursesForDay(day, week, function (courses) {
@@ -70,7 +67,7 @@ export default {
                         nextIdx = i;
                     }
                     list.push({
-                        id: c.id, name: c.name, teacher: c.teacher || '', location: c.location || '',
+                        id: c.id, name: c.name, teacher: c.teacher || '',
                         timeRange: c.startTime + ' - ' + c.endTime,
                         periodText: c.startPeriod + '-' + c.endPeriod + '\u8282',
                         statusColor: statusColor
@@ -121,7 +118,7 @@ export default {
         router.push({ uri: 'pages/week/week' });
     },
     onSyncClick: function () {
-        router.push({ uri: 'pages/phone-sync/phone-sync' });
+        router.push({ uri: 'pages/sync/sync' });
     },
     onSwipe: function (e) {
         if (e.direction === 'right' && e.distance >= 150) { router.back(); }

@@ -1,7 +1,7 @@
 import router from '../../common/router.js';
 import data from '../../common/data.js';
 import fs from '../../common/fs.js';
-import ui from '../../common/watchUi.js';
+
 import protocol from '../../common/wearProtocol.js';
 
 /* \u8bfe\u7a0b\u8868\u540c\u6b65\u9875 \u2014\u2014 \u4ece\u624b\u673a\u4fa7\u865a\u62df\u4e3b\u673a\u62c9\u53d6 schedule.json \u5bfc\u5165\u672c\u5730
@@ -59,15 +59,14 @@ function mk(name, status, color) {
 
 export default {
     data: {
-        ready:false,layoutError:'',w:0,h:0,top:0,bottom:0,paneW:0,headerH:0,bodyH:0,footerH:0,
-        titleSize:18,textSize:14,smallSize:13,rowH:0,endpointH:0,detailH:0,probeH:0,buttonW:0,buttonH:0,gap:0,
+
         rows: [],
         detail: '',
         endpoint: 'kebiao.qingyun3.com'
     },
     onInit: function () {
         var self = this;
-        ui.init(self,'sync');
+
         self.dead = false;
         self.running = false;
         self.gen = 0;
@@ -82,7 +81,8 @@ export default {
             mk('\u672c\u5730\u8bfe\u8868', '\u8bfb\u53d6\u4e2d\u2026', '#6c6c80'),
             mk('\u4e91\u7aef\u8bfe\u8868', '\u5f85\u62c9\u53d6', '#6c6c80'),
             mk('\u53d6\u4ef6\u7801', '\u8bfb\u53d6\u4e2d\u2026', '#6c6c80'),
-            mk('\u8fde\u901a\u81ea\u68c0', '\u5f85\u6d4b', '#6c6c80')
+            mk('\u8fde\u901a\u81ea\u68c0', '\u5f85\u6d4b', '#6c6c80'),
+            mk('\u624b\u673a\u540c\u6b65', '\u70b9\u51fb\u6253\u5f00', '#7c86e0')
         ];
         self.pickupCode = '';
         self.detail = '\u8bfb\u53d6\u53d6\u4ef6\u7801\u4e2d\u2026';
@@ -102,20 +102,24 @@ export default {
         this.wdTimer=null;this.reqTimer=null;this.pageTimer=null;this.mergeTimer=null;
     },
     onHide: function () {
-        this.dead=true;this._uiGen++;this.gen++;this.clearTimers();
+        this.dead=true;this.gen++;this.clearTimers();
         this.accText=[];this.meta=null;
         if(!this.committing){this.running=false;this.mode='';}
     },
     onDestroy: function () { this.onHide();data.clearCache(); },
-    onShow: function () {if(!this.dead)return;this.dead=false;ui.init(this,'sync');if(!this.committing)this.onRetry();},
+    onShow: function () {if(!this.dead)return;this.dead=false;if(!this.committing)this.onRetry();},
     onBack: function () {
-        this.onHide();router.push({uri:'pages/phone-sync/phone-sync'});
+        this.onHide();router.back();
     },
     /* \u70b9\u884c = \u4e0a\u4e0b\u6587\u52a8\u4f5c\uff1a\u81ea\u68c0\u884c\u91cd\u8dd1\u81ea\u68c0\u3001\u8bfe\u8868\u884c\u5237\u65b0\u672c\u5730\u3001\u5176\u4f59\u53ea\u770b\u8be6\u60c5 */
     onRowClick: function (idx) {
-        if(this.dead || (this.running && !(idx===3 && this.mode==='health')))return;
+        if(this.dead || (this.running && !((idx===3 || idx===4) && this.mode==='health')))return;
         var r = this.rows[idx];
         if (!r) { return; }
+        if (idx === 4) {
+            if (this.committing) { return; }
+            this.onHide();router.push({uri:'pages/phone-sync/phone-sync'});return;
+        }
         if (idx === 2) { router.push({ uri: 'pages/code/code' }); return; }
         if (idx === 3) {
             /* \u624b\u52a8\u5f3a\u5236\u590d\u4f4d\uff1a\u4e0a\u4e00\u6b21\u8bf7\u6c42\u6302\u6b7b\uff08\u65ad\u7f51\u65f6 fetch \u65e0\u56de\u5305\uff09\u4f1a\u628a running \u5361 true\uff0c

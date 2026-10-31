@@ -1,30 +1,61 @@
 <div class="page" @swipe="onSwipe">
-  <div class="loading" if="{{ !ready }}"><text class="loading-text">{{ layoutError }}</text></div>
-  <div class="frame" if="{{ ready && !showDeleteConfirm }}" style="width: {{ paneW }}px; height: {{ h }}px; padding-top: {{ top }}px; padding-bottom: {{ bottom }}px;">
-    <div class="header-bar" style="width: {{ paneW }}px; height: {{ headerH }}px;"><text class="page-title" style="font-size: {{ titleSize }}px;">&#x8bfe;&#x7a0b;&#x8be6;&#x60c5;</text></div>
-    <list class="detail-list" ref="detailList" style="width: {{ paneW }}px; height: {{ bodyH }}px;">
-      <list-item class="name-item" style="width: {{ paneW }}px; height: {{ detailRowH }}px;"><text class="detail-name" style="width: {{ paneW }}px; height: {{ detailRowH }}px; font-size: {{ titleSize }}px;">{{ courseName }}</text></list-item>
-      <list-item class="detail-item" for="{{ (idx, row) in detailRows }}" style="width: {{ paneW }}px; height: {{ detailRowH }}px;">
-        <div class="detail-row" style="width: {{ paneW }}px; height: {{ detailRowH }}px;">
-          <text class="detail-label" style="width: {{ labelW }}px; font-size: {{ smallSize }}px;">{{ row.label }}</text>
-          <div class="detail-value-box" style="width: {{ valueW }}px; height: {{ detailRowH }}px;"><text class="detail-value" style="width: {{ valueW }}px; font-size: {{ textSize }}px;">{{ row.value }}</text></div>
-        </div>
-      </list-item>
-      <list-item class="error-item" if="{{ saveError !== '' }}" style="width: {{ paneW }}px; height: {{ detailRowH }}px;"><text class="error-text" style="width: {{ paneW }}px; font-size: {{ smallSize }}px;">{{ saveError }}</text></list-item>
-      <list-item class="action-item" style="width: {{ paneW }}px; height: {{ detailRowH }}px;">
-        <div class="del-btn" @click="onDelete" style="width: {{ paneW }}px; height: {{ buttonH }}px;"><text class="button-text" style="font-size: {{ textSize }}px;">&#x5220;&#x9664;&#x8bfe;&#x7a0b;</text></div>
-      </list-item>
-    </list>
-    <div class="bottom-bar" style="width: {{ paneW }}px; height: {{ footerH }}px;"><div class="back-btn" @click="onBack" style="width: {{ paneW }}px; height: {{ buttonH }}px;"><text class="button-text" style="font-size: {{ textSize }}px;">&#x8fd4;&#x56de;</text></div></div>
-  </div>
-  <div class="overlay" if="{{ ready && showDeleteConfirm }}" style="width: {{ w }}px; height: {{ h }}px;">
-    <div class="dialog" style="width: {{ dialogW }}px; height: {{ dialogH }}px;">
-      <text class="dialog-title" style="width: {{ valueW }}px; height: {{ dialogTitleH }}px; font-size: {{ titleSize }}px;">&#x786e;&#x8ba4;&#x5220;&#x9664;&#xff1f;</text>
-      <text class="dialog-hint" style="width: {{ valueW }}px; height: {{ dialogTitleH }}px; font-size: {{ smallSize }}px;">&#x624b;&#x673a;&#x540c;&#x6b65;&#x65f6;&#x4f1a;&#x63d0;&#x793a;&#x51b2;&#x7a81;</text>
-      <div class="dialog-row" style="width: {{ paneW }}px; height: {{ footerH }}px;">
-        <div class="dialog-cancel" @click="onCancelDelete" style="width: {{ dialogButtonW }}px; height: {{ buttonH }}px; margin-right: {{ gap }}px;"><text class="button-text" style="font-size: {{ textSize }}px;">&#x53d6;&#x6d88;</text></div>
-        <div class="dialog-confirm" @click="onConfirmDelete" style="width: {{ dialogButtonW }}px; height: {{ buttonH }}px;"><text class="button-text" style="font-size: {{ textSize }}px;">&#x5220;&#x9664;</text></div>
-      </div>
+    <!-- 主内容：确认框弹出时整体让位，否则弹窗会被纵向 flex 排到 y=433 掉出屏幕 -->
+    <div class="main" if="{{ !showDeleteConfirm }}">
+        <div class="header-bar">
+        <text class="page-title">&#x8bfe;&#x7a0b;&#x8be6;&#x60c5;</text>
     </div>
-  </div>
+    <div class="color-bar" style="background-color: {{ color }};"></div>
+    <list class="detail-list">
+        <list-item class="detail-name-item">
+            <text class="detail-name">{{ courseName }}</text>
+        </list-item>
+        <list-item class="detail-item">
+            <div class="detail-row">
+                <text class="detail-label">&#x661f;&#x671f;</text>
+                <text class="detail-value">{{ dayName }}</text>
+            </div>
+        </list-item>
+        <list-item class="detail-item">
+            <div class="detail-row">
+                <text class="detail-label">&#x65f6;&#x95f4;</text>
+                <text class="detail-value">{{ timeRange }} ({{ periodText }})</text>
+            </div>
+        </list-item>
+        <list-item class="detail-item">
+            <div class="detail-row">
+                <text class="detail-label">&#x6559;&#x5e08;</text>
+                <text class="detail-value">{{ teacher }}</text>
+            </div>
+        </list-item>
+        <list-item class="detail-item">
+            <div class="detail-row">
+                <text class="detail-label">&#x5468;&#x6b21;</text>
+                <text class="detail-value">{{ weekTypeText }}</text>
+            </div>
+        </list-item>
+        <list-item class="action-item" @click="onDelete">
+            <div class="action-btn del-btn">
+                <text class="action-btn-text">&#x5220;&#x9664;</text>
+            </div>
+        </list-item>
+    </list>
+        <div class="bottom-bar">
+            <div class="back-btn" @click="onBack">
+                <text class="back-btn-text">&#x8fd4;&#x56de;</text>
+            </div>
+        </div>
+    </div>
+    <div class="overlay" if="{{ showDeleteConfirm }}">
+        <div class="dialog">
+            <text class="dialog-title">&#x786e;&#x8ba4;&#x5220;&#x9664;&#xff1f;</text>
+            <div class="dialog-row">
+                <div class="dialog-btn dialog-cancel" @click="onCancelDelete">
+                    <text class="dialog-btn-text">&#x53d6;&#x6d88;</text>
+                </div>
+                <div class="dialog-btn dialog-confirm" @click="onConfirmDelete">
+                    <text class="dialog-btn-text">&#x5220;&#x9664;</text>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

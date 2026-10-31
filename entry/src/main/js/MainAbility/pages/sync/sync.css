@@ -1,19 +1,114 @@
-.page{width:100%;height:100%;background-color:#0B0E14;flex-direction:column;align-items:center;}
-.loading{width:100%;height:100%;justify-content:center;align-items:center;}
-.loading-text{color:#99A1B8;font-size:18px;}
-.frame{flex-direction:column;align-items:center;}
-.header-bar{justify-content:center;align-items:center;}
-.title{color:#F0F3FA;height:30px;}
-.endpoint-bar{justify-content:center;align-items:center;}
-.endpoint-text{color:#99A1B8;text-overflow:ellipsis;text-align:center;}
-.probe-list{background-color:#0B0E14;}
-.probe-item{padding-bottom:4px;}
-.probe-bg{background-color:#171B28;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;}
-.probe-name{height:28px;color:#F0F3FA;text-align:center;text-overflow:ellipsis;}
-.probe-status{height:30px;text-align:center;text-overflow:ellipsis;}
-.detail-box{justify-content:center;align-items:center;}
-.detail-text{color:#99A1B8;text-align:center;text-overflow:ellipsis;}
-.bottom-bar{flex-direction:row;justify-content:center;align-items:center;}
-.nav-btn-alt{background-color:#252C3B;border-radius:24px;justify-content:center;align-items:center;}
-.nav-btn{background-color:#6C63FF;border-radius:24px;justify-content:center;align-items:center;}
-.button-text{color:#F0F3FA;height:28px;}
+/* 同步页 · 弹性布局测试版（2026-10-10）：
+ * 56/26/176/52/66 → 11%/5%/36%/11%/14%（和 77%，底部留白与原版等比）。
+ * y≥420 危险区规则在 412x484 上仍满足：底栏起点 373 + 钮 52 居中 ≈ 386-438。 */
+.container {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    background-color: #0B0E14;
+}
+.header-bar {
+    width: 100%;
+    height: 11%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* 圆角安全区：对齐 index 同款处理，FIT3 屏角 R≈110，
+       24px 时"同步/课表"落在圆弧内被切（真机截图+hmlwsim 像素断言双重实证，2026-10-12） */
+    padding-top: 12px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+.title {
+    font-size: 30px;
+    color: #F0F3FA;
+}
+.subtitle {
+    font-size: 18px;
+    color: #99A1B8;
+}
+.endpoint-bar {
+    width: 100%;
+    height: 5%;
+    padding-left: 24px;
+    padding-right: 24px;
+    flex-direction: row;
+    align-items: center;
+}
+.endpoint-text {
+    font-size: 16px;
+    color: #626A80;
+}
+.probe-list {
+    width: 100%;
+    height: 36%;
+    flex-direction: column;
+}
+.probe-item {
+    width: 100%;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+}
+.probe-bg {
+    width: 90%;
+    height: 40px;
+    background-color: #171B28;
+    border-radius: 16px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.probe-name {
+    font-size: 21px;
+    color: #F0F3FA;
+}
+.probe-status {
+    font-size: 18px;
+}
+.detail-box {
+    width: 100%;
+    height: 11%;
+    padding-left: 24px;
+    padding-right: 24px;
+    flex-direction: column;
+    justify-content: center;
+}
+.detail-text {
+    font-size: 17px;
+    color: #99A1B8;
+}
+.bottom-bar {
+    width: 100%;
+    height: 14%;
+    padding-bottom: 12px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.nav-btn {
+    width: 36%;
+    height: 52px;
+    background-color: #6c63ff;
+    border-radius: 26px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.nav-btn-alt {
+    width: 36%;
+    height: 52px;
+    background-color: #1E2333;
+    border-radius: 26px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.nav-btn-text {
+    font-size: 24px;
+    color: #E8ECF4;
+}

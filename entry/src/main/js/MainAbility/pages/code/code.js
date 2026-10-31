@@ -1,6 +1,6 @@
 import fs from '../../common/fs.js';
 import router from '../../common/router.js';
-import ui from '../../common/watchUi.js';
+
 
 /* \u53d6\u4ef6\u7801\u8f93\u5165\u9875 \u2014\u2014 Lite \u6ca1\u6709\u7cfb\u7edf\u8f93\u5165\u6cd5\uff08\u771f\u673a\u5b9e\u6d4b\uff1ainput type=text \u4e00\u78b0\u5c31\u5d29\uff09\uff0c
  * \u6240\u4ee5\u952e\u76d8\u5fc5\u987b\u81ea\u5df1\u753b\u30026 \u4f4d\u7eaf\u6570\u5b57\uff0c3\u00d74 \u5e03\u5c40\uff0c\u5b58 internal://app/sync.code.txt
@@ -23,15 +23,12 @@ function digitsOnly(s) {
 
 export default {
     data: {
-        ready:false,layoutError:'',w:0,h:0,top:0,bottom:0,paneW:0,headerH:0,bodyH:0,footerH:0,
-        titleSize:18,textSize:14,smallSize:13,digitsH:0,hintH:0,padH:0,keyW:0,keyH:0,keyGap:0,keyGapY:0,
-        buttonW:0,buttonH:0,gap:0,
         digits: '\u00b7 \u00b7 \u00b7 \u00b7 \u00b7 \u00b7',
-        hint: '\u8bf7\u8f93\u5165\u7f51\u9875\u4e0a\u76846\u4f4d\u53d6\u4ef6\u7801',
+        hint: '\u5728\u7f51\u9875\u4e0a\u5efa\u597d\u8bfe\u8868\uff0c\u628a 6 \u4f4d\u53d6\u4ef6\u7801\u8f93\u5728\u8fd9\u91cc',
         keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '\u5220\u9664', '0', '']
     },
     onInit: function () {
-        ui.init(this,'code');
+
         this.dead = false;
         this.value = '';this._editGen=0;this._saveGen=0;this._saving=false;
         var self=this,gen=this._editGen;
@@ -41,7 +38,7 @@ export default {
                 if (code === undefined || code === null) {
                     self.value = digitsOnly(text);
                     if (self.value.length === 6) {
-                        self.hint = '\u5df2\u8f7d\u5165\u53d6\u4ef6\u7801\uff0c\u53ef\u76f4\u63a5\u4fee\u6539';
+                        self.hint = '\u5df2\u586b\u5165\u4e4b\u524d\u4fdd\u5b58\u7684\u53d6\u4ef6\u7801\uff0c\u53ef\u76f4\u63a5\u6539';
                     }
                 }
                 self.paint();
@@ -51,9 +48,9 @@ export default {
         }
         this.paint();
     },
-    onHide: function () {this.dead=true;this._uiGen++;this._editGen++;},
+    onHide: function () {this.dead=true;this._editGen++;},
     onDestroy: function () {this.onHide();},
-    onShow: function () {this.dead=false;ui.init(this,'code');},
+    onShow: function () {this.dead=false;},
     paint: function () {
         var s = '';
         for (var i = 0; i < 6; i++) {
@@ -84,7 +81,7 @@ export default {
     onOk: function () {
         var self=this;if(self.dead||self._saving)return;
         if (!/^[0-9]{6}$/.test(self.value)) {
-            self.hint = '\u97006\u4f4d\u6570\u5b57\uff0c\u8fd8\u5dee' + (6 - self.value.length) + '\u4f4d';
+            self.hint = '\u53d6\u4ef6\u7801\u662f 6 \u4f4d\u6570\u5b57\uff0c\u8fd8\u5dee ' + (6 - self.value.length) + ' \u4f4d';
             return;
         }
         self.hint = '\u4fdd\u5b58\u4e2d\u2026';self._saving=true;var gen=++self._saveGen,view=self._editGen,value=self.value,done=false;

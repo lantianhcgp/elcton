@@ -162,7 +162,7 @@ export default {
         this.listening = false; this.buttonLabel = '\u5f00\u59cb\u63a5\u6536';
         return certain;
     },
-    onBack: function () { this.stop(); router.push({uri: 'pages/week/week'}); },
+    onBack: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },
     onLegacy: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },
     onHide: function () { this.stop(); },
     onDestroy: function () { this._closed = true; this.stop(); }

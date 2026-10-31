@@ -2,14 +2,11 @@ import router from '../../common/router.js';
 import data from '../../common/data.js';
 import storage from '@system.storage';
 import { DAY_NAMES, COURSE_COLORS, WEEK_TYPES } from '../../common/constants.js';
-import ui from '../../common/watchUi.js';
+
 
 export default {
     data: {
-        ready:false,layoutError:'',w:0,h:0,top:0,bottom:0,paneW:0,headerH:0,bodyH:0,footerH:0,
-        titleSize:18,textSize:14,smallSize:13,detailRowH:0,labelW:0,valueW:0,buttonW:0,buttonH:0,
-        gap:0,dialogW:0,dialogH:0,dialogTitleH:0,dialogButtonW:0,location:'',saveError:'',
-        detailRows: [],
+        saveError: '',
         courseId: '',
         courseName: '',
         
@@ -23,14 +20,14 @@ export default {
         source: 'main'
     },
     onInit: function () {
-        this.dead=false;ui.init(this,'detail');
+        this.dead=false;
         this.readNavData();
     },
     onShow: function () {
-        this.dead=false;ui.init(this,'detail');data.clearCache();this._courseLoaded=false;
+        this.dead=false;data.clearCache();this._courseLoaded=false;
         this.readNavData();
     },
-    onHide: function () {this.dead=true;this._uiGen++;this._readGen=(this._readGen||0)+1;},
+    onHide: function () {this.dead=true;this._readGen=(this._readGen||0)+1;},
     onDestroy: function () {this.onHide();data.clearCache();},
     readNavData: function () {
         var self=this,gen=(this._readGen||0)+1;this._readGen=gen;
@@ -64,7 +61,7 @@ export default {
         data.findCourse(page.courseId, function (course) {
             if (page.dead || gen!==page._readGen || !course) return;
             page.courseName = course.name;
-            page.location = course.location || '-';
+
             
             page.teacher = course.teacher || '-';
             page.dayName = DAY_NAMES[course.dayOfWeek];
@@ -79,9 +76,7 @@ export default {
             }
             page.weekTypeText = wt;
             page.color = COURSE_COLORS[course.colorIndex || 0];
-            page.detailRows = [{label:'\u661f\u671f',value:page.dayName},{label:'\u65f6\u95f4',value:page.timeRange},
-                {label:'\u8282\u6b21',value:page.periodText},{label:'\u6559\u5e08',value:page.teacher},
-                {label:'\u5730\u70b9',value:page.location},{label:'\u5468\u6b21',value:page.weekTypeText}];
+
         });
     },
     onDelete: function () {

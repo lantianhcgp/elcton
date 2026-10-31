@@ -8,6 +8,12 @@
 
 技术栈：HML + CSS + JavaScript（JerryScript Lite ES6 子集），纯 FA 工程，零第三方依赖。
 
+## 手表端手机同步（保留原设计）
+
+分支 `fix/preserve-watch-design` 在同步开发前的 `9df5c2f` 设计上增加独立手机同步页。首页、周视图、详情/删除确认、取件码键盘和原同步页的 HML/CSS 保持原样；原同步列表只增加一条「手机同步」入口。
+
+业务范围和验收门禁见 [docs/preserve-watch-design.md](docs/preserve-watch-design.md)，协议见 [docs/wearengine-probe.md](docs/wearengine-probe.md)。原有五页不参与此次跨分辨率重设计；仅新增同步页独立查询运行时窗口。模拟器测试不代表真机 Wear Engine 授权、蓝牙、文件原子性或 JerryScript 低堆已通过。
+
 ## 仓库结构
 
 ```

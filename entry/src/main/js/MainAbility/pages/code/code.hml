@@ -1,15 +1,25 @@
-<div class="page">
-  <div class="loading" if="{{ !ready }}"><text class="loading-text">{{ layoutError }}</text></div>
-  <div class="frame" if="{{ ready }}" style="width: {{ paneW }}px; height: {{ h }}px; padding-top: {{ top }}px; padding-bottom: {{ bottom }}px;">
-    <div class="header-bar" style="width: {{ paneW }}px; height: {{ headerH }}px;"><text class="title" style="font-size: {{ titleSize }}px;">&#x53d6;&#x4ef6;&#x7801;</text></div>
-    <div class="display" style="width: {{ paneW }}px; height: {{ digitsH }}px;"><text class="digits" style="width: {{ paneW }}px; font-size: {{ titleSize }}px;">{{ digits }}</text></div>
-    <div class="hintbox" style="width: {{ paneW }}px; height: {{ hintH }}px;"><text class="hint" style="width: {{ paneW }}px; height: {{ hintH }}px; font-size: {{ smallSize }}px;">{{ hint }}</text></div>
-    <div class="pad" style="width: {{ paneW }}px; height: {{ padH }}px;">
-      <div class="key" for="{{ (idx, item) in keys }}" @click="onKey(idx)" style="width: {{ keyW }}px; height: {{ keyH }}px; margin-right: {{ keyGap }}px; margin-bottom: {{ keyGapY }}px;"><text class="keytext" style="font-size: {{ textSize }}px;">{{ item }}</text></div>
+<div class="container">
+    <div class="header-bar">
+        <text class="title">&#x53D6;&#x4EF6;&#x7801;</text>
+        <text class="subtitle">6 &#x4F4D;&#x6570;&#x5B57;</text>
     </div>
-    <div class="bottom-bar" style="width: {{ paneW }}px; height: {{ footerH }}px;">
-      <div class="nav-btn-alt" @click="onCancel" style="width: {{ buttonW }}px; height: {{ buttonH }}px; margin-right: {{ gap }}px;"><text class="button-text" style="font-size: {{ textSize }}px;">&#x8fd4;&#x56de;</text></div>
-      <div class="nav-btn" @click="onOk" style="width: {{ buttonW }}px; height: {{ buttonH }}px;"><text class="button-text" style="font-size: {{ textSize }}px;">&#x786e;&#x5b9a;</text></div>
+    <div class="display">
+        <text class="digits">{{ digits }}</text>
     </div>
-  </div>
+    <div class="hintbox">
+        <text class="hint">{{ hint }}</text>
+    </div>
+    <div class="pad">
+        <div class="key" for="{{ (idx, item) in keys }}" @click="onKey(idx)">
+            <text class="keytext">{{ item }}</text>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        <div class="nav-btn-alt" @click="onCancel">
+            <text class="nav-btn-text">&#x8FD4;&#x56DE;</text>
+        </div>
+        <div class="nav-btn" @click="onOk">
+            <text class="nav-btn-text">&#x786E;&#x5B9A;</text>
+        </div>
+    </div>
 </div>

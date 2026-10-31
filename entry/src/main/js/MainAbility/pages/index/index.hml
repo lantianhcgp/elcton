@@ -1,29 +1,30 @@
-<div class="page">
-  <div class="loading" if="{{ !ready }}"><text class="loading-text">{{ layoutError }}</text></div>
-  <div class="frame" if="{{ ready }}" style="width: {{ paneW }}px; height: {{ h }}px; padding-top: {{ top }}px; padding-bottom: {{ bottom }}px;">
-    <div class="header-bar" style="width: {{ paneW }}px; height: {{ headerH }}px;">
-      <text class="day-label" style="height: {{ titleH }}px; font-size: {{ titleSize }}px;">{{ dayName }}</text>
-      <text class="date-label" style="height: {{ subtitleH }}px; font-size: {{ smallSize }}px;">{{ weekDisplay }}</text>
+<div class="container">
+    <div class="header-bar">
+        <text class="day-label">{{ dayName }}</text>
+        <text class="date-label">{{ weekDisplay }}</text>
     </div>
-    <list class="course-list" ref="courseList" style="width: {{ paneW }}px; height: {{ bodyH }}px;">
-      <list-item class="item" for="{{ (idx, item) in todayCourses }}" @click="onCourseClick(item.id)" style="width: {{ paneW }}px; height: {{ rowH }}px;">
-        <div class="item-bg" style="width: {{ paneW }}px; height: {{ cardH }}px;">
-          <text class="item-name" style="width: {{ cardInnerW }}px; height: {{ cardNameH }}px; font-size: {{ textSize }}px;">{{ item.name }}</text>
-          <text class="item-teacher" style="width: {{ cardInnerW }}px; height: {{ cardMetaH }}px; font-size: {{ smallSize }}px;">{{ item.teacher }} {{ item.location }}</text>
-          <text class="item-time" style="width: {{ cardInnerW }}px; height: {{ cardTimeH }}px; font-size: {{ smallSize }}px; color: {{ item.statusColor }};">{{ item.timeRange }}</text>
-        </div>
-      </list-item>
-      <list-item class="item" if="{{ isEmpty }}" style="width: {{ paneW }}px; height: {{ rowH }}px;">
-        <text class="empty-text" style="width: {{ paneW }}px; font-size: {{ textSize }}px;">&#x4eca;&#x5929;&#x6ca1;&#x6709;&#x8bfe;&#x7a0b;</text>
-      </list-item>
+    <list class="course-list" ref="courseList">
+        <list-item class="item" for="{{ (idx, item) in todayCourses }}" @click="onCourseClick(item.id)">
+            <div class="item-bg">
+                <div class="item-left">
+                    <div class="status-dot" style="background-color: {{ item.statusColor }};"></div>
+                    <div class="item-main">
+                        <text class="item-name">{{ item.name }}</text>
+                        <text class="item-teacher">{{ item.teacher }}</text>
+                    </div>
+                </div>
+                <text class="item-time">{{ item.timeRange }}</text>
+            </div>
+        </list-item>
+        <list-item class="item" if="{{ isEmpty }}">
+            <div class="item-bg">
+                <text class="empty-text">&#x4eca;&#x5929;&#x6ca1;&#x6709;&#x8bfe;&#x7a0b;</text>
+            </div>
+        </list-item>
     </list>
-    <div class="bottom-bar" style="width: {{ paneW }}px; height: {{ footerH }}px;">
-      <div class="nav-btn" @click="onWeekViewClick" style="width: {{ buttonW }}px; height: {{ buttonH }}px; margin-right: {{ gap }}px;">
-        <text class="nav-btn-text" style="font-size: {{ textSize }}px;">&#x5468;&#x8bfe;&#x8868;</text>
-      </div>
-      <div class="sync-btn" @click="onSyncClick" style="width: {{ buttonW }}px; height: {{ buttonH }}px;">
-        <text class="nav-btn-text" style="font-size: {{ textSize }}px;">&#x540c;&#x6b65;</text>
-      </div>
+    <div class="bottom-bar">
+        <div class="nav-btn" @click="onWeekViewClick">
+            <text class="nav-btn-text">&#x5468;&#x89c6;&#x56fe;</text>
+        </div>
     </div>
-  </div>
 </div>
