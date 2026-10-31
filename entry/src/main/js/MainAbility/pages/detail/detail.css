@@ -10,7 +10,8 @@
 .detail-item{padding-bottom:4px;}
 .detail-row{background-color:#171B28;border-radius:12px;flex-direction:row;align-items:center;justify-content:space-between;padding:4px 10px;}
 .detail-label{color:#99A1B8;height:26px;}
-.detail-value{color:#F0F3FA;text-overflow:ellipsis;}
+.detail-value-box{flex-direction:column;justify-content:center;align-items:center;}
+.detail-value{color:#F0F3FA;height:26px;text-overflow:ellipsis;}
 .action-item{justify-content:center;align-items:center;}
 .del-btn{background-color:#B33C48;border-radius:24px;justify-content:center;align-items:center;}
 .button-text{color:#F0F3FA;height:28px;text-align:center;}

@@ -7,7 +7,7 @@
       <list-item class="detail-item" for="{{ (idx, row) in detailRows }}" style="width: {{ paneW }}px; height: {{ detailRowH }}px;">
         <div class="detail-row" style="width: {{ paneW }}px; height: {{ detailRowH }}px;">
           <text class="detail-label" style="width: {{ labelW }}px; font-size: {{ smallSize }}px;">{{ row.label }}</text>
-          <text class="detail-value" style="width: {{ valueW }}px; height: {{ detailRowH }}px; font-size: {{ textSize }}px;">{{ row.value }}</text>
+          <div class="detail-value-box" style="width: {{ valueW }}px; height: {{ detailRowH }}px;"><text class="detail-value" style="width: {{ valueW }}px; font-size: {{ textSize }}px;">{{ row.value }}</text></div>
         </div>
       </list-item>
       <list-item class="error-item" if="{{ saveError !== '' }}" style="width: {{ paneW }}px; height: {{ detailRowH }}px;"><text class="error-text" style="width: {{ paneW }}px; font-size: {{ smallSize }}px;">{{ saveError }}</text></list-item>
