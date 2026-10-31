@@ -51,7 +51,7 @@ function createJournal(io) {
             protocol.snapshot(doc);
             if (text.length > 32768) { throw new Error('SNAPSHOT_TOO_LARGE'); }
             digest = protocol.crc32(text);
-        } catch (e) { cb(e.message); return; }
+        } catch (e) { cb(e.message==='UNSUPPORTED_SCHEMA'?'UNSUPPORTED_SCHEMA':'INVALID_DOCUMENT'); return; }
         shared.journalBusy = true;
         function finish(err, result) { shared.journalBusy = false; cb(err, result); }
         load(function (err, previous) {

@@ -25,7 +25,7 @@ function createExporter(load) {
             if (typeof raw !== 'string' || raw.length > 1024 || /[^\x20-\x7e]/.test(raw)) { throw new Error('INVALID_PACKET'); }
             msg = JSON.parse(raw);
             if (!msg || msg.protocol !== 'elcton.sync' || msg.version !== 1 || msg.sender !== 'phone' || typeof msg.transferId !== 'string' || !/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)) { throw new Error('INVALID_PROTOCOL'); }
-        } catch (e) { cb(failure(e.message,''));return; }
+        } catch (e) { cb(failure('INVALID_PACKET',''));return; }
         if (msg.type === 'EXPORT_REQUEST') {
             if (loading) {
                 if (loading.id !== msg.transferId) { cb(failure('BUSY',msg.transferId));return; }
@@ -40,7 +40,7 @@ function createExporter(load) {
                 if (loading !== operation || operation.generation !== generation) { return; }
                 if (err || !doc || !doc.settings || doc.settings.__loadError) { finish(operation,failure(err || 'READ_FAILED',operation.id));return; }
                 var text;
-                try { text=protocol.snapshot(doc); } catch(e) { finish(operation,failure(e.message,operation.id));return; }
+                try { text=protocol.snapshot(doc); } catch(e) { finish(operation,failure('INVALID_DOCUMENT',operation.id));return; }
                 if (text.length>32768) { finish(operation,failure('EXPORT_TOO_LARGE',operation.id));return; }
                 frozen={id:operation.id,text:text,digest:protocol.crc32(text),revision:doc.__sourceRevision || doc.rev || 0};
                 finish(operation,meta(operation.id));

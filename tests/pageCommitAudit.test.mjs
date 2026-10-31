@@ -28,6 +28,34 @@ test('watchdog during issued marker reports uncertain result rather than old dat
  assert.ok(h.page.detail.includes('重连'));assert.ok(!h.page.detail.includes('已保留'));
  }finally{globalThis.setTimeout=original;if(h.page._receiver)h.page._receiver.cancel=()=>true;h.page.onDestroy();}
 });
+test('commit-unknown stays uncertain through local cancel and watchdog until verified READY',async()=>{
+ const h=pageHarness();await flush();
+ try{
+  h.page._receiver.receive=(raw,cb)=>cb({protocol:'elcton.sync',version:1,sender:'watch',type:'ERROR',transferId:'unknown',code:'COMMIT_UNKNOWN'});
+  h.deliver({protocol:'elcton.sync',version:1,sender:'phone',type:'END',transferId:'unknown'});
+  assert.ok(h.page.detail.includes('重连'),'Unknown commit must immediately ask to verify');
+  h.page._receiver.receive=(raw,cb)=>cb({protocol:'elcton.sync',version:1,sender:'watch',type:'CANCELLED',transferId:'unknown'});
+  h.deliver({protocol:'elcton.sync',version:1,sender:'phone',type:'CANCEL',transferId:'unknown'});
+  assert.ok(!h.page.detail.includes('已保留'),'Wire CANCEL after unknown commit must not imply rollback');
+  h.page.onListen();assert.ok(!h.page.detail.includes('已保留'),'Cancel after unknown commit must not imply rollback');
+  h.page.onListen();await flush();
+  h.page._receiver.receive=(raw,cb)=>cb({protocol:'elcton.sync',version:1,sender:'watch',type:'READY',transferId:'',maxBytes:8192});
+  h.deliver({protocol:'elcton.sync',version:1,sender:'phone',type:'HELLO',transferId:''});
+  h.page.onListen();assert.ok(h.page.detail.includes('已保留'),'A successful read resolves uncertainty');
+ }finally{h.page.onDestroy();}
+});
+test('data load saturation returns bounded empty results without poisoning a successful read',async()=>{
+ const file=fakeFile({'internal://app/schedule.json':JSON.stringify(doc)});const original=file.api.get;let resume;
+ file.api.get=p=>{resume=()=>original(p);};
+ const api=loader({file:file.api})('common/data.js');const results=[];
+ for(let i=0;i<14;i++)api.getCoursesForDay(1,1,c=>results.push(c));
+ assert.equal(results.length,2);assert.ok(results.every(Array.isArray));
+ file.api.get=original;resume();await flush();await flush();await flush();
+ assert.equal(results.length,14);assert.ok(results.every(Array.isArray));
+ const saved=await new Promise(cb=>api.saveSettings({...doc.settings,semesterStart:'2026-10-01'},cb));
+ assert.equal(saved,true,'Overflow must not set a persistent load error');
+ api.clearCache();
+});
 test('old channel send callbacks cannot reach a reopened listener',()=>{
  const sends=[];let messages;
  const engine={setPackageName(p){p.complete();},setFingerprint(p){p.complete();},subscribeMsg(p){messages=p.success;p.success({isRegister:true});},unsubscribeMsg(){},sendMsg(p){sends.push(p);}};

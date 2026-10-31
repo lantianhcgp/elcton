@@ -239,6 +239,13 @@ test('leaving sync cancels UI callbacks but does not claim cancellation of an al
     assert.equal(h.page.detail, detail); assert.equal(JSON.stringify(h.page.rows), rows);
     assert.equal(h.state.reads, reads); assert.equal(h.time.pending.size, 0);
 });
+test('sync physical commit settles the lock even when its old UI callback is discarded', () => {
+ let finish;
+ const h=harness('sync',{responses:[doc([course('new')])],replaceDoc(next,cb){finish=cb;}});
+ h.page.onPull();hide(h.page);h.page.onShow();assert.equal(h.page.running,true);
+ finish(true);assert.equal(h.page.running,false);assert.equal(h.page.committing,false);
+ h.page.onRetry();assert.equal(h.page.dead,false);h.page.onDestroy();
+});
 test('sync late initial local-read callback cannot start health after destruction', () => {
     let read;
     const h = harness('sync', {getDoc(cb) {read = cb;}}); h.page.onDestroy(); const detail = h.page.detail;

@@ -189,7 +189,7 @@ function pump() {
         if (loadErr) { done(loadErr); return; }
         if (item.expected !== undefined && (previous ? previous.generation : 0) !== item.expected) { done('CONFLICT');return; }
         var text;
-        try { text = protocol.snapshot(JSON.parse(item.text)); } catch (e) { done(e.message); return; }
+        try { text = protocol.snapshot(JSON.parse(item.text)); } catch (e) { done('INVALID_LOCAL_DOC'); return; }
         var meta = previous ? JSON.parse(JSON.stringify(previous.meta)) : {datasetId:'',sourceRevision:0,appliedDigest:''};
         meta.localDirty = protocol.crc32(text) !== meta.appliedDigest;
         meta.localSettings = item.settings;

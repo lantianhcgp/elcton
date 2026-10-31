@@ -22,7 +22,7 @@ export default {
         footerH: 0, titleSize: 20, textSize: 18, buttonW: 0, gap: 0
     },
     onInit: function () {
-        this._closed = false; this._gen = 0; this._timer = null; this._channel = null;
+        this._closed = false; this._gen = 0; this._timer = null; this._channel = null;this._uncertain=false;
         var self = this;
         try { device.getInfo({success: function (info) {
             if (self._closed) { return; }
@@ -49,9 +49,9 @@ export default {
         if (!this.ready || this._closed) { return; }
         if (this.listening) {
             if (this._receiver && this._receiver.cancel() === false) {
-                this.phase='saving';this.status='\u63d0\u4ea4\u4e2d';this.detail='\u5df2\u8fdb\u5165\u63d0\u4ea4\uff0c\u8bf7\u7b49\u5f85\u7ed3\u679c';return;
+                this._uncertain=true;this.phase='saving';this.status='\u63d0\u4ea4\u4e2d';this.detail='\u5df2\u8fdb\u5165\u63d0\u4ea4\uff0c\u8bf7\u7b49\u5f85\u7ed3\u679c';return;
             }
-            this.stop(); this.phase = 'idle'; this.status = '\u5df2\u53d6\u6d88'; this.detail = '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u65b0\u5f00\u59cb'; return;
+            var certain=this.stop(); this.phase = 'idle'; this.status = '\u5df2\u53d6\u6d88'; this.detail = certain ? '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u65b0\u5f00\u59cb' : '\u63d0\u4ea4\u7ed3\u679c\u672a\u77e5\uff0c\u8bf7\u91cd\u8fde\u6838\u5bf9'; return;
         }
         this.stop();
         var self = this;
@@ -122,8 +122,10 @@ export default {
             target.receive(raw, function (response) {
                 if (self._closed || gen !== self._gen) { return; }
                 self._channel.send(response, function (err) { if (err) { self.detail = '\u56de\u6267\u53d1\u9001\u5931\u8d25\uff0c\u8bf7\u624b\u673a\u91cd\u8bd5'; }});
+                if(response.type==='APPLIED'||(response.type==='READY'&&!self._receiver.isBusy()))self._uncertain=false;
+                if(response.type==='ERROR'&&(response.code==='COMMIT_UNKNOWN'||response.code==='COMMIT_IN_PROGRESS'))self._uncertain=true;
                 if (response.type === 'CANCELLED' || (response.type === 'EXPORT_CLOSED' && message.type === 'CANCEL')) {
-                    self.phase = 'ready'; self.status = '\u5df2\u53d6\u6d88'; self.detail = '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u65b0\u5f00\u59cb';
+                    self.phase = 'ready'; self.status = '\u5df2\u53d6\u6d88'; self.detail = self._uncertain ? '\u63d0\u4ea4\u7ed3\u679c\u672a\u77e5\uff0c\u8bf7\u91cd\u8fde\u6838\u5bf9' : '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u65b0\u5f00\u59cb';
                 } else if (response.type === 'EXPORT_CLOSED') {
                     self.phase = 'ready'; self.status = '\u8bfe\u8868\u5df2\u56de\u4f20'; self.detail = '\u8bf7\u5728\u624b\u673a\u9884\u89c8\u540e\u5bfc\u5165';
                 } else if (response.type === 'EXPORT_META' || response.type === 'EXPORT_CHUNK') {
@@ -135,7 +137,7 @@ export default {
                 } else if (response.type === 'ERROR') {
                     self.phase = response.code === 'COMMIT_IN_PROGRESS' ? 'saving' : 'error';
                     self.status = response.code === 'COMMIT_IN_PROGRESS' ? '\u63d0\u4ea4\u4e2d' : (response.code === 'CONFLICT' ? '\u8bf7\u624b\u673a\u786e\u8ba4\u8986\u76d6' : '\u540c\u6b65\u5931\u8d25');
-                    self.detail = response.code === 'COMMIT_IN_PROGRESS' || response.code === 'COMMIT_UNCERTAIN' ? '\u8bf7\u91cd\u8fde\u6838\u5bf9\u6700\u7ec8\u8bfe\u8868' : String(response.code).substr(0, 48);
+                    self.detail = response.code === 'COMMIT_IN_PROGRESS' || response.code === 'COMMIT_UNKNOWN' ? '\u8bf7\u91cd\u8fde\u6838\u5bf9\u6700\u7ec8\u8bfe\u8868' : String(response.code).substr(0, 48);
                 } else if (response.type === 'ACK' && response.seq >= 0) {
                     self.detail = '\u5df2\u63a5\u6536\u7b2c ' + (response.seq + 1) + ' \u5305';
                 }
@@ -145,12 +147,13 @@ export default {
             if (err) { self.stop(); self.phase = 'error'; self.status = '\u8fde\u63a5\u5931\u8d25'; self.detail = String(err); return; }
             self.phase = 'ready'; self.status = '\u7b49\u5f85\u624b\u673a';
             self._receiver.receive(protocol.ascii({protocol: 'elcton.sync', version: 1, sender: 'phone', type: 'HELLO', transferId: ''}), function (response) {
-                if (!self._closed && gen === self._gen) { self._channel.send(response); }
+                if (!self._closed && gen === self._gen) { if(response.type==='READY')self._uncertain=false;self._channel.send(response); }
             });
         });
     },
     stop: function () {
-        var certain = !this._receiver || this._receiver.cancel() !== false;
+        var cancelled = !this._receiver || this._receiver.cancel() !== false;
+        var certain = cancelled && !this._uncertain;this._uncertain=!certain;
         this._gen++;
         if (this._timer) { clearTimeout(this._timer); this._timer = null; }
         if (this._exporter) { this._exporter.cancel(); this._exporter = null; }

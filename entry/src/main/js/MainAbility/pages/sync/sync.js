@@ -534,9 +534,9 @@ export default {
         self.committing=true;
         try {
             data.replaceDoc(remote, function (ok) {
-                self.committing=false;
+                self.committing=false;self.running=false;
                 if (self.dead || gen !== self.gen) { return; }
-                self.running = false;self.clearTimers();
+                self.clearTimers();
                 if (ok) {
                     self.pendingForce = false;
                     self.pushTrace('ok');

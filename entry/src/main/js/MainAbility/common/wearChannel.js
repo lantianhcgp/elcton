@@ -31,7 +31,7 @@ function channel(identity) {
         },
         send: function (message, cb) {
             var text;
-            try { text = protocol.ascii(message); } catch (e) { if (cb) { cb(e.message); } return; }
+            try { text = protocol.ascii(message); } catch (e) { if (cb) { cb('INVALID_PACKET'); } return; }
             if (!open || text.length > 1024) { if (cb) { cb('CHANNEL_CLOSED_OR_TOO_LARGE'); } return; }
             var gen=generation,finished=false;
             function finish(err) {if(finished||gen!==generation)return;finished=true;if(cb)cb(err);}

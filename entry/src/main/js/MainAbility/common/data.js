@@ -27,8 +27,8 @@ function failedDocument(code) {
 
 /* 首次访问才读文件；并发调用共享同一次读，读完统一放行 */
 function ensureLoaded(cb) {
-    if (docCache) { cb(); return; }
-    if (loadWaiters.length >= 12) { cb(failedDocument('LOAD_BUSY'));return; }
+    if (docCache) { cb(docCache); return; }
+    if (loadWaiters.length >= 12) { var busy=store.newDoc();busy.settings.__loadError='LOAD_BUSY';cb(busy);return; }
     loadWaiters.push(cb);
     if (loading) { return; }
     loading = true;
@@ -45,19 +45,19 @@ function ensureLoaded(cb) {
         loading = false;
         var q = loadWaiters;
         loadWaiters = [];
-        for (var i = 0; i < q.length; i++) { q[i](); }
+        for (var i = 0; i < q.length; i++) { q[i](docCache); }
     }, 1000);
     store.load(function (err, doc) {
         if (fbFired || generation !== loadGeneration) { return; }
         fbFired = true;
         if (fbTimer) { clearTimeout(fbTimer); fbTimer = null; }
-        docCache = err || !doc || !doc.courses ? failedDocument(err) : doc;
+        loadError=null;docCache = err || !doc || !doc.courses ? failedDocument(err) : doc;
         coursesCache = docCache.courses;
         settingsCache = docCache.settings;
         loading = false;
         var q = loadWaiters;
         loadWaiters = [];
-        for (var i = 0; i < q.length; i++) { q[i](); }
+        for (var i = 0; i < q.length; i++) { q[i](docCache); }
     });
 }
 
@@ -80,7 +80,8 @@ function writeDoc(next, callback) {
 }
 
 function commit(nextCourses, nextSettings, callback) {
-    ensureLoaded(function () {
+    ensureLoaded(function (current) {
+        if(current.settings.__loadError){if(callback)callback(false);return;}
         var next = {schema: docCache.schema, version: docCache.version, rev: docCache.rev,
             updatedAt: docCache.updatedAt, courses: nextCourses || docCache.courses,
             settings: nextSettings || docCache.settings};
@@ -89,7 +90,7 @@ function commit(nextCourses, nextSettings, callback) {
 }
 
 function loadCourses(callback) {
-    ensureLoaded(function () { callback(coursesCache); });
+    ensureLoaded(function (doc) { callback(doc.courses); });
 }
 
 function saveCourses(courses, callback) {
@@ -150,7 +151,7 @@ function getCoursesForDay(dayOfWeek, currentWeek, callback) {
 }
 
 function loadSettings(callback) {
-    ensureLoaded(function () { callback(settingsCache); });
+    ensureLoaded(function (doc) { callback(doc.settings); });
 }
 
 function saveSettings(settings, callback) {
@@ -184,9 +185,9 @@ export default {
     clearCache: clearCache,
     /* 给同步功能用：拿到/换掉整份文档（见 docs/schedule-format.md 同步一节） */
     getDoc: function (callback) {
-        ensureLoaded(function () { callback(docCache); });
+        ensureLoaded(function (doc) { callback(doc); });
     },
     replaceDoc: function (doc, callback) {
-        ensureLoaded(function () { writeDoc(doc, callback); });
+        ensureLoaded(function (current) { if(current.settings.__loadError){if(callback)callback(false);return;}writeDoc(doc, callback); });
     }
 };

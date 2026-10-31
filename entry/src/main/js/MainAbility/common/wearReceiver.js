@@ -33,7 +33,7 @@ function createReceiver(storage, options) {
             if (typeof raw !== 'string' || raw.length>1024 || /[^\x20-\x7e]/.test(raw)) { throw new Error('INVALID_PACKET'); }
             msg=JSON.parse(raw);
             if (!msg || msg.protocol!=='elcton.sync' || msg.version!==1 || msg.sender!=='phone') { throw new Error('INVALID_PROTOCOL'); }
-        } catch(e) { cb(failure(e.message,''));return; }
+        } catch(e) { cb(failure('INVALID_PACKET',''));return; }
         if (msg.type==='HELLO' || msg.type==='STATUS') {
             if (typeof msg.transferId !== 'string' || (msg.transferId && !/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId))) { cb(failure('INVALID_TRANSFER_ID',''));return; }
             if (query) {
@@ -74,8 +74,8 @@ function createReceiver(storage, options) {
         if (msg.type==='BEGIN') {
             if (typeof msg.length!=='number' || msg.length<1 || msg.length>limit || Math.floor(msg.length)!==msg.length ||
                 typeof msg.datasetId!=='string' || !/^[A-Za-z0-9_-]{1,64}$/.test(msg.datasetId) ||
-                typeof msg.sourceRevision!=='number' || msg.sourceRevision<1 || !isFinite(msg.sourceRevision) || Math.floor(msg.sourceRevision)!==msg.sourceRevision ||
-                !/^[0-9a-f]{8}$/.test(msg.digest || '') || typeof msg.chunks!=='number' || msg.chunks<1 || msg.chunks>128 || Math.floor(msg.chunks)!==msg.chunks) {
+                typeof msg.sourceRevision!=='number' || msg.sourceRevision<1 || msg.sourceRevision>9007199254740990 || !isFinite(msg.sourceRevision) || Math.floor(msg.sourceRevision)!==msg.sourceRevision ||
+                typeof msg.digest!=='string' || !/^[0-9a-f]{8}$/.test(msg.digest) || typeof msg.chunks!=='number' || msg.chunks<1 || msg.chunks>128 || Math.floor(msg.chunks)!==msg.chunks) {
                 cb(failure('INVALID_BEGIN',msg.transferId));return;
             }
             if (active) {
@@ -125,7 +125,7 @@ function createReceiver(storage, options) {
         if (transaction.seq!==transaction.info.chunks || transaction.text.length!==transaction.info.length || protocol.crc32(transaction.text)!==transaction.info.digest) {
             active=null;cb(failure('INCOMPLETE_OR_CORRUPT',msg.transferId));return;
         }
-        try { protocol.snapshot(JSON.parse(transaction.text)); } catch(e) { active=null;cb(failure(e.message,msg.transferId));return; }
+        try { protocol.snapshot(JSON.parse(transaction.text)); } catch(e) { active=null;cb(failure('INVALID_DOCUMENT',msg.transferId));return; }
         var commit=beginOperation(msg,cb);
         storage.commit(transaction.text,{datasetId:transaction.info.datasetId,sourceRevision:transaction.info.sourceRevision,
             appliedDigest:transaction.info.digest,transferId:msg.transferId,localDirty:false},function(err,record) {
