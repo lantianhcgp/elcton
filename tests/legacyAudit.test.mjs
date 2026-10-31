@@ -291,6 +291,20 @@ for (const name of ['index','week']) {
         h.state.storageSets[0].success(); assert.equal(h.state.storageSets.length, 1); assert.deepEqual(h.state.routes, []);
     });
 }
+for (const name of ['index','week']) {
+    test(name + ' does not focus a stale list before asynchronous window layout finishes', () => {
+        const h=harness(name,{deferDevice:true});
+        h.page.onShow();
+        assert.equal(h.page.ready,false);
+        assert.equal(h.state.rotations.filter(v=>v===true).length,0,'No focus before getInfo returns');
+        const latest=h.state.deviceReads[h.state.deviceReads.length-1];
+        latest.success({windowWidth:412,windowHeight:484,screenShape:'rect'});
+        h.time.tick(64);
+        assert.equal(h.page.ready,true);
+        assert.ok(h.state.rotations.includes(true),'Focus restored after actual layout');
+        h.page.onDestroy();
+    });
+}
 test('week prevents late previous-day reads from rebuilding the newly selected day', () => {
     const reads = [];
     const h = harness('week', {getCoursesForDay(day, week, cb) {reads.push({day,cb});}});

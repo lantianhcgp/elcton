@@ -33,7 +33,6 @@ export default {
         this.dead=false; ui.init(this, 'week', crownFocus);
         data.clearCache();
         this.loadData();
-        this.enableRotation('courseList', true);
     },
     onHide: function () {
         this.dead=true;this._uiGen++;this._loadGen=(this._loadGen||0)+1;this._dayGen=(this._dayGen||0)+1;
