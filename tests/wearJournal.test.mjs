@@ -45,3 +45,12 @@ test('a failed inactive-slot write never changes the last successful baseline', 
     await assert.rejects(call(journal.commit, shared, {datasetId:'school', sourceRevision:2}), /DISK_FULL/);
     assert.equal((await call(factory(io).load)).generation, 1);
 });
+
+test('cancel before the commit marker leaves the previous generation active',async()=>{
+    const {io}=fileIO();const journal=factory(io);
+    await call(journal.commit,shared,{datasetId:'school',sourceRevision:1});
+    let active=true;const original=io.read;
+    io.read=(uri,cb)=>original(uri,(err,text)=>{if(uri.includes('data-b'))active=false;cb(err,text);});
+    await assert.rejects(new Promise((resolve,reject)=>journal.commit(shared,{datasetId:'school',sourceRevision:2},(e,r)=>e?reject(Error(e)):resolve(r),()=>active)),/CANCELLED/);
+    assert.equal((await call(factory(io).load)).generation,1);
+});

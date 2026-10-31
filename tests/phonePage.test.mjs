@@ -14,6 +14,8 @@ test('phone sync page receives a snapshot through its real API callback and upda
     const sleep=ms=>new Promise(r=>setTimeout(r,ms));
     try{
         page.onInit.call(page);await sleep(50);page.onListen.call(page);
+        assert.doesNotThrow(()=>incoming({isRegister:false,message:'{"sender":"phone"}'}));
+        assert.notEqual(page.phase,'error');
         const course={id:'c1',name:'语文',location:'A1',teacher:'老师',dayOfWeek:6,startPeriod:1,endPeriod:1,startTime:'08:00',endTime:'08:45',weekType:'all',weeks:[],colorIndex:0};
         const text=protocol.snapshot({...empty,courses:[course]});
         const plan=protocol.plan(text,{transferId:'t-page',datasetId:'school',sourceRevision:1,baseDigest:'',force:true});

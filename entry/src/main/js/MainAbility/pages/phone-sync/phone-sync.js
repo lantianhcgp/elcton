@@ -76,13 +76,15 @@ export default {
             commit: function (text, meta, cb) {
                 if (self._closed || gen !== self._gen) { cb('CANCELLED'); return; }
                 fs.readFile(TEMP_URI, function (err, saved) {
+                    if (self._closed || gen !== self._gen) { cb('CANCELLED'); return; }
                     if (err || saved !== text) { cb(err || 'VERIFY_INCOMING'); return; }
                     journal.load(function (loadErr, current) {
+                        if (self._closed || gen !== self._gen) { cb('CANCELLED'); return; }
                         if (loadErr) { cb(loadErr); return; }
                         var preferences = current && current.meta.localSettings ? current.meta.localSettings : localSettings;
                         meta.localSettings = preferences || {vibrationEnabled: true, reminderMinutes: 5};
                         meta.updatedAt = new Date().getTime();
-                        journal.commit(text, meta, cb);
+                        journal.commit(text, meta, cb, function () { return !self._closed && gen === self._gen; });
                     });
                 });
             }
@@ -98,6 +100,7 @@ export default {
             self.watchDog();
             var message;
             try { message = JSON.parse(raw); } catch (e) { return; }
+            if (!message || message.protocol !== 'elcton.sync' || message.version !== 1 || typeof message.type !== 'string') { return; }
             if (message.type === 'BEGIN') { self.phase = 'receiving'; self.status = '\u6b63\u5728\u63a5\u6536'; }
             if (message.type === 'END') { self.phase = 'saving'; self.status = '\u6821\u9a8c\u4fdd\u5b58\u4e2d'; }
             var target = self._receiver;

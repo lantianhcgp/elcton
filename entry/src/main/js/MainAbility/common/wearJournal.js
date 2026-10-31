@@ -37,8 +37,10 @@ function createJournal(io) {
             });
         });
     }
-    function commit(text, meta, cb) {
+    function commit(text, meta, cb, isCurrent) {
         if (busy) { cb('BUSY'); return; }
+        function current() { return !isCurrent || isCurrent(); }
+        if (!current()) { cb('CANCELLED'); return; }
         var digest;
         try {
             var doc = JSON.parse(text);
@@ -50,6 +52,7 @@ function createJournal(io) {
         function finish(err, result) { busy = false; cb(err, result); }
         load(function (err, previous) {
             if (err) { finish(err); return; }
+            if (!current()) { finish('CANCELLED'); return; }
             var slot = previous && previous.slot === 'a' ? 'b' : 'a';
             var record = {version: 1, slot: slot, generation: previous ? previous.generation + 1 : 1,
                 length: text.length, digest: digest, meta: meta};
@@ -60,6 +63,7 @@ function createJournal(io) {
                 io.read(dataUri, function (readErr, saved) {
                     if (readErr) { finish(readErr); return; }
                     if (saved !== text) { finish('VERIFY_DATA'); return; }
+                    if (!current()) { finish('CANCELLED'); return; }
                     var marker = protocol.ascii({record: record, digest: protocol.crc32(protocol.ascii(record))});
                     io.write(recordUri, marker, function (markerErr) {
                         if (markerErr) { finish(markerErr); return; }
