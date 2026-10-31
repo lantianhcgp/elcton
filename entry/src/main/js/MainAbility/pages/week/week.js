@@ -23,6 +23,7 @@ export default {
         this.loadData();
     },
     onShow: function () {
+        data.clearCache();
         this.loadData();
         this.enableRotation('courseList', true);
     },
@@ -106,7 +107,7 @@ export default {
         });
     },
     onSyncClick: function () {
-        router.push({ uri: 'pages/sync/sync' });
+        router.push({ uri: 'pages/phone-sync/phone-sync' });
     },
     onCourseClick: function (courseId) {
         if (!courseId) return;

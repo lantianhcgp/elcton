@@ -2,6 +2,7 @@ name: build
 
 on:
   push:
+    branches-ignore: [feat/wearengine-sync]
   workflow_dispatch:
 
 jobs:

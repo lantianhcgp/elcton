@@ -12,6 +12,10 @@
  * 23 门课的字面量进 JS 会把页面体积顶到 48KB 红线（实测估算 97%，已规避）
  */
 import fs from './fs.js';
+import createJournal from './wearJournal.js';
+import protocol from './wearProtocol.js';
+
+var journal = createJournal({read: fs.readFile, write: fs.writeFile});
 
 var URI = 'internal://app/schedule.json';
 var BAD_URI = 'internal://app/schedule.bad.json';
@@ -139,21 +143,37 @@ function seed(cb) {
 }
 
 /* ── 读：不存在 → 灌种子；损坏 → 备份原文后重建 ── */
-function load(cb) {
+function loadLegacy(cb) {
     fs.readFile(URI, function (code, text) {
-        if (code !== undefined && code !== null) {          // 301 = 首次安装
-            seed(cb);
+        if (code !== undefined && code !== null) {
+            if (code === 301) { seed(cb); } else { cb(code); }
             return;
         }
         var doc = parseDoc(text);
         if (!doc) {
-            fs.backup(BAD_URI, String(text), function () {
-                console.error('schedule.json 损坏，原文已备份到 schedule.bad.json');
-                seed(cb);
-            });
+            fs.backup(BAD_URI, String(text), function () { seed(cb); });
             return;
         }
         cb(undefined, doc);
+    });
+}
+function load(cb) {
+    journal.load(function (err, record) {
+        if (err) { cb(err); return; }
+        if (!record) { loadLegacy(cb); return; }
+        var doc = parseDoc(record.text);
+        if (!doc || doc.version !== VERSION) { cb('INVALID_COMMITTED_DOC'); return; }
+        fs.readFile(URI, function (legacyErr, legacyText) {
+            var legacy = !legacyErr ? parseDoc(legacyText) : null;
+            var localSettings = record.meta.localSettings || (legacy && legacy.settings);
+            if (localSettings) {
+                doc.settings.vibrationEnabled = localSettings.vibrationEnabled;
+                doc.settings.reminderMinutes = localSettings.reminderMinutes;
+            }
+            doc.rev = record.generation;
+            doc.updatedAt = record.meta.updatedAt || 0;
+            cb(undefined, doc);
+        });
     });
 }
 
@@ -166,10 +186,21 @@ function pump() {
     var item = wQueue.shift();
     if (!item) { return; }
     wBusy = true;
-    fs.writeFile(URI, item.text, function (code) {
+    function done(code) {
         wBusy = false;
         if (item.cb) { item.cb(code); }
         pump();
+    }
+    journal.load(function (loadErr, previous) {
+        if (loadErr) { done(loadErr); return; }
+        if (!previous) { fs.writeFile(URI, item.text, done); return; }
+        var text;
+        try { text = protocol.snapshot(JSON.parse(item.text)); } catch (e) { done(e.message); return; }
+        var meta = previous.meta;
+        meta.localDirty = protocol.crc32(text) !== meta.appliedDigest;
+        meta.localSettings = item.settings;
+        meta.updatedAt = new Date().getTime();
+        journal.commit(text, meta, function (err) { done(err); });
     });
 }
 
@@ -177,7 +208,7 @@ function persist(doc, cb) {
     doc.rev = num(doc.rev, 0) + 1;
     doc.updatedAt = new Date().getTime();
     var text = serialize(doc);
-    wQueue.push({ text: text, cb: cb });
+    wQueue.push({ text: text, settings: normSettings(doc.settings), cb: cb });
     pump();
 }
 

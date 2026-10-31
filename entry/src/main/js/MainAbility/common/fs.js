@@ -36,17 +36,13 @@ function readFile(uri, cb) {
                         step();
                     },
                     fail: function (d, code) {
-                        if (idx === 0) {          // 首块就失败 = 文件不可读
-                            done = true;
-                            cb(code, d);
-                        } else {                  // 中途失败：按已读到的内容返回
-                            idx++;
-                            step();
-                        }
+                        done = true;
+                        temp = null;
+                        cb(code || 300, d);
                     }
                 });
                 } catch (e2) {
-                    if (idx === 0) { done = true; cb(301, e2); } else { idx++; step(); }
+                    done = true; temp = null; cb(300, e2);
                 }
             };
             step();

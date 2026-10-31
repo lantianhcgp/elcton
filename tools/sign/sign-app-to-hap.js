@@ -53,7 +53,10 @@ async function signHap(appBuffer, p7bBuffer) {
   if (process.env.FORCE_P7B_BUNDLE === "1") {
     config.app.bundleName = bundleName;
   }
-  config.app.version.code = 0;
+  // Preserve the source version for upgrade/install and artifact provenance checks.
+  if (!config.app.version || !Number.isInteger(config.app.version.code)) {
+    throw new Error('Invalid version code in source package');
+  }
   hapLoad.file("config.json", JSON.stringify(config));
 
   // 转换 & 签名

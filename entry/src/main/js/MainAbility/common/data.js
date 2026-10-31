@@ -32,6 +32,16 @@ var DEMO = {
     ]
 };
 var fbTimer = null, fbFired = false;
+var loadError = null;
+var loadGeneration = 0;
+var writeBusy = false;
+
+function failedDocument(code) {
+    loadError = code || 'READ_FAILED';
+    var doc = store.newDoc();
+    doc.settings.__loadError = String(loadError);
+    return doc;
+}
 
 /* 首次访问才读文件；并发调用共享同一次读，读完统一放行 */
 function ensureLoaded(cb) {
@@ -39,29 +49,26 @@ function ensureLoaded(cb) {
     loadWaiters.push(cb);
     if (loading) { return; }
     loading = true;
+    var generation = ++loadGeneration;
+    loadError = null;
     fbFired = false;
     if (fbTimer) { clearTimeout(fbTimer); fbTimer = null; }
     fbTimer = setTimeout(function () {
-        if (fbFired) { return; }
+        if (fbFired || generation !== loadGeneration) { return; }
         fbFired = true;
-        docCache = DEMO;
-        coursesCache = DEMO.courses;
-        settingsCache = DEMO.settings;
-        settingsCache.__fb = true;   /* 诊断标记:本 settings 来自 IO 兜底 */
+        docCache = failedDocument('READ_TIMEOUT');
+        coursesCache = docCache.courses;
+        settingsCache = docCache.settings;
         loading = false;
         var q = loadWaiters;
         loadWaiters = [];
         for (var i = 0; i < q.length; i++) { q[i](); }
     }, 1000);
     store.load(function (err, doc) {
-        if (fbFired) { return; }       /* 已按兜底渲染：迟到数据本会话不覆盖 */
+        if (fbFired || generation !== loadGeneration) { return; }
         fbFired = true;
         if (fbTimer) { clearTimeout(fbTimer); fbTimer = null; }
-        docCache = doc;
-        if (!docCache || !docCache.courses || docCache.courses.length === 0) {
-            docCache = DEMO;              /* 种子也失败(无文档/空课表)→演示数据兜底 */
-            DEMO.settings.__fb = true;
-        }
+        docCache = err || !doc || !doc.courses ? failedDocument(err) : doc;
         coursesCache = docCache.courses;
         settingsCache = docCache.settings;
         loading = false;
@@ -71,20 +78,30 @@ function ensureLoaded(cb) {
     });
 }
 
-/* 写盘统一走这里：改内存 → persist（rev+1、updatedAt 刷新）→ 回调成败 */
+/* Publish cache only after persistence succeeds. Failed reads are never writable. */
+function writeDoc(next, callback) {
+    if (loadError || writeBusy || !next || next.version !== 1) {
+        if (callback) { callback(false); }
+        return;
+    }
+    writeBusy = true;
+    var saved;
+    try { saved = JSON.parse(JSON.stringify(next)); }
+    catch (e) { writeBusy = false; if (callback) { callback(false); } return; }
+    store.persist(saved, function (code) {
+        writeBusy = false;
+        var ok = code === undefined || code === null;
+        if (ok) { docCache = saved; coursesCache = saved.courses; settingsCache = saved.settings; }
+        if (callback) { callback(ok); }
+    });
+}
+
 function commit(nextCourses, nextSettings, callback) {
     ensureLoaded(function () {
-        if (nextCourses) {
-            coursesCache = nextCourses;
-            docCache.courses = nextCourses;
-        }
-        if (nextSettings) {
-            settingsCache = nextSettings;
-            docCache.settings = nextSettings;
-        }
-        store.persist(docCache, function (code) {
-            if (callback) { callback(code === undefined || code === null); }
-        });
+        var next = {schema: docCache.schema, version: docCache.version, rev: docCache.rev,
+            updatedAt: docCache.updatedAt, courses: nextCourses || docCache.courses,
+            settings: nextSettings || docCache.settings};
+        writeDoc(next, callback);
     });
 }
 
@@ -161,6 +178,9 @@ function saveSettings(settings, callback) {
  * 每个页面是独立 bundle（各自一份缓存），所以退出页面时丢缓存 = 保证回来读到
  * 别的页面写进去的最新数据；同步功能改完文件也靠它生效。 */
 function clearCache() {
+    loadGeneration++;
+    if (fbTimer) { clearTimeout(fbTimer); fbTimer = null; }
+    loadError = null;
     coursesCache = null;
     settingsCache = null;
     docCache = null;
@@ -184,11 +204,6 @@ export default {
         ensureLoaded(function () { callback(docCache); });
     },
     replaceDoc: function (doc, callback) {
-        docCache = doc;
-        coursesCache = doc.courses;
-        settingsCache = doc.settings;
-        store.persist(docCache, function (code) {
-            if (callback) { callback(code === undefined || code === null); }
-        });
+        ensureLoaded(function () { writeDoc(doc, callback); });
     }
 };

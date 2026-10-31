@@ -1,0 +1,22 @@
+<div class="page">
+    <div class="loading" if="{{ !ready }}"><text class="loading-text">{{ status }}</text></div>
+    <div class="content" if="{{ ready }}" style="width: {{ pageW }}px; height: {{ pageH }}px; padding-top: {{ top }}px; padding-bottom: {{ bottom }}px;">
+        <div class="header" style="width: {{ bodyW }}px; height: {{ headerH }}px;">
+            <text class="title" style="font-size: {{ titleSize }}px;">{{ title }}</text>
+            <text class="subtitle" style="font-size: {{ textSize }}px;">Wear Engine</text>
+        </div>
+        <div class="body" style="width: {{ bodyW }}px; height: {{ bodyH }}px;">
+            <text class="status" style="font-size: {{ titleSize }}px;">{{ status }}</text>
+            <text class="detail" style="font-size: {{ textSize }}px;">{{ detail }}</text>
+            <div class="legacy" @click="onLegacy"><text class="legacy-text" style="font-size: {{ textSize }}px;">&#x53d6;&#x4ef6;&#x7801;&#x540c;&#x6b65;</text></div>
+        </div>
+        <div class="footer" style="width: {{ bodyW }}px; height: {{ footerH }}px;">
+            <div class="back" @click="onBack" style="width: {{ buttonW }}px; height: {{ footerH }}px; margin-right: {{ gap }}px;">
+                <text class="button-text" style="font-size: {{ textSize }}px;">&#x8fd4;&#x56de;</text>
+            </div>
+            <div class="start" @click="onListen" style="width: {{ buttonW }}px; height: {{ footerH }}px;">
+                <text class="button-text" style="font-size: {{ textSize }}px;">{{ buttonLabel }}</text>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+name: wearengine-watch
+on:
+  push:
+    branches: [feat/wearengine-sync]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Protocol and persistence regression tests
+        run: node --test tests/dataRegression.test.mjs tests/journalIntegration.test.mjs tests/wearProtocol.test.mjs tests/wearJournal.test.mjs tests/wearReceiver.test.mjs tests/wearChannel.test.mjs tests/wearLayout.test.mjs tests/phonePage.test.mjs tests/signingVersion.test.mjs
+      - name: System dependencies
+        run: sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
+      - uses: ErBWs/setup-ohos@v2
+        with:
+          version: 6.1.1.280
+          cache: true
+      - name: Toolchain paths
+        shell: bash
+        run: |
+          for p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do
+            if [ -d "$p" ]; then printf '%s\n' "$p" >> "$GITHUB_PATH"; fi
+          done
+          if [ -d "$HOME/ohos-sdk/command-line-tools/sdk" ]; then printf 'HOS_SDK_HOME=%s\n' "$HOME/ohos-sdk/command-line-tools/sdk" >> "$GITHUB_ENV"; fi
+      - name: Build actual Lite package
+        run: |
+          ohpm install --all
+          hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license
+          python3 scripts/clean_config_in_app.py build/outputs/default/*.app
+      - name: Sign and verify course application identity
+        env:
+          SIGN_P12_PEM: ${{ secrets.SIGN_P12_PEM_ELCTON }}
+        run: |
+          test -n "$SIGN_P12_PEM"
+          mkdir -p dist
+          npm install --prefix tools/sign --no-audit --no-fund
+          FORCE_P7B_BUNDLE=1 node tools/sign/sign-app-to-hap.js build/outputs/default/*.app certs/elcton.p7b dist/elcton-wearengine-probe.hap
+          python3 tools/sign/verify_sign.py dist/elcton-wearengine-probe.hap certs/elcton.p7b
+          cp build/outputs/default/*.app dist/
+          printf '%s\n' "$GITHUB_SHA" > dist/source-sha.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: wearengine-watch-${{ github.sha }}
+          path: dist/
+          if-no-files-found: error

@@ -15,6 +15,7 @@ export default {
         this.loadData();
     },
     onShow: function () {
+        data.clearCache();
         this.loadData();
         this.enableRotation('courseList', true);
     },
