@@ -39,52 +39,20 @@ function normSettings(s) {
     };
 }
 
-function normCourse(c) {
-    if (!c || typeof c !== 'object' || !c.id) { return null; }
-    var weeks = [];
-    if (isArray(c.weeks)) {
-        for (var i = 0; i < c.weeks.length; i++) { weeks.push(num(c.weeks[i], 0)); }
-    }
-    return {
-        id: str(c.id),
-        name: str(c.name),
-        location: str(c.location),
-        teacher: str(c.teacher),
-        dayOfWeek: num(c.dayOfWeek, 1),
-        startPeriod: num(c.startPeriod, 1),
-        endPeriod: num(c.endPeriod, 1),
-        startTime: str(c.startTime),
-        endTime: str(c.endTime),
-        weekType: str(c.weekType) || 'all',
-        weeks: weeks,
-        colorIndex: num(c.colorIndex, 0)
-    };
-}
-
-function normCourses(list) {
-    var out = [];
-    if (!isArray(list)) { return out; }
-    for (var i = 0; i < list.length; i++) {
-        var c = normCourse(list[i]);
-        if (c) { out.push(c); }
-    }
-    return out;
-}
-
 /* 解析任意 JSON 文本 → 合法文档；不认识/损坏返回 null */
 function parseDoc(text) {
     var p = null;
     try { p = JSON.parse(stripBom(text)); } catch (e) { return null; }
     if (!p || typeof p !== 'object' || p.schema !== SCHEMA || p.version !== VERSION ||
         !isArray(p.courses) || p.courses.length > 200 || String(text).length > 32768) { return null; }
-    try { protocol.snapshot(p); } catch (e) { return null; }
+    var canonical;try { canonical=JSON.parse(protocol.snapshot(p)); } catch (e) { return null; }
     return {
         schema: SCHEMA,
         version: num(p.version, VERSION),
         rev: num(p.rev, 1),
         updatedAt: num(p.updatedAt, 0),
         settings: normSettings(p.settings),
-        courses: normCourses(p.courses)
+        courses: canonical.courses
     };
 }
 
