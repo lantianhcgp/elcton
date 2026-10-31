@@ -30,21 +30,24 @@ export default {
         this.dead=false;ui.init(this,'detail');data.clearCache();this._courseLoaded=false;
         this.readNavData();
     },
-    onDestroy: function () {this.dead=true;this._uiGen++;data.clearCache();},
+    onHide: function () {this.dead=true;this._uiGen++;this._readGen=(this._readGen||0)+1;},
+    onDestroy: function () {this.onHide();data.clearCache();},
     readNavData: function () {
-        var self = this;
+        var self=this,gen=(this._readGen||0)+1;this._readGen=gen;
         storage.get({
             key: 'nav_courseId',
             default: '',
             success: function (cid) {
+                if(self.dead||gen!==self._readGen)return;
                 storage.get({
                     key: 'nav_source',
                     default: 'main',
                     success: function (src) {
+                        if(self.dead||gen!==self._readGen)return;
                         self.source = src;
                         if (cid) {
-                            /* 脏检查：onInit+onShow 连读两次，同 id 跳过第二次
-                             * 全量加载渲染（性能优化 2026-10-10） */
+                            /* \u810f\u68c0\u67e5\uff1aonInit+onShow \u8fde\u8bfb\u4e24\u6b21\uff0c\u540c id \u8df3\u8fc7\u7b2c\u4e8c\u6b21
+                             * \u5168\u91cf\u52a0\u8f7d\u6e32\u67d3\uff08\u6027\u80fd\u4f18\u5316 2026-10-10\uff09 */
                             if (self.courseId === cid && self._courseLoaded) { return; }
                             self.courseId = cid;
                             self._courseLoaded = true;
@@ -57,9 +60,9 @@ export default {
     },
     loadCourse: function () {
         if (!this.courseId) return;
-        var page = this;
+        var page=this,gen=this._readGen;
         data.findCourse(page.courseId, function (course) {
-            if (page.dead || !course) return;
+            if (page.dead || gen!==page._readGen || !course) return;
             page.courseName = course.name;
             page.location = course.location || '-';
             
@@ -85,9 +88,10 @@ export default {
         this.showDeleteConfirm = true;
     },
     onConfirmDelete: function () {
-        var page = this;
+        var page=this,gen=this._readGen;if(page.dead||page._deleting)return;page._deleting=true;
         data.deleteCourse(page.courseId, function (success) {
-            if(page.dead)return;
+            page._deleting=false;
+            if(page.dead||gen!==page._readGen)return;
             if (success) {
                 if (page.source === 'week') {
                     router.push({ uri: 'pages/week/week' });

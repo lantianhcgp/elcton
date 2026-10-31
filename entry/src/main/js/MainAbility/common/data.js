@@ -46,6 +46,7 @@ function failedDocument(code) {
 /* 首次访问才读文件；并发调用共享同一次读，读完统一放行 */
 function ensureLoaded(cb) {
     if (docCache) { cb(); return; }
+    if (loadWaiters.length >= 12) { cb(failedDocument('LOAD_BUSY'));return; }
     loadWaiters.push(cb);
     if (loading) { return; }
     loading = true;
@@ -86,7 +87,7 @@ function writeDoc(next, callback) {
     }
     writeBusy = true;
     var saved;
-    try { saved = JSON.parse(JSON.stringify(next)); }
+    try { saved = JSON.parse(JSON.stringify(next)); saved.__generation = docCache ? docCache.__generation : 0; }
     catch (e) { writeBusy = false; if (callback) { callback(false); } return; }
     store.persist(saved, function (code) {
         writeBusy = false;

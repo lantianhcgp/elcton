@@ -33,9 +33,11 @@ function channel(identity) {
             var text;
             try { text = protocol.ascii(message); } catch (e) { if (cb) { cb(e.message); } return; }
             if (!open || text.length > 1024) { if (cb) { cb('CHANNEL_CLOSED_OR_TOO_LARGE'); } return; }
+            var gen=generation,finished=false;
+            function finish(err) {if(finished||gen!==generation)return;finished=true;if(cb)cb(err);}
             try { engine.sendMsg({deviceId: 'remote', bundleName: identity.phonePackage, abilityName: '', message: text,
-                success: function () { if (cb) { cb(null); } }, fail: function (d, code) { if (cb) { cb('SEND_' + code); } }}); }
-            catch (e) { if (cb) { cb('SEND_UNAVAILABLE'); } }
+                success: function () { finish(null); }, fail: function (d, code) { finish('SEND_' + code); }}); }
+            catch (e) { finish('SEND_UNAVAILABLE'); }
         },
         close: close
     };

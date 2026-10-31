@@ -103,4 +103,19 @@ test('an explicitly requested profile cannot silently fall back to another certs
   const result = verify(validPath, wrongProfile);
   assert.notEqual(result.status, 0, 'An unrelated requested profile was accepted: ' + result.stdout);
 });
+test('CMS remains valid when encoding the attributes crosses a clock-second boundary', async () => {
+  const NativeDate = globalThis.Date;
+  let zeroArgumentDates = 0;
+  globalThis.Date = class extends NativeDate {
+    constructor(...args) {
+      if (args.length) super(...args);
+      else super(NativeDate.now() + zeroArgumentDates++ * 1500);
+    }
+  };
+  const target = path.join(directory, 'clock-boundary.hap');
+  try { fs.writeFileSync(target, await signHap(app, fs.readFileSync(matchedProfile))); }
+  finally { globalThis.Date = NativeDate; }
+  const result = verify(target);
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
 test.after(() => fs.rmSync(directory, { recursive: true, force: true }));

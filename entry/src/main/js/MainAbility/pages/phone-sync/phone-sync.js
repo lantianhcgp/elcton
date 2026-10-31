@@ -40,13 +40,19 @@ export default {
         var self = this;
         this._timer = setTimeout(function () {
             if (self._closed || !self.listening) { return; }
-            self.stop(); self.phase = 'error';
-            self.status = '\u7b49\u5f85\u8d85\u65f6'; self.detail = '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u8bd5';
+            var certain = self.stop(); self.phase = 'error';
+            self.status = '\u7b49\u5f85\u8d85\u65f6';
+            self.detail = certain ? '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u8bd5' : '\u63d0\u4ea4\u7ed3\u679c\u672a\u77e5\uff0c\u8bf7\u91cd\u8fde\u6838\u5bf9';
         }, 30000);
     },
     onListen: function () {
         if (!this.ready || this._closed) { return; }
-        if (this.listening) { this.stop(); this.phase = 'idle'; this.status = '\u5df2\u53d6\u6d88'; this.detail = '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u65b0\u5f00\u59cb'; return; }
+        if (this.listening) {
+            if (this._receiver && this._receiver.cancel() === false) {
+                this.phase='saving';this.status='\u63d0\u4ea4\u4e2d';this.detail='\u5df2\u8fdb\u5165\u63d0\u4ea4\uff0c\u8bf7\u7b49\u5f85\u7ed3\u679c';return;
+            }
+            this.stop(); this.phase = 'idle'; this.status = '\u5df2\u53d6\u6d88'; this.detail = '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u65b0\u5f00\u59cb'; return;
+        }
         this.stop();
         var self = this;
         var gen = this._gen;
@@ -68,12 +74,8 @@ export default {
                 });
             },
             reset: function (cb) { fs.writeFile(TEMP_URI, '', cb); },
-            append: function (seq, text, cb) {
-                try { systemFile.writeText({uri: TEMP_URI, text: text, append: true,
-                    success: function () { cb(null); }, fail: function (d, code) { cb(code || 300); }}); }
-                catch (e) { cb(300); }
-            },
-            commit: function (text, meta, cb, isCurrent) {
+            append: function (seq, text, cb) { fs.appendFile(TEMP_URI, text, cb); },
+            commit: function (text, meta, cb, isCurrent, expectedGeneration, onMarker) {
                 function current() { return !self._closed && gen === self._gen && (!isCurrent || isCurrent()); }
                 if (!current()) { cb('CANCELLED'); return; }
                 fs.readFile(TEMP_URI, function (err, saved) {
@@ -85,7 +87,7 @@ export default {
                         var preferences = record && record.meta.localSettings ? record.meta.localSettings : localSettings;
                         meta.localSettings = preferences || {vibrationEnabled: true, reminderMinutes: 5};
                         meta.updatedAt = new Date().getTime();
-                        journal.commit(text, meta, cb, current);
+                        journal.commit(text, meta, cb, current, expectedGeneration, onMarker);
                     });
                 });
             }
@@ -131,8 +133,9 @@ export default {
                     self.detail = '\u5df2\u4fdd\u5b58\u5e76\u56de\u8bfb\u786e\u8ba4';
                     if (self._timer) { clearTimeout(self._timer); self._timer = null; }
                 } else if (response.type === 'ERROR') {
-                    self.phase = 'error'; self.status = response.code === 'CONFLICT' ? '\u8bf7\u624b\u673a\u786e\u8ba4\u8986\u76d6' : '\u540c\u6b65\u5931\u8d25';
-                    self.detail = String(response.code).substr(0, 48);
+                    self.phase = response.code === 'COMMIT_IN_PROGRESS' ? 'saving' : 'error';
+                    self.status = response.code === 'COMMIT_IN_PROGRESS' ? '\u63d0\u4ea4\u4e2d' : (response.code === 'CONFLICT' ? '\u8bf7\u624b\u673a\u786e\u8ba4\u8986\u76d6' : '\u540c\u6b65\u5931\u8d25');
+                    self.detail = response.code === 'COMMIT_IN_PROGRESS' || response.code === 'COMMIT_UNCERTAIN' ? '\u8bf7\u91cd\u8fde\u6838\u5bf9\u6700\u7ec8\u8bfe\u8868' : String(response.code).substr(0, 48);
                 } else if (response.type === 'ACK' && response.seq >= 0) {
                     self.detail = '\u5df2\u63a5\u6536\u7b2c ' + (response.seq + 1) + ' \u5305';
                 }
@@ -147,12 +150,14 @@ export default {
         });
     },
     stop: function () {
+        var certain = !this._receiver || this._receiver.cancel() !== false;
         this._gen++;
         if (this._timer) { clearTimeout(this._timer); this._timer = null; }
         if (this._exporter) { this._exporter.cancel(); this._exporter = null; }
-        if (this._receiver) { this._receiver.cancel(); this._receiver = null; }
+        this._receiver = null;
         if (this._channel) { this._channel.close(); this._channel = null; }
         this.listening = false; this.buttonLabel = '\u5f00\u59cb\u63a5\u6536';
+        return certain;
     },
     onBack: function () { this.stop(); router.push({uri: 'pages/week/week'}); },
     onLegacy: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },

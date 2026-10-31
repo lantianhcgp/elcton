@@ -1,77 +1,72 @@
-/* 手表侧持久化 IO —— 只有三个方法，全部回调式（Lite 无 Promise）
- *
- * 关键实测约束（来自 memo-todo / 腕上词典真机踩坑）：
- * 1. 大于 4096 字节的文本必须分块读，且**必须串行**——并发发起时各块回调顺序
- *    不定，JSON 会被拼乱；中途失败会重复回调，最后一块失败则永不回调
- * 2. file.get 返回的是**文件元信息**（data.length = 字节数），不是内容
- * 3. 文件不存在时 fail 带 code 301
- */
+/* App-scoped, bounded callback IO. An issued write keeps its lock until the real callback. */
 import systemFile from '@system.file';
-
-var CHUNK = 4096;
-
-function readFile(uri, cb) {
-    try {
-    systemFile.get({
-        uri: uri,
-        success: function (meta) {
-            var len = Number(meta && meta.length) || 0;
-            var count = Math.ceil(len / CHUNK);
-            if (count <= 0) { cb(undefined, ''); return; }
-            var temp = '';
-            var idx = 0;
-            var done = false;
-            var step = function () {
-                if (done) { return; }
-                if (idx >= count) { done = true; cb(undefined, temp); temp = null; return; }
-                try {
-                systemFile.readText({
-                    uri: uri,
-                    position: idx * CHUNK,
-                    length: CHUNK,
-                    success: function (d) {
-                        temp += (d && d.text) ? d.text : '';
-                        if (d) { d.text = null; }
-                        idx++;
-                        step();
-                    },
-                    fail: function (d, code) {
-                        done = true;
-                        temp = null;
-                        cb(code || 300, d);
-                    }
-                });
-                } catch (e2) {
-                    done = true; temp = null; cb(300, e2);
-                }
-            };
-            step();
-        },
-        fail: function (meta, code) {
-            cb(code, meta);
+var CHUNK = 4096, MAX_READ = 32768, MAX_QUEUE = 12;
+var shared = null;
+try {
+    var app = $app.$def || $app;
+    if (!app._elctonIO) { app._elctonIO = {queue: [], busy: false, journalBusy: false}; }
+    shared = app._elctonIO;
+} catch (e) {}
+function allowed(uri) { return typeof uri === 'string' && uri.indexOf('internal://app/') === 0 && uri.indexOf('..') < 0; }
+function enqueue(run, cb) {
+    if (!shared) { cb('APP_CONTEXT_UNAVAILABLE'); return; }
+    if (shared.queue.length >= MAX_QUEUE) { cb('IO_BUSY'); return; }
+    shared.queue.push({run:run,cb:cb}); pump();
+}
+function pump() {
+    if (!shared || shared.busy || !shared.queue.length) { return; }
+    var task = shared.queue.shift(), done = false;
+    shared.busy = true;
+    function finish(err, value) {
+        if (done) { return; } done = true; shared.busy = false;
+        try { task.cb(err, value); } finally { pump(); }
+    }
+    try { task.run(finish); } catch (e) { finish('IO_EXCEPTION'); }
+}
+function readRaw(uri, cb) {
+    var ended = false;
+    function finish(err, value) { if (ended) { return; } ended = true; cb(err, value); }
+    try { systemFile.get({uri:uri,success:function(meta) {
+        if (ended) { return; }
+        var len = Number(meta && meta.length);
+        if (!isFinite(len) || len < 0 || Math.floor(len) !== len || len > MAX_READ) { finish('READ_LIMIT'); return; }
+        if (!len) { finish(null, ''); return; }
+        var index = 0, text = '', count = Math.ceil(len / CHUNK);
+        function step() {
+            if (ended) { return; }
+            if (index >= count) { finish(null, text); text = null; return; }
+            var expected = index, called = false;
+            try { systemFile.readText({uri:uri,position:index*CHUNK,length:CHUNK,
+                success:function(data) {
+                    if (ended || called || expected !== index) { return; } called = true;
+                    if (!data || typeof data.text !== 'string' || data.text.indexOf('\ufffd') >= 0) { finish('INVALID_TEXT'); return; }
+                    text += data.text; index++; step();
+                },fail:function(data,code) { if (!called) { called=true; finish(code || 300); } }});
+            } catch (e) { finish('READ_EXCEPTION'); }
         }
-    });
-    } catch (e) { cb(301, e); }
+        step();
+    },fail:function(data,code) { finish(code || 300); }}); }
+    catch (e) { finish('READ_EXCEPTION'); }
 }
-
-function writeFile(uri, text, cb) {
-    try {
-    systemFile.writeText({
-        uri: uri,
-        text: text,
-        success: function () { cb(undefined, true); },
-        fail: function (d, code) { cb(code, d); }
-    });
-    } catch (e) { cb(999, e); }
+function readFile(uri, cb) {
+    if (!allowed(uri)) { cb('INVALID_PATH'); return; }
+    enqueue(function(done) { readRaw(uri, done); }, cb);
 }
-
-function backup(uri, text, cb) {
-    writeFile(uri, text, function () { if (cb) { cb(); } });
+function write(uri, text, append, cb) {
+    if (!allowed(uri) || uri.indexOf('/rawfile/') >= 0 || typeof text !== 'string' || text.length > MAX_READ) { cb('INVALID_WRITE'); return; }
+    enqueue(function(done) {
+        var called = false;
+        try { systemFile.writeText({uri:uri,text:text,append:append,
+            success:function() {
+                if (called) { return; } called=true;
+                if (append) { done(null); return; }
+                readRaw(uri,function(err,saved) { done(err || (saved !== text ? 'VERIFY_WRITE' : null), true); });
+            },fail:function(data,code) { if (!called) { called=true; done(code || 300); } }}); }
+        catch (e) { done('WRITE_EXCEPTION'); }
+    }, cb);
 }
-
-export default {
-    readFile: readFile,
-    writeFile: writeFile,
-    backup: backup,
-    rawApi: systemFile
-};
+function writeFile(uri, text, cb) { write(uri, text, false, cb); }
+function appendFile(uri, text, cb) { write(uri, text, true, cb); }
+function backup(uri, text, cb) { writeFile(uri, text, cb || function() {}); }
+writeFile.shared = shared;
+export default {readFile:readFile,writeFile:writeFile,appendFile:appendFile,backup:backup,rawApi:systemFile,shared:shared};

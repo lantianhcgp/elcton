@@ -185,7 +185,8 @@ async function generateSignedData({ data, p12Pem, cerStr, signTimeStr }) {
       hashalg: "sha256",
       sattrs: {
         array: [
-          { attr: "signingTime", type: new jsrsasign.KJUR.asn1.cms.SigningTime(signTimeStr) },
+          // Pin the same DER time for both attribute encodings; `type` is not a time value.
+          { attr: "signingTime", str: signTimeStr },
           { attr: "contentType", type: "1.2.840.113549.1.7.1" },
           { attr: "messageDigest", hex: crypto.createHash("sha256").update(data).digest("hex") }
         ]

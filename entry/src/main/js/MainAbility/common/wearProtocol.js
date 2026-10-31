@@ -23,7 +23,7 @@ function packet(type, transferId) {
 }
 function plan(text, info) {
     var digest = crc32(text);
-    if (!info || !/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId || '')) { throw new Error('INVALID_TRANSFER_ID'); }
+    if (!info || typeof info.transferId !== 'string' || !/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)) { throw new Error('INVALID_TRANSFER_ID'); }
     var start = packet('BEGIN', info.transferId);
     start.datasetId = info.datasetId;
     start.sourceRevision = info.sourceRevision;
@@ -64,6 +64,9 @@ function snapshot(doc) {
     if (!doc || doc.schema !== 'elcton.schedule' || doc.version !== 1) { throw new Error('UNSUPPORTED_SCHEMA'); }
     var start = doc.settings && doc.settings.semesterStart;
     if (typeof start !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(start)) { throw new Error('INVALID_DATE'); }
+    var year = Number(start.substr(0,4)), month = Number(start.substr(5,2)), day = Number(start.substr(8,2));
+    var days = [31, (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) ? 29 : 28, 31,30,31,30,31,31,30,31,30,31];
+    if (year < 1 || month < 1 || month > 12 || day < 1 || day > days[month-1]) { throw new Error('INVALID_DATE'); }
     if (Object.prototype.toString.call(doc.courses) !== '[object Array]' || doc.courses.length > 200) { throw new Error('INVALID_COURSES'); }
     var courses = [];
     var ids = {};

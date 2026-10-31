@@ -6,6 +6,7 @@ function createReceiver(storage, options) {
     var limit = options.maxBytes || 8192;
     var active = null;
     var operation = null;
+    var query = null;
     var generation = 0;
     function answer(type, id) {
         return {protocol:'elcton.sync',version:1,sender:'watch',type:type,transferId:id || ''};
@@ -21,9 +22,10 @@ function createReceiver(storage, options) {
         for (var i=0;i<callbacks.length;i++) { callbacks[i](out); }
     }
     function cancel() {
+        if (operation && operation.markerIssued) { return false; }
         generation++;active=null;
-        // An issued file write cannot be undone. Keep the IO lock until its callback drains;
-        // the next BEGIN resets the staging file only after that lock is released.
+        // Keep the IO lock until the issued platform call drains.
+        return true;
     }
     function receive(raw, cb) {
         var msg;
@@ -33,21 +35,34 @@ function createReceiver(storage, options) {
             if (!msg || msg.protocol!=='elcton.sync' || msg.version!==1 || msg.sender!=='phone') { throw new Error('INVALID_PROTOCOL'); }
         } catch(e) { cb(failure(e.message,''));return; }
         if (msg.type==='HELLO' || msg.type==='STATUS') {
-            var queryGeneration=generation;
+            if (typeof msg.transferId !== 'string' || (msg.transferId && !/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId))) { cb(failure('INVALID_TRANSFER_ID',''));return; }
+            if (query) {
+                if (query.key !== raw || query.generation !== generation) { cb(failure('BUSY',msg.transferId));return; }
+                if (query.callbacks.length >= 4) { cb(failure('RETRY_LIMIT',msg.transferId));return; }
+                query.callbacks.push(cb);return;
+            }
+            var pending={key:raw,generation:generation,callbacks:[cb]};query=pending;
             storage.load(function(err,record) {
-                if (queryGeneration!==generation) { cb(failure('CANCELLED',msg.transferId));return; }
-                if (err) { cb(failure(err,msg.transferId));return; }
-                var meta=record && record.meta;var ready=answer('READY',msg.transferId);
-                ready.maxBytes=limit;ready.transports=['chunks'];ready.datasetId=meta ? meta.datasetId || '' : '';
-                ready.sourceRevision=meta ? meta.sourceRevision || 0 : 0;ready.digest=meta ? meta.appliedDigest || '' : '';
-                ready.localDirty=!!(meta && meta.localDirty);ready.hasData=!!record;cb(ready);
+                if (query === pending) { query=null; }
+                var out;
+                if (pending.generation!==generation) { out=failure('CANCELLED',msg.transferId); }
+                else if (err) { out=failure(err,msg.transferId); }
+                else {
+                    var meta=record && record.meta;out=answer('READY',msg.transferId);
+                    out.maxBytes=limit;out.transports=['chunks'];out.datasetId=meta ? meta.datasetId || '' : '';
+                    out.sourceRevision=meta ? meta.sourceRevision || 0 : 0;out.digest=meta ? meta.appliedDigest || '' : '';
+                    out.localDirty=!!(meta && meta.localDirty);out.hasData=!!record;
+                }
+                var callbacks=pending.callbacks;pending.callbacks=[];
+                for (var i=0;i<callbacks.length;i++) { callbacks[i](out); }
             });return;
         }
-        if (!/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId || '')) { cb(failure('INVALID_TRANSFER_ID',''));return; }
+        if (typeof msg.transferId !== 'string' || !/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)) { cb(failure('INVALID_TRANSFER_ID',''));return; }
         if (msg.type==='CANCEL') {
             var id=operation ? operation.message.transferId : active ? active.info.transferId : '';
             if (id && id!==msg.transferId) { cb(failure('NO_TRANSFER',msg.transferId));return; }
-            cancel();cb(answer('CANCELLED',msg.transferId));return;
+            if (!cancel()) { cb(failure('COMMIT_IN_PROGRESS',msg.transferId));return; }
+            cb(answer('CANCELLED',msg.transferId));return;
         }
         if (operation) {
             if (operation.generation===generation && operation.key===protocol.ascii(msg)) {
@@ -78,7 +93,7 @@ function createReceiver(storage, options) {
                 storage.reset(function(resetErr) {
                     if (!current(begin)) { finish(begin,failure('CANCELLED',msg.transferId));return; }
                     if (resetErr) { finish(begin,failure(resetErr,msg.transferId));return; }
-                    active={info:msg,seq:0,text:'',last:''};var ack=answer('ACK',msg.transferId);ack.seq=-1;finish(begin,ack);
+                    active={info:msg,seq:0,text:'',last:'',baseGeneration:record ? record.generation || 0 : 0};var ack=answer('ACK',msg.transferId);ack.seq=-1;finish(begin,ack);
                 });
             });return;
         }
@@ -118,7 +133,7 @@ function createReceiver(storage, options) {
             active=null;
             if (err || !record) { finish(commit,failure(err || 'SAVE_FAILED',msg.transferId));return; }
             var applied=answer('APPLIED',msg.transferId);applied.digest=transaction.info.digest;applied.sourceRevision=transaction.info.sourceRevision;finish(commit,applied);
-        },function(){return current(commit) && active===transaction;});
+        },function(){return current(commit) && active===transaction;},transaction.baseGeneration,function(){commit.markerIssued=true;});
     }
     return {receive:receive,cancel:cancel,isBusy:function(){return !!operation || !!active;}};
 }

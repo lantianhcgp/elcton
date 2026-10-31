@@ -24,7 +24,7 @@ function createExporter(load) {
         try {
             if (typeof raw !== 'string' || raw.length > 1024 || /[^\x20-\x7e]/.test(raw)) { throw new Error('INVALID_PACKET'); }
             msg = JSON.parse(raw);
-            if (!msg || msg.protocol !== 'elcton.sync' || msg.version !== 1 || msg.sender !== 'phone' || !/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId || '')) { throw new Error('INVALID_PROTOCOL'); }
+            if (!msg || msg.protocol !== 'elcton.sync' || msg.version !== 1 || msg.sender !== 'phone' || typeof msg.transferId !== 'string' || !/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)) { throw new Error('INVALID_PROTOCOL'); }
         } catch (e) { cb(failure(e.message,''));return; }
         if (msg.type === 'EXPORT_REQUEST') {
             if (loading) {

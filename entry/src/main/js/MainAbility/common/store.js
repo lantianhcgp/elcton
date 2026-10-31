@@ -75,7 +75,9 @@ function normCourses(list) {
 function parseDoc(text) {
     var p = null;
     try { p = JSON.parse(stripBom(text)); } catch (e) { return null; }
-    if (!p || typeof p !== 'object' || p.schema !== SCHEMA) { return null; }
+    if (!p || typeof p !== 'object' || p.schema !== SCHEMA || p.version !== VERSION ||
+        !isArray(p.courses) || p.courses.length > 200 || String(text).length > 32768) { return null; }
+    try { protocol.snapshot(p); } catch (e) { return null; }
     return {
         schema: SCHEMA,
         version: num(p.version, VERSION),
@@ -131,14 +133,22 @@ function serialize(doc) {
 }
 
 /* ── 首次安装：读随包种子 → 落盘成正式文档 ── */
+function migrate(doc, cb) {
+    var text;
+    try { text = protocol.snapshot(doc); } catch (e) { cb('INVALID_LOCAL_DOC');return; }
+    var meta = {datasetId:'',sourceRevision:0,appliedDigest:'',localDirty:doc.courses.length > 0,
+        localSettings:normSettings(doc.settings),updatedAt:doc.updatedAt || 0};
+    journal.commit(text,meta,function(err,record) {
+        if (err) { cb(err);return; }
+        doc.rev=record.generation;doc.__generation=record.generation;cb(null,doc);
+    },null,0);
+}
 function seed(cb) {
     fs.readFile(SEED_URI, function (code, text) {
-        var doc = null;
-        if (code === undefined || code === null) { doc = parseDoc(text); }
-        if (!doc) { doc = newDoc(); }        // 种子缺失/损坏 → 空课表兜底
-        doc.rev = 0;
-        doc.updatedAt = 0;
-        persist(doc, function () { cb(undefined, doc); });
+        if (code && code !== 301) { cb(code);return; }
+        var doc = code === 301 ? newDoc() : parseDoc(text);
+        if (!doc) { cb('INVALID_SEED');return; }
+        migrate(doc,cb);
     });
 }
 
@@ -151,13 +161,13 @@ function loadLegacy(cb) {
         }
         var doc = parseDoc(text);
         if (!doc) {
-            fs.backup(BAD_URI, String(text), function () { seed(cb); });
+            fs.backup(BAD_URI, String(text), function (backupErr) { cb(backupErr || 'INVALID_LEGACY_DOC'); });
             return;
         }
-        cb(undefined, doc);
+        migrate(doc,cb);
     });
 }
-function load(cb) {
+function loadOnce(cb) {
     journal.load(function (err, record) {
         if (err) { cb(err); return; }
         if (!record) { loadLegacy(cb); return; }
@@ -171,6 +181,7 @@ function load(cb) {
                 doc.settings.reminderMinutes = localSettings.reminderMinutes;
             }
             doc.rev = record.generation;
+            doc.__generation = record.generation;
             doc.__sourceRevision = record.meta.sourceRevision || 0;
             doc.updatedAt = record.meta.updatedAt || 0;
             cb(undefined, doc);
@@ -178,7 +189,21 @@ function load(cb) {
     });
 }
 
-/* ── 写：串行队列，防止两次落盘交错把文件写花 ── */
+/* Coalesce cross-page loads/migration; never open two first-generation commits. */
+function load(cb) {
+    var shared=fs.shared;
+    if (!shared) { cb('APP_CONTEXT_UNAVAILABLE');return; }
+    if (shared.storeLoad) {
+        if (shared.storeLoad.length >= 12) { cb('LOAD_BUSY');return; }
+        shared.storeLoad.push(cb);return;
+    }
+    shared.storeLoad=[cb];
+    loadOnce(function(err,doc) {
+        var waiters=shared.storeLoad;shared.storeLoad=null;
+        for (var i=0;i<waiters.length;i++) { waiters[i](err,doc); }
+    });
+}
+/* Bounded writers with generation-CAS; an old cached page cannot replace newer data. */
 var wQueue = [];
 var wBusy = false;
 
@@ -194,22 +219,26 @@ function pump() {
     }
     journal.load(function (loadErr, previous) {
         if (loadErr) { done(loadErr); return; }
-        if (!previous) { fs.writeFile(URI, item.text, done); return; }
+        if (item.expected !== undefined && (previous ? previous.generation : 0) !== item.expected) { done('CONFLICT');return; }
         var text;
         try { text = protocol.snapshot(JSON.parse(item.text)); } catch (e) { done(e.message); return; }
-        var meta = previous.meta;
+        var meta = previous ? JSON.parse(JSON.stringify(previous.meta)) : {datasetId:'',sourceRevision:0,appliedDigest:''};
         meta.localDirty = protocol.crc32(text) !== meta.appliedDigest;
         meta.localSettings = item.settings;
         meta.updatedAt = new Date().getTime();
-        journal.commit(text, meta, function (err) { done(err); });
+        journal.commit(text, meta, function (err,result) {
+            if (!err) { item.doc.rev=result.generation;item.doc.__generation=result.generation;item.doc.updatedAt=meta.updatedAt; }
+            done(err);
+        },null,item.expected);
     });
 }
 
 function persist(doc, cb) {
-    doc.rev = num(doc.rev, 0) + 1;
-    doc.updatedAt = new Date().getTime();
-    var text = serialize(doc);
-    wQueue.push({ text: text, settings: normSettings(doc.settings), cb: cb });
+    if (wQueue.length >= 2) { if(cb)cb('WRITE_BUSY');return; }
+    var text;
+    try { text=serialize(doc);if(text.length>32768)throw new Error('SNAPSHOT_TOO_LARGE'); }
+    catch(e) { if(cb)cb('INVALID_LOCAL_DOC');return; }
+    wQueue.push({text:text,settings:normSettings(doc.settings),cb:cb,doc:doc,expected:doc.__generation});
     pump();
 }
 

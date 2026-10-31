@@ -4,6 +4,7 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'../entry/src/main/js/MainAbility');
 export function loader(system={}) {
     const cache=new Map();
+    const application=system.app || {};
     function load(name) {
         const filename=path.resolve(root,name);
         if(cache.has(filename))return cache.get(filename);
@@ -13,7 +14,7 @@ export function loader(system={}) {
             if(dependencies[ref]===undefined)throw new Error('Unknown test dependency '+ref);
             return 'var '+binding+'=dependencies['+JSON.stringify(ref)+'];';
         }).replace(/export default /,'return ');
-        const result=Function('dependencies',source)(dependencies);
+        const result=Function('dependencies','$app',source)(dependencies,application);
         cache.set(filename,result);return result;
     }
     return load;
