@@ -46,7 +46,7 @@ export default {
     },
     onListen: function () {
         if (!this.ready || this._closed) { return; }
-        if (this.listening) { this.stop(); this.phase = 'idle'; this.status = '\u5df2\u53d6\u6d88'; return; }
+        if (this.listening) { this.stop(); this.phase = 'idle'; this.status = '\u5df2\u53d6\u6d88'; this.detail = '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u65b0\u5f00\u59cb'; return; }
         this.stop();
         var self = this;
         var gen = this._gen;

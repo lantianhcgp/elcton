@@ -27,7 +27,7 @@ export default {
         titleSize:18,textSize:14,smallSize:13,digitsH:0,hintH:0,padH:0,keyW:0,keyH:0,keyGap:0,keyGapY:0,
         buttonW:0,buttonH:0,gap:0,
         digits: '· · · · · ·',
-        hint: '在网页上建好课表，把 6 位取件码输在这里',
+        hint: '\u8bf7\u8f93\u5165\u7f51\u9875\u4e0a\u76846\u4f4d\u53d6\u4ef6\u7801',
         keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '删除', '0', '']
     },
     onInit: function () {
@@ -41,7 +41,7 @@ export default {
                 if (code === undefined || code === null) {
                     self.value = digitsOnly(text);
                     if (self.value.length === 6) {
-                        self.hint = '已填入之前保存的取件码，可直接改';
+                        self.hint = '\u5df2\u8f7d\u5165\u53d6\u4ef6\u7801\uff0c\u53ef\u76f4\u63a5\u4fee\u6539';
                     }
                 }
                 self.paint();
@@ -84,7 +84,7 @@ export default {
     onOk: function () {
         var self = this;
         if (self.value.length !== 6) {
-            self.hint = '取件码是 6 位数字，还差 ' + (6 - self.value.length) + ' 位';
+            self.hint = '\u97006\u4f4d\u6570\u5b57\uff0c\u8fd8\u5dee' + (6 - self.value.length) + '\u4f4d';
             return;
         }
         self.hint = '保存中…';

@@ -36,5 +36,9 @@ test('phone sync page receives a snapshot through its real API callback and upda
             await sleep(30);const chunk=outbound.at(-1);assert.equal(chunk.type,'EXPORT_CHUNK');exported+=chunk.data;
         }
         assert.equal(exported,text);assert.equal(protocol.crc32(exported),meta.digest);
+        page.detail='INCOMPLETE_OR_CORRUPT';
+        page.onListen.call(page);
+        assert.equal(page.status,'已取消');
+        assert.equal(page.detail,'旧课表已保留，可重新开始');
     }finally{page.onDestroy.call(page);}
 });
