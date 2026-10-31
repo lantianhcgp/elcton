@@ -14,5 +14,7 @@ with zipfile.ZipFile(app) as outer:
         prefix = 'assets/js/MainAbility/'
         assert 'VERIFY_INCOMING' in files[prefix+'pages/phone-sync/phone-sync.js'], 'Missing receive code'
         assert 'VERIFY_COMMIT' in files[prefix+'pages/week/week.js'], 'Missing committed-store dependency'
+        oversized = {n: len(text.encode('utf8')) for n, text in files.items() if '/pages/' in n and len(text.encode('utf8')) >= 49152}
+        assert not oversized, 'LITE_PAGE_BUDGET_EXCEEDED: ' + json.dumps(oversized)
         assert config['app']['version']['code'] == 1000102, 'Unexpected version'
-        print(json.dumps({'app':app.name,'js_files':len(files),'external_requires':0,'version':config['app']['version'],'passed':True}))
+        print(json.dumps({'app':app.name,'js_files':len(files),'external_requires':0,'largest_page_bytes':max(len(text.encode('utf8')) for n,text in files.items() if '/pages/' in n),'version':config['app']['version'],'passed':True}))

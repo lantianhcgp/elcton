@@ -1,0 +1,27 @@
+import fs from 'node:fs';
+import path from 'node:path';
+export async function connect(port=9253){
+ const response=await fetch(`http://127.0.0.1:${port}/json/list`);if(!response.ok)throw Error('CDP unavailable');
+ const target=(await response.json()).find(x=>x.type==='page');if(!target)throw Error('No page');
+ const ws=new WebSocket(target.webSocketDebuggerUrl);
+ await new Promise((resolve,reject)=>{ws.onopen=resolve;ws.onerror=reject;});
+ let id=0;const jobs=new Map();
+ ws.onmessage=e=>{const m=JSON.parse(e.data);const p=jobs.get(m.id);if(p){jobs.delete(m.id);clearTimeout(p.timer);m.error?p.reject(Error(JSON.stringify(m.error))):p.resolve(m.result);}};
+ function send(method,params={}){return new Promise((resolve,reject)=>{const n=++id;const timer=setTimeout(()=>{jobs.delete(n);reject(Error('CDP_TIMEOUT '+method));},25000);jobs.set(n,{resolve,reject,timer});ws.send(JSON.stringify({id:n,method,params}));});}
+ async function evaluate(expression){const r=await send('Runtime.evaluate',{expression,returnByValue:true,awaitPromise:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value;}
+ async function wait(expression,timeout=20000){const end=Date.now()+timeout;while(Date.now()<end){if(await evaluate(expression))return;await new Promise(r=>setTimeout(r,80));}throw Error('STATE_TIMEOUT '+expression);}
+ async function click(selector){const r=await evaluate(`(()=>{const el=document.getElementById('watch-content').shadowRoot.querySelector(${JSON.stringify(selector)});if(!el)throw Error('missing '+${JSON.stringify(selector)});const b=el.getBoundingClientRect();return {x:b.x+b.width/2,y:b.y+b.height/2,w:b.width,h:b.height};})()`);if(r.w<=0||r.h<=0)throw Error('invisible target');await send('Input.dispatchMouseEvent',{type:'mousePressed',x:r.x,y:r.y,button:'left',clickCount:1});await send('Input.dispatchMouseEvent',{type:'mouseReleased',x:r.x,y:r.y,button:'left',clickCount:1});}
+ async function shot(output){const clip=await evaluate(`(()=>{const r=document.getElementById('watch-content').getBoundingClientRect();return {x:r.x,y:r.y,width:r.width,height:r.height,scale:1};})()`);const r=await send('Page.captureScreenshot',{format:'png',clip,captureBeyondViewport:true});fs.mkdirSync(path.dirname(output),{recursive:true});fs.writeFileSync(output,Buffer.from(r.data,'base64'));return clip;}
+ async function state(){return evaluate(`(()=>{const p=DeviceFeaturePageNav.getCurrentPage();const root=document.getElementById('watch-content').shadowRoot;return {uri:p&&p.uri,phase:p&&p.data&&p.data.phase,ready:p&&p.data&&p.data.ready,status:p&&p.data&&p.data.status,detail:p&&p.data&&p.data.detail,text:root?root.textContent.slice(-1600):'',errors:window.__qaErrors||[],rects:root?Array.from(root.querySelectorAll('.header,.body,.footer,.start,.back,.status,.detail')).map(el=>{const r=el.getBoundingClientRect();const v=document.getElementById('watch-content').getBoundingClientRect();return {class:el.className,x:r.x-v.x,y:r.y-v.y,w:r.width,h:r.height,text:el.textContent}}):[]};})()`);}
+ async function init(appUrl,width=412,height=484,circle=false){
+ await send('Page.enable');await send('Runtime.enable');
+ await send('Page.navigate',{url:'http://127.0.0.1:8794/'});
+ await wait(`typeof JSZip!=='undefined'&&typeof DeviceFeaturePageNav!=='undefined'&&!!document.getElementById('watch-content').shadowRoot`);
+ await evaluate(`(()=>{window.__qaErrors=[];const orig=console.error;console.error=(...a)=>{window.__qaErrors.push(a.map(String).join(' '));orig(...a)};localStorage.clear();DeviceFeatureVirtualFS.clear();SensorPanel.setConfig({width:${width},height:${height},isCircle:${circle}});DeviceFeatureDisplay.configure(${width},${height},${circle});const s=document.createElement('style');s.textContent='#controls,#status-bar,#drop-zone,#lib-loading-overlay{display:none!important}html,body{margin:0;overflow:hidden;background:#090c11}#app,#watch-area{width:100vw;height:100vh;min-width:0;display:flex;align-items:center;justify-content:center}#watch-shell{margin:0}#watch-frame{border:0!important;box-shadow:none!important}';document.head.appendChild(s);})()`);
+ await evaluate(`(async()=>{const r=await fetch(${JSON.stringify(appUrl)});if(!r.ok)throw Error('APP HTTP '+r.status);const b=await r.arrayBuffer();const d=new DataTransfer();d.items.add(new File([b],'elcton.app',{type:'application/zip'}));const input=document.getElementById('file-input');input.files=d.files;input.dispatchEvent(new Event('change',{bubbles:true}));return b.byteLength;})()`);
+ await wait(`(()=>{const p=DeviceFeaturePageNav.getCurrentPage();return p&&p.uri==='pages/index/index';})()`,45000);
+ await evaluate('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');return state();
+ }
+ return {send,evaluate,wait,click,shot,state,init,close(){ws.close();}};
+}
+if(process.argv[1]===new URL(import.meta.url).pathname){const c=await connect();try{const [cmd,...a]=process.argv.slice(2);console.log(JSON.stringify(cmd==='init'?await c.init(a[0],Number(a[1]||412),Number(a[2]||484),a[3]==='circle'):cmd==='eval'?await c.evaluate(a[0]):cmd==='click'?await c.click(a[0]):cmd==='shot'?await c.shot(a[0]):await c.state(),null,2));}finally{c.close();}}
