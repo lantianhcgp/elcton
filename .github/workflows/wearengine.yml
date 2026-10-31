@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '22'
       - name: Protocol and persistence regression tests
-        run: node --test tests/dataRegression.test.mjs tests/journalIntegration.test.mjs tests/wearProtocol.test.mjs tests/wearJournal.test.mjs tests/wearReceiver.test.mjs tests/wearChannel.test.mjs tests/wearLayout.test.mjs tests/phonePage.test.mjs tests/signingVersion.test.mjs
+        run: node --experimental-default-type=module --test tests/dataRegression.test.mjs tests/journalIntegration.test.mjs tests/wearProtocol.test.mjs tests/wearJournal.test.mjs tests/wearReceiver.test.mjs tests/wearChannel.test.mjs tests/wearLayout.test.mjs tests/phonePage.test.mjs tests/signingVersion.test.mjs
       - name: System dependencies
         run: sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
       - uses: ErBWs/setup-ohos@v2
@@ -34,6 +34,7 @@ jobs:
           ohpm install --all
           hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license
           python3 scripts/clean_config_in_app.py build/outputs/default/*.app
+          python3 scripts/verify_wear_bundle.py build/outputs/default/*.app
       - name: Sign and verify course application identity
         env:
           SIGN_P12_PEM: ${{ secrets.SIGN_P12_PEM_ELCTON }}
