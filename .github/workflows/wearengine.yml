@@ -15,7 +15,9 @@ jobs:
         with:
           node-version: '22'
       - name: Protocol and persistence regression tests
-        run: node --experimental-default-type=module --test tests/dataRegression.test.mjs tests/journalIntegration.test.mjs tests/wearProtocol.test.mjs tests/wearJournal.test.mjs tests/wearReceiver.test.mjs tests/wearChannel.test.mjs tests/wearLayout.test.mjs tests/phonePage.test.mjs tests/signingVersion.test.mjs tests/watchUi.test.mjs tests/wearExporter.test.mjs
+        run: |
+          npm ci --prefix tools/sign --no-audit --no-fund
+          node --experimental-default-type=module --test tests/*.test.mjs
       - name: System dependencies
         run: sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
       - uses: ErBWs/setup-ohos@v2
@@ -44,7 +46,7 @@ jobs:
         run: |
           test -n "$SIGN_P12_PEM"
           mkdir -p dist
-          npm install --prefix tools/sign --no-audit --no-fund
+          npm ci --prefix tools/sign --no-audit --no-fund
           FORCE_P7B_BUNDLE=1 node tools/sign/sign-app-to-hap.js build/outputs/default/*.app certs/elcton.p7b dist/elcton-wearengine-probe.hap
           python3 tools/sign/verify_sign.py dist/elcton-wearengine-probe.hap certs/elcton.p7b
           cp build/outputs/default/*.app dist/

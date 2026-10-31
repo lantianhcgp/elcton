@@ -35,6 +35,17 @@ async function signHap(appBuffer, p7bBuffer) {
   const signTime = p7bEContent.validity["not-before"];
   const signTimeStr = getTimeStr(new Date(signTime * 1000)) + "Z";
   const cerLeaf = p7bEContent["bundle-info"]["development-certificate"];
+  const leaf = new crypto.X509Certificate(cerLeaf);
+  const certificatePublicKey = leaf.publicKey.export({ type: 'spki', format: 'der' });
+  const signingPublicKey = crypto.createPublicKey(p12Pem).export({ type: 'spki', format: 'der' });
+  if (!certificatePublicKey.equals(signingPublicKey)) {
+    throw new Error('SIGNING_IDENTITY_MISMATCH: private key does not match profile certificate');
+  }
+  const now = Math.floor(Date.now() / 1000);
+  if (now < p7bEContent.validity['not-before'] || now >= p7bEContent.validity['not-after']) {
+    throw new Error('SIGNING_PROFILE_EXPIRED: profile is not currently valid');
+  }
+  console.log('Signing identity verified: ' + crypto.createHash('sha256').update(certificatePublicKey).digest('hex'));
   const cerStr = cerRoot + cerLeaf;
 
   // 解压并处理

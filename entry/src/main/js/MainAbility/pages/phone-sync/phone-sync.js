@@ -73,18 +73,19 @@ export default {
                     success: function () { cb(null); }, fail: function (d, code) { cb(code || 300); }}); }
                 catch (e) { cb(300); }
             },
-            commit: function (text, meta, cb) {
-                if (self._closed || gen !== self._gen) { cb('CANCELLED'); return; }
+            commit: function (text, meta, cb, isCurrent) {
+                function current() { return !self._closed && gen === self._gen && (!isCurrent || isCurrent()); }
+                if (!current()) { cb('CANCELLED'); return; }
                 fs.readFile(TEMP_URI, function (err, saved) {
-                    if (self._closed || gen !== self._gen) { cb('CANCELLED'); return; }
+                    if (!current()) { cb('CANCELLED'); return; }
                     if (err || saved !== text) { cb(err || 'VERIFY_INCOMING'); return; }
-                    journal.load(function (loadErr, current) {
-                        if (self._closed || gen !== self._gen) { cb('CANCELLED'); return; }
+                    journal.load(function (loadErr, record) {
+                        if (!current()) { cb('CANCELLED'); return; }
                         if (loadErr) { cb(loadErr); return; }
-                        var preferences = current && current.meta.localSettings ? current.meta.localSettings : localSettings;
+                        var preferences = record && record.meta.localSettings ? record.meta.localSettings : localSettings;
                         meta.localSettings = preferences || {vibrationEnabled: true, reminderMinutes: 5};
                         meta.updatedAt = new Date().getTime();
-                        journal.commit(text, meta, cb, function () { return !self._closed && gen === self._gen; });
+                        journal.commit(text, meta, cb, current);
                     });
                 });
             }
@@ -101,18 +102,27 @@ export default {
             var message;
             try { message = JSON.parse(raw); } catch (e) { return; }
             if (!message || message.protocol !== 'elcton.sync' || message.version !== 1 || typeof message.type !== 'string') { return; }
+            var target = self._receiver;
+            var control = message.type === 'HELLO' || message.type === 'STATUS';
+            if (message.type.substr(0,7) === 'EXPORT_' || (message.type === 'CANCEL' && self._exporter.isActive())) {
+                if (self._receiver.isBusy()) {
+                    self._channel.send({protocol:'elcton.sync',version:1,sender:'watch',type:'ERROR',transferId:message.transferId || '',code:'BUSY'});
+                    return;
+                }
+                target = self._exporter;
+                if (message.type !== 'CANCEL') { self.phase = 'exporting'; self.status = '\u6b63\u5728\u56de\u4f20\u8bfe\u8868'; }
+            } else if (self._exporter.isActive() && !control) {
+                self._channel.send({protocol:'elcton.sync',version:1,sender:'watch',type:'ERROR',transferId:message.transferId || '',code:'BUSY'});
+                return;
+            }
             if (message.type === 'BEGIN') { self.phase = 'receiving'; self.status = '\u6b63\u5728\u63a5\u6536'; }
             if (message.type === 'END') { self.phase = 'saving'; self.status = '\u6821\u9a8c\u4fdd\u5b58\u4e2d'; }
-            var target = self._receiver;
-            if (message.type.substr(0,7) === 'EXPORT_') {
-                if (self._receiver.isBusy()) { return; }
-                target = self._exporter;
-                self.phase = 'exporting'; self.status = '\u6b63\u5728\u56de\u4f20\u8bfe\u8868';
-            } else if (self._exporter.isActive()) { return; }
             target.receive(raw, function (response) {
                 if (self._closed || gen !== self._gen) { return; }
                 self._channel.send(response, function (err) { if (err) { self.detail = '\u56de\u6267\u53d1\u9001\u5931\u8d25\uff0c\u8bf7\u624b\u673a\u91cd\u8bd5'; }});
-                if (response.type === 'EXPORT_CLOSED') {
+                if (response.type === 'CANCELLED' || (response.type === 'EXPORT_CLOSED' && message.type === 'CANCEL')) {
+                    self.phase = 'ready'; self.status = '\u5df2\u53d6\u6d88'; self.detail = '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u65b0\u5f00\u59cb';
+                } else if (response.type === 'EXPORT_CLOSED') {
                     self.phase = 'ready'; self.status = '\u8bfe\u8868\u5df2\u56de\u4f20'; self.detail = '\u8bf7\u5728\u624b\u673a\u9884\u89c8\u540e\u5bfc\u5165';
                 } else if (response.type === 'EXPORT_META' || response.type === 'EXPORT_CHUNK') {
                     self.detail = '\u8bfe\u8868\u56de\u4f20\u4e2d\uff0c\u672a\u6539\u53d8\u624b\u673a\u5185\u5bb9';

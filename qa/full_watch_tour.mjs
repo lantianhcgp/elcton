@@ -63,9 +63,12 @@ try{
   const emptyText=await publishDocument({...document,courses:[]},'empty-'+w,2,true,protocol.crc32(sent));await capture('15-empty-applied');
   // Missing chunks never destroy the empty baseline, and cancellation resets the flow.
   const bad=protocol.plan(sent,{transferId:'missing-'+w,datasetId:'qa-course-book',sourceRevision:3,baseDigest:protocol.crc32(emptyText),force:false});assert.equal((await exchange(bad[0])).type,'ACK');assert.equal((await exchange(bad.at(-1))).code,'INCOMPLETE_OR_CORRUPT');await capture('16-missing-chunk');
-  await c.click('.start');await c.wait('!DeviceFeaturePageNav.getCurrentPage().data.listening');await capture('17-cancelled');
+  await c.click('.start');await c.wait('!DeviceFeaturePageNav.getCurrentPage().data.listening');
+  assert.equal(await c.evaluate('DeviceFeaturePageNav.getCurrentPage().data.detail'),'旧课表已保留，可重新开始');await capture('17-cancelled');
   await c.click('.legacy');await page('pages/sync/sync');await capture('18-pickup-sync');await checkGeometry(w,h,circle);
   await scrollTo('.probe-item:nth-child(3)','.probe-list');await c.click('.probe-item:nth-child(3)');await page('pages/code/code');await capture('19-keyboard-empty');await checkGeometry(w,h,circle);
+  const hintBox=await c.evaluate(`(()=>{const el=${root}.querySelector('.hint');const range=document.createRange();range.selectNodeContents(el);const text=range.getBoundingClientRect(),box=el.getBoundingClientRect();return {text:el.textContent,textW:text.width,textH:text.height,boxW:box.width,boxH:box.height};})()`);
+  assert.ok(hintBox.textW<=hintBox.boxW+1 && hintBox.textH<=hintBox.boxH+1,'Hint glyphs exceed allocated bounds: '+JSON.stringify(hintBox));
   for(let i=0;i<6;i++)await c.click('.key:nth-child('+(i+1)+')');await c.wait("DeviceFeaturePageNav.getCurrentPage().data.digits==='1 2 3 4 5 6'");await capture('20-keyboard-filled');
   await c.click('.key:nth-child(10)');await c.wait("DeviceFeaturePageNav.getCurrentPage().data.digits==='1 2 3 4 5 ·'");await c.click('.key:nth-child(6)');await c.click('.nav-btn');await page('pages/sync/sync');await capture('21-code-persisted');
   await c.click('.nav-btn-alt');await page('pages/phone-sync/phone-sync');await c.click('.back');await page('pages/week/week');await c.wait('DeviceFeaturePageNav.getCurrentPage().data.isEmpty');await capture('22-empty-after-return');

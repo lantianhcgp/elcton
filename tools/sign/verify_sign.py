@@ -1,73 +1,105 @@
 #!/usr/bin/env python3
-"""CI 签名验签闸门（2026-10-10 教训：Secret 取不到时表达式会静默回退到别的身份私钥，
-包结构 15 项全对、装机却报错误 30）。
+"""Verify the exact profile, CMS signer identity and hash binding to the complete HAP.
 
-用法: python3 verify_sign.py <hap> [p7b路径]
-signed.bin 布局: [unsignedBin][proBlock8][signBlock8][p7b][CMS][signHead32]
-验签失败（签名 key 与 p7b 证书不配对）→ 退出码 1 → CI 直接失败、不产出 artifact。
+Usage: python3 verify_sign.py <hap> [expected.p7b]
+The public profile is verified cryptographically (-noverify: no host trust-store
+claim). Device authorization and Huawei chain policy are separate real-device gates.
+No private signing material is read by this verifier.
 """
-import glob
+import hashlib
+import json
 import os
-import shutil
+from pathlib import Path
+import struct
 import subprocess
 import sys
 import tempfile
+import time
 import zipfile
 
 
+def openssl(arguments, data=None):
+    result = subprocess.run(['openssl'] + arguments, input=data, capture_output=True, timeout=60)
+    if result.returncode:
+        detail = result.stderr.decode(errors='replace').strip().splitlines()
+        raise ValueError('OpenSSL verification failed: ' + (detail[-1] if detail else 'unknown error'))
+    return result.stdout
+
+
+def verify(hap, expected_profile=None):
+    with zipfile.ZipFile(hap) as archive:
+        if archive.namelist() != ['signed.bin']:
+            raise ValueError('Unexpected signed HAP entries')
+        raw = archive.read('signed.bin')
+    if len(raw) < 64 or raw[-32:-16] != b'hw signed app   ' or raw[-16:-12] != b'1000':
+        raise ValueError('Missing or invalid signHead')
+    block_size, block_type = struct.unpack_from('>II', raw, len(raw) - 12)
+    unsigned_end = len(raw) - block_size
+    if block_type != 2 or unsigned_end <= 0 or unsigned_end + 16 >= len(raw) - 32:
+        raise ValueError('Invalid signing block bounds')
+    profile_type, profile_tag, profile_length, profile_start = struct.unpack_from('>BBHI', raw, unsigned_end)
+    cms_type, cms_tag, cms_length, cms_start = struct.unpack_from('>BBHI', raw, unsigned_end + 8)
+    if (profile_type, profile_tag, cms_type, cms_tag, cms_length) != (2, 0, 0, 0, 0):
+        raise ValueError('Unexpected signing block table')
+    if profile_start != unsigned_end + 16 or cms_start != profile_start + profile_length:
+        raise ValueError('Invalid profile/CMS offsets')
+    if not profile_length or cms_start >= len(raw) - 32:
+        raise ValueError('Empty profile or CMS')
+    profile = raw[profile_start:cms_start]
+    if expected_profile is not None and Path(expected_profile).read_bytes() != profile:
+        raise ValueError('Embedded profile does not match the explicitly requested profile')
+    cms = raw[cms_start:-32]
+    with tempfile.TemporaryDirectory() as temporary:
+        signer_path = str(Path(temporary) / 'cms-signer.pem')
+        content = openssl(['cms', '-verify', '-binary', '-inform', 'DER', '-noverify',
+                           '-purpose', 'any', '-signer', signer_path], cms)
+        profile_content = openssl(['cms', '-verify', '-binary', '-inform', 'DER',
+                                   '-noverify', '-purpose', 'any'], profile)
+        document = json.loads(profile_content)
+        leaf = document['bundle-info']['development-certificate'].encode()
+        validity = document['validity']
+        now = time.time()
+        if not validity['not-before'] <= now < validity['not-after']:
+            raise ValueError('Profile is not currently valid')
+        signer = Path(signer_path).read_bytes()
+        if signer.count(b'-----BEGIN CERTIFICATE-----') != 1:
+            raise ValueError('Expected exactly one CMS signer')
+        profile_public = openssl(['x509', '-pubkey', '-noout'], leaf)
+        signer_public = openssl(['x509', '-pubkey', '-noout'], signer)
+        if profile_public != signer_public:
+            raise ValueError('CMS signer public key differs from the profile leaf')
+        leaf_der = openssl(['x509', '-outform', 'DER'], leaf)
+        signer_der = openssl(['x509', '-outform', 'DER'], signer)
+        if leaf_der != signer_der:
+            raise ValueError('CMS signer certificate differs from the profile leaf')
+    slices = [hashlib.sha256(raw[index:min(index + 4096, cms_start)]).digest()
+              for index in range(0, cms_start, 4096)]
+    digest = hashlib.sha256(b''.join(slices)).digest()
+    expected = bytearray(b'\x31\x30\x30\x30\x00\x00\x00\x01\x00\x88\x00\x06\x00\x00\x00\x00')
+    struct.pack_into('>H', expected, 4, 16 + len(digest))
+    struct.pack_into('>I', expected, 12, len(digest))
+    expected.extend(digest)
+    if content != bytes(expected):
+        raise ValueError('CMS content digest is not bound to the current package bytes')
+    public_der = openssl(['pkey', '-pubin', '-outform', 'DER'], profile_public)
+    return {'cms_bytes': len(cms), 'package_bytes': len(raw),
+            'bundle': document['bundle-info']['bundle-name'],
+            'public_key_sha256': hashlib.sha256(public_der).hexdigest(),
+            'profile_exact': expected_profile is not None, 'payload_digest_bound': True}
+
+
 def main():
-    if len(sys.argv) < 2:
-        print("用法: verify_sign.py <hap> [p7b]")
+    if len(sys.argv) not in (2, 3):
+        print('Usage: verify_sign.py <hap> [expected.p7b]')
         return 2
-    hap = sys.argv[1]
-    raw = zipfile.ZipFile(hap).read("signed.bin")
-
-    if raw[-32:-16] != b"hw signed app   ":
-        print("FAIL: 缺 signHead（包结构异常）")
+    try:
+        result = verify(sys.argv[1], sys.argv[2] if len(sys.argv) == 3 else None)
+    except (ValueError, OSError, KeyError, struct.error, zipfile.BadZipFile, subprocess.TimeoutExpired) as error:
+        print('FAIL: signed package verification: ' + str(error))
         return 1
-
-    p7bs = []
-    if len(sys.argv) > 2 and os.path.exists(sys.argv[2]):
-        p7bs.append(open(sys.argv[2], "rb").read())
-    for f in sorted(glob.glob("certs/*.p7b")):
-        b = open(f, "rb").read()
-        if b not in p7bs:
-            p7bs.append(b)
-
-    hit = None
-    for b in p7bs:
-        i = raw.find(b)
-        if i >= 0:
-            hit = (b, i)
-            break
-    if hit is None:
-        print("FAIL: 包内 p7b 与已知证书都不匹配")
-        return 1
-
-    b, i = hit
-    cms = raw[i + len(b):len(raw) - 32]
-    if not cms or cms[0] != 0x30:
-        print("FAIL: CMS 区间非法（起始非 DER 0x30）")
-        return 1
-
-    tdir = tempfile.mkdtemp()
-    f = os.path.join(tdir, "c.der")
-    open(f, "wb").write(cms)
-    p = subprocess.run(
-        ["openssl", "cms", "-verify", "-in", f, "-inform", "DER",
-         "-noverify", "-purpose", "any", "-out", os.devnull],
-        capture_output=True, text=True, timeout=60)
-    shutil.rmtree(tdir, ignore_errors=True)
-
-    if p.returncode == 0:
-        print(f"PASS: CMS 签名验签通过（{len(cms)}B，签名 key 与 p7b 证书配对）")
-        return 0
-    tail = (p.stderr or "").strip().splitlines()
-    print("FAIL: CMS 验签失败 —— 签名私钥与包内 p7b 证书不配对（装机必报错误30）")
-    print("      " + (tail[-1] if tail else ""))
-    print("      检查 matrix 的 SIGN_P12_PEM 是否回退到了别的身份")
-    return 1
+    print('PASS: CMS/profile identity and full package digest verified ' + json.dumps(result))
+    return 0
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     sys.exit(main())
