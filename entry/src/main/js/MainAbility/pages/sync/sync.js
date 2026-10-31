@@ -1,6 +1,7 @@
 import router from '../../common/router.js';
 import data from '../../common/data.js';
 import fs from '../../common/fs.js';
+import ui from '../../common/watchUi.js';
 
 /* 课程表同步页 —— 从手机侧虚拟主机拉取 schedule.json 导入本地
  *
@@ -112,12 +113,15 @@ function mk(name, status, color) {
 
 export default {
     data: {
+        ready:false,layoutError:'',w:0,h:0,top:0,bottom:0,paneW:0,headerH:0,bodyH:0,footerH:0,
+        titleSize:18,textSize:14,smallSize:13,rowH:0,endpointH:0,detailH:0,probeH:0,buttonW:0,buttonH:0,gap:0,
         rows: [],
         detail: '',
         endpoint: 'kebiao.qingyun3.com'
     },
     onInit: function () {
         var self = this;
+        ui.init(self,'sync');
         self.dead = false;
         self.running = false;
         self.gen = 0;
@@ -149,6 +153,7 @@ export default {
     },
     onDestroy: function () {
         this.dead = true;
+        this._uiGen++;data.clearCache();
         this.gen++;
         try { clearTimeout(this.wdTimer); } catch (e) {}
         try { clearTimeout(this.reqTimer); } catch (e) {}
@@ -158,7 +163,7 @@ export default {
         this.pageTimer = null;
     },
     onBack: function () {
-        router.back();
+        router.push({uri:'pages/phone-sync/phone-sync'});
     },
     /* 点行 = 上下文动作：自检行重跑自检、课表行刷新本地、其余只看详情 */
     onRowClick: function (idx) {

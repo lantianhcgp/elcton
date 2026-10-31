@@ -171,6 +171,7 @@ function load(cb) {
                 doc.settings.reminderMinutes = localSettings.reminderMinutes;
             }
             doc.rev = record.generation;
+            doc.__sourceRevision = record.meta.sourceRevision || 0;
             doc.updatedAt = record.meta.updatedAt || 0;
             cb(undefined, doc);
         });

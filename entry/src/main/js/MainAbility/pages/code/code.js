@@ -1,5 +1,6 @@
 import fs from '../../common/fs.js';
 import router from '../../common/router.js';
+import ui from '../../common/watchUi.js';
 
 /* 取件码输入页 —— Lite 没有系统输入法（真机实测：input type=text 一碰就崩），
  * 所以键盘必须自己画。6 位纯数字，3×4 布局，存 internal://app/sync.code.txt
@@ -22,11 +23,15 @@ function digitsOnly(s) {
 
 export default {
     data: {
+        ready:false,layoutError:'',w:0,h:0,top:0,bottom:0,paneW:0,headerH:0,bodyH:0,footerH:0,
+        titleSize:18,textSize:14,smallSize:13,digitsH:0,hintH:0,padH:0,keyW:0,keyH:0,keyGap:0,keyGapY:0,
+        buttonW:0,buttonH:0,gap:0,
         digits: '· · · · · ·',
         hint: '在网页上建好课表，把 6 位取件码输在这里',
         keys: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '删除', '0', '']
     },
     onInit: function () {
+        ui.init(this,'code');
         this.dead = false;
         this.value = '';
         var self = this;
@@ -48,6 +53,7 @@ export default {
     },
     onDestroy: function () {
         this.dead = true;
+        this._uiGen++;
     },
     paint: function () {
         var s = '';

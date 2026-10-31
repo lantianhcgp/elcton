@@ -1,105 +1,17 @@
-/* 取件码键盘页 · 弹性布局测试版（2026-10-10）：
- * 56/52/20/218/66 → 11%/11%/4%/45%/14%（和 85%，等比留白）。
- * 按键 116x50 是内容尺寸保持 px（pad 100% 宽，键距随屏宽自适应）。 */
-.container {
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    background-color: #0B0E14;
-}
-.header-bar {
-    width: 100%;
-    height: 11%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 24px;
-    padding-right: 24px;
-}
-.title {
-    font-size: 30px;
-    color: #F0F3FA;
-}
-.subtitle {
-    font-size: 17px;
-    color: #99A1B8;
-}
-.display {
-    width: 100%;
-    height: 11%;
-    justify-content: center;
-    align-items: center;
-    padding-left: 24px;
-    padding-right: 24px;
-}
-.digits {
-    font-size: 36px;
-    color: #F0F3FA;
-    letter-spacing: 6px;
-}
-.hintbox {
-    width: 100%;
-    height: 4%;
-    justify-content: center;
-    align-items: center;
-    padding-left: 24px;
-    padding-right: 24px;
-}
-.hint {
-    font-size: 15px;
-    color: #d9a441;
-}
-.pad {
-    width: 100%;
-    height: 45%;
-    padding-left: 24px;
-    padding-right: 24px;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
-}
-.key {
-    width: 116px;
-    height: 50px;
-    background-color: #1F2434;
-    border-radius: 14px;
-    justify-content: center;
-    align-items: center;
-}
-.keytext {
-    font-size: 26px;
-    color: #E8ECF4;
-}
-.bottom-bar {
-    width: 100%;
-    height: 14%;
-    padding-bottom: 12px;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.nav-btn {
-    width: 36%;
-    height: 52px;
-    background-color: #6c63ff;
-    border-radius: 26px;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.nav-btn-alt {
-    width: 36%;
-    height: 52px;
-    background-color: #1E2333;
-    border-radius: 26px;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.nav-btn-text {
-    font-size: 24px;
-    color: #E8ECF4;
-}
+.page{width:100%;height:100%;background-color:#0B0E14;flex-direction:column;align-items:center;}
+.loading{width:100%;height:100%;align-items:center;justify-content:center;}
+.loading-text{font-size:18px;color:#99A1B8;}
+.frame{flex-direction:column;align-items:center;}
+.header-bar{align-items:center;justify-content:center;}
+.title{color:#F0F3FA;height:30px;}
+.display{justify-content:center;align-items:center;}
+.digits{color:#F0F3FA;text-align:center;height:32px;}
+.hintbox{justify-content:center;align-items:center;}
+.hint{color:#C7B7FF;text-align:center;text-overflow:ellipsis;}
+.pad{flex-direction:row;flex-wrap:wrap;justify-content:center;align-items:center;}
+.key{background-color:#202638;border-radius:12px;justify-content:center;align-items:center;}
+.keytext{color:#F0F3FA;height:24px;}
+.bottom-bar{flex-direction:row;justify-content:center;align-items:center;}
+.nav-btn-alt{background-color:#252C3B;border-radius:24px;justify-content:center;align-items:center;}
+.nav-btn{background-color:#6C63FF;border-radius:24px;justify-content:center;align-items:center;}
+.button-text{color:#F0F3FA;height:28px;}

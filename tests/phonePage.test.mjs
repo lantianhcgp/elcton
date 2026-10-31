@@ -25,5 +25,14 @@ test('phone sync page receives a snapshot through its real API callback and upda
         assert.equal(page.phase,'applied');
         const data=loader({file:file.api})('common/data.js');
         assert.equal((await new Promise(r=>data.loadCourses(r)))[0].name,'语文');
+        incoming({isRegister:false,message:protocol.ascii({protocol:'elcton.sync',version:1,sender:'phone',type:'EXPORT_REQUEST',transferId:'e-page'})});
+        await sleep(30);
+        const meta=outbound.at(-1);assert.equal(meta.type,'EXPORT_META');
+        let exported='';
+        for(let seq=0;seq<meta.chunks;seq++) {
+            incoming({isRegister:false,message:protocol.ascii({protocol:'elcton.sync',version:1,sender:'phone',type:'EXPORT_NEXT',transferId:'e-page',seq})});
+            await sleep(30);const chunk=outbound.at(-1);assert.equal(chunk.type,'EXPORT_CHUNK');exported+=chunk.data;
+        }
+        assert.equal(exported,text);assert.equal(protocol.crc32(exported),meta.digest);
     }finally{page.onDestroy.call(page);}
 });

@@ -1,158 +1,26 @@
-/* 详情页 · 弹性布局测试版（2026-10-10）：
- * 主内容 56/4/352/72 → 11%/1%/73%/15% = 100%（484 上 list=353 ≥ 内容 352 不溢出）。
- * 删除确认弹窗区保持上轮验收原样（258 行/118 钮/180 高一行未动）。 */
-.page {
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    background-color: #0B0E14;
-}
-/* 主内容列：确认框弹出时整列让位（纯 flex 换位，不依赖 position） */
-.main {
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-}
-.header-bar {
-    width: 100%;
-    height: 11%;
-    justify-content: center;
-    align-items: center;
-}
-.page-title {
-    font-size: 30px;
-    color: #ffffff;
-}
-.color-bar {
-    width: 100%;
-    height: 1%;
-}
-/* list 高 73%：FIT3 上 353px ≥ 内容 352；矮屏上自动转为可滚动 */
-.detail-list {
-    width: 100%;
-    height: 73%;
-}
-.detail-name-item {
-    width: 100%;
-    height: 72px;
-    justify-content: center;
-    align-items: center;
-}
-.detail-name {
-    font-size: 34px;
-    color: #ffffff;
-}
-.detail-item {
-    width: 100%;
-    height: 52px;
-    background-color: #171B28;
-    margin-left: 16px;
-    margin-right: 16px;
-    margin-bottom: 2px;
-    border-radius: 12px;
-}
-.detail-row {
-    width: 100%;
-    height: 52px;
-    flex-direction: row;
-    align-items: center;
-    padding-left: 28px;
-    padding-right: 28px;
-}
-.detail-label {
-    font-size: 22px;
-    color: #99A1B8;
-    width: 70px;
-}
-.detail-value {
-    font-size: 24px;
-    color: #F0F3FA;
-    margin-left: 14px;
-}
-.action-item {
-    width: 100%;
-    height: 64px;
-    justify-content: center;
-    align-items: center;
-}
-.action-btn {
-    width: 80%;
-    height: 50px;
-    border-radius: 25px;
-    justify-content: center;
-    align-items: center;
-}
-.del-btn {
-    background-color: #E5484D;
-}
-.action-btn-text {
-    font-size: 24px;
-    color: #ffffff;
-}
-.bottom-bar {
-    width: 100%;
-    height: 15%;
-    justify-content: center;
-    align-items: center;
-}
-.back-btn {
-    width: 150px;
-    height: 48px;
-    background-color: #1E2333;
-    border-radius: 24px;
-    justify-content: center;
-    align-items: center;
-}
-.back-btn-text {
-    font-size: 24px;
-    color: #B9C0D4;
-}
-.overlay {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.75);
-    justify-content: center;
-    align-items: center;
-}
-.dialog {
-  width: 82%;
-  flex-direction: column;
-  background-color: #1a1a2e;
-  border-radius: 22px;
-  height: 180px;
-  padding: 30px;
-  align-items: center;
-}
-.dialog-title {
-  font-size: 30px;
-  color: #e8e8f0;
-  margin-bottom: 24px;
-  height: 46px;
-}
-.dialog-row {
-  flex-direction: row;
-  width: 258px;
-  justify-content: space-between;
-  height: 50px;
-}
-.dialog-cancel {
-  margin-right: 22px;
-}
-.dialog-btn {
-  width: 118px;
-  height: 50px;
-  border-radius: 25px;
-  justify-content: center;
-  align-items: center;
-}
-.dialog-cancel {
-    background-color: #2a2a3e;
-}
-.dialog-confirm {
-    background-color: #ef5350;
-}
-.dialog-btn-text {
-  font-size: 25px;
-  color: #ffffff;
-  height: 40px;
-}
+.page{width:100%;height:100%;background-color:#0B0E14;flex-direction:column;align-items:center;}
+.loading{width:100%;height:100%;justify-content:center;align-items:center;}
+.loading-text{color:#99A1B8;font-size:18px;}
+.frame{flex-direction:column;align-items:center;}
+.header-bar{justify-content:center;align-items:center;}
+.page-title{color:#F0F3FA;height:30px;}
+.detail-list{background-color:#0B0E14;}
+.name-item{justify-content:center;align-items:center;}
+.detail-name{color:#F0F3FA;text-align:center;text-overflow:ellipsis;}
+.detail-item{padding-bottom:4px;}
+.detail-row{background-color:#171B28;border-radius:12px;flex-direction:row;align-items:center;justify-content:space-between;padding:4px 10px;}
+.detail-label{color:#99A1B8;height:26px;}
+.detail-value{color:#F0F3FA;text-overflow:ellipsis;}
+.action-item{justify-content:center;align-items:center;}
+.del-btn{background-color:#B33C48;border-radius:24px;justify-content:center;align-items:center;}
+.button-text{color:#F0F3FA;height:28px;text-align:center;}
+.bottom-bar{justify-content:center;align-items:center;}
+.back-btn{background-color:#252C3B;border-radius:24px;justify-content:center;align-items:center;}
+.error-text{color:#FF888F;}
+.overlay{justify-content:center;align-items:center;background-color:#0B0E14;}
+.dialog{background-color:#171B28;border-radius:20px;flex-direction:column;justify-content:center;align-items:center;}
+.dialog-title{color:#F0F3FA;text-align:center;}
+.dialog-hint{color:#99A1B8;text-align:center;}
+.dialog-row{flex-direction:row;justify-content:center;align-items:center;}
+.dialog-cancel{background-color:#252C3B;border-radius:24px;justify-content:center;align-items:center;}
+.dialog-confirm{background-color:#B33C48;border-radius:24px;justify-content:center;align-items:center;}

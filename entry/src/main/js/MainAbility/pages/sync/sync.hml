@@ -1,28 +1,20 @@
-<div class="container">
-    <div class="header-bar">
-        <text class="title">&#x540C;&#x6B65;</text>
-        <text class="subtitle">&#x8BFE;&#x8868;</text>
-    </div>
-    <div class="endpoint-bar">
-        <text class="endpoint-text">{{ endpoint }}</text>
-    </div>
-    <list class="probe-list">
-        <list-item class="probe-item" for="{{ (idx, item) in rows }}" @click="onRowClick(idx)">
-            <div class="probe-bg">
-                <text class="probe-name">{{ item.name }}</text>
-                <text class="probe-status" style="color: {{ item.color }};">{{ item.status }}</text>
-            </div>
-        </list-item>
+<div class="page">
+  <div class="loading" if="{{ !ready }}"><text class="loading-text">{{ layoutError }}</text></div>
+  <div class="frame" if="{{ ready }}" style="width: {{ paneW }}px; height: {{ h }}px; padding-top: {{ top }}px; padding-bottom: {{ bottom }}px;">
+    <div class="header-bar" style="width: {{ paneW }}px; height: {{ headerH }}px;"><text class="title" style="font-size: {{ titleSize }}px;">&#x53d6;&#x4ef6;&#x7801;&#x540c;&#x6b65;</text></div>
+    <div class="endpoint-bar" style="width: {{ paneW }}px; height: {{ endpointH }}px;"><text class="endpoint-text" style="width: {{ paneW }}px; height: {{ endpointH }}px; font-size: {{ smallSize }}px;">{{ endpoint }}</text></div>
+    <list class="probe-list" style="width: {{ paneW }}px; height: {{ probeH }}px;">
+      <list-item class="probe-item" for="{{ (idx, item) in rows }}" @click="onRowClick(idx)" style="width: {{ paneW }}px; height: {{ rowH }}px;">
+        <div class="probe-bg" style="width: {{ paneW }}px; height: {{ rowH }}px;">
+          <text class="probe-name" style="width: {{ paneW }}px; font-size: {{ textSize }}px;">{{ item.name }}</text>
+          <text class="probe-status" style="width: {{ paneW }}px; font-size: {{ smallSize }}px; color: {{ item.color }};">{{ item.status }}</text>
+        </div>
+      </list-item>
     </list>
-    <div class="detail-box">
-        <text class="detail-text">{{ detail }}</text>
+    <div class="detail-box" style="width: {{ paneW }}px; height: {{ detailH }}px;"><text class="detail-text" style="width: {{ paneW }}px; height: {{ detailH }}px; font-size: {{ smallSize }}px;">{{ detail }}</text></div>
+    <div class="bottom-bar" style="width: {{ paneW }}px; height: {{ footerH }}px;">
+      <div class="nav-btn-alt" @click="onBack" style="width: {{ buttonW }}px; height: {{ buttonH }}px; margin-right: {{ gap }}px;"><text class="button-text" style="font-size: {{ textSize }}px;">&#x8fd4;&#x56de;</text></div>
+      <div class="nav-btn" @click="onPull" style="width: {{ buttonW }}px; height: {{ buttonH }}px;"><text class="button-text" style="font-size: {{ textSize }}px;">&#x62c9;&#x53d6;&#x8bfe;&#x8868;</text></div>
     </div>
-    <div class="bottom-bar">
-        <div class="nav-btn-alt" @click="onBack">
-            <text class="nav-btn-text">&#x8FD4;&#x56DE;</text>
-        </div>
-        <div class="nav-btn" @click="onPull">
-            <text class="nav-btn-text">&#x62C9;&#x53D6;&#x8BFE;&#x8868;</text>
-        </div>
-    </div>
+  </div>
 </div>

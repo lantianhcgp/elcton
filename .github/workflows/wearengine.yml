@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: '22'
       - name: Protocol and persistence regression tests
-        run: node --experimental-default-type=module --test tests/dataRegression.test.mjs tests/journalIntegration.test.mjs tests/wearProtocol.test.mjs tests/wearJournal.test.mjs tests/wearReceiver.test.mjs tests/wearChannel.test.mjs tests/wearLayout.test.mjs tests/phonePage.test.mjs tests/signingVersion.test.mjs
+        run: node --experimental-default-type=module --test tests/dataRegression.test.mjs tests/journalIntegration.test.mjs tests/wearProtocol.test.mjs tests/wearJournal.test.mjs tests/wearReceiver.test.mjs tests/wearChannel.test.mjs tests/wearLayout.test.mjs tests/phonePage.test.mjs tests/signingVersion.test.mjs tests/watchUi.test.mjs tests/wearExporter.test.mjs
       - name: System dependencies
         run: sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
       - uses: ErBWs/setup-ohos@v2

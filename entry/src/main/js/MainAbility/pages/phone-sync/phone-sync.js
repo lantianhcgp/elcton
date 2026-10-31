@@ -9,6 +9,7 @@ import makeReceiver from '../../common/wearReceiver.js';
 import makeChannel from '../../common/wearChannel.js';
 import identity from '../../common/wearIdentity.js';
 import layout from '../../common/wearLayout.js';
+import makeExporter from '../../common/wearExporter.js';
 
 var TEMP_URI = 'internal://app/we-incoming.json';
 export default {
@@ -87,6 +88,7 @@ export default {
             }
         };
         this._receiver = makeReceiver(storage, {maxBytes: 8192});
+        this._exporter = makeExporter(function(cb) { store.load(cb); });
         this._channel = makeChannel(identity);
         this.listening = true; this.phase = 'opening'; this.buttonLabel = '\u53d6\u6d88';
         this.status = '\u6b63\u5728\u8fde\u63a5'; this.detail = '\u624b\u673a\u9700\u4fdd\u6301\u524d\u53f0';
@@ -98,10 +100,20 @@ export default {
             try { message = JSON.parse(raw); } catch (e) { return; }
             if (message.type === 'BEGIN') { self.phase = 'receiving'; self.status = '\u6b63\u5728\u63a5\u6536'; }
             if (message.type === 'END') { self.phase = 'saving'; self.status = '\u6821\u9a8c\u4fdd\u5b58\u4e2d'; }
-            self._receiver.receive(raw, function (response) {
+            var target = self._receiver;
+            if (message.type.substr(0,7) === 'EXPORT_') {
+                if (self._receiver.isBusy()) { return; }
+                target = self._exporter;
+                self.phase = 'exporting'; self.status = '\u6b63\u5728\u56de\u4f20\u8bfe\u8868';
+            } else if (self._exporter.isActive()) { return; }
+            target.receive(raw, function (response) {
                 if (self._closed || gen !== self._gen) { return; }
                 self._channel.send(response, function (err) { if (err) { self.detail = '\u56de\u6267\u53d1\u9001\u5931\u8d25\uff0c\u8bf7\u624b\u673a\u91cd\u8bd5'; }});
-                if (response.type === 'APPLIED') {
+                if (response.type === 'EXPORT_CLOSED') {
+                    self.phase = 'ready'; self.status = '\u8bfe\u8868\u5df2\u56de\u4f20'; self.detail = '\u8bf7\u5728\u624b\u673a\u9884\u89c8\u540e\u5bfc\u5165';
+                } else if (response.type === 'EXPORT_META' || response.type === 'EXPORT_CHUNK') {
+                    self.detail = '\u8bfe\u8868\u56de\u4f20\u4e2d\uff0c\u672a\u6539\u53d8\u624b\u673a\u5185\u5bb9';
+                } else if (response.type === 'APPLIED') {
                     self.phase = 'applied'; self.status = '\u540c\u6b65\u5b8c\u6210';
                     self.detail = '\u5df2\u4fdd\u5b58\u5e76\u56de\u8bfb\u786e\u8ba4';
                     if (self._timer) { clearTimeout(self._timer); self._timer = null; }
@@ -124,6 +136,7 @@ export default {
     stop: function () {
         this._gen++;
         if (this._timer) { clearTimeout(this._timer); this._timer = null; }
+        if (this._exporter) { this._exporter.cancel(); this._exporter = null; }
         if (this._receiver) { this._receiver.cancel(); this._receiver = null; }
         if (this._channel) { this._channel.close(); this._channel = null; }
         this.listening = false; this.buttonLabel = '\u5f00\u59cb\u63a5\u6536';

@@ -1,166 +1,25 @@
-/* 周视图 · 弹性布局测试版（2026-10-10）：
- * 骨架 56/52/304/72 → 11%/11%/63%/15% = 100%，满屏自适应。
- * 日期 tab/卡片文字组等内容尺寸保持 px。 */
-.container {
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    background-color: #0B0E14;
-}
-.header-bar {
-    width: 100%;
-    height: 13%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    /* 圆角安全区：FIT3 屏角 R≈110，标题/胶囊内缩避开被屏角切掉（2026-10-12） */
-    padding-top: 12px;
-    padding-left: 60px;
-    padding-right: 60px;
-}
-.page-title {
-    font-size: 28px;
-    color: #F0F3FA;
-}
-/* 铁律（day-tab 同款）：div 承载背景/点击，text 只放字——背景挂 text 会文字错位丢失。
- * 容器必须给死宽高：无宽度时父容器靠子文字量宽、文字又靠父容器量宽 → 引擎解成 0 宽 → 字空(实测) */
-.week-label-bg {
-    width: 76px;    /* 只放「单/双」一个字；死宽是空字修复的关键，不能改回自适应 */
-    height: 44px;
-    background-color: #1E2333;
-    border-radius: 20px;
-    justify-content: center;
-    align-items: center;
-}
-.week-label {
-    font-size: 24px;
-    color: #C9CFFF;
-    text-align: center;
-}
-/* 日期条：div 承载背景、text 只放字（真机 text 背景错位的修复保持） */
-.day-tabs {
-    width: 100%;
-    height: 11%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 16px;
-    padding-right: 16px;
-}
-.day-tab {
-    width: 44px;
-    height: 38px;
-    background-color: #6C63FF;
-    border-radius: 19px;
-    justify-content: center;
-    align-items: center;
-}
-.day-tab-text {
-    font-size: 22px;
-    color: #ffffff;
-}
-.day-tab-inactive {
-    width: 44px;
-    height: 38px;
-    justify-content: center;
-    align-items: center;
-}
-.day-tab-text-off {
-    font-size: 22px;
-    color: #626A80;
-}
-.course-list {
-    width: 100%;
-    height: 61%;
-    /* 列表默认底色是黑（真机/模拟器同现），显式铺页面底色，去掉卡片两侧黑条 */
-    background-color: #0B0E14;
-}
-.item {
-    width: 100%;
-    height: 92px;
-    justify-content: center;
-    align-items: center;
-}
-.item-bg {
-    width: 90%;
-    height: 78px;
-    background-color: #171B28;
-    border-radius: 16px;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 18px;
-    padding-right: 18px;
-}
-.item-left {
-    flex-direction: row;
-    align-items: center;
-    width: 210px;
-    height: 56px;
-}
-.status-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
-    margin-right: 14px;
-}
-.item-main {
-    flex-direction: column;
-    width: 186px;
-    height: 56px;
-    justify-content: center;
-}
-.item-name {
-    font-size: 25px;
-    color: #F0F3FA;
-    height: 30px;
-}
-.item-teacher {
-    font-size: 18px;
-    color: #99A1B8;
-    margin-top: 2px;
-    height: 22px;
-}
-.item-time {
-    font-size: 19px;
-    color: #99A1B8;
-}
-.empty-text {
-    font-size: 26px;
-    color: #626A80;
-}
-.empty-bottom {
-    width: 100%;
-    height: 80px;
-}
-.bottom-bar {
-    width: 100%;
-    height: 15%;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.action-btn {
-    height: 48px;
-    border-radius: 24px;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.back-btn {
-    width: 36%;
-    background-color: #2A3145;
-}
-.back-btn-text {
-    font-size: 24px;
-    color: #B9C0D4;
-}
-.sync-btn {
-    width: 36%;
-    background-color: #6C63FF;
-}
-.sync-btn-text {
-    font-size: 24px;
-    color: #ffffff;
-}
+.page{width:100%;height:100%;background-color:#0B0E14;flex-direction:column;align-items:center;}
+.loading{width:100%;height:100%;justify-content:center;align-items:center;}
+.loading-text{font-size:18px;color:#99A1B8;}
+.frame{flex-direction:column;align-items:center;}
+.header-bar{flex-direction:row;justify-content:space-between;align-items:center;}
+.page-title{color:#F0F3FA;height:30px;}
+.week-label-bg{background-color:#252C3B;border-radius:14px;align-items:center;justify-content:center;}
+.week-label{color:#C9CFFF;height:28px;}
+.day-tabs{flex-direction:row;align-items:center;justify-content:center;}
+.day-slot{align-items:center;justify-content:center;}
+.day-tab{background-color:#6C63FF;border-radius:14px;align-items:center;justify-content:center;}
+.day-tab-inactive{align-items:center;justify-content:center;}
+.day-tab-text{color:#F0F3FA;height:24px;}
+.day-tab-text-off{color:#99A1B8;height:24px;}
+.course-list{background-color:#0B0E14;}
+.item{align-items:center;justify-content:center;}
+.item-bg{background-color:#171B28;border-radius:14px;padding:8px 14px;flex-direction:column;justify-content:center;}
+.item-name{color:#F0F3FA;text-overflow:ellipsis;}
+.item-teacher{color:#99A1B8;text-overflow:ellipsis;}
+.item-time{text-overflow:ellipsis;}
+.empty-text{color:#99A1B8;text-align:center;}
+.bottom-bar{flex-direction:row;align-items:center;justify-content:center;}
+.back-btn{background-color:#252C3B;border-radius:24px;justify-content:center;align-items:center;}
+.sync-btn{background-color:#6C63FF;border-radius:24px;justify-content:center;align-items:center;}
+.back-btn-text,.sync-btn-text{color:#F0F3FA;height:28px;}
