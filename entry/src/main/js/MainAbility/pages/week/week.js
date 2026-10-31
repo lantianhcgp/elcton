@@ -4,6 +4,7 @@ import storage from '@system.storage';
 import utils from '../../common/utils.js';
 import { DAY_NAMES, DAY_NAMES_SHORT, COURSE_COLORS, PERIOD_TIMES } from '../../common/constants.js';
 import ui from '../../common/watchUi.js';
+import crownFocus from '../../common/crownFocus.js';
 
 export default {
     data: {
@@ -21,7 +22,7 @@ export default {
         isEmpty: true
     },
     onInit: function () {
-        this.dead=false; ui.init(this, 'week');
+        this.dead=false; ui.init(this, 'week', crownFocus);
         this.selectedDay = utils.getDayOfWeek();
         /* \u540c\u6b65\u7b97\u4e00\u6b21\uff08\u4e0d\u7b49 IO \u56de\u8c03\uff09\uff1a\u5148\u6309\u9ed8\u8ba4\u5b66\u671f\u8d77\u59cb\u7b97\uff0cloadSettings \u56de\u8c03\u56de\u6765\u518d\u6309\u8bbe\u7f6e\u6821\u6b63 */
         this.currentWeek = utils.calculateCurrentWeek('2026-09-01');
@@ -29,13 +30,14 @@ export default {
         this.loadData();
     },
     onShow: function () {
-        this.dead=false; ui.init(this, 'week');
+        this.dead=false; ui.init(this, 'week', crownFocus);
         data.clearCache();
         this.loadData();
         this.enableRotation('courseList', true);
     },
     onHide: function () {
         this.dead=true;this._uiGen++;this._loadGen=(this._loadGen||0)+1;this._dayGen=(this._dayGen||0)+1;
+        clearTimeout(this._focusTimer);this._focusTimer=null;
         this.enableRotation('courseList', false);
     },
     onDestroy: function () {
@@ -109,6 +111,7 @@ export default {
                 });
             }
             /* \u810f\u68c0\u67e5\uff1a\u540c\u4e00\u5929\u91cd\u590d onShow \u4e0d\u91cd\u5efa\u5217\u8868\uff08\u6027\u80fd\u4f18\u5316 2026-10-10\uff09 */
+            crownFocus(self);
             var key = self.selectedDay + ':' + JSON.stringify(list);
             if (self._dayKey === key) { return; }
             self._dayKey = key;

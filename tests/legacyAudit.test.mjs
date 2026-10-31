@@ -65,13 +65,15 @@ function harness(name, options = {}) {
         set(p) {state.storageSets.push(p); if (options.storageSet) options.storageSet(p, state); else p.success();}
     };
     const ui = loader({device})('common/watchUi.js');
+    const focusSource = fs.readFileSync(path.join(root, 'common/crownFocus.js'), 'utf8').replace('export default ', 'return ');
+    const crownFocus = Function('setTimeout','clearTimeout',focusSource)(time.setTimeout,time.clearTimeout);
     const constants = {DAY_NAMES:['','Mon','Tue','Wed','Thu','Fri','Sat','Sun'], DAY_NAMES_SHORT:[],
         COURSE_COLORS:['red','orange','yellow','green','blue','purple','black','white'], PERIOD_TIMES:[],
         WEEK_TYPES:[{value:'all',label:'all'},{value:'odd',label:'odd'},{value:'even',label:'even'}]};
     const utils = {getDayOfWeek() {return 1;}, calculateCurrentWeek() {return 1;}, getDateString() {return '2026-11-01';},
         getCurrentMinutes() {return 500;}, timeToMinutes(v) {const [h,m] = v.split(':').map(Number); return h*60+m;}};
     const deps = {'../../common/data.js':data, '../../common/fs.js':file, '../../common/router.js':router,
-        '../../common/watchUi.js':ui, '../../common/wearProtocol.js':protocol,
+        '../../common/watchUi.js':ui, '../../common/crownFocus.js':crownFocus, '../../common/wearProtocol.js':protocol,
         '../../common/utils.js':utils, '../../common/constants.js':constants, '@system.storage':storage};
     const fetchApi = {fetch(p) {
         state.requests.push({url:p.url, method:p.method, at:time.now(), p});

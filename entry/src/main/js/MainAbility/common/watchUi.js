@@ -28,11 +28,13 @@ function layout(info,kind) {
         digitsH:digitsH,hintH:hintH,padH:padH,keyGap:keyGap,keyGapY:keyGapY,
         keyW:Math.floor((paneW-3*keyGap)/3),keyH:Math.floor((padH-4*keyGapY)/4)};
 }
-function init(page,kind) {
+function init(page,kind,onReady) {
     var gen=(page._uiGen || 0)+1;page._uiGen=gen;
+    clearTimeout(page._focusTimer);page._focusTimer=null;
+    page.ready=false;page.layoutError='\u8bfb\u53d6\u5c4f\u5e55\u4e2d';
     try { device.getInfo({success:function(info){
         if(gen!==page._uiGen)return;
-        try {var metrics=layout(info,kind);for(var k in metrics)if(Object.prototype.hasOwnProperty.call(metrics,k))page[k]=metrics[k];page.ready=true;}
+        try {var metrics=layout(info,kind);for(var k in metrics)if(Object.prototype.hasOwnProperty.call(metrics,k))page[k]=metrics[k];page.ready=true;page.layoutError='';if(onReady)onReady(page);}
         catch(e){page.layoutError='\u5c4f\u5e55\u4fe1\u606f\u65e0\u6548\uff0c\u8bf7\u91cd\u8bd5';}
     },fail:function(){if(gen===page._uiGen)page.layoutError='\u65e0\u6cd5\u83b7\u53d6\u5c4f\u5e55\u4fe1\u606f';}}); }
     catch(e){page.layoutError='\u8bbe\u5907\u4fe1\u606f\u63a5\u53e3\u4e0d\u53ef\u7528';}

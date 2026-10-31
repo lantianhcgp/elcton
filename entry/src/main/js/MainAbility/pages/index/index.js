@@ -4,6 +4,7 @@ import storage from '@system.storage';
 import utils from '../../common/utils.js';
 import { DAY_NAMES, COURSE_COLORS } from '../../common/constants.js';
 import ui from '../../common/watchUi.js';
+import crownFocus from '../../common/crownFocus.js';
 
 export default {
     data: {
@@ -16,17 +17,18 @@ export default {
         isEmpty: true
     },
     onInit: function () {
-        this.dead = false; ui.init(this, 'index');
+        this.dead = false; ui.init(this, 'index', crownFocus);
         this.loadData();
     },
     onShow: function () {
-        this.dead = false; ui.init(this, 'index');
+        this.dead = false; ui.init(this, 'index', crownFocus);
         data.clearCache();
         this.loadData();
         this.enableRotation('courseList', true);
     },
     onHide: function () {
         this.dead=true;this._uiGen++;this._loadGen=(this._loadGen||0)+1;
+        clearTimeout(this._focusTimer);this._focusTimer=null;
         if(this._scrollTimer){clearTimeout(this._scrollTimer);this._scrollTimer=null;}
         this.enableRotation('courseList', false);
     },
@@ -77,6 +79,7 @@ export default {
                 }
                 /* \u810f\u68c0\u67e5\uff1aonInit+onShow \u4f1a\u8fde\u8c03\u4e24\u6b21\uff0c\u6570\u636e\u6ca1\u53d8\u8df3\u8fc7\u6574\u4f53\u91cd\u5efa\uff0c
                  * \u907f\u514d Lite \u4e0a\u7684\u91cd\u590d\u5217\u8868\u6e32\u67d3\uff08\u6027\u80fd\u4f18\u5316 2026-10-10\uff09 */
+                crownFocus(self);
                 var key = JSON.stringify(list);
                 if (self._listKey === key) { return; }
                 self._listKey = key;
