@@ -114,7 +114,7 @@ export default {
     },
     /* \u70b9\u884c = \u4e0a\u4e0b\u6587\u52a8\u4f5c\uff1a\u81ea\u68c0\u884c\u91cd\u8dd1\u81ea\u68c0\u3001\u8bfe\u8868\u884c\u5237\u65b0\u672c\u5730\u3001\u5176\u4f59\u53ea\u770b\u8be6\u60c5 */
     onRowClick: function (idx) {
-        if(this.dead || (this.running && !((idx===3 || idx===4) && this.mode==='health')))return;
+        if(this.dead || this.committing || (this.running && !((idx===3 || idx===4) && this.mode==='health')))return;
         var r = this.rows[idx];
         if (!r) { return; }
         if (idx === 4) {
@@ -136,7 +136,7 @@ export default {
         this.detail = r.name + '\uff1a' + r.status;
     },
     reject: function (code) {
-        this.running=false;this.clearTimers();this.accText=[];
+        this.gen++;this.running=false;this.mode='';this.clearTimers();this.accText=[];
         this.setRow(1,'\u540c\u6b65\u5931\u8d25','#f44336');this.detail=String(code).substr(0,32);
     },
     setRow: function (i, status, color) {
@@ -167,7 +167,7 @@ export default {
             /* running=false = \u94fe\u5df2\u505c\uff08\u62a5\u9519/\u5b8c\u6210\uff09\uff0c\u9057\u7559 timer \u76f4\u63a5\u5ffd\u7565\uff0c\u4e0d\u8bb8\u8986\u76d6\u72b6\u6001 */
             if (self.dead || gen !== self.gen || !self.running) { return; }
             if(self.committing){self.detail='COMMIT_UNCERTAIN';return;}
-            self.running = false;self.mode='';self.clearTimers();
+            self.gen++;self.running = false;self.mode='';self.clearTimers();
             self.pushTrace('TO');
             self.setRow(1, '\u2717 \u505c\u6ede\u8d85\u65f6', '#f44336');
             self.detail = '\u770b\u95e8\u72d7\u8d85\u65f6 \u00b7 \u6700\u540e\u4f4d\u7f6e: ' + self.traceStr();
@@ -277,7 +277,7 @@ export default {
     /* \u2500\u2500 \u8fdb\u9875\u9762\u81ea\u52a8\u6253\u4e00\u6b21\u63a2\u6d3b\uff08\u51e0\u5b57\u8282\uff0c\u6700\u5feb\uff0c\u7528\u6765\u5206\u6e05\u7f51\u7edc\u95ee\u9898\u548c\u6570\u636e\u95ee\u9898\uff09 \u2500\u2500 */
     health: function () {
         var self = this;
-        if (self.dead || self.running) { return; }
+        if (self.dead || self.running || self.committing) { return; }
         self.mode='health';
         if (!self.fetchApi) {
             self.setRow(3, 'fetch \u6a21\u5757\u4e0d\u53ef\u7528', '#f44336');
@@ -310,7 +310,7 @@ export default {
      * \u670d\u52a1\u7aef\u4e0d\u652f\u6301 page \u53c2\u6570\u65f6\u5ffd\u7565\u4e4b\u5e76\u8fd4\u56de\u6574\u4efd \u2192 \u65e0 slice \u5b57\u6bb5\u8d70\u8001\u6d41\u7a0b\uff08\u964d\u7ea7\uff09\u3002 */
     onPull: function () {
         var self = this;
-        if (self.running) {
+        if (self.running || self.committing) {
             self.detail = '\u8bf7\u7b49\u5f85\u5f53\u524d\u64cd\u4f5c';
             return;
         }
@@ -320,7 +320,7 @@ export default {
             return;
         }
         if(self.dead)return;
-        self.mode='pull';self.committing=false;
+        self.mode='pull';
         self.running = true;
         self.gen++;
         var gen = self.gen;
@@ -535,6 +535,7 @@ export default {
 
     apply: function (remote, gen) {
         var self = this;
+        if (self.dead || gen !== self.gen || self.committing) { return; }
         self.pushTrace('app');
         self.committing=true;
         try {
@@ -554,6 +555,7 @@ export default {
                 }
             });
         } catch (e) {
+            self.committing = false;
             self.running = false;
             self.pushTrace('Eap');
             self.setRow(1, '\u2717 \u5f02\u5e38', '#f44336');

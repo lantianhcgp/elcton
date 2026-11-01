@@ -233,6 +233,41 @@ test('sync watchdog cannot unlock a pending write or permit duplicate replacemen
     assert.doesNotMatch(h.page.detail, /old.*preserv|\u539f.*\u4fdd\u7559/i);
     finish(true); assert.equal(h.page.running, false); h.page.onDestroy();
 });
+test('whole-flow timeout invalidates a late fetch before it can import anything', () => {
+    const h = harness('sync', {fetch() {}});
+    h.page.onPull();
+    const request = h.state.requests.find(r => !r.url.endsWith('health.txt')).p;
+    const generation = h.page.gen;
+    h.time.tick(15000);
+    const detail = h.page.detail;
+    request.success({code:200,data:JSON.stringify(doc([course('late')]))});
+    assert.equal(h.state.writes.length,0,'Timed-out fetch must not issue a commit');
+    assert.ok(h.page.gen>generation,'Timeout must invalidate its generation');
+    assert.equal(h.page.detail,detail);h.page.onDestroy();
+});
+test('whole-flow timeout invalidates a late comparison read before commit', () => {
+    let compare;
+    const h = harness('sync', {responses:[doc([course('late')])], getDoc(cb,state) {
+        if (state.reads>1) compare=cb; else cb(clone(state.doc));
+    }});
+    h.page.onPull();assert.equal(typeof compare,'function');h.time.tick(15000);
+    const detail = h.page.detail;compare(clone(h.state.doc));
+    assert.equal(h.state.writes.length,0,'Timed-out comparison must not issue a commit');
+    assert.equal(h.page.detail,detail);h.page.onDestroy();
+});
+test('commit lock remains authoritative even if the UI running flag is false', () => {
+    let finish;
+    const h = harness('sync', {responses:[doc([course('first')]),doc([course('other')])],
+        replaceDoc(next,cb) {finish=cb;}});
+    h.page.onPull();assert.equal(h.page.committing,true);
+    const requests=h.state.requests.length,generation=h.page.gen;
+    h.page.running=false;
+    h.page.onPull();h.page.health();h.page.onRowClick(3);h.page.onRowClick(4);h.page.onBack();
+    assert.equal(h.state.writes.length,1);assert.equal(h.state.requests.length,requests);
+    assert.equal(h.page.gen,generation);assert.equal(h.page.committing,true);
+    assert.deepEqual(h.state.routes,[]);
+    finish(true);assert.equal(h.page.committing,false);h.page.onDestroy();
+});
 test('system hiding sync cancels UI callbacks but does not claim cancellation of an already started commit', () => {
     let finish;
     const h = harness('sync', {responses:[doc([course('new')])], replaceDoc(next, cb) {finish = cb;}});
