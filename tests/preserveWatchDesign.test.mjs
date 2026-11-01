@@ -16,8 +16,8 @@ for(const name of originalPages){
   test(`${name}.${extension} preserves the original watch design byte for byte`,()=>{
    const relative=`${root}/pages/${name}/${name}.${extension}`;
    const original=execFileSync('git',['show',`${baseline}:${relative}`],{cwd:repo});
-   assert.deepEqual(fs.readFileSync(path.join(repo,relative)),original,
-    'Phone sync must not redesign this original page');
+   assert.ok(fs.readFileSync(path.join(repo,relative)).equals(original),
+    'Phone sync must not redesign '+relative);
   });
  }
  test(`${name} no longer drives a cross-page redesign or device layout query`,()=>{
@@ -43,8 +43,7 @@ function pickupPage(){
   '../../common/router.js':{push(p){routes.push(p.uri);},back(){routes.push('back');}},
   '../../common/data.js':{getDoc(cb){cb({rev:1,courses:[]});},clearCache(){}},
   '../../common/fs.js':{readFile(uri,cb){cb(301,'');}},
-  '../../common/wearProtocol.js':loader()('common/wearProtocol.js'),
-  '../../common/watchUi.js':{init(){}}
+  '../../common/wearProtocol.js':loader()('common/wearProtocol.js')
  };
  const fetchApi={fetch(p){requests.push(p);}};
  const spec=Function('deps','require','setTimeout','clearTimeout',source)(deps,
@@ -68,4 +67,10 @@ test('phone-sync row cancels a pending health probe before opening the separate 
 test('phone-sync row cannot supersede an in-flight import commit',()=>{
  const {page,routes}=pickupPage();page.running=true;page.committing=true;page.mode='pull';
  page.onRowClick(4);assert.deepEqual(routes,[]);assert.equal(page.dead,false);page.onHide();
+});
+test('the original return button cannot cut across an in-flight import commit',()=>{
+ const {page,routes}=pickupPage();page.running=true;page.committing=true;page.mode='pull';
+ const generation=page.gen;page.onBack();
+ assert.deepEqual(routes,[]);assert.equal(page.dead,false);assert.equal(page.gen,generation);
+ page.committing=false;page.onBack();assert.deepEqual(routes,['back']);assert.equal(page.dead,true);
 });

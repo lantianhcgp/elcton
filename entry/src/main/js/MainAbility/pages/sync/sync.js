@@ -109,6 +109,7 @@ export default {
     onDestroy: function () { this.onHide();data.clearCache(); },
     onShow: function () {if(!this.dead)return;this.dead=false;if(!this.committing)this.onRetry();},
     onBack: function () {
+        if (this.committing) { return; }
         this.onHide();router.back();
     },
     /* \u70b9\u884c = \u4e0a\u4e0b\u6587\u52a8\u4f5c\uff1a\u81ea\u68c0\u884c\u91cd\u8dd1\u81ea\u68c0\u3001\u8bfe\u8868\u884c\u5237\u65b0\u672c\u5730\u3001\u5176\u4f59\u53ea\u770b\u8be6\u60c5 */

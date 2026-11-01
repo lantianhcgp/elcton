@@ -233,10 +233,10 @@ test('sync watchdog cannot unlock a pending write or permit duplicate replacemen
     assert.doesNotMatch(h.page.detail, /old.*preserv|\u539f.*\u4fdd\u7559/i);
     finish(true); assert.equal(h.page.running, false); h.page.onDestroy();
 });
-test('leaving sync cancels UI callbacks but does not claim cancellation of an already started commit', () => {
+test('system hiding sync cancels UI callbacks but does not claim cancellation of an already started commit', () => {
     let finish;
     const h = harness('sync', {responses:[doc([course('new')])], replaceDoc(next, cb) {finish = cb;}});
-    h.page.onPull(); h.page.onBack(); const detail = h.page.detail, rows = JSON.stringify(h.page.rows), reads = h.state.reads;
+    h.page.onPull(); h.page.onHide(); const detail = h.page.detail, rows = JSON.stringify(h.page.rows), reads = h.state.reads;
     finish(true); assert.equal(h.state.doc.courses[0].id, 'new');
     assert.equal(h.page.detail, detail); assert.equal(JSON.stringify(h.page.rows), rows);
     assert.equal(h.state.reads, reads); assert.equal(h.time.pending.size, 0);
