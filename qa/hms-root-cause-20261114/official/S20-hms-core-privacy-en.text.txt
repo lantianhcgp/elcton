@@ -1,0 +1,381 @@
+HMS Core Privacy Statement
+
+This document helps developers better understand open capabilities of HMS Core and compliantly use these capabilities. It is applicable only to the scenario where the developer's service region is the Chinese mainland.
+    
+HMS Core is a set of open capabilities provided by Huawei Software Technologies Co., Ltd. (hereinafter referred to as "Huawei", "we", "us", or "our") for app developers (hereinafter referred to as "developers"). It is a platform that provides basic services for developers. HMS Core offers developers open capabilities spanning App Services, Graphics, Media, AI, Smart Device, Security, and System, and you can find further details of these open capabilities in their statements.
+    
+After developers integrate our open capabilities into their apps by referring to the relevant development documentation, we will provide services for end users (hereinafter referred to as "you", "your", or "users") of the developers and process data, which may include your personal information, relevant to the developers' apps. Huawei takes your personal information and privacy seriously, and is committed to taking appropriate security measures to protect your personal information in accordance with applicable laws and established industry security standards.
+    
+This Statement and open capabilities' privacy statements will explain to developers and users how we collect, use, disclose, protect, store, and transmit users' personal information. For details about the processing of developers' personal information, please refer to Statement About HUAWEI Developers and Privacy.
+    
+Note: We require all developers who have integrated HMS Core's open capabilities to strictly comply with applicable laws and regulations, clauses in signed agreements (including HUAWEI Developers Service Agreement and open capabilities' agreements, hereinafter referred to as "Huawei agreements"), and requirements in development documentation when processing users' personal information. Before developers integrate and use our open capabilities, we require developers to notify users of basic information about personal information processed by their integrated SDKs in their apps' privacy policies and obtain users' consent or other legal basis. However, we are unable to control how developers and their apps process users' personal information that they control, and will not be liable for their behavior. We recommend that you carefully read relevant user agreements and privacy policies of developers' apps and use the apps after you fully understand how the developers will process your personal information and accept it.
+
+How We Collect and Use Your Personal Information
+     
+(1) To Provide Open Capabilities and Services for Developers and Their Users
+     
+To provide open capabilities and services for developers and their users, we will collect and use users' personal information in accordance with the principles of legality, legitimacy, necessity, and good faith.
+     
+HMS Core's open capabilities offer different functions. Therefore, the purpose, method, and scope for processing personal information vary depending on the involved open capabilities. You and developers can click the links in the table below to view the SDK Privacy and Security Statement of relevant HMS Core's open capabilities, and thereby learn basic information about processed personal information, permission statements, and other apps launched by the open capabilities. The collected device information may vary depending on the device, OS (for example, Android and iOS), OS version, and permission that the developers determined when integrating and using our open capabilities. Therefore, developers shall notify you of personal information that their apps collect.
+     
+Huawei will only collect and use your personal information in accordance with the purposes and methods stated in the SDK Privacy and Security Statement of relevant open capabilities. If we want to use your personal information for purposes not stated in the relevant SDK Privacy and Security Statement, we will explicitly inform you about this by ourselves or through developers, and obtain your consent again or other legal basis.
+
+Service Type
+         
+Service
+         
+SDK Privacy and Security Statement
+
+App Service
+         
+Account Kit
+         
+Link
+
+App Service
+         
+Ads Kit
+         
+Link
+
+App Service
+         
+Analytics Kit
+         
+Android, HarmonyOS (Java), HarmonyOS (JavaScript), iOS, macOS, Web, Quick App, Quick Game, WeChat Mini Program
+
+App Service
+         
+Awareness Kit
+         
+Link
+
+App Service
+         
+Drive Kit
+         
+Link
+
+App Service
+         
+Dynamic Tag Manager
+         
+Android, iOS, Web
+
+App Service
+         
+Game Service
+         
+Link
+
+App Service
+         
+Health Kit
+         
+Basic Capabilities, Extended Capabilities
+
+App Service
+         
+Identity Kit
+         
+Link
+
+App Service
+         
+In-App Purchases
+         
+Link
+
+App Service
+         
+Location Kit
+         
+Link
+
+App Service
+         
+Map Kit
+         
+Link
+
+App Service
+         
+Navi Kit
+         
+Link
+
+App Service
+         
+Push Kit
+         
+Android, HarmonyOS (Java)
+
+App Service
+         
+Scan Kit
+         
+Link
+
+App Service
+         
+Search Kit
+         
+Link
+
+App Service
+         
+Site Kit
+         
+Link
+
+App Service
+         
+Wallet Kit
+         
+Link
+
+Graphics
+         
+3D Modeling Kit
+         
+Link
+
+Graphics
+         
+Accelerate Kit
+         
+Link
+
+Graphics
+         
+AR Engine
+         
+Link
+
+Graphics
+         
+Computer Graphics Kit
+         
+Link
+
+Graphics
+         
+GameTurbo Engine
+         
+Link
+
+Graphics
+         
+Scene Kit
+         
+Link
+
+Media
+         
+Audio Editor Kit
+         
+Link
+
+Media
+         
+Audio Kit
+         
+Link
+
+Media
+         
+AV Pipeline Kit
+         
+Link
+
+Media
+         
+Camera Engine
+         
+Link
+
+Media
+         
+Image Kit
+         
+Link
+
+Media
+         
+Panorama Kit
+         
+Link
+
+Media
+         
+Video Editor Kit
+         
+Link
+
+Media
+         
+Video Kit
+         
+Link
+
+AI
+         
+ML Kit
+         
+Android, iOS
+
+AI
+         
+HUAWEI HiAI Foundation
+         
+Link
+
+AI
+         
+HUAWEI HiAI Engine
+         
+Link
+
+Smart Device
+         
+CaaS Engine
+         
+Voice and Video Calling with Virtualized Devices, Screen Sharing, In-app Calling
+
+Smart Device
+         
+Cast Engine
+         
+Link
+
+Smart Device
+         
+DeviceVirtualization Engine
+         
+App Integration, Android Device Integration, Linux Device Integration
+
+Smart Device
+         
+Wear Engine
+         
+Link
+
+Security
+         
+FIDO
+         
+Link
+
+Security
+         
+Keyring
+         
+Link
+
+Security
+         
+Safety Detect
+         
+Link
+
+Security
+         
+DataSecurity Engine
+         
+Link
+
+Security
+         
+LocalAuthentication Engine
+         
+Link
+
+System
+         
+5G Modem Kit
+         
+Link
+
+System
+         
+HEM Kit
+         
+Link
+
+System
+         
+MDM Engine
+         
+Link
+
+System
+         
+Nearby Service
+         
+Link
+
+System
+         
+Wireless Kit
+         
+Link
+
+(2) For Service Security, Optimization, and Improvement
+     
+To ensure stable product running and system network security, settle bills with developers, and improve product operations policies, we will collect information about HMS Core API usage by developers' apps, including the device identifier, app package name, app identifier, error logs, API call time, carrier network type and ID, device type and country, operating system version, API information, and device security status.
+
+Required Permissions
+     
+When you use our functions or services, we will request required permissions from your device through the developer's app. You can view permission status in the device settings or privacy settings, and enable or disable some or all permissions.
+     
+When integrating and using our open capabilities, developers will determine the required permissions by themselves. Therefore, developers should notify you of the requested permissions and purposes for requesting the permissions. If you enable any permission that the developer's app requests, it means that you authorize us to process your personal information in order to enjoy our services. Once you disable any permission, it means that you revoke the authorization and we will not process your personal information anymore based on the permission. In this case, we may not be able to continue offering you the service corresponding to the permission. Note that disabling a permission does not affect the effectiveness of personal information processing performed based on your previous authorization.
+     
+To learn about the required permissions and purposes of HMS Core's open capabilities, you can click links in the above table to view the relevant SDK Privacy and Security Statement.
+
+Protection of Minors
+     
+We attach great importance to the protection of minors' personal information. Huawei will provide services and protection for minors in strict accordance with national laws and regulations. If you are a minor, your parents or legal guardians must give their consent to allow you to use the developer's app, and agree to the applicable terms and conditions. Parents or other legal guardians should also take appropriate precautions to protect minors, including monitoring their use of the developer's app.
+     
+In particular, if you are a child (a minor under the age of 14), please make sure to notify your parents or legal guardians about carefully reading with you the privacy statement of the developer's app, this Statement, and the Huawei Consumer Business Statement About Children's Privacy Protection specifically formulated by us before you use the app and our services, and use the developer's app and our services or provide information to us with the consent and guidance of your parents or legal guardians. If you are a parent or legal guardian, please ensure that the child under your guardianship uses the developer's app and our services and provides us with information with your consent or under your guidance.
+
+Sharing with Third Parties
+     
+We will not share users' personal information with third parties, unless users' prior consent is obtained or other legal basis is available. If our open capabilities need to share users' personal information with third parties, we will explicitly state this in the relevant SDK Privacy and Security Statement, which you can view by clicking the links in the above table.
+     
+We will conduct strict privacy and security due diligence before introducing a partner, and will contractually bind our partners to protect users' personal information with strict measures. To meet new service requirements or accommodate service feature changes, we may change our partners, in which case we will explicitly update developers and users about the changes in the relevant SDK Privacy and Security Statement in a timely manner.
+
+Managing Your Personal Information
+     
+Huawei highly respects your concern for personal information. We will comply with applicable laws and regulations to ensure that you can exercise personal information subject rights, such as accessing, copying, modifying, and deleting personal information.
+     
+You use HMS Core's open capabilities and services through the developer's app. If you want to access, copy, or modify your personal information relevant to our open capabilities and services, you should exercise your personal information subject rights through the methods provided by the developer's app.
+     
+To protect your rights of accessing, copying, modifying, and deleting personal information, we explicitly require developers, in Huawei protocols signed by the developers, to promise providing convenient methods for users to exercise their rights in accordance with applicable laws and regulations. Moreover, our open capabilities provide relevant APIs for developers to call and execute users' requests for accessing, copying, modifying, and deleting personal information. If developers do not follow through with their promises, you can contact us through Contacting Us in this Statement. We will try our best to ensure that you can exercise your personal information subject rights.
+     
+If you directly request personal information subject rights from us, to ensure your data security and other legitimate rights, we may verify your identity and ask you to provide the personal information needed to do so. We may also disclose collected information to developers in order to verify your identity. After verifying your identity, we will respond to your request promptly, in accordance with applicable laws and regulations.
+     
+If you have any further requests, questions, comments, or suggestions regarding your rights as a data subject, please contact us as stated in Contacting Us of this Statement.
+
+Information Storage Location and Retention Period
+     
+(1) Retention Period
+     
+We will minimize the storage of your personal information based on specific service functions. To learn about the retention period of personal information collected by our open capabilities, you can click the links in How We Collect and Use Your Personal Information of this Statement to view the relevant SDK Privacy and Security Statement. We will retain your personal information for the period necessary to fulfill the purposes described in this Statement, and delete or anonymize your personal information beyond the retention period, except as otherwise required by applicable laws and regulations.
+     
+Additionally, in the event that our products or services are discontinued, we will notify you in the form of a push notification, announcement, or by other means, and will delete or anonymize your personal information within a reasonable period of time.
+     
+(2) Storage Location
+     
+In principle, personal information collected and generated in the People's Republic of China will be transmitted to and stored on servers in the People's Republic of China.
+     
+If a specific open capability and its services require cross-border transfers of any personal information, we will provide the personal information to the recipient outside the borders after fulfilling our obligations under the law (for example, passing the security assessment organized by regulatory authorities). We will, in the relevant SDK Privacy and Security Statement, inform you of basic information about the cross-border transfer in accordance with applicable laws and regulations. You can learn more by clicking links in the above table of this Statement to view the SDK Privacy and Security Statement.
+
+Contacting Us
+     
+We have designated a personal information protection officer that you can contact through this link, who will reply to you as soon as possible. You can also contact the app developer to exercise your relevant rights. We will cooperate with the developer to respond to the requests after receiving requests from the developer and verifying the request authenticity and legitimacy.
+     
+Registration address: Huawei Software Technologies Co., Ltd., No. 101, Software Avenue, Yuhuatai District, Nanjing, Jiangsu Province, China. Postcode: 210012.
+     
+If you are not satisfied with the response you receive, especially if you feel that our processing or handling of your personal information has violated or infringed on your legal rights and/or interests, you may seek an external resolution, whether by filing a lawsuit with the people's court in the relevant jurisdiction, submitting a complaint to the industry self-regulation association or relevant government regulatory agencies, or by other means. You may also consult us regarding the available channels for voicing your complaint.
+     
+Huawei's collection and use of your personal information is governed by our privacy policy. For more information, please refer to the Huawei Consumer Business Privacy Statement.

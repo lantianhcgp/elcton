@@ -1,0 +1,111 @@
+{
+  "compiled_at": "2026-11-14T00:38:20+08:00",
+  "captured_at": "2026-11-14T00:01:16.038725+08:00",
+  "scope": "Only task-relevant read-only state, no personal full package/log dump",
+  "raw_capture_hashes_verified": true,
+  "health_version_values": [
+    "16.1.2.310"
+  ],
+  "elcton_version_values": [
+    "0.2.5"
+  ],
+  "elcton_version_codes": [
+    "7"
+  ],
+  "hms_family_package_matches": [],
+  "task_relevant_installed_packages": [
+    "package:com.hcbiu.elcton",
+    "package:com.huawei.health"
+  ],
+  "wear_engine_health_service_excerpt": [
+    "packageName=com.huawei.health",
+    "processName=com.huawei.health:PhoneService",
+    "recentCallingPackage=com.hcbiu.elcton",
+    "requested=true received=true hasBound=false doRebind=false",
+    "intent={act=com.huawei.wearengine.action.PHONE_SERVICE pkg=com.huawei.health cmp=com.huawei.health/com.huawei.wearengine.service.WearEngineExtendService}",
+    "requested=true received=true hasBound=true doRebind=false"
+  ],
+  "binding_caveat": "received=true means outer Service binder was received; elcton binding hasBound=false, not a claim of live connection or successful AuthManager/Scope/user authorization",
+  "logcat_raw_bytes": 9559313,
+  "focused_pattern_match_count": 0,
+  "actual_exception_error_code": null,
+  "actual_failure_phase": null,
+  "log_caveat": "No retained observed numeric WearEngineException errorCode or failure phase; no fresh reproduction was authorized; do not infer code from the UI sentence",
+  "health_artifact": {
+    "base_bytes": 207803652,
+    "base_sha256": "436e87e104e150f42e38353aa133b6ce9fc38593eff389752e206a9ece1b5db5",
+    "lspatch_entries": [
+      "assets/lspatch/config.json",
+      "assets/lspatch/loader.dex",
+      "assets/lspatch/modules/cn.wwl.xposed.hook.apk",
+      "assets/lspatch/origin.apk",
+      "assets/lspatch/so/arm64-v8a/liblspatch.so",
+      "assets/lspatch/so/armeabi-v7a/liblspatch.so",
+      "assets/lspatch/so/x86/liblspatch.so",
+      "assets/lspatch/so/x86_64/liblspatch.so"
+    ],
+    "lspatch_flags": {
+      "debuggable": false,
+      "overrideVersionCode": false,
+      "sigBypassLevel": 2,
+      "useManager": false
+    },
+    "embedded_origin_bytes": 202241519,
+    "embedded_origin_sha256": "5b7d162abfd2979108672c2b11b063f0c848f4fe60070f41df2e8e26464e54b8",
+    "existing_origin_exact_match": true,
+    "modules": [
+      {
+        "name": "assets/lspatch/modules/cn.wwl.xposed.hook.apk",
+        "bytes": 2268274,
+        "sha256": "4bdae8b9c989432d678adfdf262f9ffcc50570f523210491241d366ba25e2c2f",
+        "xposed_init": "cn.wwl.xposed.hook.MainHook"
+      }
+    ]
+  },
+  "signature_verification": [
+    {
+      "file": "base.apk",
+      "exit_code": 0,
+      "sha256_certs": [
+        "c081890cf2a1adf13e56d7b50a4f3d8edb35b7c46d6ccc732dd997b7e433be1d"
+      ],
+      "warnings": []
+    },
+    {
+      "file": "origin.apk",
+      "exit_code": 0,
+      "sha256_certs": [
+        "b92825c2bd5d6d6d1e7f39eecd17843b7d9016f611136b75441bc6f4d3f00f05"
+      ],
+      "warnings": []
+    },
+    {
+      "file": "elcton-installed-0.2.5-code7.apk",
+      "exit_code": 0,
+      "sha256_certs": [
+        "fc08a0b474a8ffca5887bd5c88ac15e865a63a64eca81c10f344496c46d9ad94"
+      ],
+      "warnings": []
+    }
+  ],
+  "installed_elcton_apk": {
+    "bytes": 8151219,
+    "sha256": "efd414519e193e522c0fa9c029652cfd2e8601a5b967d1823cb7de76ccc16eef"
+  },
+  "sdk_aar": {
+    "version": "5.0.3.301",
+    "api_level": 12,
+    "source": "https://developer.huawei.com/repo/com/huawei/hms/wearengine/5.0.3.301/wearengine-5.0.3.301.aar",
+    "bytes": 254003,
+    "sha256": "97adb85c1092c8b9660b7d26eb7a0bccb162201f1eea1f85373a7f59e827d2ca"
+  },
+  "on_device_actions": {
+    "installs": false,
+    "uninstalls": false,
+    "input_taps": false,
+    "app_launches": false,
+    "settings_changes": false,
+    "pairing_changes": false,
+    "app_source_changes": false
+  }
+}

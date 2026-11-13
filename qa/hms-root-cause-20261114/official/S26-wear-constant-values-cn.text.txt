@@ -1,0 +1,573 @@
+Constant-values
+
+com.huawei.wearengine.common.WearEngineErrorCode
+
+Modifier and Type
+  
+Constant Field
+  
+Value
+
+public static final int
+  
+ERROR_CODE_COMM_FAIL
+  
+206
+
+public static final int
+  
+ERROR_CODE_COMM_SUCCESS
+  
+207
+
+public static final int
+  
+ERROR_CODE_DEVICE_IS_NOT_CONNECTED
+  
+16
+
+public static final int
+  
+ERROR_CODE_DEVICE_NOT_SENSOR
+  
+304
+
+public static final int
+  
+ERROR_CODE_DEVICE_UUID_IS_INVALID
+  
+17
+
+public static final int
+  
+ERROR_CODE_DEVICE_VERSION_NOT_SUPPORT
+  
+13
+
+public static final int
+  
+ERROR_CODE_GENERIC
+  
+1
+
+public static final int
+  
+ERROR_CODE_HEALTH_LOGOUT
+  
+3
+
+public static final int
+  
+ERROR_CODE_HEALTH_NOT_AUTO_START
+  
+15
+
+public static final int
+  
+ERROR_CODE_HEALTH_VERSION_IS_LOW
+  
+14
+
+public static final int
+  
+ERROR_CODE_INTERFACE_IS_NOT_SUPPORTED
+  
+18
+
+public static final int
+  
+ERROR_CODE_SERVICE_TIMEOUT
+  
+19
+
+public static final int
+  
+ERROR_CODE_POWER_MODE_CHANGING
+  
+20
+
+public static final int
+  
+ERROR_CODE_INTERNAL_ERROR
+  
+12
+
+public static final int
+  
+ERROR_CODE_INVALID_ARGUMENT
+  
+5
+
+public static final int
+  
+ERROR_CODE_INVALID_FILE
+  
+10
+
+public static final int
+  
+ERROR_CODE_OVERMUCH_RECEIVER
+  
+11
+
+public static final int
+  
+ERROR_CODE_P2P_OTHER_ERROR
+  
+203
+
+public static final int
+  
+ERROR_CODE_P2P_PHONE_APP_EXIT
+  
+205
+
+public static final int
+  
+ERROR_CODE_P2P_PHONE_APP_NOT_EXIT
+  
+204
+
+public static final int
+  
+ERROR_CODE_P2P_WATCH_APP_NOT_EXIT
+  
+200
+
+public static final int
+  
+ERROR_CODE_P2P_WATCH_APP_NOT_RUNNING
+  
+201
+
+public static final int
+  
+ERROR_CODE_P2P_WATCH_APP_RUNNING
+  
+202
+
+public static final int
+  
+ERROR_CODE_SCOPE_UNAUTHORIZED
+  
+8
+
+public static final int
+  
+ERROR_CODE_SENSOR_WATCH_LEAD_OFF
+  
+301
+
+public static final int
+  
+ERROR_CODE_SENSOR_WATCH_SENSOR_USED
+  
+303
+
+public static final int
+  
+ERROR_CODE_SENSOR_WATCH_USER_STOP
+  
+302
+
+public static final int
+  
+ERROR_CODE_SENSOR_WATCH_WEAR_OFF
+  
+300
+
+public static final int
+  
+ERROR_CODE_SERVER_REMOTE_BINDER
+  
+6
+
+public static final int
+  
+ERROR_CODE_SUCCESS
+  
+0
+
+public static final int
+  
+ERROR_CODE_UNBOUND_DEVICE
+  
+4
+
+public static final int
+  
+ERROR_CODE_UNINSTALL_HEALTH
+  
+2
+
+public static final int
+  
+ERROR_CODE_USER_UNAUTHORIZED_IN_HEALTH
+  
+7
+
+public static final int
+  
+ERROR_CODE_USER_UNAUTHORIZED_IN_WEAR_ENGINE
+  
+9
+
+public static final java.lang.String
+  
+ERROR_MSG_COMM_FAIL
+  
+"Fail"
+
+public static final java.lang.String
+  
+ERROR_MSG_COMM_SUCCESS
+  
+"Success"
+
+public static final java.lang.String
+  
+ERROR_MSG_DEVICE_IS_NOT_CONNECTED
+  
+"Device is not connected"
+
+public static final java.lang.String
+  
+ERROR_MSG_DEVICE_UUID_IS_INVALID
+  
+"Device uuid is invalid"
+
+public static final java.lang.String
+  
+ERROR_MSG_DEVICE_VERSION_NOT_SUPPORT
+  
+"Device version is not supported"
+
+public static final java.lang.String
+  
+ERROR_MSG_EVICE_NOT_SENSOR
+  
+"Sensor Not Abilites"
+
+public static final java.lang.String
+  
+ERROR_MSG_GENERIC
+  
+"Generic error"
+
+public static final java.lang.String
+  
+ERROR_MSG_HEALTH_LOGOUT
+  
+"Health app not login"
+
+public static final java.lang.String
+  
+ERROR_MSG_HEALTH_NOT_AUTO_START
+  
+"Health does not has permission to start"
+
+public static final java.lang.String
+  
+ERROR_MSG_HEALTH_VERSION_IS_LOW
+  
+"Health version is low"
+
+public static final java.lang.String
+  
+ERROR_MSG_INTERFACE_IS_NOT_SUPPORTED
+  
+"Interface is not supported"
+
+public static final java.lang.String
+  
+ERROR_MSG_SERVICE_TIMEOUT
+  
+"Service Timeout"
+
+public static final java.lang.String
+  
+ERROR_MSG_POWER_MODE_CHANGING
+  
+"Power mode changing"
+
+public static final java.lang.String
+  
+ERROR_MSG_INTERNAL_ERROR
+  
+"Internal error"
+
+public static final java.lang.String
+  
+ERROR_MSG_INVALID_ARGUMENT
+  
+"Invalid argument"
+
+public static final java.lang.String
+  
+ERROR_MSG_INVALID_FILE
+  
+"Invalid file"
+
+public static final java.lang.String
+  
+ERROR_MSG_OVERMUCH_RECEIVER
+  
+"Too much receivers"
+
+public static final java.lang.String
+  
+ERROR_MSG_P2P_OTHER_ERROR
+  
+"Other error"
+
+public static final java.lang.String
+  
+ERROR_MSG_P2P_PHONE_APP_EXIT
+  
+"Phone app exist"
+
+public static final java.lang.String
+  
+ERROR_MSG_P2P_PHONE_APP_NOT_EXIT
+  
+"Phone app not exist"
+
+public static final java.lang.String
+  
+ERROR_MSG_P2P_WATCH_APP_NOT_EXIT
+  
+"Watch app not exist"
+
+public static final java.lang.String
+  
+ERROR_MSG_P2P_WATCH_APP_NOT_RUNNING
+  
+"Watch app not running"
+
+public static final java.lang.String
+  
+ERROR_MSG_P2P_WATCH_APP_RUNNING
+  
+"Watch app running"
+
+public static final java.lang.String
+  
+ERROR_MSG_SCOPE_UNAUTHORIZED
+  
+"Scope unauthorized"
+
+public static final java.lang.String
+  
+ERROR_MSG_SENSOR_WATCH_LEAD_OFF
+  
+"Sensor Watch Lead Off"
+
+public static final java.lang.String
+  
+ERROR_MSG_SENSOR_WATCH_SENSOR_USED
+  
+"Sensor Watch Sensor Used"
+
+public static final java.lang.String
+  
+ERROR_MSG_SENSOR_WATCH_USER_STOP
+  
+"Sensor Watch User Stop"
+
+public static final java.lang.String
+  
+ERROR_MSG_SENSOR_WATCH_WEAR_OFF
+  
+"Sensor Watch Wear Off"
+
+public static final java.lang.String
+  
+ERROR_MSG_SERVER_REMOTE_BINDER
+  
+"Server remote binder is null"
+
+public static final java.lang.String
+  
+ERROR_MSG_SUCCESS
+  
+"Success"
+
+public static final java.lang.String
+  
+ERROR_MSG_UNBOUND_DEVICE
+  
+"Health app unbound device"
+
+public static final java.lang.String
+  
+ERROR_MSG_UNINSTALL_HEALTH
+  
+"Health app not exist"
+
+public static final java.lang.String
+  
+ERROR_MSG_USER_UNAUTHORIZED_IN_HEALTH
+  
+"User unauthorized in health"
+
+public static final java.lang.String
+  
+ERROR_MSG_USER_UNAUTHORIZED_WEAR_ENGINE
+  
+"User unauthorized in wear engine"
+
+com.huawei.wearengine.device.Device
+
+Modifier and Type
+  
+Constant Field
+  
+Value
+
+public static final int
+  
+DEVICE_CONNECTED
+  
+2
+
+public static final int
+  
+DEVICE_CAPABILITY_SUPPORT
+  
+0
+
+public static final int
+  
+DEVICE_CAPABILITY_NOT_SUPPORT
+  
+1
+
+public static final int
+  
+DEVICE_CAPABILITY_UNKNOWN
+  
+2
+
+com.huawei.wearengine.notify.NotificationConstants
+
+Modifier and Type
+  
+Constant Field
+  
+Value
+
+public static final int
+  
+BUTTON_ONE_CONTENT_KEY
+  
+2
+
+public static final int
+  
+BUTTON_THREE_CONTENT_KEY
+  
+4
+
+public static final int
+  
+BUTTON_TWO_CONTENT_KEY
+  
+3
+
+com.huawei.wearengine.sensor.Sensor
+
+Modifier and Type
+  
+Constant Field
+  
+Value
+
+public static final java.lang.String
+  
+NAME_ACC
+  
+"ACC"
+
+public static final java.lang.String
+  
+NAME_ECG
+  
+"ECG"
+
+public static final java.lang.String
+  
+NAME_GYRO
+  
+"GYRO"
+
+public static final java.lang.String
+  
+NAME_HR
+  
+"HR"
+
+public static final java.lang.String
+  
+NAME_MAG
+  
+"MAG"
+
+public static final java.lang.String
+  
+NAME_PPG
+  
+"PPG"
+
+public static final int
+  
+PPG_CHANNEL_GREEN
+  
+3
+
+public static final int
+  
+PPG_CHANNEL_IR
+  
+5
+
+public static final int
+  
+PPG_CHANNEL_RED
+  
+7
+
+public static final int
+  
+TYPE_ACC
+  
+2
+
+public static final int
+  
+TYPE_ECG
+  
+0
+
+public static final int
+  
+TYPE_GYRO
+  
+3
+
+public static final int
+  
+TYPE_HR
+  
+6
+
+public static final int
+  
+TYPE_MAG
+  
+4
+
+public static final int
+  
+TYPE_PPG
+  
+1

@@ -1,0 +1,91 @@
+FAQs
+
+Why can't I find the corresponding package name in the drop-down list of the app package name when I apply for the Wear Engine service?
+     
+You need to enable the account service before applying for the Wear Engine service. For details, refer to Registering a HUAWEI ID and Applying for the HUAWEI ID Service.
+
+If the project already has an app ID, do I need to apply for a new one?
+     
+App IDs that have been applied for from HUAWEI Developers can be used. You do not have to apply again. However, you need to ensure that the package name, app ID, and certificate fingerprint are matched, which means that the app ID must be the same as that when your are registering a HUAWEI ID and applying for the HUAWEI ID service.
+
+Why isn't the user authorization screen displayed?
+           
+Ensure that you are using a version of the Huawei Health app that is consistent with the requirements of Wear Engine. Agree to the privacy statement when using the Huawei Health app for the first time.
+      
+Make sure that the app ID, package name, and signature of your phone app are the same as those provided when registering a HUAWEI ID and applying for the HUAWEI ID service.
+      
+Make sure that you have created a signed app, which means that you have created the app by going to Build > Generate Signed Bundle/APK in Android Studio.
+      
+Make sure that function development has been completed by referring to Requesting User Authorization.
+      
+If you are using a non-Huawei phone, you need to install HMS Core (APK) on your phone and allow Huawei Health to display pop-up windows while running in the background.
+
+Why do I receive the error message reading "Scope unauthorized" when I try to call the API?
+           
+Make sure that you have applied for the Wear Engine service on HUAWEI Developers and the application has been approved.
+      
+If the issue persists, the possible cause is that you have called the API before applying for the Wear Engine service on the HUAWEI Developers website. After the application is approved, the local cache records have not been updated (updated every 24 hours). To resolve this, clear the data of the Huawei Health app in the app manager or uninstall and re-install the app, and then try again.
+      
+Make sure that your phone app's ID, package name, and SHA-256 certificate fingerprint are the same as those provided when applying for the HUAWEI ID service.
+      
+If the issue persists, go to Submit a ticket online on the HUAWEI Developers for assistance.
+
+How do I use getBondedDevices() to obtain the connection status of the device?
+     
+After you have called getBondedDevices(), the paired device list will be returned. The connection status will be included in the device information. You can call isConnected() to determine whether the device is connected.
+
+Why do I receive the error message "Invalid argument" when the phone app has used the ping method to check whether the wearable app is reachable?
+     
+The ping method is a kind of P2P communication. Preinstalled signatures are needed on apps on both devices and the specified package name is needed on the wearable device. By default, the package name on the wearable device should be consistent with the package name on the phone.
+
+What are the functions of the getErrorMsgFromCode? How do I use the code?
+     
+getErrorMsgFromCode helps you troubleshoot based on the error code.
+     
+Sample code:
+     HiWear.getDeviceClient(context).ping(device, new PingCallback() {
+    @Override
+    public void onPingResult(int errorCode) {
+        Log.d(TAG, "result error code is: " + errorCode);
+        //Use the result code to obtain the corresponding error information.
+        String errorMessage = WearEngineErrorCode.getErrorMsgFromCode(errorCode);
+        Log.d(TAG, "result error message is: " + errorMessage);
+    }
+});    
+
+Why is there no connected wearable device in DevEcoAssistant even if I have connected one to the Huawei Health app?
+     
+If the issue persists, go to Submit a ticket online on the HUAWEI Developers for assistance.
+     
+The version of the Huawei Health app is too early. Please download the latest version of the app from AppGallery.
+
+Why does the UUID obtained by DevEcoAssistant from the wearable device contain only 24 characters?
+     
+If the issue persists, go to Submit a ticket online on the HUAWEI Developers for assistance.
+
+Why is "Scope unauthorized" displayed in DevEcoAssistant after I have connected the wearable device to the Huawei Health app?
+     
+The phone needs to be connected to the Internet to update the Scope permission information. Make sure the phone has a network connection.
+
+What can I do if the result code 206 is displayed when the phone is communicating with the lite wearable device?
+           
+The package name or certificate fingerprint of the phone does not match that of the wearable device.               
+Lite smart wearable device: Configure the package name and fingerprint information of the phone in the config.json file of the project. For details, see step 3 in Sending P2P Messages.
+        
+Phone: The package name and fingerprint information of the lite wearable device need to be configured properly.
+
+The lite wearable device's app is not running in the foreground.
+      
+There is no registered message receiver in the lite wearable device's app or in the phone's app.
+      
+The message sent is empty.
+      
+Bluetooth is not connected.
+
+Why is error code 10 displayed when I send a file from my phone app to my wearable app?
+     
+It requires the file access permission for your phone app to send files. Please check whether your phone app has the corresponding permission.
+
+More: If the issue persists, submit a trouble ticket online
+     
+Open the Submit a ticket online page of HUAWEI Developers and select HMS Core > Wear Engine for the ticket category. Then describe the issue and click Submit. After submitting the ticket, you may need to further clarify it. Please pay attention to the progress and reply in a timely manner to better resolve the issue.

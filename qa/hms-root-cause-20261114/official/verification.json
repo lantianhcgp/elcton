@@ -1,0 +1,438 @@
+{
+  "verified_at": "2026-11-14T00:35:29+08:00",
+  "source_count": 28,
+  "successful_sources": 27,
+  "failed_sources": 1,
+  "successful_source_checks": [
+    {
+      "id": "S01-wear-getting-started-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 9279,
+      "text_utf8_bytes": 3409
+    },
+    {
+      "id": "S02-wear-getting-started-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 9168,
+      "text_utf8_bytes": 2931
+    },
+    {
+      "id": "S03-wear-service-introduction-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 12633,
+      "text_utf8_bytes": 5116
+    },
+    {
+      "id": "S04-wear-sdk-privacy-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 22987,
+      "text_utf8_bytes": 8929
+    },
+    {
+      "id": "S05-non-huawei-install-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 144703,
+      "text_utf8_bytes": 8187
+    },
+    {
+      "id": "S06-hms-install-needed-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 132414,
+      "text_utf8_bytes": 7584
+    },
+    {
+      "id": "S07-hms-supported-devices-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 146487,
+      "text_utf8_bytes": 8770
+    },
+    {
+      "id": "S08-health-system-requirements-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 136629,
+      "text_utf8_bytes": 6581
+    },
+    {
+      "id": "S09-hms-introduction-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 133265,
+      "text_utf8_bytes": 6348
+    },
+    {
+      "id": "S10-hms-update-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 165760,
+      "text_utf8_bytes": 7933
+    },
+    {
+      "id": "S11-official-appgallery-link-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 149929,
+      "text_utf8_bytes": 9446
+    },
+    {
+      "id": "S12-xiaomi-health-battery-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 147267,
+      "text_utf8_bytes": 8773
+    },
+    {
+      "id": "S13-xiaomi-health-lock-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 140694,
+      "text_utf8_bytes": 7665
+    },
+    {
+      "id": "S14-hms-manage-permissions-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 133144,
+      "text_utf8_bytes": 6180
+    },
+    {
+      "id": "S16-wear-phone-version-history-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 22140,
+      "text_utf8_bytes": 5035
+    },
+    {
+      "id": "S17-hiwear-overview-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 4039,
+      "text_utf8_bytes": 449
+    },
+    {
+      "id": "S18-wear-service-background-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 6994,
+      "text_utf8_bytes": 3562
+    },
+    {
+      "id": "S19-appgallery-official-installation-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 180320,
+      "text_utf8_bytes": 9873
+    },
+    {
+      "id": "S20-hms-core-privacy-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 54637,
+      "text_utf8_bytes": 15890
+    },
+    {
+      "id": "S21-wear-error-codes-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 125961,
+      "text_utf8_bytes": 21154
+    },
+    {
+      "id": "S22-wear-user-authorization-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 11105,
+      "text_utf8_bytes": 4387
+    },
+    {
+      "id": "S23-wear-authclient-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 13535,
+      "text_utf8_bytes": 2133
+    },
+    {
+      "id": "S24-wear-error-codes-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 81504,
+      "text_utf8_bytes": 22083
+    },
+    {
+      "id": "S25-wear-result-codes-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 52290,
+      "text_utf8_bytes": 12897
+    },
+    {
+      "id": "S26-wear-constant-values-cn",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 78637,
+      "text_utf8_bytes": 7002
+    },
+    {
+      "id": "S27-healthkit-getting-started-en-not-wearengine",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 6879,
+      "text_utf8_bytes": 2195
+    },
+    {
+      "id": "S28-wear-faq-en",
+      "raw_hash_matches": true,
+      "raw_length_matches": true,
+      "body_hash_matches": true,
+      "validated_api_or_article": true,
+      "complete_html_response": true,
+      "embedded_images_reviewed": false,
+      "response_bytes": 13629,
+      "text_utf8_bytes": 6065
+    }
+  ],
+  "critical_phrases_checked": {
+    "S01-wear-getting-started-en": [
+      "For non-Huawei phones, HMS Core (APK) is also required",
+      "Phone runs Android 6.0 or later"
+    ],
+    "S02-wear-getting-started-cn": [
+      "若为非华为手机，则需同时装有HMS Core（APK）",
+      "允许华为运动健康App在后台弹出界面"
+    ],
+    "S03-wear-service-introduction-en": [
+      "Android 6.0–14.0",
+      "uses Android interface definition language (AIDL)"
+    ],
+    "S05-non-huawei-install-cn": [
+      "华为应用市场网页版",
+      "HMS Core"
+    ],
+    "S06-hms-install-needed-en": [
+      "official HUAWEI AppGallery website",
+      "malware detection"
+    ],
+    "S08-health-system-requirements-en": [
+      "Android 8.0"
+    ],
+    "S16-wear-phone-version-history-en": [
+      "13.1.3.300",
+      "14.0.12.310"
+    ]
+  },
+  "official_appgallery_href_checked": "https://appgallery.huawei.com/#/Featured",
+  "android_phone_official_error_rows": [
+    {
+      "value": 3,
+      "constant": "ERROR_CODE_HEALTH_LOGOUT",
+      "official_row": [
+        "运动健康已安装未登录错误码",
+        "ERROR_CODE_HEALTH_LOGOUT",
+        "3"
+      ]
+    },
+    {
+      "value": 6,
+      "constant": "ERROR_CODE_SERVER_REMOTE_BINDER",
+      "official_row": [
+        "服务端远端绑定对象为null错误码",
+        "ERROR_CODE_SERVER_REMOTE_BINDER",
+        "6"
+      ]
+    },
+    {
+      "value": 7,
+      "constant": "ERROR_CODE_USER_UNAUTHORIZED_IN_HEALTH",
+      "official_row": [
+        "用户在运动健康中未同意《华为运动健康用户协议》和《关于华为运动健康与隐私的声明》错误码",
+        "ERROR_CODE_USER_UNAUTHORIZED_IN_HEALTH",
+        "7"
+      ]
+    },
+    {
+      "value": 8,
+      "constant": "ERROR_CODE_SCOPE_UNAUTHORIZED",
+      "official_row": [
+        "未通过Scope权限校验错误码",
+        "ERROR_CODE_SCOPE_UNAUTHORIZED",
+        "8"
+      ]
+    },
+    {
+      "value": 9,
+      "constant": "ERROR_CODE_USER_UNAUTHORIZED_IN_WEAR_ENGINE",
+      "official_row": [
+        "未通过用户授权权限校验错误码，或开发者没有调用相应授权的接口来向用户请求授权",
+        "ERROR_CODE_USER_UNAUTHORIZED_IN_WEAR_ENGINE",
+        "9"
+      ]
+    },
+    {
+      "value": 13,
+      "constant": "ERROR_CODE_DEVICE_VERSION_NOT_SUPPORT",
+      "official_row": [
+        "设备版本不支持错误码",
+        "ERROR_CODE_DEVICE_VERSION_NOT_SUPPORT",
+        "13"
+      ]
+    },
+    {
+      "value": 14,
+      "constant": "ERROR_CODE_HEALTH_VERSION_IS_LOW",
+      "official_row": [
+        "运动健康App版本过低异常",
+        "ERROR_CODE_HEALTH_VERSION_IS_LOW",
+        "14"
+      ]
+    },
+    {
+      "value": 15,
+      "constant": "ERROR_CODE_HEALTH_NOT_AUTO_START",
+      "official_row": [
+        "运动健康进程无法自启动",
+        "ERROR_CODE_HEALTH_NOT_AUTO_START",
+        "15"
+      ]
+    },
+    {
+      "value": 18,
+      "constant": "ERROR_CODE_INTERFACE_IS_NOT_SUPPORTED",
+      "official_row": [
+        "接口不支持调用错误码",
+        "ERROR_CODE_INTERFACE_IS_NOT_SUPPORTED",
+        "18"
+      ]
+    },
+    {
+      "value": 19,
+      "constant": "ERROR_CODE_SERVICE_TIMEOUT",
+      "official_row": [
+        "接口调用超时错误码",
+        "ERROR_CODE_SERVICE_TIMEOUT",
+        "19"
+      ]
+    }
+  ],
+  "health_version_numeric_comparison": {
+    "parent_supplied_huawei_health": "16.1.2.310",
+    "minimum_health_for_wear_sdk_5.0.3.301": "13.1.3.300",
+    "minimum_health_for_wear_sdk_5.0.3.304": "14.0.12.310",
+    "health_301_numeric_threshold_met": true,
+    "health_304_numeric_threshold_met": true,
+    "modified_package_functionality_proven": false
+  },
+  "wearengine_hms_core_minimum_version": "Not explicitly published in the inspected Wear Engine-specific documents; no numeric minimum claimed",
+  "on_device_actions_performed": false,
+  "apk_downloaded": false
+}

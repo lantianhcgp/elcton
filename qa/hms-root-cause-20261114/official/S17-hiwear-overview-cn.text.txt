@@ -1,0 +1,25 @@
+Overview
+
+提供用于Wear Engine功能的入口类。
+ 
+主要用于获取使用Wear Engine相关功能的客户端实例，比如：DeviceClient、P2pClient等。
+
+Class Summary
+
+Class
+  
+Description
+
+HiWear
+  
+Wear Engine功能总入口，主要用于获取使用Wear Engine相关功能的客户端实例，比如：DeviceClient、P2pClient等。
+
+Exception Summary
+
+Exception
+  
+Description
+
+WearEngineException
+  
+Wear Engine异常描述类。

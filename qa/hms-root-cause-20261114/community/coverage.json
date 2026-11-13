@@ -1,0 +1,42 @@
+{
+  "retrieved_date_local": "2026-11-14 UTC+08:00",
+  "gitee": {
+    "url": "https://gitee.com/hms-core/hms-wear-engine-demo/issues/I4PCE2",
+    "title": "获取不到绑定的设备",
+    "created_at": "2022-01-04T18:16:32+08:00",
+    "declared_comments": 4,
+    "captured_comments": 4,
+    "page2_count": 0,
+    "complete_for_public_api": true
+  },
+  "reddit_android13": {
+    "url": "https://www.reddit.com/r/Huawei/comments/v8ny1z/huawei_health_hms_apps_on_android_13/",
+    "declared_comments_in_exa_metadata": 18,
+    "actual_exa_comment_blocks": 19,
+    "live_total_unverified": true,
+    "native_web_extract_incomplete": true
+  },
+  "reddit_xiaomi": {
+    "url": "https://www.reddit.com/r/Huawei/comments/1hlik6p/huawei_watch_cannot_connect_to_huawei_health_on/",
+    "declared_comments_in_exa_metadata": 0,
+    "actual_exa_comment_blocks": 2,
+    "live_total_unverified": true
+  },
+  "reddit_access": {
+    "agent_reach_cli": null,
+    "rdt_cli": null,
+    "opencli": null,
+    "anonymous_json_status": 403,
+    "usable_backend": "deferred mcp__exa__web_fetch_exa; native web_extract secondary",
+    "no_login_attempted": true
+  },
+  "bridge": {
+    "url": "https://github.com/RandGor/wearengine-bridge",
+    "created_at": "2026-10-02T15:57:55Z",
+    "release_published_at": "2026-10-06T06:40:40Z",
+    "github_issues_returned": 0,
+    "discussion_replies": "not visible; README/release author claims only",
+    "reference_health": "17.0.8.300",
+    "device_test": "Android15; Magisk31; Vector/LSPosed; author report only"
+  }
+}

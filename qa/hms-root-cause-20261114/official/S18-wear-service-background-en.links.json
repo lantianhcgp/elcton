@@ -1,0 +1,9 @@
+[
+  "https://developer.huawei.com/consumer/en/doc/connectivity-References/hiwear-0000001060938716#EN-US_TOPIC_0000001873951394__getWearEngineClient-android_app_Activity-com_huawei_wearengine_client_ServiceConnectionListener-",
+  "https://developer.huawei.com/consumer/en/doc/connectivity-References/hiwear-0000001060938716",
+  "https://developer.huawei.com/consumer/en/doc/connectivity-References/wearengineclient-0000001060620904",
+  "https://developer.huawei.com/consumer/en/doc/connectivity-References/wearengineclient-0000001060620904#EN-US_TOPIC_0000001874111230__registerServiceConnectionListener--",
+  "https://developer.huawei.com/consumer/en/doc/connectivity-References/wearengineclient-0000001060620904#EN-US_TOPIC_0000001874111230__unregisterServiceConnectionListener--",
+  "#section10962817102613",
+  "https://developer.huawei.com/consumer/en/doc/connectivity-References/wearengineclient-0000001060620904#EN-US_TOPIC_0000001874111230__releaseConnection--"
+]

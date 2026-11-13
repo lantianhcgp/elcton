@@ -1,0 +1,283 @@
+A message is displayed indicating that HMS Core needs to be installed or updated when opening an app on a non-huawei phone | HUAWEI Support Global
+
+                        We use cookies to improve our site and your experience. By continuing to browse our site you accept our cookie policy.
+                            
+                             Find out more
+
+For a better user experience, please use the latest version of Internet Explorer or switch to another browser.
+
+                Consumer 
+
+                        Close
+
+                                        Consumer 
+
+Smartphones, Laptops & Tablets, Wearables and More
+
+                                        Corporate 
+
+About Huawei, Press&Event, and More
+
+                                        Enterprise 
+
+Products, Solutions and Services for Enterprise
+
+                                        Carrier 
+
+Products, Solutions and Services for Carrier
+
+                            Smartphone
+
+                            Wearable
+
+                            PC
+
+                            Tablet
+
+                            Audio
+
+                            Router
+
+                            HUAWEI Mobile Services
+
+                            Support
+
+                            Community
+
+                    Search
+
+                        Open menu
+
+                Close
+
+                        search
+
+                            Search
+
+                                Close
+
+Popular Products                            
+
+                                                        HUAWEI WATCH GT 7 Pro
+
+                                                        HUAWEI WATCH 6 Pro
+
+                                                        HUAWEI MatePad Pro 12
+
+                                                        HUAWEI WATCH D3
+
+                                                        HUAWEI FreeBuds Neo
+
+                                                        HUAWEI nova 16s Pro
+
+Quick View                            
+
+                                            Smartphone
+
+                                            Wearable
+
+                                            PC
+
+                                            Tablet
+
+                                            Audio
+
+                                            Router
+
+                                            HUAWEI Mobile Services
+
+Popular results
+
+Suggested results
+
+                enter more search keys
+
+Africa
+
+Asia Pacific
+
+Europe
+
+Latin America
+
+Middle East
+
+North America
+
+Global
+
+                    A message is displayed indicating that HMS Core needs to be installed or updated when opening an app on a non-huawei phone
+
+	                		Applicable products：
+	                	
+                                Smartphone
+
+                                Applicable products：
+
+请选择
+
+    A message is displayed indicating that HMS Core needs to be installed or updated when opening an app on a non-huawei phone 
+
+Problem
+
+When you run a Huawei-developed app (such as HUAWEI Health) on a non-huawei phone, a message is displayed indicating that HMS Core needs to be installed or updated.
+
+When you run certain apps or games downloaded from HUAWEI AppGallery, a message is displayed indicating that HMS Core needs to be installed or updated.
+
+When you open certain apps or games cloned from a Huawei phone on a non-huawei phone, a message is displayed indicating that HMS Core needs to be installed or updated.
+
+Cause
+
+Huawei-developed apps (such as HUAWEI Health) and certain apps or games downloaded from HUAWEI AppGallery or cloned from a Huawei phone have integrated with Huawei ecosystem capabilities and require support from the basic services provided by HMS Core, such as HUAWEI ID, game, and health services. If HMS Core is not installed on a non-huawei phone or the HMS Core version is outdated, these basic services cannot be used. The system will prompt you to install or update HMS Core to ensure that these apps or games can run properly.
+
+Solution
+
+Install or update HMS Core when prompted.
+
+If you have installed HUAWEI AppGallery, the system will automatically direct you to the HMS Core details page in AppGallery. Touch Install or Update. If the system does not direct you to the page, open AppGallery, search for "HMS Core", and touch Install or Update.
+
+If you have not installed HUAWEI AppGallery and cannot find it in the app store provided with your phone, you may use a browser to visit the official HUAWEI AppGallery website and search for and install HUAWEI AppGallery. Then open Huawei AppGallery, search for "HMS Core", and touch Install or Update.
+
+After HMS Core is successfully installed, open the app or game in question again and log in to your HUAWEI ID.
+
+HUAWEI AppGallery applies a strict app release procedure that involves a variety of security checks, including malware detection, security vulnerability scanning, privacy leakage checks, and manual real-name re-verification. You can be rest assured about downloading HMS Core from HUAWEI AppGallery as it has passed the security check.
+
+                    Helpful or not?
+
+                        Yes
+                        No
+
+                            Sorry for no help.Please select the following methods to obtain more support
+
+                        Submit
+
+	        		Thanks for your feedback.
+
+			Contact Us
+
+						Contact Us
+
+										Hotline
+
+										Email Feedback
+
+										Service Center Location
+
+                                    Home
+
+                                    Support
+
+                                    Knowledge Content
+
+PRODUCTS        
+
+Smartphone                    
+
+Wearable                    
+
+PC                    
+
+Tablet                    
+
+Audio                    
+
+Router                    
+
+Accessories                    
+
+HarmonyOS 4                    
+
+EMUI                    
+
+Celia                    
+
+MOBILE SERVICES        
+
+AppGallery                    
+
+HUAWEI ID                    
+
+HUAWEI Mobile Cloud                    
+
+HUAWEI Wallet                    
+
+HUAWEI Music                    
+
+HUAWEI Video                    
+
+HUAWEI Themes                    
+
+HUAWEI Browser                    
+
+HUAWEI Assistant TODAY                    
+
+Petal Maps                    
+
+HUAWEI Books                    
+
+HUAWEI Member Center                    
+
+HUAWEI Health                    
+
+HUAWEI AI Life                    
+
+MeeTime                    
+
+SUPPORT        
+
+Find Service Center                    
+
+Product Environmental Information                    
+
+Call Us                    
+
+HiSuite                    
+
+The EU Data Act                    
+
+ABOUT HUAWEI        
+
+About Us                    
+
+News                    
+
+Events                    
+
+Sustainability                    
+
+Privacy                    
+
+Contact Us                    
+
+Corporate                    
+
+Enterprise                    
+
+Carrier                    
+
+Join Us                    
+
+Connect With Us
+
+        Copyright © 1998-2026 Huawei Device Co., Ltd. All rights reserved.
+
+Site Map                    
+
+Terms Of Use                    
+
+Privacy Statement                    
+
+Cookies                    
+
+Legal                    
+
+                        Global - English
+
+                Global - English
+
+Leaving consumer.huawei.com
+
+After clicking the link, you will enter a third-party website. Huawei is not responsible and has no control over this third party website.
+
+                        Continue
+                        Return

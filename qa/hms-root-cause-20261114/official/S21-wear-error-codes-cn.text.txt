@@ -1,0 +1,1037 @@
+WearEngineErrorCode
+
+java.lang.Object
+ 
+|---com.huawei.wearengine.common.WearEngineErrorCode
+ public final class WearEngineErrorCode
+extends java.lang.Object  
+  
+Wear Engine返回码常量类。
+
+Field Summary
+
+Modifier and Type
+  
+Field and Description
+
+static int
+  
+ERROR_CODE_COMM_FAIL 业务通信失败错误码。
+
+static int
+  
+ERROR_CODE_COMM_SUCCESS 业务通信成功码。
+
+static int
+  
+ERROR_CODE_DEVICE_IS_NOT_CONNECTED 设备未连接错误码。
+
+static int
+  
+ERROR_CODE_DEVICE_NOT_SENSOR 设备不支持传感器查询错误码。
+
+static int
+  
+ERROR_CODE_DEVICE_UUID_IS_INVALID 设备uuid失效错误码，报此错误码，说明用户重新绑定了设备，需要重新获取设备。
+
+static int
+  
+ERROR_CODE_DEVICE_VERSION_NOT_SUPPORT 设备版本不支持错误码。
+
+static int
+  
+ERROR_CODE_GENERIC 通用错误码。
+
+static int
+  
+ERROR_CODE_HEALTH_LOGOUT 运动健康App已安装未登录错误码。
+
+static int
+  
+ERROR_CODE_HEALTH_NOT_AUTO_START 运动健康App进程无法自启动错误码。
+
+static int
+  
+ERROR_CODE_HEALTH_VERSION_IS_LOW 因为运动健康App版本过低，导致版本不匹配错误码。
+
+static int
+  
+ERROR_CODE_INTERFACE_IS_NOT_SUPPORTED 接口不支持调用错误码。
+
+static int
+  
+ERROR_CODE_SERVICE_TIMEOUT 接口调用超时错误码。
+
+static int
+  
+ERROR_CODE_POWER_MODE_CHANGING 设备正处于模式切换中调用WearEngine接口会返回此错误码。
+
+static int
+  
+ERROR_CODE_INTERNAL_ERROR 内部错误码，发生该错误时，需要华为Wear Engine的接口人定位。
+
+static int
+  
+ERROR_CODE_INVALID_ARGUMENT 非法参数错误码。
+
+static int
+  
+ERROR_CODE_INVALID_FILE 非法文件错误码。
+
+static int
+  
+ERROR_CODE_OVERMUCH_RECEIVER Server端过多的Receiver来接收穿戴设备端的消息错误码。
+
+static int
+  
+ERROR_CODE_P2P_OTHER_ERROR P2P通信，其他错误码。
+
+static int
+  
+ERROR_CODE_P2P_PHONE_APP_EXIT 手表ping手机，手机应用已安装提示码。
+
+static int
+  
+ERROR_CODE_P2P_PHONE_APP_NOT_EXIT 手表ping手机，手机应用未安装错误码。
+
+static int
+  
+ERROR_CODE_P2P_WATCH_APP_NOT_EXIT 手机ping手表，手表应用未安装错误码。
+
+static int
+  
+ERROR_CODE_P2P_WATCH_APP_NOT_RUNNING 手机ping手表，手表应用已安装未启动错误码。
+
+static int
+  
+ERROR_CODE_P2P_WATCH_APP_RUNNING 手机ping手表，手表应用已安装已启动提示码。
+
+static int
+  
+ERROR_CODE_SCOPE_UNAUTHORIZED 未通过Scope权限校验错误码。
+
+static int
+  
+ERROR_CODE_SENSOR_WATCH_LEAD_OFF 设备导联脱落错误码。
+
+static int
+  
+ERROR_CODE_SENSOR_WATCH_SENSOR_USED 设备传感器已被占用错误码。
+
+static int
+  
+ERROR_CODE_SENSOR_WATCH_USER_STOP 设备侧关闭了传感器错误码。
+
+static int
+  
+ERROR_CODE_SENSOR_WATCH_WEAR_OFF 设备未穿戴错误码。
+
+static int
+  
+ERROR_CODE_SERVER_REMOTE_BINDER 服务端远端绑定对象为null错误码。
+
+static int
+  
+ERROR_CODE_SUCCESS 请求成功。
+
+static int
+  
+ERROR_CODE_UNBOUND_DEVICE 运动健康App未绑定设备错误码。
+
+static int
+  
+ERROR_CODE_UNINSTALL_HEALTH 运动健康App未安装错误码。
+
+static int
+  
+ERROR_CODE_USER_UNAUTHORIZED_IN_HEALTH 用户在运动健康App中未同意《华为运动健康用户协议》和《关于华为运动健康与隐私的声明》错误码。
+
+static int
+  
+ERROR_CODE_USER_UNAUTHORIZED_IN_WEAR_ENGINE 未通过Wear Engine用户授权设备基础信息权限、通知权限或者传感器权限校验错误码。
+
+static java.lang.String
+  
+ERROR_MSG_COMM_FAIL 业务通信失败的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_COMM_SUCCESS 业务通信成功信息。
+
+static java.lang.String
+  
+ERROR_MSG_DEVICE_IS_NOT_CONNECTED 设备未连接的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_DEVICE_UUID_IS_INVALID 设备UUID非法的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_DEVICE_VERSION_NOT_SUPPORT 设备版本不支持的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_EVICE_NOT_SENSOR 设备不支持传感器查询的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_GENERIC 通用错误信息，主要是目前未定义的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_HEALTH_LOGOUT 运动健康App安装未登录错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_HEALTH_NOT_AUTO_START 运动健康App进程无法自启动错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_HEALTH_VERSION_IS_LOW 因为运动健康App版本过低，导致版本不匹配的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_INTERFACE_IS_NOT_SUPPORTED 接口不支持调用的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_SERVICE_TIMEOUT 接口调用超时错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_POWER_MODE_CHANGING 设备正处于模式切换中调用WearEngine接口会返回此错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_INTERNAL_ERROR 内部错误信息，发生该错误时，需要华为Wear Engine的接口人定位。
+
+static java.lang.String
+  
+ERROR_MSG_INVALID_ARGUMENT 非法参数错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_INVALID_FILE 非法文件错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_OVERMUCH_RECEIVER Server端过多的Receiver来接收穿戴设备端的消息错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_P2P_OTHER_ERROR P2P通信，其他错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_P2P_PHONE_APP_EXIT 手表ping手机，手机应用已安装的提示信息。
+
+static java.lang.String
+  
+ERROR_MSG_P2P_PHONE_APP_NOT_EXIT 手表ping手机，手机应用未安装的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_P2P_WATCH_APP_NOT_EXIT 手机ping手表，手表应用未安装的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_P2P_WATCH_APP_NOT_RUNNING 手机ping手表，手表应用已安装未启动的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_P2P_WATCH_APP_RUNNING 手机ping手表，手表应用已安装已启动的提示信息。
+
+static java.lang.String
+  
+ERROR_MSG_SCOPE_UNAUTHORIZED 未通过Scope权限校验的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_SENSOR_WATCH_LEAD_OFF 设备导联脱落的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_SENSOR_WATCH_SENSOR_USED 设备传感器已被占用的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_SENSOR_WATCH_USER_STOP 设备侧关闭了传感器的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_SENSOR_WATCH_WEAR_OFF 设备未穿戴的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_SERVER_REMOTE_BINDER 服务端远端绑定对象为null的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_SUCCESS 请求成功信息。
+
+static java.lang.String
+  
+ERROR_MSG_UNBOUND_DEVICE 运动健康App未绑定设备的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_UNINSTALL_HEALTH 运动健康App未安装的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_USER_UNAUTHORIZED_IN_HEALTH 用户在运动健康App中未授权同意《华为运动健康用户协议》和《关于华为运动健康与隐私的声明》的错误信息。
+
+static java.lang.String
+  
+ERROR_MSG_USER_UNAUTHORIZED_WEAR_ENGINE 未通过Wear Engine用户授权设备基础信息权限、通知权限或者传感器权限校验的错误信息。
+
+Method Summary
+
+Modifier and Type
+  
+Method and Description
+
+static int
+  
+getErrorCodeFromErrorMsg(java.lang.String message) 通过错误信息来获取错误码。
+
+static java.lang.String
+  
+getErrorMsgFromCode(int errorCode) 通过错误码来获取错误信息，方便开发者根据错误码获取到错误信息。
+
+Field Detail
+
+[h2]ERROR_CODE_SUCCESS
+
+public static final int ERROR_CODE_SUCCESS
+ 
+请求成功。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_SUCCESS
+
+public static final java.lang.String ERROR_MSG_SUCCESS
+ 
+请求成功信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_GENERIC
+
+public static final int ERROR_CODE_GENERIC
+ 
+通用错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_GENERIC
+
+public static final java.lang.String ERROR_MSG_GENERIC
+ 
+通用错误信息，主要是目前未定义的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_UNINSTALL_HEALTH
+
+public static final int ERROR_CODE_UNINSTALL_HEALTH
+ 
+运动健康App未安装错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_UNINSTALL_HEALTH
+
+public static final java.lang.String ERROR_MSG_UNINSTALL_HEALTH
+ 
+运动健康App未安装的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_HEALTH_LOGOUT
+
+public static final int ERROR_CODE_HEALTH_LOGOUT
+ 
+运动健康App已安装未登录错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_HEALTH_LOGOUT
+
+public static final java.lang.String ERROR_MSG_HEALTH_LOGOUT
+ 
+运动健康App安装未登录的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_UNBOUND_DEVICE
+
+public static final int ERROR_CODE_UNBOUND_DEVICE
+ 
+运动健康App未绑定设备错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_UNBOUND_DEVICE
+
+public static final java.lang.String ERROR_MSG_UNBOUND_DEVICE
+ 
+运动健康App未绑定设备的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_INVALID_ARGUMENT
+
+public static final int ERROR_CODE_INVALID_ARGUMENT
+ 
+非法参数错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_INVALID_ARGUMENT
+
+public static final java.lang.String ERROR_MSG_INVALID_ARGUMENT
+ 
+非法参数错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_SERVER_REMOTE_BINDER
+
+public static final int ERROR_CODE_SERVER_REMOTE_BINDER
+ 
+服务端远端绑定对象为null错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_SERVER_REMOTE_BINDER
+
+public static final java.lang.String ERROR_MSG_SERVER_REMOTE_BINDER
+ 
+服务端远端绑定对象为null的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_USER_UNAUTHORIZED_IN_HEALTH
+
+public static final int ERROR_CODE_USER_UNAUTHORIZED_IN_HEALTH
+ 
+用户在运动健康App中未同意《华为运动健康用户协议》和《关于华为运动健康与隐私的声明》错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_USER_UNAUTHORIZED_IN_HEALTH
+
+public static final java.lang.String ERROR_MSG_USER_UNAUTHORIZED_IN_HEALTH
+ 
+用户在运动健康App中未授权同意《华为运动健康用户协议》和《关于华为运动健康与隐私的声明》的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_SCOPE_UNAUTHORIZED
+
+public static final int ERROR_CODE_SCOPE_UNAUTHORIZED
+ 
+未通过Scope权限校验错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_SCOPE_UNAUTHORIZED
+
+public static final java.lang.String ERROR_MSG_SCOPE_UNAUTHORIZED
+ 
+未通过Scope权限校验的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_USER_UNAUTHORIZED_IN_WEAR_ENGINE
+
+public static final int ERROR_CODE_USER_UNAUTHORIZED_IN_WEAR_ENGINE
+ 
+未通过Wear Engine用户授权设备基础信息权限、通知权限或者传感器权限校验错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_USER_UNAUTHORIZED_WEAR_ENGINE
+
+public static final java.lang.String ERROR_MSG_USER_UNAUTHORIZED_WEAR_ENGINE
+ 
+未通过Wear Engine用户授权设备基础信息权限、通知权限或者传感器权限校验的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_INVALID_FILE
+
+public static final int ERROR_CODE_INVALID_FILE
+ 
+非法文件错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_INVALID_FILE
+
+public static final java.lang.String ERROR_MSG_INVALID_FILE
+ 
+非法文件错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_OVERMUCH_RECEIVER
+
+public static final int ERROR_CODE_OVERMUCH_RECEIVER
+ 
+Server端过多的Receiver来接收穿戴设备端的消息错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_OVERMUCH_RECEIVER
+
+public static final java.lang.String ERROR_MSG_OVERMUCH_RECEIVER
+ 
+Server端过多的Receiver来接收穿戴设备端的消息错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_INTERNAL_ERROR
+
+public static final int ERROR_CODE_INTERNAL_ERROR
+ 
+内部错误码，发生该错误时，需要华为Wear Engine的接口人定位。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_INTERNAL_ERROR
+
+public static final java.lang.String ERROR_MSG_INTERNAL_ERROR
+ 
+内部错误信息，发生该错误时，需要华为Wear Engine的接口人定位。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_DEVICE_VERSION_NOT_SUPPORT
+
+public static final int ERROR_CODE_DEVICE_VERSION_NOT_SUPPORT
+ 
+设备版本不支持错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_DEVICE_VERSION_NOT_SUPPORT
+
+public static final java.lang.String ERROR_MSG_DEVICE_VERSION_NOT_SUPPORT
+ 
+设备版本不支持的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_HEALTH_VERSION_IS_LOW
+
+public static final int ERROR_CODE_HEALTH_VERSION_IS_LOW
+ 
+因为运动健康App版本过低，导致版本不匹配的异常错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_HEALTH_VERSION_IS_LOW
+
+public static final java.lang.String ERROR_MSG_HEALTH_VERSION_IS_LOW
+ 
+因为运动健康App版本过低，导致版本不匹配的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_HEALTH_NOT_AUTO_START
+
+public static final int ERROR_CODE_HEALTH_NOT_AUTO_START
+ 
+运动健康App进程无法自启动错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_HEALTH_NOT_AUTO_START
+
+public static final java.lang.String ERROR_MSG_HEALTH_NOT_AUTO_START
+ 
+运动健康App进程无法自启动的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_DEVICE_IS_NOT_CONNECTED
+
+public static final int ERROR_CODE_DEVICE_IS_NOT_CONNECTED
+ 
+设备未连接错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_DEVICE_IS_NOT_CONNECTED
+
+public static final java.lang.String ERROR_MSG_DEVICE_IS_NOT_CONNECTED
+ 
+设备未连接的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_DEVICE_UUID_IS_INVALID
+
+public static final int ERROR_CODE_DEVICE_UUID_IS_INVALID
+ 
+设备UUID失效错误码，报此错误码，说明用户重新绑定了设备，需要重新获取设备。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_DEVICE_UUID_IS_INVALID
+
+public static final java.lang.String ERROR_MSG_DEVICE_UUID_IS_INVALID
+ 
+设备UUID非法错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_INTERFACE_IS_NOT_SUPPORTED
+
+public static final int ERROR_CODE_INTERFACE_IS_NOT_SUPPORTED
+ 
+接口不支持调用错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_INTERFACE_IS_NOT_SUPPORTED
+
+public static final java.lang.String ERROR_MSG_INTERFACE_IS_NOT_SUPPORTED
+ 
+接口不支持调用的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+ERROR_CODE_SERVICE_TIMEOUT
+
+public static final int ERROR_CODE_SERVICE_TIMEOUT
+ 
+接口调用超时错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+ERROR_MSG_SERVICE_TIMEOUT
+
+public static final java.lang.String ERROR_MSG_SERVICE_TIMEOUT
+ 
+接口调用超时错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+ERROR_CODE_POWER_MODE_CHANGING
+
+public static final int ERROR_CODE_POWER_MODE_CHANGING
+ 
+设备正处于模式切换中调用WearEngine接口会返回此错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+ERROR_MSG_POWER_MODE_CHANGING
+
+public static final java.lang.String ERROR_MSG_POWER_MODE_CHANGING
+ 
+设备正处于模式切换中调用WearEngine接口会返回此错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_P2P_WATCH_APP_NOT_EXIT
+
+public static final int ERROR_CODE_P2P_WATCH_APP_NOT_EXIT
+ 
+手机ping手表，手表应用未安装错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_P2P_WATCH_APP_NOT_EXIT
+
+public static final java.lang.String ERROR_MSG_P2P_WATCH_APP_NOT_EXIT
+ 
+手机ping手表，手表应用未安装的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_P2P_WATCH_APP_NOT_RUNNING
+
+public static final int ERROR_CODE_P2P_WATCH_APP_NOT_RUNNING
+ 
+手机ping手表，手表应用已安装未启动错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_P2P_WATCH_APP_NOT_RUNNING
+
+public static final java.lang.String ERROR_MSG_P2P_WATCH_APP_NOT_RUNNING
+ 
+手机ping手表，手表应用已安装未启动的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_P2P_WATCH_APP_RUNNING
+
+public static final int ERROR_CODE_P2P_WATCH_APP_RUNNING
+ 
+手机ping手表，手表应用已安装已启动提示码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_P2P_WATCH_APP_RUNNING
+
+public static final java.lang.String ERROR_MSG_P2P_WATCH_APP_RUNNING
+ 
+手机ping手表，手表应用已安装已启动的提示信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_P2P_OTHER_ERROR
+
+public static final int ERROR_CODE_P2P_OTHER_ERROR
+ 
+P2P通信，其他错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_P2P_OTHER_ERROR
+
+public static final java.lang.String ERROR_MSG_P2P_OTHER_ERROR
+ 
+P2P通信，其他错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_P2P_PHONE_APP_NOT_EXIT
+
+public static final int ERROR_CODE_P2P_PHONE_APP_NOT_EXIT
+ 
+手表ping手机，手机应用未安装错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_P2P_PHONE_APP_NOT_EXIT
+
+public static final java.lang.String ERROR_MSG_P2P_PHONE_APP_NOT_EXIT
+ 
+手表ping手机，手机应用未安装的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_P2P_PHONE_APP_EXIT
+
+public static final int ERROR_CODE_P2P_PHONE_APP_EXIT
+ 
+手表ping手机，手机应用已安装提示码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_P2P_PHONE_APP_EXIT
+
+public static final java.lang.String ERROR_MSG_P2P_PHONE_APP_EXIT
+ 
+手表ping手机，手机应用已安装的提示信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_COMM_FAIL
+
+public static final int ERROR_CODE_COMM_FAIL
+ 
+业务通信失败错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_COMM_FAIL
+
+public static final java.lang.String ERROR_MSG_COMM_FAIL
+ 
+业务通信失败的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_COMM_SUCCESS
+
+public static final int ERROR_CODE_COMM_SUCCESS
+ 
+业务通信成功码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_COMM_SUCCESS
+
+public static final java.lang.String ERROR_MSG_COMM_SUCCESS
+ 
+业务通信成功信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_SENSOR_WATCH_WEAR_OFF
+
+public static final int ERROR_CODE_SENSOR_WATCH_WEAR_OFF
+ 
+设备未穿戴错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_SENSOR_WATCH_WEAR_OFF
+
+public static final java.lang.String ERROR_MSG_SENSOR_WATCH_WEAR_OFF
+ 
+设备未穿戴的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_SENSOR_WATCH_LEAD_OFF
+
+public static final int ERROR_CODE_SENSOR_WATCH_LEAD_OFF
+ 
+设备导联脱落错误码。
+ 
+手表右侧突出的金属片，是个ECG传感器的导体，简称导联。 导联脱落就是手指没有放在上面。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_SENSOR_WATCH_LEAD_OFF
+
+public static final java.lang.String ERROR_MSG_SENSOR_WATCH_LEAD_OFF
+ 
+设备导联脱落的错误信息。
+ 
+手表右侧突出的金属片，是个ECG传感器的导体，简称导联。 导联脱落就是手指没有放在上面。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_SENSOR_WATCH_USER_STOP
+
+public static final int ERROR_CODE_SENSOR_WATCH_USER_STOP
+ 
+设备侧关闭了传感器错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_SENSOR_WATCH_USER_STOP
+
+public static final java.lang.String ERROR_MSG_SENSOR_WATCH_USER_STOP
+ 
+设备侧关闭了传感器的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_SENSOR_WATCH_SENSOR_USED
+
+public static final int ERROR_CODE_SENSOR_WATCH_SENSOR_USED
+ 
+设备传感器已被占用错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_SENSOR_WATCH_SENSOR_USED
+
+public static final java.lang.String ERROR_MSG_SENSOR_WATCH_SENSOR_USED
+ 
+设备传感器已被占用的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_CODE_DEVICE_NOT_SENSOR
+
+public static final int ERROR_CODE_DEVICE_NOT_SENSOR
+ 
+设备不支持传感器查询错误码。
+ 
+See Also:
+ 
+Constant Field Values
+
+[h2]ERROR_MSG_EVICE_NOT_SENSOR
+
+public static final java.lang.String ERROR_MSG_EVICE_NOT_SENSOR
+ 
+设备不支持传感器查询的错误信息。
+ 
+See Also:
+ 
+Constant Field Values
+
+Method Detail
+
+[h2]getErrorMsgFromCode
+
+public static java.lang.String getErrorMsgFromCode(int errorCode)
+ 
+通过错误码来获取错误信息，方便开发者根据错误码获取到错误信息。
+ 
+Parameters:
+
+Parameter Name
+  
+Parameter Description
+
+errorCode
+  
+错误码
+
+Returns:
+ 
+错误信息
+ 
+Since:
+ 
+API level 0 (SDK 5.0.0.301)
+
+[h2]getErrorCodeFromErrorMsg
+
+public static int getErrorCodeFromErrorMsg(java.lang.String message)
+ 
+通过错误信息来获取错误码。
+ 
+Parameters:
+
+Parameter Name
+  
+Parameter Description
+
+message
+  
+错误信息
+
+Returns:
+ 
+错误码
+ 
+Since:
+ 
+API level 0 (SDK 5.0.0.301)

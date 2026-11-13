@@ -1,0 +1,313 @@
+How to update HMS Core | HUAWEI Support Global
+
+                        We use cookies to improve our site and your experience. By continuing to browse our site you accept our cookie policy.
+                            
+                             Find out more
+
+For a better user experience, please use the latest version of Internet Explorer or switch to another browser.
+
+                Consumer 
+
+                        Close
+
+                                        Consumer 
+
+Smartphones, Laptops & Tablets, Wearables and More
+
+                                        Corporate 
+
+About Huawei, Press&Event, and More
+
+                                        Enterprise 
+
+Products, Solutions and Services for Enterprise
+
+                                        Carrier 
+
+Products, Solutions and Services for Carrier
+
+                            Smartphone
+
+                            Wearable
+
+                            PC
+
+                            Tablet
+
+                            Audio
+
+                            Router
+
+                            HUAWEI Mobile Services
+
+                            Support
+
+                            Community
+
+                    Search
+
+                        Open menu
+
+                Close
+
+                        search
+
+                            Search
+
+                                Close
+
+Popular Products                            
+
+                                                        HUAWEI WATCH GT 7 Pro
+
+                                                        HUAWEI WATCH 6 Pro
+
+                                                        HUAWEI MatePad Pro 12
+
+                                                        HUAWEI WATCH D3
+
+                                                        HUAWEI FreeBuds Neo
+
+                                                        HUAWEI nova 16s Pro
+
+Quick View                            
+
+                                            Smartphone
+
+                                            Wearable
+
+                                            PC
+
+                                            Tablet
+
+                                            Audio
+
+                                            Router
+
+                                            HUAWEI Mobile Services
+
+Popular results
+
+Suggested results
+
+                enter more search keys
+
+Africa
+
+Asia Pacific
+
+Europe
+
+Latin America
+
+Middle East
+
+North America
+
+Global
+
+                    How to update HMS Core
+
+	                		Applicable products：
+	                	
+                                Tablet，Smartphone
+
+                                Applicable products：
+
+请选择
+
+    How to update HMS Core
+
+To continuously improve your user experience and provide a wider range of service capabilities for devices and apps, new versions of HMS Core will be released as needed.
+
+To update HMS Core, perform the following:
+
+Method 1: Update manually in AppGallery
+
+To do so, open AppGallery and search for "HMS Core".
+
+If Update is displayed on the right of the app name, it means that you are not currently using the latest version of HMS Core. Touch Update to update it.
+
+If Open is displayed on the right of the app name, it means that you are currently using the latest version of HMS Core.
+
+For non-Huawei devices, view and update HMS Core in the pre-intalled app store of the device.
+
+If HMS Core cannot be found in the pre-installed app store of your device, you can download and install HUAWEI AppGallery, and manually update HMS Core in HUAWEI AppGallery.
+
+Method 2: Enable Auto-update over Wi-Fi
+
+Take EMUI 11.0 as an example. Perform the following steps:
+
+Go to Settings > Apps > Apps >   > Show system processes, search for "HMS Core", and access the App info screen.
+
+Go to  > Auto-update and enable Auto-update over Wi-Fi.
+
+With Auto-update over Wi-Fi enabled, HMS Core will be automatically updated when your device is connected to Wi-Fi and the battery level is higher than 30%.
+
+To disable automatic updates to HMS Core, perform the following steps (EMUI 11.0 is used as an example):
+
+Go to Settings > Apps > Apps >   > Show system processes, search for "HMS Core", and access the App info screen.
+
+Go to  > Auto-update and disable Auto-update over Wi-Fi.
+
+Method 3: Check for updates
+
+Go to Settings > HMS Core > Check for updates > UPDATE, or Settings > Apps / Apps & services > Apps > HMS Core >  > Check for updates > UPDATE.
+
+If there is a red dot on Check for updates, it indicates that a new version of HMS Core is available. When you tap it, a pop-up window will be displayed for you to UPDATE. If there is no new version, the screen displays Your version is up to date.
+
+If you are not used to using the new version of HMS Core, perfrom the following to roll back HMS Core to its factory version (EMUI 11.0 is used as an example):
+     
+Go to Settings > Apps/Apps&Services > Apps > HMS Core, then touch / > Uninstall updates.
+
+To ensure your user experience, it is recommended that you stay tuned for HMS Core updates and update to the latest available version at your earliest convenience;
+
+If you cannot find HMS Core in Apps, please perform the following and search again: Settings > Apps / Apps & services > Apps >  /  > Show system processes;
+
+If you cannot find Uninstall updates in the App info screen, it means that the current version is its initial state.
+
+Learn More
+
+Introduction to HMS Core
+
+Which devices support HMS Core
+
+                    Helpful or not?
+
+                        Yes
+                        No
+
+                            Sorry for no help.Please select the following methods to obtain more support
+
+                        Submit
+
+	        		Thanks for your feedback.
+
+			Contact Us
+
+						Contact Us
+
+										Hotline
+
+										Email Feedback
+
+										Service Center Location
+
+                                    Home
+
+                                    Support
+
+                                    Knowledge Content
+
+PRODUCTS        
+
+Smartphone                    
+
+Wearable                    
+
+PC                    
+
+Tablet                    
+
+Audio                    
+
+Router                    
+
+Accessories                    
+
+HarmonyOS 4                    
+
+EMUI                    
+
+Celia                    
+
+MOBILE SERVICES        
+
+AppGallery                    
+
+HUAWEI ID                    
+
+HUAWEI Mobile Cloud                    
+
+HUAWEI Wallet                    
+
+HUAWEI Music                    
+
+HUAWEI Video                    
+
+HUAWEI Themes                    
+
+HUAWEI Browser                    
+
+HUAWEI Assistant TODAY                    
+
+Petal Maps                    
+
+HUAWEI Books                    
+
+HUAWEI Member Center                    
+
+HUAWEI Health                    
+
+HUAWEI AI Life                    
+
+MeeTime                    
+
+SUPPORT        
+
+Find Service Center                    
+
+Product Environmental Information                    
+
+Call Us                    
+
+HiSuite                    
+
+The EU Data Act                    
+
+ABOUT HUAWEI        
+
+About Us                    
+
+News                    
+
+Events                    
+
+Sustainability                    
+
+Privacy                    
+
+Contact Us                    
+
+Corporate                    
+
+Enterprise                    
+
+Carrier                    
+
+Join Us                    
+
+Connect With Us
+
+        Copyright © 1998-2026 Huawei Device Co., Ltd. All rights reserved.
+
+Site Map                    
+
+Terms Of Use                    
+
+Privacy Statement                    
+
+Cookies                    
+
+Legal                    
+
+                        Global - English
+
+                Global - English
+
+Leaving consumer.huawei.com
+
+After clicking the link, you will enter a third-party website. Huawei is not responsible and has no control over this third party website.
+
+                        Continue
+                        Return

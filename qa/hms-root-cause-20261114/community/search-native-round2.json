@@ -1,0 +1,138 @@
+[
+  {
+    "query": "site:stackoverflow.com \"WearEngine\"",
+    "result": {
+      "success": true,
+      "data": {
+        "web": []
+      }
+    }
+  },
+  {
+    "query": "site:forums.developer.huawei.com \"Wear Engine\" \"HMS\"",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://forums.developer.huawei.com/forumPortal/en/topic/0201889332820730028",
+            "title": "Beginner: Integration of HUAWEI Wear Engine in B4A | HUAWEI Developers",
+            "description": "**HUAWEI Wear Engine** is designed for developers to build apps and services running on phones and wearable devices.\nBy integrating Wear Engine, your app or service on a phone can send **messages** and **notifications** and transfer data to Huawei wearable devices, as well as obtain the status of the wearable devices. This also works the other way round, which means that an app or service on a Huawei wearable can send messages and transfers transferdata to a phone.\n\n1\n# Beginner: Integration of HUAWEI Wear Engine in B4A\n### HUAWEI HiHealth Kit\n### HMS Core\n### java\n### Wear Engine\n#",
+            "position": 1
+          },
+          {
+            "url": "https://forums.developer.huawei.com/forumPortal/en/topic/0204479066169200010",
+            "title": "Beginner: How to send a message from Android smartphone to lite wearable using Wear Engine? | HUAWEI Developers",
+            "description": "In this article, will explain how to develop peer to peer communication between Android phone and Lite wearable. To achieve it we have to use Wear Engine library. It will give us the solution for communication between **Harmony wearable** and **android smartphone**.\n\n[https://developer.huawei.com/consumer/en/codelab/HMSPreparation/index.html#0](https://developer.huawei.com/consumer/en/codelab/HMSPreparation/index.html#0)\n\nStep 6: Click **Wear Engine** under **App services**.\n\nStep 3: Download and Add the **Wear Engine library** in pages folder of Harmony project.\n\nStep 11: Add wear engine sdk on the build gradle.\n```\nimplementation 'com.huawei.hms:wearengine:{version}'\n```\n",
+            "position": 2
+          },
+          {
+            "url": "https://forums.developer.huawei.com/forumPortal/en/topic/0201515383396010054",
+            "title": "Beginner: Integration of Lite Wearable security app with Huawei Wear Engine | HUAWEI Developers",
+            "description": "In this article, will explain how to develop a security application in Lite wearable. To achieve it we have to use the Wear Engine library. It will give us the solution for communication between Harmony wearable and android smartphone.\n\nStep 11: Add wear engine sdk on the build gradle.\n```\nimplementation 'com.huawei.hms:wearengine:{version}'\n\nStep 3: Download and Add the **Wear Engine library** in the pages folder of the Harmony project. https://developer.huawei.com/consumer/en/doc/development/connectivity-Library/litewearable-sdk-0000001053562589",
+            "position": 3
+          },
+          {
+            "url": "https://forums.developer.huawei.com/forumPortal/en/topic/0202880340281860015",
+            "title": "Testing Wear Engine on Huawei Watch GT Runner? | HUAWEI Developers",
+            "description": "For sending messages between a real phone and a real watch, the Wear Engine can be used: https://developer.huawei.com/consumer/en/hms/huawei-wearengine/",
+            "position": 4
+          },
+          {
+            "url": "https://forums.developer.huawei.com/forumPortal/en/topic/0201193919914469020",
+            "title": "What are the Open Capabilities of Huawei Wear Engine SDK? | HUAWEI Developers",
+            "description": "Huawei Wear Engine provides APIs and services that enable phone apps to interact with Huawei wearable devices such as smartwatches, smart bands, and accessories.\n### **Description**\nWear Engine offers a set of capabilities to extend phone–wearable integration. These include:\n- Obtaining device information such as type, connection status, and app installation status.\n- Enabling app-to-app communication for exchanging files and messages.\n- Sending customizable, template-based notifications to wearables.\n- Monitoring wearable user data, such as heart rate alerts and wearing status.\n- Allowing enterprise partners to obtain device identifiers (serial numbers).\nIt supports Huawei phones (EMUI 4.1/HarmonyOS 2.0 or later) and other Android phones (6.0–14.0) with the Huawei Health app, as well as a wide range of Huawei wearables.",
+            "position": 5
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "site:blog.csdn.net \"WearEngineException\"",
+    "result": {
+      "success": false,
+      "error": "Keyless Exa search failed: Unrecognized MCP response shape. Set EXA_API_KEY (https://exa.ai) or another web backend via `hermes tools` for reliable service."
+    }
+  },
+  {
+    "query": "site:v2ex.com \"运动健康\" \"小米\"",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://v2ex.com/t/1125242",
+            "title": "小米手环 9 的 运动轨迹，心率，以及 速率 数据有什么方法可以导入到一段视频里面吗 - V2EX",
+            "description": "Home Sign Up Sign In\nwuhunyu\nV2EX › 户外运动\n\n小米手环 9 的 运动轨迹，心率，以及 速率 数据有什么方法可以导入到一段视频里面吗\n\n- -\nwuhunyu · Apr 14, 2025 · 4417 views\nThis topic created in 572 days ago, the information mentioned may be changed or developed.\n\n前要说明\n\n1. 本人目前没有视频剪辑能力。友友们如果给出合适方案，难度不太大我是愿意学的\n2. 设备硬件上，有 action 5 pro ，小米手环 9\n3. 剪辑硬件上，有 mac book pro 。如果受限于某个插件，final cut pro ，pr ，达芬奇 或者 剪影 都可以\n按 AI 的指引，我应该按照 把运动数据导出 -> 解析运动数据成 CSV 文件 -> 导入视频剪辑软件叠加 的步骤走，但是在第二步就出问题了\n\n小米手环 9 数据导出\n\n小米运动健康支持导出三种格式的文件： .gpx , .kml 和 .tcx\n.gpx：最常用的轨迹文件格式，适用于包含 GPS 数据的户外运动数据\n.kml：一般做路线分享，包括经纬度、海拔数据\n.tcx：适用于运动健身设备之间传输数据\n这个对比数据来源于 DeepSeek\n* 格式 | 适用场景 | 包含数据 | 兼容性\n* GPX | 通用 GPS 轨迹数据 | 经纬度、时间戳、海拔 | 广泛支持（地图软件/剪辑插件）\n* KML | Google Earth 专用 | 经纬度、时间戳、样式标记 | 适合静态地图渲染\n* TCX | 专业运动数据 | 心率、步频、功率、GPS 轨迹等 | 适合完整运动数据分析\n但目前好像 .fit 格式比较通用一些。这个格式目前小米运动健康还不支持\n\n解析运动数据文件\n\n按我的需求来看， .tcx 格式的数据比较全。在网上找了一些能解析 .tcx 的应用，最后在 佳明 的网页版上成功导入并正确识别了来源于 小米手环 9 的运动数据数据\n但是，有两个很大的问题\n1. 佳明的网站应用读取之后的运动轨迹有很严重的偏移。我换了 .gpx 格式也是一样的偏移\n2. 没有心率变化数据\n- 小米手环 - 运动数据 - 视频剪辑\n9 replies • 2025-08-19 16:20:49 +08:00\n* lanrete |  | lanrete Apr 14, 2025 1 运动轨迹偏移是坐标系的问题，国内用的是 GCJ-02 坐标系，也叫火星坐标系，国际通用的是 WGS-84 ，大概率是因为小米手环用火星坐标系定位的坐标，直接映射到 WGS84 的地图上，就有偏移了。 有一些开源的 solution 可以在两个坐标系之间做转换，我没试过\n* qdsearoc |  | qdsearoc Apr 14, 2025 2 garmin virb editor ，缺点是不支持 265 ，需要先转 264 使用可以看\n* kome |  | kome Apr 14, 2025 3 Garmin, 分 garmin.com 和 garmin.cn , 国内用 garmin.cn , 用的是百度地图, 这个应该不会偏. 如果只是在视频中展示当前在轨迹的哪个位置和方向, 那么轨迹在地图上的偏移无需在意. 心率你可以导出.gpx 文件, 当成 xml 文本文档打开, 看有没有\"ns3:hr84</ns3:hr>\"字段, 我在从 connect.garmin.cn 导出来的.gpx 文件中, 心率应该是使用的这个字段, heart rate. 如果从小米手环导出的数据中没有这个字段, 那应该就是拒绝提供该数据. 佳明提供了一个视频剪辑软件, Garmin VIRB EDIT, 可以进行简单的剪辑, 将运动数据覆盖到视频上面.\n* wuhunyu |  | wuhunyu OP Apr 14, 2025 4 @ kome 好的好的，我试试看\n* wuhunyu |  | wuhunyu OP Apr 14, 2025 5 @ kome 老哥给的访问域名有点点问题，但思路是对的。国内应该使用 connect.garmin.cn ，有点让我恶心的地方在于注册的时候要求必须提供手机号和邮箱，而国外的 connect.garmin.com 只需要邮箱即可注册。导入之后位置没有偏移，也不需要做额外的转换。遗憾的是，导出的文件中没有心率的数据。如果无法提供心率数据的话，我觉得我不必须使用小米运动健康。最后 Garmin VIRB EDIT ，官网的最后更新时间已经是 2018 年底了，有点担心软件适配的问题（我的 mac 是 M1 芯片的），晚上来试一下\n* wuhunyu |  | wuhunyu OP Apr 14, 2025 6 @ qdsearoc 格式问题不大，谢谢友友答复\n* kome |  | kome Apr 14, 2025 7 从小米运动健康导出的.gpx 文件内有没有心率数据? DJI Action 5 Pro 可以用手机 app(DJI Mimo)将运动数据覆盖到视频上面, 支持从一些运动/健康平台读取数据, 佳明国际/佳明中国也是分开的. 不绑定相机的软件貌似几乎没有; Telemetry Overlay/mTrack AREA 收费都非常高; GitHub 上有不少相关项目, 不过大都是数据直接覆盖到视频上, 不知道能不能做自动对齐, 相关组件通过配置文件自己放置, 项目地址: https://github.com/progweb/gpx2video , 稍微看了下项目, 好像能够自动对齐时间线. 个人想法: 上面这个项目, 如果能够对齐时间线, 那感觉可以生成一个纯色视频, 修改创建时间, 生成最终视频后放到视频剪辑项目里面, 去除颜色, 不过感觉只适用组件不透明的情况.",
+            "position": 1
+          },
+          {
+            "url": "https://fast.v2ex.com/t/1125242",
+            "title": "小米手环 9 的 运动轨迹，心率，以及 速率 数据有什么方法可以导入到一段视频里面吗 - V2EX",
+            "description": "Home Sign Up Sign In\nwuhunyu\nV2EX › 户外运动\n\n小米手环 9 的 运动轨迹，心率，以及 速率 数据有什么方法可以导入到一段视频里面吗\n\n- -\nwuhunyu · Apr 14, 2025 · 4251 views\nThis topic created in 547 days ago, the information mentioned may be changed or developed.\n\n前要说明\n\n1. 本人目前没有视频剪辑能力。友友们如果给出合适方案，难度不太大我是愿意学的\n2. 设备硬件上，有 action 5 pro ，小米手环 9\n3. 剪辑硬件上，有 mac book pro 。如果受限于某个插件，final cut pro ，pr ，达芬奇 或者 剪影 都可以\n按 AI 的指引，我应该按照 把运动数据导出 -> 解析运动数据成 CSV 文件 -> 导入视频剪辑软件叠加 的步骤走，但是在第二步就出问题了\n\n小米手环 9 数据导出\n\n小米运动健康支持导出三种格式的文件： .gpx , .kml 和 .tcx\n.gpx：最常用的轨迹文件格式，适用于包含 GPS 数据的户外运动数据\n.kml：一般做路线分享，包括经纬度、海拔数据\n.tcx：适用于运动健身设备之间传输数据\n这个对比数据来源于 DeepSeek\n* 格式 | 适用场景 | 包含数据 | 兼容性\n* GPX | 通用 GPS 轨迹数据 | 经纬度、时间戳、海拔 | 广泛支持（地图软件/剪辑插件）\n* KML | Google Earth 专用 | 经纬度、时间戳、样式标记 | 适合静态地图渲染\n* TCX | 专业运动数据 | 心率、步频、功率、GPS 轨迹等 | 适合完整运动数据分析\n但目前好像 .fit 格式比较通用一些。这个格式目前小米运动健康还不支持\n\n解析运动数据文件\n\n按我的需求来看， .tcx 格式的数据比较全。在网上找了一些能解析 .tcx 的应用，最后在 佳明 的网页版上成功导入并正确识别了来源于 小米手环 9 的运动数据数据\n但是，有两个很大的问题\n1. 佳明的网站应用读取之后的运动轨迹有很严重的偏移。我换了 .gpx 格式也是一样的偏移\n2. 没有心率变化数据\n- 小米手环 - 运动数据 - 视频剪辑\n9 replies • 2025-08-19 16:20:49 +08:00\n* lanrete |  | 1 lanrete Apr 14, 2025 运动轨迹偏移是坐标系的问题，国内用的是 GCJ-02 坐标系，也叫火星坐标系，国际通用的是 WGS-84 ，大概率是因为小米手环用火星坐标系定位的坐标，直接映射到 WGS84 的地图上，就有偏移了。 有一些开源的 solution 可以在两个坐标系之间做转换，我没试过\n* qdsearoc |  | 2 qdsearoc Apr 14, 2025 garmin virb editor ，缺点是不支持 265 ，需要先转 264 使用可以看\n* kome |  | 3 kome Apr 14, 2025 Garmin, 分 garmin.com 和 garmin.cn , 国内用 garmin.cn , 用的是百度地图, 这个应该不会偏. 如果只是在视频中展示当前在轨迹的哪个位置和方向, 那么轨迹在地图上的偏移无需在意. 心率你可以导出.gpx 文件, 当成 xml 文本文档打开, 看有没有\"ns3:hr84</ns3:hr>\"字段, 我在从 connect.garmin.cn 导出来的.gpx 文件中, 心率应该是使用的这个字段, heart rate. 如果从小米手环导出的数据中没有这个字段, 那应该就是拒绝提供该数据. 佳明提供了一个视频剪辑软件, Garmin VIRB EDIT, 可以进行简单的剪辑, 将运动数据覆盖到视频上面.\n* wuhunyu |  | 4 wuhunyu OP Apr 14, 2025 @ kome 好的好的，我试试看\n* wuhunyu |  | 5 wuhunyu OP Apr 14, 2025 @ kome 老哥给的访问域名有点点问题，但思路是对的。国内应该使用 connect.garmin.cn ，有点让我恶心的地方在于注册的时候要求必须提供手机号和邮箱，而国外的 connect.garmin.com 只需要邮箱即可注册。导入之后位置没有偏移，也不需要做额外的转换。遗憾的是，导出的文件中没有心率的数据。如果无法提供心率数据的话，我觉得我不必须使用小米运动健康。最后 Garmin VIRB EDIT ，官网的最后更新时间已经是 2018 年底了，有点担心软件适配的问题（我的 mac 是 M1 芯片的），晚上来试一下\n* wuhunyu |  | 6 wuhunyu OP Apr 14, 2025 @ qdsearoc 格式问题不大，谢谢友友答复\n* kome |  | 7 kome Apr 14, 2025 从小米运动健康导出的.gpx 文件内有没有心率数据? DJI Action 5 Pro 可以用手机 app(DJI Mimo)将运动数据覆盖到视频上面, 支持从一些运动/健康平台读取数据, 佳明国际/佳明中国也是分开的. 不绑定相机的软件貌似几乎没有; Telemetry Overlay/mTrack AREA 收费都非常高; GitHub 上有不少相关项目, 不过大都是数据直接覆盖到视频上, 不知道能不能做自动对齐, 相关组件通过配置文件自己放置, 项目地址: https://github.com/progweb/gpx2video , 稍微看了下项目, 好像能够自动对齐时间线. 个人想法: 上面这个项目, 如果能够对齐时间线, 那感觉可以生成一个纯色视频, 修改创建时间, 生成最终视频后放到视频剪辑项目里面, 去除颜色, 不过感觉只适用组件不透明的情况.",
+            "position": 2
+          },
+          {
+            "url": "https://edge.v2ex.com/t/1120565",
+            "title": "有没有那种可以在 iPhone 和小米手机之间同步健康数据的介质？ - V2EX",
+            "description": "Home Sign Up Sign In\nOrionParker\nV2EX › iPhone\n\n有没有那种可以在 iPhone 和小米手机之间同步健康数据的介质？\n\n- -\nOrionParker · Mar 24, 2025 · 4873 views\nThis topic created in 568 days ago, the information mentioned may be changed or developed.\n打个比方带个手表，今天我用 iPhone 健康数据正常同步，明天我用小米手机，前一天的健康数据也能同步到小米手机上来。简单来说就是相互同步，哪怕不是实时同步也行啊。阿剖手表不行，有其他可以的嘛\n- 健康数据 - 同步 - 手表\n6 replies • 2025-03-24 14:23:38 +08:00\n* justFxxk2060 |  | 1 justFxxk2060 Mar 24, 2025 现在解决方案是，在 iphone 和 小米上都安装 小米运动健康 APP\n* aero99 |  | 2 aero99 Mar 24, 2025 穿戴设备支持苹果和安卓双平台就可以\n* nuomi196500 |  | 3 nuomi196500 Mar 24, 2025 @ justFxxk2060 试过但不稳定，放弃了\n* KimGuo |  | 4 KimGuo Mar 24, 2025 那就小米/红米的手环或者手表，两边都装上小米运动健康，当天用那个手机就把设备配对到那个手机上（最新系统好像转移也挺方便）。 另外小米运动健康本身就有网络同步，只不过在 iOS 只能写入苹果健康数据所以 iPhone 自己记录的健康信息小米这边收不到。\n* OrionParker |  | 5 OrionParker OP Mar 24, 2025 @ KimGuo 那就是小米能同步到苹果上 苹果的同步不到小米上\n* KimGuo |  | 6 KimGuo Mar 24, 2025 @ OrionParker 手环的信息通过苹果手机传到小米运动健康的可以的，但是苹果自己收集的确实没法子\nAbout · Help · Advertise · Blog · API · FAQ · Privacy · Solana · 6215 Online Highest 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 6681b45b · 32ms · UTC 02:08 · PVG 10:08 · LAX 19:08 · JFK 22:08 ♥ Do have faith in what you're doing.\n❯",
+            "position": 3
+          },
+          {
+            "url": "https://www.v2ex.com/t/1058766",
+            "title": "小米手环 9 到手体验 - V2EX",
+            "description": "如果开启了手环的锁屏，挂电话需要先开锁屏。\n5. APP挑选表盘挑选了半天，没有搜索框和分类，差评。\n6. 关于线性马达，体验和手环5没有太大感觉区别，声音方面确实小了。但震动模式不支持根据不同场景去自定义确实不舒服，之前闹钟是一个震动，久坐是一个震动，消息提醒是默认的，可以根据震动去区分消息重要程度。\n8. 重要：如果开启了手环的锁屏，应该所有操作都需要先解锁，目前知道的关闭闹钟、挂电话都需要\n- 震动 - 设置 - 表盘\n59 replies • 2024-08-13 08:37:20 +08:00\n|Nasei | |1\nNasei Jul 20, 2024 ❤️ 1\n* 我从 4 代换成 8 代的时候也是感觉各种倒退，app 的问题，是因为新手环不能再使用 zepp ，小米自家的运动健康很难用\n|fs418082760 | |2\nfs418082760 Jul 20, 2024\n* 知道了，现在下单小米 5\n|aaronzhang404 | |3\naaronzhang404 Jul 20, 2024\n* 在 iPhone 上支持开关任意 APP 通知吗？\n|GlobalNPC | |4\nGlobalNPC Jul 20, 2024\n* 7 和之前是华米做的\n* 从 8 开始是小米自己做的\n|Maboroshii | |5\nMaboroshii Jul 20, 2024 via Android\n我现在还在用 5 代 nfc ，实在没有啥换新的理由，感觉可以用到坏\n* 5 代是最后一代华米的产品吧，后面就分家小米自己搞了，估计能力还是不够\n|zaizaizai2333 | |6\nzaizaizai2333 Jul 20, 2024 ❤️ 4\n小米能力不行倒是次要，最主要的是没有毅力。有很多种烂尾产品。\n* 雷老板是风投大师，什么都投，什么都不精。\n|bigwhite2 | |7\nbigwhite2 Jul 20, 2024\n\n...\n\n* 小米产品大体是没问题的，但是细节能气死人，TMD ，N 年前大多数手机都支持“音量键不能调节铃声音量”，结果小米一直没做，等到 android 内置了这个功能才有\n|nuomi196500 | |24\nnuomi196500 Jul 20, 2024\n* @ zaizaizai2333 用过 11U ，13U ，14P ，Color 2 ，8 ，8Pro 的表示，小米的东西大多虎头蛇尾，基本没有后期维护保障。最不能忍的是 MIUI 和澎湃，卡顿，冷热启动都卡，尤其是比较小众的 APP ，打开要顿 2 秒左右\n|wewing | |25\nwewing Jul 20, 2024\n* 小米自从升级到了 hyperos ，系统应用运动健康的跑步节拍器都不准，反馈了很多次，连个回复都没有，很失望\n|sansan | |26\nsansan Jul 20, 2024\n* @ moudy 封了是指禁用消息提醒？\n|hellosnow039 | |27\nhellosnow039 Jul 20, 2024\n* @ walkbox 8pro 是可以的，也可以自己装点小应用，9 不知道\n|frayesshi1 | |28\nfrayesshi1\nPRO\nJul 20, 2024 via Android\n* 手环可以记录睡眠时间，走路步数，还是有一些用处\n|gongquanlin | |29\ngongquanlin Jul 20, 2024\n* 小米手环 7pro ，代工厂换了，用过的最差的电子产品了，没有之一\n* 隔断时间就无法连接蓝牙，重置就好，各种小毛病\n|quietjosen | |30\n\n...\n\n|goo311 | |34\ngoo311 Jul 20, 2024 via Android\n* @ quietjosen 我这也是遇到熄屏亮度极暗，根本看不清。所以退货了。\n* 目前用的手环 8 就挺正常。\n|adimn | |35\nadimn Jul 20, 2024\n* @ aaronzhang404 #3 支持\n|adimn | |36\nadimn Jul 20, 2024\n\n...\n\n米运动健康么？有接入 mipush 么？\n|LavaC | |38\nLavaC Jul 20, 2024\n* 要不是 4 丢了我也不会换 6 ，只要不坏，我都不知道有什么理由换更新的，真要多功能也不选小米手环了，这米环越更新续航就越是倒退，真没必要换吧\n|quietjosen | |39\nquietjosen Jul 21, 2024\n* @ goo311 我不知道 8 ，但我手上的 7 ，还勉强能用，但大白天在户外基本看不清。\n* 我实在想不通，加个设置选项，或者利用光线感应自动调节息屏亮度，就这么难吗？\n* 7 开始有息屏显示，9 都第 3 代了。\n|moudy | |40\nmoudy Jul 21, 2024 via iPhone\n* @ sansan 禁用后台运行\n|ProbeWong | |41\nProbeWong Jul 21, 2024 via Android\n* @ olaloong 能解 byd 的 nfc 车钥匙，然后写进手环吗\n|idragonet | |42\nidragonet Jul 21, 2024\n* @ quietjosen #39 7 PRO 现在户外很清晰，而且价格 PDD 不到 200 ，带独立 GPS 。\n|alfawei | |43\n\n...\n\nmoudy Jul 21, 2024 via iPhone\n* @ moudy ….. 小米运动 app 只负责管理数据同步\n|zachary99 | |50\nzachary99 Jul 21, 2024 via Android\n* 小米 app 太乱了，小米体重秤，手环，还有跳绳得装三个 app\n|sansan | |51\nsansan Jul 21, 2024",
+            "position": 4
+          },
+          {
+            "url": "https://fast.v2ex.com/t/1120565",
+            "title": "有没有那种可以在 iPhone 和小米手机之间同步健康数据的介质？ - V2EX",
+            "description": "Home Sign Up Sign In\nOrionParker\nV2EX › iPhone\n\n有没有那种可以在 iPhone 和小米手机之间同步健康数据的介质？\n\n- -\nOrionParker · Mar 24, 2025 · 4868 views\nThis topic created in 567 days ago, the information mentioned may be changed or developed.\n打个比方带个手表，今天我用 iPhone 健康数据正常同步，明天我用小米手机，前一天的健康数据也能同步到小米手机上来。简单来说就是相互同步，哪怕不是实时同步也行啊。阿剖手表不行，有其他可以的嘛\n- 健康数据 - 同步 - 手表\n6 replies • 2025-03-24 14:23:38 +08:00\n* justFxxk2060 |  | 1 justFxxk2060 Mar 24, 2025 现在解决方案是，在 iphone 和 小米上都安装 小米运动健康 APP\n* aero99 |  | 2 aero99 Mar 24, 2025 穿戴设备支持苹果和安卓双平台就可以\n* nuomi196500 |  | 3 nuomi196500 Mar 24, 2025 @ justFxxk2060 试过但不稳定，放弃了\n* KimGuo |  | 4 KimGuo Mar 24, 2025 那就小米/红米的手环或者手表，两边都装上小米运动健康，当天用那个手机就把设备配对到那个手机上（最新系统好像转移也挺方便）。 另外小米运动健康本身就有网络同步，只不过在 iOS 只能写入苹果健康数据所以 iPhone 自己记录的健康信息小米这边收不到。\n* OrionParker |  | 5 OrionParker OP Mar 24, 2025 @ KimGuo 那就是小米能同步到苹果上 苹果的同步不到小米上\n* KimGuo |  | 6 KimGuo Mar 24, 2025 @ OrionParker 手环的信息通过苹果手机传到小米运动健康的可以的，但是苹果自己收集的确实没法子\nAbout · Help · Advertise · Blog · API · FAQ · Privacy · Solana · 4450 Online Highest 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 26ms · UTC 10:14 · PVG 18:14 · LAX 03:14 · JFK 06:14 ♥ Do have faith in what you're doing.\n❯",
+            "position": 5
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "\"Wear Engine\" \"Xiaomi\"",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.notebookcheck.net/Xiaomi-announces-imminent-global-launch-of-new-Wear-OS-smartwatch.1233018.0.html",
+            "title": "Xiaomi announces imminent global launch of new Wear OS smartwatch - Notebookcheck News",
+            "description": "Nonetheless, crucial details about the smartwatch are hidden in plain sight. Specifically, the Watch 5 is shown with Gemini, Google Maps, Google Wallet and the Google Play Store installed. Hence, the Watch 5 will rival the Pixel Watch 4 and Galaxy Watch8 (curr. $326 on Amazon) by adopting Wear OS rather than Xiaomi's proprietary alternative. Based on recent leaks, the Watch 5 will reach the Eurozone for approximately €329 (~$390).\n\n## Source(s)\n\nXiaomi [...] At the same time, it has teased that the international launch of the Watch 5 is on the horizon as well. For context, Xiaomi introduced the Watch 5 in December alongside the Xiaomi 17 and Xiaomi 17 Ultra. Currently, Xiaomi has included a single Watch 5 picture on its global event teaser page. [...] In short, the Xiaomi 17 and Xiaomi 17 Ultra are locked in to debut internationally on February 28. Now, Xiaomi has turned to some of the other devices that will also appear during the same event. For instance, it has begun teasing the imminent arrivals of not just the Pad 8 and Pad 8 Pro but also the Redmi Buds 8 Pro and the Ultrathin Magnetic Power Bank 5000 15W in more markets.\n\nThe Xiaomi Watch 5's two expected global launch colours.",
+            "position": 1
+          },
+          {
+            "url": "https://www.wareable.com/xiaomi/xiaomi-watch-5-wear-os-mwc-2026-announcement",
+            "title": "Xiaomi Watch 5 goes global at MWC with Wear OS 6 and EMG gesture controls",
+            "description": "It marks a significant move for the brand, which hasn't released an Android smartwatch since the Xiaomi Watch 2 and Xiaomi Watch 2 Pro in 2023.\n\nWhile the older model received an out-of-the-blue update to Wear OS 5 last summer, the new Watch 5 skips ahead to Wear OS 6. It will feature built-in Google Gemini support and a hardware suite that undercuts the pricing of flagship rivals from Google and Samsung.\n\n### Next-level battery life [...] If it all checks out in testing, this could solve one of the biggest remaining pain points for Wear OS users: the battery anxiety common in the Pixel and Galaxy lines (particularly in smaller case sizes).\n\n### Innovative gesture controls\n\nInteraction is also getting a noticeable upgrade through EMG-powered gesture controls. [...] # Xiaomi Watch 5 goes global at MWC with Wear OS 6 and EMG gesture controls\n\n Conor Allison\n\n  by Conor Allison ◆ Published: March 2, 2026 ◆  2 min read\n\nxiaomi-watch-5-lifestyle\n\n(Credit: Xiaomi)\n\n## Priced at €299, the new smartwath fills a much-needed value gap in the Android ecosystem\n\nXiaomi has officially returned to the Wear OS stage with the launch of the Xiaomi Watch 5 at MWC 2026 in Barcelona.",
+            "position": 2
+          },
+          {
+            "url": "https://stackoverflow.com/questions/72621677/is-it-possible-to-install-third-party-apps-on-xiaomi-wear-os-redmi-watch-2-lite",
+            "title": "Is it possible to install third-party apps on Xiaomi Wear-Os (Redmi Watch 2 Lite)?",
+            "description": "Last 1 hr\n\n   Users online activity  1094 users online \n    3 questions \n    0 answers \n    12 comments \n    24 upvotes \n\nPopular tags\n\njavac++pythonpydanticc#artificial-intelligence\n\n### Related\n\n23\")Android wear : how to support existing app to Android wear\n\n4\")Is there any way for 3rd party apps installed on Android phone to hack data between Android phone and Android Wear watch?\n\n1\")Is there a way to install normal android applications on android wear via bluetooth? [...] 10\")Can I build a stand alone Apple Watch app?\n\n0\")Possible to use android wear watchfaces as widget on a normal android smartphone?\n\n18\")Is it possible to create an Android Wear app with react native\n\n4\")Android Wear 2.0 support for watch face app\n\n12\")Adding a watch app to a Flutter iOS application\n\n11\")It is possible to use flutter to create something to Watch OS or Android Wear?\n\n6\")How to install app from beta track on Wear OS smartwatch?\n\n#### Hot Network Questions [...] if category_d is not None:\n        category = INVERSE_WIDGET_TYPES.get(category_d)\n        if category is not None:\n            wtype = WIDGET_TYPES.get(category).inverse_get(wtype_d)\n\n    wformat = Format[wformat_d]\n    coordinate_types = INVERSE_COORDINATES_TABLE.get(coordinate_types_d)\n\n    return WidgetType(wtype, category, wformat, coordinate_types)",
+            "position": 3
+          },
+          {
+            "url": "https://www.mi.com/global/product-list/wearables",
+            "title": "Wearable | Xiaomi Global",
+            "description": "All ProductsPOCOXiaomi SeriesWearableVehicleVacuum CleanerTV & MediaSportSmart DeviceRedmi SeriesPhone casePersonal CarePadOfficeKitchen ApplianceIlluminationEnvironment ApplianceAccessories\n\n ### Xiaomi Smart Kids Watch\n\n  Learn more\n ### Redmi Watch 3 Active\n\n  Learn more\n ### Redmi Buds 4 Active\n\n  Learn more\n ### Xiaomi Buds 3 Star Wars Edition\n\n  Learn more\n ### Xiaomi Smart Band 7 NFC\n\n  Learn more\n ### Redmi Watch 3\n\n  Learn more\n ### Xiaomi Watch S1 Pro [...] Learn more\n ### Xiaomi Smart Band 7 Strap\n\n  Learn more\n ### Xiaomi Smart Band 7\n\n  Learn more\n ### Redmi Buds 4 Pro\n\n  Learn more [...] Learn more\n ### Xiaomi Buds 4 Pro\n\n  Learn more\n ### Redmi Smart Band 2 Strap\n\n  Learn more\n ### Redmi Smart Band 2\n\n  Learn more\n ### Redmi Buds Essential\n\n  Learn more\n ### Xiaomi Smart Band 7 Pro Leather-textured Silicone Strap\n\n  Learn more\n ### Xiaomi Smart Band 7 Khaki Strap\n\n  Learn more\n ### Xiaomi Smart Band 7 Neon Strap\n\n  Learn more\n ### Xiaomi Smart Band 7 Pro\n\n  Learn more\n ### Xiaomi Smart Band 7 Pro Strap\n\n  Learn more\n ### Xiaomi FlipBuds Pro",
+            "position": 4
+          },
+          {
+            "url": "https://tavily.com/knowledge/company/pLvbwOq3zYKQ",
+            "title": "Xiaomi Technology",
+            "description": "# Xiaomi Technology\nID: pLvbwOq3zYKQ\nWebsite: www.mi.com\nHeadquarters: Beijing, Beijing, China\nLinkedIn: www.linkedin.com/company/xiaomi-technology · 1,678,915 followers\nIndustry: Software Development\nIndustry codes: SIC 36, 365, NAICS 33, 334\nCompany type: Public Company\nBusiness model: B2C\nSaaS: no\nSocial profiles: www.facebook.com/xiaomiglobal, www.twitter.com/xiaomi, www.instagram.com/xiaomi.global, www.youtube.com/user/xiaomichina [...] ## Products and services\nBusiness areas: Consumer Electronics, Smartphone Manufacturing, Smart Home Devices, Wearable Technology, Electric Vehicles, IoT Platform\nProducts: Smartphones, Tablets, Wearables, Smartwatches and Fitness Trackers, Wireless Earbuds and Headphones, Electric Scooters and Motorcycles, Electric Vehicles, Air Conditioners and HVAC Systems, Refrigerators and Freezers, Washing Machines and Dryers, Robot Vacuums and Cleaning Appliances",
+            "position": 5
+          }
+        ]
+      }
+    }
+  }
+]

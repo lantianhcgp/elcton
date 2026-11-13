@@ -1,0 +1,158 @@
+Service Introduction
+
+HUAWEI Wear Engine is designed for developers of apps and services running on phones and wearable devices.
+ 
+By integrating Wear Engine, your app or service on a phone can send messages and notifications and transfer data to Huawei wearable devices, as well as obtaining the status of the wearable devices. This also works the other way round, which means that an app or service on a Huawei wearable device can send messages and transfer data to a phone.
+ 
+Wear Engine pools the phone's and wearable's resources and capabilities, which include the phone's apps and services and the wearable's device capabilities, creating benefits for consumers and developers alike. It enables consumers to use their devices in more diversified scenarios and receive more convenient services, with a smoother experience. It also expands the reach of your business, and takes your apps and services to the next level.
+
+Supported Devices
+ 
+Table 1 Supported devices
+
+Device
+  
+Requirements (The Latest Version Is Recommended)
+
+Phone
+  
+Huawei phones
+  
+The following conditions must be met:
+ 
+EMUI 4.1/HarmonyOS 2.0 or later.
+
+The Huawei Health app has been installed. (For details about the compatible app and SDK versions, refer to Version Change History.)
+
+Other phones
+  
+The following conditions must be met:
+ 
+Android 6.0–14.0
+
+The Huawei Health app has been installed, which can be logged in with a HUAWEI ID and is allowed to display pop-up windows while running in the background.
+
+Wearable
+
+WATCH Ultimate series
+  
+HUAWEI WATCH Ultimate, HUAWEI WATCH ULTIMATE DESIGN, and later models
+
+WATCH series
+  
+HUAWEI WATCH 3 and later models
+
+WATCH GT series
+  
+HUAWEI WATCH GT 2, HUAWEI WATCH GT 2 Pro (lite wearable OS 10.1 or later), HUAWEI WATCH GT 2e (lite wearable OS 11.0.14 or later), HUAWEI WATCH GT 2022 Premium Edition, HUAWEI WATCH GT 3, and later models
+
+HUAWEI WATCH GT Runner, HUAWEI WATCH GT Cyber, and HUAWEI WATCH Buds
+
+WATCH FIT series
+  
+HUAWEI WATCH FIT 1 and later models
+
+WATCH D series
+  
+HUAWEI WATCH D and later models
+
+Band series
+  
+HUAWEI Band 6 (only template-based notifications, wearable user status, and sensor capabilities are supported), HUAWEI Band 7, and later models
+
+Wearable accessories
+  
+HUAWEI S-TAG (only the motion sensor is supported)
+
+Open Capabilities
+
+Wear Engine currently offers the following capabilities that are centered around Huawei wearable devices:
+ 
+Basic device capabilities:
+Obtaining basic information about wearable devices: A phone app can obtain a list of paired Huawei wearable devices that support HarmonyOS, such as device names and types, and query the devices' status information such as connection status and app installation status.
+
+App-to-app communications: A phone app and a wearable app can share messages and files (such as documents, images, and music).
+
+Template-based notifications on wearable devices: A phone app can send template-based notifications to wearable devices. You can customize the message title, content, and buttons.
+
+Obtaining the wearable user status: A phone app can query or subscribe to information such as the heart rate alerts and wearing status of wearable device users.
+
+Device identifier (only for enterprise partners): A phone app can obtain the serial number (SN) of wearable devices.
+  
+Table 2 Open capabilities
+
+Open Capability
+  
+Applicable Scope
+  
+Phone App
+  
+Lite Wearable App
+  
+Wearable App
+
+Basic device capabilities
+
+Querying wearable device information
+  
+Individual and enterprise developers
+  
+√ (Obtain a list of paired wearable devices and select a device.)
+ 
+√ (Query and subscribe to the status information such as connection status, battery levels, and charging status of wearable devices.)
+  
+-
+  
+-
+
+App-to-app message communications
+  
+√ (Share files, such as images and music.)
+  
+√ (Share files, such as images and music.)
+  
+√ (Share files, such as images and music.)
+
+Template-based notifications on wearable devices
+  
+√ (Send template-based notifications to wearable devices.)
+  
+-
+  
+-
+
+Obtaining the wearable user status
+  
+Enterprise developers
+  
+√ (Query or subscribe to the information such as the heart rate alerts and wearing status of wearable device users.)
+  
+-
+  
+-
+
+Device identifier
+  
+Enterprise developers (only for enterprise partners)
+  
+√ (Obtain the SN of wearable devices.)
+  
+-
+  
+-
+
+For details about phones and wearable devices compatible with Wear Engine, refer to Supported Devices.
+
+Technical Architecture
+
+Figure 1 Technical architecture of Wear Engine
+
+Wear Engine provides separate SDKs for the phone and wearable device respectively, to offer the corresponding APIs for integration into your app.
+
+The Huawei Health app has integrated the Wear Engine service and uses Android interface definition language (AIDL) to communicate with the Wear Engine SDK.
+
+Huawei wearable devices have the Wear Engine service integrated into their operating system, allowing the phone and wearable device to communicate via Bluetooth (proprietary protocol).
+
+Supported Countries/Regions
+
+For details, refer to Supported Countries/Regions.

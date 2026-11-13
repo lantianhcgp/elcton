@@ -1,0 +1,151 @@
+[
+  {
+    "query": "\"WearEngineException\" -site:developer.huawei.com -site:github.com",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://gitee.com/hms-core/hms-wear-engine-demo/issues/I4PCE2",
+            "title": "华为移动服务/hms-wear-engine-demo",
+            "description": "WearEngineException: Scope unauthorized. 手机端使用的是华为P30 升级到鸿蒙2.0系统了穿戴设备端用的是GT2_PRO，运动健康能力开发下我的App 权限已经打开. Wear Engine ...",
+            "position": 1
+          },
+          {
+            "url": "https://consumer.huawei.com/uk/community/details/topicId-46058/",
+            "title": "[Watch GT2 Pro] New App: Plus Watch - HUAWEI Community",
+            "description": "huawei.wearengine.wearengineexception:Health App Not exist. Hat jemand eine Lösung? View More. 31/03/2022 ...",
+            "position": 2
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "\"checkPermission\" \"Wear Engine\" error -site:developer.huawei.com",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://xdaforums.com/t/beginner-integration-of-lite-wearable-security-app-with-huawei-wear-engine.4254465",
+            "title": "Beginner: Integration of Lite Wearable security app with Huawei Wear Engine",
+            "description": "In this article, will explain how to develop a security application in Lite wearable. To achieve it we have to use the Wear Engine library.\n\n@Override\npublic void onFailure(Exception e) {\n}\n});\n```\nStep 14: If the devices are available call for device permission granted or not.\nJava:\n```\nprivate void checkPermissionGranted() {\nAuthClient authClient = HiWear.getAuthClient(this);\nauthClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener<Boolean>() {\n@Override\npublic void onSuccess(Boolean aBoolean) {\nif (!aBoolean) {\naskPermission();\n}\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\n```\nStep 15: If permission is not granted ask for permission.\nJava:\n```\nprivate void askPermission() {\nAuthClient authClient = HiWear.getAuthClient(this);\nAuthCallback authCallback = new AuthCallback() {\n@Override\npublic void onOk(Permission[] permissions) {\nif (permissions.length != 0) {\ncheckCurrentConnectedDevice();\n}\n}\n@Override\npublic void onCancel() {\n}\n};\nauthClient.requestPermission(authCallback, Permission.DEVICE_MANAGER)\n.addOnSuccessListener(new OnSuccessListener<Void>() {\n@Override\npublic void onSuccess(Void successVoid) {\n}\n})\n.addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\n\nprivate void searchAvailableDevices() {\nDeviceClient deviceClient = HiWear.getDeviceClient(this);\ndeviceClient.hasAvailableDevices().addOnSuccessListener(new OnSuccessListener<Boolean>() {\n@Override\npublic void onSuccess(Boolean result) {\ncheckPermissionGranted();\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\nprivate void checkPermissionGranted() {\nAuthClient authClient = HiWear.getAuthClient(this);\nauthClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener<Boolean>() {\n@Override\npublic void onSuccess(Boolean aBoolean) {\nif (!aBoolean) {\naskPermission();\n}\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\nprivate void askPermission() {\nAuthClient authClient = HiWear.getAuthClient(this);\nAuthCallback authCallback = new AuthCallback() {\n@Override\npublic void onOk(Permission[] permissions) {\nif (permissions.length != 0) {\ncheckCurrentConnectedDevice();\n}\n}\n@Override\npublic void onCancel() {\n}\n};\nauthClient.requestPermission(authCallback, Permission.DEVICE_MANAGER)\n.addOnSuccessListener(new OnSuccessListener<Void>() {\n@Override\npublic void onSuccess(Void successVoid) {\n}\n})\n.addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n\n> private void searchAvailableDevices() {\n> DeviceClient deviceClient = HiWear.getDeviceClient(this);\n> deviceClient.hasAvailableDevices().addOnSuccessListener(new OnSuccessListener<Boolean>() {\n> @Override\n> public void onSuccess(Boolean result) {\n> checkPermissionGranted();\n> }\n> }).addOnFailureListener(new OnFailureListener() {\n> @Override\n> public void onFailure(Exception e) {\n> }\n> });\n> ```\n\n> private void checkPermissionGranted() {\n> AuthClient authClient = HiWear.getAuthClient(this);\n> authClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener<Boolean>() {\n> @Override\n> public void onSuccess(Boolean aBoolean) {\n> if (!aBoolean) {\n> askPermission();\n> }\n> }\n> }).addOnFailureListener(new OnFailureListener() {\n> @Override\n> public void onFailure(Exception e) {\n> }\n> });\n> }",
+            "position": 1
+          },
+          {
+            "url": "https://reddit.com/r/HuaweiDevelopers/comments/lfumx5/how_to_send_a_message_from_android_smartphone_to",
+            "title": "How to send a message from Android smartphone to lite wearable using Wear Engine?",
+            "description": "Step 7: Click Apply for Wear Engine, agree to the agreement, and the screen for data permission application is displayed.\n\ndeviceClient.hasAvailableDevices().addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {\n@Override\npublic void onSuccess(Boolean result) {\ncheckPermissionGranted();\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\nStep 14: If the devices are available call for device permissions granted or not.\nprivate void checkPermissionGranted() {\nAuthClient authClient = HiWear.getAuthClient(this);\nauthClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {\n@Override\npublic void onSuccess(Boolean aBoolean) {\nif (!aBoolean) {\naskPermission();\n}\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\nStep 15: If permission is not granted, ask for the permission.\nprivate void askPermission() {\nAuthClient authClient = HiWear.getAuthClient(this);\nAuthCallback authCallback = new AuthCallback() {\n@Override\npublic void onOk(Permission[] permissions) {\nif (permissions.length != 0) {\ncheckCurrentConnectedDevice();\n}\n}\n@Override\npublic void onCancel() {\n}\n};\nauthClient.requestPermission(authCallback, Permission.DEVICE_MANAGER)\n.addOnSuccessListener(new OnSuccessListener&lt;Void&gt;() {\n@Override\npublic void onSuccess(Void successVoid) {\n}\n})\n.addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n\nprivate void checkPermissionGranted() {\nAuthClient authClient = HiWear.getAuthClient(this);\nauthClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {\n@Override\npublic void onSuccess(Boolean aBoolean) {\nif (!aBoolean) {\naskPermission();\n}\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\nprivate void askPermission() {\nAuthClient authClient = HiWear.getAuthClient(this);\nAuthCallback authCallback = new AuthCallback() {\n@Override\npublic void onOk(Permission[] permissions) {\nif (permissions.length != 0) {\ncheckCurrentConnectedDevice();\n}\n}\n@Override\npublic void onCancel() {\n}\n};\nauthClient.requestPermission(authCallback, Permission.DEVICE_MANAGER)\n.addOnSuccessListener(new OnSuccessListener&lt;Void&gt;() {\n@Override\npublic void onSuccess(Void successVoid) {\n}",
+            "position": 2
+          },
+          {
+            "url": "https://reddit.com/r/HuaweiDevelopers/comments/mfm17z/beginner_integration_of_lite_wearable_security",
+            "title": "Beginner: Integration of Lite Wearable security app with Huawei Wear Engine",
+            "description": "`DeviceClient deviceClient = HiWear.getDeviceClient(this);`\n`deviceClient.hasAvailableDevices().addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {`\n`@Override`\n`public void onSuccess(Boolean result) {`\n`checkPermissionGranted();`\n`}`\n`}).addOnFailureListener(new OnFailureListener() {`\n`@Override`\n`public void onFailure(Exception e) {`\n`}`\n`});`\n\n`private void checkPermissionGranted() {`\n`AuthClient authClient = HiWear.getAuthClient(this);`\n`authClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {`\n`@Override`\n`public void onSuccess(Boolean aBoolean) {`\n`if (!aBoolean) {`\n`askPermission();`\n`}`\n`}`\n`}).addOnFailureListener(new OnFailureListener() {`\n`@Override`\n`public void onFailure(Exception e) {`\n\n`private void checkPermissionGranted() {`\n`AuthClient authClient = HiWear.getAuthClient(this);`\n`authClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {`\n`u/Override`\n`public void onSuccess(Boolean aBoolean) {`\n`if (!aBoolean) {`\n`askPermission();`\n`}`\n`}`\n`}).addOnFailureListener(new OnFailureListener() {`\n`u/Override`\n`public void onFailure(Exception e) {`\n`}`\n`});`\n`}`\n\n\n**Introduction**\nIn this article, will explain how to develop a security application in Lite wearable. To achieve it we have to use the Wear Engine library. It will give us the solution for communication between Harmony wearable and android smartphone.\n",
+            "position": 3
+          },
+          {
+            "url": "https://xdaforums.com/t/beginner-how-to-send-a-message-from-android-smartphone-to-lite-wearable-using-wear-engine.4238007",
+            "title": "Beginner: How to send a message from Android smartphone to lite wearable using Wear Engine?",
+            "description": "Step 7: Click Apply for Wear Engine, agree to the agreement, and the screen for data permission application is displayed.\n\n```\nprivate void searchAvailableDevices() {\nDeviceClient deviceClient = HiWear.getDeviceClient(this);\ndeviceClient.hasAvailableDevices().addOnSuccessListener(new OnSuccessListener<Boolean>() {\n@Override\npublic void onSuccess(Boolean result) {\ncheckPermissionGranted();\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\n```\nStep 14: If the devices are available call for device permissions granted or not.\nCode:\n```\nprivate void checkPermissionGranted() {\nAuthClient authClient = HiWear.getAuthClient(this);\nauthClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener<Boolean>() {\n@Override\npublic void onSuccess(Boolean aBoolean) {\nif (!aBoolean) {\naskPermission();\n}\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\n```",
+            "position": 4
+          },
+          {
+            "url": "https://reddit.com/r/HMSCore/comments/lqea34/beginner_how_to_send_a_message_from_android",
+            "title": "Beginner: How to send a message from Android smartphone to lite wearable using Wear Engine?",
+            "description": "Step 7: Click Apply for Wear Engine, agree to the agreement, and the screen for data permission application is displayed.\n\nDeviceClient deviceClient = HiWear.getDeviceClient(this);\ndeviceClient.hasAvailableDevices().addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {\n@Override\npublic void onSuccess(Boolean result) {\ncheckPermissionGranted();\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\nStep 14: If the devices are available call for device permissions granted or not.\nprivate void checkPermissionGranted() {\nAuthClient authClient = HiWear.getAuthClient(this);\nauthClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {\n@Override\npublic void onSuccess(Boolean aBoolean) {\nif (!aBoolean) {\naskPermission();\n}\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\n\nprivate void checkPermissionGranted() {\nAuthClient authClient = HiWear.getAuthClient(this);\nauthClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener&lt;Boolean&gt;() {\n@Override\npublic void onSuccess(Boolean aBoolean) {\nif (!aBoolean) {\naskPermission();\n}\n}\n}).addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});\n}\nprivate void askPermission() {\nAuthClient authClient = HiWear.getAuthClient(this);\nAuthCallback authCallback = new AuthCallback() {\n@Override\npublic void onOk(Permission[] permissions) {\nif (permissions.length != 0) {\ncheckCurrentConnectedDevice();\n}\n}\n@Override\npublic void onCancel() {\n}\n};\nauthClient.requestPermission(authCallback, Permission.DEVICE_MANAGER)\n.addOnSuccessListener(new OnSuccessListener&lt;Void&gt;() {\n@Override\npublic void onSuccess(Void successVoid) {\n}\n})\n.addOnFailureListener(new OnFailureListener() {\n@Override\npublic void onFailure(Exception e) {\n}\n});",
+            "position": 5
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "\"Wear Engine\" \"小米\"",
+    "result": {
+      "success": false,
+      "error": "Keyless Exa search failed: Unrecognized MCP response shape. Set EXA_API_KEY (https://exa.ai) or another web backend via `hermes tools` for reliable service."
+    }
+  },
+  {
+    "query": "site:v2ex.com \"华为\" \"HMS\"",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://www.v2ex.com/tag/hms",
+            "title": "V2EX › hms",
+            "description": "Home Sign Up Sign In\nV2EX = way to explore V2EX 是一个关于分享和探索的地方\nSign Up Now For Existing Member Sign In\nV2EX › hms\n* Tb5821 |  | 国行三星「推送服务优化」经验分享 Android • Tb5821 • Feb 20, 2024 • Lastly replied by NokiaForever | 14\n* ariera |  | 小米设备 magisk root 后如何才能使第三方应用市场后台静默安装 Android • ariera • Sep 13, 2022 • Lastly replied by ariera | 12\n* dvbuzhidao1 |  | 国行三星系统的推送和 hms mipush ov 比较如何 Android • dvbuzhidao1 • Feb 23, 2021 • Lastly replied by Cielsky | 16\n* iacyl |  | QQ 支持 HMS 推送了，腾讯系的应用终于加入推送功能了 分享发现 • iacyl • Oct 30, 2020 • Lastly replied by 284716337 | 5\n* tonghuashuai |  | 没人讨论下 HMS（huawei mobile services）吗？ 华为 • tonghuashuai • Feb 25, 2020 | \n* kingiis |  | Android 华为 hms 推送服务个别新机型兼容 Android • kingiis • Apr 28, 2019 | \nAbout · Help · Advertise · Blog · API · FAQ · Solana · 3383 Online Highest 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 14ms · UTC 11:27 · PVG 19:27 · LAX 04:27 · JFK 07:27 ♥ Do have faith in what you're doing.\n❯",
+            "position": 1
+          },
+          {
+            "url": "https://www.v2ex.com/t/556640",
+            "title": "Android 华为移动推送 hms 服务低版本报错 - V2EX",
+            "description": "Home Sign Up Sign In\nkingiis\nV2EX › Android\n\nAndroid 华为移动推送 hms 服务低版本报错\n\n- -\nkingiis · Apr 19, 2019 · 16547 views\nThis topic created in 2744 days ago, the information mentioned may be changed or developed.\nps:本篇只适合已集成完毕华为推送 sdk 的开发者,在兼容上遇到的问题。 关于集成华为 hms 服务移动推送时遇到的问题：\n第三方：\n华为移动 hms 服务-推送服务\n需求：\n提高推送覆盖率\n处理方案：\n透传 + 自启动\n权限开放：\n自启动 = on\n根据官方文档集成后，在华为老机型上运行时出现了崩溃.\n//HuaweiApiAvailability.getInstance().resolveError(this, rstCode, REQUEST_HMS_RESOLVE_ERROR);\n/**\n\n* 代理 Activity，用于弹出解决问题的引导\n\n*/\n\npublic class HMSAgentActivityextends BaseAgentActivity {\n\n...\n\n@Override\n\nprotected void onCreate(Bundle savedInstanceState) {\n\nsuper.onCreate(savedInstanceState);\n\n...\n\nHMSAgentLog.d(\"dispose code:\" + rstCode);\n\n//            HuaweiApiAvailability.getInstance().resolveError(this, rstCode,     //REQUEST_HMS_RESOLVE_ERROR);\n\n...\n\nonConnectEnd(HMSAgent.AgentResultCode.START_ACTIVITY_ERROR);\n\nreturn;\n\n            }\n\n}else {\n\n// 当前没有界面处理不了错误\n\n            HMSAgentLog.d(\"no activity\");\n\n            onConnectEnd(HMSAgent.AgentResultCode.NO_ACTIVITY_FOR_USE);\n\nreturn;\n\n        }\n\n}else {\n\n//其他错误码直接透传\n\n    }\n\nonConnectEnd(errCode);\n\n}\n\n\n到此兼容完毕。\n\n希望这篇文章对大家有帮助,另外：\n\n拒绝 996\n- intent - activity - errcode - null\n12 replies • 2019-04-19 22:54:17 +08:00\n* kingiis |  | 1 kingiis OP Apr 19, 2019 低版本太诡异 自己 sdk 都不支持 我们注释掉 它自动更新华为 hms 服务的部分 同样在低版本上放弃了这个功能\n* qwwuyu |  | 2 qwwuyu Apr 19, 2019 我这边是把 ActivityMgr 相关的都注释掉，一个是 HMSAgentActivity 处理连接错误，一个是 base.aar 里面的连接成功请求公告会使用到 topActivity(HuaweiApiClientImpl 类里 onConnectionResult 调用了 showNotice)。 可以尝试使用源码，删除 base.arr 的 res、com.huawei.hms.update 包相关、hmsrootcas.bks 、UpdateSdk_release_V2.0.3.300.jar ，这样清单只需要保留 HuaweiPushRevicer 和 meta-data。 如果不需要使用透传消息通知，可以尝试删除 com.huawei.hms.support.api.push.pushselfshow 包相关和 res，这样可以尝试只打出一个 jar 包,而不是 2 个 aar 和 2 个 jar.最近尝试了一下,暂无问题,但还未全面测试...\n* kingiis |  | 3 kingiis OP Apr 19, 2019 @ qwwuyu app 流水太大 用户太多 对于华为推送这种集成方式的不敢大改,期待官方修改。 我这边需要透传的,要拉起 app 集成的 HMS_SDK_2.6.1.301.jar ，旧版推送的 sdk 都下架了找不到.\n* qwwuyu |  | 4 qwwuyu Apr 19, 2019 @ kingiis 我也是 2.6.1.301 ，最近才开始相关开发，透传是指应用存活才可以收到的消息，不影响系统通知点击拉活推送。像 oppo xiaomi 都没有 res，hw 还有更新。。\n* kingiis |  | 5 kingiis OP Apr 19, 2019 @ qwwuyu 开通自启动权限,透传可以直接拉活\n* qwwuyu |  | 6 qwwuyu Apr 19, 2019 @ kingiis 这样啊..但是还是不明白你们流程,服务器不知道用户开启自启动权限,需要发送系统级推送,让用户点击通知拉起应用吧.溜了溜了,工作去了.\n* xuhaoyangx |  | 7 xuhaoyangx Apr 19, 2019 你们透传 是引导用户开启自启动？\n* honeycomb |  | 8 honeycomb Apr 19, 2019 via Android @ xuhaoyangx 你看是不是很没办法，连搞个推送都是为了保活",
+            "position": 2
+          },
+          {
+            "url": "https://jp.v2ex.com/t/989584",
+            "title": "华为应用市场和荣耀应用市场分别上架是几个意思？ - V2EX",
+            "description": "Home Sign Up Sign In\nAoEiuV020JP\n0.1 D\nV2EX › Android\n\n华为应用市场和荣耀应用市场分别上架是几个意思？\n\n- -\nAoEiuV020JP · Nov 7, 2023 · 16136 views\nThis topic created in 1072 days ago, the information mentioned may be changed or developed.\n有没有熟悉荣耀的来说说，现在荣耀手机是安装不了华为应用市场中的 app 了吗？ 今天有个客户上架荣耀应用市场被打回，理由是 app 中有华为 HMS 服务要求删除， 这是几个意思？荣耀不让用华为推送了吗？看了下荣耀开发者文档还真有个荣耀自己的推送 sdk ，这分家有意思吗？不上架荣耀就不能在荣耀手机使用了吗？\n- 荣耀 - 华为 - 上架 - 推送\n25 replies • 2023-11-25 00:07:28 +08:00\n|pigspy | |1\npigspy Nov 7, 2023\n* 简单点来说跟菊花的云服务&预装合同即将到期，两家在系统 ROM 和 APP 上会彻底拆开\n|maemolee | |2\nmaemolee Nov 7, 2023 ❤️ 1\n* 离谱，加上荣耀 sdk 还能理解，还要求删除 HMS 我就不理解了。我们的安卓 app 里面，普遍是把华米 ov 的 sdk 全放进去了，没有任何一家对此有意见。\n\n...\n\n* 不是说的很清楚吗，你的应用装在荣耀上回提示安装 HMS ， 这怎么可能给你通过，荣耀现在有自己的 Core 的\n|GoRoad | |6\nGoRoad Nov 7, 2023\n* 不是一家了，现在算半竞争对手\n|tianlin | |7\ntianlin Nov 7, 2023\n本来就是 2 家产品，虽然确实之前乃至现在一直都有点关系 貌似应用市场一直都是共用的，APP 只需要在华为开发者后台上传，就可以自动同步到荣耀上去 你的这个问题，如果没理解错，是你们 APP 在华为上依赖 HMS 服务的吧？可能需要进行判断，华为的就继续，非华为手机，就按照非华为手机的流程去处理（你们应用上架小米之类是咋搞的就咋搞）\n* 好像我只遇到过华为儿童手表，用小米手机去配对激活，只有手表钱包使用过程中提示需要下载 HMS 服务套件，其他的都通用的\n|AoEiuV020JP | |8\nAoEiuV020JP\nOP\nNov 7, 2023\n* @ sentinelK #3 我根本没有做什么提示安装，就仅仅是集成了华为推送，如果有提示那就只能是华为 sdk 自己提示的了，所以对我来说就是仅仅包含华为推送就被拒了，\n|AoEiuV020JP | |9\nAoEiuV020JP\nOP\nNov 7, 2023\n* @ tianlin #7 app 只是使用了华为的推送，以往在华为手机和荣耀手机都会初始化华为推送，也正常使用，\n* 现在看这情况，是连初始化华为推送都不让了，\n|AoEiuV020JP | |10\nAoEiuV020JP\nOP\nNov 7, 2023\n\n...\n\njklove123bai Nov 7, 2023\n* 华为低端机现在是畅享了\n|yukiww233 | |18\nyukiww233 Nov 7, 2023 ❤️ 2\nhttps://developer.huawei.com/consumer/cn/doc/HMSCore-Guides/integrate-as-sdk-0000001050435953#section6305755839\n* 集成时候完全不看文档的么，应该是关掉这个’引导安装‘就行了\n|jojo0830 | |19\njojo0830 Nov 8, 2023\n* @ yukiww233 哈哈哈，这才是正解。楼上一堆分析分家，打架的，也是够了~\n|AoEiuV020JP | |20\nAoEiuV020JP\nOP\nNov 8, 2023\n* @ yukiww233 #18 这是一点，按现在的情况这个引导安装确实是要关掉，\n* 但重点还是，以后荣耀没有 HMS 了，无法使用华为推送了，以前不是这样的，\n|txwdcom | |21\ntxwdcom Nov 8, 2023\n* @ AoEiuV020JP 华为和荣耀已经分家好久了，要接受这个事实。现在这 2 个是完全独立的 2 个公司。。\n|Bingchunmoli | |22\nBingchunmoli Nov 8, 2023 via Android\n* @ AoEiuV020JP 以前荣耀是华为子品牌，现在荣耀是独立公司，只是和华为有旧合同\n|tianlin | |23\ntianlin Nov 8, 2023\n@ AoEiuV020JP 用荣耀自己的推送通道服务啊 你这是做开发的，难道你们的产品、渠道的同学没有转发相关的邮件给你吗？ 荣耀早就针对开发者发送过通知邮件啥的 而且各大手机厂商针对推送通道上的使用做了 N 多限制数量的规定 | | --- | --- | --- |\n|AoEiuV020JP | |24\nAoEiuV020JP\nOP\nNov 16, 2023\n@ yukiww233 #18 刚试了下，没用，压根没有依赖 hmscoreinstaller 这个包， 旧版自动会引导安装 hms core ，不需要这个包， 新版默认没有自动引导也没有这个包，但照样弹出“您的设备未安装最新版的 HMS Core”，只是没有引导安装， 看来应该是要调整判断条件，改成有正常的 HMS Core 才初始化华为推送， | | --- | --- | --- |\n|gentrydeng | |25\ngentrydeng Nov 25, 2023\n* 你可以找到一个名为“荣耀推送服务”的应用程序： https://appgallery.huawei.com.cn/app/C105586545",
+            "position": 3
+          },
+          {
+            "url": "https://www.v2ex.com/t/892113",
+            "title": "非华为手机安装 hms core 能否像 fcm 一样唤醒应用接受推送 - V2EX",
+            "description": "Home Sign Up Sign In\nNokiaForever\nV2EX › Android\n\n非华为手机安装 hms core 能否像 fcm 一样唤醒应用接受推送\n\n- -\nNokiaForever · Nov 2, 2022 · 16057 views\nThis topic created in 1461 days ago, the information mentioned may be changed or developed.\n谷歌的 FCM 推送和华为推送、小米推送等不一样，是设备和谷歌 fcm 服务器 mtalk.google.com 维持一个长链接，服务端发消息给设备，设备广播拉起对应应用，然后由应用接收消息，故应用需要有自启动权限，后台不能使用“限制”模式，而是要使用“优化”，使应用进缓存。 非华为手机针对接入了华为 push 的应用，安装了 hms core 后能否做到这一点？就是应用给自启动权限，电池模式选择“优化”，然后由 hms core 拉起应用接收通知。 华为 push 、小米 push 都是一个单独的应用，由这个应用去推送通知，通知栏图标伪装成对应应用，和谷歌 FCM 的原理不一样，非华为设备不 root 或打补丁无法使用。\n- fcm - 应用 - 推送 - 华为\n9 replies • 2022-11-04 08:08:10 +08:00\n* LZSZ |  | 1 LZSZ Nov 2, 2022 可以的，只要注册上了禁止启动的应用也能接收到推送。 具体酷安搜索 LSPacth 不需要 ROOT 。\n* abc8678 |  | 2 abc8678 Nov 2, 2022 via Android ❤️ 1 我之前在小米手机装了 HMS 模块，然后换了当时的新版 QQ ，卡死了，8 月初的版本，划一下卡一下。侧边栏花里胡哨一堆选项。最后又回 play 版了，在平板装上 FCM 转发工具，发给手机。我看到消息再手动点开 QQ 刷新一下\n* PlG5sBkXD1ziLeGB |  | 3 PlG5sBkXD1ziLeGB Nov 2, 2022 via iPhone 小绿书上有工具，参考#1\n* qu771M5iZv41syn9 |  | 4 qu771M5iZv41syn9 Nov 2, 2022 本人三星 S22+，rooted 。国内应用走 HMS PUSH ，国外应用走 FCM ，所有 APP 都可以收到推送。就像你说的 FCM 需要 APP 电池优化，而不是限制。而 HMS Push 不需要后台，限制也可以收到推送。\n* 66beta |  | 5 66beta Nov 2, 2022 root 后可以试试 https://github.com/fei-ke/HMSPush\n* NokiaForever |  | 6 NokiaForever OP Nov 2, 2022 ❤️ 1 @ 66beta 不用 root lspath 打补丁也可以 https://www.coolapk.com/feed/38745542?shareKey=MWJkNzVmMWI5N2EzNjMwOGNkYmI~&shareUid=3492833&shareFrom=com.coolapk.market_12.4.1\n* hai046 |  | 7 hai046 Nov 2, 2022 能，但是不推荐。 如果是自己手机可以这么折腾，如果是客户就不要这么搞\n* NokiaForever |  | 8 NokiaForever OP Nov 3, 2022 via Android @ hai046 是自己手机 三星\n* xiaoke |  | 9 xiaoke Nov 4, 2022 via Android 还能这样操作啊，可惜手上的机子不好 root\nAbout · Help · Advertise · Blog · API · FAQ · Privacy · Solana · 4812 Online Highest 6679 · Select Language 创意工作者们的社区 World is powered by solitude VERSION: 3.9.8.5 · 44ms · UTC 09:34 · PVG 17:34 · LAX 01:34 · JFK 04:34 ♥ Do have faith in what you're doing.\n❯",
+            "position": 4
+          },
+          {
+            "url": "https://www.v2ex.com/t/661868",
+            "title": "华为手机怎么安装谷歌服务 - V2EX",
+            "description": "* wclebb |  | wclebb Apr 13, 2020 via iPhone 27 华为 跟 Google 有点矛盾（ G：我也不想啊……），所以华为手机肯定装不了 Google，你真想要 Google 可能性不大，别想了……\n* djoiwhud |  | djoiwhud Apr 13, 2020 ❤️ 6 28 是小米 10 太差了么？还是说特别喜欢银手镯？\n* exploreXin |  | exploreXin Apr 13, 2020 ❤️ 1 29 GMS 不能用了，改用 HMS 吧。\n* blogfeng |  | blogfeng Apr 13, 2020 via Android 30 我的 p30 就可以啊。网上的教程。回退一些版本就可以了。\n* mofan236 |  | mofan236 Apr 13, 2020 via Android 31 我的荣耀 20 都可以用啊，就是装谷歌商店费了点脑子\n* enng |  | enng Apr 13, 2020 via Android 32 @ dianso p30pro 本来就可以，不过 p30 系列大概是最后一款华为能正常使用 gms 的华为手机了\n* xiaoke0718 |  | xiaoke0718 Apr 13, 2020 33 用 HMS 吧\n* 1kS4MZSaJC1MA761 |  | 1kS4MZSaJC1MA761 Apr 13, 2020 via Android 34 华为新手机应该是通不过认证了，我把 9x 卖了买了红米😂\n* MintZX |  | MintZX Apr 13, 2020 35 你既然需要 GMS 为什么买华为呢？\n* mzdsbird |  | mzdsbird Apr 13, 2020 ❤️ 4 36 买了华为就要有不装谷歌服务的觉悟啊\n* imoasislee |  | imoasislee Apr 13, 2020 via Android 37 买华为的话很大程度上就是要享受 EMUI 生态，如果要用谷歌生态，大可不必买华为，更不要提现在还有诸多限制，就更没必要了\n\n...\n\n怎么装的了，好像是酷安下载的某个安装器可以用\n* daquandiao2 |  | daquandiao2 Apr 13, 2020 ❤️ 1 42 hms 不香吗，手动斜眼\n* HenrikC |  | HenrikC Apr 13, 2020 via Android 43 @ cuixiao603 酸酸乳，这个现在已经被精准识别了，准备换其他的时候，你用的什么啊。\n\n...\n\n* chiu |  | chiu Apr 13, 2020 via Android 46 HMS 不香吗[手动 doge]\n* chanssl |  | chanssl Apr 13, 2020 via Android 47 周六刚装完，用旧版本的谷歌账户管理，绕过那个保护机制登陆上去。但是会一直出现提示，这个解决就比较玄学了，各种清数据卸载重装会有几率解决。\n\n...\n\n* marcong95 |  | marcong95 Apr 13, 2020 ❤️ 1 86 这个跟手机型号似乎有点关系，P40 的话可能要等大神研究一下 我自己的 MatePad Pro 跟着花粉俱乐部的 Mate 30 教程装成功了 周末帮着朋友折腾了 P30 Pro 的 GMS，需要 adb 卸载掉原来的 play 商店，然后按着那个教程来就好了。 贴个链接以供参考： https://club.huawei.com/thread-22445238-1-1.html 楼上各种 HMS 、Harmony OS 的，难道就是传说中的华为 PTSD，买台用下，说不定能治好\n* yujiang |  | yujiang Apr 13, 2020 via Android 87 增智慧和谷歌你选一个吧\n* yolee |  | yolee Apr 13, 2020 88 都用华为了，还用谷歌服务，不矛盾吗？😂\n* Jirajine |  | Jirajine Apr 13, 2020 89 @ marcong95 #86 问一下华为手机自行安装 GMS 后能否通过 safetynet ？ （能否运行 pokeman go，net 。flix，国外的银行 app ），或者可以通过这个 https://play.google.com/store/apps/details?id=com.atominvention.\n\n...\n\n* laike9m |  | laike9m Apr 13, 2020 via Android 94 直接换鸿蒙操作系统。鸿蒙全面兼容 Android，Google Play 什么的当然不是问题啦🙂\n* liuzhaowei55 |  | liuzhaowei55 Apr 13, 2020 95 选华为就不要用 Google 了。\n* kaedea |  | kaedea Apr 13, 2020 via Android 96 用 hms 啊，据说比 gms 好，doge\n* ForeverYoung123 |  | ForeverYoung123 Apr 13, 2020 97 建议退货换一加\n* ShenZhen |  | ShenZhen Apr 13, 2020 98 华为不是针对国外应用推出了自家的 HMS ？国内一致好评\n* niucility |  | niucility Apr 13, 2020 99 https://www.douban.com/note/748225972/\n* j717273419 |  | j717273419 Apr 13, 2020 100 huawei,goo",
+            "position": 5
+          }
+        ]
+      }
+    }
+  },
+  {
+    "query": "site:stackoverflow.com \"Scope unauthorized\"",
+    "result": {
+      "success": true,
+      "data": {
+        "web": [
+          {
+            "url": "https://stackoverflow.com/questions/53479131/unauthorized-scope-error-in-linkedin-oauth2-authentication",
+            "title": "unauthorized_scope_error in LinkedIn oAuth2 authentication",
+            "description": "it typically means that the requested scope in your authentication request is not valid or not allowed for your application.",
+            "position": 1
+          },
+          {
+            "url": "https://stackoverflow.com/questions/76169927/the-request-was-denied-because-one-or-more-scopes-requested-are-unauthorized-or",
+            "title": "asp.net core - The request was denied because one or more scopes ...",
+            "description": "The request was denied because one or more scopes requested are unauthorized or expired. The user must first sign in and grant the client",
+            "position": 2
+          },
+          {
+            "url": "https://stackoverflow.com/questions/75274922/user-unauthorized-though-the-token-is-correct",
+            "title": "User unauthorized though the token is correct - Stack Overflow",
+            "description": "401 Unauthorized usually occurs if you make calls to the resource with invalid audience. When you generate the access token with scope as user.",
+            "position": 3
+          },
+          {
+            "url": "https://stackoverflow.com/questions/65627945/401-unauthorized-error-while-using-custom-scope-pat-in-preview-rest-api-calls",
+            "title": "401 Unauthorized error while using custom scope PAT in preview ...",
+            "description": "As a workaround, you can grant Token Administration or Tokens permission for your PAT. This might have security implications.",
+            "position": 4
+          },
+          {
+            "url": "https://stackoverflow.com/questions/58344301/the-remote-server-returned-an-error-401-unauthorized-powershell-microsof",
+            "title": "The remote server returned an error : (401) Unauthorized - PowerShell",
+            "description": "You may have picked application permissions in your AAD application. You will need to admin consent your application. If you have not done this",
+            "position": 5
+          }
+        ]
+      }
+    }
+  }
+]

@@ -1,0 +1,873 @@
+{
+  "created_at": "2026-11-14T00:39:36+08:00",
+  "manifest_self_excluded": true,
+  "file_count_excluding_manifest": 173,
+  "total_bytes_excluding_manifest": 3965108,
+  "files": [
+    {
+      "path": "HMS根因排查.md",
+      "bytes": 16897,
+      "sha256": "57bc61ca554ac60401a2e88812e654cc121ae31b6d3a7f4a7339596914ae3f9f"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2245,
+      "sha256": "61b3dd1ae4ed9abcbf99f77368971cd8a1ceb6b7469b57f954d93055f0312509"
+    },
+    {
+      "path": "community/community-evidence-zh.md",
+      "bytes": 15032,
+      "sha256": "23968aff46d7d27743681edf086870748c2927ca445af60c238de983f33432f0"
+    },
+    {
+      "path": "community/coverage.json",
+      "bytes": 1537,
+      "sha256": "0c341f89ac508e027b2b2e11317b0e11389fec02cce18fa1a46e61c9f22f1ae0"
+    },
+    {
+      "path": "community/extract-direct-reference-final.json",
+      "bytes": 26893,
+      "sha256": "3f189511bf6aa39b5b63a6fb99991eb2e048fb925668c118c0ec6a8685dd761e"
+    },
+    {
+      "path": "community/extract-gitee-consumer.json",
+      "bytes": 22868,
+      "sha256": "9705b43299dc317d37219e36cd047006a63143585c95f42c0512f590ba7c970c"
+    },
+    {
+      "path": "community/extract-health-threads.json",
+      "bytes": 9260,
+      "sha256": "9e184aab600022a0ff273378756b37dc04c6c211f969465d09c049ed380f8588"
+    },
+    {
+      "path": "community/extract-we-first-round.json",
+      "bytes": 41551,
+      "sha256": "7211b28f2260f6ee354a5cf0109603fe8550a7a5bb2fbecc874e62d86a6002e0"
+    },
+    {
+      "path": "community/gitee-I4PCE2-primary.md",
+      "bytes": 2113,
+      "sha256": "3fbd804c3406af06a4a1b566778a81dfae7ca44aced8c95a60e8b9bedc475867"
+    },
+    {
+      "path": "community/gitee-comments-api.raw",
+      "bytes": 5184,
+      "sha256": "ee781d048ad07a75a070a632255cce177561a49ead886d3401496f2087e0cd54"
+    },
+    {
+      "path": "community/gitee-comments-page2.raw",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "community/gitee-issue-api.raw",
+      "bytes": 10412,
+      "sha256": "bcf5a4ddd3c2ccda21032a2ac3d0cb1548405962b0297da18446890b9439dd66"
+    },
+    {
+      "path": "community/gitee-issue-html.raw",
+      "bytes": 78370,
+      "sha256": "3a1a79639246c229cf327dbbd4220cddde990e1b3aa8a6f8b77bd8ac291533ad"
+    },
+    {
+      "path": "community/http-direct-capture-log.json",
+      "bytes": 4965,
+      "sha256": "b08030465c7c58a117cae241361d4230504504ae8d5b7d1fd19bdc23debd1968"
+    },
+    {
+      "path": "community/http-direct-final-log.json",
+      "bytes": 1167,
+      "sha256": "be737a6fdbcf6a7f79aab1809ae79b20a56b6b4fe2acfbb6bc3ccbd5416d38d0"
+    },
+    {
+      "path": "community/reddit-direct-anonymous.raw",
+      "bytes": 190240,
+      "sha256": "dc131f91303300301ab1b23a7e3b0a084b9e325b318b2722d00fc637247b8b7a"
+    },
+    {
+      "path": "community/reddit-exa-accessible-extract.md",
+      "bytes": 6153,
+      "sha256": "4518353a032b4426d991e2b1f4a9f13f0582a3b274b02616db72b3b14c45ae8c"
+    },
+    {
+      "path": "community/search-direct-final.json",
+      "bytes": 37203,
+      "sha256": "8e63e42962cf94b780188d527ab9aec11c26917138a791c7b47acd2443ae4045"
+    },
+    {
+      "path": "community/search-native-round1.json",
+      "bytes": 63952,
+      "sha256": "c54d880041b20089f9a73cc0d9ab5e6b38d95d66d8f0be6282e0f1b64f60e0b9"
+    },
+    {
+      "path": "community/search-native-round2.json",
+      "bytes": 32026,
+      "sha256": "bf08fea2cf06065500ef4be797690bccd574679ef186db1caa9a0672906aa839"
+    },
+    {
+      "path": "community/search-native-round3.json",
+      "bytes": 33768,
+      "sha256": "1cbdf704530fe955e91c4dbbc54262a4d6df47e597e657e9f7b41c085237474e"
+    },
+    {
+      "path": "community/search-native-round4.json",
+      "bytes": 16601,
+      "sha256": "3fb5a143258f0fca535ce24485bd93dc40464737dd8b496f5561d8c5968e3d3e"
+    },
+    {
+      "path": "community/source-index.md",
+      "bytes": 1557,
+      "sha256": "c88f7235791e4e18664b1e4f465a055c0997ec09142a35c0cd8d7210ac48e15e"
+    },
+    {
+      "path": "community/stackoverflow-api.raw",
+      "bytes": 946,
+      "sha256": "1534e530a999540770b7f742f7745260e58662ce56efa13b7e906c89d46716da"
+    },
+    {
+      "path": "community/wearengine-bridge-issues.raw",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "community/wearengine-bridge-readme.raw",
+      "bytes": 9220,
+      "sha256": "01202f7aeacdfbc0cb50b1881232ab8171d465d7fdc77e7f518d4823fc900efb"
+    },
+    {
+      "path": "community/wearengine-bridge-releases.raw",
+      "bytes": 5387,
+      "sha256": "b33c9178daedacf6bfad4eb594a48996c21f41559111aa829e149e040b832258"
+    },
+    {
+      "path": "community/wearengine-bridge-repo.raw",
+      "bytes": 5528,
+      "sha256": "7272ad70d0a64e0cab89034d5d9f6daeef31dd4c3b84b77c7120d19c1d41129b"
+    },
+    {
+      "path": "official/S01-wear-getting-started-en.body.html",
+      "bytes": 7875,
+      "sha256": "5d947a621ab6b202ab13636c6f291f3816890c8325def98006d422bb0df88daf"
+    },
+    {
+      "path": "official/S01-wear-getting-started-en.links.json",
+      "bytes": 1425,
+      "sha256": "ddfaf828ec94ae1c34665c26c8aa1e5cc99b5d54a0070dfe5289788e1d698880"
+    },
+    {
+      "path": "official/S01-wear-getting-started-en.meta.json",
+      "bytes": 3093,
+      "sha256": "d3cfcb5138d438899115a8f9f530119e792ea81d9800bea6ebf9fae50738b733"
+    },
+    {
+      "path": "official/S01-wear-getting-started-en.response.json",
+      "bytes": 9279,
+      "sha256": "c75538c421c0f15f9afa99f3b5401bfe1f96a773903bb37148fcc0a49f5e0b63"
+    },
+    {
+      "path": "official/S01-wear-getting-started-en.text.txt",
+      "bytes": 3409,
+      "sha256": "26aaaaca011f96239ae4256d4487cef3218dbf6b2898d5adec39a9df5de54689"
+    },
+    {
+      "path": "official/S02-wear-getting-started-cn.body.html",
+      "bytes": 7658,
+      "sha256": "151112d6b467be606dad4240301f56eb21fada8e2fbb43ff467f91708269604a"
+    },
+    {
+      "path": "official/S02-wear-getting-started-cn.links.json",
+      "bytes": 1454,
+      "sha256": "cfb6e2266c862ed9a5faec74b855759521568c2dad496752eece36daac73dcdd"
+    },
+    {
+      "path": "official/S02-wear-getting-started-cn.meta.json",
+      "bytes": 3088,
+      "sha256": "16fa6a7488dc7cf8f2bd1e25d93b82e8267d927259ba9ba2ad30d91c808bd8ab"
+    },
+    {
+      "path": "official/S02-wear-getting-started-cn.response.json",
+      "bytes": 9168,
+      "sha256": "83c2687abddbd7e9549805b713c40578497cabdc944c4c066d96e3e8cfa18baa"
+    },
+    {
+      "path": "official/S02-wear-getting-started-cn.text.txt",
+      "bytes": 2931,
+      "sha256": "521340989a62bcd7f4268f2bc41fde725db29ad2c516917a4dd0451c9e426e37"
+    },
+    {
+      "path": "official/S03-wear-service-introduction-en.body.html",
+      "bytes": 10857,
+      "sha256": "97b8ec604e141ccce7ecc416051f30e5a7d1e2a0520343742ad9b7042489c5cc"
+    },
+    {
+      "path": "official/S03-wear-service-introduction-en.links.json",
+      "bytes": 235,
+      "sha256": "8540f51e17e9983e3b698d7358371319d16f4fd647d137089c491218c4f3e88c"
+    },
+    {
+      "path": "official/S03-wear-service-introduction-en.meta.json",
+      "bytes": 3149,
+      "sha256": "d612ec099c6e12649db1891040d7e950429ea5a5b15778d5ff1843d5c84b68b5"
+    },
+    {
+      "path": "official/S03-wear-service-introduction-en.response.json",
+      "bytes": 12633,
+      "sha256": "526c4130762379e15fb979b8e0cf7bb7176053409ed02fa2fa4f08c412927b13"
+    },
+    {
+      "path": "official/S03-wear-service-introduction-en.text.txt",
+      "bytes": 5116,
+      "sha256": "f8b93acfaddfced2f9ec2013b7cc3fd2a39dc81cff5d808d0481f12c1d0b433b"
+    },
+    {
+      "path": "official/S04-wear-sdk-privacy-en.body.html",
+      "bytes": 20726,
+      "sha256": "99a77f7ee30cfb73ae1f384ccfede525f13f36dcb0b59c37fb20a9af974f5dac"
+    },
+    {
+      "path": "official/S04-wear-sdk-privacy-en.links.json",
+      "bytes": 1103,
+      "sha256": "2b6b250d340aec2e56304d5896044ac3235c5ef2ffcc8133c542aea31654f826"
+    },
+    {
+      "path": "official/S04-wear-sdk-privacy-en.meta.json",
+      "bytes": 3126,
+      "sha256": "2544c3fdcd7e304331018507af951b9d8777f778db90695db44cc46ad4c82d05"
+    },
+    {
+      "path": "official/S04-wear-sdk-privacy-en.response.json",
+      "bytes": 22987,
+      "sha256": "422fff53aaed4afefe481b8dbf4f8da0910b57988915c36a9a3db24e5dd79224"
+    },
+    {
+      "path": "official/S04-wear-sdk-privacy-en.text.txt",
+      "bytes": 8929,
+      "sha256": "4a18fc33d840a932274da0d2dee3888ff045062800a20856e19f99ed05fbf11d"
+    },
+    {
+      "path": "official/S05-non-huawei-install-cn.links.json",
+      "bytes": 2677,
+      "sha256": "d356701d2f4b4fc25da34604bb3ece6f301a31e867571a98b4684afb05d26067"
+    },
+    {
+      "path": "official/S05-non-huawei-install-cn.meta.json",
+      "bytes": 3325,
+      "sha256": "490ca0fa9ac215295c6ed145d75531834c2a236ca502c429d0d3b42a20ffc06d"
+    },
+    {
+      "path": "official/S05-non-huawei-install-cn.page.html",
+      "bytes": 144703,
+      "sha256": "e180b0b8b43d166e29988b02880e5c482a35c19f9cf9922fb641adb1a47562f2"
+    },
+    {
+      "path": "official/S05-non-huawei-install-cn.text.txt",
+      "bytes": 8346,
+      "sha256": "2551ebb0f10e2fed1f7a0e51b13bd4a9eef326fc2f77d433a47214750c9df935"
+    },
+    {
+      "path": "official/S06-hms-install-needed-en.links.json",
+      "bytes": 2107,
+      "sha256": "c39e20be77b4b06d35108863b0cdafee267b927c279a52bcaf4887758c9c7e26"
+    },
+    {
+      "path": "official/S06-hms-install-needed-en.meta.json",
+      "bytes": 3370,
+      "sha256": "d7cb2cb13b1de817c8421030d24e9a01d43da0a74747a2ab4630308c18d6bf8b"
+    },
+    {
+      "path": "official/S06-hms-install-needed-en.page.html",
+      "bytes": 132414,
+      "sha256": "019ec4d4fa53e7c0b4f9ed47102ea2cfa61bf749924624f3b10a075314651795"
+    },
+    {
+      "path": "official/S06-hms-install-needed-en.text.txt",
+      "bytes": 7584,
+      "sha256": "e6cf46524274a2fc4c82ae1c8e430f5157ae72895b0121eaf1bb6ce761a6c1a2"
+    },
+    {
+      "path": "official/S07-hms-supported-devices-cn.links.json",
+      "bytes": 2714,
+      "sha256": "d03c3dcbf6132c9054d9b5c4a0a0bece25c060774e309d5067cc908eae62186d"
+    },
+    {
+      "path": "official/S07-hms-supported-devices-cn.meta.json",
+      "bytes": 3420,
+      "sha256": "698fd5ac832c1dd6fd99edebd07976005e8962c86aa24c8c7b71c64914eddb8b"
+    },
+    {
+      "path": "official/S07-hms-supported-devices-cn.page.html",
+      "bytes": 146487,
+      "sha256": "68d716e40ea53b4c26fe7e8eba3887674d6157bf88cdeb62a93668eae0128d38"
+    },
+    {
+      "path": "official/S07-hms-supported-devices-cn.text.txt",
+      "bytes": 8929,
+      "sha256": "e440dfaa2ea083ffdf6cbce72e16a6530215502fc6c614553ded9e2d6882203d"
+    },
+    {
+      "path": "official/S08-health-system-requirements-en.links.json",
+      "bytes": 2130,
+      "sha256": "b2f8be5348cfc26aa2913c81d3e642132cf84c8eae4b6a4cc1e0c6896c7ae392"
+    },
+    {
+      "path": "official/S08-health-system-requirements-en.meta.json",
+      "bytes": 3267,
+      "sha256": "0672b6e309957ff5b11605603301eb713e8bfb29a99d83fd03c2c680167d8a05"
+    },
+    {
+      "path": "official/S08-health-system-requirements-en.page.html",
+      "bytes": 136629,
+      "sha256": "59f2584cc4105d9eef74186db722b4799ab779d9ba0552663f50eb419048ae3d"
+    },
+    {
+      "path": "official/S08-health-system-requirements-en.text.txt",
+      "bytes": 6581,
+      "sha256": "4cbd358f4b00939f758d1576f191ff302eb2fea080fc7ae8a2ecd6804e728c4e"
+    },
+    {
+      "path": "official/S09-hms-introduction-en.links.json",
+      "bytes": 2149,
+      "sha256": "1a4ea7b21e4739027e2b49f392fd4c63a1b5c891127e4230ee69983007fe83fc"
+    },
+    {
+      "path": "official/S09-hms-introduction-en.meta.json",
+      "bytes": 3164,
+      "sha256": "8551d662f63aee7fb5bef732cdbada2efaacfa1062ba27162d49eb7a1e431572"
+    },
+    {
+      "path": "official/S09-hms-introduction-en.page.html",
+      "bytes": 133265,
+      "sha256": "8c27ded5fc9858d35cedc1ba0b4b59beb0d60e0f41894b2f6bd43d97671cba94"
+    },
+    {
+      "path": "official/S09-hms-introduction-en.text.txt",
+      "bytes": 6348,
+      "sha256": "9f3cda6d0b737966bc1ed32c9d0971d9ff65ac1e94a2b4c27677ef420bd9c6b5"
+    },
+    {
+      "path": "official/S10-hms-update-en.links.json",
+      "bytes": 2149,
+      "sha256": "619e15313ee84e561dc1dd8728fcb719480a40f51240c9e5d2d2cbbe2adad7b9"
+    },
+    {
+      "path": "official/S10-hms-update-en.meta.json",
+      "bytes": 3129,
+      "sha256": "f67f7c25dbc8df6afad7f5a768d3a51a9158828a8dd5083c9ea2750a59087527"
+    },
+    {
+      "path": "official/S10-hms-update-en.page.html",
+      "bytes": 165760,
+      "sha256": "c42506cf077a87237945a0b6fa9a3f37908fee8bbea9c4870f08200daea3dced"
+    },
+    {
+      "path": "official/S10-hms-update-en.text.txt",
+      "bytes": 7933,
+      "sha256": "881b361739280709e17e8f185b525b3df696208d69bbec35cf53455f40ca34c0"
+    },
+    {
+      "path": "official/S11-official-appgallery-link-cn.links.json",
+      "bytes": 2826,
+      "sha256": "09c6d76da30552268037e7873be71df587dde38feb360fa223351df9b009c100"
+    },
+    {
+      "path": "official/S11-official-appgallery-link-cn.meta.json",
+      "bytes": 3368,
+      "sha256": "58f3f5592caca30cafe259d6b6f8e0525fa3623f578aca407f13d84b72bd0a25"
+    },
+    {
+      "path": "official/S11-official-appgallery-link-cn.page.html",
+      "bytes": 149929,
+      "sha256": "d4fd81f66e949b99b83527378ed2f77b1612bad74f061bb6d243b236753a8b19"
+    },
+    {
+      "path": "official/S11-official-appgallery-link-cn.text.txt",
+      "bytes": 9605,
+      "sha256": "7d80b43813e039f369209f46bc261f2d298dce9934542314b53979498e291efc"
+    },
+    {
+      "path": "official/S12-xiaomi-health-battery-cn.links.json",
+      "bytes": 2592,
+      "sha256": "87dfe9cc6b287d152bf3059042cffa5c8cb13d8f8f20ba644736f98a6802b4b1"
+    },
+    {
+      "path": "official/S12-xiaomi-health-battery-cn.meta.json",
+      "bytes": 3402,
+      "sha256": "3e1f398109653baf16fe03a9deea61ba03363296ab2b846e843dc3ee5d700c61"
+    },
+    {
+      "path": "official/S12-xiaomi-health-battery-cn.page.html",
+      "bytes": 147267,
+      "sha256": "e3e39013323e7b659450c7573ede1b2413bb10a51f2a52165e3bbd0d1d93076b"
+    },
+    {
+      "path": "official/S12-xiaomi-health-battery-cn.text.txt",
+      "bytes": 8932,
+      "sha256": "9328daeff4253cdf047bc3cb3fe78e5f153eba204bb7f434ec5c679b8c172ca1"
+    },
+    {
+      "path": "official/S13-xiaomi-health-lock-cn.links.json",
+      "bytes": 2592,
+      "sha256": "87dfe9cc6b287d152bf3059042cffa5c8cb13d8f8f20ba644736f98a6802b4b1"
+    },
+    {
+      "path": "official/S13-xiaomi-health-lock-cn.meta.json",
+      "bytes": 3304,
+      "sha256": "8f67855e28836b67258c7abc2e209a064020eaed80c016bb09afb6c2dcd328a5"
+    },
+    {
+      "path": "official/S13-xiaomi-health-lock-cn.page.html",
+      "bytes": 140694,
+      "sha256": "bafac9a05ce6eabd2130255ddb158c345a9cb8411a1d3f159e1843d3b22543ad"
+    },
+    {
+      "path": "official/S13-xiaomi-health-lock-cn.text.txt",
+      "bytes": 7824,
+      "sha256": "037e3a69f3751e55a62221a55e8f5ef71e51abaf04fd4736a3641f890d2fc03f"
+    },
+    {
+      "path": "official/S14-hms-manage-permissions-en.links.json",
+      "bytes": 2071,
+      "sha256": "58aed6766ddd57f714f1e8f4d354ee9a0e90fc07f6dabc65073c75188d17a320"
+    },
+    {
+      "path": "official/S14-hms-manage-permissions-en.meta.json",
+      "bytes": 3197,
+      "sha256": "aa04cafe82a3de29cf5f674f9855d582d744077e1462529229fb390dea0ae29c"
+    },
+    {
+      "path": "official/S14-hms-manage-permissions-en.page.html",
+      "bytes": 133144,
+      "sha256": "661ce2155bd77255147201ce9e01ef34f5d077298eb30c2a7a5386f18bef2c27"
+    },
+    {
+      "path": "official/S14-hms-manage-permissions-en.text.txt",
+      "bytes": 6180,
+      "sha256": "48546764dd18bc77c8eb97d42c505b2cd79fee1f136e3e07f7987e22d8bd8507"
+    },
+    {
+      "path": "official/S15-appgallery-official-home.meta.json",
+      "bytes": 1846,
+      "sha256": "87b98380979dd2b30578a0ca6ddb38432249c51b5c392b3a8b32455d772e550b"
+    },
+    {
+      "path": "official/S15-appgallery-official-home.page.html",
+      "bytes": 3070,
+      "sha256": "59f71f28d70fb9bee1cded744ea00c185158d8400b011c9d94a9f117cedbb2b9"
+    },
+    {
+      "path": "official/S16-wear-phone-version-history-en.body.html",
+      "bytes": 18840,
+      "sha256": "588f822405d41be2f3dbbb94f1aabc2fb5e9525dcc52201d0b6d0ac3cb9e86c3"
+    },
+    {
+      "path": "official/S16-wear-phone-version-history-en.links.json",
+      "bytes": 3760,
+      "sha256": "c96bd16cc7ab5bd1ce5f7aaea9e379c025627833f29f3b63c46a6f35e923d47d"
+    },
+    {
+      "path": "official/S16-wear-phone-version-history-en.meta.json",
+      "bytes": 3162,
+      "sha256": "a6d1fce989838542319135ffd480555772824e361b1f5fd6a0d5c97c4f85c03d"
+    },
+    {
+      "path": "official/S16-wear-phone-version-history-en.response.json",
+      "bytes": 22140,
+      "sha256": "87e92409ed1cc3e32d17e0307229be3ef46ecdeeb1dbfad133e7ad7102ba9095"
+    },
+    {
+      "path": "official/S16-wear-phone-version-history-en.text.txt",
+      "bytes": 5035,
+      "sha256": "f886d08af9c0582fcf9340de74835b60c21b546445ad39e1c2be634bf2dbb46c"
+    },
+    {
+      "path": "official/S17-hiwear-overview-cn.body.html",
+      "bytes": 2856,
+      "sha256": "af1cd4b392ba66681d74e959453cc1787172813ee9a7a4a1f3d1369cb804874b"
+    },
+    {
+      "path": "official/S17-hiwear-overview-cn.links.json",
+      "bytes": 212,
+      "sha256": "18dfadeced9a47161c1cedc59fc3fe8cd2461baf86e73358547a4ac2731285bf"
+    },
+    {
+      "path": "official/S17-hiwear-overview-cn.meta.json",
+      "bytes": 3039,
+      "sha256": "5447fbca1b429ec3fc4d32679bd3447a59520b91b7c46ff3961938e441301461"
+    },
+    {
+      "path": "official/S17-hiwear-overview-cn.response.json",
+      "bytes": 4039,
+      "sha256": "6d4e4b35f6e56956e77cf19e621e6c6dab592154b3be9e991f58c582a7105572"
+    },
+    {
+      "path": "official/S17-hiwear-overview-cn.text.txt",
+      "bytes": 449,
+      "sha256": "951cba65d47207f4e5aba7821196a3e2598291454d34c63b29ad2a61ab054ce1"
+    },
+    {
+      "path": "official/S18-wear-service-background-en.body.html",
+      "bytes": 5684,
+      "sha256": "ee107c2520d8ef4b358e60bf32199e3ba689ea32b1e02fe0116ec9270c28c2c3"
+    },
+    {
+      "path": "official/S18-wear-service-background-en.links.json",
+      "bytes": 970,
+      "sha256": "4b6d86eb7b9cccb878b37af7065ae4080ba003932e740b2480dd4ba760a9a1fc"
+    },
+    {
+      "path": "official/S18-wear-service-background-en.meta.json",
+      "bytes": 3223,
+      "sha256": "82dc3fcbec6550a1a78172cfe405f82ec1343664adcad57d7fc7fc68b9daa931"
+    },
+    {
+      "path": "official/S18-wear-service-background-en.response.json",
+      "bytes": 6994,
+      "sha256": "f51b35e1a5ac0f21bd015e2ef24a5ecfa83f4eef526bd6627434f848e443fda7"
+    },
+    {
+      "path": "official/S18-wear-service-background-en.text.txt",
+      "bytes": 3562,
+      "sha256": "56b575d36e986a61816ad8dee06646c6279b4fca2565eaf89929671e3093c0ef"
+    },
+    {
+      "path": "official/S19-appgallery-official-installation-en.links.json",
+      "bytes": 2177,
+      "sha256": "d432fd72281f200e7273324b0084073a2aa26931aeeeb47af8afeb4075d66360"
+    },
+    {
+      "path": "official/S19-appgallery-official-installation-en.meta.json",
+      "bytes": 3272,
+      "sha256": "6ca730eca443b8e0974de3938a93a0a88d7b85f2c7993b3b31b21155302e2f88"
+    },
+    {
+      "path": "official/S19-appgallery-official-installation-en.page.html",
+      "bytes": 180320,
+      "sha256": "513d89bfda5a249edb3e15ecf3dc2c646aef24a9acf0632bcf5d2c9ad774fff9"
+    },
+    {
+      "path": "official/S19-appgallery-official-installation-en.text.txt",
+      "bytes": 10054,
+      "sha256": "5de6874e25e540435320317b32f1988bf86a62fcdf28f7411b44bbc4b7a18b17"
+    },
+    {
+      "path": "official/S20-hms-core-privacy-en.body.html",
+      "bytes": 51415,
+      "sha256": "59d8161e6529c05c6cfd8036e3a3ecfa4da22d789dff0a52cb594dbeb160a435"
+    },
+    {
+      "path": "official/S20-hms-core-privacy-en.links.json",
+      "bytes": 7251,
+      "sha256": "7b7c1a0552db00d835e63f1813978f1b47e3bd371e53a960ee7f9ae7b00db2e3"
+    },
+    {
+      "path": "official/S20-hms-core-privacy-en.meta.json",
+      "bytes": 3085,
+      "sha256": "fd754fcb9286a435b6f5be238fd202f1a0640ba27a993ac4b2b9982183b1af63"
+    },
+    {
+      "path": "official/S20-hms-core-privacy-en.response.json",
+      "bytes": 54637,
+      "sha256": "eeca36240ed8b963ba507a5178ee51be7b0a17292e36d56487ee816d2dd047ae"
+    },
+    {
+      "path": "official/S20-hms-core-privacy-en.text.txt",
+      "bytes": 15890,
+      "sha256": "1cf3dc11b238fcc40b8108e67388674a0b095786cc20fb1116ca86660986c57c"
+    },
+    {
+      "path": "official/S21-wear-error-codes-cn.body.html",
+      "bytes": 109496,
+      "sha256": "b46b8570e1375472767eedd2195d97f752875dfa3d28ff3fbe6977d02fb16b35"
+    },
+    {
+      "path": "official/S21-wear-error-codes-cn.links.json",
+      "bytes": 21905,
+      "sha256": "957db137279ec2602b7d4bb251005103216cb1a8f64e9fc960edf8b136b1846a"
+    },
+    {
+      "path": "official/S21-wear-error-codes-cn.meta.json",
+      "bytes": 3096,
+      "sha256": "0441798178e7f2dd62cc1a160af0b513035381ff539a098c34442b857f84ca1a"
+    },
+    {
+      "path": "official/S21-wear-error-codes-cn.response.json",
+      "bytes": 125961,
+      "sha256": "b0e99be4fc29c54b706d9f34512f3c5dfc4b30948371c10277dd7422073f8bde"
+    },
+    {
+      "path": "official/S21-wear-error-codes-cn.text.txt",
+      "bytes": 21154,
+      "sha256": "dc2d66de00ebf6fc1a84ac1d542c434efe347fffd4de2e742dc808d3927435c6"
+    },
+    {
+      "path": "official/S22-wear-user-authorization-cn.body.html",
+      "bytes": 9610,
+      "sha256": "abc19a2625dfeaee8c1fb486651b2e5f91e0d4c1161fd1cc368ebcefdd7fc809"
+    },
+    {
+      "path": "official/S22-wear-user-authorization-cn.links.json",
+      "bytes": 1792,
+      "sha256": "33239da9db25e5f439fd8c52ef7eff7ce8c97463ba104a1aff762d9d51a315a9"
+    },
+    {
+      "path": "official/S22-wear-user-authorization-cn.meta.json",
+      "bytes": 3153,
+      "sha256": "472b51842df42dcb0be3c8dcfadb92c0b341f1adcc79a81da5272ea962721d77"
+    },
+    {
+      "path": "official/S22-wear-user-authorization-cn.response.json",
+      "bytes": 11105,
+      "sha256": "4587c7681071cfd1317f3c16869d7453041bd5271fb644fdb79335a5d992915b"
+    },
+    {
+      "path": "official/S22-wear-user-authorization-cn.text.txt",
+      "bytes": 4387,
+      "sha256": "5d1b1a296b65c3bb6768e6733a37a3b2c76d5dd578312839cf7535b0369e5827"
+    },
+    {
+      "path": "official/S23-wear-authclient-cn.body.html",
+      "bytes": 11474,
+      "sha256": "f8620fb61387cfaf1cdf92cf6d0697fa78caa672e0bdc66d6e832b273c83c968"
+    },
+    {
+      "path": "official/S23-wear-authclient-cn.links.json",
+      "bytes": 818,
+      "sha256": "6fe9251a6c0d5ef0f83a92f0d357c0a4c094072c0d07794e319e9861a1a36c85"
+    },
+    {
+      "path": "official/S23-wear-authclient-cn.meta.json",
+      "bytes": 3051,
+      "sha256": "d3783577a77e7388f176cad7457625084ccd31dd0ac402d086c30ed1bd1b48d3"
+    },
+    {
+      "path": "official/S23-wear-authclient-cn.response.json",
+      "bytes": 13535,
+      "sha256": "f8010830bdcc2eebbadedd6d61a0fafc01807a02695b2acb8d0de323aed5036d"
+    },
+    {
+      "path": "official/S23-wear-authclient-cn.text.txt",
+      "bytes": 2133,
+      "sha256": "9127d03425f197f2430ed21f5dac434b618c0c648d0a711b3ddf4d9f1f0d9ce6"
+    },
+    {
+      "path": "official/S24-wear-error-codes-en.body.html",
+      "bytes": 68423,
+      "sha256": "52ac6eeb5c2aa5cd74ae19fd2d9b6f92b467801acf63a8b723ae2b13b6bb5c38"
+    },
+    {
+      "path": "official/S24-wear-error-codes-en.links.json",
+      "bytes": 18630,
+      "sha256": "a31ae23de14733997077b4f86f4068649cbdc1cdec33459380f430d3e311d18e"
+    },
+    {
+      "path": "official/S24-wear-error-codes-en.meta.json",
+      "bytes": 3092,
+      "sha256": "5fad012cc02c589bd8ba4b3507921f3cb83fd08348b74593df0a7cbbf6bec1d6"
+    },
+    {
+      "path": "official/S24-wear-error-codes-en.response.json",
+      "bytes": 81504,
+      "sha256": "f4adddaecb66110bb1a953a8f64e26b188943827e59c8b9896fb5a9950e5f19f"
+    },
+    {
+      "path": "official/S24-wear-error-codes-en.text.txt",
+      "bytes": 22083,
+      "sha256": "8d691dc0f1de4fc66dd65614fd4881e324c84348cf7e85ea95b8c93df46b97bb"
+    },
+    {
+      "path": "official/S25-wear-result-codes-cn.body.html",
+      "bytes": 48999,
+      "sha256": "363b35bb61082069eccf85911ac97eee084d5939f3bb97fa34d67781caa8e937"
+    },
+    {
+      "path": "official/S25-wear-result-codes-cn.links.json",
+      "bytes": 7124,
+      "sha256": "df94dd6fe577ef7f41af5d94a1470e47a80f6a62b05ac9a44630f513070bed23"
+    },
+    {
+      "path": "official/S25-wear-result-codes-cn.meta.json",
+      "bytes": 3065,
+      "sha256": "e1b8e072e697f0045b6b22f4a009ed40bc5009e2269e9545b283b3f9806f30f4"
+    },
+    {
+      "path": "official/S25-wear-result-codes-cn.response.json",
+      "bytes": 52290,
+      "sha256": "b93e8892bc7960546c1b97ae54a5ff30b5da44aec31d211aca41c38d14e3719f"
+    },
+    {
+      "path": "official/S25-wear-result-codes-cn.text.txt",
+      "bytes": 12897,
+      "sha256": "3885ca7752666b10771427ed454792a57e1770238ce80becac4cd7a963ecad3b"
+    },
+    {
+      "path": "official/S26-wear-constant-values-cn.body.html",
+      "bytes": 74606,
+      "sha256": "91947ee724125400b57a88ee27a8e4ec3fca1088a144272e95441b66ab7fb278"
+    },
+    {
+      "path": "official/S26-wear-constant-values-cn.links.json",
+      "bytes": 14868,
+      "sha256": "915372b28025765a119bd8aec04f1f7993e1a488de3fc33236b977125aa37578"
+    },
+    {
+      "path": "official/S26-wear-constant-values-cn.meta.json",
+      "bytes": 3096,
+      "sha256": "77e141d19a85585f1a8b27beb952ce47453153db9b4c17454bf8a24096c9712b"
+    },
+    {
+      "path": "official/S26-wear-constant-values-cn.response.json",
+      "bytes": 78637,
+      "sha256": "5ddb195e2d7bcb28fe914a4c68a70172b3e4015c09e73f4c887fa5ae1ad3263e"
+    },
+    {
+      "path": "official/S26-wear-constant-values-cn.text.txt",
+      "bytes": 7002,
+      "sha256": "d402234a2e9769d34608e716ab28b73a0df4b40f473f63652e9764629bf070b9"
+    },
+    {
+      "path": "official/S27-healthkit-getting-started-en-not-wearengine.body.html",
+      "bytes": 5536,
+      "sha256": "3c1d7cd1532cb3527bad29ccc4b4462199d4579dc22b43137942c809d5734204"
+    },
+    {
+      "path": "official/S27-healthkit-getting-started-en-not-wearengine.links.json",
+      "bytes": 876,
+      "sha256": "8ffc5b27767ea9fa98370baa688297eb7390ef1bfdb3bcdc6eadd885e22f4735"
+    },
+    {
+      "path": "official/S27-healthkit-getting-started-en-not-wearengine.meta.json",
+      "bytes": 3182,
+      "sha256": "351896329afbca0c45cf6ce3e1229a9662cb10ff170f5c0c9d3bd5b94b511f39"
+    },
+    {
+      "path": "official/S27-healthkit-getting-started-en-not-wearengine.response.json",
+      "bytes": 6879,
+      "sha256": "615169a40874e2afa2be2f6642e7b9d8ba0a197058a728d5e156be7eaca95150"
+    },
+    {
+      "path": "official/S27-healthkit-getting-started-en-not-wearengine.text.txt",
+      "bytes": 2195,
+      "sha256": "42d639933659b2e52f21cde4b1db7f372e51a87a6bb6c93ae0fdb6116d5d2efb"
+    },
+    {
+      "path": "official/S28-wear-faq-en.body.html",
+      "bytes": 10265,
+      "sha256": "7d02db3e7b79bf4ef6d54654e10d45506fd42ff90bec6c24306724be7ae99c34"
+    },
+    {
+      "path": "official/S28-wear-faq-en.links.json",
+      "bytes": 1148,
+      "sha256": "9078c1a989745cd4b227dc5c6cb5d48882580007b954a5e21284f52e6d6eb6b7"
+    },
+    {
+      "path": "official/S28-wear-faq-en.meta.json",
+      "bytes": 2981,
+      "sha256": "db7505b2622d6b9e413222b90a9bac283f003848d766a958e52f7fa2e5a0ec3f"
+    },
+    {
+      "path": "official/S28-wear-faq-en.response.json",
+      "bytes": 13629,
+      "sha256": "2534e13206594f951306bc9a828d0c023f3dcaafefca2dd6952d121901720ad6"
+    },
+    {
+      "path": "official/S28-wear-faq-en.text.txt",
+      "bytes": 6065,
+      "sha256": "a9ee03b55c205a812fdb2892f1ae83212118b4faccff97ffaea1f50036518f96"
+    },
+    {
+      "path": "official/assemble_evidence.py",
+      "bytes": 9674,
+      "sha256": "f7933c05dc533497716bdd0a6c1ff56e851c898474484eaa7f389120636ebce5"
+    },
+    {
+      "path": "official/capture-constant-retry-manifest.json",
+      "bytes": 3208,
+      "sha256": "f8161b516a9c38fd6f61e7977fe214f42f04b5bd26692995d23dd4163b0c6c86"
+    },
+    {
+      "path": "official/capture-errorcode-manifest.json",
+      "bytes": 12831,
+      "sha256": "c3ac3def07922da7e941310b57c9a445b19656aa76c4904c7d18d6cefca4c68a"
+    },
+    {
+      "path": "official/capture-faq-manifest.json",
+      "bytes": 3093,
+      "sha256": "6027705e320ad20b01c77fdeef906319a6b445431e698923bf786c98a77754f0"
+    },
+    {
+      "path": "official/capture-followup-manifest.json",
+      "bytes": 16318,
+      "sha256": "07b9b443e10ba1bb15375232446ca1018784257bb83820c55e15785d528474dc"
+    },
+    {
+      "path": "official/capture-initial-manifest.json",
+      "bytes": 47848,
+      "sha256": "2dabf94e134d9ae1999501bc9efcec70bd7cade01cbdb152b475a494d4669d56"
+    },
+    {
+      "path": "official/capture-manifest.json",
+      "bytes": 90652,
+      "sha256": "1fffefa98a1da9951acd076e35262fd9d303c9d5580bb3b5c6ce688b0a6ca93f"
+    },
+    {
+      "path": "official/capture-privacy-manifest.json",
+      "bytes": 3197,
+      "sha256": "9337c138453ee391449338f74cd43189f11df83d083b434e66ea4fe2d36af701"
+    },
+    {
+      "path": "official/capture-resultcode-manifest.json",
+      "bytes": 8774,
+      "sha256": "2f8ac81a5da5b3f2b89d44ff7ad03f2541c11de1bfec05a1c46156a64e5227db"
+    },
+    {
+      "path": "official/capture_official.py",
+      "bytes": 11327,
+      "sha256": "2d16e87d4546c57e4f6267807869148e9706e70cadd4d07938e9097b5c1bcca0"
+    },
+    {
+      "path": "official/verification.json",
+      "bytes": 13161,
+      "sha256": "90b9056e2e0d06da8980f6692c5e3218d37b7a11d032e248e32563c221361bda"
+    },
+    {
+      "path": "official/官方口径核查.md",
+      "bytes": 21803,
+      "sha256": "33184460270b1c08d1f586616694f8ec1312044bfe3390dcd625cebc485894c7"
+    },
+    {
+      "path": "official/来源索引.md",
+      "bytes": 30736,
+      "sha256": "ddfcc862802efb945c7d0838f6faac8168736ff882e0dd1e45b47926b0f55528"
+    },
+    {
+      "path": "runtime/现场只读核查.json",
+      "bytes": 3879,
+      "sha256": "da50a4daf5829ca3c8640759fae6c6237ef3c50a29f246e61d76f84115a6ead4"
+    },
+    {
+      "path": "sdk/方法摘录.json",
+      "bytes": 21336,
+      "sha256": "8e17479c4b90ad760690df393fe7c49f066a5b60b024a170da2d124d14818118"
+    },
+    {
+      "path": "sdk/调用链与错误码.md",
+      "bytes": 7921,
+      "sha256": "e8d3adce1338261ebc12b9e12c4c2b8c10338e0553bd837eb168bbbb0efde1cd"
+    },
+    {
+      "path": "verification.json",
+      "bytes": 1003,
+      "sha256": "1fd7a01cc0cbf8ad93cd97cdec37f2efa181efe7f4711ffe668ce444a620527b"
+    },
+    {
+      "path": "verify_evidence.py",
+      "bytes": 2970,
+      "sha256": "1debc17197aabb4e8c503b9e66d84de3d495c946b97dc9755c6354db0ebec077"
+    },
+    {
+      "path": "发布前审计.md",
+      "bytes": 1826,
+      "sha256": "dac0a0a953cb08308e68e949d276f649373326a7e278f29d2d9c2f4f72ae85a4"
+    }
+  ]
+}

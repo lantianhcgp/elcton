@@ -1,0 +1,117 @@
+Version Change History
+
+5.0.3.304 (2025-07-04)
+
+Modified Features:
+         
+Added support for Android 14.
+
+The Huawei Health app must be version 14.0.12.310 or later.
+
+Earlier Versions
+
+[h2]5.0.3.303 (2024-03-18)
+
+Modified Features:
+         
+Optimized the internal verification logic to improve stability and performance.
+
+The Huawei Health app must be version 14.0.12.310 or later.
+
+[h2]5.0.3.302 (2023-09-05)
+
+Modified Features:
+         
+Optimized the internal verification logic to improve security and performance.
+
+The Huawei Health app must be version 13.1.6.300 or later.
+
+[h2]5.0.3.301 (2023-04-25)
+
+New Features:
+                   
+Added MONITOR_ITEM_POWER_MODE to MonitorItem to query the device mode and subscribe to device mode switching events. For details, see Querying and Subscribing to Status.
+          
+Added the getDeviceType method to the Device object to obtain the device type. For details, see getDeviceType.
+
+The Huawei Health app must be version 13.1.3.300 or later.
+
+[h2]5.0.2.310 (2023-01-20)
+
+New Features:
+                   
+Added the DEVICE_SN permission to control whether getDeviceSn can be used to obtain the device SN.
+          
+Added the getDeviceSn method to obtain the SN of wearable devices. For details, see Querying the SN of a Wearable Device.
+
+The Huawei Health app must be version 13.1.1.300 or later.
+
+[h2]5.0.2.309 (2022-09-09)
+
+New Features:
+                   
+Added queryDeviceCapability to query whether the wearable device supports a certain capability set. For details, see Querying Whether the Wearable Device Supports a Certain Capability Set.
+          
+Added getDeviceCategory to obtain the all-scenario category to which the device belongs. For details, see getDeviceCategory.
+
+The Huawei Health app must be version 12.1.8.300 or later.
+
+[h2]5.0.2.306 (2022-02-09)
+
+New Features:
+                   
+Added getAppVersion to query the version number of your wearable app. For details, refer to Obtaining the Version Number of the App on the Wearable Device.
+          
+Added getCommonDevice to obtain the list of paired devices that have the Wear Engine capabilities. Added getP2pCapability, getMonitorCapability, and getNotifyCapability to query whether the open capabilities of Wear Engine are supported on the wearable device. For details, refer to Obtaining Wearable Devices That Support Wear Engine.
+                            
+Added getSoftwareVersion to obtain the version number of the wearable device.
+
+The Huawei Health app must be version 12.1.1.120 or later.
+
+[h2]5.0.1.302 (2021-05-27)
+
+New Features:
+                   
+Changed the permission classification from Device management, Message notification permissions to Basic device information, Message notification, Wearable user status permissions.
+          
+Added openness to individual developers. (Only the Basic device information and Message notification permissions can be applied for.)
+
+[h2]5.0.1.301 (2021-02-05)
+
+New Features:
+         
+App-to-App Message Communications: Added support for checking whether your app has been installed on the wearable device and for canceling the sending of files.
+
+[h2]5.0.1.300 (2020-12-25)
+
+Modified Features:
+         
+If users are using the Huawei Health app version 11.0.3.512 or later and have not granted permissions for your app, your app will be granted with NOTIFY and DEVICE_MANAGER permissions by default. Ensure that permissions required by your app have been approved after applying for the Wear Engine service.
+         
+New Features:
+                   
+App-to-App Message Communications: Added support for receiving files sent from wearable apps.
+          
+Querying and Subscribing to Status: Added support for querying or subscribing to the connection status, available space, battery level, charging status, and wearing status of the wearable device, and subscribing to users' heart rate alerts.
+          
+Template-based Notifications on Wearable Devices: Added support for sending notifications to the wearable device from your phone app.
+          
+Obtaining the API Level of Wear Engine: Added support for obtaining the API level information from both the Wear Engine client and server.
+
+The Huawei Health app must be version 11.0.1.512 or later.
+
+[h2]5.0.0.301 (2020-10-26)
+
+New Features:
+         
+Added the checkPermission and checkPermissions methods for querying whether a user has granted permissions for your app. For details, refer to Querying User Authorization Results.
+
+The Huawei Health app must be version 10.1.2.548 or later.
+
+[h2]5.0.0.300 (2020-09-25)
+
+Huawei Health has introduced the brand new Wear Engine, version 5.0.0.300. This update added new features such as allowing your phone app to obtain a list of connected wearable devices and subscribe to their connection status; and added support for P2P messaging between your phone app and wearable app and P2P file transfers from your phone app to the wearable app.
+         
+Update Wear Engine to try it out!
+
+The Huawei Health app must be version 10.1.2.513 or later.

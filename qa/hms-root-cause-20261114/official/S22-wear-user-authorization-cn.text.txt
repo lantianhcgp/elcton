@@ -1,0 +1,97 @@
+请求用户授权
+
+为保护用户隐私，Wear Engine的API需要用户授权才可以正常访问。建议开发者在用户首次调用Wear Engine开放能力的时候执行本章节操作。
+
+查询用户授权结果
+     
+用于查询用户是否授予第三方应用权限。如果检测到用户未授权，请参见下一节申请用户穿戴设备权限向用户请求权限。
+     
+若用户的运动健康App版本为11.0.3.512及以上，且对第三方应用未进行过授权操作，则消息通知NOTIFY、设备基础信息DEVICE_MANAGER将默认授予第三方应用。建议在请求用户授权前，先使用该接口查询应用是否已有相关权限。
+
+请确保权限已在申请Wear Engine服务中审批通过，否则会遇到错误码为8的提示。
+
+第三方应用调用HiWear中的getAuthClient方法，获取AuthClient对象。
+      
+调用checkPermission方法，查询权限是否授予，或调用checkPermissions方法，查询一组权限是否授予。       
+
+       // 步骤1：获取AuthClient对象
+AuthClient authClient = HiWear.getAuthClient(this);
+
+// 步骤2：调用checkPermission方法，查询权限是否授予
+authClient.checkPermission(Permission.DEVICE_MANAGER).addOnSuccessListener(new OnSuccessListener<Boolean>() {
+    @Override
+    public void onSuccess(Boolean aBoolean) {
+        // 返回权限是否授予，true为授予，false为未授予
+    }
+}).addOnFailureListener(new OnFailureListener() {
+    @Override
+    public void onFailure(Exception e) {
+        // 接口调用失败
+    }
+});
+
+// 或调用checkPermissions方法，查询一组权限是否授予
+Permission[] permissions = {Permission.DEVICE_MANAGER,Permission.NOTIFY};
+authClient.checkPermissions(permissions).addOnSuccessListener(new OnSuccessListener<Boolean[]>() {
+    @Override
+    public void onSuccess(Boolean[] booleans) {
+        // 返回权限是否授予，true为授予，false为未授予，按照权限的查询顺序返回对应的值。
+    }
+}).addOnFailureListener(new OnFailureListener() {
+    @Override
+    public void onFailure(Exception e) {
+        // 接口调用失败
+    }
+});       
+
+申请用户穿戴设备权限
+     
+      图1 请求用户授权     
+
+第三方应用调用HiWear中的getAuthClient方法，获取AuthClient对象。
+      
+定义用户授权的回调对象authCallback。
+      
+调用requestPermission方法，向用户请求权限。执行成功后，会弹出授权界面，让用户选择授予权限。当用户允许后才能正常使用接口，否则会遇到错误码为9的提示。       
+
+请确保向用户请求的权限已在申请Wear Engine服务中审批通过，否则会遇到错误码为8的提示。
+          
+该功能可以多次调用，如果申请的权限之前已经授予了，不会再弹出授权页面，接口会返回已经授权的权限。
+          
+通过入参的Permission对象，获取第三方应用需要的权限。参见获取的权限了解应用所需请求的权限类型。
+          
+通过AuthCallback对象，返回用户的授权结果：onOk的回调返回用户授权的权限列表；onCancel表示取消授权。
+
+       // 步骤1：获取AuthClient对象
+// this 表示应用上下文Context对象
+AuthClient authClient = HiWear.getAuthClient(this);
+
+// 步骤2：定义用户授权的回调对象
+AuthCallback authCallback = new AuthCallback() {
+    @Override
+    public void onOk(Permission[] permissions) {
+        // 返回用户授予的权限列表
+    }
+    @Override
+    public void onCancel() {
+        // 用户取消授权
+    }
+};
+
+// 步骤3：请求用户授权指定的权限（如：DEVICE_MANAGER，设备管理权限）
+authClient.requestPermission(authCallback, Permission.DEVICE_MANAGER)
+    .addOnSuccessListener(new OnSuccessListener<Void>() {
+        @Override
+        public void onSuccess(Void successVoid) {
+            // 请求授权任务执行成功
+        }
+    })
+    .addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(Exception e) {
+            // 请求授权任务执行失败
+        }
+    });
+
+// 说明：可一次申请多个权限，多个权限之间用逗号分隔：authClient.requestPermission(authCallback, Permission.DEVICE_MANAGER,Permission.NOTIFY,其他权限)
+// 说明：调用该API后，会弹出授权界面，让用户选择授予权限

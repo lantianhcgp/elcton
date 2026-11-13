@@ -1,0 +1,20 @@
+{
+  "verified_at": "2026-11-14T00:39:36+08:00",
+  "base_commit": "0be04ed667392401c6024d892feb6983928c903c",
+  "branch": "qa/hms-root-cause-20261114",
+  "only_new_directory_changes": true,
+  "existing_repository_public_visibility_unchanged": true,
+  "secret_scan_high_signal_hits": [],
+  "secret_scan_detector_self_tests_passed": true,
+  "anonymous_response_header_files_redacted": 37,
+  "original_evidence_retained": true,
+  "report_utf8_bytes": 16897,
+  "report_sha256": "57bc61ca554ac60401a2e88812e654cc121ae31b6d3a7f4a7339596914ae3f9f",
+  "report_documents_and_repository_identical": true,
+  "runtime_summary_single_target_service_only": true,
+  "on_device_mutations": false,
+  "root_cause_confirmed": false,
+  "numeric_error_code_known": false,
+  "remote_readback_verified": false,
+  "remote_readback_note": "Performed after this commit is pushed; results stored in Documents/HMS排查进度.md and private .git/hms-analysis/remote-readback-result.json. A push result alone is not verification."
+}

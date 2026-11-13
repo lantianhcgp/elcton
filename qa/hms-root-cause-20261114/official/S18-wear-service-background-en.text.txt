@@ -1,0 +1,82 @@
+Managing the Connection Status Between Your App and Wear Engine
+
+Monitoring the Connection Status Between Your App and Wear Engine
+     
+If the Huawei Health app stops providing services in the background (for example, due to high power consumption), your app may disconnect from Wear Engine. This API allows you to check the connection status on the condition that you have monitored the connection status using this API before the app is disconnected from Wear Engine.
+           
+Define the connection status listener.
+      
+Call the getWearEngineClient method in HiWear to obtain the WearEngineClient object.
+      
+Call the registerServiceConnectionListener method to monitor the connection status between your app and Wear Engine.       
+
+       // Step 1: Define the connection status listener.
+ServiceConnectionListener serviceConnectionListener = new ServiceConnectionListener() {
+    @Override
+    public void onServiceConnect() {
+        // Handle the successful connection events between your app and Wear Engine.
+    }
+
+    @Override
+    public void onServiceDisconnect() {
+        // Handle the disconnection events between your app and Wear Engine.
+    }
+};
+
+// Step 2: Obtain the WearEngineClient object.
+wearEngineClient = HiWear.getWearEngineClient(this, serviceConnectionListener);
+
+// Step 3: Call the registerServiceConnectionListener method to monitor the connection status between your app and Wear Engine.
+wearEngineClient.registerServiceConnectionListener()
+    .addOnSuccessListener(new OnSuccessListener<Void>() {
+        @Override
+        public void onSuccess(Void successVoid) {
+            // Succeed in calling the API.
+        }
+    })
+    .addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(Exception e) {
+            // Failed to call the API.
+        }
+    });       
+
+Call the unregisterServiceConnectionListener method to cancel the monitoring of the connection status between your app and Wear Engine.       
+
+       // Step 4: Call the unregisterServiceConnectionListener method to cancel the monitoring of the connection status between your app and Wear Engine.
+wearEngineClient.unregisterServiceConnectionListener()
+    .addOnSuccessListener(new OnSuccessListener<Void>() {
+        @Override
+        public void onSuccess(Void successVoid) {
+            // Succeed in calling the API.
+        }
+    })
+    .addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(Exception e) {
+            // Failed to call the API.
+        }
+    });       
+
+Disconnecting Your App from Wear Engine
+     
+After your app and Wear Engine are disconnected, Wear Engine resources will be released and functions such as device status monitoring, message receiving, and file receiving will be unavailable. To reconnect them, call the corresponding APIs.
+           
+Refer to Monitoring the Connection Status Between Your App and Wear Engine to obtain the WearEngineClient object.
+      
+Call the releaseConnection method to disconnect your app from Wear Engine.       
+
+       // Step 2: Call the releaseConnection method to disconnect your app from Wear Engine.
+wearEngineClient.releaseConnection()
+    .addOnSuccessListener(new OnSuccessListener<Void>() {
+        @Override
+        public void onSuccess(Void successVoid) {
+            // Succeed in calling the API.
+        }
+    })
+    .addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(Exception e) {
+            // Failed to call the API.
+        }
+    });

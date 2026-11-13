@@ -1,0 +1,184 @@
+SDK Privacy and Security Statement
+
+In the SDK Privacy and Security Statement (hereinafter referred to as this "Statement"), Huawei Software Technologies Co., Ltd. (hereinafter referred to as "Huawei", "we", "us", or "our") clarifies privacy- and security-related information about the Wear Engine SDK to developers and their users (end users), including the processing of personal data, purpose of processing, permission usage, and how to obtain the latest version of the Wear Engine SDK. For details about the rights of end users (data subjects) and how other HMS Core services collect and use personal data, please refer to the HMS Core Privacy Statement.
+    
+If you are a developer, make sure that before accessing and using the Wear Engine SDK and its services, your app provides end users with information about the SDK in its privacy policy. The SDK can only be accessed after obtaining end users' consent or other legal bases. When your app uses the Wear Engine SDK to subscribe to heart rate alerts and read sensor data from wearable devices, it may involve sensitive personal data processing. It is recommended that your app display a pop-up to obtain users' separate consent in this case.
+    
+If you are an end user and want to use an app that has integrated the Wear Engine SDK, first carefully read the app's privacy policy and use the app only after you fully understand and agree to the policy.
+
+Personal Data Processing
+     
+The Wear Engine SDK is designed for developers of apps and services running on phones and wearable devices.
+     
+By integrating the Wear Engine SDK, a developer's app or service on a phone can send messages, notifications, and data to a Huawei wearable device, as well as obtaining the status of the wearable device and reading sensor data. This also works the other way around, allowing an app or service on a Huawei wearable device to send messages and data to a phone.
+     
+To provide developers and end users with the SDK services, we will collect, use, and store necessary personal data as listed below.
+     
+The collected device information may vary depending on the device, OS, OS version, and permission that the developers determined when integrating and using the SDK. Therefore, developers shall notify end users of personal data that their apps collect.
+
+Personal Data
+                   
+Purpose of Use
+                   
+Retention Period
+
+Device name, mutable device identifier (device ID), device model, device type, OS information, and SN
+                   
+For your phone app to obtain the paired device list and select the device that requires the communications. Data will not be stored locally or on the cloud.
+                   
+N/A
+
+Battery level, charging status, storage space status, device wearing status, and device connection status
+                   
+For your phone app to query or subscribe to the device status. Data will not be stored locally or on the cloud.
+                   
+N/A
+
+Heart rate alerts
+                   
+For your phone app to subscribe to the heart rate alerts of a wearable user. Data will not be stored locally or on the cloud.
+                   
+N/A
+
+In text form       
+Third-party SDK: Wear Engine SDK
+       
+Provider: Huawei Software Technologies Co., Ltd.
+       
+Type of personal information collected: device name, mutable device identifier (device ID), device model, device type, OS information, SN, battery level, charging status, storage space status, device wearing status, device connection status, heart rate alerts, and sensor data including ACC, GYRO, MAG, HR, ECG, and PPG sensor data
+       
+Purpose of use: To provide open capabilities of wearable devices for your app. The data collected by the SDK is not stored locally or on the cloud.
+       
+Privacy policy: SDK Privacy and Security Statement
+
+In table form        
+
+Third-Party SDK
+                       
+Provider
+                       
+Personal Data to Be Collected
+                       
+Purpose of Use
+                       
+Privacy Policy
+
+Wear Engine SDK
+                       
+Huawei Software Technologies Co., Ltd.
+
+Device name, mutable device identifier (device ID), device model, device type, OS information, SN, battery level, charging status, storage space status, device wearing status, device connection status, heart rate alerts, and sensor data including ACC, GYRO, MAG, HR, ECG, and PPG sensor data
+                       
+To provide open capabilities of wearable devices for your app. The data collected by the SDK is not stored locally or on the cloud.
+                       
+SDK Privacy and Security Statement
+
+Required Permissions
+     
+The Wear Engine SDK does not require additional permissions of the phone and wearable system. However, before Wear Engine APIs are accessed:
+     
+The network connection permission is required for Scope authentication.
+
+Permission
+                   
+Description
+                   
+Purpose of Use
+                   
+When to Request
+
+android.permission.INTERNET
+                   
+Connects to the network.
+                   
+To perform authentication for the Scope server on the cloud.
+                   
+When the authentication API is called.
+
+The user' explicit authorization for the following permissions must be obtained (the information and open capabilities of the wearable device can be obtained only after the authorization is obtained).
+     
+                     Table 1 Permission description                      
+                   
+Permission
+                   
+Open Capability
+                   
+Function
+
+Basic device information
+          
+DEVICE_MANAGER
+                   
+Wearable device status management
+                   
+Querying basic wearable device information
+                   
+Obtains a list of paired wearable devices and selects a device; queries the available space of the wearable device.
+
+Querying or subscribing to the wearable device status
+                   
+Queries the battery level; subscribes to low battery level alerts; queries or subscribes to the connection status, available space, and charging status of wearable devices.
+
+Communications management
+                   
+Sending P2P messages or files
+                   
+xxx (your app name) on the phone sends a message or file to xxx (your app name) on the wearable device.
+
+Receiving P2P messages or files
+                   
+xxx (your app name) on the phone receives a message or file from xxx (your app name) on the wearable device.
+
+Message notification
+          
+NOTIFY
+                   
+Message notification management
+                   
+Sending notifications to the wearable device
+                   
+Your phone app sends a notification to the wearable device and the notification is displayed on the wearable device according to the template. The message title, content, and button can be configured.
+
+Wearable user status
+          
+WEAR_USER_STATUS
+                   
+Wearable device users' status management
+                   
+Querying or subscribing to the wearable user status
+                   
+Queries and subscribes to users' wearing status; subscribes to users' heart rate alerts.
+
+Device identifier
+          
+DEVICE_SN
+                   
+Device identifier
+                   
+Obtaining the device SN
+                   
+Obtains the SN of paired wearable devices.
+
+Delayed SDK Initialization
+     
+The Wear Engine SDK may be initialized before the end user gives their consent to the app integrated with the SDK. To prevent this from happening, the SDK provides the requestPermission, which can be called to initialize the SDK only after the app has obtained the end user's consent.
+
+Data Security
+     
+Connection involved in the SDK between the wearable device and the mobile phone requires two-way authentication when being established, to ensure that the device is trusted.
+     
+Data transmission processed by the SDK between the wearable device and the mobile phone is encrypted to prevent data leakage.
+     
+The SDK needs to authenticate the access API when accessing data. For example, the package name and signature need to be verified when an app accesses data.
+     
+The SDK can access data only after it obtains the authorization from users.
+     
+The data collected by the SDK is accessed by your service based on service requirements and privacy protection is provided to meet local privacy and security requirements.
+
+Version Updates
+     
+To provide developers with the latest and secure services, we will update the SDK from time to time. We strongly recommend developers to integrate and use the latest version of the SDK, which can be downloaded by clicking here.
+
+How Does the SDK Work
+     
+The Wear Engine SDK is loaded into your app during app packaging. It works when the app is started and runs in the app's process tasks, and stops as soon as the app is closed, without performing any additional operations in the background.
