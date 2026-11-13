@@ -1,7 +1,8 @@
 /* Platform-neutral wire helpers. ASCII bytes are shared with Android. */
+function er(s) { throw new Error(s); }
 function ascii(v) {
     var t = JSON.stringify(v);
-    if (typeof t !== 'string') { throw new Error('INVALID_JSON'); }
+    if (typeof t !== 'string') er('INVALID_JSON');
     var s = '', i = 0, n;
     for (; i < t.length; i++) {
         n = t.charCodeAt(i);
@@ -88,41 +89,41 @@ function field(value, limit) {
     return value;
 }
 function minutes(s) {
-    if (!fmt(s, '##:##') || s.substr(0,2) > '23' || s.substr(3,2) > '59') throw new Error('INVALID_TIME');
-    return s.substr(0,2) * 60 + Number(s.substr(3,2));
+    if (!fmt(s, '##:##') || s.substr(0,2) > '23' || s.substr(3,2) > '59') er('INVALID_TIME');
+    return s.substr(0,2) * 60 + +s.substr(3,2);
 }
-function snapshot(doc) {
-    if (!doc || doc.schema !== 'elcton.schedule' || doc.version !== 1) { throw new Error('UNSUPPORTED_SCHEMA'); }
-    var s = doc.settings && doc.settings.semesterStart;
-    if (!fmt(s, '####-##-##')) throw new Error('INVALID_DATE');
-    var y = Number(s.substr(0,4)), m = Number(s.substr(5,2)), d = Number(s.substr(8,2));
-    var ds = [31, (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) ? 29 : 28, 31,30,31,30,31,31,30,31,30,31];
-    if (y < 1 || m < 1 || m > 12 || d < 1 || d > ds[m-1]) throw new Error('INVALID_DATE');
-    if (Object.prototype.toString.call(doc.courses) !== '[object Array]' || doc.courses.length > 200) { throw new Error('INVALID_COURSES'); }
-    var courses = [];
-    var ids = {};
-    for (var i = 0; i < doc.courses.length; i++) {
-        var c = doc.courses[i];
-        if (!c || typeof c !== 'object') { throw new Error('INVALID_COURSE'); }
-        var id = field(c.id, 64);
-        if (!id) { throw new Error('INVALID_ID'); }
-        if (ids['@' + id]) { throw new Error('DUPLICATE_ID'); }
-        ids['@' + id] = true;
-        if (!integer(c.dayOfWeek, 1, 7) || !integer(c.startPeriod, 1, 24) || !integer(c.endPeriod, c.startPeriod, 24)) { throw new Error('INVALID_PERIOD'); }
-        if (minutes(c.endTime) <= minutes(c.startTime)) { throw new Error('INVALID_TIME'); }
-        if (c.weekType !== 'all' && c.weekType !== 'odd' && c.weekType !== 'even') { throw new Error('UNSUPPORTED_WEEK_TYPE'); }
-        if (Object.prototype.toString.call(c.weeks) !== '[object Array]' || c.weeks.length !== 0) { throw new Error('UNSUPPORTED_WEEKS'); }
-        if (!integer(c.colorIndex, 0, 7)) { throw new Error('INVALID_COLOR'); }
-        courses.push({ id: id, name: field(c.name, 80), location: field(c.location, 80), teacher: field(c.teacher, 80),
+function snapshot(v) {
+    if (!v || v.schema !== 'elcton.schedule' || v.version !== 1) er('UNSUPPORTED_SCHEMA');
+    var s = v.settings && v.settings.semesterStart;
+    if (!fmt(s, '####-##-##')) er('INVALID_DATE');
+    var y = +s.substr(0,4), m = +s.substr(5,2), d = +s.substr(8,2);
+    var g = [31, (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) ? 29 : 28, 31,30,31,30,31,31,30,31,30,31];
+    if (y < 1 || m < 1 || m > 12 || d < 1 || d > g[m-1]) er('INVALID_DATE');
+    if (Object.prototype.toString.call(v.courses) !== '[object Array]' || v.courses.length > 200) er('INVALID_COURSES');
+    var a = [];
+    var b = {};
+    for (var i = 0; i < v.courses.length; i++) {
+        var c = v.courses[i];
+        if (!c || typeof c !== 'object') er('INVALID_COURSE');
+        var k = field(c.id, 64);
+        if (!k) er('INVALID_ID');
+        if (b['@' + k]) er('DUPLICATE_ID');
+        b['@' + k] = true;
+        if (!integer(c.dayOfWeek, 1, 7) || !integer(c.startPeriod, 1, 24) || !integer(c.endPeriod, c.startPeriod, 24)) er('INVALID_PERIOD');
+        if (minutes(c.endTime) <= minutes(c.startTime)) er('INVALID_TIME');
+        if (c.weekType !== 'all' && c.weekType !== 'odd' && c.weekType !== 'even') er('UNSUPPORTED_WEEK_TYPE');
+        if (Object.prototype.toString.call(c.weeks) !== '[object Array]' || c.weeks.length !== 0) er('UNSUPPORTED_WEEKS');
+        if (!integer(c.colorIndex, 0, 7)) er('INVALID_COLOR');
+        a.push({ id: k, name: field(c.name, 80), location: field(c.location, 80), teacher: field(c.teacher, 80),
             dayOfWeek: c.dayOfWeek, startPeriod: c.startPeriod, endPeriod: c.endPeriod, startTime: c.startTime,
             endTime: c.endTime, weekType: c.weekType, weeks: [], colorIndex: c.colorIndex });
     }
-    courses.sort(function (a, b) {
+    a.sort(function (a, b) {
         if (a.dayOfWeek !== b.dayOfWeek) { return a.dayOfWeek - b.dayOfWeek; }
         if (a.startPeriod !== b.startPeriod) { return a.startPeriod - b.startPeriod; }
         if (a.startTime !== b.startTime) { return a.startTime < b.startTime ? -1 : 1; }
         return a.id < b.id ? -1 : (a.id > b.id ? 1 : 0);
     });
-    return ascii({schema: 'elcton.schedule', version: 1, settings: {semesterStart: s}, courses: courses});
+    return ascii({schema: 'elcton.schedule', version: 1, settings: {semesterStart: s}, courses: a});
 }
 export default { ascii: ascii, crc32: crc32, plan: plan, snapshot: snapshot, id: id, hex: hex, pr: pr };
