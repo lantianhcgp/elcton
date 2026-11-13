@@ -1,0 +1,223 @@
+{
+  "schema": "install34.size-fix-result.v1",
+  "recordedAt": "2026-11-13T20:06:48+08:00",
+  "baseCommit": "e62fe509e111a1762f87761694f0c28f506448a7",
+  "originalBehaviorOracleCommit": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+  "branch": "fix/wearengine-install34-20261113",
+  "decision": "Equivalent size-only source change; 243 B saved. Original ~350 B goal not reached. Parent steering explicitly accepted >=200 B and requested immediate 7+240 verification; actual CI remains pending.",
+  "sourceFormatting": {
+    "file": "entry/src/main/js/MainAbility/common/wearProtocol.js",
+    "measurement": "Actual Terser formatting of source, not compiled page size",
+    "options": {
+      "compress": false,
+      "mangle": false,
+      "ecma": 5,
+      "format": {
+        "comments": false,
+        "ascii_only": true
+      }
+    },
+    "originalOracle": {
+      "rawBytes": 5261,
+      "formattedBytes": 4112
+    },
+    "before": {
+      "rawBytes": 6118,
+      "formattedBytes": 4555,
+      "formattedDeltaVsOracleBytes": 443,
+      "sha256": "cc49226f63d26b53f45b152ab2c2652a6f5f643edae1f09c5307e2535799536a"
+    },
+    "after": {
+      "rawBytes": 5846,
+      "formattedBytes": 4312,
+      "formattedDeltaVsOracleBytes": 200,
+      "sha256": "d2135b5e9cb3a71599ed300c4ccc9ac03d86d7b3e1d8266e0df71475301905b1"
+    },
+    "rawReductionBytes": 272,
+    "formattedReductionBytes": 243,
+    "acceptedMinimumReductionBytes": 200,
+    "initialTargetReductionBytes": 350,
+    "initialTargetReached": false,
+    "revisedMinimumReached": true
+  },
+  "existingFailureSeam": {
+    "runId": "43419821130",
+    "commit": "e62fe509e111a1762f87761694f0c28f506448a7",
+    "retainedFile": "qa/install34/evidence/ci-failure-e62fe50.log",
+    "retainedFileBytes": 236827,
+    "retainedFileSha256": "44e969ace51df875e77c9b7d8506553a156013226a39c3b0d82acb3a8a2fa4cf",
+    "lines": [
+      2047,
+      2048,
+      2049,
+      2050,
+      2051,
+      2052,
+      2053,
+      2054
+    ],
+    "page": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+    "compiledFormatOnlyBytes": 49305,
+    "budgetExclusiveBytes": 49152,
+    "result": "LITE_PAGE_BUDGET_EXCEEDED",
+    "oldFailureRetained": true
+  },
+  "planningOnlyEstimates": {
+    "estimatorCommand": "node qa/install34/estimate_size.mjs",
+    "estimatorBeforePhoneBytes": 49129,
+    "estimatorAfterPhoneBytes": 48886,
+    "estimatorDeltaVsOriginalBeforeBytes": 369,
+    "estimatorDeltaVsOriginalAfterBytes": 126,
+    "observedBeforeEstimateUnderstatementBytes": 176,
+    "calibratedFromFailedCompiledBytes": 49062,
+    "calibratedHeadroomToExclusiveBoundaryBytes": 90,
+    "assumption": "Source formatting delta transfers one-for-one to compiled page. SDK module wrapping, emission and signed-package parsing are not re-exercised here.",
+    "actualNewCI": "PENDING",
+    "actualAfterCompiledBytes": null,
+    "claimedCIPass": false,
+    "signedSdkGate": "PENDING",
+    "deviceInstall": "NOT_RUN"
+  },
+  "regression": {
+    "baselineCompatibility": {
+      "command": "node --test --test-reporter=tap tests/liteRegexpCompatibility.test.mjs",
+      "evidence": "qa/install34/evidence/size-fix-baseline-compatibility.tap",
+      "exitCode": 0,
+      "tests": 7,
+      "pass": 7,
+      "fail": 0,
+      "skipped": 0,
+      "sha256": "65f62ef06a0bb8a4b2c51e0305fd478103b8e9ce2b393a999791da982e7d2173"
+    },
+    "sizeRed": {
+      "evidence": "qa/install34/evidence/size-fix-red.tap",
+      "exitCode": 1,
+      "beforeFormattedBytes": 4555,
+      "afterFormattedBytes": 4555,
+      "reductionBytes": 0,
+      "requiredReductionBytes": 350,
+      "error": "AssertionError: source-format size reduction below 350 B",
+      "note": "File contains pre-change JSON measurement stdout, not Node TAP; failure stderr/exit code came from actual terminal execution. Existing failing CI log is retained separately."
+    },
+    "targetedCompatibility": {
+      "command": "node --test --test-reporter=tap tests/liteRegexpCompatibility.test.mjs",
+      "evidence": "qa/install34/evidence/size-fix-compatibility.tap",
+      "exitCode": 0,
+      "tests": 7,
+      "enumeratedTopLevelTests": 7,
+      "pass": 7,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 1192.617239,
+      "sha256": "736786b192f6dc26a4a90a48b33182e8983bbc03c32e9bb503eb3d6f6ae7dbdb"
+    },
+    "full240": {
+      "command": "node --test --test-reporter=tap tests/*.test.mjs",
+      "evidence": "qa/install34/evidence/size-fix-full240.tap",
+      "exitCode": 0,
+      "tests": 240,
+      "enumeratedTopLevelTests": 240,
+      "pass": 240,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "durationMs": 14398.843745,
+      "sha256": "f4e3ae91f542eb582d19bc4411ee00dd6a8788aee7e7a2d2e6b461c8515dbf44"
+    },
+    "simulatorDependency": {
+      "path": "../elcton-sim-qa",
+      "commit": "2b28919fc14ea25eaed46f895817d58e481a8657",
+      "environmentOverride": null
+    },
+    "behaviorCoverage": [
+      "all 65536 UTF-16 encoder units",
+      "65536 character-domain ID/hex/printable validation",
+      "original snapshot/date/time outcomes and canonical bytes",
+      "transfer IDs and limits",
+      "brief/digest/pickup-code acceptance",
+      "full persistence/protocol/timer/page-budget regression"
+    ],
+    "limitations": "Node regression is not actual SDK compiled/signed-package or device acceptance. Stack traces gain er() frame; public Error messages/types and throw ordering are retained."
+  },
+  "diffScope": {
+    "modifiedProductFiles": [
+      "entry/src/main/js/MainAbility/common/wearProtocol.js"
+    ],
+    "diffCommand": "git diff e62fe509e111a1762f87761694f0c28f506448a7 -- entry/src/main/js/MainAbility/common/wearProtocol.js",
+    "diffSha256": "48c07687e85587dbdfdf9e675efcf292ad1a85b172307a4bf515d919467c6041",
+    "addedFunction": "er(s) throws new Error(s)",
+    "modifiedFunctions": [
+      "ascii (throw only)",
+      "minutes (throw and primitive numeric conversion only)",
+      "snapshot (local names, primitive numeric conversions, throw sites only)"
+    ],
+    "snapshotLocalRenames": {
+      "doc": "v",
+      "courses": "a",
+      "ids": "b",
+      "id": "k",
+      "ds": "g"
+    },
+    "primitiveNumericConversion": "Number(s.substr(...)) -> +s.substr(...), after unchanged strict string-format validation",
+    "byteIdenticalFunctionDeclarations": [
+      "cs",
+      "id",
+      "hex",
+      "pr",
+      "fmt",
+      "crc32",
+      "packet",
+      "plan",
+      "integer",
+      "field"
+    ],
+    "exportsByteIdentical": true,
+    "unchanged": [
+      "date/leap-year arithmetic",
+      "all Error messages",
+      "validation/throw order",
+      "200-course and string/packet limits",
+      "course object keys and canonical sort",
+      "features/pages/layout",
+      "phone-sync timer fix",
+      "compactor compress:false/mangle:false",
+      "every compiled JS <49152 B requirement",
+      "p7b/signing tools",
+      "version 1.1.14 / code 1000117"
+    ],
+    "protectedOutsideTarget": {
+      "filesVerified": 89,
+      "pathspecs": [
+        "entry",
+        "AppScope",
+        "build-profile.json5",
+        "hvigorfile.ts",
+        "oh-package.json5",
+        ".github/workflows/wearengine.yml",
+        "scripts",
+        "tests",
+        "tools/sign",
+        "qa/compaction_test.mjs",
+        "qa/install34/estimate_size.mjs",
+        "qa/install34/final_gate.py"
+      ],
+      "beforeAggregateSha256": "c2dccd1b114e405e257db0cde00356a5687d532808ecdc5f64db687d25c3e71f",
+      "afterAggregateSha256": "c2dccd1b114e405e257db0cde00356a5687d532808ecdc5f64db687d25c3e71f",
+      "definition": "sha256 of each git-ls-tree-ordered path + NUL + binary sha256(content) + LF, excluding wearProtocol.js; every before/after content equality asserted"
+    },
+    "newEvidenceFiles": [
+      "qa/install34/evidence/size-fix-baseline-compatibility.tap",
+      "qa/install34/evidence/size-fix-red.tap",
+      "qa/install34/evidence/size-fix-compatibility.tap",
+      "qa/install34/evidence/size-fix-full240.tap",
+      "qa/install34/evidence/size-fix-result.json"
+    ],
+    "gitCommitStagePush": "NOT_RUN",
+    "networkWrites": "NOT_RUN",
+    "browserDeviceActions": "NOT_RUN",
+    "oldEvidenceOverwrites": "NONE"
+  }
+}

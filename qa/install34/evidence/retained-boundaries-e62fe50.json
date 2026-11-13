@@ -1,0 +1,30 @@
+[
+  {
+    "path": "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+    "sha256": "ab87a592f03027711e4aed6a2804aef51854242bf3cf4d2a32b8d6dbcc86ada9"
+  },
+  {
+    "path": "tools/sign/sign-app-to-hap.js",
+    "sha256": "562b510c2feb483b837c16160742d443c052fbee6018babeca6a7f25ee8740be"
+  },
+  {
+    "path": "scripts/compact_lite_app.mjs",
+    "sha256": "76d4d3fd3cd4599090fa0db86c4af9f3f834f7cfe63bdfbebf4eaf003eb2b859"
+  },
+  {
+    "path": "scripts/verify_wear_bundle.py",
+    "sha256": "aaafbc2532a96daac46aff64c1a12c42dfc6f349309a5bf240d2aebb81191bea"
+  },
+  {
+    "path": "certs/elcton.p7b",
+    "sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e"
+  },
+  {
+    "path": "qa/install34/final_gate.py",
+    "sha256": "32c26d7f00d333314791fccf221f13546ab10ab9238bec742429a8ee5b7c1307"
+  },
+  {
+    "path": "qa/install34/check_signed_ast.cjs",
+    "sha256": "833874eb98f1cacc982c0aa33f66f9607924e3f2b15f54771a88d6f36a447a86"
+  }
+]

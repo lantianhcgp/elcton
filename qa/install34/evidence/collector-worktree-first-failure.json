@@ -1,0 +1,12 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "run_id": 43423716561,
+  "operation": "python3 qa/install34/collect_ci.py 09b34279a797c93db508d04226a6ebd8a30417bb 43423716561",
+  "exit_code": 1,
+  "error": "NotADirectoryError: .git/install34-ci-43423716561; this isolated workspace is a Git worktree and .git is a file",
+  "ci_success_unchanged": true,
+  "artifact_receipt_created": false,
+  "committed_source_changed": false,
+  "correction": "New collect_ci_worktree.py retains committed collector SHA and reversibly changes only cache parent to qa/install34/.artifact-cache. All exact-source, digest, exclusivity and payload gates are unchanged.",
+  "original_collector_sha256": "8f4a202314c031bab95bbfebcbeb5b60241d018e8ff71cd61afcba3ed1c24fd0"
+}

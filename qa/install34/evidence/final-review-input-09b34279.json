@@ -1,0 +1,82 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "run_id": 43423716561,
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "app_sha256": "fd5867401fd7cad9f36fe766600015f64d403841c503ca1de41d1dc933d72713",
+  "ci_run_url": "https://github.com/lantianhcgp/elcton/actions/runs/43423716561",
+  "reviewed_delta_sha256": "02e6c6c5ad2fd7283657f548061b6628a8ca7bb51b8ec9c05fd89588f16a08d5",
+  "files": [
+    {
+      "path": "qa/install34/evidence/ci-exact-09b34279.json",
+      "bytes": 1223,
+      "sha256": "95b2141ab158d0026690a308cd9c3762dad55ece8a1cabededc605e479525498"
+    },
+    {
+      "path": "qa/install34/evidence/local-artifact-proof-09b34279.json",
+      "bytes": 11148,
+      "sha256": "beb375630a2cf40623610edeabde1785ce4eb1a6e5ef229fdfc80de7bf0aa45c"
+    },
+    {
+      "path": "qa/install34/evidence/final-gate-ci-09b34279.json",
+      "bytes": 9168,
+      "sha256": "d93d93cbb7b24c3095fe393d554e908768d9fa2ad20afa9dbc2c4f45da303fac"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-proposed.diff",
+      "bytes": 16871,
+      "sha256": "02e6c6c5ad2fd7283657f548061b6628a8ca7bb51b8ec9c05fd89588f16a08d5"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-proposed.json",
+      "bytes": 688,
+      "sha256": "48bbcb9338f0ed04d4c617164b83aab5d03f34e789ee935b9deac99e37f1e07b"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-commit-binding.json",
+      "bytes": 579,
+      "sha256": "51a6f34298a11641e1b6e46e0c2c09361a119aa1e703838588805d2572fc7063"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-review-standards.json",
+      "bytes": 3760,
+      "sha256": "1e206be96bc5f0ea8af0b3b8a6115f00e1bc9ed3306493b791df202998072e16"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-review-spec.json",
+      "bytes": 10550,
+      "sha256": "1455d86a072cd6857fc0ec90029101ccb4b2014092016b02b6ee403b47598c57"
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview-standards.json",
+      "bytes": 29904,
+      "sha256": "9f95f72df75d0539af6a79b5528dd86f768bb766027013b636f1d34f549e7819"
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview-spec.json",
+      "bytes": 21434,
+      "sha256": "cf17d9207622f1275ca37dda59ead6b4f3d51d3c4b474f8927a60202ddfd14c1"
+    },
+    {
+      "path": "qa/install34/evidence/checker-fix-result.json",
+      "bytes": 8421,
+      "sha256": "3a5a380e521cb2dcd93835430820f6c0259592b4f2292b1704c4f126a29c218d"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-full240.tap",
+      "bytes": 57297,
+      "sha256": "f4e3ae91f542eb582d19bc4411ee00dd6a8788aee7e7a2d2e6b461c8515dbf44"
+    },
+    {
+      "path": "qa/install34/evidence/ci-exact-09b34279.log",
+      "bytes": 312672,
+      "sha256": "edac475aa3f52a6d1c883351a63a197d1c748ed7455446fc6a56bac1d39b6c02"
+    }
+  ],
+  "artifact_paths": {
+    "hap": "/data/data/com.termux/files/home/elcton-wear-install34-20261113/qa/install34/.artifact-cache/install34-ci-43423716561/dist/elcton-wearengine-probe.hap",
+    "app": "/data/data/com.termux/files/home/elcton-wear-install34-20261113/qa/install34/.artifact-cache/install34-ci-43423716561/dist/elcton-default-unsigned.app"
+  },
+  "all_signed_js_passed_exact_sdk": true,
+  "old_red_evidence_preserved": true,
+  "scope": "Candidate signing, exact payload and SDK parse approval only; no FIT3 install34/UI/heap/WE E2E claim"
+}

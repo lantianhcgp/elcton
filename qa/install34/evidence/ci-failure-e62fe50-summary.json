@@ -1,0 +1,23 @@
+{
+  "source_sha": "e62fe509e111a1762f87761694f0c28f506448a7",
+  "run_id": 43419821130,
+  "conclusion": "failure",
+  "tests": {
+    "tests": 240,
+    "pass": 240,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "sdk_build_passed": true,
+  "actual_phone_js_bytes": 49305,
+  "budget_exclusive": 49152,
+  "signing_and_final_gate": "skipped_due_to_size_gate",
+  "evidence_log_sha256": "44e969ace51df875e77c9b7d8506553a156013226a39c3b0d82acb3a8a2fa4cf",
+  "failure_lines": [
+    2051,
+    2053
+  ],
+  "production_scope": "No budget/compactor relaxation; correction candidate pending"
+}

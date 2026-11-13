@@ -1,0 +1,393 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "files": [
+    {
+      "path": "qa/install34/.gitignore",
+      "bytes": 13,
+      "sha256": "32dae3052f331ee34d628ef535709b301259a45df7c7522c4d35dcf49873f00b"
+    },
+    {
+      "path": "qa/install34/CANDIDATE.md",
+      "bytes": 2215,
+      "sha256": "16b05ec06634f5e5536f3b05d6e465baade83d14733a625a0399b9da6088af46"
+    },
+    {
+      "path": "qa/install34/CLOSEOUT-20261113.md",
+      "bytes": 3633,
+      "sha256": "6d68833b9a24ebc97afcde858cfd53180b6ba468e70aa7df70543c0430a65f8c"
+    },
+    {
+      "path": "qa/install34/README.md",
+      "bytes": 2815,
+      "sha256": "2e772b6b303bed4c968d155dc1dedba6cf17910e048e847d1322200d18c00582"
+    },
+    {
+      "path": "qa/install34/REVIEW-RECORD.md",
+      "bytes": 2206,
+      "sha256": "92a1cafdf949b81fd00078d9c2ad51eedd5d27701028be2a863bf7d64faa51de"
+    },
+    {
+      "path": "qa/install34/aggregate_final_review.py",
+      "bytes": 3975,
+      "sha256": "2e7dcee368e17fb2971a2e59d2980dc5323336cdd6b6849cc3417432586d31fe"
+    },
+    {
+      "path": "qa/install34/audit_closeout.py",
+      "bytes": 3339,
+      "sha256": "53f14bcceaacfbf3ed4e708b994628b8b984f7d39f86d5e2de6274736ea8d873"
+    },
+    {
+      "path": "qa/install34/audit_syntax.cjs",
+      "bytes": 2641,
+      "sha256": "14cae6e0383888adc85fb7954d4f39e0c49a313519ca3c284bb97dcf917685c4"
+    },
+    {
+      "path": "qa/install34/check_signed_ast.cjs",
+      "bytes": 1589,
+      "sha256": "833874eb98f1cacc982c0aa33f66f9607924e3f2b15f54771a88d6f36a447a86"
+    },
+    {
+      "path": "qa/install34/collect_ci.py",
+      "bytes": 5737,
+      "sha256": "8f4a202314c031bab95bbfebcbeb5b60241d018e8ff71cd61afcba3ed1c24fd0"
+    },
+    {
+      "path": "qa/install34/collect_ci_worktree.py",
+      "bytes": 1144,
+      "sha256": "34243c566e1b4230e4eb099447476f29573fb7375047cd90331f4e15f6a5b5e3"
+    },
+    {
+      "path": "qa/install34/collector_controls.py",
+      "bytes": 1820,
+      "sha256": "439055a500402413fab87e3b88dd7740c43308c77ba469be4404d4dfa0118887"
+    },
+    {
+      "path": "qa/install34/deliver_hap.py",
+      "bytes": 3089,
+      "sha256": "9d61015e2f1bd5813f08c4642844676414b3729d5c4faab5a4a49b2cd12004dc"
+    },
+    {
+      "path": "qa/install34/diagnose_sdk.py",
+      "bytes": 4542,
+      "sha256": "97a174d8b811b0f16d4935cd97d9080bbe824beec626860015832304d8e816e3"
+    },
+    {
+      "path": "qa/install34/estimate_size.mjs",
+      "bytes": 910,
+      "sha256": "75d93946e1c0549fb5b0e955814c9c19a2cc0f9c4a46563429cb53c7675c25c6"
+    },
+    {
+      "path": "qa/install34/evidence/.gitattributes",
+      "bytes": 92,
+      "sha256": "bf286e2a18d8993ee7082b501d413756f8788883694a47cd7edf7957a886178c"
+    },
+    {
+      "path": "qa/install34/evidence/aggregate-final-review-first-failure.json",
+      "bytes": 725,
+      "sha256": "dcec549126c18455c24b2e04b5855d8464cd5f3959da00ef3b91c7c790f5de5a"
+    },
+    {
+      "path": "qa/install34/evidence/aggregate-final-review-first-version.py",
+      "bytes": 3154,
+      "sha256": "a39b3253960a884a81936c3b14fdd1129796852709db40f5ade13d10413091ca"
+    },
+    {
+      "path": "qa/install34/evidence/ast-inventory.json",
+      "bytes": 31612,
+      "sha256": "593e24cd28ce2bd0b60250a0ee61d93ad06216be587761426117544c465e520b"
+    },
+    {
+      "path": "qa/install34/evidence/baseline-test-summary.json",
+      "bytes": 646,
+      "sha256": "6e3673f3550c359306a2cdbe01482c4845e0f5f29946c66f06b38c6358354a93"
+    },
+    {
+      "path": "qa/install34/evidence/baseline-tests.tap",
+      "bytes": 50449,
+      "sha256": "53aabb7f0709e60848aba92f3a115e285c4b08765530c9f2ff0c608df15d030c"
+    },
+    {
+      "path": "qa/install34/evidence/build-log-evidence.json",
+      "bytes": 13933,
+      "sha256": "0ccece0087efeff6631a9e1afdb62ca5d4dc1ab9ff793b3205796af2802fbbb1"
+    },
+    {
+      "path": "qa/install34/evidence/candidate-local-tests.json",
+      "bytes": 232,
+      "sha256": "10c475cfbb95c6ff50f6b2bf69515614e0e9f6df31e30c746c1fe2e9ee16704c"
+    },
+    {
+      "path": "qa/install34/evidence/candidate-with-gate-tests.tap",
+      "bytes": 57323,
+      "sha256": "5c68322a259a8d714eac08a896f000f0872430b223744d5670df3817cbc25973"
+    },
+    {
+      "path": "qa/install34/evidence/chain-check.json",
+      "bytes": 673,
+      "sha256": "c37634ce881bcfafc78989e6399edf5c49be863f0f0068a9632200acd48b300d"
+    },
+    {
+      "path": "qa/install34/evidence/checker-fix-result.json",
+      "bytes": 8421,
+      "sha256": "3a5a380e521cb2dcd93835430820f6c0259592b4f2292b1704c4f126a29c218d"
+    },
+    {
+      "path": "qa/install34/evidence/ci-exact-09b34279.json",
+      "bytes": 1223,
+      "sha256": "95b2141ab158d0026690a308cd9c3762dad55ece8a1cabededc605e479525498"
+    },
+    {
+      "path": "qa/install34/evidence/ci-exact-09b34279.log",
+      "bytes": 312672,
+      "sha256": "edac475aa3f52a6d1c883351a63a197d1c748ed7455446fc6a56bac1d39b6c02"
+    },
+    {
+      "path": "qa/install34/evidence/ci-failure-e62fe50-jobs.json",
+      "bytes": 5877,
+      "sha256": "876c6227d96198eb8f2a8bbd634e6598dc46147695a3367048e73f107316f600"
+    },
+    {
+      "path": "qa/install34/evidence/ci-failure-e62fe50-summary.json",
+      "bytes": 606,
+      "sha256": "2d12cd2d66da6e1c08a86e45f53786e4dafba84b5a5e56edab63caf1a43b95f1"
+    },
+    {
+      "path": "qa/install34/evidence/ci-failure-e62fe50.log",
+      "bytes": 236827,
+      "sha256": "44e969ace51df875e77c9b7d8506553a156013226a39c3b0d82acb3a8a2fa4cf"
+    },
+    {
+      "path": "qa/install34/evidence/ci-wearengine-09b34279.json",
+      "bytes": 235,
+      "sha256": "2f1625a823d9c7f0a2342aab184905ba8a9d4ac7da06e77184fcac858a0d6534"
+    },
+    {
+      "path": "qa/install34/evidence/ci-wearengine-e62fe509.json",
+      "bytes": 235,
+      "sha256": "be66b9d365aceb483fd8b307e3fe97d3ea8d659bb911fef25064e4f287193ba1"
+    },
+    {
+      "path": "qa/install34/evidence/closeout-audit-09b34279.json",
+      "bytes": 681,
+      "sha256": "bd4a4953c73319623e4f6fa4017a45e8458209eabb51389d06b5313ad58b2765"
+    },
+    {
+      "path": "qa/install34/evidence/collector-controls.json",
+      "bytes": 545,
+      "sha256": "745a34cf722f469de4169426e7bc1cd14988d912222e16a4ed7eb606d4e49b4a"
+    },
+    {
+      "path": "qa/install34/evidence/collector-worktree-first-failure.json",
+      "bytes": 766,
+      "sha256": "b793e0a10839b76916e40029268359215f6a6a777298bf44f6d6d3a88c45647d"
+    },
+    {
+      "path": "qa/install34/evidence/compatibility-green-final.tap",
+      "bytes": 51815,
+      "sha256": "5cf4815f87dc518cb16664891d4e4e5cb6a5b75329064305352526fb74b2b087"
+    },
+    {
+      "path": "qa/install34/evidence/compatibility-green-v2.tap",
+      "bytes": 51407,
+      "sha256": "61991f4faafe3b7378c32cdc693b92d1576a9f134d50eb6e1e42668da6592b4d"
+    },
+    {
+      "path": "qa/install34/evidence/compatibility-green.tap",
+      "bytes": 51437,
+      "sha256": "e294f70bb05936bf35c9f0768815f8aed5105cf4bbc107b5514886937293c333"
+    },
+    {
+      "path": "qa/install34/evidence/compatibility-red.tap",
+      "bytes": 2839,
+      "sha256": "047e0bf87307335d31d3a731662254a696168741962f6edd010a9c5eb7859f59"
+    },
+    {
+      "path": "qa/install34/evidence/delivery-09b34279.json",
+      "bytes": 678,
+      "sha256": "c8178a18cea789adbdf26a9b5126113713c3c68020d7f767d7c6b6ec6630d124"
+    },
+    {
+      "path": "qa/install34/evidence/diagnostic-review.json",
+      "bytes": 948,
+      "sha256": "b94914df42670791520b1dea7bb64a9bcb5826b1dcc01c7d8bce2f9b00813271"
+    },
+    {
+      "path": "qa/install34/evidence/final-artifact-review-spec-09b34279.json",
+      "bytes": 18259,
+      "sha256": "bc14c4913d4b6e6a96bc5a7500c4f93fb97be60cff951a579491188753bc6a7a"
+    },
+    {
+      "path": "qa/install34/evidence/final-artifact-review-standards-09b34279.json",
+      "bytes": 9876,
+      "sha256": "f6f0717a8aa4c0755fab2364511bfdcabef9dc3b283f0762d7f779d3dccc0c57"
+    },
+    {
+      "path": "qa/install34/evidence/final-gate-ci-09b34279.json",
+      "bytes": 9168,
+      "sha256": "d93d93cbb7b24c3095fe393d554e908768d9fa2ad20afa9dbc2c4f45da303fac"
+    },
+    {
+      "path": "qa/install34/evidence/final-review-input-09b34279.json",
+      "bytes": 3373,
+      "sha256": "bc13d9f74619d04fda39cd9b29984db5a74e9815deee2d6a2ca546c3fe8a2216"
+    },
+    {
+      "path": "qa/install34/evidence/final-review-supplement-09b34279.json",
+      "bytes": 1096,
+      "sha256": "5dcadb06d44473d13efc6ee9bbc3090677d07de645cc4f7f1ad427ca157933e0"
+    },
+    {
+      "path": "qa/install34/evidence/gate-negative-selftest.json",
+      "bytes": 660,
+      "sha256": "eb985ce328d66f1e85b5eb48753bf90d0b6f361b74766bcd395b936bf23189ce"
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview-e62fe50-aggregation.json",
+      "bytes": 981,
+      "sha256": "d65c8b4d7e5412fbcc02a77719882b4ef0365d5c95849ed2a52f606db3fb7e0f"
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview-spec.json",
+      "bytes": 21434,
+      "sha256": "cf17d9207622f1275ca37dda59ead6b4f3d51d3c4b474f8927a60202ddfd14c1"
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview-standards.json",
+      "bytes": 29904,
+      "sha256": "9f95f72df75d0539af6a79b5528dd86f768bb766027013b636f1d34f549e7819"
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview.json",
+      "bytes": 2342,
+      "sha256": "efcea18ea5e906f5424c4a8cad9b197b12ce9230b56ee5b4660e58ff4e1f941a"
+    },
+    {
+      "path": "qa/install34/evidence/historical-envelope.json",
+      "bytes": 7255,
+      "sha256": "72b7bce3770ed732573ddb27c5a2a74d12f0df19c77b59154538717368bbcd99"
+    },
+    {
+      "path": "qa/install34/evidence/local-artifact-proof-09b34279.json",
+      "bytes": 11148,
+      "sha256": "beb375630a2cf40623610edeabde1785ce4eb1a6e5ef229fdfc80de7bf0aa45c"
+    },
+    {
+      "path": "qa/install34/evidence/negative-digest-control.json",
+      "bytes": 419,
+      "sha256": "e00512f9860290526f7080c48d943560de29075e93835f1f50dfc66c31e85b9a"
+    },
+    {
+      "path": "qa/install34/evidence/package-comparison.json",
+      "bytes": 33232,
+      "sha256": "893d828df7497e051e60492a480681c6fee251af44abb6542f6ff2b1d4af9871"
+    },
+    {
+      "path": "qa/install34/evidence/report-checkpoint-1925.md",
+      "bytes": 4099,
+      "sha256": "caf0cfdb02dcc83067d9689d0f8f65f112ed0b6a8581c20ed2c4cd7b81431e69"
+    },
+    {
+      "path": "qa/install34/evidence/report-final-20261113.md",
+      "bytes": 11140,
+      "sha256": "cd5f8913e67bc1bbcefbd0f3206ff55a8408623d32834bf47317aacd0f3b3ca6"
+    },
+    {
+      "path": "qa/install34/evidence/resumed-local-tests.tap",
+      "bytes": 57303,
+      "sha256": "6b983137832127eddfbb9a6a5f1086f2b2ebeb72a0b01d24f748fa99db1c6136"
+    },
+    {
+      "path": "qa/install34/evidence/retained-boundaries-e62fe50.json",
+      "bytes": 966,
+      "sha256": "df8beb7cfc8b65aaa1e14e90f63fe901a59f8bbfa75fdea74a96885ca08d593d"
+    },
+    {
+      "path": "qa/install34/evidence/sdk-initial/ci-readback.json",
+      "bytes": 350,
+      "sha256": "94f04dc65600c7bc2ffadc18d3a6941e7ed7529d308a2d8129a377cc53788e70"
+    },
+    {
+      "path": "qa/install34/evidence/sdk-initial/native-sdk-control.json",
+      "bytes": 8427,
+      "sha256": "7d5f6e0c6f4ffc92f40a9931706d115d87d15274f4a5cbdeaf231c224289f12b"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-baseline-compatibility.tap",
+      "bytes": 1677,
+      "sha256": "65f62ef06a0bb8a4b2c51e0305fd478103b8e9ce2b393a999791da982e7d2173"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-commit-binding.json",
+      "bytes": 579,
+      "sha256": "51a6f34298a11641e1b6e46e0c2c09361a119aa1e703838588805d2572fc7063"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-compatibility.tap",
+      "bytes": 1677,
+      "sha256": "736786b192f6dc26a4a90a48b33182e8983bbc03c32e9bb503eb3d6f6ae7dbdb"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-full240.tap",
+      "bytes": 57297,
+      "sha256": "f4e3ae91f542eb582d19bc4411ee00dd6a8788aee7e7a2d2e6b461c8515dbf44"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-proposed.diff",
+      "bytes": 16871,
+      "sha256": "02e6c6c5ad2fd7283657f548061b6628a8ca7bb51b8ec9c05fd89588f16a08d5"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-proposed.json",
+      "bytes": 688,
+      "sha256": "48bbcb9338f0ed04d4c617164b83aab5d03f34e789ee935b9deac99e37f1e07b"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-red.tap",
+      "bytes": 226,
+      "sha256": "44e3ba61fc87b23273e4e60922accf2d8bb201a4a2801f32584909df5cc77ab5"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-result.json",
+      "bytes": 8236,
+      "sha256": "ee1a10c69fba8339f05c4c3c19026e457171c562547e0a9f6f9806e911b61a11"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-review-spec.json",
+      "bytes": 10550,
+      "sha256": "1455d86a072cd6857fc0ec90029101ccb4b2014092016b02b6ee403b47598c57"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-review-standards.json",
+      "bytes": 3760,
+      "sha256": "1e206be96bc5f0ea8af0b3b8a6115f00e1bc9ed3306493b791df202998072e16"
+    },
+    {
+      "path": "qa/install34/final_gate.py",
+      "bytes": 6881,
+      "sha256": "32c26d7f00d333314791fccf221f13546ab10ab9238bec742429a8ee5b7c1307"
+    },
+    {
+      "path": "qa/install34/freeze_final_review.py",
+      "bytes": 2499,
+      "sha256": "1b6a20d2259f4e8e15400a6c58bea702dd374eb0103bc47d53e6271dcd328cfd"
+    },
+    {
+      "path": "qa/install34/inspect_packages.py",
+      "bytes": 5681,
+      "sha256": "965c71a9456ae9a4c6f1a63185afe8dd4740c2dbbdb9b237b5d44df9ea259394"
+    },
+    {
+      "path": "qa/install34/verify_download.py",
+      "bytes": 5199,
+      "sha256": "bc6ca3220607be0a44e6651ceb4617b9ba36c19f40a4200900a129ceba916db9"
+    },
+    {
+      "path": "qa/install34/wait_ci.py",
+      "bytes": 1866,
+      "sha256": "4a76fb11f3bd52d185f6ec07e8508cfec48a582e1ea0c5697527a96942afacb2"
+    }
+  ],
+  "artifact_cache_in_git": false,
+  "scope": "Public code and exact evidence only; source and real CI remain pinned; snapshot before subsequent remote evidence receipt"
+}

@@ -1,0 +1,627 @@
+{
+  "axis": "standards",
+  "source_axis": "Standards-axis independent review",
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "missing_requirements": [],
+  "hard_blockers": [],
+  "nonblocking_judgement_notes": [
+    {
+      "id": "N1",
+      "category": "static coverage boundary",
+      "location": "qa/install34/check_signed_ast.cjs:7-16; tests/check_signed_ast_static_refs.test.mjs:1-2",
+      "detail": "Dynamic concatenated/variable keys still pass, as the explicit static-only contract permits. Do not claim data-flow/obfuscation/eval/sandbox coverage; this is not an unclosed direct-alias or static-literal bypass."
+    },
+    {
+      "id": "N2",
+      "category": "conservative false positives",
+      "location": "qa/install34/check_signed_ast.cjs:9-16",
+      "detail": "Every exact Identifier is rejected, including harmless labels/local bindings and non-global properties/getter/setter keys. Intentional fail-closed tradeoff. Similar names, normal string values and __webpack_require__ are preserved."
+    },
+    {
+      "id": "N3",
+      "category": "invocation hardening",
+      "location": "qa/install34/final_gate.py:25-103,112-115; .github/workflows/wearengine.yml:70-73",
+      "detail": "Assertions assume normal Python (not -O/PYTHONOPTIMIZE), and standalone sdk is optional. Current CI uses normal python3 and supplies the fixed SDK; native fields make omission visible. For future reuse, explicitly reject optimized Python and require SDK for a full-native-gate claim."
+    },
+    {
+      "id": "N4",
+      "category": "maintainability/smell judgement",
+      "location": "qa/install34/final_gate.py:19-21; qa/install34/CANDIDATE.md:5",
+      "detail": "SHA lambda/runpy-loaded verifier functions and compact product validator names reduce discoverability. A small shared host-verifier module could help future reuse. Compact product names are expressly authorized for the unchanged <49152-byte budget; neither point is a hard blocker."
+    },
+    {
+      "id": "N5",
+      "category": "integration evidence pending",
+      "location": "qa/install34/CANDIDATE.md:9-11; qa/install34/final_gate.py",
+      "detail": "No candidate APP/HAP exists in this repository. Actual candidate signed bytes/CMS/profile/chain and exact native SDK parser remain external CI gates. Host/control-flow tests do not prove FIT3 firmware/installation, UI, heap/image release or Wear Engine E2E."
+    }
+  ],
+  "suggestions": [
+    {
+      "id": "N1",
+      "category": "static coverage boundary",
+      "location": "qa/install34/check_signed_ast.cjs:7-16; tests/check_signed_ast_static_refs.test.mjs:1-2",
+      "detail": "Dynamic concatenated/variable keys still pass, as the explicit static-only contract permits. Do not claim data-flow/obfuscation/eval/sandbox coverage; this is not an unclosed direct-alias or static-literal bypass."
+    },
+    {
+      "id": "N2",
+      "category": "conservative false positives",
+      "location": "qa/install34/check_signed_ast.cjs:9-16",
+      "detail": "Every exact Identifier is rejected, including harmless labels/local bindings and non-global properties/getter/setter keys. Intentional fail-closed tradeoff. Similar names, normal string values and __webpack_require__ are preserved."
+    },
+    {
+      "id": "N3",
+      "category": "invocation hardening",
+      "location": "qa/install34/final_gate.py:25-103,112-115; .github/workflows/wearengine.yml:70-73",
+      "detail": "Assertions assume normal Python (not -O/PYTHONOPTIMIZE), and standalone sdk is optional. Current CI uses normal python3 and supplies the fixed SDK; native fields make omission visible. For future reuse, explicitly reject optimized Python and require SDK for a full-native-gate claim."
+    },
+    {
+      "id": "N4",
+      "category": "maintainability/smell judgement",
+      "location": "qa/install34/final_gate.py:19-21; qa/install34/CANDIDATE.md:5",
+      "detail": "SHA lambda/runpy-loaded verifier functions and compact product validator names reduce discoverability. A small shared host-verifier module could help future reuse. Compact product names are expressly authorized for the unchanged <49152-byte budget; neither point is a hard blocker."
+    },
+    {
+      "id": "N5",
+      "category": "integration evidence pending",
+      "location": "qa/install34/CANDIDATE.md:9-11; qa/install34/final_gate.py",
+      "detail": "No candidate APP/HAP exists in this repository. Actual candidate signed bytes/CMS/profile/chain and exact native SDK parser remain external CI gates. Host/control-flow tests do not prove FIT3 firmware/installation, UI, heap/image release or Wear Engine E2E."
+    }
+  ],
+  "summary": "No hard safety/logic blocker found in the pinned static checker and configured CI final-gate scope. Alias/static-member remediation is sound. 36 CLI tests, 7 compatibility tests and 49 additional probes passed. Approval covers verification source logic, not candidate artifacts, SDK execution, runtime or installation.",
+  "repository": "/data/data/com.termux/files/home/elcton-wear-install34-20261113",
+  "source_head": "e62fe509e111a1762f87761694f0c28f506448a7",
+  "branch": "fix/wearengine-install34-20261113",
+  "base": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+  "diff_command": "git diff 9517f345e8d0e0995708b0a5d0b37b4cae8689ac...e62fe509e111a1762f87761694f0c28f506448a7",
+  "binary_diff_command": "git diff --binary 9517f345e8d0e0995708b0a5d0b37b4cae8689ac...e62fe509e111a1762f87761694f0c28f506448a7",
+  "binary_diff_sha256": "624a6d24fd7ea2ee942953b294adf22b49ad86bb2546c19208f02e2c83638f20",
+  "standards_sources": [
+    "qa/install34/CANDIDATE.md",
+    "qa/install34/README.md",
+    "qa/install34/REVIEW-RECORD.md",
+    "huawei-lite-watch-development/SKILL.md",
+    "huawei-lite-watch-development/references/jerryscript-syntax.md",
+    "huawei-lite-watch-development/references/memory-and-runtime.md",
+    "mattpocock-code-review smell baseline",
+    "fail-closed-review-loops"
+  ],
+  "review_time": {
+    "start_epoch": 1794570515.9608114,
+    "completed_utc": "2026-11-13T11:58:46Z",
+    "elapsed_seconds": 610.6839745044708,
+    "requested_budget_about_seconds": 480
+  },
+  "environment": {
+    "python": "3.13.15 (main, Aug 23 2026, 18:55:06) [Clang 21.1.8 ]",
+    "node": "v26.4.0",
+    "CI_node": "22"
+  },
+  "executed_tests": {
+    "checker_cli": {
+      "command": "node --test --test-reporter=tap tests/check_signed_ast_static_refs.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 36,
+        "suites": 0,
+        "pass": 36,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "stdout": "TAP version 13\n# Subtest: rejects regexp literal\nok 1 - rejects regexp literal\n  ---\n  duration_ms: 281.031094\n  type: 'test'\n  ...\n# Subtest: rejects RegExp direct call\nok 2 - rejects RegExp direct call\n  ---\n  duration_ms: 252.382239\n  type: 'test'\n  ...\n# Subtest: rejects RegExp constructor\nok 3 - rejects RegExp constructor\n  ---\n  duration_ms: 265.664427\n  type: 'test'\n  ...\n# Subtest: rejects require direct call\nok 4 - rejects require direct call\n  ---\n  duration_ms: 262.621823\n  type: 'test'\n  ...\n# Subtest: rejects require constructor\nok 5 - rejects require constructor\n  ---\n  duration_ms: 243.626979\n  type: 'test'\n  ...\n# Subtest: rejects RegExp alias reviewer regression\nok 6 - rejects RegExp alias reviewer regression\n  ---\n  duration_ms: 255.777761\n  type: 'test'\n  ...\n# Subtest: rejects require alias\nok 7 - rejects require alias\n  ---\n  duration_ms: 268.625261\n  type: 'test'\n  ...\n# Subtest: rejects RegExp indirect call\nok 8 - rejects RegExp indirect call\n  ---\n  duration_ms: 283.694167\n  type: 'test'\n  ...\n# Subtest: rejects require passed as argument\nok 9 - rejects require passed as argument\n  ---\n  duration_ms: 258.390677\n  type: 'test'\n  ...\n# Subtest: rejects RegExp local binding conservatively rejected\nok 10 - rejects RegExp local binding conservatively rejected\n  ---\n  duration_ms: 276.342969\n  type: 'test'\n  ...\n# Subtest: rejects require parameter conservatively rejected\nok 11 - rejects require parameter conservatively rejected\n  ---\n  duration_ms: 271.740313\n  type: 'test'\n  ...\n# Subtest: rejects RegExp dot member reviewer regression\nok 12 - rejects RegExp dot member reviewer regression\n  ---\n  duration_ms: 266.050677\n  type: 'test'\n  ...\n# Subtest: rejects require dot member\nok 13 - rejects require dot member\n  ---\n  duration_ms: 267.67901\n  type: 'test'\n  ...\n# Subtest: rejects RegExp bracket member\nok 14 - rejects RegExp bracket member\n  ---\n  duration_ms: 284.359062\n  type: 'test'\n  ...\n# Subtest: rejects require bracket member\nok 15 - rejects require bracket member\n  ---\n  duration_ms: 281.176875\n  type: 'test'\n  ...\n# Subtest: rejects RegExp static member alias\nok 16 - rejects RegExp static member alias\n  ---\n  duration_ms: 262.766406\n  type: 'test'\n  ...\n# Subtest: rejects require static member alias\nok 17 - rejects require static member alias\n  ---\n  duration_ms: 281.431875\n  type: 'test'\n  ...\n# Subtest: rejects require other receiver without invocation\nok 18 - rejects require other receiver without invocation\n  ---\n  duration_ms: 267.423334\n  type: 'test'\n  ...\n# Subtest: rejects RegExp identifier object key\nok 19 - rejects RegExp identifier object key\n  ---\n  duration_ms: 347.768907\n  type: 'test'\n  ...\n# Subtest: rejects require identifier object key\nok 20 - rejects require identifier object key\n  ---\n  duration_ms: 259.507552\n  type: 'test'\n  ...\n# Subtest: rejects RegExp literal object key\nok 21 - rejects RegExp literal object key\n  ---\n  duration_ms: 277.159583\n  type: 'test'\n  ...\n# Subtest: rejects require literal object key\nok 22 - rejects require literal object key\n  ---\n  duration_ms: 267.097344\n  type: 'test'\n  ...\n# Subtest: rejects escaped RegExp identifier\nok 23 - rejects escaped RegExp identifier\n  ---\n  duration_ms: 252.012917\n  type: 'test'\n  ...\n# Subtest: rejects escaped RegExp static member\nok 24 - rejects escaped RegExp static member\n  ---\n  duration_ms: 256.891615\n  type: 'test'\n  ...\n# Subtest: accepts safe ES5 positive control\nok 25 - accepts safe ES5 positive control\n  ---\n  duration_ms: 282.110938\n  type: 'test'\n  ...\n# Subtest: accepts webpack identifier\nok 26 - accepts webpack identifier\n  ---\n  duration_ms: 270.037812\n  type: 'test'\n  ...\n# Subtest: accepts webpack dot member\nok 27 - accepts webpack dot member\n  ---\n  duration_ms: 268.943281\n  type: 'test'\n  ...\n# Subtest: accepts webpack literal property and bracket member\nok 28 - accepts webpack literal property and bracket member\n  ---\n  duration_ms: 278.001302\n  type: 'test'\n  ...\n# Subtest: accepts similar identifiers remain allowed\nok 29 - accepts similar identifiers remain allowed\n  ---\n  duration_ms: 258.148281\n  type: 'test'\n  ...\n# Subtest: accepts ordinary strings values and comments remain allowed\nok 30 - accepts ordinary strings values and comments remain allowed\n  ---\n  duration_ms: 274.385833\n  type: 'test'\n  ...\n# Subtest: multiple clean inputs preserve ordered CLI JSON rows\nok 31 - multiple clean inputs preserve ordered CLI JSON rows\n  ---\n  duration_ms: 275.455781\n  type: 'test'\n  ...\n# Subtest: mixed inputs fail while retaining every ordered CLI JSON row\nok 32 - mixed inputs fail while retaining every ordered CLI JSON row\n  ---\n  duration_ms: 270.392396\n  type: 'test'\n  ...\n# Subtest: malformed JavaScript fails closed\nok 33 - malformed JavaScript fails closed\n  ---\n  duration_ms: 266.475\n  type: 'test'\n  ...\n# Subtest: non ES5 syntax fails closed\nok 34 - non ES5 syntax fails closed\n  ---\n  duration_ms: 257.954062\n  type: 'test'\n  ...\n# Subtest: empty input list fails closed\nok 35 - empty input list fails closed\n  ---\n  duration_ms: 255.699271\n  type: 'test'\n  ...\n# Subtest: missing input file fails closed\nok 36 - missing input file fails closed\n  ---\n  duration_ms: 265.784791\n  type: 'test'\n  ...\n1..36\n# tests 36\n# suites 0\n# pass 36\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 10184.867496\n",
+      "stdout_sha256": "65ea4c2df6f2cf14ae6dc7e7430f219b2999e99f5662ee2b701a8e8fdd84e3ab"
+    },
+    "compatibility": {
+      "command": "node --test --test-reporter=tap tests/liteRegexpCompatibility.test.mjs",
+      "exit_code": 0,
+      "counts": {
+        "tests": 7,
+        "suites": 0,
+        "pass": 7,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0
+      },
+      "stdout": "TAP version 13\n# Subtest: selected watch source is parseable without regexp literal syntax rejected by exact SDK\nok 1 - selected watch source is parseable without regexp literal syntax rejected by exact SDK\n  ---\n  duration_ms: 149.421875\n  type: 'test'\n  ...\n# Subtest: wire JSON stays byte-identical to original regexp encoder over all UTF-16 units\nok 2 - wire JSON stays byte-identical to original regexp encoder over all UTF-16 units\n  ---\n  duration_ms: 170.824948\n  type: 'test'\n  ...\n# Subtest: transfer ID acceptance matches original protocol across length and character edges\nok 3 - transfer ID acceptance matches original protocol across length and character edges\n  ---\n  duration_ms: 16.248229\n  type: 'test'\n  ...\n# Subtest: date/time acceptance and canonical output are unchanged against source baseline\nok 4 - date/time acceptance and canonical output are unchanged against source baseline\n  ---\n  duration_ms: 73.271771\n  type: 'test'\n  ...\n# Subtest: new bounded validators keep original regexp string-domain behavior\nok 5 - new bounded validators keep original regexp string-domain behavior\n  ---\n  duration_ms: 73.071093\n  type: 'test'\n  ...\n# Subtest: pickup-code validation retains all six-digit accept/reject cases\nok 6 - pickup-code validation retains all six-digit accept/reject cases\n  ---\n  duration_ms: 2.425364\n  type: 'test'\n  ...\n# Subtest: error brief replacement and fixed-length hex preserve original behavior\nok 7 - error brief replacement and fixed-length hex preserve original behavior\n  ---\n  duration_ms: 9.41427\n  type: 'test'\n  ...\n1..7\n# tests 7\n# suites 0\n# pass 7\n# fail 0\n# cancelled 0\n# skipped 0\n# todo 0\n# duration_ms 978.571302\n",
+      "stdout_sha256": "33f10980ac0f6ec2fa7169cddd064ee99c832dd4656c4ad50c71a8923b8e8ad3"
+    }
+  },
+  "test_totals": {
+    "tests": 43,
+    "pass": 43,
+    "fail": 0,
+    "skipped": 0
+  },
+  "whole_240_suite": "Historical/parent claim only; not rerun by this bounded reviewer.",
+  "probes": {
+    "count": 49,
+    "pass": 49,
+    "fail": 0,
+    "checker_cli": {
+      "count": 21,
+      "pass": 21,
+      "fail": 0,
+      "method": "Actual node checker CLI reads each supplied JavaScript source from /proc/self/fd/0; no persistent probe file. Results observed in terminal output.",
+      "rows": [
+        {
+          "name": "alias RegExp",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "static RegExp",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "escaped require identifier",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "escaped require literal",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "ES5 getter RegExp",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "ES5 setter require",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "deep nested reference",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "function declaration require",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "dead branch literal",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "ES5 label RegExp conservative",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "delete static member",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "keyword key safe",
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "passed": true
+        },
+        {
+          "name": "string values safe",
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "passed": true
+        },
+        {
+          "name": "webpack safe",
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "passed": true
+        },
+        {
+          "name": "similar safe",
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "passed": true
+        },
+        {
+          "name": "dynamic concatenation out of scope",
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "passed": true
+        },
+        {
+          "name": "dynamic variable out of scope",
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "passed": true
+        },
+        {
+          "name": "ES6 getter parse failure",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "non ES5 arrow failure",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "malformed input",
+          "expected_exit": 1,
+          "actual_exit": 1,
+          "passed": true
+        },
+        {
+          "name": "empty JS grammar valid",
+          "expected_exit": 0,
+          "actual_exit": 0,
+          "passed": true
+        }
+      ]
+    },
+    "format": {
+      "count": 10,
+      "pass": 10,
+      "fail": 0,
+      "method": "Exact runpy-loaded app_files/unpack_signed/verify_sign.verify with in-memory unsigned format fixtures. No certificate/private key read. Valid unsigned table proves parsing only, not signature validity.",
+      "rows": [
+        {
+          "name": "APP safe bytes",
+          "expected": "accepted",
+          "actual": "accepted",
+          "passed": true
+        },
+        {
+          "name": "APP duplicate inner entry",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "APP absent HAP",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "APP multiple HAP",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "file table valid unsigned fixture",
+          "expected": "accepted",
+          "actual": "accepted",
+          "passed": true
+        },
+        {
+          "name": "file table duplicate key",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "file table traversal path",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "file table invalid basename",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "sign verifier malformed zip",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "sign verifier truncated signHead",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        }
+      ]
+    },
+    "final_gate_control_flow": {
+      "count": 18,
+      "pass": 18,
+      "fail": 0,
+      "method": "Actual final_gate.verify with synthetic resource bytes and stubbed CMS/profile/chain/native responses; actual checker CLI executes. Negative mutant was asserted to differ at exactly raw byte 64. All 18 returned expected outcomes in real execution.",
+      "scope": "Synthetic control-flow only; NOT candidate signing/crypto/native SDK/runtime evidence.",
+      "rows": [
+        {
+          "name": "valid flow with stubbed identity and native parser",
+          "expected": "accepted",
+          "actual": "accepted",
+          "passed": true
+        },
+        {
+          "name": "APP signed byte mismatch",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "resource set changed",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "unexpected signer config mutation",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "manifest version zero",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "gzip decoded private key marker",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "non-JS private marker",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "strict page boundary 49152",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "strict page boundary 49151 accepted",
+          "expected": "accepted",
+          "actual": "accepted",
+          "passed": true
+        },
+        {
+          "name": "gzip strict decoded boundary 49152",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "alias reaches real AST rejection",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "ES6 reaches real AST rejection",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "SDK hash mismatch",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "native nonzero rejected",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "one-byte accepted mutant fails closed",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "wrong negative failure fails closed",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "chain rejects before parsing",
+          "expected": "rejected",
+          "actual": "rejected",
+          "passed": true
+        },
+        {
+          "name": "optional SDK absence explicitly visible",
+          "expected": "accepted",
+          "actual": "accepted",
+          "passed": true
+        }
+      ]
+    }
+  },
+  "approved_hashes": {
+    "qa/install34/check_signed_ast.cjs": {
+      "bytes": 1589,
+      "sha256": "833874eb98f1cacc982c0aa33f66f9607924e3f2b15f54771a88d6f36a447a86",
+      "matches_pinned_head": true
+    },
+    "qa/install34/final_gate.py": {
+      "bytes": 6881,
+      "sha256": "32c26d7f00d333314791fccf221f13546ab10ab9238bec742429a8ee5b7c1307",
+      "matches_pinned_head": true
+    },
+    "tests/check_signed_ast_static_refs.test.mjs": {
+      "bytes": 6041,
+      "sha256": "66d4ed08b92e2deb1b342c989f028e95eff4aa1cf15e75f07273b16b06f62100",
+      "matches_pinned_head": true
+    },
+    ".github/workflows/wearengine.yml": {
+      "bytes": 3437,
+      "sha256": "cebbc3dbc070c7119ec6e1b2d4f087e2de1c0015c1e5e5d5430120fc1dcac7d1",
+      "matches_pinned_head": true
+    },
+    "qa/verify_final_artifacts.py": {
+      "bytes": 6747,
+      "sha256": "b34d201a3d86e663f4bee1bae6318042116d0d0267ccf7bac687c2ff4c8ba259",
+      "matches_pinned_head": true
+    },
+    "tools/sign/verify_sign.py": {
+      "bytes": 5329,
+      "sha256": "aaa1275b6512bfcf333d67a9eb5a9b5f7a27631039eb3dfa3e20d6b143697c29",
+      "matches_pinned_head": true
+    },
+    "tools/sign/package.json": {
+      "bytes": 165,
+      "sha256": "45a4849d95c8b97fc2c1042e8f82019effdde7b09083df5e18d1e5d54535a959",
+      "matches_pinned_head": true
+    },
+    "tools/sign/package-lock.json": {
+      "bytes": 9426,
+      "sha256": "a05a96207db0cf075ddf995f032996feef9822b3c4c8931993162fb955a68377",
+      "matches_pinned_head": true
+    }
+  },
+  "reviewed_input_hashes": {
+    "qa/install34/check_signed_ast.cjs": {
+      "bytes": 1589,
+      "sha256": "833874eb98f1cacc982c0aa33f66f9607924e3f2b15f54771a88d6f36a447a86",
+      "matches_pinned_head": true
+    },
+    "qa/install34/final_gate.py": {
+      "bytes": 6881,
+      "sha256": "32c26d7f00d333314791fccf221f13546ab10ab9238bec742429a8ee5b7c1307",
+      "matches_pinned_head": true
+    },
+    "tests/check_signed_ast_static_refs.test.mjs": {
+      "bytes": 6041,
+      "sha256": "66d4ed08b92e2deb1b342c989f028e95eff4aa1cf15e75f07273b16b06f62100",
+      "matches_pinned_head": true
+    },
+    ".github/workflows/wearengine.yml": {
+      "bytes": 3437,
+      "sha256": "cebbc3dbc070c7119ec6e1b2d4f087e2de1c0015c1e5e5d5430120fc1dcac7d1",
+      "matches_pinned_head": true
+    },
+    "qa/verify_final_artifacts.py": {
+      "bytes": 6747,
+      "sha256": "b34d201a3d86e663f4bee1bae6318042116d0d0267ccf7bac687c2ff4c8ba259",
+      "matches_pinned_head": true
+    },
+    "tools/sign/verify_sign.py": {
+      "bytes": 5329,
+      "sha256": "aaa1275b6512bfcf333d67a9eb5a9b5f7a27631039eb3dfa3e20d6b143697c29",
+      "matches_pinned_head": true
+    },
+    "qa/install34/CANDIDATE.md": {
+      "bytes": 2215,
+      "sha256": "16b05ec06634f5e5536f3b05d6e465baade83d14733a625a0399b9da6088af46",
+      "matches_pinned_head": true
+    },
+    "qa/install34/README.md": {
+      "bytes": 2815,
+      "sha256": "2e772b6b303bed4c968d155dc1dedba6cf17910e048e847d1322200d18c00582",
+      "matches_pinned_head": true
+    },
+    "qa/install34/REVIEW-RECORD.md": {
+      "bytes": 2206,
+      "sha256": "92a1cafdf949b81fd00078d9c2ad51eedd5d27701028be2a863bf7d64faa51de",
+      "matches_pinned_head": true
+    },
+    "entry/src/main/config.json": {
+      "bytes": 648,
+      "sha256": "3c909c2ff30fd84f9def68099b0622496e5e0157a47d70e0b7fa07b88db5010c",
+      "matches_pinned_head": true
+    },
+    "tools/sign/package.json": {
+      "bytes": 165,
+      "sha256": "45a4849d95c8b97fc2c1042e8f82019effdde7b09083df5e18d1e5d54535a959",
+      "matches_pinned_head": true
+    },
+    "tools/sign/package-lock.json": {
+      "bytes": 9426,
+      "sha256": "a05a96207db0cf075ddf995f032996feef9822b3c4c8931993162fb955a68377",
+      "matches_pinned_head": true
+    },
+    "tools/sign/node_modules/acorn/dist/acorn.js": {
+      "bytes": 246643,
+      "sha256": "b95392d79457d0357555c5ed3e56302d074b92dff119bcf3b44179500b10e9df"
+    },
+    "qa/install34/evidence/package-comparison.json": {
+      "bytes": 33232,
+      "sha256": "893d828df7497e051e60492a480681c6fee251af44abb6542f6ff2b1d4af9871",
+      "matches_pinned_head": true
+    },
+    "qa/install34/evidence/checker-fix-result.json": {
+      "bytes": 8421,
+      "sha256": "3a5a380e521cb2dcd93835430820f6c0259592b4f2292b1704c4f126a29c218d",
+      "matches_pinned_head": true
+    }
+  },
+  "immutable_original": {
+    "path": "qa/install34/evidence/checker-fix-result.json",
+    "passed_before": false,
+    "passed_after": false,
+    "sha256_before": "3a5a380e521cb2dcd93835430820f6c0259592b4f2292b1704c4f126a29c218d",
+    "sha256_after": "3a5a380e521cb2dcd93835430820f6c0259592b4f2292b1704c4f126a29c218d",
+    "unchanged": true,
+    "not_promoted_to_pass": true
+  },
+  "scope_checks": {
+    "head_and_branch_pinned": true,
+    "primary_inputs_match_pinned_head": true,
+    "protected_worktree_diff_bytes": 0,
+    "protected_index_diff_bytes": 0,
+    "whole_worktree_status_used_for_approval": false,
+    "only_repository_write": "qa/install34/evidence/gate-rereview-standards.json",
+    "existing_evidence_overwritten": false,
+    "cert_or_private_key_files_read": false,
+    "products_branches_workflows_modified": false,
+    "browser_device_or_network_installation_run": false
+  },
+  "issues_encountered": [
+    {
+      "type": "environment",
+      "detail": "Local Node 26 rejects --experimental-default-type=module; the attempted optional compatibility command did not execute. Reran without the obsolete local flag: 7/7 .mjs tests passed. CI retains Node 22; no workflow edited."
+    },
+    {
+      "type": "observer bug",
+      "detail": "First control-flow probe harness stopped formatting an empty AssertionError from deliberate manifest-version-zero rejection (IndexError). Fixed only in-memory observer and reran all 18 probes: 18/18 passed."
+    },
+    {
+      "type": "evidence observer bug",
+      "detail": "First evidence assembly attempt assumed execute_code globals persist and hit NameError: flow not defined before any write. Rebuilt evidence self-contained from observed successful probes; reran CLI/compatibility tests. No existing file overwritten."
+    }
+  ],
+  "final_candidate_artifact_verification": "pending external exact-head CI readback; not performed by this reviewer",
+  "explicit_non_claims": [
+    "Actual candidate CMS/profile/chain verified",
+    "Actual fixed native SDK parser executed",
+    "Device installation succeeded",
+    "UI/rendering/heap/image release validated",
+    "Wear Engine E2E succeeded",
+    "Independent dual-axis release approved"
+  ]
+}

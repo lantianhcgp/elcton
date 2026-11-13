@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: selected watch source is parseable without regexp literal syntax rejected by exact SDK
+ok 1 - selected watch source is parseable without regexp literal syntax rejected by exact SDK
+  ---
+  duration_ms: 197.535313
+  type: 'test'
+  ...
+# Subtest: wire JSON stays byte-identical to original regexp encoder over all UTF-16 units
+ok 2 - wire JSON stays byte-identical to original regexp encoder over all UTF-16 units
+  ---
+  duration_ms: 224.205417
+  type: 'test'
+  ...
+# Subtest: transfer ID acceptance matches original protocol across length and character edges
+ok 3 - transfer ID acceptance matches original protocol across length and character edges
+  ---
+  duration_ms: 18.01276
+  type: 'test'
+  ...
+# Subtest: date/time acceptance and canonical output are unchanged against source baseline
+ok 4 - date/time acceptance and canonical output are unchanged against source baseline
+  ---
+  duration_ms: 88.478698
+  type: 'test'
+  ...
+# Subtest: new bounded validators keep original regexp string-domain behavior
+ok 5 - new bounded validators keep original regexp string-domain behavior
+  ---
+  duration_ms: 70.599844
+  type: 'test'
+  ...
+# Subtest: pickup-code validation retains all six-digit accept/reject cases
+ok 6 - pickup-code validation retains all six-digit accept/reject cases
+  ---
+  duration_ms: 2.578281
+  type: 'test'
+  ...
+# Subtest: error brief replacement and fixed-length hex preserve original behavior
+ok 7 - error brief replacement and fixed-length hex preserve original behavior
+  ---
+  duration_ms: 9.280209
+  type: 'test'
+  ...
+1..7
+# tests 7
+# suites 0
+# pass 7
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1192.617239

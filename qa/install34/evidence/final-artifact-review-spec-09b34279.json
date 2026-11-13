@@ -1,0 +1,422 @@
+{
+  "axis": "spec",
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "missing_requirements": [],
+  "suggestions": [
+    "仅按候选交付用户装机测试；FIT3 安装34、UI、真实 JS heap/图片释放、Wear Engine 往返与回执仍需用户验收，不宣称34根因或闭环。",
+    "实际最大 JS 为49062 B，仅余90 B；后续源码变化必须重跑原严格<49152 B门及同SDK七文件解析，不沿用本审查。",
+    "交付前仍需主链真实绿 gate-rereview.json；只运行经审的独占复制和旧WE归档流程。本审查未执行交付、归档、安装或前台设备操作。"
+  ],
+  "summary": "新精确制品的 spec 复审通过，仅批准交付用户安装测试。实际 GitHub run/jobs/artifact 身份、冻结输入、原profile签名与三证书链、完整载荷摘要及64偏移1B负向、28资源顺序和版本限定变更、7份实际签后JS的固定SDK哈希/exit0均核实。此前e62fe509的49305 B与缺失签后/native证明两个候选阻塞由09b34279的新真实证明关闭；旧红回执保持原passed=false，未升级、修改或用于冒充本轮绿。FIT3安装34/UI/heap/WE E2E未测。",
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "base_sha": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "app_sha256": "fd5867401fd7cad9f36fe766600015f64d403841c503ca1de41d1dc933d72713",
+  "review_input_sha256": "bc13d9f74619d04fda39cd9b29984db5a74e9815deee2d6a2ca546c3fe8a2216",
+  "reviewed_delta_sha256": "02e6c6c5ad2fd7283657f548061b6628a8ca7bb51b8ec9c05fd89588f16a08d5",
+  "reviewed_files": [
+    {
+      "path": "qa/install34/evidence/ci-exact-09b34279.json",
+      "bytes": 1223,
+      "sha256": "95b2141ab158d0026690a308cd9c3762dad55ece8a1cabededc605e479525498"
+    },
+    {
+      "path": "qa/install34/evidence/local-artifact-proof-09b34279.json",
+      "bytes": 11148,
+      "sha256": "beb375630a2cf40623610edeabde1785ce4eb1a6e5ef229fdfc80de7bf0aa45c"
+    },
+    {
+      "path": "qa/install34/evidence/final-gate-ci-09b34279.json",
+      "bytes": 9168,
+      "sha256": "d93d93cbb7b24c3095fe393d554e908768d9fa2ad20afa9dbc2c4f45da303fac"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-proposed.diff",
+      "bytes": 16871,
+      "sha256": "02e6c6c5ad2fd7283657f548061b6628a8ca7bb51b8ec9c05fd89588f16a08d5"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-proposed.json",
+      "bytes": 688,
+      "sha256": "48bbcb9338f0ed04d4c617164b83aab5d03f34e789ee935b9deac99e37f1e07b"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-commit-binding.json",
+      "bytes": 579,
+      "sha256": "51a6f34298a11641e1b6e46e0c2c09361a119aa1e703838588805d2572fc7063"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-review-standards.json",
+      "bytes": 3760,
+      "sha256": "1e206be96bc5f0ea8af0b3b8a6115f00e1bc9ed3306493b791df202998072e16"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-review-spec.json",
+      "bytes": 10550,
+      "sha256": "1455d86a072cd6857fc0ec90029101ccb4b2014092016b02b6ee403b47598c57"
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview-standards.json",
+      "bytes": 29904,
+      "sha256": "9f95f72df75d0539af6a79b5528dd86f768bb766027013b636f1d34f549e7819"
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview-spec.json",
+      "bytes": 21434,
+      "sha256": "cf17d9207622f1275ca37dda59ead6b4f3d51d3c4b474f8927a60202ddfd14c1"
+    },
+    {
+      "path": "qa/install34/evidence/checker-fix-result.json",
+      "bytes": 8421,
+      "sha256": "3a5a380e521cb2dcd93835430820f6c0259592b4f2292b1704c4f126a29c218d"
+    },
+    {
+      "path": "qa/install34/evidence/size-fix-full240.tap",
+      "bytes": 57297,
+      "sha256": "f4e3ae91f542eb582d19bc4411ee00dd6a8788aee7e7a2d2e6b461c8515dbf44"
+    },
+    {
+      "path": "qa/install34/evidence/ci-exact-09b34279.log",
+      "bytes": 312672,
+      "sha256": "edac475aa3f52a6d1c883351a63a197d1c748ed7455446fc6a56bac1d39b6c02"
+    },
+    {
+      "path": "qa/install34/evidence/final-review-input-09b34279.json",
+      "bytes": 3373,
+      "sha256": "bc13d9f74619d04fda39cd9b29984db5a74e9815deee2d6a2ca546c3fe8a2216"
+    },
+    {
+      "path": "qa/install34/evidence/collector-worktree-first-failure.json",
+      "bytes": 766,
+      "sha256": "b793e0a10839b76916e40029268359215f6a6a777298bf44f6d6d3a88c45647d"
+    },
+    {
+      "path": "qa/install34/collect_ci_worktree.py",
+      "bytes": 1144,
+      "sha256": "34243c566e1b4230e4eb099447476f29573fb7375047cd90331f4e15f6a5b5e3"
+    },
+    {
+      "path": "qa/install34/deliver_hap.py",
+      "bytes": 3089,
+      "sha256": "9d61015e2f1bd5813f08c4642844676414b3729d5c4faab5a4a49b2cd12004dc"
+    },
+    {
+      "path": "qa/install34/evidence/final-review-supplement-09b34279.json",
+      "bytes": 1096,
+      "sha256": "5dcadb06d44473d13efc6ee9bbc3090677d07de645cc4f7f1ad427ca157933e0"
+    },
+    {
+      "path": "qa/install34/evidence/retained-boundaries-e62fe50.json",
+      "bytes": 966,
+      "sha256": "df8beb7cfc8b65aaa1e14e90f63fe901a59f8bbfa75fdea74a96885ca08d593d"
+    },
+    {
+      "path": "qa/install34/evidence/package-comparison.json",
+      "bytes": 33232,
+      "sha256": "893d828df7497e051e60492a480681c6fee251af44abb6542f6ff2b1d4af9871"
+    },
+    {
+      "path": "qa/install34/collect_ci.py",
+      "bytes": 5737,
+      "sha256": "8f4a202314c031bab95bbfebcbeb5b60241d018e8ff71cd61afcba3ed1c24fd0"
+    },
+    {
+      "path": "qa/install34/verify_download.py",
+      "bytes": 5199,
+      "sha256": "bc6ca3220607be0a44e6651ceb4617b9ba36c19f40a4200900a129ceba916db9"
+    },
+    {
+      "path": "qa/install34/final_gate.py",
+      "bytes": 6881,
+      "sha256": "32c26d7f00d333314791fccf221f13546ab10ab9238bec742429a8ee5b7c1307"
+    },
+    {
+      "path": "qa/install34/check_signed_ast.cjs",
+      "bytes": 1589,
+      "sha256": "833874eb98f1cacc982c0aa33f66f9607924e3f2b15f54771a88d6f36a447a86"
+    },
+    {
+      "path": "qa/verify_final_artifacts.py",
+      "bytes": 6747,
+      "sha256": "b34d201a3d86e663f4bee1bae6318042116d0d0267ccf7bac687c2ff4c8ba259"
+    },
+    {
+      "path": "tools/sign/verify_sign.py",
+      "bytes": 5329,
+      "sha256": "aaa1275b6512bfcf333d67a9eb5a9b5f7a27631039eb3dfa3e20d6b143697c29"
+    },
+    {
+      "path": ".github/workflows/wearengine.yml",
+      "bytes": 3437,
+      "sha256": "cebbc3dbc070c7119ec6e1b2d4f087e2de1c0015c1e5e5d5430120fc1dcac7d1"
+    },
+    {
+      "path": ".github/workflows/build.yml",
+      "bytes": 4090,
+      "sha256": "f97aa1921b79a0f6cfb29ca07d94a7ca78a18a890c470e0c9f882c106d58657a"
+    },
+    {
+      "path": "entry/src/main/config.json",
+      "bytes": 648,
+      "sha256": "3c909c2ff30fd84f9def68099b0622496e5e0157a47d70e0b7fa07b88db5010c"
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearProtocol.js",
+      "bytes": 5846,
+      "sha256": "d2135b5e9cb3a71599ed300c4ccc9ac03d86d7b3e1d8266e0df71475301905b1"
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearChannel.js",
+      "bytes": 2875,
+      "sha256": "61418c516766974d9a325bdcf57ed28298e1964e4ed1f74b954485038325751f"
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearReceiver.js",
+      "bytes": 9678,
+      "sha256": "36eb4eec71f3639e6ff7474060d4810ade11e00eec9f0a36c691d1f7f955daf5"
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearExporter.js",
+      "bytes": 3877,
+      "sha256": "d76a0e27496162569367a9cc2c86e99d8dfa1d7b3fd85be22efc713cdce1a952"
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearJournal.js",
+      "bytes": 5080,
+      "sha256": "3feae112cf9dac7ce9e1bfcdd07738b250af8a9e8dea53ab41e09c56b2639098"
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/pages/code/code.js",
+      "bytes": 4637,
+      "sha256": "f7f376bad8e3b20f14144ab1af150f3f341e43f2685a45be102bb0b1c1032fa9"
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/pages/sync/sync.js",
+      "bytes": 31555,
+      "sha256": "88d153224078de0d0deab72f1a70d6a72edcb4de23e73e0db7b4e8ce8a2df337"
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 11489,
+      "sha256": "ab87a592f03027711e4aed6a2804aef51854242bf3cf4d2a32b8d6dbcc86ada9"
+    },
+    {
+      "path": "tools/sign/sign-app-to-hap.js",
+      "bytes": 11613,
+      "sha256": "562b510c2feb483b837c16160742d443c052fbee6018babeca6a7f25ee8740be"
+    },
+    {
+      "path": "scripts/compact_lite_app.mjs",
+      "bytes": 1722,
+      "sha256": "76d4d3fd3cd4599090fa0db86c4af9f3f834f7cfe63bdfbebf4eaf003eb2b859"
+    },
+    {
+      "path": "scripts/verify_wear_bundle.py",
+      "bytes": 1684,
+      "sha256": "aaafbc2532a96daac46aff64c1a12c42dfc6f349309a5bf240d2aebb81191bea"
+    },
+    {
+      "path": "certs/elcton.p7b",
+      "bytes": 4205,
+      "sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e"
+    },
+    {
+      "path": "qa/install34/.artifact-cache/install34-ci-43423716561/dist/elcton-wearengine-probe.hap",
+      "bytes": 845153,
+      "sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0"
+    },
+    {
+      "path": "qa/install34/.artifact-cache/install34-ci-43423716561/dist/elcton-default-unsigned.app",
+      "bytes": 217171,
+      "sha256": "fd5867401fd7cad9f36fe766600015f64d403841c503ca1de41d1dc933d72713"
+    },
+    {
+      "path": "qa/install34/.artifact-cache/install34-ci-43423716561/artifact.zip",
+      "bytes": 437536,
+      "sha256": "9df667809476be743e73798b0df4b98f30d3d6cfbd05b16cb8f482db2771f5a1"
+    },
+    {
+      "path": "qa/install34/.artifact-cache/install34-ci-43423716561/dist/source-sha.txt",
+      "bytes": 41,
+      "sha256": "f0e15cfe7f7a124bc11bed90006e22f0e90269a5e79df3672a1ca8e01de49489"
+    },
+    {
+      "path": "qa/install34/.artifact-cache/install34-ci-43423716561/dist/install34-final-gate.json",
+      "bytes": 9168,
+      "sha256": "d93d93cbb7b24c3095fe393d554e908768d9fa2ad20afa9dbc2c4f45da303fac"
+    },
+    {
+      "path": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/简报-34排障.md",
+      "bytes": 3895,
+      "sha256": "e14fcffd77f58beb3aedcfa5c661b8d4ca4a8b4013220be22c0f8fd35a96a4df"
+    }
+  ],
+  "candidate_artifact_approved": true,
+  "approval_scope": "Exact frozen source and HAP: candidate artifact for user install test only. Not device compatibility, error34 causation, completed delivery, or final release approval.",
+  "ci_verification": {
+    "run_id": 43423716561,
+    "run_url": "https://github.com/lantianhcgp/elcton/actions/runs/43423716561",
+    "head_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+    "workflow": ".github/workflows/wearengine.yml",
+    "status": "completed",
+    "conclusion": "success",
+    "remote_run_readback": true,
+    "remote_jobs_readback": true,
+    "remote_artifact_readback": true,
+    "jobs_total_count": 1,
+    "build_job_id": 131879739593,
+    "build_sign_native_upload_steps": "actual success, none skipped",
+    "test_count": 240,
+    "test_pass": 240,
+    "test_fail": 0,
+    "test_skipped": 0,
+    "artifact_id": 14035925364,
+    "artifact_name": "wearengine-watch-09b34279a797c93db508d04226a6ebd8a30417bb",
+    "artifact_zip_digest": "sha256:9df667809476be743e73798b0df4b98f30d3d6cfbd05b16cb8f482db2771f5a1",
+    "local_zip_digest_matches_remote": true,
+    "artifact_source_sha_txt_verified": true
+  },
+  "local_actual_verification": {
+    "execution_exit_code": 0,
+    "method": "Read-only call of final_gate.verify(app,hap,sdk=None), compare returned crypto/resource/JS fields with exact CI gate; independent original resource-order/version-only comparison and retained source hashes. No verify_download CLI rerun or evidence overwrite.",
+    "cms_profile_exact": true,
+    "profile_sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e",
+    "same_three_certificates": {
+      "exact_same_certificates": true,
+      "issuer_signatures_valid": true,
+      "currently_valid": true,
+      "certificate_sha256": [
+        "0daa8a965b5153124f79d4b42378d0ac2f5536acb5fce1924f43723e97587180",
+        "8926257d1bd9ff653dcd84100d53cbbabbd39371fdda5126dfb37429e55c67be",
+        "df21a3c09f7954579305f85c64f80cad86f79853ee3a887c1dec95d218df3a37"
+      ],
+      "scope": "No online revocation/device trust claim"
+    },
+    "full_payload_digest_bound": true,
+    "negative_control": {
+      "offset": 64,
+      "changed_bytes": 1,
+      "rejected": true
+    },
+    "resource_count": 28,
+    "changed_resources": 15,
+    "unchanged_resources": 13,
+    "resource_set_and_order_preserved": true,
+    "non_JS_resources_unchanged_except_version_metadata": true,
+    "config_api_deviceConfig_pages_unchanged": true,
+    "version": {
+      "code": 1000117,
+      "name": "1.1.14"
+    },
+    "signed_nonconfig_bytes_equal_exact_APP": true,
+    "signed_AST_ES5_no_static_RegExp_require": true,
+    "maximum_decoded_JS_bytes": 49062,
+    "strict_limit_bytes": 49152,
+    "headroom_bytes": 90,
+    "native_sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+    "native_parse_location": "Actual exact CI runner. Seven recorded per-path hashes were independently rebound to locally unpacked signed payloads; local no-SDK mode was not labelled native.",
+    "native_js_files": [
+      {
+        "path": "assets/js/MainAbility/app.js",
+        "sha256": "9eb043f9dc348be5f41ddbf09ecbadad0c620a483b7a83c249038693d758d4d9",
+        "returncode": 0,
+        "stderr": ""
+      },
+      {
+        "path": "assets/js/MainAbility/pages/code/code.js",
+        "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e",
+        "returncode": 0,
+        "stderr": ""
+      },
+      {
+        "path": "assets/js/MainAbility/pages/detail/detail.js",
+        "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6",
+        "returncode": 0,
+        "stderr": ""
+      },
+      {
+        "path": "assets/js/MainAbility/pages/index/index.js",
+        "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23",
+        "returncode": 0,
+        "stderr": ""
+      },
+      {
+        "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+        "sha256": "b85ce319042d764a1b8162844043050dcc27b46d5b1ded8e3583c114f5191113",
+        "returncode": 0,
+        "stderr": ""
+      },
+      {
+        "path": "assets/js/MainAbility/pages/sync/sync.js",
+        "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5",
+        "returncode": 0,
+        "stderr": ""
+      },
+      {
+        "path": "assets/js/MainAbility/pages/week/week.js",
+        "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260",
+        "returncode": 0,
+        "stderr": ""
+      }
+    ]
+  },
+  "source_boundaries": {
+    "frozen_diff_identical_to_actual_commit": true,
+    "product_file_changed_in_final_size_commit": "entry/src/main/js/MainAbility/common/wearProtocol.js",
+    "error_type_message_validation_order_and_canonical_bytes_retained": true,
+    "disclosed_difference": "er helper adds an error stack frame; no byte-for-byte stack equivalence claim. Unary + applies only after exact digit-string validation.",
+    "phone_sync_timer_source_byte_equal_to_base": true,
+    "timer_guards_retained": "_closed/listening/generation/timer-slot guard; stop/onHide/onDestroy cleanup unchanged",
+    "signer_compactor_strict_budget_gate_public_profile_hashes_retained": true,
+    "no_test_gate_compactor_weakening_in_final_delta": true
+  },
+  "collector_and_delivery_review": {
+    "original_collector_sha256": "8f4a202314c031bab95bbfebcbeb5b60241d018e8ff71cd61afcba3ed1c24fd0",
+    "worktree_adapter_sha256": "34243c566e1b4230e4eb099447476f29573fb7375047cd90331f4e15f6a5b5e3",
+    "adapter_change": "Only cache-parent expression; exact original hash and unique reversible replacement, original validation/immutable child targets retained. Not executed in this review.",
+    "first_worktree_failure_preserved": true,
+    "delivery_script_sha256": "9d61015e2f1bd5813f08c4642844676414b3729d5c4faab5a4a49b2cd12004dc",
+    "delivery_requires_fresh_green_aggregate": true,
+    "planned_filename": "elcton-20261113-34fix-464738a7.hap",
+    "red_lines": "Exclusive xb copy + fsync + SHA verification before old moves; only root WE HAPs; archive collision preflight; mv --no-clobber with postmove SHA/readback; no delete/overwrite/install/device foreground; script not run.",
+    "delivery_or_archive_executed": false
+  },
+  "prior_blocker_closure": [
+    {
+      "id": "R-BUDGET-ACTUAL",
+      "old_receipt": "qa/install34/evidence/gate-rereview-spec.json",
+      "old_actual_bytes": 49305,
+      "old_source_sha": "e62fe509e111a1762f87761694f0c28f506448a7",
+      "status": "closed_for_new_candidate_only",
+      "fresh_proof": "Exact CI09b34279 plus independently unpacked signed JS maximum49062<49152; original budget/compactor unchanged."
+    },
+    {
+      "id": "R-CANDIDATE-FINAL-PROOF",
+      "old_receipt": "qa/install34/evidence/gate-rereview-spec.json",
+      "status": "closed_for_new_candidate_only",
+      "fresh_proof": "Actual new build/sign/native/upload success, downloaded digest/source receipt, local CMS/profile/chain/full digest/1B negative and all7 actual signed JS hashes to fixed SDK exit0."
+    }
+  ],
+  "historical_receipt_preserved": {
+    "path": "qa/install34/evidence/gate-rereview-spec.json",
+    "sha256": "cf17d9207622f1275ca37dda59ead6b4f3d51d3c4b474f8927a60202ddfd14c1",
+    "passed": false,
+    "candidate_artifact_approved": false,
+    "promoted_or_edited": false
+  },
+  "pending_user_validation": [
+    "FIT3 install error34 outcome",
+    "UI and interactions",
+    "real JerryScript heap and image-release stress",
+    "physical Wear Engine E2E/ACK and current phone/watch installed version-signature state"
+  ],
+  "device_installation_tested": false,
+  "no_device_action": true,
+  "no_private_key_read": true,
+  "tool_observations": [
+    "A read-only diff with an unavailable parent token failed; actual09b34279^ was resolved and exact frozen diff equality verified.",
+    "GitHub jobs API initially returned EOF; HTTP/1.1 read-only retry succeeded with actual build/sign/native/upload success. No evidence was altered."
+  ]
+}

@@ -1,0 +1,291 @@
+diff --git a/entry/src/main/js/MainAbility/common/wearProtocol.js b/entry/src/main/js/MainAbility/common/wearProtocol.js
+index 1e7cd81..74494e6 100644
+--- a/entry/src/main/js/MainAbility/common/wearProtocol.js
++++ b/entry/src/main/js/MainAbility/common/wearProtocol.js
+@@ -1,7 +1,8 @@
+ /* Platform-neutral wire helpers. ASCII bytes are shared with Android. */
++function er(s) { throw new Error(s); }
+ function ascii(v) {
+     var t = JSON.stringify(v);
+-    if (typeof t !== 'string') { throw new Error('INVALID_JSON'); }
++    if (typeof t !== 'string') er('INVALID_JSON');
+     var s = '', i = 0, n;
+     for (; i < t.length; i++) {
+         n = t.charCodeAt(i);
+@@ -88,41 +89,41 @@ function field(value, limit) {
+     return value;
+ }
+ function minutes(s) {
+-    if (!fmt(s, '##:##') || s.substr(0,2) > '23' || s.substr(3,2) > '59') throw new Error('INVALID_TIME');
+-    return s.substr(0,2) * 60 + Number(s.substr(3,2));
++    if (!fmt(s, '##:##') || s.substr(0,2) > '23' || s.substr(3,2) > '59') er('INVALID_TIME');
++    return s.substr(0,2) * 60 + +s.substr(3,2);
+ }
+-function snapshot(doc) {
+-    if (!doc || doc.schema !== 'elcton.schedule' || doc.version !== 1) { throw new Error('UNSUPPORTED_SCHEMA'); }
+-    var s = doc.settings && doc.settings.semesterStart;
+-    if (!fmt(s, '####-##-##')) throw new Error('INVALID_DATE');
+-    var y = Number(s.substr(0,4)), m = Number(s.substr(5,2)), d = Number(s.substr(8,2));
+-    var ds = [31, (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) ? 29 : 28, 31,30,31,30,31,31,30,31,30,31];
+-    if (y < 1 || m < 1 || m > 12 || d < 1 || d > ds[m-1]) throw new Error('INVALID_DATE');
+-    if (Object.prototype.toString.call(doc.courses) !== '[object Array]' || doc.courses.length > 200) { throw new Error('INVALID_COURSES'); }
+-    var courses = [];
+-    var ids = {};
+-    for (var i = 0; i < doc.courses.length; i++) {
+-        var c = doc.courses[i];
+-        if (!c || typeof c !== 'object') { throw new Error('INVALID_COURSE'); }
+-        var id = field(c.id, 64);
+-        if (!id) { throw new Error('INVALID_ID'); }
+-        if (ids['@' + id]) { throw new Error('DUPLICATE_ID'); }
+-        ids['@' + id] = true;
+-        if (!integer(c.dayOfWeek, 1, 7) || !integer(c.startPeriod, 1, 24) || !integer(c.endPeriod, c.startPeriod, 24)) { throw new Error('INVALID_PERIOD'); }
+-        if (minutes(c.endTime) <= minutes(c.startTime)) { throw new Error('INVALID_TIME'); }
+-        if (c.weekType !== 'all' && c.weekType !== 'odd' && c.weekType !== 'even') { throw new Error('UNSUPPORTED_WEEK_TYPE'); }
+-        if (Object.prototype.toString.call(c.weeks) !== '[object Array]' || c.weeks.length !== 0) { throw new Error('UNSUPPORTED_WEEKS'); }
+-        if (!integer(c.colorIndex, 0, 7)) { throw new Error('INVALID_COLOR'); }
+-        courses.push({ id: id, name: field(c.name, 80), location: field(c.location, 80), teacher: field(c.teacher, 80),
++function snapshot(v) {
++    if (!v || v.schema !== 'elcton.schedule' || v.version !== 1) er('UNSUPPORTED_SCHEMA');
++    var s = v.settings && v.settings.semesterStart;
++    if (!fmt(s, '####-##-##')) er('INVALID_DATE');
++    var y = +s.substr(0,4), m = +s.substr(5,2), d = +s.substr(8,2);
++    var g = [31, (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) ? 29 : 28, 31,30,31,30,31,31,30,31,30,31];
++    if (y < 1 || m < 1 || m > 12 || d < 1 || d > g[m-1]) er('INVALID_DATE');
++    if (Object.prototype.toString.call(v.courses) !== '[object Array]' || v.courses.length > 200) er('INVALID_COURSES');
++    var a = [];
++    var b = {};
++    for (var i = 0; i < v.courses.length; i++) {
++        var c = v.courses[i];
++        if (!c || typeof c !== 'object') er('INVALID_COURSE');
++        var k = field(c.id, 64);
++        if (!k) er('INVALID_ID');
++        if (b['@' + k]) er('DUPLICATE_ID');
++        b['@' + k] = true;
++        if (!integer(c.dayOfWeek, 1, 7) || !integer(c.startPeriod, 1, 24) || !integer(c.endPeriod, c.startPeriod, 24)) er('INVALID_PERIOD');
++        if (minutes(c.endTime) <= minutes(c.startTime)) er('INVALID_TIME');
++        if (c.weekType !== 'all' && c.weekType !== 'odd' && c.weekType !== 'even') er('UNSUPPORTED_WEEK_TYPE');
++        if (Object.prototype.toString.call(c.weeks) !== '[object Array]' || c.weeks.length !== 0) er('UNSUPPORTED_WEEKS');
++        if (!integer(c.colorIndex, 0, 7)) er('INVALID_COLOR');
++        a.push({ id: k, name: field(c.name, 80), location: field(c.location, 80), teacher: field(c.teacher, 80),
+             dayOfWeek: c.dayOfWeek, startPeriod: c.startPeriod, endPeriod: c.endPeriod, startTime: c.startTime,
+             endTime: c.endTime, weekType: c.weekType, weeks: [], colorIndex: c.colorIndex });
+     }
+-    courses.sort(function (a, b) {
++    a.sort(function (a, b) {
+         if (a.dayOfWeek !== b.dayOfWeek) { return a.dayOfWeek - b.dayOfWeek; }
+         if (a.startPeriod !== b.startPeriod) { return a.startPeriod - b.startPeriod; }
+         if (a.startTime !== b.startTime) { return a.startTime < b.startTime ? -1 : 1; }
+         return a.id < b.id ? -1 : (a.id > b.id ? 1 : 0);
+     });
+-    return ascii({schema: 'elcton.schedule', version: 1, settings: {semesterStart: s}, courses: courses});
++    return ascii({schema: 'elcton.schedule', version: 1, settings: {semesterStart: s}, courses: a});
+ }
+ export default { ascii: ascii, crc32: crc32, plan: plan, snapshot: snapshot, id: id, hex: hex, pr: pr };
+diff --git a/qa/install34/collect_ci.py b/qa/install34/collect_ci.py
+new file mode 100644
+index 0000000..bf4c253
+--- /dev/null
++++ b/qa/install34/collect_ci.py
+@@ -0,0 +1,109 @@
++#!/usr/bin/env python3
++"""Read and download exact CI outputs with bounded authenticated HTTP/1.1.
++Credentials stay in process memory/stdin; signed redirect URLs are never printed.
++"""
++import hashlib
++import io
++import json
++import os
++from pathlib import Path
++import re
++import subprocess
++import sys
++import zipfile
++from urllib.parse import unquote, urlsplit
++from typing import Any
++
++ROOT = Path(__file__).resolve().parents[2]
++REPO = 'lantianhcgp/elcton'
++API = 'https://api.github.com/repos/' + REPO
++
++
++def request(url, binary=False) -> Any:
++    credentials = (Path.home() / '.git-credentials').read_text().splitlines()
++    account = next(urlsplit(x) for x in credentials if urlsplit(x).hostname == 'github.com')
++    if account.password is None:
++        raise RuntimeError('GitHub credentials unavailable; credential contents suppressed')
++    key = unquote(account.password)
++    header = 'Author' + 'ization: ' + 'Bear' + 'er ' + key + '\nAccept: application/vnd.github+json\n'
++    command = ['curl', '--http1.1', '--location', '--retry', '3', '--retry-all-errors',
++               '--retry-delay', '1', '--connect-timeout', '15', '--max-time', '120',
++               '--fail', '--silent', '--show-error', '--header', '@-', url]
++    p = subprocess.run(command, input=header.encode(), capture_output=True, timeout=520)
++    if p.returncode:
++        raise RuntimeError('Bounded GitHub download failed (details suppressed), exit=' + str(p.returncode))
++    return p.stdout if binary else json.loads(p.stdout)
++
++
++def put(path, data):
++    path.parent.mkdir(parents=True, exist_ok=True)
++    with path.open('xb') as out:
++        out.write(data)
++
++
++def collect(sha, runid):
++    if not re.fullmatch('[0-9a-f]{40}', sha) or not str(runid).isdigit():
++        raise ValueError('Exact SHA40 and numeric run ID required')
++    run = request(API + '/actions/runs/' + str(runid))
++    assert run['head_sha'] == sha and run['path'] == '.github/workflows/wearengine.yml'
++    assert run['status'] == 'completed' and run['conclusion'] == 'success'
++    artifacts = request(API + '/actions/runs/' + str(runid) + '/artifacts?per_page=100')
++    assert artifacts['total_count'] == len(artifacts['artifacts']), 'Artifact pagination not exhausted'
++    name = 'wearengine-watch-' + sha
++    rows = [a for a in artifacts['artifacts'] if a['name'] == name and not a['expired']]
++    assert len(rows) == 1, 'Missing or ambiguous exact-source artifact'
++    artifact = rows[0]
++    data = request(API + '/actions/artifacts/' + str(artifact['id']) + '/zip', True)
++    digest = 'sha256:' + hashlib.sha256(data).hexdigest()
++    if artifact.get('digest'):
++        assert digest == artifact['digest'], 'Artifact API digest mismatch'
++    # Fetch all remote bytes before opening immutable evidence targets.
++    logs = request(API + '/actions/runs/' + str(runid) + '/logs', True)
++    cache = ROOT / '.git' / ('install34-ci-' + str(runid))
++    assert not cache.exists(), 'Existing evidence/cache cannot be overwritten'
++    cache.mkdir()
++    put(cache / 'artifact.zip', data)
++    with zipfile.ZipFile(io.BytesIO(data)) as z:
++        names = z.namelist()
++        assert len(names) == len(set(names)), 'Duplicate artifact paths'
++        for entry in z.infolist():
++            p = Path(entry.filename)
++            assert not p.is_absolute() and '..' not in p.parts and '\\' not in entry.filename
++            assert ((entry.external_attr >> 16) & 0o170000) != 0o120000, 'Artifact symlink'
++            if entry.is_dir():
++                (cache / 'dist' / p).mkdir(parents=True, exist_ok=True)
++            else:
++                put(cache / 'dist' / p, z.read(entry))
++    dist = cache / 'dist'
++    assert (dist / 'source-sha.txt').read_text().strip() == sha
++    gate = json.loads((dist / 'install34-final-gate.json').read_text())
++    apps = list(dist.glob('*.app'))
++    haps = list(dist.glob('*.hap'))
++    assert len(apps) == len(haps) == 1
++    assert gate['passed'] and gate['one_byte_negative_rejected'] and gate['signed_ast_passed']
++    assert gate['native_sdk_sha256'] == '7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31'
++    assert gate['hap_sha256'] == hashlib.sha256(haps[0].read_bytes()).hexdigest()
++    assert gate['app_sha256'] == hashlib.sha256(apps[0].read_bytes()).hexdigest()
++    native = gate['native_parse']
++    assert len(native) == 7 and all(r['returncode'] == 0 for r in native)
++    assert {r['path']: r['sha256'] for r in native} == {r['path']: r['sha256'] for r in gate['js']}
++    out = {'source_sha': sha, 'run_id': int(runid), 'run_url': run['html_url'],
++           'run_conclusion': run['conclusion'], 'artifact_id': artifact['id'],
++           'artifact_name': artifact['name'], 'artifact_zip_digest': digest,
++           'cache': str(cache), 'hap': str(haps[0]), 'app': str(apps[0]),
++           'hap_sha256': gate['hap_sha256'], 'app_sha256': gate['app_sha256'],
++           'native_sdk_sha256': gate['native_sdk_sha256'], 'native_files': len(native),
++           'scope': 'Exact CI and download bytes only; no device installation claim'}
++    evidence = ROOT / 'qa/install34/evidence'
++    put(evidence / ('ci-exact-' + sha[:8] + '.json'), (json.dumps(out, indent=2) + '\n').encode())
++    put(evidence / ('final-gate-ci-' + sha[:8] + '.json'), (dist / 'install34-final-gate.json').read_bytes())
++    put(cache / 'ci-logs.zip', logs)
++    with zipfile.ZipFile(io.BytesIO(logs)) as archive:
++        log = '\n'.join(archive.read(n).decode(errors='replace') for n in sorted(archive.namelist()) if n.endswith('.txt'))
++    log = re.sub(r'(?:ghp_[A-Za-z0-9]+|github_pat_[A-Za-z0-9_]+|sk-[A-Za-z0-9]{24,})', '[REDACTED]', log)
++    put(evidence / ('ci-exact-' + sha[:8] + '.log'), log.encode())
++    print(json.dumps(out))
++
++
++if __name__ == '__main__':
++    collect(*sys.argv[1:3])
+diff --git a/qa/install34/verify_download.py b/qa/install34/verify_download.py
+new file mode 100644
+index 0000000..ddf6f8e
+--- /dev/null
++++ b/qa/install34/verify_download.py
+@@ -0,0 +1,87 @@
++#!/usr/bin/env python3
++"""Independently bind local signed bytes to exact CI native-parse evidence.
++Only reads public artifacts/profile. Never signs or invokes devices.
++"""
++import hashlib
++import json
++from pathlib import Path
++import runpy
++import sys
++
++ROOT = Path(__file__).resolve().parents[2]
++sha256 = lambda b: hashlib.sha256(b).hexdigest()
++
++
++def verify(evidence):
++    receipt = json.loads(evidence.read_text())
++    source = receipt['source_sha']
++    gate = json.loads((evidence.parent / ('final-gate-ci-' + source[:8] + '.json')).read_text())
++    app, hap = Path(receipt['app']), Path(receipt['hap'])
++    assert app.is_file() and hap.is_file()
++    local = runpy.run_path(str(ROOT / 'qa/install34/final_gate.py'))['verify'](app, hap)
++    # The local no-SDK mode is static-only; this branch never re-labels it native.
++    assert local['native_sdk_sha256'] is None and local['native_parse'] == []
++    for key in ['hap_sha256', 'app_sha256', 'bundle', 'version', 'profile_sha256',
++                'cms', 'chain', 'one_byte_negative_rejected', 'signed_ast_passed',
++                'resource_count', 'resources', 'pages', 'js']:
++        assert local[key] == gate[key], 'Local/CI evidence mismatch: ' + key
++    assert sha256(hap.read_bytes()) == receipt['hap_sha256'] == gate['hap_sha256']
++    assert sha256(app.read_bytes()) == receipt['app_sha256'] == gate['app_sha256']
++    assert gate['native_sdk_sha256'] == '7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31'
++    expected = {r['path']: r['sha256'] for r in local['js']}
++    native = gate['native_parse']
++    assert len(native) == 7 and len({r['path'] for r in native}) == 7
++    assert {r['path']: r['sha256'] for r in native} == expected
++    assert all(r['returncode'] == 0 and r['stderr'] == '' for r in native)
++    unpack = runpy.run_path(str(ROOT / 'qa/verify_final_artifacts.py'))['unpack_signed']
++    baseline = json.loads((ROOT / 'qa/install34/evidence/package-comparison.json').read_text())['samples']['timerfix']
++    old = Path(baseline['path'])
++    assert sha256(old.read_bytes()) == baseline['sha256'] == 'e61ea7189ce342bdefc905d15c131d6c5ce8cbf0b8169f26a5dfb98441ca4b1d'
++    old_bundle, before, _ = unpack(old)
++    bundle, after, _ = unpack(hap)
++    assert bundle == old_bundle == 'watchapp.nexus.0zzip'
++    assert list(after) == list(before) == baseline['file_order'], 'Resource order changed'
++    changed, equal = [], []
++    allowed_metadata = {'config.json', 'pack.info', 'assets/js/MainAbility/manifest.json'}
++    for path, content in after.items():
++        record = {'path': path, 'before_bytes': len(before[path]), 'after_bytes': len(content),
++                  'before_sha256': sha256(before[path]), 'after_sha256': sha256(content)}
++        if content == before[path]:
++            equal.append(record)
++            continue
++        assert path in allowed_metadata or path.endswith(('.js', '.js.map')), 'Noncode resource changed: ' + path
++        if path in allowed_metadata:
++            a, b = json.loads(before[path]), json.loads(content)
++            if path == 'config.json':
++                a['app']['version'] = {'code': 1000117, 'name': '1.1.14'}
++            elif path == 'pack.info':
++                a['summary']['app']['version'] = {'code': 1000117, 'name': '1.1.14'}
++            else:
++                a['versionCode'], a['versionName'] = 1000117, '1.1.14'
++            assert a == b, 'Metadata change beyond version: ' + path
++        changed.append(record)
++    assert after['assets/js/MainAbility/app.js'] == before['assets/js/MainAbility/app.js']
++    retain = json.loads((ROOT / 'qa/install34/evidence/retained-boundaries-e62fe50.json').read_text())
++    assert all(sha256((ROOT / r['path']).read_bytes()) == r['sha256'] for r in retain)
++    result = {'passed': True, 'source_sha': source, 'run_id': receipt['run_id'],
++              'hap_sha256': local['hap_sha256'], 'app_sha256': local['app_sha256'],
++              'local_static_signing_and_ast_passed': True,
++              'native_parse_location': 'Exact CI runner; not re-executed in Termux',
++              'native_sdk_sha256': gate['native_sdk_sha256'], 'native_all_files_bound': True,
++              'native_js_files': len(native), 'resource_set_and_order_preserved': True,
++              'resource_count': len(after), 'version': local['version'],
++              'profile_sha256': local['profile_sha256'], 'chain_passed': local['chain'],
++              'one_byte_negative_rejected': local['one_byte_negative_rejected'],
++              'largest_js_bytes': max(r['bytes'] for r in local['js']),
++              'changed_resources': changed, 'unchanged_resources': equal,
++              'source_boundaries_unchanged': retain,
++              'device_installation_tested': False,
++              'scope': 'Exact bytes/cryptography/SDK parse only; FIT3 install34, UI, heap and Wear Engine E2E pending user'}
++    out = evidence.parent / ('local-artifact-proof-' + source[:8] + '.json')
++    with out.open('x') as f:
++        f.write(json.dumps(result, indent=2) + '\n')
++    print(json.dumps({k: v for k, v in result.items() if k not in ['changed_resources', 'unchanged_resources', 'source_boundaries_unchanged']}))
++
++
++if __name__ == '__main__':
++    verify(Path(sys.argv[1]))

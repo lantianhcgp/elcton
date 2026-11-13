@@ -1,0 +1,17 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "run_id": 43423716561,
+  "run_url": "https://github.com/lantianhcgp/elcton/actions/runs/43423716561",
+  "run_conclusion": "success",
+  "artifact_id": 14035925364,
+  "artifact_name": "wearengine-watch-09b34279a797c93db508d04226a6ebd8a30417bb",
+  "artifact_zip_digest": "sha256:9df667809476be743e73798b0df4b98f30d3d6cfbd05b16cb8f482db2771f5a1",
+  "cache": "/data/data/com.termux/files/home/elcton-wear-install34-20261113/qa/install34/.artifact-cache/install34-ci-43423716561",
+  "hap": "/data/data/com.termux/files/home/elcton-wear-install34-20261113/qa/install34/.artifact-cache/install34-ci-43423716561/dist/elcton-wearengine-probe.hap",
+  "app": "/data/data/com.termux/files/home/elcton-wear-install34-20261113/qa/install34/.artifact-cache/install34-ci-43423716561/dist/elcton-default-unsigned.app",
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "app_sha256": "fd5867401fd7cad9f36fe766600015f64d403841c503ca1de41d1dc933d72713",
+  "native_sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+  "native_files": 7,
+  "scope": "Exact CI and download bytes only; no device installation claim"
+}

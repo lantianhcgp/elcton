@@ -1,0 +1,109 @@
+{
+  "axis": "spec",
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "missing_requirements": [],
+  "suggestions": [
+    "所有 assert 门禁必须在普通 Python 模式执行；不要设置 PYTHONOPTIMIZE 或使用 python -O。现有 CI 为普通 python3，此建议不放宽任何谓词。",
+    "verify_download 的来源真实性边界是 collect_ci 从 GitHub 成功取得并独占保存的原始 receipt/gate；它不是任意手工 JSON 的远端真实性认证器。保留这些原件，后续批准须同时核 collect 与 local proof，不孤立引用 local passed。",
+    "新提交后以新的完整 SHA40 调用 collect_ci，不能复用 e62fe509 的失败 run 或源级估算；实际 CI、下载、独立密码学回读与 SDK 全文件证明完成前仍禁止制品/装机批准。"
+  ],
+  "summary": "本次 spec 轴仅批准冻结的实现进入新 CI：wearProtocol 的局部缩减保持公开错误类型/消息、检查次序及协议规范化字节；两份 host 工具把成功精确源码 CI、下载 APP/HAP 哈希、签后资源及原 SDK 七份解析结果串联，静态-only 结果不升级为 native。未发现此实现范围的规格阻塞。此 passed 不批准任何候选制品或 FIT3 安装；旧 spec 红回执及 49305 B 失败保持有效，新 CI 与签后实际证明仍必须取得。",
+  "approval_scope": "Pre-CI implementation only; source ready to run CI, not artifact delivery or installation approval",
+  "implementation_approved": true,
+  "candidate_artifact_approved": false,
+  "device_installation_approved": false,
+  "new_ci_required": true,
+  "new_ci_executed_in_this_review": false,
+  "verdict_rule": "passed == (security_concerns == [] and logic_errors == [] and missing_requirements == []); findings are scoped to the frozen implementation, not pending artifact acceptance",
+  "identity": {
+    "workspace": "/data/data/com.termux/files/home/elcton-wear-install34-20261113",
+    "branch": "fix/wearengine-install34-20261113",
+    "head": "e62fe509e111a1762f87761694f0c28f506448a7",
+    "originating_base": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+    "reviewed_diff_command": "git diff --cached --binary",
+    "reviewed_diff_path": "qa/install34/evidence/size-fix-proposed.diff",
+    "reviewed_diff_bytes": 16871,
+    "index_matches_frozen_diff": true,
+    "three_staged_files_match_worktree": true,
+    "new_candidate_commit": null
+  },
+  "reviewed_diff_sha256": "02e6c6c5ad2fd7283657f548061b6628a8ca7bb51b8ec9c05fd89588f16a08d5",
+  "reviewed_files": [
+    {"path":"entry/src/main/js/MainAbility/common/wearProtocol.js","sha256":"d2135b5e9cb3a71599ed300c4ccc9ac03d86d7b3e1d8266e0df71475301905b1","bytes":5846},
+    {"path":"qa/install34/collect_ci.py","sha256":"8f4a202314c031bab95bbfebcbeb5b60241d018e8ff71cd61afcba3ed1c24fd0","bytes":5737},
+    {"path":"qa/install34/verify_download.py","sha256":"bc6ca3220607be0a44e6651ceb4617b9ba36c19f40a4200900a129ceba916db9","bytes":5199},
+    {"path":"qa/install34/final_gate.py","sha256":"32c26d7f00d333314791fccf221f13546ab10ab9238bec742429a8ee5b7c1307","bytes":6881},
+    {"path":"qa/install34/check_signed_ast.cjs","sha256":"833874eb98f1cacc982c0aa33f66f9607924e3f2b15f54771a88d6f36a447a86","bytes":1589},
+    {"path":".github/workflows/wearengine.yml","sha256":"cebbc3dbc070c7119ec6e1b2d4f087e2de1c0015c1e5e5d5430120fc1dcac7d1","bytes":3437},
+    {"path":"qa/verify_final_artifacts.py","sha256":"b34d201a3d86e663f4bee1bae6318042116d0d0267ccf7bac687c2ff4c8ba259","bytes":6747},
+    {"path":"tools/sign/verify_sign.py","sha256":"aaa1275b6512bfcf333d67a9eb5a9b5f7a27631039eb3dfa3e20d6b143697c29","bytes":5329},
+    {"path":"scripts/compact_lite_app.mjs","sha256":"76d4d3fd3cd4599090fa0db86c4af9f3f834f7cfe63bdfbebf4eaf003eb2b859","bytes":1722},
+    {"path":"scripts/verify_wear_bundle.py","sha256":"aaafbc2532a96daac46aff64c1a12c42dfc6f349309a5bf240d2aebb81191bea","bytes":1684},
+    {"path":"tests/liteRegexpCompatibility.test.mjs","sha256":"5ed517b084cf04169cd576cd729744067a7fe0edd87b85014ae9da6cde4f7fa9","bytes":6505},
+    {"path":"qa/install34/CANDIDATE.md","sha256":"16b05ec06634f5e5536f3b05d6e465baade83d14733a625a0399b9da6088af46","bytes":2215},
+    {"path":"/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/简报-34排障.md","sha256":"e14fcffd77f58beb3aedcfa5c661b8d4ca4a8b4013220be22c0f8fd35a96a4df","bytes":3895},
+    {"path":"/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/34排障报告.md","sha256":"2bf55561e2bd37466b01787e6cfbf237c9708b6c49ec62255e964b83c04e6e64","bytes":7092},
+    {"path":"qa/install34/evidence/gate-rereview-spec.json","sha256":"cf17d9207622f1275ca37dda59ead6b4f3d51d3c4b474f8927a60202ddfd14c1","bytes":21434},
+    {"path":"qa/install34/evidence/size-fix-result.json","sha256":"ee1a10c69fba8339f05c4c3c19026e457171c562547e0a9f6f9806e911b61a11","bytes":8236},
+    {"path":"qa/install34/evidence/size-fix-proposed.json","sha256":"48bbcb9338f0ed04d4c617164b83aab5d03f34e789ee935b9deac99e37f1e07b","bytes":688},
+    {"path":"qa/install34/evidence/retained-boundaries-e62fe50.json","sha256":"df8beb7cfc8b65aaa1e14e90f63fe901a59f8bbfa75fdea74a96885ca08d593d","bytes":966}
+  ],
+  "requirements_verified": [
+    {
+      "requirement": "CANDIDATE L5 / 报告 L45,L49：仅行为等价缩减，不删检查、功能、页面、定时器修复，不放宽压缩或体积门",
+      "evidence": "完整 frozen diff 只改 wearProtocol 的 ascii 抛错、minutes 数值转换、snapshot 局部变量/转换/抛错，另新增两份 host 工具。cs/id/hex/pr/fmt/crc32/packet/plan/integer/field 十个函数块及 exports 与 HEAD 逐字节相同；retained-boundaries 七项当前 SHA 全匹配；既有 gate、workflow 等与旧 spec 所锁 SHA 相同。"
+    },
+    {
+      "requirement": "公开错误类型、消息、检查次序和规范化输出等价",
+      "evidence": "er(s) 总是抛 new Error(s)，消息与所有原 throw 位点相同；仅 stack 增加 er 帧，未声称 stack 字节等价。Number→一元+均在不变 fmt 验证的 primitive string 子串之后，正常内建下转换相同；日期/闰年、去重、200课帽、字段/时间检查、对象键和排序原顺序保持。未新增宿主 API 或表端依赖。"
+    },
+    {
+      "requirement": "实际成功 CI 必须精确绑定源 SHA 与唯一下载制品",
+      "evidence": "collect_ci L45-99：SHA40/数字 run ID 校验；API head_sha、workflow 路径、completed/success；总量未穷尽即拒绝；精确 SHA 制品名唯一且未过期；有 API digest 时核 archive SHA；source-sha.txt 精确相等；唯一 APP/HAP 哈希等于 gate。独占 cache/evidence 写入拒绝覆盖，ZIP 重复路径/绝对路径/.. /反斜杠/symlink 拒绝。鉴权头经 stdin 传 curl，不打印凭据或签名重定向地址。"
+    },
+    {
+      "requirement": "签后 exact bytes/同身份/版本/页面/非代码资源不变，全部 JS 绑定原 SDK",
+      "evidence": "verify_download L21-79 调用真实 final_gate.verify(app,hap) 的 no-SDK 静态模式，明确 assert SDK=null/native=[]；APP/HAP 当前 SHA 与 receipt/CI gate 三方一致，静态资源/js/pages/CMS/链/版本/profile/1B负向/AST 全等 CI。原 SDK SHA 固定，native 恰7个唯一路径，与当前 decoded JS 路径/SHA 完全相同，逐项 returncode=0 且 stderr空。timerfix HAP SHA 固定，完整文件顺序、仅版本 metadata 变化、其余仅 JS/map、app.js 字节不变；不把本地静态执行写成原生执行。"
+    },
+    {
+      "requirement": "CANDIDATE L9 / 简报 L28：原 p7b、CMS/profile/整包摘要/1B负向/严格预算/签后 AST/native 硬门",
+      "evidence": "既有 final_gate 及 verify_sign 全文已读：固定 profile SHA 29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e、bundle watchapp.nexus.0zzip、version1.1.14/code1000117；完整有界 signed.bin 解包、APP与HAP非config逐字节绑定、基线config与双页面表、完整CMS signer/profile摘要和三证书链、offset64 XOR1必须摘要拒绝、全部 decoded JS <49152、signed ES5/static RegExp/require AST。workflow 显式传原 SDK，成功 gate 后才 upload；本轮未改这些门。"
+    },
+    {
+      "requirement": "只批准实现；保留失败，真实签后/装机证明不得由估算或 Node 测试替代",
+      "evidence": "原 gate-rereview-spec passed=false 保持；本轮实际没有运行 CI、签名、下载 verifier 或装机。新 head 必须新 CI。size-fix-result 的 format-only 4555→4312 与49062/90B仅估算，本回执不把估算升级为预算通过；FIT3 34 因果、UI/heap/WE E2E 及安装状态仍未知。"
+    }
+  ],
+  "existing_test_evidence_readback": [
+    {"path":"qa/install34/evidence/size-fix-compatibility.tap","sha256":"736786b192f6dc26a4a90a48b33182e8983bbc03c32e9bb503eb3d6f6ae7dbdb","tests":7,"pass":7,"fail":0,"cancelled":0,"skipped":0,"todo":0},
+    {"path":"qa/install34/evidence/size-fix-full240.tap","sha256":"f4e3ae91f542eb582d19bc4411ee00dd6a8788aee7e7a2d2e6b461c8515dbf44","tests":240,"pass":240,"fail":0,"cancelled":0,"skipped":0,"todo":0}
+  ],
+  "executed_checks": [
+    "当前 HEAD/branch/base、完整 staged diff SHA/16871 B、frozen diff 字节相等、三个 staged/worktree SHA 相等",
+    "两个新 Python 文件 ast.parse 语法通过，无 import/脚本执行；十个不变函数块及 exports 与 HEAD 原字节相等",
+    "既有 gate/source 锁定 SHA 与旧 spec 一致，retained-boundaries 七项当前内容一致；两份已存在 TAP 全文读取后机械解析根 footer/hash，未重跑长套件"
+  ],
+  "preserved_prior_red": {
+    "path": "qa/install34/evidence/gate-rereview-spec.json",
+    "sha256": "cf17d9207622f1275ca37dda59ead6b4f3d51d3c4b474f8927a60202ddfd14c1",
+    "passed": false,
+    "ci_run": 43419821130,
+    "source_sha": "e62fe509e111a1762f87761694f0c28f506448a7",
+    "actual_phone_sync_bytes": 49305,
+    "budget_predicate": "decoded_bytes < 49152",
+    "candidate_final_proof": "not executed; signing/native/upload skipped in the failed run",
+    "interpretation": "旧候选实际失败不被本次实现审查绿覆盖；本次仅准许新的源增量进入全新 CI。"
+  },
+  "actions_scope": {
+    "source_edits": false,
+    "index_edits": false,
+    "old_evidence_edits": false,
+    "private_signing_material_read": false,
+    "network_or_ci_actions": false,
+    "device_or_browser_actions": false,
+    "other_project_operations": false,
+    "only_new_file": "qa/install34/evidence/size-fix-review-spec.json"
+  }
+}

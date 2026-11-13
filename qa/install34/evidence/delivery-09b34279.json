@@ -1,0 +1,18 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "run_id": 43423716561,
+  "hap": "/storage/emulated/0/haps/elcton-20261113-34fix-464738a7.hap",
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "hap_bytes": 845153,
+  "archived": [
+    {
+      "from": "/storage/emulated/0/haps/elcton-20261113-wearengine-timerfix.hap",
+      "to": "/storage/emulated/0/haps/旧包归档/elcton-20261113-wearengine-timerfix.hap",
+      "sha256": "e61ea7189ce342bdefc905d15c131d6c5ce8cbf0b8169f26a5dfb98441ca4b1d"
+    }
+  ],
+  "old_files_retained": true,
+  "no_overwrites": true,
+  "no_device_action": true,
+  "installation_pending_user": true
+}

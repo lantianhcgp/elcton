@@ -1,0 +1,208 @@
+{
+  "axis": "spec",
+  "source_axis": "Spec-axis independent re-review",
+  "passed": false,
+  "gate_implementation_approved": true,
+  "candidate_artifact_approved": false,
+  "summary": "静态门禁实现的 spec 复核通过，原 alias/static member 缺陷已修复；但精确 e62fe509 CI 的实际 phone-sync.js 为 49305 B，违反 <49152 B 硬门，签名/签后/native 步骤均跳过。故当前候选及交付完成状态不批准，不能把代码审查绿当作制品或安装绿。",
+  "verdict_rule": "passed == (security_concerns、logic_errors、missing_requirements 三数组均为空)。本回执 missing_requirements 非空，passed=false；gate_implementation_approved 只覆盖下列冻结代码与 CI 强制传 SDK 的调用方式。",
+  "security_concerns": [],
+  "logic_errors": [],
+  "missing_requirements": [
+    {
+      "id": "R-BUDGET-ACTUAL",
+      "requirement": "全部实际解码 JS 必须严格小于 49152 B；不改压缩策略或放宽门禁。",
+      "status": "failed",
+      "evidence": "CI run 43419821130，head e62fe509e111a1762f87761694f0c28f506448a7，Build actual Lite package 日志：format-only compaction 后 assets/js/MainAbility/pages/phone-sync/phone-sync.js=49305；scripts/verify_wear_bundle.py L18 抛 LITE_PAGE_BUDGET_EXCEEDED，真实 step exit=1。"
+    },
+    {
+      "id": "R-CANDIDATE-FINAL-PROOF",
+      "requirement": "精确 CI APP→同身份签后 HAP 全资源字节、CMS/profile/链/摘要/1B负向、全部 JS 同 SDK parse-only 的实际成功回执。",
+      "status": "not_executed",
+      "evidence": "精确源码 CI completed/failure；Sign and verify course application identity、Exact signed payload and native SDK compatibility gate、upload-artifact 均 skipped。本审查未取得候选签后 HAP 或 install34-final-gate.json；旧失败包自测与 SDK 初始诊断不能代替候选。"
+    }
+  ],
+  "hard_blockers": [
+    {
+      "id": "B1",
+      "kind": "actual_candidate_budget_failure",
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "actual_bytes": 49305,
+      "required_predicate": "decoded_bytes < 49152",
+      "ci_run": 43419821130,
+      "action_required": "在现行授权范围保留功能/布局/定时器修复/压缩与 mangle=false，修复实际编译体积并跑新精确源码 CI；不得只引用源级估算 49129。"
+    },
+    {
+      "id": "B2",
+      "kind": "missing_candidate_signed_and_sdk_execution",
+      "action_required": "新精确源码 CI 全过后回读签后 HAP、APP、source-sha 与门禁报告；核原 SDK SHA 和全部 7 个 JS 的逐路径 parse 结果，再申请制品批准。"
+    }
+  ],
+  "identity": {
+    "workspace": "/data/data/com.termux/files/home/elcton-wear-install34-20261113",
+    "branch": "fix/wearengine-install34-20261113",
+    "base": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+    "source": "e62fe509e111a1762f87761694f0c28f506448a7",
+    "diff_command": "git diff 9517f345e8d0e0995708b0a5d0b37b4cae8689ac...e62fe509e111a1762f87761694f0c28f506448a7",
+    "whole_diff_sha256": "624a6d24fd7ea2ee942953b294adf22b49ad86bb2546c19208f02e2c83638f20",
+    "whole_diff_bytes": 511087,
+    "whole_diff_fingerprint_scope": "完整 diff 仅作机械身份绑定；逐行复核范围为指定 checker/final-gate/CI、其调用依赖、测试和规格，不冒称审过全部产品 diff/原始证据。",
+    "snapshot_utc": "2026-11-13T11:49:01.889868+00:00",
+    "last_target_hash_check_utc": "2026-11-13T11:55:01.073753+00:00",
+    "target_hashes_unchanged": true,
+    "original_gate_rereview_json_exists_at_last_check": false,
+    "no_whole_worktree_status_approval": true
+  },
+  "approved_files": [
+    {"path":"qa/install34/check_signed_ast.cjs","sha256":"833874eb98f1cacc982c0aa33f66f9607924e3f2b15f54771a88d6f36a447a86","bytes":1589,"approval":"静态 ES5/RegExp/require 边界实现"},
+    {"path":"qa/install34/final_gate.py","sha256":"32c26d7f00d333314791fccf221f13546ab10ab9238bec742429a8ee5b7c1307","bytes":6881,"approval":"CI 明确传入精确 SDK 时的门禁实现；非候选制品执行批准"},
+    {"path":"tests/check_signed_ast_static_refs.test.mjs","sha256":"66d4ed08b92e2deb1b342c989f028e95eff4aa1cf15e75f07273b16b06f62100","bytes":6041,"approval":"36 项实际 CLI 测试"},
+    {"path":".github/workflows/wearengine.yml","sha256":"cebbc3dbc070c7119ec6e1b2d4f087e2de1c0015c1e5e5d5430120fc1dcac7d1","bytes":3437,"approval":"现行硬门 fail-closed 工作流实现；本次 run 失败，不是 CI 通过批准"},
+    {"path":"qa/verify_final_artifacts.py","sha256":"b34d201a3d86e663f4bee1bae6318042116d0d0267ccf7bac687c2ff4c8ba259","bytes":6747,"approval":"final_gate 实际复用的完整有界 signed.bin 解包；与 base 同哈希"},
+    {"path":"tools/sign/verify_sign.py","sha256":"aaa1275b6512bfcf333d67a9eb5a9b5f7a27631039eb3dfa3e20d6b143697c29","bytes":5329,"approval":"CMS/profile/完整分片摘要验证；真实旧 HAP 正负向通过；与 base 同哈希"}
+  ],
+  "spec_sources": [
+    {"path":"/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/简报-34排障.md","sha256":"e14fcffd77f58beb3aedcfa5c661b8d4ca4a8b4013220be22c0f8fd35a96a4df","bytes":3895,"relevant_lines":[4,13,21,28,31]},
+    {"path":"/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/34排障报告.md","sha256":"84b961aff00ed548646db5e97619e063e2a0f1152c7e58b908b93a52b0ee1d7c","bytes":5370,"relevant_lines":[8,13,15,24,26,35,36,38]},
+    {"path":"/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/续棒简报-34排障-402接力.md","sha256":"6d14a94fbbba32fa5822c376650c0033054879f0907aacc92291b5074c428ec9","bytes":1602,"relevant_lines":[5,7,8,9,13]},
+    {"path":"qa/install34/CANDIDATE.md","sha256":"16b05ec06634f5e5536f3b05d6e465baade83d14733a625a0399b9da6088af46","bytes":2215,"relevant_lines":[3,5,7,9,11]}
+  ],
+  "binding_dependencies": [
+    {"path":"qa/install34/evidence/package-comparison.json","sha256":"893d828df7497e051e60492a480681c6fee251af44abb6542f6ff2b1d4af9871","bytes":33232,"role":"锁定 timerfix 28 文件/双页面表/API/deviceConfig/CMS 三证书"},
+    {"path":"qa/hmlwsim-compat.patch","sha256":"c653c13e6bee99964211db5eac073dc15ffddba7e24390b4fe6aff0ece09627b","bytes":4010,"role":"已披露固定 QA 兼容补丁；未修改"},
+    {"path":"tools/sign/sign-app-to-hap.js","sha256":"562b510c2feb483b837c16160742d443c052fbee6018babeca6a7f25ee8740be","bytes":11613,"role":"只读审查签名器，未执行签名/未读取私钥"},
+    {"path":"certs/elcton.p7b","sha256":"29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e","role":"唯一公开 profile；不读其他 p7b"}
+  ],
+  "requirements_matched": [
+    {"id":"M-PAYLOAD","spec":"CANDIDATE.md L9：exact signed resource set、unchanged non-config bytes、only bundle rewrite by signer","implementation":"final_gate.py L25-31 APP 唯一 HAP、inner 重复 ZIP 拒绝；L55 三方完整文件集合；L59-66 config 只允许 APP bundle 改写与旧基线 version 更新；L75-80 所有非 config 逐字节相同，含地图、PNG/bin、rawfile、resources.index、pack.info。","verification":"app_files 3 项真实函数内存 ZIP fixture 与 9 项 final_gate 隔离逻辑 fixture：非 config 变化、两边同时多文件均拒绝。","status":"implemented; candidate actual proof pending"},
+    {"id":"M-PAGES","spec":"CANDIDATE.md L9：both page tables、exact signed resource set","implementation":"final_gate.py L68-73：manifest.pages == config.module.js[0].pages == 旧表；所有实际 .js 必须恰为 app.js + 六页，无缩页/隐藏多余 JS。配置全等保持唯一 Ability；manifest 自身与 APP 字节绑定。","verification":"实际旧 signed.bin 28 资源/7 JS；fixture 页面漏项拒绝。","status":"implemented"},
+    {"id":"M-CONFIG","spec":"报告 L26/CANDIDATE L5,L9：1.1.14/code1000117、原 API/deviceConfig 与身份","implementation":"final_gate.py L56-70：bundle 三方锁 watchapp.nexus.0zzip；源/APP/config 版本固定 1000117/1.1.14，manifest 双版本同值；旧 config 除 version 全等，故 compatible=40000010、target=60101024、deviceConfig={} 保持。","verification":"两侧配置同时改 target 的 fixture 仍被基线拒绝。","status":"implemented"},
+    {"id":"M-CRYPTO","spec":"CANDIDATE L9、简报 L28：原 p7b、full CMS chain、完整摘要、1B负向","implementation":"final_gate L51-53 固定公开 profile SHA；verify_sign L34-50 全块布局/嵌入 profile 字节；L54-74 CMS/profile 签名、有效期、唯一 CMS signer 与 profile leaf DER/公钥；L75-83 覆盖整个当前 unsigned+签名头表+profile 到 cms_start 的分片摘要；final_gate L33-46 三证书精确 DER SHA/签发关系/当前时间；L90-96 offset64 XOR1 必须特定摘要拒绝。","verification":"真实失败 HAP 原件 CLI exit0；直接 chain_check 三证书绿；真实同包 offset64 XOR1 CLI exit1、digest is not bound。","status":"implemented and exercised on real baseline, not candidate"},
+    {"id":"M-AST","spec":"strict ES5/no static RegExp/require；保持原 webpack 内部加载","implementation":"checker L6-16 全 AST regexp literal、解码 Identifier 名、点成员、literal 方括号和对象键；L28 ecmaVersion=5。无参数/坏语法/缺文件 fail closed，CLI 多输入保序。","verification":"本棒实际 36/36 单测，原 alias/member 反例均拒；额外 7 probe 与真实失败包全部 7 JS 扫描：6 页拒绝。","status":"implemented and freshly verified"},
+    {"id":"M-DECODED-BUDGET","spec":"所有实际 decoded JS <49152，不只是 raw ZIP 或页名子集","implementation":"final_gate L71 对每个 .js gzip 解码，L81 包括 app.js 在内全部长度硬门，L72 解码内容密钥标记扫描。","verification":"fixture gzip 49151 接受、49152 拒绝，gzip 私钥标记拒绝；当前 CI 实际 49305 被前置硬门拒绝，不能批准候选。","status":"implementation matched; actual candidate fails"},
+    {"id":"M-SDK","spec":"报告 L24 / CANDIDATE L3,L9：同一 SDK SHA=7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31 解析所有签后 JS","implementation":"final_gate L85-103 把 signed 解码字节写独立临时文件，AST 与 SDK 共用 inputs；sdk SHA 锁死；逐文件 --parse-only exit0；输出每文件 SHA。wearengine.yml L73 明确传 SDK 第四实参。","verification":"错误 SDK 字节 fixture 拒绝；真实初始诊断记录 good-1010 6/6、failed-1113 app 过/6 页拒，与初始 commit 09364b3 绑定。候选未跑。","status":"CI implementation matched; candidate actual evidence missing"},
+    {"id":"M-CI","spec":"实际 CI APP、原签名身份、debug/compiler/compactor/固定 QA 保持","implementation":"wearengine.yml Node22；hmlwsim ref 2b28919fc14ea25eaed46f895817d58e481a8657、.qa-hmlwsim、已披露 patch apply --check/apply 与显式 HMLWSIM_ROOT；CLT6.1.1.280/debug 构建、format-only compress:false/mangle:false 保持；唯一 certs/elcton.p7b 与 SIGN_P12_PEM_ELCTON secret；先签名和全 gate 再 upload，失败不上传。","verification":"精确 CI QA 240/240，build 体积门 exit1，后续全跳过，证明没有因 QA 绿而盲签/盲上传。","status":"implementation matched; current run failure"},
+    {"id":"M-HONESTY","spec":"简报/续棒红线及 CANDIDATE L9,L11：不覆盖证据、不替身份、不装机/不抢前台、不冒称 FIT3/WE 因果","implementation":"源门禁 scope 明说 signing/SDK parse only，chain 明说无 online revocation/device trust；原 checker-fix-result passed:false 保留。","verification":"本棒只读所列目标、spec、公开 profile/实际旧 HAP 与远端 CI；仅写本新 JSON。无其他 workspaces/private material/device/browser/前台操作。","status":"matched"}
+  ],
+  "actual_tests": [
+    {
+      "name":"fresh checker unit CLI suite",
+      "command":"node --test tests/check_signed_ast_static_refs.test.mjs",
+      "exit_code":0,
+      "node_version":"v26.4.0",
+      "tests":36,"pass":36,"fail":0,"cancelled":0,"skipped":0,"todo":0,
+      "duration_ms":10235.258121,
+      "coverage":"24 禁止模式 + 6 positive + ordered/mixed batch + malformed/non-ES5 + empty/missing fail closed；原别名/点成员/literal-bracket/Unicode 转义均包含。",
+      "scope":"本棒实际运行；Node26 host CLI，不冒称 Node22 或原生设备执行"
+    },
+    {
+      "name":"additional checker boundary probes",
+      "tests":7,"pass":7,
+      "actual_exit_codes":{"global_alias_literal_member":1,"regexp_literal":1,"dead_require_alias":1,"dynamic_concatenated_key":0,"dynamic_variable_data_flow_key":0,"let_non_ES5":1,"webpack_safe":0},
+      "scope":"实际 Node CLI；dynamic 两项接受是书面排除边界，不是无任意动态加载的证明"
+    },
+    {
+      "name":"app_files isolated ZIP probes",
+      "tests":3,"pass":3,
+      "results":["matching clean resources accepted","duplicate inner resource rejected: Duplicate ZIP entry","two entry HAP rejected: Ambiguous APP entry"],
+      "scope":"内存合成 ZIP，调用真实 app_files；不写或假冒 CI APP"
+    },
+    {
+      "name":"final_gate isolated logic probes",
+      "tests":9,"pass":9,
+      "results":["static-only matching fixture accepted with passed=true/native=[]/SDK=null","signed non-config mutation rejected","both-side extra file rejected","omitted manifest page rejected","both-side API mutation rejected against baseline","gzip decoded 49152 rejected","gzip decoded 49151 accepted","gzip private marker rejected","wrong SDK bytes rejected"],
+      "scope":"只在独立 Python 进程内替换 VERIFY/chain_check/UNPACK/app_files，使用真实 checker；这是合成控制流/边界测试，绝非候选 CMS、签名、SDK 或制品成功证据。未改磁盘源码。"
+    },
+    {
+      "name":"real baseline CMS/profile CLI positive",
+      "command":"python tools/sign/verify_sign.py /storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/watch/elcton-wearengine-timerfix-1.1.13-9517f34.hap certs/elcton.p7b",
+      "exit_code":0,
+      "hap_sha256":"e61ea7189ce342bdefc905d15c131d6c5ce8cbf0b8169f26a5dfb98441ca4b1d",
+      "result":{"cms_bytes":2480,"package_bytes":838211,"bundle":"watchapp.nexus.0zzip","public_key_sha256":"e57bbc00ad8f928e6f9d24d0a8453fea9edd865b6b44216e8799551610cdf742","profile_exact":true,"payload_digest_bound":true},
+      "scope":"真实失败旧包的密码学通过，不是安装成功/候选证明"
+    },
+    {
+      "name":"real baseline chain and full JS probes",
+      "resource_count":28,"js_count":7,"cms_certificate_count":3,
+      "chain_exact_same":true,"issuer_signatures_valid":true,"currently_valid":true,
+      "checker_exit_code":1,"checker_bad_js_count":6,"checker_bad_total":37,
+      "scope":"真实旧 signed.bin；七份 decoded JS 实际 checker 全扫，旧六页被拒"
+    },
+    {
+      "name":"real one-byte package digest negative CLI",
+      "mutation":"旧 signed.bin offset64 XOR1；临时 HAP 只有 signed.bin，运行后删除",
+      "exit_code":1,
+      "stdout":"FAIL: signed package verification: CMS content digest is not bound to the current package bytes\n",
+      "mutated_signed_bin_sha256":"3f32b6fdd336e2f3bf3ca7bab9246691e289c7f6424ec4916357662f5a73dd6e",
+      "scope":"真实原包 1B 变异，未签名/未读取私钥/未覆盖原件"
+    },
+    {
+      "name":"syntax and format-only compaction guards",
+      "command":"node --check qa/install34/check_signed_ast.cjs && node --check tests/check_signed_ast_static_refs.test.mjs && node qa/compaction_test.mjs",
+      "exit_code":0,
+      "stdout":"format-only compaction equivalence: PASS\n"
+    }
+  ],
+  "test_evidence_readback": [
+    {"path":"qa/install34/evidence/resumed-local-tests.tap","sha256":"6b983137832127eddfbb9a6a5f1086f2b2ebeb72a0b01d24f748fa99db1c6136","bytes":57303,"parsed_footer":{"tests":240,"pass":240,"fail":0,"cancelled":0,"skipped":0,"todo":0},"scope":"读取父代理已经真实跑出的完整 TAP；本棒未重跑全套，未读/改 ../elcton-sim-qa"},
+    {"path":"qa/install34/evidence/candidate-with-gate-tests.tap","sha256":"5c68322a259a8d714eac08a896f000f0872430b223744d5670df3817cbc25973","bytes":57323,"parsed_footer":{"tests":240,"pass":240,"fail":0,"cancelled":0,"skipped":0,"todo":0},"scope":"历史原 TAP 只读，非本棒新执行"}
+  ],
+  "live_ci_readback": {
+    "url":"https://github.com/lantianhcgp/elcton/actions/runs/43419821130",
+    "head_sha":"e62fe509e111a1762f87761694f0c28f506448a7",
+    "job_id":131866720411,
+    "status":"completed",
+    "conclusion":"failure",
+    "protocol_tests":{"tests":240,"pass":240,"fail":0,"cancelled":0,"skipped":0,"todo":0},
+    "actual_compactor_after_bytes":{"assets/js/MainAbility/app.js":1280,"assets/js/MainAbility/pages/code/code.js":10614,"assets/js/MainAbility/pages/detail/detail.js":35315,"assets/js/MainAbility/pages/week/week.js":41894,"assets/js/MainAbility/pages/sync/sync.js":43928,"assets/js/MainAbility/pages/index/index.js":37094,"assets/js/MainAbility/pages/phone-sync/phone-sync.js":49305},
+    "hvigor_build_successful":true,
+    "build_step_exit_code":1,
+    "failure":"AssertionError: LITE_PAGE_BUDGET_EXCEEDED: {\"assets/js/MainAbility/pages/phone-sync/phone-sync.js\": 49305}",
+    "sign_step":"skipped",
+    "final_gate_step":"skipped",
+    "upload_step":"skipped",
+    "readback_commands":["gh run view 43419821130 --repo lantianhcgp/elcton --json headSha,conclusion,status,jobs,url","gh run view 43419821130 --repo lantianhcgp/elcton --log-failed","gh run view 43419821130 --repo lantianhcgp/elcton --log"],
+    "successful_readback_exit_codes":[0,0,0],
+    "failed_step_log_sha256":"3db253d1f5efdac882c31366972d29c257d59de292b1cc2f2108bd3c981c5ea6",
+    "failed_step_log_lines":98,
+    "failed_step_log_relevant_lines":[87,92,95,97,98],
+    "full_log_sha256":"44e969ace51df875e77c9b7d8506553a156013226a39c3b0d82acb3a8a2fa4cf",
+    "full_log_lines":2085,
+    "full_log_readback_utc":"2026-11-13T11:55:34.438147+00:00",
+    "scope":"实际 read-only gh/API 输出机械摘要，未写额外日志/未重跑 CI；CI 状态是此精确 run 的快照，不冻结父代理后续新 run。"
+  },
+  "immutable_prior_evidence": {
+    "path":"qa/install34/evidence/checker-fix-result.json",
+    "sha256":"3a5a380e521cb2dcd93835430820f6c0259592b4f2292b1704c4f126a29c218d",
+    "bytes":8421,
+    "passed":false,
+    "unchanged_before_after":true,
+    "interpretation":"其 CLI exit0/36pass 与 ancillary outside_status SHA 不一致 exit1 分开保留。未改 passed、原 RED 或 verification 内容；新回执只独立复核当前文件。"
+  },
+  "suggestions": [
+    "final_gate.py 独立入口允许 sdk=None 且返回 passed=true/native_parse=[]/native_sdk_sha256=null，实际隔离 fixture 已验证；CI 明确传 SDK，不是本次 CI 绕过。下游必须拒绝把这种静态-only回执算完整签后 SDK 绿，检查 native_sdk_sha256 和全部 7 路径/内容 SHA/returncode=0。",
+    "final_gate 用 assert 实施主要静态门，当前 CI 正常 Python 非优化模式，已核 __debug__=true；不要在 PYTHONOPTIMIZE 或 python -O 下复用门禁。可未来加显式优化拒绝或显式异常，非本棒源码改动。",
+    "实际流水线改动或预算修复后冻结新源码/diff/六文件 SHA 并新审，不将本 e62fe509 回执移用。",
+    "可未来把 final_gate payload/config/pages/gzip/SDK 缺省边界加正式可复跑单测；当前 36 测只证明 checker，合成 9 测已明确 stub 边界。"
+  ],
+  "notes": [
+    "静态边界精确排除动态 key、data flow 和任意混淆；checker 的 ordinary RegExp/require string 值接受是有意设计，不把其描述为全局运行时能力禁用证明。",
+    "APP 与 HAP 非 config 字节绑定针对清洗/format-only compact 后的实际 CI APP；不是声称原始未处理 compiler APP 从未变化。原 compactor/cleaner 非本轮变更且 CI 先验内容标记与预算。",
+    "full CMS chain 在此指精确三 DER 证书、直接签发签名和当前有效期；No online revocation/device trust 明示，不宣称完整 Huawei 设备授权策略通过。",
+    "根因仍 SDK 解析兼容候选；正确 profile/CMS/预算/SDK parse 也不证明 FIT3 安装 34 已修复、Wear Engine E2E 或 JerryScript heap/界面正常。",
+    "手机 APK 是否已装和手表当前版本/身份仍未知，未经授权不装机、不清数据、不降级。",
+    "精确 43419821130 CI 测试已由 live 原日志确认 Node22 240/240；本棒新 checker 36 测是本机 Node26，两证据不混用。",
+    "首次 gh --log-failed 查 run 返回网络 EOF/子命令 exit1、零日志；同只读请求重试 exit0 取得完整 98 行，未用空输出假造失败原因。",
+    "只写 qa/install34/evidence/gate-rereview-spec.json，未创建 gate-rereview.json 或覆盖旧记录；父代理须明确合并两个新轴结果，而不是声称原缺件已自行落盘。"
+  ],
+  "actions_scope": {
+    "source_edits":false,
+    "old_evidence_edits":false,
+    "device_operations":false,
+    "browser_operations":false,
+    "private_material_read":false,
+    "other_workspaces_read_or_write":false,
+    "new_persistent_files":["qa/install34/evidence/gate-rereview-spec.json"],
+    "temporary_fixtures":"系统临时目录内单测/CLI/1B负向样本，全部 context manager/after cleanup，无新增服务或浏览器进程。"
+  }
+}

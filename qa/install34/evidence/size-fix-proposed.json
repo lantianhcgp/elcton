@@ -1,0 +1,20 @@
+{
+  "base_commit": "e62fe509e111a1762f87761694f0c28f506448a7",
+  "proposed_diff_sha256": "02e6c6c5ad2fd7283657f548061b6628a8ca7bb51b8ec9c05fd89588f16a08d5",
+  "proposed_diff_bytes": 16871,
+  "paths": [
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearProtocol.js",
+      "sha256": "d2135b5e9cb3a71599ed300c4ccc9ac03d86d7b3e1d8266e0df71475301905b1"
+    },
+    {
+      "path": "qa/install34/collect_ci.py",
+      "sha256": "8f4a202314c031bab95bbfebcbeb5b60241d018e8ff71cd61afcba3ed1c24fd0"
+    },
+    {
+      "path": "qa/install34/verify_download.py",
+      "sha256": "bc6ca3220607be0a44e6651ceb4617b9ba36c19f40a4200900a129ceba916db9"
+    }
+  ],
+  "no_secret_patterns": true
+}

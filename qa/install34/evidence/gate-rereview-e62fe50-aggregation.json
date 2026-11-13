@@ -1,0 +1,29 @@
+{
+  "source": "e62fe509e111a1762f87761694f0c28f506448a7",
+  "independent_receipts": [
+    {
+      "path": "qa/install34/evidence/gate-rereview-standards.json",
+      "sha256": "9f95f72df75d0539af6a79b5528dd86f768bb766027013b636f1d34f549e7819",
+      "axis": "standards",
+      "passed": true,
+      "security": 0,
+      "logic": 0,
+      "missing": 0,
+      "gate_implementation_approved": true
+    },
+    {
+      "path": "qa/install34/evidence/gate-rereview-spec.json",
+      "sha256": "cf17d9207622f1275ca37dda59ead6b4f3d51d3c4b474f8927a60202ddfd14c1",
+      "axis": "spec",
+      "passed": false,
+      "security": 0,
+      "logic": 0,
+      "missing": 2,
+      "gate_implementation_approved": true
+    }
+  ],
+  "implementation_scope_only": true,
+  "candidate_approved": false,
+  "reason": "Exact first CI budget failure retained; fresh source + signed artifact proof required.",
+  "checker_original_sha256": "3a5a380e521cb2dcd93835430820f6c0259592b4f2292b1704c4f126a29c218d"
+}

@@ -1,0 +1,17 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "run_id": 43423716561,
+  "checked_at": "2026-11-13T20:37:52.421797+08:00",
+  "hap": "/storage/emulated/0/haps/elcton-20261113-34fix-464738a7.hap",
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "hap_bytes": 845153,
+  "archive_count": 1,
+  "all_old_bytes_retained": true,
+  "historical_evidence_count": 21,
+  "all_original_evidence_bytes_retained": true,
+  "process_matches": [],
+  "no_remaining_task_or_chromium_process": true,
+  "no_device_action": true,
+  "user_installation_pending": true,
+  "scope": "Process absence and exact delivered bytes only; no real-device result"
+}

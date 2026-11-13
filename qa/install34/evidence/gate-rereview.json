@@ -1,0 +1,28 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "run_id": 43423716561,
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "app_sha256": "fd5867401fd7cad9f36fe766600015f64d403841c503ca1de41d1dc933d72713",
+  "review_input_sha256": "bc13d9f74619d04fda39cd9b29984db5a74e9815deee2d6a2ca546c3fe8a2216",
+  "passed": true,
+  "candidate_artifact_approved": true,
+  "independent_axes": [
+    {
+      "axis": "standards",
+      "path": "qa/install34/evidence/final-artifact-review-standards-09b34279.json",
+      "sha256": "f6f0717a8aa4c0755fab2364511bfdcabef9dc3b283f0762d7f779d3dccc0c57",
+      "passed": true,
+      "summary": "PASS only for this exact signed candidate and original-SDK parse bindings, suitable for user install testing. Independent real final_gate.verify passed CMS/profile, unchanged three-certificate issuer signatures and current validity, full package digest, one-byte negative, signed ES5/static AST, APP payload equality and strict decoded-JS budget. All frozen evidence/source hashes match. Prior checker implementation approval and prior red evidence remain unchanged. Adapter/delivery static review found no blocker in their bounded intended scope; neither was executed by this reviewer. No install34 solution, UI, heap, Wear Engine E2E, online revocation or device-trust claim."
+    },
+    {
+      "axis": "spec",
+      "path": "qa/install34/evidence/final-artifact-review-spec-09b34279.json",
+      "sha256": "bc14c4913d4b6e6a96bc5a7500c4f93fb97be60cff951a579491188753bc6a7a",
+      "passed": true,
+      "summary": "新精确制品的 spec 复审通过，仅批准交付用户安装测试。实际 GitHub run/jobs/artifact 身份、冻结输入、原profile签名与三证书链、完整载荷摘要及64偏移1B负向、28资源顺序和版本限定变更、7份实际签后JS的固定SDK哈希/exit0均核实。此前e62fe509的49305 B与缺失签后/native证明两个候选阻塞由09b34279的新真实证明关闭；旧红回执保持原passed=false，未升级、修改或用于冒充本轮绿。FIT3安装34/UI/heap/WE E2E未测。"
+    }
+  ],
+  "old_red_receipts_preserved": true,
+  "installation_tested": false,
+  "scope": "Exact candidate signed bytes and same-SDK parse approved for user installation test; no FIT3 install34/UI/heap/Wear Engine E2E claim"
+}

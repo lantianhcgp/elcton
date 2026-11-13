@@ -1,0 +1,13 @@
+{
+  "operation": "git diff --cached --check after staging exact machine evidence",
+  "exit_code": 2,
+  "diagnosis": "Only original raw CI logs contain trailing whitespace, including timestamp-only lines and original tool warnings. These bytes are immutable evidence, not source edits.",
+  "affected_files": [
+    "qa/install34/evidence/ci-exact-09b34279.log",
+    "qa/install34/evidence/ci-failure-e62fe50.log"
+  ],
+  "original_bytes_changed": false,
+  "policy": "Run source/document whitespace check excluding only the two enumerated raw logs; every evidence hash and byte-size remains mandatory. Do not trim, regenerate or normalize historical logs.",
+  "real_candidate_tests_or_budget_changed": false,
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb"
+}

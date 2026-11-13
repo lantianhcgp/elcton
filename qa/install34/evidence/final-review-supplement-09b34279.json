@@ -1,0 +1,28 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "frozen_input_and_supplements": [
+    {
+      "path": "qa/install34/evidence/final-review-input-09b34279.json",
+      "bytes": 3373,
+      "sha256": "bc13d9f74619d04fda39cd9b29984db5a74e9815deee2d6a2ca546c3fe8a2216"
+    },
+    {
+      "path": "qa/install34/evidence/collector-worktree-first-failure.json",
+      "bytes": 766,
+      "sha256": "b793e0a10839b76916e40029268359215f6a6a777298bf44f6d6d3a88c45647d"
+    },
+    {
+      "path": "qa/install34/collect_ci_worktree.py",
+      "bytes": 1144,
+      "sha256": "34243c566e1b4230e4eb099447476f29573fb7375047cd90331f4e15f6a5b5e3"
+    },
+    {
+      "path": "qa/install34/deliver_hap.py",
+      "bytes": 3089,
+      "sha256": "9d61015e2f1bd5813f08c4642844676414b3729d5c4faab5a4a49b2cd12004dc"
+    }
+  ],
+  "adapter_scope": "Only cache location for .git worktree; original committed collector unchanged",
+  "delivery_scope": "Exclusive copy, SHA check, mv no-clobber old WE files; no device action"
+}

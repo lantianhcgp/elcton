@@ -1,0 +1,12 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "operation": "aggregate_final_review.py then deliver_hap.py then audit_closeout.py in && chain",
+  "exit_code": 1,
+  "error": "TypeError: string indices must be integers, not 'str' at Path(r['path']) while iterating reviewer reviewed_files",
+  "cause_to_verify": "Reviewer supplied reviewed_files as a path-keyed mapping; aggregator assumed an array of rows",
+  "gate_created": false,
+  "delivery_executed": false,
+  "archive_executed": false,
+  "verdicts_unchanged": true,
+  "correction_boundary": "Only normalize the actual enumerated reviewed_files schema; every exact SHA, verdict consistency, input hash and unchanged source predicate remains mandatory"
+}

@@ -1,0 +1,14 @@
+{
+  "source_sha": "09b34279a797c93db508d04226a6ebd8a30417bb",
+  "run_id": 43423716561,
+  "run_url": "https://github.com/lantianhcgp/elcton/actions/runs/43423716561",
+  "branch": "fix/wearengine-install34-20261113",
+  "master_readback_sha": "851537a9fade0e941f7a20f4078a04c90f2d2343",
+  "reviewed_delta_sha256": "02e6c6c5ad2fd7283657f548061b6628a8ca7bb51b8ec9c05fd89588f16a08d5",
+  "reviewed_diff_equals_commit": true,
+  "changed_product_files": [
+    "entry/src/main/js/MainAbility/common/wearProtocol.js"
+  ],
+  "device_actions": false,
+  "candidate_artifact_approved": false
+}
