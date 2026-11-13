@@ -1,0 +1,32 @@
+name: install34-sdk-diagnostic
+on:
+  push:
+    branches: [fix/wearengine-install34-20261113]
+    paths:
+      - qa/install34/diagnose_sdk.py
+      - .github/workflows/install34-diagnostic.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ErBWs/setup-ohos@v2
+        with:
+          version: 6.1.1.280
+          cache: true
+      - name: Exercise exact SDK against controls and real signed payloads
+        env:
+          HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+          GH_TOKEN: ${{ github.token }}
+        run: python3 qa/install34/diagnose_sdk.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: install34-sdk-control-${{ github.sha }}
+          path: qa/install34/evidence/native-sdk-control.json
+          if-no-files-found: error

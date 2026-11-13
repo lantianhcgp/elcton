@@ -1,0 +1,240 @@
+{
+  "timer-fix-ci-job-redacted.log": {
+    "sha256": "96111a91885677fdb72464299b2e828f5f7fa1fcf8ed1bdd9e8351d6ae665822",
+    "lines": 1889,
+    "hits": [
+      {
+        "line": 69,
+        "text": "2026-11-13T05:54:20.3501141Z hint: to use in all of your new repositories, which will suppress this warning,"
+      },
+      {
+        "line": 128,
+        "text": "2026-11-13T05:54:21.4875543Z (node:2430) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 129,
+        "text": "2026-11-13T05:54:21.4878971Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 167,
+        "text": "2026-11-13T05:54:22.0464468Z hint: to use in all of your new repositories, which will suppress this warning,"
+      },
+      {
+        "line": 1314,
+        "text": "2026-11-13T05:54:26.4373539Z # (node:2830) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time"
+      },
+      {
+        "line": 1315,
+        "text": "2026-11-13T05:54:26.4374347Z # (Use `node --trace-warnings ...` to show where the warning was created)"
+      },
+      {
+        "line": 1649,
+        "text": "2026-11-13T05:54:40.9053893Z (node:3296) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 1650,
+        "text": "2026-11-13T05:54:40.9055351Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 1652,
+        "text": "2026-11-13T05:54:41.1720418Z (node:3296) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities."
+      },
+      {
+        "line": 1715,
+        "text": "2026-11-13T05:55:36.9202381Z hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license"
+      },
+      {
+        "line": 1763,
+        "text": "2026-11-13T05:55:48.9687601Z > hvigor WARN:  WARNING File:/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility/pages/code/code.css:60:5"
+      },
+      {
+        "line": 1767,
+        "text": "2026-11-13T05:55:48.9698170Z > hvigor Finished :entry:default@LegacyCompileLiteJS... after 4 s 926 ms "
+      },
+      {
+        "line": 1772,
+        "text": "2026-11-13T05:55:48.9926094Z > hvigor WARN: Will skip sign 'bin'. No signingConfigs profile is configured in current project."
+      },
+      {
+        "line": 1775,
+        "text": "2026-11-13T05:55:51.3875004Z > hvigor WARN: WARNING: A terminally deprecated method in sun.misc.Unsafe has been called"
+      },
+      {
+        "line": 1776,
+        "text": "2026-11-13T05:55:51.3877421Z WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar)"
+      },
+      {
+        "line": 1777,
+        "text": "2026-11-13T05:55:51.3879226Z WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils"
+      },
+      {
+        "line": 1778,
+        "text": "2026-11-13T05:55:51.3880024Z WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+      },
+      {
+        "line": 1781,
+        "text": "2026-11-13T05:55:51.3885096Z > hvigor WARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project."
+      },
+      {
+        "line": 1788,
+        "text": "2026-11-13T05:55:51.8136625Z > hvigor WARN: WARNING: A terminally deprecated method in sun.misc.Unsafe has been called"
+      },
+      {
+        "line": 1789,
+        "text": "2026-11-13T05:55:51.8138144Z WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar)"
+      },
+      {
+        "line": 1790,
+        "text": "2026-11-13T05:55:51.8140321Z WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils"
+      },
+      {
+        "line": 1791,
+        "text": "2026-11-13T05:55:51.8141391Z WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release"
+      },
+      {
+        "line": 1795,
+        "text": "2026-11-13T05:55:51.8156615Z > hvigor WARN: Will skip sign 'app'. No signingConfigs profile is configured in current project."
+      },
+      {
+        "line": 1804,
+        "text": "2026-11-13T05:55:53.3702951Z {\"action\":\"format-only-compaction\",\"identifierMangling\":false,\"compressionTransforms\":false,\"results\":[{\"page\":\"assets/js/MainAbility/app.js\",\"before\":2417,\"after\":1280},{\"page\":\"assets/js/MainAbility/pages/code/code.js\",\"before\":15126,\"after\":10586},{\"page\":\"assets/js/MainAbility/pages/detail/detail.js\",\"before\":46843,\"after\":34862},{\"page\":\"assets/js/MainAbility/pages/week/week.js\",\"before\":54655,\"after\":41441},{\"page\":\"assets/js/MainAbility/pages/sync/sync.js\",\"before\":59813,\"after\":43434},{\"page\":\"assets/js/MainAbility/pages/index/index.js\",\"before\":49388,\"after\":36641},{\"page\":\"assets/js/MainAbility/pages/phone-sync/phone-sync.js\",\"before\":67973,\"after\":48760}]}"
+      },
+      {
+        "line": 1838,
+        "text": "2026-11-13T05:55:54.6842994Z (node:3556) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 1839,
+        "text": "2026-11-13T05:55:54.6844740Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 1844,
+        "text": "2026-11-13T05:55:55.1288517Z (node:3556) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities."
+      },
+      {
+        "line": 1856,
+        "text": "2026-11-13T05:55:56.3086766Z (node:3568) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 1857,
+        "text": "2026-11-13T05:55:56.3088647Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 1872,
+        "text": "2026-11-13T05:55:56.6954349Z (node:3671) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 1873,
+        "text": "2026-11-13T05:55:56.6955583Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 1889,
+        "text": "2026-11-13T05:55:56.9993048Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+      }
+    ],
+    "snapshot_failures": 0
+  },
+  "ci-job-redacted.log": {
+    "sha256": "bb209fb8cf606386b8b375a5baca009703386282c229b41d743458bd16eddd37",
+    "lines": 1812,
+    "hits": [
+      {
+        "line": 71,
+        "text": "build\tRun actions/checkout@v4\t2026-11-01T00:32:34.5052383Z hint: to use in all of your new repositories, which will suppress this warning,"
+      },
+      {
+        "line": 130,
+        "text": "build\tRun actions/setup-node@v4\t2026-11-01T00:32:35.8590359Z (node:2325) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 131,
+        "text": "build\tRun actions/setup-node@v4\t2026-11-01T00:32:35.8591670Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 168,
+        "text": "build\tCheckout the fixed simulator QA dependency\t2026-11-01T00:32:36.3710236Z hint: to use in all of your new repositories, which will suppress this warning,"
+      },
+      {
+        "line": 1249,
+        "text": "build\tProtocol and persistence regression tests\t2026-11-01T00:32:40.3475089Z # (node:2721) ExperimentalWarning: The MockTimers API is an experimental feature and might change at any time"
+      },
+      {
+        "line": 1250,
+        "text": "build\tProtocol and persistence regression tests\t2026-11-01T00:32:40.3475775Z # (Use `node --trace-warnings ...` to show where the warning was created)"
+      },
+      {
+        "line": 1587,
+        "text": "build\tRun ErBWs/setup-ohos@v2\t2026-11-01T00:32:50.8381522Z (node:3402) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 1588,
+        "text": "build\tRun ErBWs/setup-ohos@v2\t2026-11-01T00:32:50.8382847Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 1590,
+        "text": "build\tRun ErBWs/setup-ohos@v2\t2026-11-01T00:32:51.0745505Z (node:3402) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities."
+      },
+      {
+        "line": 1648,
+        "text": "build\tBuild actual Lite package\t2026-11-01T00:33:41.1573221Z ^[[36;1mhvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license^[[0m"
+      },
+      {
+        "line": 1696,
+        "text": "build\tBuild actual Lite package\t2026-11-01T00:33:52.0680963Z > hvigor ^[[33mWARN: ^[[33m WARNING File:/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility/pages/code/code.css:60:5"
+      },
+      {
+        "line": 1700,
+        "text": "build\tBuild actual Lite package\t2026-11-01T00:33:52.0689569Z > hvigor ^[[32mFinished :entry:default@LegacyCompileLiteJS... after 4 s 466 ms ^[[39m"
+      },
+      {
+        "line": 1705,
+        "text": "build\tBuild actual Lite package\t2026-11-01T00:33:52.0868418Z > hvigor ^[[33mWARN: Will skip sign 'bin'. No signingConfigs profile is configured in current project."
+      },
+      {
+        "line": 1709,
+        "text": "build\tBuild actual Lite package\t2026-11-01T00:33:54.5343431Z > hvigor ^[[33mWARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project."
+      },
+      {
+        "line": 1718,
+        "text": "build\tBuild actual Lite package\t2026-11-01T00:33:54.8984568Z > hvigor ^[[33mWARN: Will skip sign 'app'. No signingConfigs profile is configured in current project."
+      },
+      {
+        "line": 1727,
+        "text": "build\tBuild actual Lite package\t2026-11-01T00:33:56.3052533Z {\"action\":\"format-only-compaction\",\"identifierMangling\":false,\"compressionTransforms\":false,\"results\":[{\"page\":\"assets/js/MainAbility/pages/phone-sync/phone-sync.js\",\"before\":67828,\"after\":48654},{\"page\":\"assets/js/MainAbility/pages/code/code.js\",\"before\":15126,\"after\":10586},{\"page\":\"assets/js/MainAbility/pages/index/index.js\",\"before\":49388,\"after\":36641},{\"page\":\"assets/js/MainAbility/pages/week/week.js\",\"before\":54655,\"after\":41441},{\"page\":\"assets/js/MainAbility/pages/sync/sync.js\",\"before\":59813,\"after\":43434},{\"page\":\"assets/js/MainAbility/pages/detail/detail.js\",\"before\":46843,\"after\":34862},{\"page\":\"assets/js/MainAbility/app.js\",\"before\":2417,\"after\":1280}]}"
+      },
+      {
+        "line": 1761,
+        "text": "build\tRun actions/upload-artifact@v4\t2026-11-01T00:33:57.5890414Z (node:3660) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 1762,
+        "text": "build\tRun actions/upload-artifact@v4\t2026-11-01T00:33:57.5891232Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 1767,
+        "text": "build\tRun actions/upload-artifact@v4\t2026-11-01T00:33:57.9898945Z (node:3660) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities."
+      },
+      {
+        "line": 1779,
+        "text": "build\tPost Run ErBWs/setup-ohos@v2\t2026-11-01T00:33:59.1606542Z (node:3675) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 1780,
+        "text": "build\tPost Run ErBWs/setup-ohos@v2\t2026-11-01T00:33:59.1607363Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 1795,
+        "text": "build\tPost Run actions/setup-node@v4\t2026-11-01T00:33:59.5074349Z (node:3778) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead."
+      },
+      {
+        "line": 1796,
+        "text": "build\tPost Run actions/setup-node@v4\t2026-11-01T00:33:59.5075404Z (Use `node --trace-deprecation ...` to show where the warning was created)"
+      },
+      {
+        "line": 1812,
+        "text": "build\tComplete job\t2026-11-01T00:33:59.7547229Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+      }
+    ],
+    "snapshot_failures": 0
+  }
+}

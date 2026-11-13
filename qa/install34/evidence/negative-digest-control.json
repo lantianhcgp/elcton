@@ -1,0 +1,16 @@
+{
+  "original": {
+    "cms_bytes": 2480,
+    "package_bytes": 838211,
+    "bundle": "watchapp.nexus.0zzip",
+    "public_key_sha256": "e57bbc00ad8f928e6f9d24d0a8453fea9edd865b6b44216e8799551610cdf742",
+    "profile_exact": true,
+    "payload_digest_bound": true
+  },
+  "mutation": {
+    "offset": 64,
+    "xor": 1,
+    "rejected": true,
+    "reason": "CMS content digest is not bound to the current package bytes"
+  }
+}

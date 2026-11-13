@@ -1,0 +1,13 @@
+{
+  "source_commit": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+  "production_changes": false,
+  "test_files": 26,
+  "tests": 197,
+  "pass": 197,
+  "fail": 0,
+  "skipped": 0,
+  "runtime": "Termux Node v26.4.0",
+  "command": "node --test --test-reporter=tap tests/*.test.mjs",
+  "baseline_environment_adjustment": "The historical --experimental-default-type=module flag is removed in installed Node; running the identical tests without this flag succeeds using syntax detection. SDK build and source package type remain unchanged.",
+  "scope": "Host regression baseline only; not hardware installation, Wear Engine transport or heap evidence."
+}

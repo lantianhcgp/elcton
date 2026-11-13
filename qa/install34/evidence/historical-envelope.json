@@ -1,0 +1,238 @@
+[
+  {
+    "file": "/storage/emulated/0/haps/旧包归档/elcton-1012-自检强制复位.hap",
+    "sha256": "9fe9c2c5e414e9f1b5ba4cbcc5026db59dfb0b1bc1bc12504baf38587ddf2150",
+    "bundle": "watchapp.nexus.0zzip",
+    "profile_sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e",
+    "config": {
+      "app": {
+        "apiVersion": {
+          "compatible": 40000010,
+          "releaseType": "Release",
+          "target": 60101024
+        },
+        "vendor": "example",
+        "bundleName": "watchapp.nexus.0zzip",
+        "version": {
+          "code": 0,
+          "name": "1.0.1"
+        }
+      },
+      "deviceConfig": {},
+      "module": {
+        "deviceType": [
+          "liteWearable"
+        ],
+        "abilities": [
+          {
+            "iconId": 16777219,
+            "descriptionId": 16777216,
+            "labelId": 16777217,
+            "srcPath": "MainAbility",
+            "name": ".MainAbility",
+            "srcLanguage": "js",
+            "icon": "$media:icon",
+            "description": "$string:MainAbility_desc",
+            "label": "$string:MainAbility_label",
+            "type": "page"
+          }
+        ],
+        "mainAbility": ".MainAbility",
+        "distro": {
+          "moduleType": "entry",
+          "deliveryWithInstall": true,
+          "moduleName": "entry"
+        },
+        "package": "com.hcbiu.elcton",
+        "js": [
+          {
+            "pages": [
+              "pages/index/index",
+              "pages/week/week",
+              "pages/detail/detail",
+              "pages/sync/sync",
+              "pages/code/code"
+            ],
+            "name": ".MainAbility"
+          }
+        ]
+      }
+    },
+    "manifest": {
+      "deviceType": [
+        "liteWearable"
+      ],
+      "pages": [
+        "pages/index/index",
+        "pages/week/week",
+        "pages/detail/detail",
+        "pages/sync/sync",
+        "pages/code/code"
+      ],
+      "appName": "$string:MainAbility_label",
+      "appID": "com.hcbiu.elcton",
+      "minPlatformVersion": 10,
+      "versionName": "1.0.1",
+      "versionCode": 1000001
+    },
+    "bc_count": 0,
+    "map_count": 6,
+    "js": [
+      {
+        "path": "assets/js/MainAbility/app.js",
+        "bytes": 2417,
+        "sha256": "221f3b0a287c7d71969ac862b3d9e4c2ba083e272635b09e6a03837a1a43e790",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/code/code.js",
+        "bytes": 11803,
+        "sha256": "71797aa09ce9b7d021b1b03ea362001797b4b8b0d20212b8a7d9e0f458ad4996",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/detail/detail.js",
+        "bytes": 29419,
+        "sha256": "5b6ae61be7c7587cfe74ed540213c838eccfb004171f12feea3a1b963ec8f15e",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/index/index.js",
+        "bytes": 31071,
+        "sha256": "c255e7765f9a81cd72d57ad34e0eeaad97793a0cf17b7a77aade857118b05a58",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/sync/sync.js",
+        "bytes": 43804,
+        "sha256": "a1392899c3e80995c8f7cf6d4f3e9fd5ada8140f88947664d5bab72c87a0914f",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/week/week.js",
+        "bytes": 36392,
+        "sha256": "5e7a9676cb425169d845c72020cfde9ae880b9f2868eb22475a285b52743a7be",
+        "test_text_count": 0
+      }
+    ],
+    "cache": "/data/data/com.termux/files/home/elcton-wear-sync/.git/worktrees/elcton-wear-install34-20261113/install34-extracted/elcton-1012-自检强制复位"
+  },
+  {
+    "file": "/storage/emulated/0/haps/旧包归档/elcton-1010-切片同步v3-防卡死.hap",
+    "sha256": "16376f777f46333d7920cc20a27f9bd2301321de5503b1aee89bcbf44efe1df0",
+    "bundle": "watchapp.nexus.0zzip",
+    "profile_sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e",
+    "config": {
+      "app": {
+        "apiVersion": {
+          "compatible": 40000010,
+          "releaseType": "Release",
+          "target": 60101024
+        },
+        "vendor": "example",
+        "bundleName": "watchapp.nexus.0zzip",
+        "version": {
+          "code": 0,
+          "name": "1.0.1"
+        }
+      },
+      "deviceConfig": {},
+      "module": {
+        "deviceType": [
+          "liteWearable"
+        ],
+        "abilities": [
+          {
+            "iconId": 16777219,
+            "descriptionId": 16777216,
+            "labelId": 16777217,
+            "srcPath": "MainAbility",
+            "name": ".MainAbility",
+            "srcLanguage": "js",
+            "icon": "$media:icon",
+            "description": "$string:MainAbility_desc",
+            "label": "$string:MainAbility_label",
+            "type": "page"
+          }
+        ],
+        "mainAbility": ".MainAbility",
+        "distro": {
+          "moduleType": "entry",
+          "deliveryWithInstall": true,
+          "moduleName": "entry"
+        },
+        "package": "com.hcbiu.elcton",
+        "js": [
+          {
+            "pages": [
+              "pages/index/index",
+              "pages/week/week",
+              "pages/detail/detail",
+              "pages/sync/sync",
+              "pages/code/code"
+            ],
+            "name": ".MainAbility"
+          }
+        ]
+      }
+    },
+    "manifest": {
+      "deviceType": [
+        "liteWearable"
+      ],
+      "pages": [
+        "pages/index/index",
+        "pages/week/week",
+        "pages/detail/detail",
+        "pages/sync/sync",
+        "pages/code/code"
+      ],
+      "appName": "$string:MainAbility_label",
+      "appID": "com.hcbiu.elcton",
+      "minPlatformVersion": 10,
+      "versionName": "1.0.1",
+      "versionCode": 1000001
+    },
+    "bc_count": 0,
+    "map_count": 6,
+    "js": [
+      {
+        "path": "assets/js/MainAbility/app.js",
+        "bytes": 2417,
+        "sha256": "221f3b0a287c7d71969ac862b3d9e4c2ba083e272635b09e6a03837a1a43e790",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/code/code.js",
+        "bytes": 11335,
+        "sha256": "cb61262c8bff82271048f6c753d5d755d98e5053ab2f031659ac79d93e95f619",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/detail/detail.js",
+        "bytes": 26810,
+        "sha256": "cb35d9083ada66a1f9d8796b67341942da1a20c606f49898195b279243e6b4b9",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/index/index.js",
+        "bytes": 28145,
+        "sha256": "1cd3697c63657ccbdcd4401a0ecd5d7663d742baeee79e4b15a071813538b076",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/sync/sync.js",
+        "bytes": 41133,
+        "sha256": "c08b8acc9dcd78d6dad6abc30c3e88913cdf632e1b5799e48cdc8ef58ef32526",
+        "test_text_count": 0
+      },
+      {
+        "path": "assets/js/MainAbility/pages/week/week.js",
+        "bytes": 32432,
+        "sha256": "8269a28105723cafd78bfaa6cf65b9cef5aac53adc3ed5bee7124da9bda74951",
+        "test_text_count": 0
+      }
+    ],
+    "cache": "/data/data/com.termux/files/home/elcton-wear-sync/.git/worktrees/elcton-wear-install34-20261113/install34-extracted/elcton-1010-切片同步v3-防卡死"
+  }
+]

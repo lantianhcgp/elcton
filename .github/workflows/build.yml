@@ -2,7 +2,7 @@ name: build
 
 on:
   push:
-    branches-ignore: [feat/wearengine-sync]
+    branches-ignore: [feat/wearengine-sync, fix/wearengine-install34-20261113]
   workflow_dispatch:
 
 jobs:

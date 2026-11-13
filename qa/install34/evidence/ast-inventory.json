@@ -1,0 +1,1235 @@
+{
+  "probe": [
+    {
+      "path": "assets/js/MainAbility/app.js",
+      "sha256": "9eb043f9dc348be5f41ddbf09ecbadad0c620a483b7a83c249038693d758d4d9",
+      "regex": [],
+      "calls": []
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js",
+      "sha256": "2a1e19e61ba96f4ef7e80facb79f9ff11d428d8aa3d5578718a4f873811e78a9",
+      "regex": [
+        {
+          "pattern": "^[0-9]{6}$",
+          "flags": "",
+          "offset": 9047
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 9047,
+          "line": 1,
+          "column": 9047,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9]{6}$/.test(self.value)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js",
+      "sha256": "5b5fe8fb26288374a2462b467b4fcb3579337ad9edabe57ca93c07287999e0c9",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 23037
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 26312
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 26886
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 28019
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 28359
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 23037,
+          "line": 1,
+          "column": 23037,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 26886,
+          "line": 1,
+          "column": 26886,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 28019,
+          "line": 1,
+          "column": 28019,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 28359,
+          "line": 1,
+          "column": 28359,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js",
+      "sha256": "f5f3fe5d76ea6dcd7ae5f66cb69cfe5bbf7f6d4951d05199e7ee0cb7f7ce7356",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 24279
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 27554
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 28128
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 29261
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 29601
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 24279,
+          "line": 1,
+          "column": 24279,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 28128,
+          "line": 1,
+          "column": 28128,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 29261,
+          "line": 1,
+          "column": 29261,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 29601,
+          "line": 1,
+          "column": 29601,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "sha256": "b4396990629adcdcd16b7e6bd648d4baa621581bf815cb3364307b75104fc9b1",
+      "regex": [
+        {
+          "pattern": "^[A-Za-z0-9_.]+$",
+          "flags": "",
+          "offset": 15274
+        },
+        {
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "flags": "",
+          "offset": 15327
+        },
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 18203
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 18396
+        },
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 21768
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 25990
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 26564
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 27697
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 28037
+        },
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 31308
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 31650
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 32687
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,64}$",
+          "flags": "",
+          "offset": 33497
+        },
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 33754
+        },
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 35962
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 15274,
+          "line": 1,
+          "column": 15274,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_.]+$/.test(identity.phonePackage||\"\")"
+        },
+        {
+          "method": "test",
+          "offset": 15327,
+          "line": 1,
+          "column": 15327,
+          "parent": "UnaryExpression",
+          "expression": "/^[a-fA-F0-9]{64}$/.test(identity.phoneFingerprint||\"\")"
+        },
+        {
+          "method": "test",
+          "offset": 18203,
+          "line": 1,
+          "column": 18203,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(raw)"
+        },
+        {
+          "method": "test",
+          "offset": 18396,
+          "line": 1,
+          "column": 18396,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 21768,
+          "line": 1,
+          "column": 21768,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 26564,
+          "line": 1,
+          "column": 26564,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 27697,
+          "line": 1,
+          "column": 27697,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 28037,
+          "line": 1,
+          "column": 28037,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        },
+        {
+          "method": "test",
+          "offset": 31308,
+          "line": 1,
+          "column": 31308,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(raw)"
+        },
+        {
+          "method": "test",
+          "offset": 31650,
+          "line": 1,
+          "column": 31650,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 32687,
+          "line": 1,
+          "column": 32687,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 33497,
+          "line": 1,
+          "column": 33497,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,64}$/.test(msg.datasetId)"
+        },
+        {
+          "method": "test",
+          "offset": 33754,
+          "line": 1,
+          "column": 33754,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(msg.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 35962,
+          "line": 1,
+          "column": 35962,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(msg.data)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js",
+      "sha256": "98c2946a8617442d7539573d3891a21eae9fe8f5f1a318cf765b3fd5ce519d7a",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 19260
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 22535
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 23109
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 24242
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 24582
+        },
+        {
+          "pattern": "[\\r\\n\\t]",
+          "flags": "g",
+          "offset": 27529
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 19260,
+          "line": 1,
+          "column": 19260,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 23109,
+          "line": 1,
+          "column": 23109,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 24242,
+          "line": 1,
+          "column": 24242,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 24582,
+          "line": 1,
+          "column": 24582,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js",
+      "sha256": "65ff78d0952043aaa7cf98c97008cdf139b150ce31737cb150004c10ad3e00a5",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 28577
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 31852
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 32426
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 33559
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 33899
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 28577,
+          "line": 1,
+          "column": 28577,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 32426,
+          "line": 1,
+          "column": 32426,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 33559,
+          "line": 1,
+          "column": 33559,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 33899,
+          "line": 1,
+          "column": 33899,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    }
+  ],
+  "timerfix": [
+    {
+      "path": "assets/js/MainAbility/app.js",
+      "sha256": "9eb043f9dc348be5f41ddbf09ecbadad0c620a483b7a83c249038693d758d4d9",
+      "regex": [],
+      "calls": []
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js",
+      "sha256": "2a1e19e61ba96f4ef7e80facb79f9ff11d428d8aa3d5578718a4f873811e78a9",
+      "regex": [
+        {
+          "pattern": "^[0-9]{6}$",
+          "flags": "",
+          "offset": 9047
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 9047,
+          "line": 1,
+          "column": 9047,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9]{6}$/.test(self.value)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js",
+      "sha256": "5b5fe8fb26288374a2462b467b4fcb3579337ad9edabe57ca93c07287999e0c9",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 23037
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 26312
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 26886
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 28019
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 28359
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 23037,
+          "line": 1,
+          "column": 23037,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 26886,
+          "line": 1,
+          "column": 26886,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 28019,
+          "line": 1,
+          "column": 28019,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 28359,
+          "line": 1,
+          "column": 28359,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js",
+      "sha256": "f5f3fe5d76ea6dcd7ae5f66cb69cfe5bbf7f6d4951d05199e7ee0cb7f7ce7356",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 24279
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 27554
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 28128
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 29261
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 29601
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 24279,
+          "line": 1,
+          "column": 24279,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 28128,
+          "line": 1,
+          "column": 28128,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 29261,
+          "line": 1,
+          "column": 29261,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 29601,
+          "line": 1,
+          "column": 29601,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "sha256": "40584099a9e82a48bd1b3ca13128c44b6189671ccbde8eb12d63eae7ca791066",
+      "regex": [
+        {
+          "pattern": "^[A-Za-z0-9_.]+$",
+          "flags": "",
+          "offset": 15274
+        },
+        {
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "flags": "",
+          "offset": 15327
+        },
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 18203
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 18396
+        },
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 21768
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 25990
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 26564
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 27697
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 28037
+        },
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 31308
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 31650
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 32687
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,64}$",
+          "flags": "",
+          "offset": 33497
+        },
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 33754
+        },
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 35962
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 15274,
+          "line": 1,
+          "column": 15274,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_.]+$/.test(identity.phonePackage||\"\")"
+        },
+        {
+          "method": "test",
+          "offset": 15327,
+          "line": 1,
+          "column": 15327,
+          "parent": "UnaryExpression",
+          "expression": "/^[a-fA-F0-9]{64}$/.test(identity.phoneFingerprint||\"\")"
+        },
+        {
+          "method": "test",
+          "offset": 18203,
+          "line": 1,
+          "column": 18203,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(raw)"
+        },
+        {
+          "method": "test",
+          "offset": 18396,
+          "line": 1,
+          "column": 18396,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 21768,
+          "line": 1,
+          "column": 21768,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 26564,
+          "line": 1,
+          "column": 26564,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 27697,
+          "line": 1,
+          "column": 27697,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 28037,
+          "line": 1,
+          "column": 28037,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        },
+        {
+          "method": "test",
+          "offset": 31308,
+          "line": 1,
+          "column": 31308,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(raw)"
+        },
+        {
+          "method": "test",
+          "offset": 31650,
+          "line": 1,
+          "column": 31650,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 32687,
+          "line": 1,
+          "column": 32687,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 33497,
+          "line": 1,
+          "column": 33497,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,64}$/.test(msg.datasetId)"
+        },
+        {
+          "method": "test",
+          "offset": 33754,
+          "line": 1,
+          "column": 33754,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(msg.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 35962,
+          "line": 1,
+          "column": 35962,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(msg.data)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js",
+      "sha256": "98c2946a8617442d7539573d3891a21eae9fe8f5f1a318cf765b3fd5ce519d7a",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 19260
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 22535
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 23109
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 24242
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 24582
+        },
+        {
+          "pattern": "[\\r\\n\\t]",
+          "flags": "g",
+          "offset": 27529
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 19260,
+          "line": 1,
+          "column": 19260,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 23109,
+          "line": 1,
+          "column": 23109,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 24242,
+          "line": 1,
+          "column": 24242,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 24582,
+          "line": 1,
+          "column": 24582,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js",
+      "sha256": "65ff78d0952043aaa7cf98c97008cdf139b150ce31737cb150004c10ad3e00a5",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 28577
+        },
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 31852
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 32426
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 33559
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 33899
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 28577,
+          "line": 1,
+          "column": 28577,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 32426,
+          "line": 1,
+          "column": 32426,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 33559,
+          "line": 1,
+          "column": 33559,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 33899,
+          "line": 1,
+          "column": 33899,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    }
+  ],
+  "source": [
+    {
+      "path": "common/wearChannel.js",
+      "regex": [
+        {
+          "pattern": "^[A-Za-z0-9_.]+$",
+          "flags": "",
+          "offset": 515
+        },
+        {
+          "pattern": "^[a-fA-F0-9]{64}$",
+          "flags": "",
+          "offset": 572
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 515,
+          "line": 12,
+          "column": 30,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_.]+$/.test(identity.phonePackage || '')"
+        },
+        {
+          "method": "test",
+          "offset": 572,
+          "line": 12,
+          "column": 87,
+          "parent": "UnaryExpression",
+          "expression": "/^[a-fA-F0-9]{64}$/.test(identity.phoneFingerprint || '')"
+        }
+      ]
+    },
+    {
+      "path": "common/wearExporter.js",
+      "regex": [
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 1188
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 1432
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 1188,
+          "line": 25,
+          "column": 64,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(raw)"
+        },
+        {
+          "method": "test",
+          "offset": 1432,
+          "line": 27,
+          "column": 144,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        }
+      ]
+    },
+    {
+      "path": "common/wearJournal.js",
+      "regex": [
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 959
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 959,
+          "line": 15,
+          "column": 54,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(record.digest)"
+        }
+      ]
+    },
+    {
+      "path": "common/wearProtocol.js",
+      "regex": [
+        {
+          "pattern": "[\\u007f-\\uffff]",
+          "flags": "g",
+          "offset": 231
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 1009
+        },
+        {
+          "pattern": "^([01][0-9]|2[0-3]):[0-5][0-9]$",
+          "flags": "",
+          "offset": 2442
+        },
+        {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "flags": "",
+          "offset": 2838
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 1009,
+          "line": 26,
+          "column": 57,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 2442,
+          "line": 60,
+          "column": 38,
+          "parent": "UnaryExpression",
+          "expression": "/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)"
+        },
+        {
+          "method": "test",
+          "offset": 2838,
+          "line": 66,
+          "column": 38,
+          "parent": "UnaryExpression",
+          "expression": "/^\\d{4}-\\d{2}-\\d{2}$/.test(start)"
+        }
+      ]
+    },
+    {
+      "path": "common/wearReceiver.js",
+      "regex": [
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 1374
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 1805
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,40}$",
+          "flags": "",
+          "offset": 3273
+        },
+        {
+          "pattern": "^[A-Za-z0-9_-]{1,64}$",
+          "flags": "",
+          "offset": 4324
+        },
+        {
+          "pattern": "^[0-9a-f]{8}$",
+          "flags": "",
+          "offset": 4627
+        },
+        {
+          "pattern": "[^\\x20-\\x7e]",
+          "flags": "",
+          "offset": 7492
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 1374,
+          "line": 33,
+          "column": 62,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(raw)"
+        },
+        {
+          "method": "test",
+          "offset": 1805,
+          "line": 38,
+          "column": 74,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 3273,
+          "line": 60,
+          "column": 51,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)"
+        },
+        {
+          "method": "test",
+          "offset": 4324,
+          "line": 76,
+          "column": 52,
+          "parent": "UnaryExpression",
+          "expression": "/^[A-Za-z0-9_-]{1,64}$/.test(msg.datasetId)"
+        },
+        {
+          "method": "test",
+          "offset": 4627,
+          "line": 78,
+          "column": 49,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9a-f]{8}$/.test(msg.digest)"
+        },
+        {
+          "method": "test",
+          "offset": 7492,
+          "line": 114,
+          "column": 75,
+          "parent": "LogicalExpression",
+          "expression": "/[^\\x20-\\x7e]/.test(msg.data)"
+        }
+      ]
+    },
+    {
+      "path": "pages/code/code.js",
+      "regex": [
+        {
+          "pattern": "^[0-9]{6}$",
+          "flags": "",
+          "offset": 3660
+        }
+      ],
+      "calls": [
+        {
+          "method": "test",
+          "offset": 3660,
+          "line": 83,
+          "column": 13,
+          "parent": "UnaryExpression",
+          "expression": "/^[0-9]{6}$/.test(self.value)"
+        }
+      ]
+    },
+    {
+      "path": "pages/sync/sync.js",
+      "regex": [
+        {
+          "pattern": "[\\r\\n\\t]",
+          "flags": "g",
+          "offset": 3181
+        }
+      ],
+      "calls": []
+    }
+  ]
+}

@@ -1,0 +1,893 @@
+{
+  "samples": {
+    "probe": {
+      "path": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/watch/elcton-wearengine-probe.hap",
+      "sha256": "2c44a0359008d0465cb010aee5e49eb959607eb63479dd3c498b03738f7be618",
+      "signed_bin_sha256": "d4540e7404215edb2cb1bec5a75667828bc41d2463288b1fb45b4eda0b3c16b3",
+      "signed_bin_bytes": 837836,
+      "magic": "be",
+      "bundle": "watchapp.nexus.0zzip",
+      "config": {
+        "app": {
+          "apiVersion": {
+            "compatible": 40000010,
+            "releaseType": "Release",
+            "target": 60101024
+          },
+          "vendor": "example",
+          "bundleName": "watchapp.nexus.0zzip",
+          "version": {
+            "code": 1000115,
+            "name": "1.1.12"
+          }
+        },
+        "deviceConfig": {},
+        "module": {
+          "deviceType": [
+            "liteWearable"
+          ],
+          "abilities": [
+            {
+              "iconId": 16777219,
+              "descriptionId": 16777216,
+              "labelId": 16777217,
+              "srcPath": "MainAbility",
+              "name": ".MainAbility",
+              "srcLanguage": "js",
+              "icon": "$media:icon",
+              "description": "$string:MainAbility_desc",
+              "label": "$string:MainAbility_label",
+              "type": "page"
+            }
+          ],
+          "mainAbility": ".MainAbility",
+          "distro": {
+            "moduleType": "entry",
+            "deliveryWithInstall": true,
+            "moduleName": "entry"
+          },
+          "package": "com.hcbiu.elcton",
+          "js": [
+            {
+              "pages": [
+                "pages/index/index",
+                "pages/week/week",
+                "pages/detail/detail",
+                "pages/sync/sync",
+                "pages/code/code",
+                "pages/phone-sync/phone-sync"
+              ],
+              "name": ".MainAbility"
+            }
+          ]
+        }
+      },
+      "manifest": {
+        "deviceType": [
+          "liteWearable"
+        ],
+        "pages": [
+          "pages/index/index",
+          "pages/week/week",
+          "pages/detail/detail",
+          "pages/sync/sync",
+          "pages/code/code",
+          "pages/phone-sync/phone-sync"
+        ],
+        "appName": "$string:MainAbility_label",
+        "appID": "com.hcbiu.elcton",
+        "minPlatformVersion": 10,
+        "versionName": "1.1.12",
+        "versionCode": 1000115
+      },
+      "pack_info": {
+        "summary": {
+          "app": {
+            "bundleName": "com.hcbiu.elcton",
+            "version": {
+              "code": 1000115,
+              "name": "1.1.12"
+            }
+          },
+          "modules": [
+            {
+              "mainAbility": ".MainAbility",
+              "deviceType": [
+                "liteWearable"
+              ],
+              "abilities": [
+                {
+                  "name": ".MainAbility",
+                  "label": "$string:MainAbility_label"
+                }
+              ],
+              "distro": {
+                "deliveryWithInstall": true,
+                "moduleName": "entry",
+                "moduleType": "entry"
+              }
+            }
+          ]
+        },
+        "packages": [
+          {
+            "deviceType": [
+              "liteWearable"
+            ],
+            "moduleType": "entry",
+            "deliveryWithInstall": true,
+            "name": "entry-default"
+          }
+        ]
+      },
+      "profile_sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e",
+      "profile_bundle": "watchapp.nexus.0zzip",
+      "profile_type": "debug",
+      "profile_validity": {
+        "not-before": 1791454610,
+        "not-after": 1822990610
+      },
+      "profile_capabilities": {
+        "com.huawei.service.device_security.device_verify": {},
+        "webAccessServiceForAIQA": {}
+      },
+      "profile_permissions": {},
+      "bound_device_count": 1,
+      "profile_certificates": [
+        {
+          "subject": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "df21a3c09f7954579305f85c64f80cad86f79853ee3a887c1dec95d218df3a37"
+        },
+        {
+          "subject": "CN=HOS Profile Management Debug,OU=HOS AppGallery,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Software Signing Service CA,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "55385dcecfec59ededb1d0e6a99e51ef6616437a2a5fbe8546a1b10ec37b629a"
+        },
+        {
+          "subject": "CN=Huawei CBG Software Signing Service CA,OU=Huawei CBG,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "c57758ec30df54de35ead6f03609bc11d6e1ce33a6ddd049c8c6c25790968c28"
+        }
+      ],
+      "cms_certificates": [
+        {
+          "subject": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "df21a3c09f7954579305f85c64f80cad86f79853ee3a887c1dec95d218df3a37"
+        },
+        {
+          "subject": "CN=谢梅英(2008769451771610433)\\\\\\,Development,OU=2008769451771610433,O=谢梅英,C=CN",
+          "issuer": "CN=Huawei CBG Developer Relations CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "8926257d1bd9ff653dcd84100d53cbbabbd39371fdda5126dfb37429e55c67be"
+        },
+        {
+          "subject": "CN=Huawei CBG Developer Relations CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "0daa8a965b5153124f79d4b42378d0ac2f5536acb5fce1924f43723e97587180"
+        }
+      ],
+      "cms_verification": {
+        "cms_bytes": 2480,
+        "package_bytes": 837836,
+        "bundle": "watchapp.nexus.0zzip",
+        "public_key_sha256": "e57bbc00ad8f928e6f9d24d0a8453fea9edd865b6b44216e8799551610cdf742",
+        "profile_exact": true,
+        "payload_digest_bound": true
+      },
+      "file_count": 28,
+      "file_order": [
+        "config.json",
+        "pack.info",
+        "assets/entry/resources.index",
+        "assets/js/MainAbility/app.js",
+        "assets/js/MainAbility/app.js.map",
+        "assets/js/MainAbility/image_convert_result.txt",
+        "assets/js/MainAbility/manifest.json",
+        "assets/entry/resources/rawfile/seed-schedule.json",
+        "assets/js/MainAbility/i18n/en-US.json",
+        "assets/js/MainAbility/i18n/zh-CN.json",
+        "assets/entry/resources/base/media/icon_small_new.png",
+        "assets/entry/resources/base/media/icon_small_new.png.bin",
+        "assets/entry/resources/base/media/icon_small.png",
+        "assets/entry/resources/base/media/icon_small.png.bin",
+        "assets/entry/resources/base/media/icon.png",
+        "assets/entry/resources/base/media/icon.png.bin",
+        "assets/js/MainAbility/pages/code/code.js",
+        "assets/js/MainAbility/pages/code/code.js.map",
+        "assets/js/MainAbility/pages/detail/detail.js",
+        "assets/js/MainAbility/pages/detail/detail.js.map",
+        "assets/js/MainAbility/pages/index/index.js",
+        "assets/js/MainAbility/pages/index/index.js.map",
+        "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+        "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+        "assets/js/MainAbility/pages/sync/sync.js",
+        "assets/js/MainAbility/pages/sync/sync.js.map",
+        "assets/js/MainAbility/pages/week/week.js",
+        "assets/js/MainAbility/pages/week/week.js.map"
+      ],
+      "gzip_count": 0,
+      "bc_files": [],
+      "map_files": [
+        "assets/js/MainAbility/app.js.map",
+        "assets/js/MainAbility/pages/code/code.js.map",
+        "assets/js/MainAbility/pages/detail/detail.js.map",
+        "assets/js/MainAbility/pages/index/index.js.map",
+        "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+        "assets/js/MainAbility/pages/sync/sync.js.map",
+        "assets/js/MainAbility/pages/week/week.js.map"
+      ],
+      "i18n_files": [
+        "assets/js/MainAbility/i18n/en-US.json",
+        "assets/js/MainAbility/i18n/zh-CN.json"
+      ],
+      "js_total_bytes": 216898,
+      "js": [
+        {
+          "path": "assets/js/MainAbility/app.js",
+          "bytes": 1280,
+          "sha256": "9eb043f9dc348be5f41ddbf09ecbadad0c620a483b7a83c249038693d758d4d9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/code/code.js",
+          "bytes": 10586,
+          "sha256": "2a1e19e61ba96f4ef7e80facb79f9ff11d428d8aa3d5578718a4f873811e78a9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/detail/detail.js",
+          "bytes": 34862,
+          "sha256": "5b5fe8fb26288374a2462b467b4fcb3579337ad9edabe57ca93c07287999e0c9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/index/index.js",
+          "bytes": 36641,
+          "sha256": "f5f3fe5d76ea6dcd7ae5f66cb69cfe5bbf7f6d4951d05199e7ee0cb7f7ce7356"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+          "bytes": 48654,
+          "sha256": "b4396990629adcdcd16b7e6bd648d4baa621581bf815cb3364307b75104fc9b1"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/sync/sync.js",
+          "bytes": 43434,
+          "sha256": "98c2946a8617442d7539573d3891a21eae9fe8f5f1a318cf765b3fd5ce519d7a"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/week/week.js",
+          "bytes": 41441,
+          "sha256": "65ff78d0952043aaa7cf98c97008cdf139b150ce31737cb150004c10ad3e00a5"
+        }
+      ],
+      "files": [
+        {
+          "path": "assets/entry/resources.index",
+          "bytes": 544,
+          "sha256": "75ee7a5928a547fcc5f27e7563fcaceaf7637d274da7238a50aa19a9f7ebeb26"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon.png",
+          "bytes": 5763,
+          "sha256": "54e5854a9166af398a8a3a1fd69ee47c407743baf7220480a1dc0553a0898a19"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon.png.bin",
+          "bytes": 51992,
+          "sha256": "94fad400d26c342c5f967bdd20249533810c8ae898ae9521cae2e01198bca0ce"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon_small.png",
+          "bytes": 1813,
+          "sha256": "4221ba2cbdd750d58755db30264bd79e85a29c6aa92bc64bba46a56fb80855bc"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon_small.png.bin",
+          "bytes": 4104,
+          "sha256": "ff3011e574f4338c8f4b3f2ff4fffbc48fee9f73933bc7cf13631a412208ccbb"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon_small_new.png",
+          "bytes": 1813,
+          "sha256": "4221ba2cbdd750d58755db30264bd79e85a29c6aa92bc64bba46a56fb80855bc"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon_small_new.png.bin",
+          "bytes": 4104,
+          "sha256": "ff3011e574f4338c8f4b3f2ff4fffbc48fee9f73933bc7cf13631a412208ccbb"
+        },
+        {
+          "path": "assets/entry/resources/rawfile/seed-schedule.json",
+          "bytes": 7718,
+          "sha256": "80103df4cc833414ddc3ce20e87cb38a438d01642788c45adf22e5241010156b"
+        },
+        {
+          "path": "assets/js/MainAbility/app.js",
+          "bytes": 1280,
+          "sha256": "9eb043f9dc348be5f41ddbf09ecbadad0c620a483b7a83c249038693d758d4d9"
+        },
+        {
+          "path": "assets/js/MainAbility/app.js.map",
+          "bytes": 3944,
+          "sha256": "4ed5f4d87cf767d8452dafeb4834d6bf4a26ffd757e134c86134bbcd47c026c7"
+        },
+        {
+          "path": "assets/js/MainAbility/i18n/en-US.json",
+          "bytes": 665,
+          "sha256": "598364948416761c522724c70d08d174c5f248f2659903388460fb9343fa5558"
+        },
+        {
+          "path": "assets/js/MainAbility/i18n/zh-CN.json",
+          "bytes": 768,
+          "sha256": "4ab889f8a4c629791f0e3a1f8425d084c51679f224497bd0f5f86d94d9c6ec58"
+        },
+        {
+          "path": "assets/js/MainAbility/image_convert_result.txt",
+          "bytes": 12,
+          "sha256": "49ab4dfe7ddef300e71fa70066a6afa9833d776a840213fb08e1cb22d2eea686"
+        },
+        {
+          "path": "assets/js/MainAbility/manifest.json",
+          "bytes": 301,
+          "sha256": "7da30fd7ad4b0481beb75debdfa76cf3d15db879d441caf4b448858e5e6c63fa"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/code/code.js",
+          "bytes": 10586,
+          "sha256": "2a1e19e61ba96f4ef7e80facb79f9ff11d428d8aa3d5578718a4f873811e78a9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/code/code.js.map",
+          "bytes": 27210,
+          "sha256": "3cb169b5ba2b21135a7d383bbd4173816b5b2daa03913e6b7077530d88d44051"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/detail/detail.js",
+          "bytes": 34862,
+          "sha256": "5b5fe8fb26288374a2462b467b4fcb3579337ad9edabe57ca93c07287999e0c9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/detail/detail.js.map",
+          "bytes": 84856,
+          "sha256": "90becf74c19d9dd9bf9b9f3087af4121942ef3db7b534be9d594d0b951ce2f8f"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/index/index.js",
+          "bytes": 36641,
+          "sha256": "f5f3fe5d76ea6dcd7ae5f66cb69cfe5bbf7f6d4951d05199e7ee0cb7f7ce7356"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/index/index.js.map",
+          "bytes": 89763,
+          "sha256": "578227ed5abbc6ce48f743ac7025b24153259fb1b2e712d2db45c62b88abb6bc"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+          "bytes": 48654,
+          "sha256": "b4396990629adcdcd16b7e6bd648d4baa621581bf815cb3364307b75104fc9b1"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+          "bytes": 118782,
+          "sha256": "00952dc3a9aa89091e2763de9b89131c8152d9e5a5738603ee29efb841c5d5d7"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/sync/sync.js",
+          "bytes": 43434,
+          "sha256": "98c2946a8617442d7539573d3891a21eae9fe8f5f1a318cf765b3fd5ce519d7a"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/sync/sync.js.map",
+          "bytes": 107748,
+          "sha256": "1ea08377c90588b31805b3db26420b2e9ca58b4380007d4b8aa4d1b3b61961bc"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/week/week.js",
+          "bytes": 41441,
+          "sha256": "65ff78d0952043aaa7cf98c97008cdf139b150ce31737cb150004c10ad3e00a5"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/week/week.js.map",
+          "bytes": 99251,
+          "sha256": "1106de2013e66319358537e1222388fc056a6b89520be24a3195f334b388e331"
+        },
+        {
+          "path": "config.json",
+          "bytes": 805,
+          "sha256": "8a5601115b2dd78ce99d5982fc36a158832234859510349ca76253daa3dc1e5d"
+        },
+        {
+          "path": "pack.info",
+          "bytes": 628,
+          "sha256": "11c5bc81a0845cc233cff31b4bbf82963a9754b132251a870685976b72f1f5b7"
+        }
+      ],
+      "extracted_js_cache": "/data/data/com.termux/files/home/elcton-wear-sync/.git/worktrees/elcton-wear-install34-20261113/install34-extracted/probe"
+    },
+    "timerfix": {
+      "path": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/watch/elcton-wearengine-timerfix-1.1.13-9517f34.hap",
+      "sha256": "e61ea7189ce342bdefc905d15c131d6c5ce8cbf0b8169f26a5dfb98441ca4b1d",
+      "signed_bin_sha256": "a255ad06416f763e8d118cf8ea4cbb0b3619c1dd654adca53a1d8aa372af4293",
+      "signed_bin_bytes": 838211,
+      "magic": "be",
+      "bundle": "watchapp.nexus.0zzip",
+      "config": {
+        "app": {
+          "apiVersion": {
+            "compatible": 40000010,
+            "releaseType": "Release",
+            "target": 60101024
+          },
+          "vendor": "example",
+          "bundleName": "watchapp.nexus.0zzip",
+          "version": {
+            "code": 1000116,
+            "name": "1.1.13"
+          }
+        },
+        "deviceConfig": {},
+        "module": {
+          "deviceType": [
+            "liteWearable"
+          ],
+          "abilities": [
+            {
+              "iconId": 16777219,
+              "descriptionId": 16777216,
+              "labelId": 16777217,
+              "srcPath": "MainAbility",
+              "name": ".MainAbility",
+              "srcLanguage": "js",
+              "icon": "$media:icon",
+              "description": "$string:MainAbility_desc",
+              "label": "$string:MainAbility_label",
+              "type": "page"
+            }
+          ],
+          "mainAbility": ".MainAbility",
+          "distro": {
+            "moduleType": "entry",
+            "deliveryWithInstall": true,
+            "moduleName": "entry"
+          },
+          "package": "com.hcbiu.elcton",
+          "js": [
+            {
+              "pages": [
+                "pages/index/index",
+                "pages/week/week",
+                "pages/detail/detail",
+                "pages/sync/sync",
+                "pages/code/code",
+                "pages/phone-sync/phone-sync"
+              ],
+              "name": ".MainAbility"
+            }
+          ]
+        }
+      },
+      "manifest": {
+        "deviceType": [
+          "liteWearable"
+        ],
+        "pages": [
+          "pages/index/index",
+          "pages/week/week",
+          "pages/detail/detail",
+          "pages/sync/sync",
+          "pages/code/code",
+          "pages/phone-sync/phone-sync"
+        ],
+        "appName": "$string:MainAbility_label",
+        "appID": "com.hcbiu.elcton",
+        "minPlatformVersion": 10,
+        "versionName": "1.1.13",
+        "versionCode": 1000116
+      },
+      "pack_info": {
+        "summary": {
+          "app": {
+            "bundleName": "com.hcbiu.elcton",
+            "version": {
+              "code": 1000116,
+              "name": "1.1.13"
+            }
+          },
+          "modules": [
+            {
+              "mainAbility": ".MainAbility",
+              "deviceType": [
+                "liteWearable"
+              ],
+              "abilities": [
+                {
+                  "name": ".MainAbility",
+                  "label": "$string:MainAbility_label"
+                }
+              ],
+              "distro": {
+                "deliveryWithInstall": true,
+                "moduleName": "entry",
+                "moduleType": "entry"
+              }
+            }
+          ]
+        },
+        "packages": [
+          {
+            "deviceType": [
+              "liteWearable"
+            ],
+            "moduleType": "entry",
+            "deliveryWithInstall": true,
+            "name": "entry-default"
+          }
+        ]
+      },
+      "profile_sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e",
+      "profile_bundle": "watchapp.nexus.0zzip",
+      "profile_type": "debug",
+      "profile_validity": {
+        "not-before": 1791454610,
+        "not-after": 1822990610
+      },
+      "profile_capabilities": {
+        "com.huawei.service.device_security.device_verify": {},
+        "webAccessServiceForAIQA": {}
+      },
+      "profile_permissions": {},
+      "bound_device_count": 1,
+      "profile_certificates": [
+        {
+          "subject": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "df21a3c09f7954579305f85c64f80cad86f79853ee3a887c1dec95d218df3a37"
+        },
+        {
+          "subject": "CN=HOS Profile Management Debug,OU=HOS AppGallery,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Software Signing Service CA,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "55385dcecfec59ededb1d0e6a99e51ef6616437a2a5fbe8546a1b10ec37b629a"
+        },
+        {
+          "subject": "CN=Huawei CBG Software Signing Service CA,OU=Huawei CBG,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "c57758ec30df54de35ead6f03609bc11d6e1ce33a6ddd049c8c6c25790968c28"
+        }
+      ],
+      "cms_certificates": [
+        {
+          "subject": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "df21a3c09f7954579305f85c64f80cad86f79853ee3a887c1dec95d218df3a37"
+        },
+        {
+          "subject": "CN=谢梅英(2008769451771610433)\\\\\\,Development,OU=2008769451771610433,O=谢梅英,C=CN",
+          "issuer": "CN=Huawei CBG Developer Relations CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "8926257d1bd9ff653dcd84100d53cbbabbd39371fdda5126dfb37429e55c67be"
+        },
+        {
+          "subject": "CN=Huawei CBG Developer Relations CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "issuer": "CN=Huawei CBG Root CA G2,OU=Huawei CBG,O=Huawei,C=CN",
+          "sha256": "0daa8a965b5153124f79d4b42378d0ac2f5536acb5fce1924f43723e97587180"
+        }
+      ],
+      "cms_verification": {
+        "cms_bytes": 2480,
+        "package_bytes": 838211,
+        "bundle": "watchapp.nexus.0zzip",
+        "public_key_sha256": "e57bbc00ad8f928e6f9d24d0a8453fea9edd865b6b44216e8799551610cdf742",
+        "profile_exact": true,
+        "payload_digest_bound": true
+      },
+      "file_count": 28,
+      "file_order": [
+        "config.json",
+        "pack.info",
+        "assets/entry/resources.index",
+        "assets/js/MainAbility/app.js",
+        "assets/js/MainAbility/app.js.map",
+        "assets/js/MainAbility/image_convert_result.txt",
+        "assets/js/MainAbility/manifest.json",
+        "assets/entry/resources/rawfile/seed-schedule.json",
+        "assets/js/MainAbility/i18n/en-US.json",
+        "assets/js/MainAbility/i18n/zh-CN.json",
+        "assets/entry/resources/base/media/icon_small_new.png",
+        "assets/entry/resources/base/media/icon_small_new.png.bin",
+        "assets/entry/resources/base/media/icon_small.png",
+        "assets/entry/resources/base/media/icon_small.png.bin",
+        "assets/entry/resources/base/media/icon.png",
+        "assets/entry/resources/base/media/icon.png.bin",
+        "assets/js/MainAbility/pages/code/code.js",
+        "assets/js/MainAbility/pages/code/code.js.map",
+        "assets/js/MainAbility/pages/detail/detail.js",
+        "assets/js/MainAbility/pages/detail/detail.js.map",
+        "assets/js/MainAbility/pages/index/index.js",
+        "assets/js/MainAbility/pages/index/index.js.map",
+        "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+        "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+        "assets/js/MainAbility/pages/sync/sync.js",
+        "assets/js/MainAbility/pages/sync/sync.js.map",
+        "assets/js/MainAbility/pages/week/week.js",
+        "assets/js/MainAbility/pages/week/week.js.map"
+      ],
+      "gzip_count": 0,
+      "bc_files": [],
+      "map_files": [
+        "assets/js/MainAbility/app.js.map",
+        "assets/js/MainAbility/pages/code/code.js.map",
+        "assets/js/MainAbility/pages/detail/detail.js.map",
+        "assets/js/MainAbility/pages/index/index.js.map",
+        "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+        "assets/js/MainAbility/pages/sync/sync.js.map",
+        "assets/js/MainAbility/pages/week/week.js.map"
+      ],
+      "i18n_files": [
+        "assets/js/MainAbility/i18n/en-US.json",
+        "assets/js/MainAbility/i18n/zh-CN.json"
+      ],
+      "js_total_bytes": 217004,
+      "js": [
+        {
+          "path": "assets/js/MainAbility/app.js",
+          "bytes": 1280,
+          "sha256": "9eb043f9dc348be5f41ddbf09ecbadad0c620a483b7a83c249038693d758d4d9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/code/code.js",
+          "bytes": 10586,
+          "sha256": "2a1e19e61ba96f4ef7e80facb79f9ff11d428d8aa3d5578718a4f873811e78a9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/detail/detail.js",
+          "bytes": 34862,
+          "sha256": "5b5fe8fb26288374a2462b467b4fcb3579337ad9edabe57ca93c07287999e0c9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/index/index.js",
+          "bytes": 36641,
+          "sha256": "f5f3fe5d76ea6dcd7ae5f66cb69cfe5bbf7f6d4951d05199e7ee0cb7f7ce7356"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+          "bytes": 48760,
+          "sha256": "40584099a9e82a48bd1b3ca13128c44b6189671ccbde8eb12d63eae7ca791066"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/sync/sync.js",
+          "bytes": 43434,
+          "sha256": "98c2946a8617442d7539573d3891a21eae9fe8f5f1a318cf765b3fd5ce519d7a"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/week/week.js",
+          "bytes": 41441,
+          "sha256": "65ff78d0952043aaa7cf98c97008cdf139b150ce31737cb150004c10ad3e00a5"
+        }
+      ],
+      "files": [
+        {
+          "path": "assets/entry/resources.index",
+          "bytes": 544,
+          "sha256": "75ee7a5928a547fcc5f27e7563fcaceaf7637d274da7238a50aa19a9f7ebeb26"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon.png",
+          "bytes": 5763,
+          "sha256": "54e5854a9166af398a8a3a1fd69ee47c407743baf7220480a1dc0553a0898a19"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon.png.bin",
+          "bytes": 51992,
+          "sha256": "94fad400d26c342c5f967bdd20249533810c8ae898ae9521cae2e01198bca0ce"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon_small.png",
+          "bytes": 1813,
+          "sha256": "4221ba2cbdd750d58755db30264bd79e85a29c6aa92bc64bba46a56fb80855bc"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon_small.png.bin",
+          "bytes": 4104,
+          "sha256": "ff3011e574f4338c8f4b3f2ff4fffbc48fee9f73933bc7cf13631a412208ccbb"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon_small_new.png",
+          "bytes": 1813,
+          "sha256": "4221ba2cbdd750d58755db30264bd79e85a29c6aa92bc64bba46a56fb80855bc"
+        },
+        {
+          "path": "assets/entry/resources/base/media/icon_small_new.png.bin",
+          "bytes": 4104,
+          "sha256": "ff3011e574f4338c8f4b3f2ff4fffbc48fee9f73933bc7cf13631a412208ccbb"
+        },
+        {
+          "path": "assets/entry/resources/rawfile/seed-schedule.json",
+          "bytes": 7718,
+          "sha256": "80103df4cc833414ddc3ce20e87cb38a438d01642788c45adf22e5241010156b"
+        },
+        {
+          "path": "assets/js/MainAbility/app.js",
+          "bytes": 1280,
+          "sha256": "9eb043f9dc348be5f41ddbf09ecbadad0c620a483b7a83c249038693d758d4d9"
+        },
+        {
+          "path": "assets/js/MainAbility/app.js.map",
+          "bytes": 3944,
+          "sha256": "4ed5f4d87cf767d8452dafeb4834d6bf4a26ffd757e134c86134bbcd47c026c7"
+        },
+        {
+          "path": "assets/js/MainAbility/i18n/en-US.json",
+          "bytes": 665,
+          "sha256": "598364948416761c522724c70d08d174c5f248f2659903388460fb9343fa5558"
+        },
+        {
+          "path": "assets/js/MainAbility/i18n/zh-CN.json",
+          "bytes": 768,
+          "sha256": "4ab889f8a4c629791f0e3a1f8425d084c51679f224497bd0f5f86d94d9c6ec58"
+        },
+        {
+          "path": "assets/js/MainAbility/image_convert_result.txt",
+          "bytes": 12,
+          "sha256": "49ab4dfe7ddef300e71fa70066a6afa9833d776a840213fb08e1cb22d2eea686"
+        },
+        {
+          "path": "assets/js/MainAbility/manifest.json",
+          "bytes": 301,
+          "sha256": "d39185933db6589bb7a03bc1f5f1f783eb954acc7bad8b3e26571a5d0403d7e8"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/code/code.js",
+          "bytes": 10586,
+          "sha256": "2a1e19e61ba96f4ef7e80facb79f9ff11d428d8aa3d5578718a4f873811e78a9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/code/code.js.map",
+          "bytes": 27210,
+          "sha256": "3cb169b5ba2b21135a7d383bbd4173816b5b2daa03913e6b7077530d88d44051"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/detail/detail.js",
+          "bytes": 34862,
+          "sha256": "5b5fe8fb26288374a2462b467b4fcb3579337ad9edabe57ca93c07287999e0c9"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/detail/detail.js.map",
+          "bytes": 84856,
+          "sha256": "90becf74c19d9dd9bf9b9f3087af4121942ef3db7b534be9d594d0b951ce2f8f"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/index/index.js",
+          "bytes": 36641,
+          "sha256": "f5f3fe5d76ea6dcd7ae5f66cb69cfe5bbf7f6d4951d05199e7ee0cb7f7ce7356"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/index/index.js.map",
+          "bytes": 89763,
+          "sha256": "578227ed5abbc6ce48f743ac7025b24153259fb1b2e712d2db45c62b88abb6bc"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+          "bytes": 48760,
+          "sha256": "40584099a9e82a48bd1b3ca13128c44b6189671ccbde8eb12d63eae7ca791066"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+          "bytes": 119051,
+          "sha256": "a250df902b1079ea924d96eb1c4fc3d8689cf74470bb537f449712e3404c4c64"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/sync/sync.js",
+          "bytes": 43434,
+          "sha256": "98c2946a8617442d7539573d3891a21eae9fe8f5f1a318cf765b3fd5ce519d7a"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/sync/sync.js.map",
+          "bytes": 107748,
+          "sha256": "1ea08377c90588b31805b3db26420b2e9ca58b4380007d4b8aa4d1b3b61961bc"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/week/week.js",
+          "bytes": 41441,
+          "sha256": "65ff78d0952043aaa7cf98c97008cdf139b150ce31737cb150004c10ad3e00a5"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/week/week.js.map",
+          "bytes": 99251,
+          "sha256": "1106de2013e66319358537e1222388fc056a6b89520be24a3195f334b388e331"
+        },
+        {
+          "path": "config.json",
+          "bytes": 805,
+          "sha256": "847607419599591226790d664bcf200cf5ef46b83fc2d5e1b21dd0c2b5b16286"
+        },
+        {
+          "path": "pack.info",
+          "bytes": 628,
+          "sha256": "e8106dafca9048ea21eff1bd444876bf91afab34f9643cbb0c75401849b98c2a"
+        }
+      ],
+      "extracted_js_cache": "/data/data/com.termux/files/home/elcton-wear-sync/.git/worktrees/elcton-wear-install34-20261113/install34-extracted/timerfix"
+    }
+  },
+  "comparison": {
+    "same_file_set": true,
+    "same_file_order": true,
+    "same_profile": true,
+    "same_cms_certificates": true,
+    "config_differences": [
+      {
+        "field": "app.version.code",
+        "probe": 1000115,
+        "timerfix": 1000116
+      },
+      {
+        "field": "app.version.name",
+        "probe": "1.1.12",
+        "timerfix": "1.1.13"
+      }
+    ],
+    "manifest_differences": [
+      {
+        "field": "versionCode",
+        "probe": 1000115,
+        "timerfix": 1000116
+      },
+      {
+        "field": "versionName",
+        "probe": "1.1.12",
+        "timerfix": "1.1.13"
+      }
+    ],
+    "changed_files": [
+      {
+        "path": "assets/js/MainAbility/manifest.json",
+        "probe_bytes": 301,
+        "timerfix_bytes": 301
+      },
+      {
+        "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+        "probe_bytes": 48654,
+        "timerfix_bytes": 48760
+      },
+      {
+        "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+        "probe_bytes": 118782,
+        "timerfix_bytes": 119051
+      },
+      {
+        "path": "config.json",
+        "probe_bytes": 805,
+        "timerfix_bytes": 805
+      },
+      {
+        "path": "pack.info",
+        "probe_bytes": 628,
+        "timerfix_bytes": 628
+      }
+    ],
+    "unchanged_files": [
+      "assets/entry/resources.index",
+      "assets/entry/resources/base/media/icon.png",
+      "assets/entry/resources/base/media/icon.png.bin",
+      "assets/entry/resources/base/media/icon_small.png",
+      "assets/entry/resources/base/media/icon_small.png.bin",
+      "assets/entry/resources/base/media/icon_small_new.png",
+      "assets/entry/resources/base/media/icon_small_new.png.bin",
+      "assets/entry/resources/rawfile/seed-schedule.json",
+      "assets/js/MainAbility/app.js",
+      "assets/js/MainAbility/app.js.map",
+      "assets/js/MainAbility/i18n/en-US.json",
+      "assets/js/MainAbility/i18n/zh-CN.json",
+      "assets/js/MainAbility/image_convert_result.txt",
+      "assets/js/MainAbility/pages/code/code.js",
+      "assets/js/MainAbility/pages/code/code.js.map",
+      "assets/js/MainAbility/pages/detail/detail.js",
+      "assets/js/MainAbility/pages/detail/detail.js.map",
+      "assets/js/MainAbility/pages/index/index.js",
+      "assets/js/MainAbility/pages/index/index.js.map",
+      "assets/js/MainAbility/pages/sync/sync.js",
+      "assets/js/MainAbility/pages/sync/sync.js.map",
+      "assets/js/MainAbility/pages/week/week.js",
+      "assets/js/MainAbility/pages/week/week.js.map"
+    ]
+  },
+  "scope": "Static comparison; probe installation success is unconfirmed, CMS noverify is not device trust."
+}

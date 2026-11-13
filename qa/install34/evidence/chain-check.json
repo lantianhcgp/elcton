@@ -1,0 +1,23 @@
+{
+  "chain": [
+    {
+      "sha256": "df21a3c09f7954579305f85c64f80cad86f79853ee3a887c1dec95d218df3a37",
+      "issuer_present": true,
+      "signature_valid": true,
+      "currently_valid": true
+    },
+    {
+      "sha256": "8926257d1bd9ff653dcd84100d53cbbabbd39371fdda5126dfb37429e55c67be",
+      "issuer_present": true,
+      "signature_valid": true,
+      "currently_valid": true
+    },
+    {
+      "sha256": "0daa8a965b5153124f79d4b42378d0ac2f5536acb5fce1924f43723e97587180",
+      "issuer_present": true,
+      "signature_valid": true,
+      "currently_valid": true
+    }
+  ],
+  "scope": "Static cryptographic chain and time, not online revocation or device trust"
+}
