@@ -1,0 +1,8 @@
+{
+  "id": 43406921543,
+  "status": "completed",
+  "conclusion": "success",
+  "head_sha": "09364b3e928a92cdd01789f8086a23c1c3b49ec3",
+  "html_url": "https://github.com/lantianhcgp/elcton/actions/runs/43406921543",
+  "evidence_source": "Exact gh api readback observed twice in parent conversation; later redundant requests had EOF, not a CI failure"
+}

@@ -1,0 +1,11 @@
+## Candidate after same-SDK diagnosis (2026-11-13)
+
+The fixed CLT jerry (`7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31`) accepted all JS from the 1010 real-device-success package, but rejected six page JS files from the failed timerfix HAP. Plain ES5 and character loops parsed; regexp literals, including unused literals and dead branches, did not. Exact result: `evidence/sdk-initial/native-sdk-control.json` from run 43406921543.
+
+The candidate substitutes only the inventoried regexp expressions with equivalent string operations. No page, feature, timer fix, layout or signing identity is removed. It deliberately retains debug mode, compiler/compactor versions, `compress:false`, `mangle:false`, existing external-require checks, and the `<49152` page budget. Short names are limited to the new compatibility helpers and the directly modified date/time conversion to stay inside that existing budget. Version is 1.1.14 / code1000117, never zeroed.
+
+Local regression at the first candidate checkpoint: all 203 tests passed, with old-source comparisons for UTF-16 escaping and protocol/ID/date/time cases and exhaustive character validator checks. After adding brief-string/digest edges and 36 static-reference checker tests, the complete run is 240 passed, 0 failed/0 skipped (`evidence/candidate-with-gate-tests.tap`). Test output is kept verbatim; TAP whitespace is not source lint. The red runs precede implementation and must not be rewritten.
+
+Final CI must build the actual APP, sign exclusively with `certs/elcton.p7b` and the existing course-app secret, then verify the exact signed resource set, both page tables, unchanged non-config bytes, only bundle rewrite by signer, version/API/deviceConfig against the locked baseline, full CMS chain, unchanged p7b, one-byte digest negative, strict signed ES5/AST, and all signed JS with the same SDK parser. A successful parse is not a Wear Engine runtime or FIT3 installation claim.
+
+No device install or foreground automation is performed. The current Android APK installation state and watch installed version/signature remain unknown. Never install androidTest APKs, downgrade, uninstall to clear data, or substitute a different p7b.

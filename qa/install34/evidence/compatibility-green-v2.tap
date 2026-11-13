@@ -1,0 +1,1274 @@
+TAP version 13
+# Subtest: bundle verifier recognizes the actual journal with separately constructed URI parts
+ok 1 - bundle verifier recognizes the actual journal with separately constructed URI parts
+  ---
+  duration_ms: 316.555
+  type: 'test'
+  ...
+# Subtest: bundle verifier rejects missing transactional journal despite a receive marker
+ok 2 - bundle verifier rejects missing transactional journal despite a receive marker
+  ---
+  duration_ms: 259.899896
+  type: 'test'
+  ...
+# Subtest: bundle verifier still blocks oversized pages and external require
+ok 3 - bundle verifier still blocks oversized pages and external require
+  ---
+  duration_ms: 378.253282
+  type: 'test'
+  ...
+# (node:28132) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: page answers HELLO and STATUS during a frozen export instead of swallowing controls
+ok 4 - page answers HELLO and STATUS during a frozen export instead of swallowing controls
+  ---
+  duration_ms: 80.410521
+  type: 'test'
+  ...
+# Subtest: page routes matching CANCEL to exporter and immediately permits a new receive
+ok 5 - page routes matching CANCEL to exporter and immediately permits a new receive
+  ---
+  duration_ms: 29.763594
+  type: 'test'
+  ...
+# Subtest: page explicitly reports BUSY on an overlapping BEGIN and does not switch export UI
+ok 6 - page explicitly reports BUSY on an overlapping BEGIN and does not switch export UI
+  ---
+  duration_ms: 14.898177
+  type: 'test'
+  ...
+# Subtest: same-id retry while exporter load is pending shares one frozen read without CANCELLED
+ok 7 - same-id retry while exporter load is pending shares one frozen read without CANCELLED
+  ---
+  duration_ms: 5.373021
+  type: 'test'
+  ...
+# Subtest: different export id and unrelated cancel cannot replace an in-flight export
+ok 8 - different export id and unrelated cancel cannot replace an in-flight export
+  ---
+  duration_ms: 3.020625
+  type: 'test'
+  ...
+# Subtest: cancelled export load cannot revive or invalidate a later export
+ok 9 - cancelled export load cannot revive or invalidate a later export
+  ---
+  duration_ms: 1.503073
+  type: 'test'
+  ...
+# Subtest: wire CANCEL during BEGIN load prevents the late callback from resetting or opening a transaction
+ok 10 - wire CANCEL during BEGIN load prevents the late callback from resetting or opening a transaction
+  ---
+  duration_ms: 2.75099
+  type: 'test'
+  ...
+# Subtest: cancel while physical reset is pending serializes a new BEGIN until the old IO drains
+ok 11 - cancel while physical reset is pending serializes a new BEGIN until the old IO drains
+  ---
+  duration_ms: 1.830417
+  type: 'test'
+  ...
+# Subtest: wire CANCEL during append preserves committed data and isolates the next transaction
+ok 12 - wire CANCEL during append preserves committed data and isolates the next transaction
+  ---
+  duration_ms: 2.407083
+  type: 'test'
+  ...
+# Subtest: late cancelled commit cannot report APPLIED and isCurrent becomes false
+ok 13 - late cancelled commit cannot report APPLIED and isCurrent becomes false
+  ---
+  duration_ms: 2.598802
+  type: 'test'
+  ...
+# Subtest: in-flight BEGIN retry waits for the same persisted acknowledgement without a BUSY error
+ok 14 - in-flight BEGIN retry waits for the same persisted acknowledgement without a BUSY error
+  ---
+  duration_ms: 1.288906
+  type: 'test'
+  ...
+# Subtest: a real empty timetable stays empty instead of becoming a demo
+ok 15 - a real empty timetable stays empty instead of becoming a demo
+  ---
+  duration_ms: 42.259167
+  type: 'test'
+  ...
+# Subtest: a read failure in the middle of a file is fatal rather than skipping missing data
+ok 16 - a read failure in the middle of a file is fatal rather than skipping missing data
+  ---
+  duration_ms: 5.620938
+  type: 'test'
+  ...
+# Subtest: failed replacements keep the previously loaded cache visible
+ok 17 - failed replacements keep the previously loaded cache visible
+  ---
+  duration_ms: 39.551354
+  type: 'test'
+  ...
+# Subtest: an IO error cannot turn a read failure into a writable demonstration
+ok 18 - an IO error cannot turn a read failure into a writable demonstration
+  ---
+  duration_ms: 6.031458
+  type: 'test'
+  ...
+# (node:28140) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: receiver rejects unsafe revision integers and numeric digests before staging
+ok 19 - receiver rejects unsafe revision integers and numeric digests before staging
+  ---
+  duration_ms: 17.804531
+  type: 'test'
+  ...
+# Subtest: malformed private JSON never reaches outgoing receiver or exporter error text
+ok 20 - malformed private JSON never reaches outgoing receiver or exporter error text
+  ---
+  duration_ms: 2.201406
+  type: 'test'
+  ...
+# Subtest: journal parser failures return finite codes rather than exception source text
+ok 21 - journal parser failures return finite codes rather than exception source text
+  ---
+  duration_ms: 1.03599
+  type: 'test'
+  ...
+# (node:28150) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: calendar ingress rejects impossible days and accepts Gregorian leap dates
+ok 22 - calendar ingress rejects impossible days and accepts Gregorian leap dates
+  ---
+  duration_ms: 16.045
+  type: 'test'
+  ...
+# Subtest: receiver and exporter reject numeric transaction identifiers
+ok 23 - receiver and exporter reject numeric transaction identifiers
+  ---
+  duration_ms: 5.469114
+  type: 'test'
+  ...
+# Subtest: concurrent control queries share at most one bounded storage read
+ok 24 - concurrent control queries share at most one bounded storage read
+  ---
+  duration_ms: 2.790313
+  type: 'test'
+  ...
+# Subtest: synchronous get exception is not interpreted as an absent legacy file
+ok 25 - synchronous get exception is not interpreted as an absent legacy file
+  ---
+  duration_ms: 15.114323
+  type: 'test'
+  ...
+# Subtest: damaged legacy data is preserved without silently reseeding
+ok 26 - damaged legacy data is preserved without silently reseeding
+  ---
+  duration_ms: 5.913542
+  type: 'test'
+  ...
+# Subtest: missing legacy courses is an error, not an intentional empty schedule
+ok 27 - missing legacy courses is an error, not an intentional empty schedule
+  ---
+  duration_ms: 2.320417
+  type: 'test'
+  ...
+# Subtest: failed first seed persistence cannot be exposed as a successful load
+ok 28 - failed first seed persistence cannot be exposed as a successful load
+  ---
+  duration_ms: 6.106771
+  type: 'test'
+  ...
+# Subtest: cached local document cannot overwrite a newer committed generation
+ok 29 - cached local document cannot overwrite a newer committed generation
+  ---
+  duration_ms: 20.293802
+  type: 'test'
+  ...
+# Subtest: read metadata and delayed IO queue bounds are enforced
+ok 30 - read metadata and delayed IO queue bounds are enforced
+  ---
+  duration_ms: 3.18974
+  type: 'test'
+  ...
+# (node:28152) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: existing course pages read the committed mobile snapshot after restart
+ok 31 - existing course pages read the committed mobile snapshot after restart
+  ---
+  duration_ms: 31.300469
+  type: 'test'
+  ...
+# Subtest: local changes after a mobile commit persist and mark the device dirty
+ok 32 - local changes after a mobile commit persist and mark the device dirty
+  ---
+  duration_ms: 20.320573
+  type: 'test'
+  ...
+# (node:28177) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearJournal.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: corrupt journal markers never masquerade as a first launch and reseed
+ok 33 - corrupt journal markers never masquerade as a first launch and reseed
+  ---
+  duration_ms: 36.755937
+  type: 'test'
+  ...
+# Subtest: one valid committed slot remains recoverable when the other marker is corrupt
+ok 34 - one valid committed slot remains recoverable when the other marker is corrupt
+  ---
+  duration_ms: 14.498906
+  type: 'test'
+  ...
+# Subtest: a checksum-valid record with malformed metadata is not accepted or reseeded
+ok 35 - a checksum-valid record with malformed metadata is not accepted or reseeded
+  ---
+  duration_ms: 3.472864
+  type: 'test'
+  ...
+# Subtest: legacy replacement carries the loaded generation instead of bypassing CAS
+ok 36 - legacy replacement carries the loaded generation instead of bypassing CAS
+  ---
+  duration_ms: 46.10599
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: teacher
+ok 37 - shared projection detects course change: teacher
+  ---
+  duration_ms: 24.678959
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: location
+ok 38 - shared projection detects course change: location
+  ---
+  duration_ms: 3.264323
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: startTime
+ok 39 - shared projection detects course change: startTime
+  ---
+  duration_ms: 7.444844
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: endTime
+ok 40 - shared projection detects course change: endTime
+  ---
+  duration_ms: 2.118698
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: colorIndex
+ok 41 - shared projection detects course change: colorIndex
+  ---
+  duration_ms: 2.181563
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: name
+ok 42 - shared projection detects course change: name
+  ---
+  duration_ms: 2.378333
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: id
+ok 43 - shared projection detects course change: id
+  ---
+  duration_ms: 2.06427
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: dayOfWeek
+ok 44 - shared projection detects course change: dayOfWeek
+  ---
+  duration_ms: 3.743593
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: startPeriod
+ok 45 - shared projection detects course change: startPeriod
+  ---
+  duration_ms: 2.63401
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: endPeriod
+ok 46 - shared projection detects course change: endPeriod
+  ---
+  duration_ms: 3.41198
+  type: 'test'
+  ...
+# Subtest: shared projection detects course change: weekType
+ok 47 - shared projection detects course change: weekType
+  ---
+  duration_ms: 1.886094
+  type: 'test'
+  ...
+# Subtest: shared projection includes semesterStart but excludes watch-only settings and revision
+ok 48 - shared projection includes semesterStart but excludes watch-only settings and revision
+  ---
+  duration_ms: 2.878698
+  type: 'test'
+  ...
+# Subtest: shared projection comparison is order-independent and delimiter-safe
+ok 49 - shared projection comparison is order-independent and delimiter-safe
+  ---
+  duration_ms: 3.570833
+  type: 'test'
+  ...
+# Subtest: slice rejects missing total instead of importing an empty table
+ok 50 - slice rejects missing total instead of importing an empty table
+  ---
+  duration_ms: 2.235833
+  type: 'test'
+  ...
+# Subtest: slice rejects null total instead of importing an empty table
+ok 51 - slice rejects null total instead of importing an empty table
+  ---
+  duration_ms: 1.449115
+  type: 'test'
+  ...
+# Subtest: slice rejects string total instead of importing an empty table
+ok 52 - slice rejects string total instead of importing an empty table
+  ---
+  duration_ms: 1.229375
+  type: 'test'
+  ...
+# Subtest: slice rejects negative total instead of importing an empty table
+ok 53 - slice rejects negative total instead of importing an empty table
+  ---
+  duration_ms: 1.158855
+  type: 'test'
+  ...
+# Subtest: slice rejects fraction total instead of importing an empty table
+ok 54 - slice rejects fraction total instead of importing an empty table
+  ---
+  duration_ms: 3.01901
+  type: 'test'
+  ...
+# Subtest: slice rejects over-limit total instead of importing an empty table
+ok 55 - slice rejects over-limit total instead of importing an empty table
+  ---
+  duration_ms: 3.486146
+  type: 'test'
+  ...
+# Subtest: slice rejects boolean total instead of importing an empty table
+ok 56 - slice rejects boolean total instead of importing an empty table
+  ---
+  duration_ms: 4.42948
+  type: 'test'
+  ...
+# Subtest: slice rejects missing courses rather than silently treating it as empty
+ok 57 - slice rejects missing courses rather than silently treating it as empty
+  ---
+  duration_ms: 3.490104
+  type: 'test'
+  ...
+# Subtest: slice rejects null courses rather than silently treating it as empty
+ok 58 - slice rejects null courses rather than silently treating it as empty
+  ---
+  duration_ms: 1.469844
+  type: 'test'
+  ...
+# Subtest: slice rejects object courses rather than silently treating it as empty
+ok 59 - slice rejects object courses rather than silently treating it as empty
+  ---
+  duration_ms: 5.340781
+  type: 'test'
+  ...
+# Subtest: slice rejects missing page count
+ok 60 - slice rejects missing page count
+  ---
+  duration_ms: 1.435572
+  type: 'test'
+  ...
+# Subtest: slice rejects zero page count
+ok 61 - slice rejects zero page count
+  ---
+  duration_ms: 0.870156
+  type: 'test'
+  ...
+# Subtest: slice rejects fraction page count
+ok 62 - slice rejects fraction page count
+  ---
+  duration_ms: 1.169167
+  type: 'test'
+  ...
+# Subtest: slice rejects string page count
+ok 63 - slice rejects string page count
+  ---
+  duration_ms: 1.018802
+  type: 'test'
+  ...
+# Subtest: slice rejects unbounded page count
+ok 64 - slice rejects unbounded page count
+  ---
+  duration_ms: 0.860312
+  type: 'test'
+  ...
+# Subtest: legacy import enforces strict v1 for old version
+ok 65 - legacy import enforces strict v1 for old version
+  ---
+  duration_ms: 1.335104
+  type: 'test'
+  ...
+# Subtest: legacy import enforces strict v1 for missing version
+ok 66 - legacy import enforces strict v1 for missing version
+  ---
+  duration_ms: 0.92625
+  type: 'test'
+  ...
+# Subtest: legacy import enforces strict v1 for string version
+ok 67 - legacy import enforces strict v1 for string version
+  ---
+  duration_ms: 0.771823
+  type: 'test'
+  ...
+# Subtest: legacy import enforces strict v1 for future version
+ok 68 - legacy import enforces strict v1 for future version
+  ---
+  duration_ms: 0.803958
+  type: 'test'
+  ...
+# Subtest: legacy full import rejects invalid shared document: iod":2,"startTime":"08:00","endTime":"09:00","weekType":"all","weeks":[],"colorIndex":0}]}
+ok 69 - legacy full import rejects invalid shared document: iod":2,"startTime":"08:00","endTime":"09:00","weekType":"all","weeks":[],"colorIndex":0}]}
+  ---
+  duration_ms: 1.146198
+  type: 'test'
+  ...
+# Subtest: legacy full import rejects invalid shared document: semesterStart":"2026-09-01","currentWeek":1,"vibrationEnabled":false,"reminderMinutes":5}}
+ok 70 - legacy full import rejects invalid shared document: semesterStart":"2026-09-01","currentWeek":1,"vibrationEnabled":false,"reminderMinutes":5}}
+  ---
+  duration_ms: 0.966563
+  type: 'test'
+  ...
+# Subtest: legacy full import rejects invalid shared document: iod":2,"startTime":"08:00","endTime":"09:00","weekType":"all","weeks":[],"colorIndex":0}]}
+ok 71 - legacy full import rejects invalid shared document: iod":2,"startTime":"08:00","endTime":"09:00","weekType":"all","weeks":[],"colorIndex":0}]}
+  ---
+  duration_ms: 1.513646
+  type: 'test'
+  ...
+# Subtest: legacy full import rejects invalid shared document: iod":2,"startTime":"08:00","endTime":"09:00","weekType":"all","weeks":[],"colorIndex":0}]}
+ok 72 - legacy full import rejects invalid shared document: iod":2,"startTime":"08:00","endTime":"09:00","weekType":"all","weeks":[],"colorIndex":0}]}
+  ---
+  duration_ms: 1.542032
+  type: 'test'
+  ...
+# Subtest: legacy full import rejects invalid shared document: od":2,"startTime":"08:00","endTime":"09:00","weekType":"all","weeks":[1],"colorIndex":0}]}
+ok 73 - legacy full import rejects invalid shared document: od":2,"startTime":"08:00","endTime":"09:00","weekType":"all","weeks":[1],"colorIndex":0}]}
+  ---
+  duration_ms: 2.210729
+  type: 'test'
+  ...
+# Subtest: slice rejects declared/final course-count mismatch and invalid courses without skipping
+ok 74 - slice rejects declared/final course-count mismatch and invalid courses without skipping
+  ---
+  duration_ms: 2.196458
+  type: 'test'
+  ...
+# Subtest: slice rejects page index, total, pages or revision changing in transit
+ok 75 - slice rejects page index, total, pages or revision changing in transit
+  ---
+  duration_ms: 10.051458
+  type: 'test'
+  ...
+# Subtest: slice chain cannot silently fall back to a full response after the first page
+ok 76 - slice chain cannot silently fall back to a full response after the first page
+  ---
+  duration_ms: 2.137969
+  type: 'test'
+  ...
+# Subtest: valid pickup pagination preserves ten-course pages, 400ms intervals and delayed merge
+ok 77 - valid pickup pagination preserves ten-course pages, 400ms intervals and delayed merge
+  ---
+  duration_ms: 10.846198
+  type: 'test'
+  ...
+# Subtest: explicit valid empty table can still replace the old table
+ok 78 - explicit valid empty table can still replace the old table
+  ---
+  duration_ms: 1.479115
+  type: 'test'
+  ...
+# Subtest: no pickup code keeps the read-only legacy endpoint and wrapped full-document route
+ok 79 - no pickup code keeps the read-only legacy endpoint and wrapped full-document route
+  ---
+  duration_ms: 2.291302
+  type: 'test'
+  ...
+# Subtest: local revision conflict retains the existing second-pull confirmation
+ok 80 - local revision conflict retains the existing second-pull confirmation
+  ---
+  duration_ms: 1.618958
+  type: 'test'
+  ...
+# Subtest: sync onHide cancels both page-gap and delayed-merge timers and stale callbacks
+ok 81 - sync onHide cancels both page-gap and delayed-merge timers and stale callbacks
+  ---
+  duration_ms: 2.613333
+  type: 'test'
+  ...
+# Subtest: sync onDestroy cancels both page-gap and delayed-merge timers and stale callbacks
+ok 82 - sync onDestroy cancels both page-gap and delayed-merge timers and stale callbacks
+  ---
+  duration_ms: 1.89526
+  type: 'test'
+  ...
+# Subtest: sync retry, health, code and refresh cannot supersede an in-flight commit
+ok 83 - sync retry, health, code and refresh cannot supersede an in-flight commit
+  ---
+  duration_ms: 1.989323
+  type: 'test'
+  ...
+# Subtest: sync manual health cannot cancel a comparison read and start another pull
+ok 84 - sync manual health cannot cancel a comparison read and start another pull
+  ---
+  duration_ms: 4.55651
+  type: 'test'
+  ...
+# Subtest: sync watchdog cannot unlock a pending write or permit duplicate replacement
+ok 85 - sync watchdog cannot unlock a pending write or permit duplicate replacement
+  ---
+  duration_ms: 6.167604
+  type: 'test'
+  ...
+# Subtest: whole-flow timeout invalidates a late fetch before it can import anything
+ok 86 - whole-flow timeout invalidates a late fetch before it can import anything
+  ---
+  duration_ms: 2.07125
+  type: 'test'
+  ...
+# Subtest: whole-flow timeout invalidates a late comparison read before commit
+ok 87 - whole-flow timeout invalidates a late comparison read before commit
+  ---
+  duration_ms: 1.439688
+  type: 'test'
+  ...
+# Subtest: commit lock remains authoritative even if the UI running flag is false
+ok 88 - commit lock remains authoritative even if the UI running flag is false
+  ---
+  duration_ms: 3.49599
+  type: 'test'
+  ...
+# Subtest: system hiding sync cancels UI callbacks but does not claim cancellation of an already started commit
+ok 89 - system hiding sync cancels UI callbacks but does not claim cancellation of an already started commit
+  ---
+  duration_ms: 1.834635
+  type: 'test'
+  ...
+# Subtest: sync physical commit settles the lock even when its old UI callback is discarded
+ok 90 - sync physical commit settles the lock even when its old UI callback is discarded
+  ---
+  duration_ms: 1.866406
+  type: 'test'
+  ...
+# Subtest: sync late initial local-read callback cannot start health after destruction
+ok 91 - sync late initial local-read callback cannot start health after destruction
+  ---
+  duration_ms: 1.433907
+  type: 'test'
+  ...
+# Subtest: sync frozen health remains manually restartable without overlapping old callbacks
+ok 92 - sync frozen health remains manually restartable without overlapping old callbacks
+  ---
+  duration_ms: 8.329219
+  type: 'test'
+  ...
+# Subtest: index retains its original layout without device queries after onHide
+ok 93 - index retains its original layout without device queries after onHide
+  ---
+  duration_ms: 3.126094
+  type: 'test'
+  ...
+# Subtest: index retains its original layout without device queries after onDestroy
+ok 94 - index retains its original layout without device queries after onDestroy
+  ---
+  duration_ms: 1.067135
+  type: 'test'
+  ...
+# Subtest: week retains its original layout without device queries after onHide
+ok 95 - week retains its original layout without device queries after onHide
+  ---
+  duration_ms: 8.223438
+  type: 'test'
+  ...
+# Subtest: week retains its original layout without device queries after onDestroy
+ok 96 - week retains its original layout without device queries after onDestroy
+  ---
+  duration_ms: 1.249011
+  type: 'test'
+  ...
+# Subtest: detail retains its original layout without device queries after onHide
+ok 97 - detail retains its original layout without device queries after onHide
+  ---
+  duration_ms: 9.390365
+  type: 'test'
+  ...
+# Subtest: detail retains its original layout without device queries after onDestroy
+ok 98 - detail retains its original layout without device queries after onDestroy
+  ---
+  duration_ms: 2.967604
+  type: 'test'
+  ...
+# Subtest: code retains its original layout without device queries after onHide
+ok 99 - code retains its original layout without device queries after onHide
+  ---
+  duration_ms: 1.504531
+  type: 'test'
+  ...
+# Subtest: code retains its original layout without device queries after onDestroy
+ok 100 - code retains its original layout without device queries after onDestroy
+  ---
+  duration_ms: 0.883958
+  type: 'test'
+  ...
+# Subtest: sync retains its original layout without device queries after onHide
+ok 101 - sync retains its original layout without device queries after onHide
+  ---
+  duration_ms: 0.844532
+  type: 'test'
+  ...
+# Subtest: sync retains its original layout without device queries after onDestroy
+ok 102 - sync retains its original layout without device queries after onDestroy
+  ---
+  duration_ms: 0.789636
+  type: 'test'
+  ...
+# Subtest: index cancels deferred scroll and ignores stale list callbacks on onHide
+ok 103 - index cancels deferred scroll and ignores stale list callbacks on onHide
+  ---
+  duration_ms: 1.301406
+  type: 'test'
+  ...
+# Subtest: index cancels deferred scroll and ignores stale list callbacks on onDestroy
+ok 104 - index cancels deferred scroll and ignores stale list callbacks on onDestroy
+  ---
+  duration_ms: 0.773125
+  type: 'test'
+  ...
+# Subtest: index rejects previous-show settings and courses after hide/show
+ok 105 - index rejects previous-show settings and courses after hide/show
+  ---
+  duration_ms: 1.486979
+  type: 'test'
+  ...
+# Subtest: index cancels storage navigation callbacks after hiding
+ok 106 - index cancels storage navigation callbacks after hiding
+  ---
+  duration_ms: 1.428542
+  type: 'test'
+  ...
+# Subtest: week rejects previous-show settings and courses after hide/show
+ok 107 - week rejects previous-show settings and courses after hide/show
+  ---
+  duration_ms: 0.929948
+  type: 'test'
+  ...
+# Subtest: week cancels storage navigation callbacks after hiding
+ok 108 - week cancels storage navigation callbacks after hiding
+  ---
+  duration_ms: 1.018594
+  type: 'test'
+  ...
+# Subtest: index restores the original mounted list focus without querying a new layout
+ok 109 - index restores the original mounted list focus without querying a new layout
+  ---
+  duration_ms: 0.81552
+  type: 'test'
+  ...
+# Subtest: week restores the original mounted list focus without querying a new layout
+ok 110 - week restores the original mounted list focus without querying a new layout
+  ---
+  duration_ms: 0.982552
+  type: 'test'
+  ...
+# Subtest: week prevents late previous-day reads from rebuilding the newly selected day
+ok 111 - week prevents late previous-day reads from rebuilding the newly selected day
+  ---
+  duration_ms: 1.138281
+  type: 'test'
+  ...
+# Subtest: detail storage callbacks cannot load a dead page or overwrite a newer navigation target
+ok 112 - detail storage callbacks cannot load a dead page or overwrite a newer navigation target
+  ---
+  duration_ms: 1.1
+  type: 'test'
+  ...
+# Subtest: detail deletion double-click starts one callback-based removal and one navigation
+ok 113 - detail deletion double-click starts one callback-based removal and one navigation
+  ---
+  duration_ms: 1.829896
+  type: 'test'
+  ...
+# Subtest: detail deletion failure is retryable and cancelled UI ignores the actual eventual removal
+ok 114 - detail deletion failure is retryable and cancelled UI ignores the actual eventual removal
+  ---
+  duration_ms: 1.347187
+  type: 'test'
+  ...
+# Subtest: detail findCourse callback is ignored across hide/show generations
+ok 115 - detail findCourse callback is ignored across hide/show generations
+  ---
+  duration_ms: 1.252344
+  type: 'test'
+  ...
+# Subtest: code initial file read cannot overwrite digits already entered by the user
+ok 116 - code initial file read cannot overwrite digits already entered by the user
+  ---
+  duration_ms: 1.310573
+  type: 'test'
+  ...
+# Subtest: code double save locks the exact six-digit snapshot and ignores callbacks after cancel
+ok 117 - code double save locks the exact six-digit snapshot and ignores callbacks after cancel
+  ---
+  duration_ms: 1.8125
+  type: 'test'
+  ...
+# Subtest: code save failure permits retry while stale duplicate completion cannot navigate
+ok 118 - code save failure permits retry while stale duplicate completion cannot navigate
+  ---
+  duration_ms: 1.021667
+  type: 'test'
+  ...
+# Subtest: code pending write remains locked across hide/show until its physical callback drains
+ok 119 - code pending write remains locked across hide/show until its physical callback drains
+  ---
+  duration_ms: 1.216406
+  type: 'test'
+  ...
+# Subtest: code rejects a malformed length-six value rather than writing it
+ok 120 - code rejects a malformed length-six value rather than writing it
+  ---
+  duration_ms: 0.907812
+  type: 'test'
+  ...
+# Subtest: authorized watch JavaScript remains ASCII and contains no new Promise or browser DOM dependencies
+ok 121 - authorized watch JavaScript remains ASCII and contains no new Promise or browser DOM dependencies
+  ---
+  duration_ms: 2.071771
+  type: 'test'
+  ...
+# Subtest: selected watch source is parseable without regexp literal syntax rejected by exact SDK
+ok 122 - selected watch source is parseable without regexp literal syntax rejected by exact SDK
+  ---
+  duration_ms: 193.499688
+  type: 'test'
+  ...
+# Subtest: wire JSON stays byte-identical to original regexp encoder over all UTF-16 units
+ok 123 - wire JSON stays byte-identical to original regexp encoder over all UTF-16 units
+  ---
+  duration_ms: 328.879479
+  type: 'test'
+  ...
+# Subtest: transfer ID acceptance matches original protocol across length and character edges
+ok 124 - transfer ID acceptance matches original protocol across length and character edges
+  ---
+  duration_ms: 22.793073
+  type: 'test'
+  ...
+# Subtest: date/time acceptance and canonical output are unchanged against source baseline
+ok 125 - date/time acceptance and canonical output are unchanged against source baseline
+  ---
+  duration_ms: 119.432708
+  type: 'test'
+  ...
+# (node:28189) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: local cancel in commit phase cannot claim the old schedule was preserved
+ok 126 - local cancel in commit phase cannot claim the old schedule was preserved
+  ---
+  duration_ms: 41.322552
+  type: 'test'
+  ...
+# Subtest: watchdog during issued marker reports uncertain result rather than old data preserved
+ok 127 - watchdog during issued marker reports uncertain result rather than old data preserved
+  ---
+  duration_ms: 11.730573
+  type: 'test'
+  ...
+# Subtest: commit-unknown stays uncertain through local cancel and watchdog until verified READY
+ok 128 - commit-unknown stays uncertain through local cancel and watchdog until verified READY
+  ---
+  duration_ms: 14.251875
+  type: 'test'
+  ...
+# Subtest: data load saturation returns bounded empty results without poisoning a successful read
+ok 129 - data load saturation returns bounded empty results without poisoning a successful read
+  ---
+  duration_ms: 18.047864
+  type: 'test'
+  ...
+# Subtest: old channel send callbacks cannot reach a reopened listener
+ok 130 - old channel send callbacks cannot reach a reopened listener
+  ---
+  duration_ms: 2.63052
+  type: 'test'
+  ...
+# Subtest: an old cached local read that finishes after a write cannot become the next mutation baseline
+ok 131 - an old cached local read that finishes after a write cannot become the next mutation baseline
+  ---
+  duration_ms: 8.790365
+  type: 'test'
+  ...
+# (node:28209) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: phone sync page receives a snapshot through its real API callback and updates saved courses
+ok 132 - phone sync page receives a snapshot through its real API callback and updates saved courses
+  ---
+  duration_ms: 295.628021
+  type: 'test'
+  ...
+# (node:28221) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: watchDog rearms and clears a valid numeric timer 0
+ok 133 - watchDog rearms and clears a valid numeric timer 0
+  ---
+  duration_ms: 46.950156
+  type: 'test'
+  ...
+# Subtest: stop cancels numeric timer 0 and repeated stop never clears null
+ok 134 - stop cancels numeric timer 0 and repeated stop never clears null
+  ---
+  duration_ms: 12.078282
+  type: 'test'
+  ...
+# Subtest: onListen cancels a listening session with numeric timer 0
+ok 135 - onListen cancels a listening session with numeric timer 0
+  ---
+  duration_ms: 6.341511
+  type: 'test'
+  ...
+# Subtest: onHide cancels a listening session with numeric timer 0
+ok 136 - onHide cancels a listening session with numeric timer 0
+  ---
+  duration_ms: 15.908333
+  type: 'test'
+  ...
+# Subtest: onDestroy cancels a listening session with numeric timer 0
+ok 137 - onDestroy cancels a listening session with numeric timer 0
+  ---
+  duration_ms: 4.582656
+  type: 'test'
+  ...
+# Subtest: live timeout 0 detaches its own slot before stop without clearing itself
+ok 138 - live timeout 0 detaches its own slot before stop without clearing itself
+  ---
+  duration_ms: 9.797396
+  type: 'test'
+  ...
+# Subtest: live timeout 1 detaches its own slot before stop without clearing itself
+ok 139 - live timeout 1 detaches its own slot before stop without clearing itself
+  ---
+  duration_ms: 5.529583
+  type: 'test'
+  ...
+# Subtest: retained callback from a rearmed watchdog cannot close the current same-generation session
+ok 140 - retained callback from a rearmed watchdog cannot close the current same-generation session
+  ---
+  duration_ms: 9.171719
+  type: 'test'
+  ...
+# Subtest: retained callback from cancelled generation cannot close a reopened session with reused timer 0
+ok 141 - retained callback from cancelled generation cannot close a reopened session with reused timer 0
+  ---
+  duration_ms: 9.011562
+  type: 'test'
+  ...
+# Subtest: retained callback after destroy is inert and cannot clear any other timer
+ok 142 - retained callback after destroy is inert and cannot clear any other timer
+  ---
+  duration_ms: 7.372656
+  type: 'test'
+  ...
+# Subtest: APPLIED cancels the valid numeric-zero watchdog without timing out the saved session
+ok 143 - APPLIED cancels the valid numeric-zero watchdog without timing out the saved session
+  ---
+  duration_ms: 17.968958
+  type: 'test'
+  ...
+# Subtest: index.hml preserves the original watch design byte for byte
+ok 144 - index.hml preserves the original watch design byte for byte
+  ---
+  duration_ms: 74.908073
+  type: 'test'
+  ...
+# Subtest: index.css preserves the original watch design byte for byte
+ok 145 - index.css preserves the original watch design byte for byte
+  ---
+  duration_ms: 48.703541
+  type: 'test'
+  ...
+# Subtest: index no longer drives a cross-page redesign or device layout query
+ok 146 - index no longer drives a cross-page redesign or device layout query
+  ---
+  duration_ms: 1.6575
+  type: 'test'
+  ...
+# Subtest: week.hml preserves the original watch design byte for byte
+ok 147 - week.hml preserves the original watch design byte for byte
+  ---
+  duration_ms: 40.871458
+  type: 'test'
+  ...
+# Subtest: week.css preserves the original watch design byte for byte
+ok 148 - week.css preserves the original watch design byte for byte
+  ---
+  duration_ms: 44.800261
+  type: 'test'
+  ...
+# Subtest: week no longer drives a cross-page redesign or device layout query
+ok 149 - week no longer drives a cross-page redesign or device layout query
+  ---
+  duration_ms: 2.254427
+  type: 'test'
+  ...
+# Subtest: detail.hml preserves the original watch design byte for byte
+ok 150 - detail.hml preserves the original watch design byte for byte
+  ---
+  duration_ms: 49.653489
+  type: 'test'
+  ...
+# Subtest: detail.css preserves the original watch design byte for byte
+ok 151 - detail.css preserves the original watch design byte for byte
+  ---
+  duration_ms: 24.095469
+  type: 'test'
+  ...
+# Subtest: detail no longer drives a cross-page redesign or device layout query
+ok 152 - detail no longer drives a cross-page redesign or device layout query
+  ---
+  duration_ms: 3.654844
+  type: 'test'
+  ...
+# Subtest: code.hml preserves the original watch design byte for byte
+ok 153 - code.hml preserves the original watch design byte for byte
+  ---
+  duration_ms: 48.484531
+  type: 'test'
+  ...
+# Subtest: code.css preserves the original watch design byte for byte
+ok 154 - code.css preserves the original watch design byte for byte
+  ---
+  duration_ms: 44.503489
+  type: 'test'
+  ...
+# Subtest: code no longer drives a cross-page redesign or device layout query
+ok 155 - code no longer drives a cross-page redesign or device layout query
+  ---
+  duration_ms: 0.676407
+  type: 'test'
+  ...
+# Subtest: sync.hml preserves the original watch design byte for byte
+ok 156 - sync.hml preserves the original watch design byte for byte
+  ---
+  duration_ms: 41.497656
+  type: 'test'
+  ...
+# Subtest: sync.css preserves the original watch design byte for byte
+ok 157 - sync.css preserves the original watch design byte for byte
+  ---
+  duration_ms: 43.970261
+  type: 'test'
+  ...
+# Subtest: sync no longer drives a cross-page redesign or device layout query
+ok 158 - sync no longer drives a cross-page redesign or device layout query
+  ---
+  duration_ms: 0.830417
+  type: 'test'
+  ...
+# Subtest: new phone-sync layout remains isolated to its own registered page
+ok 159 - new phone-sync layout remains isolated to its own registered page
+  ---
+  duration_ms: 1.109531
+  type: 'test'
+  ...
+# Subtest: the original pickup page adds only one phone-sync row, keeping its four actions ordered
+ok 160 - the original pickup page adds only one phone-sync row, keeping its four actions ordered
+  ---
+  duration_ms: 8.650885
+  type: 'test'
+  ...
+# Subtest: phone-sync row cancels a pending health probe before opening the separate page
+ok 161 - phone-sync row cancels a pending health probe before opening the separate page
+  ---
+  duration_ms: 1.535104
+  type: 'test'
+  ...
+# Subtest: phone-sync row cannot supersede an in-flight import commit
+ok 162 - phone-sync row cannot supersede an in-flight import commit
+  ---
+  duration_ms: 1.118959
+  type: 'test'
+  ...
+# Subtest: the original return button cannot cut across an in-flight import commit
+ok 163 - the original return button cannot cut across an in-flight import commit
+  ---
+  duration_ms: 2.386979
+  type: 'test'
+  ...
+# Signing identity verified: 8393b2c0378c3c75628538bc4cb4e5299881f2a6a80cc9ddbce255a5f73be66c
+# Subtest: matching synthetic signing identity creates a verifiable artifact
+ok 164 - matching synthetic signing identity creates a verifiable artifact
+  ---
+  duration_ms: 332.364479
+  type: 'test'
+  ...
+# Subtest: signer rejects a private key not belonging to the profile certificate before packaging
+ok 165 - signer rejects a private key not belonging to the profile certificate before packaging
+  ---
+  duration_ms: 8.576094
+  type: 'test'
+  ...
+# Signing identity verified: 8393b2c0378c3c75628538bc4cb4e5299881f2a6a80cc9ddbce255a5f73be66c
+# Subtest: verification rejects a modified unsigned payload even when the CMS remains intact
+ok 166 - verification rejects a modified unsigned payload even when the CMS remains intact
+  ---
+  duration_ms: 277.843958
+  type: 'test'
+  ...
+# Subtest: verification rejects a signed CMS whose signer differs from the embedded profile leaf
+ok 167 - verification rejects a signed CMS whose signer differs from the embedded profile leaf
+  ---
+  duration_ms: 6.850937
+  type: 'test'
+  ...
+# Subtest: an explicitly requested profile cannot silently fall back to another certs file
+ok 168 - an explicitly requested profile cannot silently fall back to another certs file
+  ---
+  duration_ms: 101.789635
+  type: 'test'
+  ...
+# Subtest: CMS remains valid when encoding the attributes crosses a clock-second boundary
+ok 169 - CMS remains valid when encoding the attributes crosses a clock-second boundary
+  ---
+  duration_ms: 474.780781
+  type: 'test'
+  ...
+# Subtest: signing does not reset an explicitly versioned package to zero
+ok 170 - signing does not reset an explicitly versioned package to zero
+  ---
+  duration_ms: 9.555156
+  type: 'test'
+  ...
+# Subtest: hmlwsim file adapter reads actual UTF-8 byte windows and reports length through get
+ok 171 - hmlwsim file adapter reads actual UTF-8 byte windows and reports length through get
+  ---
+  duration_ms: 15.006719
+  type: 'test'
+  ...
+# Subtest: hmlwsim does not replay already delivered input after resubscribing
+ok 172 - hmlwsim does not replay already delivered input after resubscribing
+  ---
+  duration_ms: 15.231875
+  type: 'test'
+  ...
+# Subtest: hmlwsim outgoing messages cannot reenter the watch inbox
+ok 173 - hmlwsim outgoing messages cannot reenter the watch inbox
+  ---
+  duration_ms: 3.294531
+  type: 'test'
+  ...
+# Subtest: hmlwsim reads rawfile assets as text at the runtime URI instead of base64
+ok 174 - hmlwsim reads rawfile assets as text at the runtime URI instead of base64
+  ---
+  duration_ms: 9.548177
+  type: 'test'
+  ...
+# (node:28288) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearReceiver.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: journal checks expected generation under its shared commit lock
+ok 175 - journal checks expected generation under its shared commit lock
+  ---
+  duration_ms: 12.795
+  type: 'test'
+  ...
+# Subtest: separate journal instances cannot write the same inactive slot concurrently
+ok 176 - separate journal instances cannot write the same inactive slot concurrently
+  ---
+  duration_ms: 11.267813
+  type: 'test'
+  ...
+# Subtest: CANCEL after marker issuance reports commit in progress, not old data preserved
+ok 177 - CANCEL after marker issuance reports commit in progress, not old data preserved
+  ---
+  duration_ms: 8.780417
+  type: 'test'
+  ...
+# Subtest: a failed readback after issued marker is uncertain, not guaranteed old baseline
+ok 178 - a failed readback after issued marker is uncertain, not guaranteed old baseline
+  ---
+  duration_ms: 2.316719
+  type: 'test'
+  ...
+# Subtest: app-scoped IO serializes writes even across separately loaded page bundles
+ok 179 - app-scoped IO serializes writes even across separately loaded page bundles
+  ---
+  duration_ms: 6.46276
+  type: 'test'
+  ...
+# Subtest: the pickup keyboard keeps its original saved-code and missing-digit messages
+ok 180 - the pickup keyboard keeps its original saved-code and missing-digit messages
+  ---
+  duration_ms: 26.257813
+  type: 'test'
+  ...
+# Subtest: the original cross-page metric override is absent from the delivered source
+ok 181 - the original cross-page metric override is absent from the delivered source
+  ---
+  duration_ms: 1.399635
+  type: 'test'
+  ...
+# Subtest: crown focus waits for the original list to mount without a new layout field
+ok 182 - crown focus waits for the original list to mount without a new layout field
+  ---
+  duration_ms: 12.897396
+  type: 'test'
+  ...
+# Subtest: focus retries are bounded when the original list does not exist
+ok 183 - focus retries are bounded when the original list does not exist
+  ---
+  duration_ms: 1.256614
+  type: 'test'
+  ...
+# Subtest: a hidden or superseded original page cannot gain crown focus
+ok 184 - a hidden or superseded original page cannot gain crown focus
+  ---
+  duration_ms: 1.285678
+  type: 'test'
+  ...
+# Subtest: channel registers only after configuring the signed phone identity and drops watch loopback
+ok 185 - channel registers only after configuring the signed phone identity and drops watch loopback
+  ---
+  duration_ms: 9.834375
+  type: 'test'
+  ...
+# (node:28320) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: export publishes only a checksum-verified sequence frozen at request time
+ok 186 - export publishes only a checksum-verified sequence frozen at request time
+  ---
+  duration_ms: 19.878385
+  type: 'test'
+  ...
+# Subtest: repeated export request with the same id keeps its original frozen snapshot
+ok 187 - repeated export request with the same id keeps its original frozen snapshot
+  ---
+  duration_ms: 15.650104
+  type: 'test'
+  ...
+# (node:28332) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearJournal.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: journal publishes only verified data and restores it after a fresh instance
+ok 188 - journal publishes only verified data and restores it after a fresh instance
+  ---
+  duration_ms: 10.566302
+  type: 'test'
+  ...
+# Subtest: invalid schema cannot replace the last committed course document
+ok 189 - invalid schema cannot replace the last committed course document
+  ---
+  duration_ms: 10.356823
+  type: 'test'
+  ...
+# Subtest: a failed inactive-slot write never changes the last successful baseline
+ok 190 - a failed inactive-slot write never changes the last successful baseline
+  ---
+  duration_ms: 2.004375
+  type: 'test'
+  ...
+# Subtest: cancel before the commit marker leaves the previous generation active
+ok 191 - cancel before the commit marker leaves the previous generation active
+  ---
+  duration_ms: 2.648855
+  type: 'test'
+  ...
+# (node:28352) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearLayout.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: sync layout uses supplied windows and keeps primary controls inside circle and rounded-rect safe areas
+ok 192 - sync layout uses supplied windows and keeps primary controls inside circle and rounded-rect safe areas
+  ---
+  duration_ms: 5.469636
+  type: 'test'
+  ...
+# (node:28353) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: ASCII JSON preserves Chinese and surrogate pairs with a reproducible checksum
+ok 193 - ASCII JSON preserves Chinese and surrogate pairs with a reproducible checksum
+  ---
+  duration_ms: 8.615156
+  type: 'test'
+  ...
+# Subtest: packet plan stays below 1024 bytes and reconstructs the identical snapshot
+ok 194 - packet plan stays below 1024 bytes and reconstructs the identical snapshot
+  ---
+  duration_ms: 6.220156
+  type: 'test'
+  ...
+# Subtest: shared snapshots are deterministic and exclude device preferences and local counters
+ok 195 - shared snapshots are deterministic and exclude device preferences and local counters
+  ---
+  duration_ms: 3.27698
+  type: 'test'
+  ...
+# (node:28360) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/elcton-wear-install34-20261113/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: receiver waits for committed readback before APPLIED and does not trust send success
+ok 196 - receiver waits for committed readback before APPLIED and does not trust send success
+  ---
+  duration_ms: 9.45375
+  type: 'test'
+  ...
+# Subtest: duplicate chunks are idempotent and outbound watch messages cannot fake peer responses
+ok 197 - duplicate chunks are idempotent and outbound watch messages cannot fake peer responses
+  ---
+  duration_ms: 6.184479
+  type: 'test'
+  ...
+# Subtest: saving failure and missing chunks preserve the existing baseline
+ok 198 - saving failure and missing chunks preserve the existing baseline
+  ---
+  duration_ms: 1.704011
+  type: 'test'
+  ...
+# Subtest: receiver rejects an old source revision even when its baseline digest matches
+ok 199 - receiver rejects an old source revision even when its baseline digest matches
+  ---
+  duration_ms: 0.991406
+  type: 'test'
+  ...
+# Subtest: cancel during append discards the late callback and allows a new transaction
+ok 200 - cancel during append discards the late callback and allows a new transaction
+  ---
+  duration_ms: 1.44625
+  type: 'test'
+  ...
+# Subtest: a locally changed document cannot acknowledge an obsolete END as current saved bytes
+ok 201 - a locally changed document cannot acknowledge an obsolete END as current saved bytes
+  ---
+  duration_ms: 0.815208
+  type: 'test'
+  ...
+1..201
+# tests 201
+# suites 0
+# pass 201
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4756.427498

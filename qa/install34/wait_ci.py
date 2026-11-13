@@ -12,13 +12,22 @@ assert 0 < minutes <= 30
 out = Path(__file__).parent / 'evidence' / ('ci-' + workflow.removesuffix('.yml') + '-' + sha[:8] + '.json')
 deadline = time.monotonic() + minutes * 60
 last = None
+failures = 0
 while time.monotonic() < deadline:
-    p = subprocess.run(['gh', 'run', 'list', '--repo', 'lantianhcgp/elcton', '--commit', sha,
-                        '--workflow', workflow, '--limit', '10', '--json',
-                        'databaseId,headSha,status,conclusion,url,event'], capture_output=True, timeout=40)
-    if p.returncode:
-        raise SystemExit('GitHub read failed; raw output suppressed')
-    rows = json.loads(p.stdout)
+    try:
+        p = subprocess.run(['gh', 'run', 'list', '--repo', 'lantianhcgp/elcton', '--commit', sha,
+                            '--workflow', workflow, '--limit', '10', '--json',
+                            'databaseId,headSha,status,conclusion,url,event'], capture_output=True, timeout=40)
+        if p.returncode:
+            raise RuntimeError('network read failed')
+        rows = json.loads(p.stdout)
+        failures = 0
+    except (subprocess.TimeoutExpired, RuntimeError, json.JSONDecodeError):
+        failures += 1
+        if failures >= 5:
+            raise SystemExit('GitHub read failed five times; raw output suppressed')
+        time.sleep(10)
+        continue
     rows = [r for r in rows if r['headSha'] == sha]
     if len(rows) > 1:
         raise SystemExit('Multiple same-head runs; select an exact run manually')

@@ -1,10 +1,41 @@
 /* Platform-neutral wire helpers. ASCII bytes are shared with Android. */
-function ascii(value) {
-    var text = JSON.stringify(value);
-    if (typeof text !== 'string') { throw new Error('INVALID_JSON'); }
-    return text.replace(/[\u007f-\uffff]/g, function (c) {
-        return '\\u' + ('0000' + c.charCodeAt(0).toString(16)).slice(-4);
-    });
+function ascii(v) {
+    var t = JSON.stringify(v);
+    if (typeof t !== 'string') { throw new Error('INVALID_JSON'); }
+    var s = '', i = 0, n;
+    for (; i < t.length; i++) {
+        n = t.charCodeAt(i);
+        s += n < 127 ? t.charAt(i) : '\\u' + ('0000' + n.toString(16)).slice(-4);
+    }
+    return s;
+}
+// Small bounded string helpers; compact locals keep the unchanged Lite page budget.
+function cs(s, a, l, h) {
+    s = String(s);
+    var n = s.length;
+    if (n < l || n > h) return false;
+    while (n--) if (a.indexOf(s.charAt(n)) < 0) return false;
+    return true;
+}
+function id(s, n, e) { return cs(s, 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789' + (e || '_-'), 1, n); }
+function hex(s, n) { return cs(s, '0123456789abcdef', n, n); }
+// pr: printable ASCII. Short new helper names avoid changing the compactor.
+function pr(s) {
+    var n = s.length, c;
+    while (n--) {
+        c = s.charCodeAt(n);
+        if (c < 32 || c > 126) return false;
+    }
+    return true;
+}
+function fmt(s, m) {
+    if (typeof s !== 'string' || s.length !== m.length) return false;
+    var i = m.length, c, p;
+    while (i--) {
+        c = s.charAt(i); p = m.charAt(i);
+        if (p === '#' ? c < '0' || c > '9' : c !== p) return false;
+    }
+    return true;
 }
 function crc32(text) {
     var crc = -1;
@@ -23,7 +54,7 @@ function packet(type, transferId) {
 }
 function plan(text, info) {
     var digest = crc32(text);
-    if (!info || typeof info.transferId !== 'string' || !/^[A-Za-z0-9_-]{1,40}$/.test(info.transferId)) { throw new Error('INVALID_TRANSFER_ID'); }
+    if (!info || typeof info.transferId !== 'string' || !id(info.transferId, 40)) { throw new Error('INVALID_TRANSFER_ID'); }
     var start = packet('BEGIN', info.transferId);
     start.datasetId = info.datasetId;
     start.sourceRevision = info.sourceRevision;
@@ -56,17 +87,17 @@ function field(value, limit) {
     if (typeof value !== 'string' || value.length > limit) { throw new Error('INVALID_FIELD'); }
     return value;
 }
-function minutes(value) {
-    if (typeof value !== 'string' || !/^([01][0-9]|2[0-3]):[0-5][0-9]$/.test(value)) { throw new Error('INVALID_TIME'); }
-    return Number(value.substr(0, 2)) * 60 + Number(value.substr(3, 2));
+function minutes(s) {
+    if (!fmt(s, '##:##') || s.substr(0,2) > '23' || s.substr(3,2) > '59') throw new Error('INVALID_TIME');
+    return s.substr(0,2) * 60 + Number(s.substr(3,2));
 }
 function snapshot(doc) {
     if (!doc || doc.schema !== 'elcton.schedule' || doc.version !== 1) { throw new Error('UNSUPPORTED_SCHEMA'); }
-    var start = doc.settings && doc.settings.semesterStart;
-    if (typeof start !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(start)) { throw new Error('INVALID_DATE'); }
-    var year = Number(start.substr(0,4)), month = Number(start.substr(5,2)), day = Number(start.substr(8,2));
-    var days = [31, (year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0)) ? 29 : 28, 31,30,31,30,31,31,30,31,30,31];
-    if (year < 1 || month < 1 || month > 12 || day < 1 || day > days[month-1]) { throw new Error('INVALID_DATE'); }
+    var s = doc.settings && doc.settings.semesterStart;
+    if (!fmt(s, '####-##-##')) throw new Error('INVALID_DATE');
+    var y = Number(s.substr(0,4)), m = Number(s.substr(5,2)), d = Number(s.substr(8,2));
+    var ds = [31, (y % 4 === 0 && (y % 100 !== 0 || y % 400 === 0)) ? 29 : 28, 31,30,31,30,31,31,30,31,30,31];
+    if (y < 1 || m < 1 || m > 12 || d < 1 || d > ds[m-1]) throw new Error('INVALID_DATE');
     if (Object.prototype.toString.call(doc.courses) !== '[object Array]' || doc.courses.length > 200) { throw new Error('INVALID_COURSES'); }
     var courses = [];
     var ids = {};
@@ -92,6 +123,6 @@ function snapshot(doc) {
         if (a.startTime !== b.startTime) { return a.startTime < b.startTime ? -1 : 1; }
         return a.id < b.id ? -1 : (a.id > b.id ? 1 : 0);
     });
-    return ascii({schema: 'elcton.schedule', version: 1, settings: {semesterStart: start}, courses: courses});
+    return ascii({schema: 'elcton.schedule', version: 1, settings: {semesterStart: s}, courses: courses});
 }
-export default { ascii: ascii, crc32: crc32, plan: plan, snapshot: snapshot };
+export default { ascii: ascii, crc32: crc32, plan: plan, snapshot: snapshot, id: id, hex: hex, pr: pr };

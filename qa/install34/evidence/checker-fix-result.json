@@ -1,0 +1,53 @@
+{
+  "passed": false,
+  "files": [
+    "/data/data/com.termux/files/home/elcton-wear-install34-20261113/qa/install34/check_signed_ast.cjs",
+    "/data/data/com.termux/files/home/elcton-wear-install34-20261113/tests/check_signed_ast_static_refs.test.mjs",
+    "/data/data/com.termux/files/home/elcton-wear-install34-20261113/qa/install34/evidence/checker-fix-result.json"
+  ],
+  "test_summary": {
+    "change": "Reject all Identifier nodes exactly named RegExp or require and literal member/object property keys with those names; preserve __webpack_require__, ES5 parser and ordered {file,bad} CLI JSON.",
+    "scope": "Static reference safety only; does not resolve dynamic keys, data flow or arbitrary obfuscation. No production source, CI, network or branch changes.",
+    "command": "node --check qa/install34/check_signed_ast.cjs && node --check tests/check_signed_ast_static_refs.test.mjs && node --test tests/check_signed_ast_static_refs.test.mjs",
+    "exit_code": 0,
+    "counts": {
+      "tests": 36,
+      "pass": 36,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "stdout": "\u2714 rejects regexp literal (296.953021ms)\n\u2714 rejects RegExp direct call (262.573438ms)\n\u2714 rejects RegExp constructor (269.052292ms)\n\u2714 rejects require direct call (265.24974ms)\n\u2714 rejects require constructor (267.385313ms)\n\u2714 rejects RegExp alias reviewer regression (268.441614ms)\n\u2714 rejects require alias (282.864479ms)\n\u2714 rejects RegExp indirect call (270.620781ms)\n\u2714 rejects require passed as argument (279.834167ms)\n\u2714 rejects RegExp local binding conservatively rejected (275.969375ms)\n\u2714 rejects require parameter conservatively rejected (279.247292ms)\n\u2714 rejects RegExp dot member reviewer regression (443.254531ms)\n\u2714 rejects require dot member (346.901094ms)\n\u2714 rejects RegExp bracket member (296.463854ms)\n\u2714 rejects require bracket member (557.356458ms)\n\u2714 rejects RegExp static member alias (279.115573ms)\n\u2714 rejects require static member alias (278.771562ms)\n\u2714 rejects require other receiver without invocation (279.681666ms)\n\u2714 rejects RegExp identifier object key (280.045676ms)\n\u2714 rejects require identifier object key (285.050989ms)\n\u2714 rejects RegExp literal object key (276.311771ms)\n\u2714 rejects require literal object key (269.92151ms)\n\u2714 rejects escaped RegExp identifier (278.434896ms)\n\u2714 rejects escaped RegExp static member (266.769063ms)\n\u2714 accepts safe ES5 positive control (277.267187ms)\n\u2714 accepts webpack identifier (289.979635ms)\n\u2714 accepts webpack dot member (275.974374ms)\n\u2714 accepts webpack literal property and bracket member (284.321407ms)\n\u2714 accepts similar identifiers remain allowed (266.802968ms)\n\u2714 accepts ordinary strings values and comments remain allowed (278.026198ms)\n\u2714 multiple clean inputs preserve ordered CLI JSON rows (289.082343ms)\n\u2714 mixed inputs fail while retaining every ordered CLI JSON row (318.500469ms)\n\u2714 malformed JavaScript fails closed (277.09125ms)\n\u2714 non ES5 syntax fails closed (311.814739ms)\n\u2714 empty input list fails closed (291.641458ms)\n\u2714 missing input file fails closed (304.880416ms)\n\u2139 tests 36\n\u2139 suites 0\n\u2139 pass 36\n\u2139 fail 0\n\u2139 cancelled 0\n\u2139 skipped 0\n\u2139 todo 0\n\u2139 duration_ms 11520.131037",
+    "red_run": {
+      "command": "node --test tests/check_signed_ast_static_refs.test.mjs",
+      "exit_code": 1,
+      "tests": 36,
+      "pass": 16,
+      "fail": 20,
+      "reviewer_alias_and_member_cases": "Both originally returned exit status 0 with bad:[]; tests expected exit status 1. Safe ES5 and webpack positive controls already passed."
+    },
+    "coverage": [
+      "regexp literals",
+      "direct calls and constructors",
+      "Identifier aliases and indirect references",
+      "local bindings conservatively fail closed",
+      "dot and literal-bracket member access and aliases",
+      "identifier and literal object keys",
+      "decoded Unicode escapes",
+      "safe ES5 and webpack positive controls",
+      "ordinary strings/comments and similarly named identifiers allowed",
+      "multi-file ordered CLI rows",
+      "malformed syntax, non-ES5 syntax, empty args and missing files fail closed"
+    ],
+    "verification": {
+      "output": "{\"matches_baseline\": false, \"expected\": {\"branch\": \"fix/wearengine-install34-20261113\", \"head\": \"09364b3e928a92cdd01789f8086a23c1c3b49ec3\", \"outside_status_sha256\": \"e31705037a07d82b91e1d2a30f01e9b95b0e203784c5ddfceaf4178f98e54203\", \"outside_worktree_diff_sha256\": \"0246ee8c84c7c44f8f15aa65d9f826876a3d249b5a159cd38d9ab0e572f25662\", \"outside_index_diff_sha256\": \"1b7c4e2aae7e4f0d6bfcdb91b9ac118a3d3160df2a8d237c667ae5db1041e6aa\"}, \"actual\": {\"branch\": \"fix/wearengine-install34-20261113\", \"head\": \"09364b3e928a92cdd01789f8086a23c1c3b49ec3\", \"outside_status_sha256\": \"132f4541d961192996e94ed5aa8ccb4bf8f0aaabd139b575ee0f537d3fdb0871\", \"outside_worktree_diff_sha256\": \"0246ee8c84c7c44f8f15aa65d9f826876a3d249b5a159cd38d9ab0e572f25662\", \"outside_index_diff_sha256\": \"1b7c4e2aae7e4f0d6bfcdb91b9ac118a3d3160df2a8d237c667ae5db1041e6aa\"}}\nTraceback (most recent call last):\n  File \"<string>\", line 1, in <module>\n    import hashlib,json,os,subprocess; allowed=[\"qa/install34/check_signed_ast.cjs\",\"tests/check_signed_ast_static_refs.test.mjs\"]; paths=[\".\"]+[\":(exclude)\"+p for p in allowed]; run=lambda *args: subprocess.check_output([\"git\",*args]); expected={\"branch\":\"fix/wearengine-install34-20261113\",\"head\":\"09364b3e928a92cdd01789f8086a23c1c3b49ec3\",\"outside_status_sha256\":\"e31705037a07d82b91e1d2a30f01e9b95b0e203784c5ddfceaf4178f98e54203\",\"outside_worktree_diff_sha256\":\"0246ee8c84c7c44f8f15aa65d9f826876a3d249b5a159cd38d9ab0e572f25662\",\"outside_index_diff_sha256\":\"1b7c4e2aae7e4f0d6bfcdb91b9ac118a3d3160df2a8d237c667ae5db1041e6aa\"}; actual={\"branch\":run(\"branch\",\"--show-current\").decode().strip(),\"head\":run(\"rev-parse\",\"HEAD\").decode().strip(),\"outside_status_sha256\":hashlib.sha256(run(\"status\",\"--porcelain=v1\",\"--untracked-files=all\",\"--\",*paths)).hexdigest(),\"outside_worktree_diff_sha256\":hashlib.sha256(run(\"diff\",\"--binary\",\"--\",*paths)).hexdigest(),\"outside_index_diff_sha256\":hashlib.sha256(run(\"diff\",\"--cached\",\"--binary\",\"--\",*paths)).hexdigest()}; print(json.dumps({\"matches_baseline\":actual==expected,\"expected\":expected,\"actual\":actual})); assert not os.path.lexists(\"qa/install34/evidence/checker-fix-result.json\"), \"Evidence destination already exists\"; assert actual==expected, \"State outside allowed patch changed\"\n                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ^^^^^^^^^^^^^^^^\nAssertionError: State outside allowed patch changed",
+      "exit_code": 1,
+      "error": null,
+      "exit_code_meaning": "Non-zero exit (often normal \u2014 e.g. 'git diff' returns 1 when files differ)"
+    },
+    "issues": [
+      "Initial read-only baseline command had an unmatched parenthesis; corrected baseline command succeeded before checker changes."
+    ]
+  }
+}

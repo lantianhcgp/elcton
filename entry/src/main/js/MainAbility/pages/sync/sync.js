@@ -33,7 +33,7 @@ var SCHEMA = 'elcton.schedule';
 var VERSION = 1;
 var WATCHDOG_MS = 15000;   /* \u624b\u673a\u4fa7\u5b9e\u6d4b\u8be5\u4e3b\u673a ~2.5s\uff0c\u7559 15s \u4f59\u91cf\u8986\u76d6\u5f31\u7f51 */
 
-function brief(v,n) { return (typeof v==='string'||typeof v==='number') ? String(v).substr(0,n).replace(/[\r\n\t]/g,' ') : 'ERROR'; }
+function brief(v,n) { return (typeof v==='string'||typeof v==='number') ? String(v).substr(0,n).split('\r').join(' ').split('\n').join(' ').split('\t').join(' ') : 'ERROR'; }
 
 function str(v) { return (v === undefined || v === null) ? '' : String(v); }
 function num(v, d) { var n = Number(v); return isNaN(n) ? d : n; }

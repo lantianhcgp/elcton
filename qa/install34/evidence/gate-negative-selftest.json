@@ -1,0 +1,17 @@
+{
+  "baseline_hap_sha256": "e61ea7189ce342bdefc905d15c131d6c5ce8cbf0b8169f26a5dfb98441ca4b1d",
+  "chain": {
+    "exact_same_certificates": true,
+    "issuer_signatures_valid": true,
+    "currently_valid": true,
+    "certificate_sha256": [
+      "0daa8a965b5153124f79d4b42378d0ac2f5536acb5fce1924f43723e97587180",
+      "8926257d1bd9ff653dcd84100d53cbbabbd39371fdda5126dfb37429e55c67be",
+      "df21a3c09f7954579305f85c64f80cad86f79853ee3a887c1dec95d218df3a37"
+    ],
+    "scope": "No online revocation/device trust claim"
+  },
+  "old_payload_ast_rejected": true,
+  "bad_page_count": 6,
+  "scope": "Real failed HAP gate self-test, not candidate verification"
+}

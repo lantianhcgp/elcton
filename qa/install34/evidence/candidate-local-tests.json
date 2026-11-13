@@ -1,0 +1,10 @@
+{
+  "source_baseline": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+  "tests": 203,
+  "pass": 203,
+  "fail": 0,
+  "skipped": 0,
+  "log": "compatibility-green-final.tap",
+  "byte_budget_estimate": 49129,
+  "actual_ci_pending": true
+}

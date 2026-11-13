@@ -9,7 +9,7 @@ function channel(identity) {
     function close() { open = false; generation++; try { engine.unsubscribeMsg(); } catch (e) {} }
     return {
         open: function (onMessage, cb) {
-            if (!identity || !/^[A-Za-z0-9_.]+$/.test(identity.phonePackage || '') || !/^[a-fA-F0-9]{64}$/.test(identity.phoneFingerprint || '')) { cb('INVALID_IDENTITY'); return; }
+            if (!identity || !protocol.id(identity.phonePackage || '', Infinity, '_.') || !protocol.hex(String(identity.phoneFingerprint || '').toLowerCase(), 64)) { cb('INVALID_IDENTITY'); return; }
             var gen = ++generation;
             var finished = false;
             function finish(err) { if (finished || gen !== generation) { return; } finished = true; cb(err); }

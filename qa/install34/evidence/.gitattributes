@@ -1,0 +1,2 @@
+# Preserve captured TAP evidence verbatim, including renderer whitespace.
+*.tap -whitespace

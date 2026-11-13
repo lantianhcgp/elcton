@@ -1,10 +1,11 @@
 name: wearengine-watch
 on:
   push:
-    branches: [feat/wearengine-sync, fix/preserve-watch-design]
+    branches: [feat/wearengine-sync, fix/preserve-watch-design, fix/wearengine-install34-20261113]
   workflow_dispatch:
 permissions:
   contents: read
+  actions: read
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -66,6 +67,10 @@ jobs:
           python3 tools/sign/verify_sign.py dist/elcton-wearengine-probe.hap certs/elcton.p7b
           cp build/outputs/default/*.app dist/
           printf '%s\n' "$GITHUB_SHA" > dist/source-sha.txt
+      - name: Exact signed payload and native SDK compatibility gate
+        run: |
+          python3 -m pip install --quiet cryptography
+          python3 qa/install34/final_gate.py dist/*.app dist/elcton-wearengine-probe.hap dist/install34-final-gate.json "$HOS_SDK_HOME/default/openharmony/js/build-tools/ace-loader/bin/jerry"
       - uses: actions/upload-artifact@v4
         with:
           name: wearengine-watch-${{ github.sha }}

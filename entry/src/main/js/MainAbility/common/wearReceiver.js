@@ -30,12 +30,12 @@ function createReceiver(storage, options) {
     function receive(raw, cb) {
         var msg;
         try {
-            if (typeof raw !== 'string' || raw.length>1024 || /[^\x20-\x7e]/.test(raw)) { throw new Error('INVALID_PACKET'); }
+            if (typeof raw !== 'string' || raw.length>1024 || !protocol.pr(raw)) { throw new Error('INVALID_PACKET'); }
             msg=JSON.parse(raw);
             if (!msg || msg.protocol!=='elcton.sync' || msg.version!==1 || msg.sender!=='phone') { throw new Error('INVALID_PROTOCOL'); }
         } catch(e) { cb(failure('INVALID_PACKET',''));return; }
         if (msg.type==='HELLO' || msg.type==='STATUS') {
-            if (typeof msg.transferId !== 'string' || (msg.transferId && !/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId))) { cb(failure('INVALID_TRANSFER_ID',''));return; }
+            if (typeof msg.transferId !== 'string' || (msg.transferId && !protocol.id(msg.transferId,40))) { cb(failure('INVALID_TRANSFER_ID',''));return; }
             if (query) {
                 if (query.key !== raw || query.generation !== generation) { cb(failure('BUSY',msg.transferId));return; }
                 if (query.callbacks.length >= 4) { cb(failure('RETRY_LIMIT',msg.transferId));return; }
@@ -57,7 +57,7 @@ function createReceiver(storage, options) {
                 for (var i=0;i<callbacks.length;i++) { callbacks[i](out); }
             });return;
         }
-        if (typeof msg.transferId !== 'string' || !/^[A-Za-z0-9_-]{1,40}$/.test(msg.transferId)) { cb(failure('INVALID_TRANSFER_ID',''));return; }
+        if (typeof msg.transferId !== 'string' || !protocol.id(msg.transferId,40)) { cb(failure('INVALID_TRANSFER_ID',''));return; }
         if (msg.type==='CANCEL') {
             var id=operation ? operation.message.transferId : active ? active.info.transferId : '';
             if (id && id!==msg.transferId) { cb(failure('NO_TRANSFER',msg.transferId));return; }
@@ -73,9 +73,9 @@ function createReceiver(storage, options) {
         }
         if (msg.type==='BEGIN') {
             if (typeof msg.length!=='number' || msg.length<1 || msg.length>limit || Math.floor(msg.length)!==msg.length ||
-                typeof msg.datasetId!=='string' || !/^[A-Za-z0-9_-]{1,64}$/.test(msg.datasetId) ||
+                typeof msg.datasetId!=='string' || !protocol.id(msg.datasetId,64) ||
                 typeof msg.sourceRevision!=='number' || msg.sourceRevision<1 || msg.sourceRevision>9007199254740990 || !isFinite(msg.sourceRevision) || Math.floor(msg.sourceRevision)!==msg.sourceRevision ||
-                typeof msg.digest!=='string' || !/^[0-9a-f]{8}$/.test(msg.digest) || typeof msg.chunks!=='number' || msg.chunks<1 || msg.chunks>128 || Math.floor(msg.chunks)!==msg.chunks) {
+                typeof msg.digest!=='string' || !protocol.hex(msg.digest,8) || typeof msg.chunks!=='number' || msg.chunks<1 || msg.chunks>128 || Math.floor(msg.chunks)!==msg.chunks) {
                 cb(failure('INVALID_BEGIN',msg.transferId));return;
             }
             if (active) {
@@ -111,7 +111,7 @@ function createReceiver(storage, options) {
         var transaction=active;
         if (msg.type==='CHUNK') {
             if (msg.seq===transaction.seq-1 && msg.data===transaction.last) { var duplicate=answer('ACK',msg.transferId);duplicate.seq=msg.seq;cb(duplicate);return; }
-            if (msg.seq!==transaction.seq || typeof msg.data!=='string' || /[^\x20-\x7e]/.test(msg.data) || !msg.data.length ||
+            if (msg.seq!==transaction.seq || typeof msg.data!=='string' || !protocol.pr(msg.data) || !msg.data.length ||
                 transaction.text.length+msg.data.length>transaction.info.length || transaction.seq>=transaction.info.chunks) { cb(failure('INVALID_CHUNK',msg.transferId));return; }
             var chunk=beginOperation(msg,cb);
             storage.append(msg.seq,msg.data,function(err) {

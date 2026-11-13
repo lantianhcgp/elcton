@@ -12,7 +12,7 @@ function createJournal(io) {
                 record.version !== 1 || (record.slot !== 'a' && record.slot !== 'b') ||
                 typeof record.generation !== 'number' || record.generation < 1 || record.generation > 9007199254740990 || Math.floor(record.generation) !== record.generation ||
                 typeof record.length !== 'number' || record.length < 1 || record.length > 32768 || Math.floor(record.length) !== record.length ||
-                typeof record.digest !== 'string' || !/^[0-9a-f]{8}$/.test(record.digest) ||
+                typeof record.digest !== 'string' || !protocol.hex(record.digest, 8) ||
                 !record.meta || Object.prototype.toString.call(record.meta) !== '[object Object]') { return null; }
             return record;
         } catch (e) { return null; }

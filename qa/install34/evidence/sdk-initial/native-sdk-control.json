@@ -1,0 +1,189 @@
+{
+  "scope": "Host parse evidence only, not device installation or runtime proof",
+  "binary": "/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/js/build-tools/ace-loader/bin/jerry",
+  "binary_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+  "help": {
+    "returncode": 0,
+    "stdout": "/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/js/build-tools/ace-loader/bin/jerry\n  [-h] [-v] [--mem-stats] [--parse-only] [--show-opcodes] [--show-regexp-opcodes]\n  [--start-debug-server] [--debug-port NUM] [--debug-channel [websocket|rawpacket]] [--debug-protocol PROTOCOL]\n  [--serial-config OPTIONS_STRING] [--debugger-wait-source] [--exec-snapshot FILE]\n  [--exec-snapshot-func FILE NUM] [--log-level NUM] [--no-prompt] [--call-on-exit STRING] [FILE]\n\n  -h, --help            print this help and exit\n  -v, --version         print tool and library version and exit\n  --mem-stats           dump memory statistics\n  --parse-only          don't execute JS input\n  --show-opcodes        dump parser byte-code\n  --show-regexp-opcodes dump regexp byte-code\n  --start-debug-server  start debug server and wait for a connecting client\n  --debug-port NUM      debug server port (default: 5001)\n  --debug-channel [websocket|rawpacket]\n                        Specify the debugger transmission channel (default:\n                        websocket)\n  --debug-protocol PROTOCOL\n                        Specify the transmission protocol over the\n                        communication channel (tcp|serial, default: tcp)\n  --serial-config OPTIONS_STRING\n                        Configure parameters for serial port (default:\n                        /dev/ttyS0,115200,8,N,1)\n  --debugger-wait-source\n                        wait for an executable source from the client\n  --exec-snapshot FILE  execute input snapshot file(s)\n  --exec-snapshot-func FILE NUM\n                        execute specific function from input snapshot file(s)\n  --log-level NUM       set log level (0-3)\n  --no-prompt           don't print prompt in REPL mode\n  --call-on-exit STRING invoke the specified function when the process is just\n                        about to exit\n  FILE                  input JS file(s) (If file is -, read standard input.)\n",
+    "stderr": ""
+  },
+  "fixtures": [
+    {
+      "name": "plain-es5",
+      "source": "var s='123'; var ok=s.length===3;",
+      "sha256": "f57c837cd6a2531e64bea12c762651d5860162873b07472f854042525e943e9f",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "name": "literal-test",
+      "source": "var s='123'; var ok=/^[0-9]{3}$/.test(s);",
+      "sha256": "c80c49ae7aee5469a94dbdf8e137bb33de45d7766024d4f52c96a2d6442eb474",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Script Error: SyntaxError\n"
+    },
+    {
+      "name": "literal-only",
+      "source": "var r=/^[0-9]{3}$/;",
+      "sha256": "fca4df0e2679c8b9d881ba9aff9bf871207d2b1c2bbf4163fc45ec5dec71bc2f",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Script Error: SyntaxError\n"
+    },
+    {
+      "name": "literal-exec",
+      "source": "var s='123'; var ok=/^[0-9]{3}$/.exec(s)!==null;",
+      "sha256": "c8838ca4cda9b58d70b29c6258a686ab6dfde456f7d790db5534b380b0968a77",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Script Error: SyntaxError\n"
+    },
+    {
+      "name": "replace-control",
+      "source": "var s='a\\nb'; var out=s.replace(/[\\r\\n\\t]/g,' ');",
+      "sha256": "5578136121dd559db370c1ce5c2faadf2d933b8918803f4ee60f167a67715cdf",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Script Error: SyntaxError\n"
+    },
+    {
+      "name": "dead-test",
+      "source": "if(false){var ok=/^[0-9]{3}$/.test('123');}",
+      "sha256": "801a66662258e4f7243d2291df20144a0ffe361caf561fc05c52dc597aa56104",
+      "returncode": 1,
+      "stdout": "",
+      "stderr": "Script Error: SyntaxError\n"
+    },
+    {
+      "name": "char-loop",
+      "source": "var s='123',ok=s.length===3;for(var i=0;i<s.length;i++){var n=s.charCodeAt(i);if(n<48||n>57)ok=false;}",
+      "sha256": "78a43b871df7ff26da90898611845f47c0824414bf4e2d02f583c8a9f197843b",
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "samples": [
+    {
+      "label": "good-1010",
+      "hap_sha256": "16376f777f46333d7920cc20a27f9bd2301321de5503b1aee89bcbf44efe1df0",
+      "bundle": "watchapp.nexus.0zzip",
+      "js": [
+        {
+          "path": "assets/js/MainAbility/app.js",
+          "bytes": 2417,
+          "sha256": "221f3b0a287c7d71969ac862b3d9e4c2ba083e272635b09e6a03837a1a43e790",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "path": "assets/js/MainAbility/pages/code/code.js",
+          "bytes": 11335,
+          "sha256": "cb61262c8bff82271048f6c753d5d755d98e5053ab2f031659ac79d93e95f619",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "path": "assets/js/MainAbility/pages/detail/detail.js",
+          "bytes": 26810,
+          "sha256": "cb35d9083ada66a1f9d8796b67341942da1a20c606f49898195b279243e6b4b9",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "path": "assets/js/MainAbility/pages/index/index.js",
+          "bytes": 28145,
+          "sha256": "1cd3697c63657ccbdcd4401a0ecd5d7663d742baeee79e4b15a071813538b076",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "path": "assets/js/MainAbility/pages/sync/sync.js",
+          "bytes": 41133,
+          "sha256": "c08b8acc9dcd78d6dad6abc30c3e88913cdf632e1b5799e48cdc8ef58ef32526",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "path": "assets/js/MainAbility/pages/week/week.js",
+          "bytes": 32432,
+          "sha256": "8269a28105723cafd78bfaa6cf65b9cef5aac53adc3ed5bee7124da9bda74951",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        }
+      ]
+    },
+    {
+      "label": "failed-1113",
+      "hap_sha256": "e61ea7189ce342bdefc905d15c131d6c5ce8cbf0b8169f26a5dfb98441ca4b1d",
+      "bundle": "watchapp.nexus.0zzip",
+      "js": [
+        {
+          "path": "assets/js/MainAbility/app.js",
+          "bytes": 1280,
+          "sha256": "9eb043f9dc348be5f41ddbf09ecbadad0c620a483b7a83c249038693d758d4d9",
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "path": "assets/js/MainAbility/pages/code/code.js",
+          "bytes": 10586,
+          "sha256": "2a1e19e61ba96f4ef7e80facb79f9ff11d428d8aa3d5578718a4f873811e78a9",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Script Error: SyntaxError\n"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/detail/detail.js",
+          "bytes": 34862,
+          "sha256": "5b5fe8fb26288374a2462b467b4fcb3579337ad9edabe57ca93c07287999e0c9",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Script Error: SyntaxError\n"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/index/index.js",
+          "bytes": 36641,
+          "sha256": "f5f3fe5d76ea6dcd7ae5f66cb69cfe5bbf7f6d4951d05199e7ee0cb7f7ce7356",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Script Error: SyntaxError\n"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+          "bytes": 48760,
+          "sha256": "40584099a9e82a48bd1b3ca13128c44b6189671ccbde8eb12d63eae7ca791066",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Script Error: SyntaxError\n"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/sync/sync.js",
+          "bytes": 43434,
+          "sha256": "98c2946a8617442d7539573d3891a21eae9fe8f5f1a318cf765b3fd5ce519d7a",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Script Error: SyntaxError\n"
+        },
+        {
+          "path": "assets/js/MainAbility/pages/week/week.js",
+          "bytes": 41441,
+          "sha256": "65ff78d0952043aaa7cf98c97008cdf139b150ce31737cb150004c10ad3e00a5",
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "Script Error: SyntaxError\n"
+        }
+      ]
+    }
+  ],
+  "source_commit": "09364b3e928a92cdd01789f8086a23c1c3b49ec3"
+}

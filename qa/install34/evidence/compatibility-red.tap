@@ -1,0 +1,89 @@
+TAP version 13
+# Subtest: selected watch source is parseable without regexp literal syntax rejected by exact SDK
+not ok 1 - selected watch source is parseable without regexp literal syntax rejected by exact SDK
+  ---
+  duration_ms: 162.382968
+  type: 'test'
+  location: '/data/data/com.termux/files/home/elcton-wear-install34-20261113/tests/liteRegexpCompatibility.test.mjs:21:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Exact SDK rejects these expressions before runtime; not an install guarantee
+    + actual - expected
+    
+    + [
+    +   '^[A-Za-z0-9_.]+$',
+    +   '^[a-fA-F0-9]{64}$',
+    +   '[^\\x20-\\x7e]',
+    +   '^[A-Za-z0-9_-]{1,40}$',
+    +   '^[0-9a-f]{8}$',
+    +   '[\\u007f-\\uffff]',
+    +   '^[A-Za-z0-9_-]{1,40}$',
+    +   '^([01][0-9]|2[0-3]):[0-5][0-9]$',
+    +   '^\\d{4}-\\d{2}-\\d{2}$',
+    +   '[^\\x20-\\x7e]',
+    +   '^[A-Za-z0-9_-]{1,40}$',
+    +   '^[A-Za-z0-9_-]{1,40}$',
+    +   '^[A-Za-z0-9_-]{1,64}$',
+    +   '^[0-9a-f]{8}$',
+    +   '[^\\x20-\\x7e]',
+    +   '^[0-9]{6}$',
+    +   '[\\r\\n\\t]'
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0: '^[A-Za-z0-9_.]+$'
+    1: '^[a-fA-F0-9]{64}$'
+    2: '[^\\x20-\\x7e]'
+    3: '^[A-Za-z0-9_-]{1,40}$'
+    4: '^[0-9a-f]{8}$'
+    5: '[\\u007f-\\uffff]'
+    6: '^[A-Za-z0-9_-]{1,40}$'
+    7: '^([01][0-9]|2[0-3]):[0-5][0-9]$'
+    8: '^\\d{4}-\\d{2}-\\d{2}$'
+    9: '[^\\x20-\\x7e]'
+    10: '^[A-Za-z0-9_-]{1,40}$'
+    11: '^[A-Za-z0-9_-]{1,40}$'
+    12: '^[A-Za-z0-9_-]{1,64}$'
+    13: '^[0-9a-f]{8}$'
+    14: '[^\\x20-\\x7e]'
+    15: '^[0-9]{6}$'
+    16: '[\\r\\n\\t]'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/elcton-wear-install34-20261113/tests/liteRegexpCompatibility.test.mjs:24:20)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: wire JSON stays byte-identical to original regexp encoder over all UTF-16 units
+ok 2 - wire JSON stays byte-identical to original regexp encoder over all UTF-16 units
+  ---
+  duration_ms: 189.660677
+  type: 'test'
+  ...
+# Subtest: transfer ID acceptance matches original protocol across length and character edges
+ok 3 - transfer ID acceptance matches original protocol across length and character edges
+  ---
+  duration_ms: 13.152396
+  type: 'test'
+  ...
+# Subtest: date/time acceptance and canonical output are unchanged against source baseline
+ok 4 - date/time acceptance and canonical output are unchanged against source baseline
+  ---
+  duration_ms: 55.806875
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 3
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 901.59026

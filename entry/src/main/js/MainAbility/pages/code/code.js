@@ -80,7 +80,7 @@ export default {
     },
     onOk: function () {
         var self=this;if(self.dead||self._saving)return;
-        if (!/^[0-9]{6}$/.test(self.value)) {
+        if (self.value.length !== 6 || digitsOnly(self.value) !== self.value) {
             self.hint = '\u53d6\u4ef6\u7801\u662f 6 \u4f4d\u6570\u5b57\uff0c\u8fd8\u5dee ' + (6 - self.value.length) + ' \u4f4d';
             return;
         }
