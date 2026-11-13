@@ -36,14 +36,16 @@ export default {
         self._journal = makeJournal({read: fs.readFile, write: fs.writeFile});
     },
     watchDog: function () {
-        if (this._timer) { clearTimeout(this._timer); }
-        var self = this;
-        this._timer = setTimeout(function () {
-            if (self._closed || !self.listening) { return; }
+        if (this._timer !== null) { clearTimeout(this._timer); }
+        var self = this, gen = this._gen;
+        var timer = setTimeout(function () {
+            if (self._closed || !self.listening || gen !== self._gen || self._timer !== timer) { return; }
+            self._timer = null;
             var certain = self.stop(); self.phase = 'error';
             self.status = '\u7b49\u5f85\u8d85\u65f6';
             self.detail = certain ? '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u8bd5' : '\u63d0\u4ea4\u7ed3\u679c\u672a\u77e5\uff0c\u8bf7\u91cd\u8fde\u6838\u5bf9';
         }, 30000);
+        this._timer = timer;
     },
     onListen: function () {
         if (!this.ready || this._closed) { return; }
@@ -133,7 +135,7 @@ export default {
                 } else if (response.type === 'APPLIED') {
                     self.phase = 'applied'; self.status = '\u540c\u6b65\u5b8c\u6210';
                     self.detail = '\u5df2\u4fdd\u5b58\u5e76\u56de\u8bfb\u786e\u8ba4';
-                    if (self._timer) { clearTimeout(self._timer); self._timer = null; }
+                    if (self._timer !== null) { clearTimeout(self._timer); self._timer = null; }
                 } else if (response.type === 'ERROR') {
                     self.phase = response.code === 'COMMIT_IN_PROGRESS' ? 'saving' : 'error';
                     self.status = response.code === 'COMMIT_IN_PROGRESS' ? '\u63d0\u4ea4\u4e2d' : (response.code === 'CONFLICT' ? '\u8bf7\u624b\u673a\u786e\u8ba4\u8986\u76d6' : '\u540c\u6b65\u5931\u8d25');
@@ -155,7 +157,7 @@ export default {
         var cancelled = !this._receiver || this._receiver.cancel() !== false;
         var certain = cancelled && !this._uncertain;this._uncertain=!certain;
         this._gen++;
-        if (this._timer) { clearTimeout(this._timer); this._timer = null; }
+        if (this._timer !== null) { clearTimeout(this._timer); this._timer = null; }
         if (this._exporter) { this._exporter.cancel(); this._exporter = null; }
         this._receiver = null;
         if (this._channel) { this._channel.close(); this._channel = null; }
