@@ -1,0 +1,1 @@
+PASS: CMS/profile identity and full package digest verified {"cms_bytes": 2482, "package_bytes": 845035, "bundle": "watchapp.nexus.0zzip", "public_key_sha256": "e57bbc00ad8f928e6f9d24d0a8453fea9edd865b6b44216e8799551610cdf742", "profile_exact": true, "payload_digest_bound": true}

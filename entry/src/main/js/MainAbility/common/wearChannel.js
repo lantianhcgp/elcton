@@ -2,8 +2,14 @@
  * No service-version guess controls correctness; unsupported methods fail explicitly.
  */
 import engine from '@system.wearengine';
+/* No-version compatibility adapter; versioned production transport lives in the app bundle. */
 import protocol from './wearProtocol.js';
 function channel(identity) {
+    // The app owns versioned SDK negotiation; no-version compatibility keeps the old bounded path.
+    if (typeof engine.getWearEngineVersion === 'function') {
+        try { var app = $app.$def || $app; if (typeof app._elctonWearChannel === 'function') { return app._elctonWearChannel(identity, protocol, engine); } } catch (e) {}
+        return {open: function (onMessage, cb) { cb('APP_CHANNEL_UNAVAILABLE'); }, close: function () {}};
+    }
     var open = false;
     var generation = 0;
     function close() { open = false; generation++; try { engine.unsubscribeMsg(); } catch (e) {} }
@@ -39,7 +45,9 @@ function channel(identity) {
                 success: function () { finish(null); }, fail: function (d, code) { finish('SEND_' + code); }}); }
             catch (e) { finish('SEND_UNAVAILABLE'); }
         },
-        close: close
+        close: close,
+        isNegotiated: function () { return false; },
+        summary: function () { return 'UNVERSIONED'; }
     };
 }
 export default channel;

@@ -1,0 +1,69 @@
+{
+  "hap_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "bundle": "watchapp.nexus.0zzip",
+  "version": {
+    "code": 1000117,
+    "name": "1.1.14"
+  },
+  "watch_certificate_sha256": "8926257d1bd9ff653dcd84100d53cbbabbd39371fdda5126dfb37429e55c67be",
+  "sdk_fingerprint": "watchapp.nexus.0zzip_BOc6BPXgVZY7Ik7lETcDy6ezKw77Dqm0EDBscNFv9kHcXaW7gXBRQmA8RfLcDvcCLkOSQIsB33zj/s2IS6u5utM=",
+  "point_bytes": 65,
+  "phone_peer_matches_hap": true,
+  "signed_config": {
+    "app": {
+      "apiVersion": {
+        "compatible": 40000010,
+        "releaseType": "Release",
+        "target": 60101024
+      },
+      "vendor": "example",
+      "bundleName": "watchapp.nexus.0zzip",
+      "version": {
+        "code": 1000117,
+        "name": "1.1.14"
+      }
+    },
+    "deviceConfig": {},
+    "module": {
+      "deviceType": [
+        "liteWearable"
+      ],
+      "abilities": [
+        {
+          "iconId": 16777219,
+          "descriptionId": 16777216,
+          "labelId": 16777217,
+          "srcPath": "MainAbility",
+          "name": ".MainAbility",
+          "srcLanguage": "js",
+          "icon": "$media:icon",
+          "description": "$string:MainAbility_desc",
+          "label": "$string:MainAbility_label",
+          "type": "page"
+        }
+      ],
+      "mainAbility": ".MainAbility",
+      "distro": {
+        "moduleType": "entry",
+        "deliveryWithInstall": true,
+        "moduleName": "entry"
+      },
+      "package": "com.hcbiu.elcton",
+      "js": [
+        {
+          "pages": [
+            "pages/index/index",
+            "pages/week/week",
+            "pages/detail/detail",
+            "pages/sync/sync",
+            "pages/code/code",
+            "pages/phone-sync/phone-sync"
+          ],
+          "name": ".MainAbility"
+        }
+      ]
+    }
+  },
+  "native_bootstrap_in_compiled_page": false,
+  "phone_cert_in_compiled_page": true
+}

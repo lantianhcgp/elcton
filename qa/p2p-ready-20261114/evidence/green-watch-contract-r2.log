@@ -1,0 +1,74 @@
+TAP version 13
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|HELLO
+# WE VER|PKG|CERT|REG|HELLO|READY_OK
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|HELLO
+# WE VER|PKG|CERT|REG|HELLO|READY_OK
+# WE VERSION_UNSUPPORTED
+# WE VERSION_INVALID
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|READY_OK
+# Subtest: versioned SDK negotiation precedes identity and subscription; no send before native registration
+ok 1 - versioned SDK negotiation precedes identity and subscription; no send before native registration
+  ---
+  duration_ms: 17.195521
+  type: 'test'
+  ...
+# Subtest: closing while version callback is pending prevents later native registration
+ok 2 - closing while version callback is pending prevents later native registration
+  ---
+  duration_ms: 4.300937
+  type: 'test'
+  ...
+# Subtest: service 303 uses published FeatureAbility messaging rather than calling modern native methods
+ok 3 - service 303 uses published FeatureAbility messaging rather than calling modern native methods
+  ---
+  duration_ms: 3.116875
+  type: 'test'
+  ...
+# Subtest: bad or too-old queried version fails explicitly and never guesses a modern bus
+ok 4 - bad or too-old queried version fails explicitly and never guesses a modern bus
+  ---
+  duration_ms: 4.254375
+  type: 'test'
+  ...
+# WE VER|PKG|CERT|REG|READY_OK|HELLO
+# WE PKG|CERT|REG|READY_OK|HELLO|READY_OK
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_206
+# Subtest: a negotiated and registered idle listener stays armed after 30s; a fresh HELLO still receives READY
+ok 5 - a negotiated and registered idle listener stays armed after 30s; a fresh HELLO still receives READY
+  ---
+  duration_ms: 37.915937
+  type: 'test'
+  ...
+# Subtest: proactive READY failure is visible with the native send code instead of being swallowed
+ok 6 - proactive READY failure is visible with the native send code instead of being swallowed
+  ---
+  duration_ms: 6.893229
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 443.328594

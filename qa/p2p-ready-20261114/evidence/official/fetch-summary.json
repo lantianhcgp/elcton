@@ -1,0 +1,45 @@
+{
+  "retrievedAt": "2026-11-14T13:42:08.970247+08:00",
+  "results": [
+    {
+      "slug": "send-message-0000001052460491",
+      "http": 200,
+      "code": 0,
+      "title": "应用间消息通信",
+      "body_bytes": 21432,
+      "snippet": "setPeerFingerPrint\n方法，请使用config.json配置方式获取手机侧应用指纹信息。          \n// 在工程的config.json文件的module模块中配置手机侧应用指纹信息metaData。\n\"metaData\": {\n  \"customizeData\": [\n    {\n      \"name\": \"supportLists\",\n      // 由包名和指纹信息组成，最长支持255。指纹信息获取方式参见《发送文件》章节的步骤3\n      \"value\": \"com.huawei.idehelper:69178F8F5B8DF***\"\n      \"extra\": \"\"\n    }\n  ]\n}\n        \n       \n      \n调用P2pClient对象的\nsend\n方法，从穿戴设备上的第三方应用发送简短消息到手机侧对应的第三方应用。\n       \n创建Builder对象，定义第三方应用需要发送的消息。\n创建Message对象，将Builder对象进行封装提供给send方法。         \n// 步骤1：创建点对点通信对象\nvar p2pClient = new P2pClient();\nvar peerPkgName = \"com.*.*\";\nvar peerFinger = \"67DFB7FD********\";\n// 步骤2：设置需要通信的手机侧对应的三方应用包名\np2pClient.setPeerPkgName(peerPkgName);\n// 步骤3：设置手机侧应用指纹信息\np2pClient.setPeerFingerPrint(peerFinger);\n// 步骤4：发送简短消息到手机侧对应的第三方应用\n// 构造Builder对象\nvar builderClient = new Builder();\nvar messageStr = \"Hello, Wear Engine!\";"
+    },
+    {
+      "slug": "errocode-0000001054450278",
+      "http": 200,
+      "code": 0,
+      "title": "返回码",
+      "body_bytes": 48999,
+      "snippet": "业务通信失败错误码\n         \n          \nERROR_CODE_COMM_FAIL\n         \n          \n206\n        \n         \n业务通信成功码\n         \nERROR_CODE_COMM_SUCCESS\n         \n          \n207\n        \n         \n传感器\n         \n设备未穿戴\n         \nERROR_CODE_SENSOR_WATCH_WEAR_OFF\n         \n          \n300\n        \n         \n设备导联脱落。手表右侧突出的金属片，是个ECG传感器的导体，简称导联。 导联脱落就是手指没有放在上面\n         \nERROR_CODE_SENSOR_WATCH_LEAD_OFF\n         \n          \n301\n        "
+    },
+    {
+      "slug": "faq-0000001050818031",
+      "http": 200,
+      "code": 0,
+      "title": "FAQ",
+      "body_bytes": 11275,
+      "snippet": "    \n     \nHR传感器数据中，有值为0或255的数据，是什么原因\n0和255为瞬时异常数据，出现异常数据的原因可能是手表佩戴的位置有误或佩戴较松，请开发者对此异常数据进行过滤。\n    \n     \n手机和轻量级智能穿戴设备通信，提示错误码206，是什么原因\n      \n手机和穿戴设备的包名或证书指纹不匹配       \n轻量级智能穿戴设备侧：需要把手机的包名和指纹信息配置到工程的config.json文件中，具体请参见\n发送点对点消息\n中步骤三的说明。\n手机侧：需要把轻量级智能穿戴设备侧应用的包名和指纹信息配置正确\n      \n轻量级智能穿戴设备侧应用不在前台\n手机或轻量级智能穿戴设备侧应用没有注册消息接收器\n发送的消息为空\n蓝牙未连接\n    \n     \n     \n手机侧应用发送文件给穿戴设备侧应用时，提示错误码10，是什么原因\n手机侧应用发送文件需要文件访问权限，请检查应用是否相关文件的访问权限。\n    \n     \n更多：若以上FAQ仍不能解决，可通过在线提单反馈\n打开华为开发者联盟的“\n在线提单\n”页面，选择“HMS Core”，问题分类选择“HMS Core > 穿戴能力”。在“创建问题”页面，描述问题详情并单击“提交问题”。提交问题后，有时需要您进一步澄清问题，请及时关注进展并予以回复，以便更好地解决问题。\n   "
+    },
+    {
+      "slug": "signature-0000001053969657",
+      "http": 200,
+      "code": 0,
+      "title": "Obtaining a Signing Certificate Fingerprint on the Wearable Device",
+      "body_bytes": 3379,
+      "snippet": "\n  \nObtaining a Signing Certificate Fingerprint on the Wearable Device\nOpen \nthe .cer file\n, and copy information in the \nlast paragraph\n (from \nBEGIN CERTIFICATE\n to \nEND CERTIFICATE\n) to the new text to create a .cer file.\nFigure 1 \nCreating a cer file (for reference only)\n \nWindows: Open the .cer file, and click \nDetails\n and then \nPublic key\n to obtain the pubKey.\nFigure 2 \nWindows: obtaining the pubKey (for reference only)\n \nmacOS: Run \nopenssl x509 -in test.cer -text -noout\n in the CLI. Replace \ntest.cer\n with the name of the new .cer file.\nFigure 3 \nmacOS: obtaining the pubKey (for reference only)\n \nEncode the pubKey to Base64 format. Visit a third-party website (such as \ntomeko.net\n) for transferring code, for example, BC5Z9/29Yn93xSa9XkQ2HN5GikugmXjor9se0VwnOENK9t4uFK4VlRpOHv4B3lphjIa7P6Sh61CFRsT0MZNhuV8=."
+    },
+    {
+      "slug": "point-to-point-message-0000001052164296",
+      "http": 200,
+      "code": 0,
+      "title": "点对点消息",
+      "body_bytes": 45201,
+      "snippet": "setPeerFingerPrint\n方法，请使用config.json配置方式获取手机侧应用指纹信息。\n// 在工程的config.json文件的module模块中配置手机侧应用指纹信息metaData。\n\"metaData\": {\n  \"customizeData\": [\n    {\n      \"name\": \"supportLists\",\n      // 由包名和指纹信息组成，最长支持255\n      \"value\": \"com.huawei.idehelper:69178F8F5B8DF***\"\n      \"extra\": \"\"\n    }\n  ]\n}\n \n \n请求参数 \n表2 \n请求参数\n参数\n \n类型\n \n必填\n \n说明\n \n \nfingerPrint\n \nstring\n \n是\n \n手机侧应用指纹信息。"
+    }
+  ]
+}

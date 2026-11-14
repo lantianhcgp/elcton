@@ -1,0 +1,23 @@
+// Only the explicitly affected page may be alpha-renamed; all other payloads remain byte-identical.
+import fs from 'node:fs';
+import crypto from 'node:crypto';
+import JSZip from '../tools/sign/node_modules/jszip/lib/index.js';
+import {compact} from './p2p_alpha_compact.mjs';
+const input=process.argv[2];if(!input)throw new Error('Usage: compact_p2p_page.mjs actual-built.app');
+const outer=await JSZip.loadAsync(fs.readFileSync(input));
+const haps=Object.values(outer.files).filter(f=>!f.dir&&f.name.endsWith('.hap'));
+if(haps.length!==1)throw new Error('Ambiguous Lite HAP');
+const inner=await JSZip.loadAsync(await haps[0].async('nodebuffer'));
+const name='assets/js/MainAbility/pages/phone-sync/phone-sync.js';
+const file=inner.file(name);if(!file)throw new Error('Missing affected receive page');
+const original=await file.async('string');
+const result=await compact(original,name);
+const unchanged=new Map();for(const f of Object.values(inner.files))if(!f.dir&&f.name!==name&&f.name!==name+'.map')unchanged.set(f.name,await f.async('nodebuffer'));
+inner.file(name,result.code);inner.file(name+'.map',result.map);
+const rebuilt=await inner.generateAsync({type:'nodebuffer',compression:'DEFLATE'});
+const check=await JSZip.loadAsync(rebuilt);
+for(const [key,bytes]of unchanged)if(!(await check.file(key).async('nodebuffer')).equals(bytes))throw new Error('Unrelated payload changed: '+key);
+outer.file(haps[0].name,rebuilt);
+fs.writeFileSync(input,await outer.generateAsync({type:'nodebuffer',compression:'DEFLATE'}));
+const sha=x=>crypto.createHash('sha256').update(x).digest('hex');
+console.log(JSON.stringify({action:'p2p-page-local-alpha-rename',page:name,before:Buffer.byteLength(original),after:Buffer.byteLength(result.code),before_sha256:sha(original),after_sha256:sha(result.code),compressionTransforms:false,propertyMangling:false,toplevelMangling:false,keepFunctionNames:true,unrelatedPayloadsVerified:unchanged.size}));

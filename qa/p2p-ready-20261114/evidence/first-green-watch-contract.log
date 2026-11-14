@@ -1,0 +1,90 @@
+TAP version 13
+# WE SDK401
+# WE SDK401|PKG
+# WE SDK401|PKG|CERT
+# WE SDK401|PKG|CERT|REG
+# WE SDK401|PKG|CERT|REG|HELLO
+# WE SDK401|PKG|CERT|REG|HELLO|READY_OK
+# WE SDK303
+# WE SDK303|PKG
+# WE SDK303|PKG|CERT
+# WE SDK303|PKG|CERT|REG
+# WE SDK303|PKG|CERT|REG|HELLO
+# WE SDK303|PKG|CERT|REG|HELLO|READY_OK
+# WE VERSION_UNSUPPORTED
+# WE VERSION_INVALID
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE SDK401
+# WE SDK401|PKG
+# WE SDK401|PKG|CERT
+# WE SDK401|PKG|CERT|REG
+# WE SDK401|PKG|CERT|REG|READY_OK
+# Subtest: versioned SDK negotiation precedes identity and subscription; no send before native registration
+ok 1 - versioned SDK negotiation precedes identity and subscription; no send before native registration
+  ---
+  duration_ms: 14.609166
+  type: 'test'
+  ...
+# Subtest: closing while version callback is pending prevents later native registration
+ok 2 - closing while version callback is pending prevents later native registration
+  ---
+  duration_ms: 1.326979
+  type: 'test'
+  ...
+# Subtest: service 303 uses published FeatureAbility messaging rather than calling modern native methods
+ok 3 - service 303 uses published FeatureAbility messaging rather than calling modern native methods
+  ---
+  duration_ms: 2.562135
+  type: 'test'
+  ...
+# Subtest: bad or too-old queried version fails explicitly and never guesses a modern bus
+ok 4 - bad or too-old queried version fails explicitly and never guesses a modern bus
+  ---
+  duration_ms: 3.481615
+  type: 'test'
+  ...
+# WE SDK401|PKG|CERT|REG|READY_OK|HELLO
+# WE PKG|CERT|REG|READY_OK|HELLO|READY_OK
+# WE SDK401
+# WE SDK401|PKG
+# WE SDK401|PKG|CERT
+# WE SDK401|PKG|CERT|REG
+# WE SDK401|PKG|CERT|REG|SEND_206
+# Subtest: a negotiated and registered idle listener stays armed after 30s; a fresh HELLO still receives READY
+not ok 5 - a negotiated and registered idle listener stays armed after 30s; a fresh HELLO still receives READY
+  ---
+  duration_ms: 33.856614
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-ready-receipt-20261114-watch/tests/p2pReadyContract.test.mjs:87:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-ready-receipt-20261114-watch/tests/p2pReadyContract.test.mjs:96:65)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: proactive READY failure is visible with the native send code instead of being swallowed
+ok 6 - proactive READY failure is visible with the native send code instead of being swallowed
+  ---
+  duration_ms: 9.378906
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 5
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 437.710677

@@ -1,7 +1,7 @@
 name: wearengine-watch
 on:
   push:
-    branches: [feat/wearengine-sync, fix/preserve-watch-design, fix/wearengine-install34-20261113]
+    branches: [feat/wearengine-sync, fix/preserve-watch-design, fix/wearengine-install34-20261113, fix/p2p-ready-receipt-20261114]
   workflow_dispatch:
 permissions:
   contents: read
@@ -55,6 +55,7 @@ jobs:
           npm ci --prefix tools/sign --no-audit --no-fund
           node qa/compaction_test.mjs
           node scripts/compact_lite_app.mjs build/outputs/default/*.app
+          node scripts/compact_p2p_page.mjs build/outputs/default/*.app
           python3 scripts/verify_wear_bundle.py build/outputs/default/*.app
       - name: Sign and verify course application identity
         env:
@@ -70,7 +71,7 @@ jobs:
       - name: Exact signed payload and native SDK compatibility gate
         run: |
           python3 -m pip install --quiet cryptography
-          python3 qa/install34/final_gate.py dist/*.app dist/elcton-wearengine-probe.hap dist/install34-final-gate.json "$HOS_SDK_HOME/default/openharmony/js/build-tools/ace-loader/bin/jerry"
+          python3 qa/p2p-ready-20261114/final_gate.py dist/*.app dist/elcton-wearengine-probe.hap dist/p2p-final-gate.json "$HOS_SDK_HOME/default/openharmony/js/build-tools/ace-loader/bin/jerry"
       - uses: actions/upload-artifact@v4
         with:
           name: wearengine-watch-${{ github.sha }}
