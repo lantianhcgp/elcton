@@ -1,0 +1,175 @@
+✔ onShow requests keepScreenOn true on the visible sync page without creating a timer (28.147083ms)
+✖ onHide releases screen-on and preserves real listening/timer teardown (29.44474ms)
+✖ onBack releases screen-on and preserves real listening/timer teardown (11.429323ms)
+✖ onLegacy releases screen-on and preserves real listening/timer teardown (8.613438ms)
+✖ onDestroy releases screen-on and preserves real listening/timer teardown (8.3375ms)
+✖ repeated show/hide/destroy are idempotent for this page request (6.045469ms)
+✔ hide before first onShow has no screen-on request or native import (5.917813ms)
+✖ reentering after hide acquires a new visible request without restarting the listener (5.854896ms)
+✖ stop and cancel-listening keep screen-on while the sync page remains visible (19.017656ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 2
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 485.932864
+
+✖ failing tests:
+
+test at tests/weScreenOn.test.mjs:86:5
+✖ onHide releases screen-on and preserves real listening/timer teardown (29.44474ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      true,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:95:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ true ],
+    expected: [ true, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:86:5
+✖ onBack releases screen-on and preserves real listening/timer teardown (11.429323ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      true,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:95:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ true ],
+    expected: [ true, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:86:5
+✖ onLegacy releases screen-on and preserves real listening/timer teardown (8.613438ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      true,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:95:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ true ],
+    expected: [ true, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:86:5
+✖ onDestroy releases screen-on and preserves real listening/timer teardown (8.3375ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      true,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:95:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ true ],
+    expected: [ true, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:109:1
+✖ repeated show/hide/destroy are idempotent for this page request (6.045469ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      true,
+  +   true
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:113:16)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ true, true ],
+    expected: [ true ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:128:1
+✖ reentering after hide acquires a new visible request without restarting the listener (5.854896ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      true,
+  -   false,
+      true
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:132:16)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ true, true ],
+    expected: [ true, false, true ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:140:1
+✖ stop and cancel-listening keep screen-on while the sync page remains visible (19.017656ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      true,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:153:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ true ],
+    expected: [ true, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

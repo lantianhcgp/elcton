@@ -1,0 +1,168 @@
+{
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "suggestions": [
+    "此回执允许进入父负责的 fresh CI 验证，不等于 SDK 编译、配置、签名或交付完成。新 bundle gate 的 matcher 已用内存正控及十项负控实际执行；真实 SDK 输出形状、全部 JS 预算、无外部 require/bytecode 和原签名/AST/final gate 仍须对最终产物执行。",
+    "最终 WRITE-only 配置 APP/HAP 必须保持本地，不公开上传；继续验证 source/app.js/map 及全部其余资源的精确来源。上游 README 已明确无 LICENSE 文件，公开再分发权限由父另行确认，本审查不虚构许可。",
+    "真机 Bluetooth、native 回调实参、logger 上传/ACK、JerryScript heap 与常亮物理效果未测。SEND_206 是 fail 分支的正确合同映射，第二参数 0 不是成功；唯一底层失败根因仍 unknown，不据未知真机现象阻塞源码 QUALITY。"
+  ],
+  "source_hashes": {
+    ".github/workflows/wearengine.yml": "546dae3fa7a4ea0f60da083a2f59113a195ceae20bbedc3926fd664059df8e2e",
+    ".gitignore": "a908bb19a41836c8e9489d54a08c6053d855ae3f2e3ffb767e89e9812e94320d",
+    "entry/src/main/config.json": "abb04bf7503030436745f1d42eb844d72691a4c927e97aea3e1415fcef4a668b",
+    "entry/src/main/js/MainAbility/app.js": "020383651175e345c5ec0ea039cc6aa78369f9bb9309331706bbface2a757b37",
+    "entry/src/main/js/MainAbility/common/wearService.js": "345614a459483b531c9ada8d2e07b40b59a8ee060df7b8ffd6821be32dfa030a",
+    "entry/src/main/js/MainAbility/common/wearChannel.js": "b5adc4dbb7cf5ae3d3eb8c6eca1fa08d7df15f3337df053e09da1b8f26be7656",
+    "entry/src/main/js/MainAbility/common/wearTrace.js": "d9e123e7dec20db0b76eedb8f101a3d48fd1920f15f5fb73bad228454483fa21",
+    "entry/src/main/js/MainAbility/common/wearAwake.js": "fce772aba69563a2deeaa83e91f0609a39e5032b9c66ec19c527588b5c337108",
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js": "f6e36ef533889bf7a41fee69a972175bbdd3258bf4e33919063378fb6c701cfe",
+    "entry/src/main/js/MainAbility/common/logsink.js": "d4e8572e39d2b7fc62e4c217bbc4db25291f9286639523ebc3a05b1380fc342e",
+    "scripts/prepare_we_logger.py": "624e5eb28d83354120b4562585c49098a845424c5ef69a645ffd1771e56c5ce1",
+    "scripts/we_logger_timer_compat.py": "f91626f7d2ffaf9f405c90d24c9147c7c0d7911fee288f55c742a5fdb1fccc02",
+    "scripts/configure_we_logger_app.py": "0f99e1a3988df3a01778d36fc22268589da37dc9e634daabe2c73c23484341b1",
+    "scripts/verify_we_logger_bundle.py": "e9d47b0f282e0387aa13721e82f822b5238db9ebd2c5d64691215d0ee8866cb5",
+    "qa/we-handshake-20261115/final_gate.py": "cb8eaaebba788afae2b44dbc1c7bc82bb9aa37f0ac30fe2100e4678df9cfb210",
+    "tests/weNativeContract.test.mjs": "46556b1a7ca6f040483e57e75118528c36d0baca8d7ac6bfeb13e09daa2b7cbb",
+    "tests/weScreenOn.test.mjs": "68f2f264f0fcb093cbf2f1c8c033feb62709233e50d004633c31b56d419b45eb",
+    "tests/weLogger.test.mjs": "76d7530600e7216b645bcdb2b3d2f57794326ae57dde103b83cbf1fab453ab74",
+    "tests/weDeliveryPipeline.test.mjs": "7b839be003f1b5f404cef4514b33e42ddeb86a06b1993a9a8be0aff49b48136f",
+    "tests/weBundleGate.test.mjs": "824f58dcab747880dbb5bce4f64f99d82987246523f7b58bb1dc58a099b9ae1d",
+    "vendor/we-logger/watch/logsink.js": "6810b5f9ff34fe4dd6cf4655f75a89172c248dd01bb40ade94937e567cefbe77",
+    "vendor/we-logger/UPSTREAM.json": "0bdda76e454d6b54942da751a01829609d1da7f72a989771dab22d713873bac1",
+    "vendor/we-logger/README.md": "f85acc33bd92f7cd5a2a13887627706ee002faa9c7a21475db1cb00e473e29c2",
+    "package.json": "3982f313c244f253d7fc3aa98cbaee16690d7a0bcaebb2da5b036e4c60791fd3",
+    "entry/src/main/js/MainAbility/common/log-config.js": "5bb8be440410f83032045df8786e7eaf50042bce8b6e5d8b8223ea155f635ab0",
+    "scripts/compact_lite_app.mjs": "76d4d3fd3cd4599090fa0db86c4af9f3f834f7cfe63bdfbebf4eaf003eb2b859",
+    "scripts/compact_p2p_page.mjs": "6955fd4e9d3ce6d2412c5967cfccaea9a3b854268d6c66cd48682eb59ac86676",
+    "scripts/verify_wear_bundle.py": "aaafbc2532a96daac46aff64c1a12c42dfc6f349309a5bf240d2aebb81191bea",
+    "tools/sign/sign-app-to-hap.js": "562b510c2feb483b837c16160742d443c052fbee6018babeca6a7f25ee8740be",
+    "tools/sign/verify_sign.py": "aaa1275b6512bfcf333d67a9eb5a9b5f7a27631039eb3dfa3e20d6b143697c29",
+    "qa/install34/check_signed_ast.cjs": "833874eb98f1cacc982c0aa33f66f9607924e3f2b15f54771a88d6f36a447a86",
+    "qa/p2p-ready-20261114/final_gate.py": "e4f3dd167cb4ac0a7b1aa85225e098e64507ec161205b9a86233ddc5af3e8020",
+    "qa/we-handshake-20261115/evidence/baseline-protection.json": "071c15f6564049e05a67fddc0bb7bb1c807324fc35f070c1ac6015621d7cbf02",
+    "qa/we-handshake-20261115/reviews/spec-review.json": "d290e2aee319fd4d5bf65e6a0d5f706899363f37e134636a582b702ef295fd62"
+  },
+  "summary": {
+    "outcome": "独立 QUALITY 审阅当前精确源码/diff/新增脚本和五份新增测试，未发现具体可复现 P0/P1 安全或逻辑缺陷；passed=true 严格等于 security_concerns 与 logic_errors 两列表均空。",
+    "repository": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "baseline": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "head_at_review": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "branch": "fix/we-handshake-logger-20261115",
+    "diff_sha256": "e80d3eddf7c52114540e9f4bfce6a73a3f84625f4e74b088ef3523e87856708a",
+    "spec_source_hash_mismatches": [],
+    "review_source_drift_mismatches": [],
+    "review_focus": [
+      "REG fail 终止代际、close/reopen 屏蔽旧 REG/send 回调、注册前消息忽略、成功与失败回调分离、send fail 不退订、>=401/native 和 302..400/FeatureAbility 合同保留。",
+      "WE own descriptor 固定安全数字投影；无 native 自由文本/message/toString/toJSON/身份/课表/密钥的诊断读取，异常隔离；所有实际新增 console 调用只传固定生命周期或常亮标记。",
+      "固定 canonical 2921B 与严格 count-checked timer adapter 3018B；有效 timer ID0、one-shot 不自清、24条队列/8条batch、hung/retry/stop/reinit 旧 ACK 失效及 console 恢复。",
+      "disabled source-test config 与 public-build placeholder 的显式 CI 分界；配置脚本先包形状/bytecode/gzip门再取 WRITE-only 字段、JS literal 转义、只改 app.js/map、独占0600输出、输入和其余资源精确保真。",
+      "实际包 matcher fail-closed 正/负控；原 sign/AST/compaction/旧 final gate 与 base 字节一致，新 final gate 仅候选 version 改动；原测试不改、不降低门禁。"
+    ],
+    "original_tests": {
+      "file_count": 33,
+      "base_byte_mismatches": [],
+      "baseline_manifest_mismatches": [],
+      "hash_map_sha256": "e1ee94e51da55afc90a4fb23c925727a78641d18d69e1eb607f7067ce86e2a60",
+      "hash_map_encoding": "sha256(json.dumps(base_test_sha256_map, sort_keys=True).encode('utf-8'))",
+      "git_diff_against_base": "empty"
+    },
+    "phone_protection": {
+      "repository": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+      "head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+      "protected_count": 74,
+      "hash_mismatches": [],
+      "hash_map_sha256": "79bbd260a312bf99c9b316a0326e849d87639dbd8906437b67674372026a8634",
+      "scope": "只读机械SHA核对保护清单74文件；没有逐个重新源码审阅，也未操作真机。手机已有QA变动不归本审查，不声称整个工作树clean。"
+    },
+    "executed_by_reviewer": [
+      {
+        "command": "node --test --test-reporter=tap tests/weNativeContract.test.mjs tests/weScreenOn.test.mjs tests/p2pReadyContract.test.mjs tests/p2pAsyncConfigFailure.test.mjs tests/wearChannel.test.mjs",
+        "exit_code": 0,
+        "tests": 80,
+        "pass": 80,
+        "fail": 0,
+        "skipped": 0
+      },
+      {
+        "command": "node --test --test-reporter=tap --test-name-pattern='^(app owns|onDestroy stops|app stage|app logger|logger owns|synchronous fetch|hung fetch|actual original|actual adapted|approved numeric)' tests/weLogger.test.mjs",
+        "exit_code": 0,
+        "tests": 10,
+        "pass": 10,
+        "fail": 0,
+        "skipped": 0,
+        "scope": "仅选不会生成/配置文件的纯内存用例；不是17项全量重跑。"
+      },
+      {
+        "command": "node --test --test-reporter=tap --test-name-pattern='^(new delivery gate|fresh public CI|generated logger and)' tests/weDeliveryPipeline.test.mjs",
+        "exit_code": 0,
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "skipped": 0,
+        "scope": "仅三项只读管线/门禁/ignore断言；未运行会写fixture的第四项。"
+      },
+      {
+        "command": "python3 -B -c <调用真实verify_we_logger_bundle.verify的内存ZIP正控+十项负控>",
+        "exit_code": 0,
+        "positive_passed": true,
+        "negative_controls": 10,
+        "all_negative_rejected": true,
+        "scope": "内存fixtures，非SDK产品；没有写ZIP/源码/测试。"
+      },
+      {
+        "command": "node --input-type=module -e <真实生成logger+WE模块的独立内存容量/stop-reinit-ACK/注册前消息/null注册/旧REG-send反例>",
+        "exit_code": 0,
+        "result": {
+          "logger_capacity": 24,
+          "logger_dropped_after_1000_rows": 976,
+          "batch": 8,
+          "stop_reinit_old_ack_ignored": true,
+          "no_logger_timers_after_stop": true,
+          "pre_reg_message_ignored": true,
+          "null_reg_success": true,
+          "old_reg_and_send_callbacks_ignored": true,
+          "new_generation_receives": true
+        },
+        "scope": "真实源模块/内存native接口，不是Bluetooth或真机。"
+      },
+      {
+        "command": "git diff --check 83d58a8; git show/sha256 固定源、原33tests、74phone、原sign/AST/compaction/final gate核对",
+        "exit_code": 0,
+        "result": "原文件逐字相等、保护清单相等、SPEC逐文件hash相等、审阅首尾源码hash无漂移。"
+      }
+    ],
+    "existing_evidence_verified_read_only": {
+      "integrated_all_final_01": {
+        "path": "qa/we-handshake-20261115/evidence/integrated-all-final-01.log",
+        "sha256": "d1760e7e30336e79e909bd205ac20bd739d37a612c6a971d4309213a287b1ae3",
+        "exit_code_from_meta": 0,
+        "tests": 355,
+        "pass": 355,
+        "fail": 0,
+        "skipped": 0,
+        "scope": "父已留原始host全套，审查实际解析计数/hash；本审查未重跑会写文件的全套。"
+      },
+      "tdd_red_evidence": [
+        {"path": "handshake/native-contract-red.log", "tests": 43, "pass": 3, "fail": 40, "exit_code": 1},
+        {"path": "handshake/preparation-summary-red.log", "tests": 2, "pass": 0, "fail": 2, "exit_code": 1},
+        {"path": "logger/red-05-numeric-diagnostics.log", "tests": 17, "pass": 16, "fail": 1, "exit_code": 1},
+        {"path": "awake/red-04.log", "tests": 21, "pass": 20, "fail": 1, "exit_code": 1},
+        {"path": "evidence/delivery-pipeline-red-02.log", "tests": 4, "pass": 1, "fail": 3, "exit_code": 1},
+        {"path": "evidence/bundle-gate-red.log", "tests": 11, "pass": 0, "fail": 11, "exit_code": 1}
+      ],
+      "bundle_gate_green": {
+        "tests": 11,
+        "pass": 11,
+        "fail": 0,
+        "exit_code": 0,
+        "sha256": "9365b85eeb52cab07c80fa4e9bfc33b4f1e7374675e2c3abefead68cf875f81e",
+        "note": "首次正控fixture漏keepScreenOn字段的失败证据已保留；后更正fixture，不将该首次失败伪装为产品绿。"
+      }
+    },
+    "review_execution_issue": "独立内存bundle探针首条命令存在reviewer临时Python括号SyntaxError/exit1，未执行产品模块、无落盘；仅修临时命令后同真实gate正控及10负控全部通过。没有修改产品或测试解决探针错误。",
+    "not_executed": ["CI", "SDK build", "Chromium", "install", "手机/手表操作", "network write", "真实logger upload/ACK", "真实native/Bluetooth握手", "真实签名和配置产物门"],
+    "write_scope": "唯一新增 qa/we-handshake-20261115/reviews/quality-review.json；product、tests、手机、旧日志和旧报告未写。",
+    "binding_rule": "仅对本回执精确SHA候选有效；任一product/script/newtest变化需重新核审，不允许以旧passed替代新树。"
+  }
+}

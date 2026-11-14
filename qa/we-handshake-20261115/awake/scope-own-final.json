@@ -1,0 +1,101 @@
+{
+  "at": "2026-11-15T00:18:44.169033+08:00",
+  "baseline": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+  "own_product_and_test_writes": [
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+    "entry/src/main/js/MainAbility/common/wearAwake.js",
+    "tests/weScreenOn.test.mjs"
+  ],
+  "own_evidence_write_prefix": "qa/we-handshake-20261115/awake/",
+  "observed_tracked_changes": [
+    "entry/src/main/js/MainAbility/app.js",
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js"
+  ],
+  "observed_external_changes_not_written_or_reverted_by_this_subtask": [
+    "entry/src/main/js/MainAbility/app.js"
+  ],
+  "external_app_diff": "logger imports logsink.js / log-config.js, L.init/L.page/L.stop; parent should reconcile",
+  "initial_scope_assertion_exit_code": 1,
+  "initial_scope_failure_kept": "scope-verification.json",
+  "other_tracked_unchanged_count": 976,
+  "old_core_watchDog_onListen_reply_stop_byte_unchanged": true,
+  "node_check_and_diff_check_all_passed": true,
+  "no_added_timer": true,
+  "own_file_hashes": {
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js": {
+      "bytes": 12660,
+      "sha256": "167b08e797b4094fa59fd6416b8307973c4ff46c7f973834def3d9947a35556b"
+    },
+    "entry/src/main/js/MainAbility/common/wearAwake.js": {
+      "bytes": 1612,
+      "sha256": "fce772aba69563a2deeaa83e91f0609a39e5032b9c66ec19c527588b5c337108"
+    },
+    "tests/weScreenOn.test.mjs": {
+      "bytes": 13202,
+      "sha256": "68f2f264f0fcb093cbf2f1c8c033feb62709233e50d004633c31b56d419b45eb"
+    }
+  },
+  "test_runs": [
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/red-01.log",
+      "exit_code": 1,
+      "at": "2026-11-15T00:10:09.923020+08:00",
+      "sha256": "df3824500bc1bc66aa3733b51e21a476e18178e9f6a684ef9003f536188a5aa1"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/green-01.log",
+      "exit_code": 0,
+      "at": "2026-11-15T00:10:51.649725+08:00",
+      "sha256": "29b65647ba43460f18c71e0d42a903323f10ec51ab1867e2197a768c2fd226e5"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/red-02.log",
+      "exit_code": 1,
+      "at": "2026-11-15T00:11:31.597207+08:00",
+      "sha256": "127bc08c367e97f1d91915cf4019ff0c50a44b70fe34328aed292f8c1d2904c9"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/green-02.log",
+      "exit_code": 0,
+      "at": "2026-11-15T00:12:15.296603+08:00",
+      "sha256": "685414b3ca17ba2f30442a379d024be127fa0bf93a71f5957ff456021854236b"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/red-03.log",
+      "exit_code": 1,
+      "at": "2026-11-15T00:13:06.430359+08:00",
+      "sha256": "ed527c1dc088abd06a8087ffd8ac51c103918e7694735c5562790a6ac5ab240f"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/green-03.log",
+      "exit_code": 0,
+      "at": "2026-11-15T00:13:54.823267+08:00",
+      "sha256": "28b5787d88f704ae366f469aba33e238a595fa67d2da60d0f89b4628f35ed737"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/red-04.log",
+      "exit_code": 1,
+      "at": "2026-11-15T00:15:46.490307+08:00",
+      "sha256": "be8fa648fd8e30230d2b8c0fd517548d34ec8362727e5c0d0fccc01c990586ee"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/green-04.log",
+      "exit_code": 0,
+      "at": "2026-11-15T00:16:09.077381+08:00",
+      "sha256": "afb7700a72c12468ebb2bc9386ad9e2af167d246e58271c1d6980fdb29f98433"
+    },
+    {
+      "file": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/awake/green-final.log",
+      "exit_code": 0,
+      "at": "2026-11-15T00:17:24.178284+08:00",
+      "sha256": "e62ca8b1a9c8b03cc7b255369bdd81146d863ae7b9f769ac148c050035adcc09"
+    }
+  ],
+  "final_tests": 27,
+  "final_pass": 27,
+  "final_fail": 0,
+  "full_regression_run": false,
+  "browser_device_install_run": false,
+  "commit_push_performed": false,
+  "status_porcelain": " M entry/src/main/js/MainAbility/app.js\n M entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js\n?? entry/src/main/js/MainAbility/common/wearAwake.js\n?? qa/we-handshake-20261115/\n?? tests/weLogger.test.mjs\n?? tests/weScreenOn.test.mjs\n?? tools/sign/node_modules\n"
+}

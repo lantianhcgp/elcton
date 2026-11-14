@@ -1,0 +1,86 @@
+{
+  "red-01-lifecycle.log": {
+    "tests": 2,
+    "pass": 0,
+    "fail": 2,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "green-01-lifecycle.log": {
+    "tests": 2,
+    "pass": 2,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "red-02-helper.log": {
+    "tests": 4,
+    "pass": 2,
+    "fail": 2,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "green-02-helper.log": {
+    "tests": 4,
+    "pass": 4,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "red-03-prepare-timers.log": {
+    "tests": 12,
+    "pass": 5,
+    "fail": 7,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "green-03-prepare-timers.log": {
+    "tests": 12,
+    "pass": 12,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "red-04-configure.log": {
+    "tests": 16,
+    "pass": 12,
+    "fail": 4,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "green-04-configure.log": {
+    "tests": 16,
+    "pass": 15,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "red-05-numeric-diagnostics.log": {
+    "tests": 17,
+    "pass": 16,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "green-05-final-logger.log": {
+    "tests": 17,
+    "pass": 17,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "regression-original-p2p.log": {
+    "tests": 21,
+    "pass": 21,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "all-node-logger-completed.log": {
+    "tests": 295,
+    "pass": 295,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0
+  }
+}

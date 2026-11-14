@@ -1,0 +1,71 @@
+SOURCE=/data/data/com.termux/files/home/devpkg/simx2/DevEco-Studio/DevEco-Studio.app/Contents/sdk/default/openharmony/js/api/@system.brightness.d.ts
+SHA256=74f0ef28964ce3195621bbd737b01e321b9ee7965906aedb082958c33c605657
+READ_AT=2026-11-15T00:17:54.119580+08:00
+
+279|export interface SetKeepScreenOnOptions {
+280|    /**
+281|     * The value **true** means to keep the screen steady on, and the value **false** indicates the opposite.
+282|     *
+283|     * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+284|     * @FaAndStageModel
+285|     * @since 3
+286|     * @deprecated since 7
+287|     * @reserved ["liteWearable"]
+288|     */
+289|    keepScreenOn: boolean;
+290|    /**
+291|     * Called when an API call is successful.
+292|     *
+293|     * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+294|     * @FaAndStageModel
+295|     * @since 3
+296|     * @deprecated since 7
+297|     * @reserved ["liteWearable"]
+298|     */
+299|    success?: () => void;
+300|    /**
+301|     * Called when an API call has failed. **data** indicates the error information, and **code** indicates the error
+302|     * code.
+303|     *
+304|     * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+305|     * @FaAndStageModel
+306|     * @since 3
+307|     * @deprecated since 7
+308|     * @reserved ["liteWearable"]
+309|     */
+310|    fail?: (data: string, code: number) => void;
+311|    /**
+312|     * Called when an API call is complete.
+313|     *
+314|     * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+315|     * @FaAndStageModel
+316|     * @since 3
+317|     * @deprecated since 7
+318|     * @reserved ["liteWearable"]
+319|     */
+320|    complete?: () => void;
+381|    /**
+382|     * Sets whether to always keep the screen on. Call this API in **onShow()**.
+383|     *
+384|     * **NOTE**
+385|     *
+386|     * - This API is no longer maintained since API version 7 except for lite wearables. You are advised to use
+387|     * [window.setWindowKeepScreenOn()](docroot://reference/apis-arkui/arkts-apis-window-Window.md#setwindowkeepscreenon9)
+388|     * instead.
+389|     *
+390|     * - On Lite Wearables, this API can only prevent the system from turning off the screen due to inactivity
+391|     * timeout (automatic). It cannot prevent screen-off caused by user actions (such as covering the screen) or
+392|     * the end of the keep-screen-on period.
+393|     *
+394|     * @param { SetKeepScreenOnOptions } options Options for setting the screen to be steady on. This parameter is
+395|     *     optional and is left blank by default.
+396|     * @syscap SystemCapability.PowerManager.DisplayPowerManager.Lite
+397|     * @FaAndStageModel
+398|     * @since 3
+399|     * @deprecated since 7
+400|     * @reserved ["liteWearable"]
+401|     * @useinstead @ohos.window:Window.setWindowKeepScreenOn
+402|     */
+403|    static setKeepScreenOn(options?: SetKeepScreenOnOptions): void;
+
+getKeepScreenOn declaration present: False

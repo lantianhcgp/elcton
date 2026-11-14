@@ -1,0 +1,11 @@
+{
+  "command": [
+    "node",
+    "--test-reporter=tap",
+    "--test",
+    "tests/weNativeContract.test.mjs"
+  ],
+  "exit_code": 1,
+  "time": "2026-11-15T00:38:16.315937+08:00",
+  "boundary": "real product source in host API/callback/timer fixtures; not Bluetooth/native/device"
+}

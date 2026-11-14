@@ -1,0 +1,2 @@
+// Generated public-only WE logger config; never commit runtime values.
+export default {"endpoint":"https://example.invalid/ELCTON_WE_LOG_ENDPOINT_PLACEHOLDER_20261115","key":"","app":"elcton","ver":"1.1.15"};

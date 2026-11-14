@@ -1,0 +1,6 @@
+{
+  "exit_code": 0,
+  "error": null,
+  "command": "node --test qa/we-handshake-20261115/research/sdk-contract-fixture.test.mjs",
+  "scope": "Pinned83d58a8 JS callback fixture only; not real native/BT"
+}

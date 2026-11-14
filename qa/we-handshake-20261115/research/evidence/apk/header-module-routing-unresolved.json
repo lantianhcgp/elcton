@@ -1,0 +1,8 @@
+{
+  "utc": "2026-11-14T16:27:17.942885+00:00",
+  "hap_header": "watchapp.nexus.0zzip",
+  "signed_app_bundleName": "watchapp.nexus.0zzip",
+  "signed_module_package_present": true,
+  "signed_module_package": "com.hcbiu.elcton",
+  "scope": "Static fields only; actual firmware route between HEADER/module.package not proven"
+}

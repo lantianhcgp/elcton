@@ -1,0 +1,10 @@
+{
+  "command": [
+    "node",
+    "--test-reporter=tap",
+    "--test",
+    "tests/weNativeContract.test.mjs"
+  ],
+  "exit_code": 0,
+  "time": "2026-11-15T00:41:03.068432+08:00"
+}

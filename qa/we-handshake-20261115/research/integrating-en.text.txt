@@ -1,0 +1,15 @@
+Integrating the Wear Engine SDK
+
+For details about the DevEco Studio development environment, refer to DevEco Studio User Guide.
+         
+Download the SDK file to the local host and decompress the wearengine.js file.      
+
+SDK on the lite wearable device: Wear Engine SDK (Lite Wearable Devices) (SDK на носимых устройствах версии lite for Russian users)
+       
+SDK on the smart wearable device: Wear Engine SDK (Smart Wearable Devices) (SDK на умных носимых устройствах-JS for Russian users)
+
+Copy the wearengine.js file to the code project directory \entry\src\main\js\default\pages and import it to the code.      
+      
+import { P2pClient, Message, Builder } from '../wearengine.js'      
+
+When integrating the Wear Engine SDK (Lite Wearable Devices) SDK for lite wearable devices, use Compile SDK version 10 in DevEco Studio.

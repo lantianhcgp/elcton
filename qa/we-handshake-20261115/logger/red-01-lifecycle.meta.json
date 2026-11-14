@@ -1,0 +1,10 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "tests/weLogger.test.mjs"
+  ],
+  "exit_code": 1,
+  "counts": {},
+  "log": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/logger/red-01-lifecycle.log"
+}

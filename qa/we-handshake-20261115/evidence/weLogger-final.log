@@ -1,0 +1,114 @@
+TAP version 13
+# Application onCreate
+# Application onDestroy
+# Subtest: app owns logger init/page before its original console and cleans up on destroy
+ok 1 - app owns logger init/page before its original console and cleans up on destroy
+  ---
+  duration_ms: 15.642604
+  type: 'test'
+  ...
+# Subtest: onDestroy stops logger in finally and preserves the original exception
+ok 2 - onDestroy stops logger in finally and preserves the original exception
+  ---
+  duration_ms: 4.615938
+  type: 'test'
+  ...
+# Subtest: app stage helper emits fixed WE tag and only bounded own numeric/boolean metadata
+ok 3 - app stage helper emits fixed WE tag and only bounded own numeric/boolean metadata
+  ---
+  duration_ms: 4.475104
+  type: 'test'
+  ...
+# Subtest: app logger status is a detached diagnostic snapshot and both helpers tolerate logger faults
+ok 4 - app logger status is a detached diagnostic snapshot and both helpers tolerate logger faults
+  ---
+  duration_ms: 7.2975
+  type: 'test'
+  ...
+# Subtest: logger owns a valid timer ID zero without double scheduling or cancelling unrelated timers
+ok 5 - logger owns a valid timer ID zero without double scheduling or cancelling unrelated timers
+  ---
+  duration_ms: 12.071563
+  type: 'test'
+  ...
+# Subtest: synchronous fetch ACK never clears the executing pump native Arguments
+ok 6 - synchronous fetch ACK never clears the executing pump native Arguments
+  ---
+  duration_ms: 6.118333
+  type: 'test'
+  ...
+# Subtest: hung fetch watchdog never clears itself; late ACK cannot acknowledge a retry batch
+ok 7 - hung fetch watchdog never clears itself; late ACK cannot acknowledge a retry batch
+  ---
+  duration_ms: 5.669271
+  type: 'test'
+  ...
+# Subtest: prepare creates disabled/public-only configs from actual version, pins vendor, and is idempotent
+ok 8 - prepare creates disabled/public-only configs from actual version, pins vendor, and is idempotent
+  ---
+  duration_ms: 1754.912864
+  type: 'test'
+  ...
+# Subtest: prepare rejects different existing config before changing logger or any other source
+ok 9 - prepare rejects different existing config before changing logger or any other source
+  ---
+  duration_ms: 99.471042
+  type: 'test'
+  ...
+# Subtest: strict timer adapter rejects canonical shape drift without modifying pinned input
+ok 10 - strict timer adapter rejects canonical shape drift without modifying pinned input
+  ---
+  duration_ms: 84.189739
+  type: 'test'
+  ...
+# Subtest: actual original loadSource handles generated lazy native logger without changing fixtures
+ok 11 - actual original loadSource handles generated lazy native logger without changing fixtures
+  ---
+  duration_ms: 17.920625
+  type: 'test'
+  ...
+# Subtest: actual adapted app forwards fixed console markers, emits helper stages and destroys timers
+ok 12 - actual adapted app forwards fixed console markers, emits helper stages and destroys timers
+  ---
+  duration_ms: 13.33026
+  type: 'test'
+  ...
+# Subtest: approved numeric WE diagnostics follow existing metadata order without accepting native free text
+ok 13 - approved numeric WE diagnostics follow existing metadata order without accepting native free text
+  ---
+  duration_ms: 4.297291
+  type: 'test'
+  ...
+# Subtest: local configure patches only compiled app and its actual source map with escaped write-only literals
+ok 14 - local configure patches only compiled app and its actual source map with escaped write-only literals
+  ---
+  duration_ms: 1022.470677
+  type: 'test'
+  ...
+# Subtest: configure accepts real plain app.js without maps and does not invent a map
+ok 15 - configure accepts real plain app.js without maps and does not invent a map
+  ---
+  duration_ms: 495.907291
+  type: 'test'
+  ...
+# Subtest: configure rejects ANY bytecode or gzip payload before loading runtime or writing output
+ok 16 - configure rejects ANY bytecode or gzip payload before loading runtime or writing output
+  ---
+  duration_ms: 377.266042
+  type: 'test'
+  ...
+# Subtest: configure refuses duplicate ZIP names and mismatched actual-map placeholders without output
+ok 17 - configure refuses duplicate ZIP names and mismatched actual-map placeholders without output
+  ---
+  duration_ms: 479.591666
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 17
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4874.896196

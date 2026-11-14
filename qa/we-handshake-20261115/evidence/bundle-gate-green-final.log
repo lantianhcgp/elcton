@@ -1,0 +1,76 @@
+TAP version 13
+# Subtest: actual package logger gate validates public placeholders, every app/page budget, real page set, full logger stages and runtime calls
+ok 1 - actual package logger gate validates public placeholders, every app/page budget, real page set, full logger stages and runtime calls
+  ---
+  duration_ms: 168.963229
+  type: 'test'
+  ...
+# Subtest: package gate rejects bytecode
+ok 2 - package gate rejects bytecode
+  ---
+  duration_ms: 152.405104
+  type: 'test'
+  ...
+# Subtest: package gate rejects extra JS not in manifest
+ok 3 - package gate rejects extra JS not in manifest
+  ---
+  duration_ms: 169.131041
+  type: 'test'
+  ...
+# Subtest: package gate rejects mismatched manifest version
+ok 4 - package gate rejects mismatched manifest version
+  ---
+  duration_ms: 166.990052
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK emitted external dependency
+ok 5 - package gate rejects SDK emitted external dependency
+  ---
+  duration_ms: 178.272448
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK emitted unbound require
+ok 6 - package gate rejects SDK emitted unbound require
+  ---
+  duration_ms: 166.813906
+  type: 'test'
+  ...
+# Subtest: package gate rejects actual app exceeds old 48KiB gate
+ok 7 - package gate rejects actual app exceeds old 48KiB gate
+  ---
+  duration_ms: 164.155729
+  type: 'test'
+  ...
+# Subtest: package gate rejects logger lost X-Log-Key marker
+ok 8 - package gate rejects logger lost X-Log-Key marker
+  ---
+  duration_ms: 171.956302
+  type: 'test'
+  ...
+# Subtest: package gate rejects logger init not actually emitted
+ok 9 - package gate rejects logger init not actually emitted
+  ---
+  duration_ms: 157.130833
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK omitted HELLO diagnostics
+ok 10 - package gate rejects SDK omitted HELLO diagnostics
+  ---
+  duration_ms: 176.598125
+  type: 'test'
+  ...
+# Subtest: package gate rejects unknown private runtime key in CI
+ok 11 - package gate rejects unknown private runtime key in CI
+  ---
+  duration_ms: 163.665521
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 11
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2242.346718

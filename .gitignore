@@ -12,3 +12,11 @@ local.properties
 
 # 本地 php 测试数据（线上数据在虚拟主机，不进 git）
 web/data/
+
+# Generated logger and local/QA build output: never public runtime credentials.
+**/common/logsink.js
+**/log-config.js
+.qa-hmlwsim/
+tools/sign/node_modules
+qa/we-handshake-20261115/logger/test-runs/
+__pycache__/

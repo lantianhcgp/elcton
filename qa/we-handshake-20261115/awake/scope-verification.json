@@ -1,0 +1,51 @@
+{
+  "baseline": "83d58a8",
+  "baseline_tracked_file_count": 978,
+  "tracked_changed": [
+    "entry/src/main/js/MainAbility/app.js",
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js"
+  ],
+  "unexpected_tracked_changes": [
+    "entry/src/main/js/MainAbility/app.js"
+  ],
+  "original_watchDog_listen_reply_stop_region_byte_unchanged": true,
+  "helper_has_no_timer": true,
+  "helper_has_guarded_require": true,
+  "syntax_and_whitespace": [
+    {
+      "file": "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "file": "entry/src/main/js/MainAbility/common/wearAwake.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "file": "tests/weScreenOn.test.mjs",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "artifacts": {
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js": {
+      "bytes": 12660,
+      "sha256": "167b08e797b4094fa59fd6416b8307973c4ff46c7f973834def3d9947a35556b"
+    },
+    "entry/src/main/js/MainAbility/common/wearAwake.js": {
+      "bytes": 1612,
+      "sha256": "fce772aba69563a2deeaa83e91f0609a39e5032b9c66ec19c527588b5c337108"
+    },
+    "tests/weScreenOn.test.mjs": {
+      "bytes": 13202,
+      "sha256": "68f2f264f0fcb093cbf2f1c8c033feb62709233e50d004633c31b56d419b45eb"
+    }
+  },
+  "status_porcelain": " M entry/src/main/js/MainAbility/app.js\n M entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js\n?? entry/src/main/js/MainAbility/common/wearAwake.js\n?? qa/we-handshake-20261115/\n?? tests/weLogger.test.mjs\n?? tests/weScreenOn.test.mjs\n?? tools/sign/node_modules\n"
+}

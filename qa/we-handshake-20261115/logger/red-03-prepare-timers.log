@@ -1,0 +1,216 @@
+TAP version 13
+# Subtest: app owns logger init/page before its original console and cleans up on destroy
+ok 1 - app owns logger init/page before its original console and cleans up on destroy
+  ---
+  duration_ms: 13.140781
+  type: 'test'
+  ...
+# Subtest: onDestroy stops logger in finally and preserves the original exception
+ok 2 - onDestroy stops logger in finally and preserves the original exception
+  ---
+  duration_ms: 4.122135
+  type: 'test'
+  ...
+# Subtest: app stage helper emits fixed WE tag and only bounded own numeric/boolean metadata
+ok 3 - app stage helper emits fixed WE tag and only bounded own numeric/boolean metadata
+  ---
+  duration_ms: 3.951406
+  type: 'test'
+  ...
+# Subtest: app logger status is a detached diagnostic snapshot and both helpers tolerate logger faults
+ok 4 - app logger status is a detached diagnostic snapshot and both helpers tolerate logger faults
+  ---
+  duration_ms: 6.062396
+  type: 'test'
+  ...
+# Subtest: logger owns a valid timer ID zero without double scheduling or cancelling unrelated timers
+not ok 5 - logger owns a valid timer ID zero without double scheduling or cancelling unrelated timers
+  ---
+  duration_ms: 7.792969
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:90:1'
+  failureType: 'testCodeFailure'
+  error: 'init must not clear unrelated native ID zero'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:92:28)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: synchronous fetch ACK never clears the executing pump native Arguments
+not ok 6 - synchronous fetch ACK never clears the executing pump native Arguments
+  ---
+  duration_ms: 8.762344
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:99:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + [
+    +   0
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0: 0
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:102:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: hung fetch watchdog never clears itself; late ACK cannot acknowledge a retry batch
+not ok 7 - hung fetch watchdog never clears itself; late ACK cannot acknowledge a retry batch
+  ---
+  duration_ms: 4.580521
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:106:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+    + [
+    +   1
+    + ]
+    - []
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual:
+    0: 1
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:109:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: prepare creates disabled/public-only configs from actual version, pins vendor, and is idempotent
+not ok 8 - prepare creates disabled/public-only configs from actual version, pins vendor, and is idempotent
+  ---
+  duration_ms: 63.172604
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:116:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    prepare must supply real generated logger/config: python: can't open file '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/prepare_we_logger.py': [Errno 2] No such file or directory
+    
+    
+    2 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:118:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: prepare rejects different existing config before changing logger or any other source
+not ok 9 - prepare rejects different existing config before changing logger or any other source
+  ---
+  duration_ms: 62.622031
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:134:1'
+  failureType: 'testCodeFailure'
+  error: 'failure must be deliberate config protection, not a missing script'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:141:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: strict timer adapter rejects canonical shape drift without modifying pinned input
+not ok 10 - strict timer adapter rejects canonical shape drift without modifying pinned input
+  ---
+  duration_ms: 77.202553
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:143:1'
+  failureType: 'testCodeFailure'
+  error: 'strict adapter must reject unknown timer call count'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:147:38)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: actual original loadSource handles generated lazy native logger without changing fixtures
+not ok 11 - actual original loadSource handles generated lazy native logger without changing fixtures
+  ---
+  duration_ms: 4.529479
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:150:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/logsink.js'"
+  code: 'ENOENT'
+  stack: |-
+    Object.readFileSync (node:fs:539:20)
+    load (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/loadSource.mjs:12:23)
+    file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/loadSource.mjs:13:79
+    String.replace (<anonymous>)
+    load (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/loadSource.mjs:12:53)
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:151:21)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+  ...
+# Subtest: actual adapted app forwards fixed console markers, emits helper stages and destroys timers
+ok 12 - actual adapted app forwards fixed console markers, emits helper stages and destroys timers
+  ---
+  duration_ms: 19.848802
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 5
+# fail 7
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 727.656042

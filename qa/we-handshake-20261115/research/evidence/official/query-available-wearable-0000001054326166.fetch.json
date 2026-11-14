@@ -1,0 +1,11 @@
+{
+  "url": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+  "payload": {
+    "objectId": "query-available-wearable-0000001054326166",
+    "language": "cn",
+    "catalogName": "connectivity-Guides"
+  },
+  "status": 200,
+  "code": 0,
+  "chars": 765
+}

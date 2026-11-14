@@ -1,0 +1,280 @@
+TAP version 13
+# Subtest: versioned native fail always maps to SEND_206: numeric second zero
+ok 1 - versioned native fail always maps to SEND_206: numeric second zero
+  ---
+  duration_ms: 17.319271
+  type: 'test'
+  ...
+# Subtest: versioned native fail always maps to SEND_206: missing arguments
+ok 2 - versioned native fail always maps to SEND_206: missing arguments
+  ---
+  duration_ms: 1.946927
+  type: 'test'
+  ...
+# Subtest: versioned native fail always maps to SEND_206: numeric string
+ok 3 - versioned native fail always maps to SEND_206: numeric string
+  ---
+  duration_ms: 2.176927
+  type: 'test'
+  ...
+# Subtest: versioned native fail always maps to SEND_206: object own code
+ok 4 - versioned native fail always maps to SEND_206: object own code
+  ---
+  duration_ms: 1.655782
+  type: 'test'
+  ...
+# Subtest: versioned native fail always maps to SEND_206: free text
+ok 5 - versioned native fail always maps to SEND_206: free text
+  ---
+  duration_ms: 1.755052
+  type: 'test'
+  ...
+# Subtest: versioned native fail always maps to SEND_206: null and bool
+ok 6 - versioned native fail always maps to SEND_206: null and bool
+  ---
+  duration_ms: 1.590104
+  type: 'test'
+  ...
+# Subtest: versioned native fail always maps to SEND_206: fraction and infinite
+ok 7 - versioned native fail always maps to SEND_206: fraction and infinite
+  ---
+  duration_ms: 6.958645
+  type: 'test'
+  ...
+# Subtest: versioned native fail always maps to SEND_206: out of bound numeric
+ok 8 - versioned native fail always maps to SEND_206: out of bound numeric
+  ---
+  duration_ms: 1.677448
+  type: 'test'
+  ...
+# Subtest: versioned success is the separate 207 callback branch
+ok 9 - versioned success is the separate 207 callback branch
+  ---
+  duration_ms: 1.783958
+  type: 'test'
+  ...
+# Subtest: versioned registration failure invalidates once, blocks resurrection and pending send callbacks
+ok 10 - versioned registration failure invalidates once, blocks resurrection and pending send callbacks
+  ---
+  duration_ms: 2.993802
+  type: 'test'
+  ...
+# Subtest: versioned failure before registration is terminal for that callback generation
+ok 11 - versioned failure before registration is terminal for that callback generation
+  ---
+  duration_ms: 1.829219
+  type: 'test'
+  ...
+# Subtest: versioned close and reopen discard old callbacks without losing the new session
+ok 12 - versioned close and reopen discard old callbacks without losing the new session
+  ---
+  duration_ms: 1.495521
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: numeric second zero
+ok 13 - unversioned native fail always maps to SEND_206: numeric second zero
+  ---
+  duration_ms: 3.302188
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: missing arguments
+ok 14 - unversioned native fail always maps to SEND_206: missing arguments
+  ---
+  duration_ms: 1.170729
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: numeric string
+ok 15 - unversioned native fail always maps to SEND_206: numeric string
+  ---
+  duration_ms: 1.065417
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: object own code
+ok 16 - unversioned native fail always maps to SEND_206: object own code
+  ---
+  duration_ms: 0.976875
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: free text
+ok 17 - unversioned native fail always maps to SEND_206: free text
+  ---
+  duration_ms: 1.196927
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: null and bool
+ok 18 - unversioned native fail always maps to SEND_206: null and bool
+  ---
+  duration_ms: 0.930625
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: fraction and infinite
+ok 19 - unversioned native fail always maps to SEND_206: fraction and infinite
+  ---
+  duration_ms: 0.874167
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: out of bound numeric
+ok 20 - unversioned native fail always maps to SEND_206: out of bound numeric
+  ---
+  duration_ms: 0.727291
+  type: 'test'
+  ...
+# Subtest: unversioned success is the separate 207 callback branch
+ok 21 - unversioned success is the separate 207 callback branch
+  ---
+  duration_ms: 0.902552
+  type: 'test'
+  ...
+# Subtest: unversioned registration failure invalidates once, blocks resurrection and pending send callbacks
+ok 22 - unversioned registration failure invalidates once, blocks resurrection and pending send callbacks
+  ---
+  duration_ms: 1.391198
+  type: 'test'
+  ...
+# Subtest: unversioned failure before registration is terminal for that callback generation
+ok 23 - unversioned failure before registration is terminal for that callback generation
+  ---
+  duration_ms: 0.903333
+  type: 'test'
+  ...
+# Subtest: unversioned close and reopen discard old callbacks without losing the new session
+ok 24 - unversioned close and reopen discard old callbacks without losing the new session
+  ---
+  duration_ms: 0.787917
+  type: 'test'
+  ...
+# Subtest: one through four numeric version segments use the last segment: 401
+ok 25 - one through four numeric version segments use the last segment: 401
+  ---
+  duration_ms: 1.429583
+  type: 'test'
+  ...
+# Subtest: one through four numeric version segments use the last segment: 3.401
+ok 26 - one through four numeric version segments use the last segment: 3.401
+  ---
+  duration_ms: 0.878386
+  type: 'test'
+  ...
+# Subtest: one through four numeric version segments use the last segment: 5.0.401
+ok 27 - one through four numeric version segments use the last segment: 5.0.401
+  ---
+  duration_ms: 0.887969
+  type: 'test'
+  ...
+# Subtest: one through four numeric version segments use the last segment: 5.0.0.401
+ok 28 - one through four numeric version segments use the last segment: 5.0.0.401
+  ---
+  duration_ms: 0.795104
+  type: 'test'
+  ...
+# Subtest: legacy routing and package threshold remain unchanged: 3.302
+ok 29 - legacy routing and package threshold remain unchanged: 3.302
+  ---
+  duration_ms: 1.727917
+  type: 'test'
+  ...
+# Subtest: legacy routing and package threshold remain unchanged: 5.0.303
+ok 30 - legacy routing and package threshold remain unchanged: 5.0.303
+  ---
+  duration_ms: 1.005417
+  type: 'test'
+  ...
+# Subtest: legacy routing and package threshold remain unchanged: 3.400
+ok 31 - legacy routing and package threshold remain unchanged: 3.400
+  ---
+  duration_ms: 0.975209
+  type: 'test'
+  ...
+# Subtest: short-version support does not relax numeric/nonempty/four-segment/length/minimum rules
+ok 32 - short-version support does not relax numeric/nonempty/four-segment/length/minimum rules
+  ---
+  duration_ms: 10.908802
+  type: 'test'
+  ...
+# Subtest: milestone summary survives more than six READY/send events and records a bounded latest failure
+ok 33 - milestone summary survives more than six READY/send events and records a bounded latest failure
+  ---
+  duration_ms: 1.647344
+  type: 'test'
+  ...
+# Subtest: unversioned compatibility is diagnosed honestly and never negotiated
+ok 34 - unversioned compatibility is diagnosed honestly and never negotiated
+  ---
+  duration_ms: 1.135729
+  type: 'test'
+  ...
+# Subtest: package failure records both safe callback arguments and suppresses later completion
+ok 35 - package failure records both safe callback arguments and suppresses later completion
+  ---
+  duration_ms: 1.167239
+  type: 'test'
+  ...
+# Subtest: fingerprint failure records both safe callback arguments and suppresses later completion
+ok 36 - fingerprint failure records both safe callback arguments and suppresses later completion
+  ---
+  duration_ms: 0.962396
+  type: 'test'
+  ...
+# Subtest: diagnostics never invoke native accessors, inherited code, message, toString or toJSON
+ok 37 - diagnostics never invoke native accessors, inherited code, message, toString or toJSON
+  ---
+  duration_ms: 3.358594
+  type: 'test'
+  ...
+# Subtest: short numeric-string projection rejects other spellings and caps string lengths
+ok 38 - short numeric-string projection rejects other spellings and caps string lengths
+  ---
+  duration_ms: 5.802761
+  type: 'test'
+  ...
+# Subtest: guarded logger lookup uses $app.$def and isolates logger exceptions
+ok 39 - guarded logger lookup uses $app.$def and isolates logger exceptions
+  ---
+  duration_ms: 2.826614
+  type: 'test'
+  ...
+# Subtest: guarded logger lookup uses $app and isolates logger exceptions
+ok 40 - guarded logger lookup uses $app and isolates logger exceptions
+  ---
+  duration_ms: 2.001407
+  type: 'test'
+  ...
+# Subtest: real app helper receives the native scalar projection without private payload/identity text
+ok 41 - real app helper receives the native scalar projection without private payload/identity text
+  ---
+  duration_ms: 6.811615
+  type: 'test'
+  ...
+# Subtest: proactive failed READY retains SDK/REG detail without pretending that an inbound HELLO arrived
+ok 42 - proactive failed READY retains SDK/REG detail without pretending that an inbound HELLO arrived
+  ---
+  duration_ms: 71.235937
+  type: 'test'
+  ...
+# Subtest: READY preparation failure has a fixed safe stage and does not record response error strings
+ok 43 - READY preparation failure has a fixed safe stage and does not record response error strings
+  ---
+  duration_ms: 6.260156
+  type: 'test'
+  ...
+# Subtest: inbound HELLO preparation error cannot overwrite a synchronous failed-reply milestone summary
+ok 44 - inbound HELLO preparation error cannot overwrite a synchronous failed-reply milestone summary
+  ---
+  duration_ms: 6.265572
+  type: 'test'
+  ...
+# Subtest: proactive preparation error retains registration summary even when its ERROR reply sends successfully
+ok 45 - proactive preparation error retains registration summary even when its ERROR reply sends successfully
+  ---
+  duration_ms: 12.502604
+  type: 'test'
+  ...
+1..45
+# tests 45
+# suites 0
+# pass 45
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 600.372864

@@ -1,0 +1,41 @@
+Wear Engine SDK (Lite Wearable Devices)
+
+If you are using HUAWEI DevEco Studio, refer to Integrating the Wear Engine SDK for lite wearable devices. For details about the version modification, refer to Version Change History.
+
+Version
+                 
+SDK Download
+                 
+SHA-256 Checksum
+
+5.0.2.306
+                 
+WearEngine-LiteWearable 5.0.2.306
+                 
+64130a347647f00d734662523b5a26daca015e87ece7d5d916f19753759a1b56
+
+Earlier versions
+
+Version
+                   
+SDK Download
+                   
+SHA-256 Checksum
+
+5.0.2.300
+                   
+WearEngine-LiteWearable 5.0.2.300
+                   
+a21537e60f268b79e303c74ac746f901d493aa0f4a24a8eb8319e504aab9ad57
+
+5.0.1.301
+                   
+WearEngine-LiteWearable 5.0.1.301
+                   
+60e3767ff5b2060cb2dc9a283193409a6db0cc120f6bd751640c62f80ee34df3
+
+5.0.0.300
+                   
+WearEngine-LiteWearable 5.0.0.300
+                   
+608b8b039e7bbf7bf753e10faca515320fb6913a7acd05230ddcaaffa4f3af24

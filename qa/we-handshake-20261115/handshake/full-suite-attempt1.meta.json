@@ -1,0 +1,6 @@
+{
+  "command": "HMLWSIM_ROOT=$PWD/.qa-hmlwsim node --test --test-reporter=tap tests/*.test.mjs",
+  "exit_code": 1,
+  "time": "2026-11-15T00:41:47.955532+08:00",
+  "boundary": "host Node regression only; no Bluetooth/native/device/build"
+}

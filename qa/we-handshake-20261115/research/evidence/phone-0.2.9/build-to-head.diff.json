@@ -1,0 +1,20 @@
+{
+  "command": [
+    "git",
+    "--no-optional-locks",
+    "-C",
+    "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "diff",
+    "84a6c406099348f75b436a8e9467c34487766859",
+    "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "--",
+    "app/src/main/java/com/hcbiu/elcton/WearProbe.kt",
+    "app/src/main/java/com/hcbiu/elcton/SyncEngine.kt",
+    "app/src/main/java/com/hcbiu/elcton/PhoneRuntime.kt",
+    "app/src/main/java/com/hcbiu/elcton/PhoneActions.kt",
+    "app/build.gradle.kts"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

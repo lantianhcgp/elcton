@@ -1,0 +1,95 @@
+TAP version 13
+# Subtest: actual package logger gate validates public placeholders, every app/page budget, real page set, full logger stages and runtime calls
+not ok 1 - actual package logger gate validates public placeholders, every app/page budget, real page set, full logger stages and runtime calls
+  ---
+  duration_ms: 172.834844
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weBundleGate.test.mjs:29:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    FAIL: actual public APP logger/shape gate (payload and credential details suppressed)
+    
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weBundleGate.test.mjs:30:33)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: package gate rejects bytecode
+ok 2 - package gate rejects bytecode
+  ---
+  duration_ms: 167.065989
+  type: 'test'
+  ...
+# Subtest: package gate rejects extra JS not in manifest
+ok 3 - package gate rejects extra JS not in manifest
+  ---
+  duration_ms: 171.324583
+  type: 'test'
+  ...
+# Subtest: package gate rejects mismatched manifest version
+ok 4 - package gate rejects mismatched manifest version
+  ---
+  duration_ms: 176.552552
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK emitted external dependency
+ok 5 - package gate rejects SDK emitted external dependency
+  ---
+  duration_ms: 170.41875
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK emitted unbound require
+ok 6 - package gate rejects SDK emitted unbound require
+  ---
+  duration_ms: 168.149792
+  type: 'test'
+  ...
+# Subtest: package gate rejects actual app exceeds old 48KiB gate
+ok 7 - package gate rejects actual app exceeds old 48KiB gate
+  ---
+  duration_ms: 167.494167
+  type: 'test'
+  ...
+# Subtest: package gate rejects logger lost X-Log-Key marker
+ok 8 - package gate rejects logger lost X-Log-Key marker
+  ---
+  duration_ms: 176.042812
+  type: 'test'
+  ...
+# Subtest: package gate rejects logger init not actually emitted
+ok 9 - package gate rejects logger init not actually emitted
+  ---
+  duration_ms: 170.192291
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK omitted HELLO diagnostics
+ok 10 - package gate rejects SDK omitted HELLO diagnostics
+  ---
+  duration_ms: 164.052135
+  type: 'test'
+  ...
+# Subtest: package gate rejects unknown private runtime key in CI
+ok 11 - package gate rejects unknown private runtime key in CI
+  ---
+  duration_ms: 167.008489
+  type: 'test'
+  ...
+1..11
+# tests 11
+# suites 0
+# pass 10
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 2272.435051

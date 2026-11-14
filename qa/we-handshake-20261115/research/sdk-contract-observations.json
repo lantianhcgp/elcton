@@ -1,0 +1,176 @@
+{
+  "scope": "Node callback fixture against pinned 83d58a8 and authentic Huawei JS wrapper; no physical native/BT test.",
+  "baseline": "83d58a8",
+  "node": "v26.4.0",
+  "observations": [
+    {
+      "test": "official-fail",
+      "id": "literal-zero",
+      "nativeData": "native diagnostic",
+      "nativeCode": 0,
+      "canonicalCode": 206,
+      "dataRetained": true
+    },
+    {
+      "test": "official-fail",
+      "id": "missing-second",
+      "nativeData": "native diagnostic",
+      "canonicalCode": 206,
+      "dataRetained": true
+    },
+    {
+      "test": "official-fail",
+      "id": "numeric-first",
+      "nativeData": 16,
+      "nativeCode": 0,
+      "canonicalCode": 206,
+      "dataRetained": true
+    },
+    {
+      "test": "official-fail",
+      "id": "string-first",
+      "nativeData": "206",
+      "nativeCode": 0,
+      "canonicalCode": 206,
+      "dataRetained": true
+    },
+    {
+      "test": "official-fail",
+      "id": "object-first",
+      "nativeData": {
+        "code": 16,
+        "message": "fixture disconnected"
+      },
+      "nativeCode": 0,
+      "canonicalCode": 206,
+      "dataRetained": true
+    },
+    {
+      "test": "official-fail",
+      "id": "second-206",
+      "nativeData": "native diagnostic",
+      "nativeCode": 206,
+      "canonicalCode": 206,
+      "dataRetained": true
+    },
+    {
+      "test": "official-fail",
+      "id": "both-missing",
+      "canonicalCode": 206,
+      "dataRetained": true
+    },
+    {
+      "test": "baseline-fail",
+      "id": "literal-zero",
+      "nativeData": 16,
+      "nativeCode": 0,
+      "reported": "SEND_0",
+      "registeredAfterSendFailure": true
+    },
+    {
+      "test": "baseline-fail",
+      "id": "missing-second",
+      "nativeData": "206",
+      "reported": "SEND_0",
+      "registeredAfterSendFailure": true
+    },
+    {
+      "test": "baseline-fail",
+      "id": "string-second",
+      "nativeData": "diagnostic",
+      "nativeCode": "206",
+      "reported": "SEND_0",
+      "registeredAfterSendFailure": true
+    },
+    {
+      "test": "baseline-fail",
+      "id": "object-second",
+      "nativeData": "diagnostic",
+      "nativeCode": {
+        "code": 206
+      },
+      "reported": "SEND_0",
+      "registeredAfterSendFailure": true
+    },
+    {
+      "test": "baseline-fail",
+      "id": "second-206",
+      "nativeData": "diagnostic",
+      "nativeCode": 206,
+      "reported": "SEND_206",
+      "registeredAfterSendFailure": true
+    },
+    {
+      "test": "official-dispatch",
+      "version": "5.0.2.401",
+      "calls": [
+        "query:3",
+        "pkg",
+        "cert",
+        "pkg",
+        "modern:unsub",
+        "modern:sub",
+        "modern:send"
+      ]
+    },
+    {
+      "test": "official-dispatch",
+      "version": "5.0.2.303",
+      "calls": [
+        "query:3",
+        "pkg",
+        "cert",
+        "pkg",
+        "legacy:sub",
+        "legacy:send"
+      ]
+    },
+    {
+      "test": "official-dispatch",
+      "version": "5.0.2.302",
+      "calls": [
+        "query:3",
+        "cert",
+        "legacy:sub",
+        "legacy:send"
+      ]
+    },
+    {
+      "test": "official-registration",
+      "events": [
+        [
+          "registered"
+        ],
+        [
+          "registered"
+        ],
+        [
+          "registered"
+        ],
+        [
+          "message",
+          "HELLO fixture"
+        ],
+        [
+          "failed",
+          16,
+          0
+        ]
+      ]
+    },
+    {
+      "test": "version-shape",
+      "input": "3.401",
+      "officialVersion": "401",
+      "baselineError": "VERSION_UNSUPPORTED",
+      "physicalVersionShape": "UNKNOWN"
+    },
+    {
+      "test": "summary-overwrite",
+      "before": "SDK401|VER|PKG|CERT|REG",
+      "after": "回执失败 SEND_0",
+      "inboundHelloInjected": false,
+      "stillRegistered": true
+    }
+  ]
+}

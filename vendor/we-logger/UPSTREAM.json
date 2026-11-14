@@ -1,0 +1,10 @@
+{
+  "repository": "lantianhcgp/lite-watch-logger",
+  "commit": "80b09b6a8b2f059f47bd6c94252001b5e68f0cca",
+  "path": "watch/logsink.js",
+  "bytes": 2921,
+  "sha256": "6810b5f9ff34fe4dd6cf4655f75a89172c248dd01bb40ade94937e567cefbe77",
+  "byte_preserved": true,
+  "generated_local_timer_compat": "scripts/we_logger_timer_compat.py",
+  "generated_bytes": 3018
+}

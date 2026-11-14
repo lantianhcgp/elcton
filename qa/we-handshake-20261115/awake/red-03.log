@@ -1,0 +1,172 @@
+✔ onShow requests keepScreenOn true on the visible sync page without creating a timer (59.993907ms)
+✔ onHide releases screen-on and preserves real listening/timer teardown (50.777917ms)
+✔ onBack releases screen-on and preserves real listening/timer teardown (17.560729ms)
+✔ onLegacy releases screen-on and preserves real listening/timer teardown (11.115208ms)
+✔ onDestroy releases screen-on and preserves real listening/timer teardown (11.970625ms)
+✔ repeated show/hide/destroy are idempotent for this page request (8.729948ms)
+✔ hide before first onShow has no screen-on request or native import (8.804531ms)
+✔ reentering after hide acquires a new visible request without restarting the listener (8.891354ms)
+✔ stop and cancel-listening keep screen-on while the sync page remains visible (21.007448ms)
+✖ late native true success after onHide is compensated with false and cannot revive page/listener (20.438802ms)
+✖ late native true success after onBack is compensated with false and cannot revive page/listener (15.055ms)
+✖ late native true success after onLegacy is compensated with false and cannot revive page/listener (12.235729ms)
+✖ late native true success after onDestroy is compensated with false and cannot revive page/listener (14.174895ms)
+✖ new onShow generation ignores old ON/OFF success and fail without cancelling the visible request (9.919062ms)
+✖ onShow after destruction cannot acquire screen-on or revive a listening page (9.598073ms)
+✔ noRequire is guarded, leaves sync listener functional and logs no native private data (22.680417ms)
+✔ requireThrow is guarded, leaves sync listener functional and logs no native private data (20.543958ms)
+✔ missingMethod is guarded, leaves sync listener functional and logs no native private data (30.380156ms)
+✔ nativeThrow is guarded, leaves sync listener functional and logs no native private data (14.893594ms)
+✔ nativeFail is guarded, leaves sync listener functional and logs no native private data (10.757813ms)
+✔ unmodified old loader without brightness can load/show/hide/destroy the real page (23.328385ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 15
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 959.38625
+
+✖ failing tests:
+
+test at tests/weScreenOn.test.mjs:158:5
+✖ late native true success after onHide is compensated with false and cannot revive page/listener (20.438802ms)
+  AssertionError [ERR_ASSERTION]: late successful ON must restore hidden OFF
+  + actual - expected
+  
+    [
+      true,
+      false,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:165:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ true, false ],
+    expected: [ true, false, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:158:5
+✖ late native true success after onBack is compensated with false and cannot revive page/listener (15.055ms)
+  AssertionError [ERR_ASSERTION]: late successful ON must restore hidden OFF
+  + actual - expected
+  
+    [
+      true,
+      false,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:165:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ true, false ],
+    expected: [ true, false, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:158:5
+✖ late native true success after onLegacy is compensated with false and cannot revive page/listener (12.235729ms)
+  AssertionError [ERR_ASSERTION]: late successful ON must restore hidden OFF
+  + actual - expected
+  
+    [
+      true,
+      false,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:165:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ true, false ],
+    expected: [ true, false, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:158:5
+✖ late native true success after onDestroy is compensated with false and cannot revive page/listener (14.174895ms)
+  AssertionError [ERR_ASSERTION]: late successful ON must restore hidden OFF
+  + actual - expected
+  
+    [
+      true,
+      false,
+  -   false
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:165:20)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ true, false ],
+    expected: [ true, false, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:179:1
+✖ new onShow generation ignores old ON/OFF success and fail without cancelling the visible request (9.919062ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+  + [
+  +   'KEEP_ON',
+  +   'KEEP_OFF',
+  +   'FAIL'
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:185:16)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 'KEEP_ON', 'KEEP_OFF', 'FAIL' ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/weScreenOn.test.mjs:193:1
+✖ onShow after destruction cannot acquire screen-on or revive a listening page (9.598073ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      true,
+      false,
+  +   true
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:197:16)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ true, false, true ],
+    expected: [ true, false ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

@@ -1,0 +1,111 @@
+{
+  "utc": "2026-11-14T16:30:22.238896+00:00",
+  "summary": {
+    "we-handshake-repair-20261115-watch": {
+      "head": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+      "captured_head": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+      "head_unchanged": true,
+      "tracked_diff_unchanged": false,
+      "tracked_status": [
+        " M entry/src/main/js/MainAbility/app.js",
+        " M entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js"
+      ],
+      "diff_stat": " entry/src/main/js/MainAbility/app.js               | 49 +++++++++++++++++++++-\n .../js/MainAbility/pages/phone-sync/phone-sync.js  | 14 +++++--\n 2 files changed, 58 insertions(+), 5 deletions(-)\n"
+    },
+    "we-ready-receipt-20261114-watch": {
+      "head": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+      "captured_head": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+      "head_unchanged": true,
+      "tracked_diff_unchanged": true,
+      "tracked_status": [],
+      "diff_stat": ""
+    },
+    "elcton-wear-realdevice": {
+      "head": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+      "captured_head": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+      "head_unchanged": true,
+      "tracked_diff_unchanged": true,
+      "tracked_status": [],
+      "diff_stat": ""
+    },
+    "elcton-wear-sync": {
+      "head": "2a8183a537db333df1d3eeb350015dbd99ac71d2",
+      "captured_head": "2a8183a537db333df1d3eeb350015dbd99ac71d2",
+      "head_unchanged": true,
+      "tracked_diff_unchanged": true,
+      "tracked_status": [],
+      "diff_stat": ""
+    },
+    "elcton-wear-install34-20261113": {
+      "head": "0be04ed667392401c6024d892feb6983928c903c",
+      "captured_head": "0be04ed667392401c6024d892feb6983928c903c",
+      "head_unchanged": true,
+      "tracked_diff_unchanged": true,
+      "tracked_status": [],
+      "diff_stat": ""
+    },
+    "work/elcton-hms-investigation-20261114": {
+      "head": "0e72d9a4d1bd49f01a221e62c679eb2059a52bdc",
+      "captured_head": "0e72d9a4d1bd49f01a221e62c679eb2059a52bdc",
+      "head_unchanged": true,
+      "tracked_diff_unchanged": true,
+      "tracked_status": [],
+      "diff_stat": ""
+    },
+    "elcton-phone-release-029-20261114": {
+      "head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+      "captured_head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+      "head_unchanged": true,
+      "tracked_diff_unchanged": false,
+      "tracked_status": [
+        " M qa/release-029/evidence/resume-1720/CONTINUATION-R10.md"
+      ],
+      "diff_stat": " qa/release-029/evidence/resume-1720/CONTINUATION-R10.md | 9 +++++++++\n 1 file changed, 9 insertions(+)\n"
+    }
+  },
+  "states": {
+    "we-handshake-repair-20261115-watch": {
+      "head": "83d58a8f931848bdf65bb923e5579ff7285a0714\n",
+      "status": " M entry/src/main/js/MainAbility/app.js\n M entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js\n?? .qa-hmlwsim/\n?? entry/src/main/js/MainAbility/common/wearAwake.js\n?? qa/we-handshake-20261115/\n?? scripts/__pycache__/we_logger_timer_compat.cpython-313.pyc\n?? scripts/configure_we_logger_app.py\n?? scripts/prepare_we_logger.py\n?? scripts/we_logger_timer_compat.py\n?? tests/weLogger.test.mjs\n?? tests/weScreenOn.test.mjs\n?? tools/sign/node_modules\n?? vendor/\n",
+      "diff": "diff --git a/entry/src/main/js/MainAbility/app.js b/entry/src/main/js/MainAbility/app.js\nindex 60c19ad..81b52e6 100644\n--- a/entry/src/main/js/MainAbility/app.js\n+++ b/entry/src/main/js/MainAbility/app.js\n@@ -1,10 +1,57 @@\n+import L from './common/logsink.js';\n+import logConfig from './common/log-config.js';\n+\n import wearService from './common/wearService.js';\n export default {\n   _elctonWearChannel: wearService,\n+  _elctonLog: function (stage, message) {\n+    try {\n+      if (typeof stage !== 'string' || !stage.length || stage.length > 29) return false;\n+      for (var i = 0; i < stage.length; i++) {\n+        var c = stage.charCodeAt(i);\n+        if (!(c >= 65 && c <= 90 || c >= 48 && c <= 57 || c === 95)) return false;\n+      }\n+      var text = '';\n+      var names = ['ok', 'code', 'count', 'bytes', 'attempt', 'ms', 'arg1', 'arg2', 'type1', 'type2', 'len1', 'len2', 'service', 'v0', 'v1', 'v2', 'v3'];\n+      for (var j = 0; message && typeof message === 'object' && j < names.length; j++) {\n+        var d = Object.getOwnPropertyDescriptor(message, names[j]);\n+        if (!d || !Object.prototype.hasOwnProperty.call(d, 'value')) continue;\n+        var value = d.value;\n+        if (j >= 6 && typeof value === 'string') {\n+          if (!value.length || value.length > 9) continue;\n+          var start = value.charAt(0) === '-' ? 1 : 0;\n+          var digits = start < value.length;\n+          for (var k = start; k < value.length; k++) {\n+            var digit = value.charCodeAt(k);\n+            if (digit < 48 || digit > 57) { digits = false; break; }\n+          }\n+          if (!digits) continue;\n+          value = Number(value);\n+        }\n+        if (!(j < 6 && typeof value === 'boolean') && !(typeof value === 'number' && isFinite(value) && Math.floor(value) === value && value >= -999999999 && value <= 999999999)) continue;\n+        text += (text ? ' ' : '') + names[j] + '=' + String(value);\n+      }\n+      L.i('WE/' + stage, text.slice(0, 160));\n+      return true;\n+    } catch (ignored) { return false; }\n+  },\n+  _elctonLogStatus: function () {\n+    try {\n+      var s = L.status();\n+      return { pending: s.pending, sent: s.sent, dropped: s.dropped, failed: s.failed, busy: s.busy, seq: s.seq };\n+    } catch (ignored) { return null; }\n+  },\n   onCreate: function () {\n+    L.init(logConfig);\n+    L.page('MainAbility');\n+\n     console.info('Application onCreate');\n   },\n   onDestroy: function () {\n-    console.info('Application onDestroy');\n+    try {\n+      console.info('Application onDestroy');\n+    } finally {\n+      L.stop();\n+    }\n   }\n };\n\\ No newline at end of file\ndiff --git a/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js b/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js\nindex 0f750b3..b4d6cec 100644\n--- a/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js\n+++ b/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js\n@@ -10,6 +10,7 @@ import makeChannel from '../../common/wearChannel.js';\n import identity from '../../common/wearIdentity.js';\n import layout from '../../common/wearLayout.js';\n import makeExporter from '../../common/wearExporter.js';\n+import makeAwake from '../../common/wearAwake.js';\n \n var TEMP_URI = 'internal://app/we-incoming.json';\n export default {\n@@ -35,6 +36,11 @@ export default {\n         catch (e) { self.status = '\\u8bbe\\u5907\\u63a5\\u53e3\\u4e0d\\u53ef\\u7528'; }\n         self._journal = makeJournal({read: fs.readFile, write: fs.writeFile});\n     },\n+    onShow: function () {\n+        if (this._closed) { return; }\n+        if (!this._awake) { this._awake = makeAwake(); }\n+        this._awake.show();\n+    },\n     watchDog: function () {\n         if (this._timer !== null) { clearTimeout(this._timer); }\n         var self = this, gen = this._gen;\n@@ -178,8 +184,8 @@ export default {\n         this.listening = false; this.buttonLabel = '\\u5f00\\u59cb\\u63a5\\u6536';\n         return certain;\n     },\n-    onBack: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },\n-    onLegacy: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },\n-    onHide: function () { this.stop(); },\n-    onDestroy: function () { this._closed = true; this.stop(); }\n+    onBack: function () { if (this._awake) { this._awake.hide(); } this.stop(); router.push({uri: 'pages/sync/sync'}); },\n+    onLegacy: function () { if (this._awake) { this._awake.hide(); } this.stop(); router.push({uri: 'pages/sync/sync'}); },\n+    onHide: function () { if (this._awake) { this._awake.hide(); } this.stop(); },\n+    onDestroy: function () { this._closed = true; if (this._awake) { this._awake.hide(); } this.stop(); }\n };\n",
+      "cached": ""
+    },
+    "we-ready-receipt-20261114-watch": {
+      "head": "83d58a8f931848bdf65bb923e5579ff7285a0714\n",
+      "status": "",
+      "diff": "",
+      "cached": ""
+    },
+    "elcton-wear-realdevice": {
+      "head": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac\n",
+      "status": "?? tools/sign/node_modules\n",
+      "diff": "",
+      "cached": ""
+    },
+    "elcton-wear-sync": {
+      "head": "2a8183a537db333df1d3eeb350015dbd99ac71d2\n",
+      "status": "?? .ai-memory/\n?? qa/late_timeout_probe.mjs\n",
+      "diff": "",
+      "cached": ""
+    },
+    "elcton-wear-install34-20261113": {
+      "head": "0be04ed667392401c6024d892feb6983928c903c\n",
+      "status": "?? qa/install34/.artifact-cache/\n?? tools/sign/node_modules\n",
+      "diff": "",
+      "cached": ""
+    },
+    "work/elcton-hms-investigation-20261114": {
+      "head": "0e72d9a4d1bd49f01a221e62c679eb2059a52bdc\n",
+      "status": "",
+      "diff": "",
+      "cached": ""
+    },
+    "elcton-phone-release-029-20261114": {
+      "head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b\n",
+      "status": " M qa/release-029/evidence/resume-1720/CONTINUATION-R10.md\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/full-artifact/artifact-original.zip\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/full-verification/raw/artifact-original.zip\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/FINAL-CLOSURE.json\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/commit.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/commit.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.failed1-timeout.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.failed1-timeout.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/push.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/push.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/readback.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback-continuation.failed1-timeout/\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback-continuation/\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback/\n?? qa/release-029/evidence/resume-1720/resume-fourth/resume_tail_readback.py\n",
+      "diff": "diff --git a/qa/release-029/evidence/resume-1720/CONTINUATION-R10.md b/qa/release-029/evidence/resume-1720/CONTINUATION-R10.md\nindex ba5b302..7caf1d6 100644\n--- a/qa/release-029/evidence/resume-1720/CONTINUATION-R10.md\n+++ b/qa/release-029/evidence/resume-1720/CONTINUATION-R10.md\n@@ -92,3 +92,12 @@\n - 新候选已独占落盘并实际SHA/bytes核过：/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/phone/hc课程表-0.2.9-code11-84a6c40-全绿合并版-signed.apk，8237316B，SHA664e8eae402f8390b8fcf63d0818d5a96c07b1222d06230f3f7b0927908b5065；版本0.2.9/code11、fc08…ad94/v2/CRC。旧3包SHA全部未变、未碰真机。\n - 真实报告=resume-fourth/r11/final-delivery/FINAL-REPORT.md与actual-delivery.json，必须随尾证push然后exact external全部字节读回；此刻尾证尚未闭合，不称最终完成。所有大于80MiB原ZIP/partial snapshot须无损分块远端保存（本地原件不动），map逐部SHA+重拼全SHA核过后才能push，禁止删证据/改判据。\n - 真机两项一律pending归发起方；旧full已证ADB/console失效，OOM/GPU等机制仍未证实。\n+\n+## 时限准确尾部状态（不冒称闭合）\n+- 完整尾证与真实FINAL-REPORT/actual-delivery已提交bb26c64b67e1cfa7903cd709c2aac482f6490e6b并push，actual commit.exit/push.exit=0；130审查源码字节不变，全部超80MiB原ZIP/partial snapshot已无损parts重拼全SHA验证，本地原件全留。map=resume-fourth/r11/lossless-large-originals/lossless-map.json。\n+- 最后external ALL远端readback首次foreground被420秒工具时限截停；原readback.log=0B，FINAL-CLOSURE缺失，不据push0冒称全闭合。verified无残留tail读回进程；只缺最终全量external读回。\n+- 独占只读续件resume-fourth/resume_tail_readback.py已后台启动notify_on_complete，不重commit/push、split、CI、真机。输出tail-final/remote-readback-continuation/all-files-readback.json，真正全读回+parts/报告/APK核过才写tail-final/FINAL-CLOSURE.json并追加进度；此刻仍pending。\n+- 新APK路径phone/hc课程表-0.2.9-code11-84a6c40-全绿合并版-signed.apk已实在；所有云端/HOST/双轴/验签绿，最后external尾证门未闭合。\n+\n+## 第四轮最终尾证external闭合\n+- bb26c64b67e1cfa7903cd709c2aac482f6490e6b 全9461Git文件及2超大原件无损parts逐字读回通过；新包664e8eae…b5065原样；FINAL-CLOSURE.json=/data/data/com.termux/files/home/elcton-phone-release-029-20261114/qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/FINAL-CLOSURE.json。真机两项pending归发起方。\n",
+      "cached": ""
+    }
+  },
+  "scope": "HEAD/diff readback. Concurrent changes cannot be claimed absent; this subtask only wrote allowed research directory"
+}

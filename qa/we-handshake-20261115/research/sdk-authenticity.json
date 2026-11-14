@@ -1,0 +1,18 @@
+{
+  "source_document": "https://developer.huawei.com/consumer/en/doc/connectivity-Library/litewearable-sdk-cn-0000001705004353",
+  "source_url": "https://appfile1.hicloud.com:443/FileServer/getFile/app/011/111/111/0000000000011111111.20220209161346.43522763262440395126943714914431:20471231000000:0001:8EDF4876685B8F87BCACBB9324B8D8323327254529AC2EC0D784E297D66CA9CD.zip?needInitFileName=true",
+  "archive_bytes": 4406,
+  "archive_sha256": "64130a347647f00d734662523b5a26daca015e87ece7d5d916f19753759a1b56",
+  "official_expected_sha256": "64130a347647f00d734662523b5a26daca015e87ece7d5d916f19753759a1b56",
+  "source_sha256": "8c7f1100c840abdb237991b0d436ef9ab49a215269c5fecdb3dd59fe63a71471",
+  "source_checksum_file": "8c7f1100c840abdb237991b0d436ef9ab49a215269c5fecdb3dd59fe63a71471\n",
+  "reference_source_bytes_equal": true,
+  "reference_source_path": "references/source-apps/腕上词典-FIT3/entry/src/main/js/default/common/wearengine.js",
+  "archive_contents": [
+    "wearengine-litewearable-5.0.2.306/",
+    "wearengine-litewearable-5.0.2.306/wearengine.js",
+    "wearengine-litewearable-5.0.2.306/wearengine.js.sha256"
+  ],
+  "no_native_source_in_archive": true,
+  "no_authentication": true
+}

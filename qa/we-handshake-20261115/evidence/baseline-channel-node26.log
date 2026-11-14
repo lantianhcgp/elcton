@@ -1,0 +1,43 @@
+WE VER
+WE VER|PKG
+WE VER|PKG|CERT
+WE VER|PKG|CERT|REG
+WE VER|PKG|CERT|REG|HELLO
+WE VER|PKG|CERT|REG|HELLO|READY_OK
+WE VER
+WE VER|PKG
+WE VER|PKG|CERT
+WE VER|PKG|CERT|REG
+WE VER|PKG|CERT|REG|HELLO
+WE VER|PKG|CERT|REG|HELLO|READY_OK
+WE VERSION_UNSUPPORTED
+WE VERSION_INVALID
+WE VERSION_UNSUPPORTED
+WE VERSION_UNSUPPORTED
+WE VER
+WE VER|PKG
+WE VER|PKG|CERT
+WE VER|PKG|CERT|REG
+WE VER|PKG|CERT|REG|READY_OK
+✔ versioned SDK negotiation precedes identity and subscription; no send before native registration (14.129844ms)
+✔ closing while version callback is pending prevents later native registration (4.260729ms)
+✔ service 303 uses published FeatureAbility messaging rather than calling modern native methods (2.440417ms)
+✔ bad or too-old queried version fails explicitly and never guesses a modern bus (3.141458ms)
+WE VER|PKG|CERT|REG|READY_OK|HELLO
+WE PKG|CERT|REG|READY_OK|HELLO|READY_OK
+WE VER
+WE VER|PKG
+WE VER|PKG|CERT
+WE VER|PKG|CERT|REG
+WE VER|PKG|CERT|REG|SEND_206
+✔ a negotiated and registered idle listener stays armed after 30s; a fresh HELLO still receives READY (28.725625ms)
+✔ proactive READY failure is visible with the native send code instead of being swallowed (6.616875ms)
+✔ channel registers only after configuring the signed phone identity and drops watch loopback (13.085677ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 417.408073

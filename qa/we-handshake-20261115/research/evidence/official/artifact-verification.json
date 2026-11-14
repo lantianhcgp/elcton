@@ -1,0 +1,39 @@
+[
+  {
+    "kind": "lite-sdk",
+    "url": "https://appfile1.hicloud.com:443/FileServer/getFile/app/011/111/111/0000000000011111111.20220209161346.43522763262440395126943714914431:20471231000000:0001:8EDF4876685B8F87BCACBB9324B8D8323327254529AC2EC0D784E297D66CA9CD.zip?needInitFileName=true",
+    "status": 200,
+    "bytes": 4406,
+    "sha256": "64130a347647f00d734662523b5a26daca015e87ece7d5d916f19753759a1b56",
+    "entries": [
+      "wearengine-litewearable-5.0.2.306/",
+      "wearengine-litewearable-5.0.2.306/wearengine.js",
+      "wearengine-litewearable-5.0.2.306/wearengine.js.sha256"
+    ],
+    "matches_local_bytes": true,
+    "sha_matches_official": true,
+    "source_head": "/*\r\n * Copyright (c) 2021 Huawei Device Co., Ltd.\r\n * Licensed under the Apache License, Version 2.0 (the \"License\");\r\n * you may not use this file except in compliance with the License.\r\n * You may obtain a copy of the License at\r\n *\r\n *     http://www.apache.org/licenses/LICENSE-2.0\r\n *\r\n * Unless required by applicable law or agreed to in writing, software\r\n * distributed under the License is distributed on an \"AS IS\" BASIS,\r\n * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.\r\n * See the License for the specific language governing permissions and\r\n * limitations under the License.\r\n * Version: lite wearable 5.0.2.3"
+  },
+  {
+    "kind": "android-aar",
+    "url": "https://developer.huawei.com/repo/com/huawei/hms/wearengine/5.0.3.301/wearengine-5.0.3.301.aar",
+    "status": 200,
+    "bytes": 254003,
+    "sha256": "97adb85c1092c8b9660b7d26eb7a0bccb162201f1eea1f85373a7f59e827d2ca",
+    "entries": [
+      "R.txt",
+      "AndroidManifest.xml",
+      "classes.jar",
+      "aidl/",
+      "aidl/com/",
+      "aidl/com/huawei/",
+      "aidl/com/huawei/wearengine/",
+      "aidl/com/huawei/wearengine/auth/",
+      "aidl/com/huawei/wearengine/auth/Permission.aidl",
+      "aidl/com/huawei/wearengine/device/",
+      "aidl/com/huawei/wearengine/device/Device.aidl",
+      "aidl/com/huawei/wearengine/device/DeviceDataFrameParcel.aidl"
+    ],
+    "manifest": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<manifest xmlns:android=\"http://schemas.android.com/apk/res/android\"\n    package=\"com.huawei.wearengine\"\n    android:versionCode=\"50003301\"\n    android:versionName=\"5.0.3.301\" >\n\n    <uses-sdk\n        android:minSdkVersion=\"23\"\n        android:targetSdkVersion=\"30\" />\n\n    <application>\n        <meta-data\n            android:name=\"com.huawei.wearengine.sdk.api_level\"\n            android:value=\"12\" />\n\n        <activity\n            android:name=\"com.huawei.wearengine.ClientHubActivity\"\n            android:configChanges=\"fontScale|uiMode\"\n            android:excludeFromRecents=\"true\"\n            android:exported=\"false\"\n            android:theme=\"@android:style/Theme.Light.Panel\" >\n        </activity>\n    </application>\n\n</manifest>"
+  }
+]

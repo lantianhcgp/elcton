@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.huawei.wearengine"
+    android:versionCode="50003301"
+    android:versionName="5.0.3.301" >
+
+    <uses-sdk
+        android:minSdkVersion="23"
+        android:targetSdkVersion="30" />
+
+    <application>
+        <meta-data
+            android:name="com.huawei.wearengine.sdk.api_level"
+            android:value="12" />
+
+        <activity
+            android:name="com.huawei.wearengine.ClientHubActivity"
+            android:configChanges="fontScale|uiMode"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:theme="@android:style/Theme.Light.Panel" >
+        </activity>
+    </application>
+
+</manifest>

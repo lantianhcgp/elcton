@@ -1,0 +1,136 @@
+TAP version 13
+# Application onCreate
+# Application onDestroy
+# Subtest: app owns logger init/page before its original console and cleans up on destroy
+ok 1 - app owns logger init/page before its original console and cleans up on destroy
+  ---
+  duration_ms: 12.252448
+  type: 'test'
+  ...
+# Subtest: onDestroy stops logger in finally and preserves the original exception
+ok 2 - onDestroy stops logger in finally and preserves the original exception
+  ---
+  duration_ms: 3.600157
+  type: 'test'
+  ...
+# Subtest: app stage helper emits fixed WE tag and only bounded own numeric/boolean metadata
+ok 3 - app stage helper emits fixed WE tag and only bounded own numeric/boolean metadata
+  ---
+  duration_ms: 3.452656
+  type: 'test'
+  ...
+# Subtest: app logger status is a detached diagnostic snapshot and both helpers tolerate logger faults
+ok 4 - app logger status is a detached diagnostic snapshot and both helpers tolerate logger faults
+  ---
+  duration_ms: 5.688802
+  type: 'test'
+  ...
+# Subtest: logger owns a valid timer ID zero without double scheduling or cancelling unrelated timers
+ok 5 - logger owns a valid timer ID zero without double scheduling or cancelling unrelated timers
+  ---
+  duration_ms: 9.4025
+  type: 'test'
+  ...
+# Subtest: synchronous fetch ACK never clears the executing pump native Arguments
+ok 6 - synchronous fetch ACK never clears the executing pump native Arguments
+  ---
+  duration_ms: 4.672084
+  type: 'test'
+  ...
+# Subtest: hung fetch watchdog never clears itself; late ACK cannot acknowledge a retry batch
+ok 7 - hung fetch watchdog never clears itself; late ACK cannot acknowledge a retry batch
+  ---
+  duration_ms: 4.159063
+  type: 'test'
+  ...
+# Subtest: prepare creates disabled/public-only configs from actual version, pins vendor, and is idempotent
+ok 8 - prepare creates disabled/public-only configs from actual version, pins vendor, and is idempotent
+  ---
+  duration_ms: 1865.689739
+  type: 'test'
+  ...
+# Subtest: prepare rejects different existing config before changing logger or any other source
+ok 9 - prepare rejects different existing config before changing logger or any other source
+  ---
+  duration_ms: 89.175833
+  type: 'test'
+  ...
+# Subtest: strict timer adapter rejects canonical shape drift without modifying pinned input
+ok 10 - strict timer adapter rejects canonical shape drift without modifying pinned input
+  ---
+  duration_ms: 82.701041
+  type: 'test'
+  ...
+# Subtest: actual original loadSource handles generated lazy native logger without changing fixtures
+ok 11 - actual original loadSource handles generated lazy native logger without changing fixtures
+  ---
+  duration_ms: 18.159271
+  type: 'test'
+  ...
+# Subtest: actual adapted app forwards fixed console markers, emits helper stages and destroys timers
+ok 12 - actual adapted app forwards fixed console markers, emits helper stages and destroys timers
+  ---
+  duration_ms: 13.876563
+  type: 'test'
+  ...
+# Subtest: approved numeric WE diagnostics follow existing metadata order without accepting native free text
+not ok 13 - approved numeric WE diagnostics follow existing metadata order without accepting native free text
+  ---
+  duration_ms: 9.073802
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:167:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    + actual - expected
+    
+    + 'ok=true code=5 count=4 bytes=3 attempt=2 ms=1'
+    - 'ok=true code=5 count=4 bytes=3 attempt=2 ms=1 arg1=210301031 arg2=-206 type1=4 type2=0 len1=9 len2=0 service=303 v0=5 v1=0 v2=2 v3=306'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 'ok=true code=5 count=4 bytes=3 attempt=2 ms=1 arg1=210301031 arg2=-206 type1=4 type2=0 len1=9 len2=0 service=303 v0=5 v1=0 v2=2 v3=306'
+  actual: 'ok=true code=5 count=4 bytes=3 attempt=2 ms=1'
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weLogger.test.mjs:171:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: local configure patches only compiled app and its actual source map with escaped write-only literals
+ok 14 - local configure patches only compiled app and its actual source map with escaped write-only literals
+  ---
+  duration_ms: 1053.134947
+  type: 'test'
+  ...
+# Subtest: configure accepts real plain app.js without maps and does not invent a map
+ok 15 - configure accepts real plain app.js without maps and does not invent a map
+  ---
+  duration_ms: 509.755104
+  type: 'test'
+  ...
+# Subtest: configure rejects ANY bytecode or gzip payload before loading runtime or writing output
+ok 16 - configure rejects ANY bytecode or gzip payload before loading runtime or writing output
+  ---
+  duration_ms: 372.98875
+  type: 'test'
+  ...
+# Subtest: configure refuses duplicate ZIP names and mismatched actual-map placeholders without output
+ok 17 - configure refuses duplicate ZIP names and mismatched actual-map placeholders without output
+  ---
+  duration_ms: 460.391719
+  type: 'test'
+  ...
+1..17
+# tests 17
+# suites 0
+# pass 16
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4964.393227

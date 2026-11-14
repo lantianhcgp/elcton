@@ -1,0 +1,23 @@
+[
+  {
+    "commit": "83d58a8",
+    "source": "entry/src/main/js/MainAbility/common/wearChannel.js",
+    "snapshot": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/baseline-wearChannel.source.txt",
+    "sha256": "5e7978afb5e21e23eface7f41e65f3040d64c886991dda2749c3bfa7adeb3c0f",
+    "lines": 53
+  },
+  {
+    "commit": "83d58a8",
+    "source": "entry/src/main/js/MainAbility/common/wearService.js",
+    "snapshot": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/baseline-wearService.source.txt",
+    "sha256": "e8695629bcfb02f18aaa650c42f3a6d24422398554192225b8b6c47e15e7bae4",
+    "lines": 107
+  },
+  {
+    "commit": "83d58a8",
+    "source": "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+    "snapshot": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/baseline-phone-sync.source.txt",
+    "sha256": "23d94353991704f062c4cbc783c52a60bf70c95fbd9942685e75f277e23482e1",
+    "lines": 185
+  }
+]

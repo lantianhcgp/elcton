@@ -1,0 +1,25 @@
+{
+  "hap_path": "/storage/emulated/0/haps/elcton-20261114-P2P准备回执-1.1.15-73c7823.hap",
+  "sha256": "8865474d76d278f6d61050f4cebca1c1a70b0f5f391f653523d9c9018c91bac0",
+  "signed_bundle": "watchapp.nexus.0zzip",
+  "config_bundle": "watchapp.nexus.0zzip",
+  "config_version": {
+    "code": 1000118,
+    "name": "1.1.15"
+  },
+  "profile_bundle": "watchapp.nexus.0zzip",
+  "profile_sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e",
+  "leaf_certificate_sha256": "8926257d1bd9ff653dcd84100d53cbbabbd39371fdda5126dfb37429e55c67be",
+  "derived_watch_identity": "watchapp.nexus.0zzip_BOc6BPXgVZY7Ik7lETcDy6ezKw77Dqm0EDBscNFv9kHcXaW7gXBRQmA8RfLcDvcCLkOSQIsB33zj/s2IS6u5utM=",
+  "phone_exact_apk_watch_identity": "watchapp.nexus.0zzip_BOc6BPXgVZY7Ik7lETcDy6ezKw77Dqm0EDBscNFv9kHcXaW7gXBRQmA8RfLcDvcCLkOSQIsB33zj/s2IS6u5utM=",
+  "watch_identity_matches": true,
+  "point_bytes": 65,
+  "phone_apk_package": "com.hcbiu.elcton",
+  "phone_apk_signer_sha256": "fc08a0b474a8ffca5887bd5c88ac15e865a63a64eca81c10f344496c46d9ad94",
+  "phone_identity_in_watch_source": true,
+  "phone_identity_in_actual_watch_compiled_page": true,
+  "cms_valid": true,
+  "cms_signer_equals_profile_leaf": true,
+  "payload_digest_bound": true,
+  "scope": "public artifact identity only; NOT firmware acceptance or installed package evidence"
+}

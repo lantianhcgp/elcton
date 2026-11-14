@@ -1,0 +1,150 @@
+{
+  "passed": true,
+  "requirements": [
+    {
+      "name": "已授权范围：仅表端WE诊断/接收安全、应用级logger、phone-sync页面常亮及必要交付管线",
+      "status": "pass",
+      "evidence": [
+        "授权依据：qa/we-handshake-20261115/PLAN.md:5-13,25-50；现行共享进度 /storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/进度.md:135-153。版本1.1.16/code1000119属于候选出包，不是换身份。",
+        "git diff 83d58a8实际仅7个既有追踪路径变化：wearengine workflow、.gitignore、config版本、app.js、wearService.js、wearChannel.js、phone-sync.js。新增wearTrace/wearAwake、logger vendor/scripts/tests为授权增量。",
+        "git diff 83d58a8 -- wearIdentity.js wearProtocol.js wearReceiver.js wearJournal.js wearExporter.js qa/p2p-ready-20261114/final_gate.py tests 输出为空，exit0；HML/CSS/其他业务页未改。"
+      ]
+    },
+    {
+      "name": "原32份测试+loader共33文件逐字不改，手机产品源码只读",
+      "status": "pass",
+      "evidence": [
+        "从git ls-tree/show 83d58a8独立计算全部33个原tests文件SHA256，与当前文件逐一比较，mismatches=[]；git diff 83d58a8 -- tests为空。原测试聚合SHA256=e1ee94e51da55afc90a4fb23c925727a78641d18d69e1eb607f7067ce86e2a60（json.dumps(hash-map,sort_keys=True)的UTF-8）。",
+        "另外逐一核对qa/we-handshake-20261115/evidence/baseline-protection.json的existing_test_hashes，33/33相等；phone_tracked_hashes指定74个文件也74/74相等。",
+        "只读手机HEAD=bb26c64b67e1cfa7903cd709c2aac482f6490e6b。手机原有QA文档/未追踪证据变动并非本审查写入，不把整个手机工作树误报clean。"
+      ]
+    },
+    {
+      "name": "native fail(任意参数，含第二参数0)仍为失败，只有success独立分支为207",
+      "status": "pass",
+      "evidence": [
+        "官方原始SDK qa/we-handshake-20261115/research/official-sdk-5.0.2.306.source.txt:276-315：fail映射206，success映射207，fail第二参数不决定成功。",
+        "entry/src/main/js/MainAbility/common/wearService.js:95-110及wearChannel.js:61-76：fail只调用finish('SEND_206',d,c)，READY_OK/SEND_OK仅在独立success分支；finished/generation屏蔽重复与旧回调。",
+        "独立实际执行node --test tests/weNativeContract.test.mjs tests/weScreenOn.test.mjs，72 tests/pass72/fail0/skipped0，exit0。失败参数数字0、缺失、数字串、对象、自由文本等均有断言；没有native fail被改成success。"
+      ]
+    },
+    {
+      "name": "注册事件与消息及发送状态分离：send失败不冒称退订，注册失败终止本代际",
+      "status": "pass",
+      "evidence": [
+        "wearService.js:58-71、wearChannel.js:46-55：empty/isRegister才打开通道；未open的普通message不触发注册。注册fail关闭本代际、通知一次、禁止旧回调复活。send失败不改变open/negotiated。",
+        "独立动态只读fixture通过未改tests/loadSource.mjs加载真实三个WE模块：注册前消息被忽略；null注册成功；fail(16,0)->SEND_206且随后success无效；send失败后消息仍可到达；reg fail后旧成功/重复失败/消息均无效。实际输出passed=true/exit0，明确host adapter不是native。",
+        "独立执行原tests/p2pReadyContract.test.mjs、p2pAsyncConfigFailure.test.mjs、wearChannel.test.mjs：8/8、0失败/0跳过、exit0，验证原注册顺序、303总线、空闲30秒持续监听与延迟配置异常不退化。"
+      ]
+    },
+    {
+      "name": "真实查询末段版本及既有bus策略不猜改对端身份",
+      "status": "pass",
+      "evidence": [
+        "wearService.js:75-93实际getWearEngineVersion({sdkVersion:'3'})，允许1-4非空全数字段且长度<=40、末段>=302；>=401走engine，302-400走FeatureAbility，方法不可用显式失败。",
+        "官方SDK原文:59-72取最后一段，:298-315按401分流。测试覆盖401/3.401/5.0.401/5.0.0.401、302/303/400及非法/低版本。",
+        "wearChannel.js:79-80无版本支路仍isNegotiated=false和UNVERSIONED；wearIdentity.js与基线逐字一致。短版本兼容是源码合同调整，不称目标固件实际返回过短版本。"
+      ]
+    },
+    {
+      "name": "SDK/VER/PKG/CERT/REG/HELLO/READY/SEND阶段真实分层，主动READY不伪造入站HELLO",
+      "status": "pass",
+      "evidence": [
+        "wearTrace.js:2明确固定阶段白名单；wearService.js:37-109覆盖查询、bus、配置、注册、READY/send；wearChannel.js:36-75覆盖无版本兼容及同样失败诊断。",
+        "phone-sync.js:115-140仅通过通道和协议/version校验的入站HELLO记HELLO_RECV；:167-173主动本地HELLO只记READY_PREPARE/PREPARED/FAIL，不记HELLO_RECV。",
+        "weNativeContract.test.mjs:234-278实际执行通过：主动失败READY保留监听且没有HELLO_RECV；无效协议/version/发送者不产生HELLO_RECV；真实fixture入站HELLO单独出现。READY_PREPARED、READY_OK和peer收到READY不混同。"
+      ]
+    },
+    {
+      "name": "双回调参数诊断有限且安全，不泄漏课表/指纹/密钥/原生自由文本",
+      "status": "pass",
+      "evidence": [
+        "wearTrace.js:3-53只保留有界整数/短ASCII数字串、类型编号、字符串长度和own data descriptor数字code；不读message/toString/toJSON，不序列化native错误对象。",
+        "app.js:7-36只输出批准own元数据、固定大写stage、WE标签和<=160字节ASCII诊断正文；安全投影不含identity/payload/key字段，异常被隔离。",
+        "独立weNativeContract动态断言覆盖继承getter、own accessor、toString/toJSON、自由文本、函数/Symbol、范围/长度；实际app helper收到code206/arg1/arg2等安全值而不含私有内容。"
+      ]
+    },
+    {
+      "name": "REG等里程碑不被后续短环/同步failed-reply文案覆盖",
+      "status": "pass",
+      "evidence": [
+        "wearService.js:8-16,114及wearChannel.js:15-23,80将固定配置里程碑与一个有界latest阶段分开，超过6次READY/send仍保留REG。",
+        "phone-sync.js:16-19,139-157,162-184失败detail保留channel summary；本地准备失败与同步回执失败不会抹除SDK/VER/PKG/CERT/REG。",
+        "实际weNativeContract.test.mjs:156-165,234-278通过，包含14次READY后失败、主动准备失败及入站HELLO准备失败的同步回执覆盖反例。"
+      ]
+    },
+    {
+      "name": "内置logger应用级唯一生命周期、原console转发及计时器清理",
+      "status": "pass",
+      "evidence": [
+        "app.js:1-3,38-56应用onCreate先L.init/L.page再原console；onDestroy finally L.stop；保留原_elctonWearChannel。页面没有重复L.init。",
+        "独立只读执行weLogger.test.mjs中10个纯内存runtime/lifecycle/helper/timer测试：10/10、0失败/0跳过、exit0；覆盖ID0、同步ACK不清执行中timer、hung fetch及迟到ACK不确认新batch、console还原。未执行该文件会写fixture/生成源的prepare/configure用例。",
+        "vendor2921B SHA6810b5f9ff34fe4dd6cf4655f75a89172c248dd01bb40ade94937e567cefbe77与UPSTREAM.json相符；生成3018B SHAd4e8572e39d2b7fc62e4c217bbc4db25291f9286639523ebc3a05b1380fc342e；严格timer adapter不改vendor、仍<=3072B。"
+      ]
+    },
+    {
+      "name": "公开配置无生产凭据；本地配置仅选WRITE侧，不绕过bytecode/来源保护",
+      "status": "pass_source_contract",
+      "evidence": [
+        "scripts/prepare_we_logger.py:57-93固定vendor/SHA及真实config version，disabled key为空，public-build仅公开占位；不同既有config在写入前拒绝。",
+        "scripts/configure_we_logger_app.py:107-181先拒.bc/JRRY/gzip/重复ZIP/预算和占位异常，再仅选择endpoint/write_key；只改实际app.js及存在的map sourcesContent，保留其余资源，独占0600输出。",
+        "读取原始logger/final-rerun-no-cache.log及green-05-final-logger.log汇总均17/17、0失败/0跳过；这是实现者既有host fixture证据，本审查未重跑会写文件的用例，也未配置真实APP/HAP。"
+      ]
+    },
+    {
+      "name": "phone-sync onShow常亮，离页false，不改亮度/模式/业务取消语义",
+      "status": "pass",
+      "evidence": [
+        "phone-sync.js:44-48只在onShow申请；:198-201在hide/back/legacy/destroy先hide后stop/route，stop()未解除可见页常亮。",
+        "wearAwake.js:1-46 guarded require/setKeepScreenOn，无亮度值/模式/interval/timer；visible/generation/finished防重复、旧成功按当前可见性补偿，失败只固定FAIL。",
+        "独立weScreenOn测试27/27实际包含在72/72运行：四离页路径false、重入、取消监听仍保持true、模块缺失/throw/fail隔离、迟到ON/OFF、销毁后不复活；SDK证据awake/sdk-brightness-evidence.txt:5-69支持onShow/since3/liteWearable，但盖屏和常亮期限仍受系统控制。"
+      ]
+    },
+    {
+      "name": "进度与成功定义诚实：不冒称唯一真机根因、注册/发送/云日志不冒充握手/APPLIED",
+      "status": "pass",
+      "evidence": [
+        "现行共享进度.md:139-153明确诊断两个源码缺陷、唯一握手根因未闭合、尚未最终提交/CI/签包、真机HELLO->READY->APPLIED待早晨点测；PLAN.md:61-67只在最终门禁后交付。",
+        "research/evidence/sdk/decompiled-excerpts/Device.java:10-13实证能力0=SUPPORT、1=NOT_SUPPORT、2=UNKNOWN；DeviceJsonUtil.java:58-60缺字段默认2，不能将0当不支持或已握手。",
+        "research/history-capability-report.md:7-10,17-23及历史实际sync.js:21-29明确10月10日known-good是云端fetch取件码，不是WE；不能虚构同通道回归或推定peer身份错误。",
+        "已解析原251/251、logger17/17、当时integrated344/344原日志；这些分别是固定时点host证据，不冒充父在持续新增bundle测试后的当前全套最终绿，更不替代真实SDK/HAP/手机READY/APPLIED证据。"
+      ]
+    }
+  ],
+  "gaps": [],
+  "boundary": {
+    "review_axis": "独立SPEC，不评style；passed=true只表示此固定源码候选满足已授权产品规格，未发现可复现P0/P1规格缺口。",
+    "repository": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "baseline": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "branch": "fix/we-handshake-logger-20261115",
+    "head_at_review": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "checked_at": "2026-11-15T00:55:57+08:00",
+    "source_sha256": {
+      "entry/src/main/js/MainAbility/app.js": "020383651175e345c5ec0ea039cc6aa78369f9bb9309331706bbface2a757b37",
+      "entry/src/main/js/MainAbility/common/wearService.js": "345614a459483b531c9ada8d2e07b40b59a8ee060df7b8ffd6821be32dfa030a",
+      "entry/src/main/js/MainAbility/common/wearChannel.js": "b5adc4dbb7cf5ae3d3eb8c6eca1fa08d7df15f3337df053e09da1b8f26be7656",
+      "entry/src/main/js/MainAbility/common/wearTrace.js": "d9e123e7dec20db0b76eedb8f101a3d48fd1920f15f5fb73bad228454483fa21",
+      "entry/src/main/js/MainAbility/common/wearAwake.js": "fce772aba69563a2deeaa83e91f0609a39e5032b9c66ec19c527588b5c337108",
+      "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js": "f6e36ef533889bf7a41fee69a972175bbdd3258bf4e33919063378fb6c701cfe",
+      "tests/weNativeContract.test.mjs": "46556b1a7ca6f040483e57e75118528c36d0baca8d7ac6bfeb13e09daa2b7cbb",
+      "tests/weScreenOn.test.mjs": "68f2f264f0fcb093cbf2f1c8c033feb62709233e50d004633c31b56d419b45eb",
+      "tests/weLogger.test.mjs": "76d7530600e7216b645bcdb2b3d2f57794326ae57dde103b83cbf1fab453ab74"
+    },
+    "executed_by_reviewer": [
+      {"command": "node --experimental-default-type=module --test tests/weNativeContract.test.mjs tests/weScreenOn.test.mjs", "exit_code": 9, "result": "实际Node v26.4.0已移除此flag；未改源码/测试，改用受支持命令重跑。"},
+      {"command": "node --test tests/weNativeContract.test.mjs tests/weScreenOn.test.mjs", "exit_code": 0, "tests": 72, "pass": 72, "fail": 0, "skipped": 0},
+      {"command": "node --test --test-name-pattern='^(app owns|onDestroy stops|app stage|app logger|logger owns|synchronous fetch|hung fetch|actual original|actual adapted|approved numeric)' tests/weLogger.test.mjs", "exit_code": 0, "tests": 10, "pass": 10, "fail": 0, "skipped": 0},
+      {"command": "node --test tests/p2pReadyContract.test.mjs tests/p2pAsyncConfigFailure.test.mjs tests/wearChannel.test.mjs", "exit_code": 0, "tests": 8, "pass": 8, "fail": 0, "skipped": 0},
+      {"command": "node --input-type=module -e <只读真实WE模块注册前消息/null注册/fail(16,0)/重复回调/注册失败终止代际fixture>", "exit_code": 0, "result": {"passed": true, "before_registration_message_ignored": true, "empty_registration_distinct": true, "fail_16_0": "SEND_206", "duplicate_success_ignored": true, "send_failure_keeps_listener": true, "reg_failure_terminal": true}},
+      {"command": "git diff --check 83d58a8及基线/保护清单逐文件SHA256核对", "exit_code": 0, "result": "原33tests、74phone保护文件均无差异；已冻结协议/身份/事务/历史gate无diff。"}
+    ],
+    "not_executed": ["build", "install", "真机导航/前台操作", "Chromium", "network write", "真实logger upload/ACK", "真实native/Bluetooth握手", "真实SDK产物验证", "签名/配置/交付"],
+    "delivery_pending_not_product_defects": [
+      "父正在完成verify_we_logger_bundle.py及新的bundle/final gate和CI管线；脚本在本审查期间到达工作树，不据临时缺文件或未跑签名定产品P0/P1，也不假报这些门禁已绿。",
+      "最终fresh SDK APP预算/无外部导入/无bytecode、当地WRITE-only配置、同身份签名和精确HAP负向/资源/摘要门、GitHub读回及最终交付由父继续，未完成前不能称整棒交付完成。"
+    ],
+    "device_acceptance": "未测。SEND_OK/READY_OK仅厂商success回调；REG仅本端注册；READY_PREPARED仅本地准备；_elctonLog返回true仅helper接受，不代表logger启用/上传/ACK。尚需真实双端REG->HELLO->READY接纳->APPLIED+回读证据，唯一底层失败根因未知。",
+    "runtime_constraints": "logger有界24记录/batch<=8，3018B模块；真实JerryScript heap/并行业务fetch/跨页日志可见性未知，L.stop丢弃未发记录，云has_more=false不证明表执行日志完整。常亮API无法阻止盖屏/用户动作/系统期限，失败不保证物理屏已常亮或已恢复。图片/音频/资源业务未改。",
+    "write_scope": "本审查只新增本spec-review.json；没有改src/tests/手机/旧报告，没有运行会生成fixture或prepare/configure输出的测试。"
+  }
+}

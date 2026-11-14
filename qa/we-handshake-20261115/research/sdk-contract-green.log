@@ -1,0 +1,19 @@
+RESEARCH_OBSERVATIONS=18; native fail argument values remain UNKNOWN on device.
+✔ official wrapper: fail(data,code), including 0 or omitted, always maps to 206 and preserves first data (47.546041ms)
+✔ official wrapper: success callback, not numeric code 0, maps to 207 (8.480625ms)
+✔ pinned adapter: SEND_0 conflates literal 0, missing/string/object second parameters and discards first data (131.057032ms)
+✔ official dispatch: 401 modern vs 303/302 FeatureAbility, pkg threshold 303, cert threshold 302 (13.812136ms)
+✔ official registration: absent/null data or isRegister => onSuccess; message => receive; fail args forwarded unchanged (6.280521ms)
+✔ baseline registration waits for event, stays closed on pre-registration message, ignores stale callbacks (25.872917ms)
+✔ version semantics: baseline waits for complete and adds exact-four-fields restriction absent from wrapper (51.494479ms)
+✔ no version API selects UNVERSIONED direct engine even with FeatureAbility supplied; no proof actual device uses it (19.980781ms)
+✔ page presentation: immediate proactive READY fail overwrites SDK/REG summary; no inbound HELLO needed (38.923489ms)
+✔ persist credential-free observations only inside allowed research directory (7.719532ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 10
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 908.182083

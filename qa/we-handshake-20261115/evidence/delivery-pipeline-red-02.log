@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: new delivery gate preserves every installed-package assertion with only candidate version changed
+not ok 1 - new delivery gate preserves every installed-package assertion with only candidate version changed
+  ---
+  duration_ms: 6.730781
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weDeliveryPipeline.test.mjs:11:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/final_gate.py'"
+  code: 'ENOENT'
+  stack: |-
+    Object.readFileSync (node:fs:539:20)
+    read (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weDeliveryPipeline.test.mjs:9:22)
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weDeliveryPipeline.test.mjs:14:19)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: fresh public CI tests disabled then prepares public-only logger before SDK without live logger secrets
+not ok 2 - fresh public CI tests disabled then prepares public-only logger before SDK without live logger secrets
+  ---
+  duration_ms: 26.541302
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weDeliveryPipeline.test.mjs:20:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(ci.includes('fix/we-handshake-logger-20261115'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weDeliveryPipeline.test.mjs:22:10)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: generated logger and local/fixture outputs cannot be staged in the public product repository
+not ok 3 - generated logger and local/fixture outputs cannot be staged in the public product repository
+  ---
+  duration_ms: 1.534219
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weDeliveryPipeline.test.mjs:38:1'
+  failureType: 'testCodeFailure'
+  error: '**/common/logsink.js'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  actual: false
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weDeliveryPipeline.test.mjs:40:174)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: actual source app lifecycle activates fresh public config while old source-test config stays disabled
+ok 4 - actual source app lifecycle activates fresh public config while old source-test config stays disabled
+  ---
+  duration_ms: 634.419426
+  type: 'test'
+  ...
+1..4
+# tests 4
+# suites 0
+# pass 1
+# fail 3
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1077.845469

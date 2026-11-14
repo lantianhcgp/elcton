@@ -1,0 +1,35 @@
+✔ onShow requests keepScreenOn true on the visible sync page without creating a timer (21.390834ms)
+✔ onHide releases screen-on and preserves real listening/timer teardown (28.378802ms)
+✔ onBack releases screen-on and preserves real listening/timer teardown (9.690469ms)
+✔ onLegacy releases screen-on and preserves real listening/timer teardown (7.89198ms)
+✔ onDestroy releases screen-on and preserves real listening/timer teardown (7.693021ms)
+✔ repeated show/hide/destroy are idempotent for this page request (6.268854ms)
+✔ hide before first onShow has no screen-on request or native import (7.516354ms)
+✔ reentering after hide acquires a new visible request without restarting the listener (5.583021ms)
+✔ stop and cancel-listening keep screen-on while the sync page remains visible (13.15427ms)
+✔ late native true success after onHide is compensated with false and cannot revive page/listener (8.116823ms)
+✔ late native true success after onBack is compensated with false and cannot revive page/listener (6.973021ms)
+✔ late native true success after onLegacy is compensated with false and cannot revive page/listener (7.548177ms)
+✔ late native true success after onDestroy is compensated with false and cannot revive page/listener (7.700521ms)
+✔ new onShow generation reasserts visible ON after old OFF success and ignores stale logs/fail (5.866614ms)
+✔ onShow after destruction cannot acquire screen-on or revive a listening page (5.607552ms)
+✔ noRequire is guarded, leaves sync listener functional and logs no native private data (15.457344ms)
+✔ requireThrow is guarded, leaves sync listener functional and logs no native private data (7.443958ms)
+✔ missingMethod is guarded, leaves sync listener functional and logs no native private data (7.76651ms)
+✔ nativeThrow is guarded, leaves sync listener functional and logs no native private data (8.309427ms)
+✔ nativeFail is guarded, leaves sync listener functional and logs no native private data (7.970625ms)
+✔ unmodified old loader without brightness can load/show/hide/destroy the real page (15.398073ms)
+✔ async native fail at acquire/release cannot break onHide teardown or leak private data (15.023281ms)
+✔ async native fail at acquire/release cannot break onBack teardown or leak private data (7.724166ms)
+✔ async native fail at acquire/release cannot break onLegacy teardown or leak private data (6.675261ms)
+✔ async native fail at acquire/release cannot break onDestroy teardown or leak private data (6.497917ms)
+✔ late stale fail after hide is inert and does not undo the OFF request (4.91849ms)
+✔ current native success and duplicate terminal callbacks report one fixed stage (4.467812ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 664.708645

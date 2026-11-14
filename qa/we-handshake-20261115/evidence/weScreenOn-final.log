@@ -1,0 +1,172 @@
+TAP version 13
+# Subtest: onShow requests keepScreenOn true on the visible sync page without creating a timer
+ok 1 - onShow requests keepScreenOn true on the visible sync page without creating a timer
+  ---
+  duration_ms: 22.333125
+  type: 'test'
+  ...
+# Subtest: onHide releases screen-on and preserves real listening/timer teardown
+ok 2 - onHide releases screen-on and preserves real listening/timer teardown
+  ---
+  duration_ms: 33.686979
+  type: 'test'
+  ...
+# Subtest: onBack releases screen-on and preserves real listening/timer teardown
+ok 3 - onBack releases screen-on and preserves real listening/timer teardown
+  ---
+  duration_ms: 9.72875
+  type: 'test'
+  ...
+# Subtest: onLegacy releases screen-on and preserves real listening/timer teardown
+ok 4 - onLegacy releases screen-on and preserves real listening/timer teardown
+  ---
+  duration_ms: 7.816041
+  type: 'test'
+  ...
+# Subtest: onDestroy releases screen-on and preserves real listening/timer teardown
+ok 5 - onDestroy releases screen-on and preserves real listening/timer teardown
+  ---
+  duration_ms: 8.230625
+  type: 'test'
+  ...
+# Subtest: repeated show/hide/destroy are idempotent for this page request
+ok 6 - repeated show/hide/destroy are idempotent for this page request
+  ---
+  duration_ms: 6.196771
+  type: 'test'
+  ...
+# Subtest: hide before first onShow has no screen-on request or native import
+ok 7 - hide before first onShow has no screen-on request or native import
+  ---
+  duration_ms: 5.820989
+  type: 'test'
+  ...
+# Subtest: reentering after hide acquires a new visible request without restarting the listener
+ok 8 - reentering after hide acquires a new visible request without restarting the listener
+  ---
+  duration_ms: 5.787292
+  type: 'test'
+  ...
+# Subtest: stop and cancel-listening keep screen-on while the sync page remains visible
+ok 9 - stop and cancel-listening keep screen-on while the sync page remains visible
+  ---
+  duration_ms: 14.30651
+  type: 'test'
+  ...
+# Subtest: late native true success after onHide is compensated with false and cannot revive page/listener
+ok 10 - late native true success after onHide is compensated with false and cannot revive page/listener
+  ---
+  duration_ms: 8.464219
+  type: 'test'
+  ...
+# Subtest: late native true success after onBack is compensated with false and cannot revive page/listener
+ok 11 - late native true success after onBack is compensated with false and cannot revive page/listener
+  ---
+  duration_ms: 7.433907
+  type: 'test'
+  ...
+# Subtest: late native true success after onLegacy is compensated with false and cannot revive page/listener
+ok 12 - late native true success after onLegacy is compensated with false and cannot revive page/listener
+  ---
+  duration_ms: 7.801458
+  type: 'test'
+  ...
+# Subtest: late native true success after onDestroy is compensated with false and cannot revive page/listener
+ok 13 - late native true success after onDestroy is compensated with false and cannot revive page/listener
+  ---
+  duration_ms: 7.715781
+  type: 'test'
+  ...
+# Subtest: new onShow generation reasserts visible ON after old OFF success and ignores stale logs/fail
+ok 14 - new onShow generation reasserts visible ON after old OFF success and ignores stale logs/fail
+  ---
+  duration_ms: 6.069739
+  type: 'test'
+  ...
+# Subtest: onShow after destruction cannot acquire screen-on or revive a listening page
+ok 15 - onShow after destruction cannot acquire screen-on or revive a listening page
+  ---
+  duration_ms: 5.6925
+  type: 'test'
+  ...
+# Subtest: noRequire is guarded, leaves sync listener functional and logs no native private data
+ok 16 - noRequire is guarded, leaves sync listener functional and logs no native private data
+  ---
+  duration_ms: 16.279063
+  type: 'test'
+  ...
+# Subtest: requireThrow is guarded, leaves sync listener functional and logs no native private data
+ok 17 - requireThrow is guarded, leaves sync listener functional and logs no native private data
+  ---
+  duration_ms: 7.678489
+  type: 'test'
+  ...
+# Subtest: missingMethod is guarded, leaves sync listener functional and logs no native private data
+ok 18 - missingMethod is guarded, leaves sync listener functional and logs no native private data
+  ---
+  duration_ms: 8.081771
+  type: 'test'
+  ...
+# Subtest: nativeThrow is guarded, leaves sync listener functional and logs no native private data
+ok 19 - nativeThrow is guarded, leaves sync listener functional and logs no native private data
+  ---
+  duration_ms: 9.299375
+  type: 'test'
+  ...
+# Subtest: nativeFail is guarded, leaves sync listener functional and logs no native private data
+ok 20 - nativeFail is guarded, leaves sync listener functional and logs no native private data
+  ---
+  duration_ms: 14.559219
+  type: 'test'
+  ...
+# Subtest: unmodified old loader without brightness can load/show/hide/destroy the real page
+ok 21 - unmodified old loader without brightness can load/show/hide/destroy the real page
+  ---
+  duration_ms: 13.405
+  type: 'test'
+  ...
+# Subtest: async native fail at acquire/release cannot break onHide teardown or leak private data
+ok 22 - async native fail at acquire/release cannot break onHide teardown or leak private data
+  ---
+  duration_ms: 9.558333
+  type: 'test'
+  ...
+# Subtest: async native fail at acquire/release cannot break onBack teardown or leak private data
+ok 23 - async native fail at acquire/release cannot break onBack teardown or leak private data
+  ---
+  duration_ms: 7.156093
+  type: 'test'
+  ...
+# Subtest: async native fail at acquire/release cannot break onLegacy teardown or leak private data
+ok 24 - async native fail at acquire/release cannot break onLegacy teardown or leak private data
+  ---
+  duration_ms: 7.002448
+  type: 'test'
+  ...
+# Subtest: async native fail at acquire/release cannot break onDestroy teardown or leak private data
+ok 25 - async native fail at acquire/release cannot break onDestroy teardown or leak private data
+  ---
+  duration_ms: 6.932917
+  type: 'test'
+  ...
+# Subtest: late stale fail after hide is inert and does not undo the OFF request
+ok 26 - late stale fail after hide is inert and does not undo the OFF request
+  ---
+  duration_ms: 5.01052
+  type: 'test'
+  ...
+# Subtest: current native success and duplicate terminal callbacks report one fixed stage
+ok 27 - current native success and duplicate terminal callbacks report one fixed stage
+  ---
+  duration_ms: 4.911146
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 658.3875

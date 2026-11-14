@@ -1,0 +1,1321 @@
+TAP version 13
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_-1000000000
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|READY_OK
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|REG_0
+# WE VER|PKG|CERT|REG|REG_0|REG_0
+# WE PKG|CERT|REG|REG_0|REG_0|READY_OK
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG_0
+# WE VER|PKG|CERT|REG_0|REG_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|HELLO
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_INVALID
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_INVALID
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|READY_OK
+# WE VER|PKG|CERT|REG|READY_OK|READY_OK
+# WE PKG|CERT|REG|READY_OK|READY_OK|READY_OK
+# WE CERT|REG|READY_OK|READY_OK|READY_OK|READY_OK
+# WE REG|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK
+# WE READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|SEND_0
+# WE VER
+# WE VER|PKG_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# Subtest: versioned native fail always maps to SEND_206: numeric second zero
+not ok 1 - versioned native fail always maps to SEND_206: numeric second zero
+  ---
+  duration_ms: 21.068646
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: versioned native fail always maps to SEND_206: missing arguments
+not ok 2 - versioned native fail always maps to SEND_206: missing arguments
+  ---
+  duration_ms: 2.554948
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: versioned native fail always maps to SEND_206: numeric string
+not ok 3 - versioned native fail always maps to SEND_206: numeric string
+  ---
+  duration_ms: 1.910156
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned native fail always maps to SEND_206: object own code
+not ok 4 - versioned native fail always maps to SEND_206: object own code
+  ---
+  duration_ms: 1.500156
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned native fail always maps to SEND_206: free text
+not ok 5 - versioned native fail always maps to SEND_206: free text
+  ---
+  duration_ms: 1.733542
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned native fail always maps to SEND_206: null and bool
+not ok 6 - versioned native fail always maps to SEND_206: null and bool
+  ---
+  duration_ms: 1.481875
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned native fail always maps to SEND_206: fraction and infinite
+not ok 7 - versioned native fail always maps to SEND_206: fraction and infinite
+  ---
+  duration_ms: 1.373906
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned native fail always maps to SEND_206: out of bound numeric
+not ok 8 - versioned native fail always maps to SEND_206: out of bound numeric
+  ---
+  duration_ms: 1.49625
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_-1000000000'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_-1000000000'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned success is the separate 207 callback branch
+not ok 9 - versioned success is the separate 207 callback branch
+  ---
+  duration_ms: 2.591667
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:79:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 207
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 207
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:84:55)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned registration failure invalidates once, blocks resurrection and pending send callbacks
+not ok 10 - versioned registration failure invalidates once, blocks resurrection and pending send callbacks
+  ---
+  duration_ms: 8.07151
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:88:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    notify the current subscriber exactly once after successful registration
+    
+    3 !== 2
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2
+  actual: 3
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:95:20)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned failure before registration is terminal for that callback generation
+not ok 11 - versioned failure before registration is terminal for that callback generation
+  ---
+  duration_ms: 2.019687
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:107:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:111:16)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: versioned close and reopen discard old callbacks without losing the new session
+ok 12 - versioned close and reopen discard old callbacks without losing the new session
+  ---
+  duration_ms: 2.006198
+  type: 'test'
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: numeric second zero
+not ok 13 - unversioned native fail always maps to SEND_206: numeric second zero
+  ---
+  duration_ms: 2.064583
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: missing arguments
+not ok 14 - unversioned native fail always maps to SEND_206: missing arguments
+  ---
+  duration_ms: 1.427187
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_undefined'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_undefined'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: numeric string
+not ok 15 - unversioned native fail always maps to SEND_206: numeric string
+  ---
+  duration_ms: 0.970468
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_0'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_0'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: object own code
+not ok 16 - unversioned native fail always maps to SEND_206: object own code
+  ---
+  duration_ms: 0.868386
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_[object Object]'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_[object Object]'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: free text
+not ok 17 - unversioned native fail always maps to SEND_206: free text
+  ---
+  duration_ms: 0.876511
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_private detail'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_private detail'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: null and bool
+not ok 18 - unversioned native fail always maps to SEND_206: null and bool
+  ---
+  duration_ms: 0.764739
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_false'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_false'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: fraction and infinite
+not ok 19 - unversioned native fail always maps to SEND_206: fraction and infinite
+  ---
+  duration_ms: 0.733854
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_Infinity'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_Infinity'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned native fail always maps to SEND_206: out of bound numeric
+not ok 20 - unversioned native fail always maps to SEND_206: out of bound numeric
+  ---
+  duration_ms: 0.846458
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:58:9'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'SEND_-1000000000'
+    -   'SEND_206'
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: 'SEND_206'
+  actual:
+    0: 'SEND_-1000000000'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:62:24)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned success is the separate 207 callback branch
+not ok 21 - unversioned success is the separate 207 callback branch
+  ---
+  duration_ms: 0.937292
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:79:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 207
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 207
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:84:55)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned registration failure invalidates once, blocks resurrection and pending send callbacks
+not ok 22 - unversioned registration failure invalidates once, blocks resurrection and pending send callbacks
+  ---
+  duration_ms: 1.000833
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:88:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    notify the current subscriber exactly once after successful registration
+    
+    1 !== 2
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 2
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:95:20)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned failure before registration is terminal for that callback generation
+not ok 23 - unversioned failure before registration is terminal for that callback generation
+  ---
+  duration_ms: 0.729531
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:107:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    1 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 1
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:111:78)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned close and reopen discard old callbacks without losing the new session
+ok 24 - unversioned close and reopen discard old callbacks without losing the new session
+  ---
+  duration_ms: 0.575885
+  type: 'test'
+  ...
+# Subtest: one through four numeric version segments use the last segment: 401
+not ok 25 - one through four numeric version segments use the last segment: 401
+  ---
+  duration_ms: 1.278906
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:128:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'VERSION_UNSUPPORTED'
+    -   null
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: ~
+  actual:
+    0: 'VERSION_UNSUPPORTED'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:131:20)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: one through four numeric version segments use the last segment: 3.401
+not ok 26 - one through four numeric version segments use the last segment: 3.401
+  ---
+  duration_ms: 1.123698
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:128:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'VERSION_UNSUPPORTED'
+    -   null
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: ~
+  actual:
+    0: 'VERSION_UNSUPPORTED'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:131:20)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: one through four numeric version segments use the last segment: 5.0.401
+not ok 27 - one through four numeric version segments use the last segment: 5.0.401
+  ---
+  duration_ms: 0.856354
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:128:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'VERSION_UNSUPPORTED'
+    -   null
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: ~
+  actual:
+    0: 'VERSION_UNSUPPORTED'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:131:20)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: one through four numeric version segments use the last segment: 5.0.0.401
+not ok 28 - one through four numeric version segments use the last segment: 5.0.0.401
+  ---
+  duration_ms: 0.97651
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:128:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    undefined !== 401
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 401
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:133:20)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: legacy routing and package threshold remain unchanged: 3.302
+not ok 29 - legacy routing and package threshold remain unchanged: 3.302
+  ---
+  duration_ms: 1.24849
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:139:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'VERSION_UNSUPPORTED'
+    -   null
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: ~
+  actual:
+    0: 'VERSION_UNSUPPORTED'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:144:30)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: legacy routing and package threshold remain unchanged: 5.0.303
+not ok 30 - legacy routing and package threshold remain unchanged: 5.0.303
+  ---
+  duration_ms: 1.185156
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:139:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'VERSION_UNSUPPORTED'
+    -   null
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: ~
+  actual:
+    0: 'VERSION_UNSUPPORTED'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:144:30)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: legacy routing and package threshold remain unchanged: 3.400
+not ok 31 - legacy routing and package threshold remain unchanged: 3.400
+  ---
+  duration_ms: 1.093593
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:139:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly deep-equal:
+    + actual - expected
+    
+      [
+    +   'VERSION_UNSUPPORTED'
+    -   null
+      ]
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+    0: ~
+  actual:
+    0: 'VERSION_UNSUPPORTED'
+  operator: 'deepStrictEqual'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:144:30)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: short-version support does not relax numeric/nonempty/four-segment/length/minimum rules
+ok 32 - short-version support does not relax numeric/nonempty/four-segment/length/minimum rules
+  ---
+  duration_ms: 6.265
+  type: 'test'
+  ...
+# Subtest: milestone summary survives more than six READY/send events and records a bounded latest failure
+not ok 33 - milestone summary survives more than six READY/send events and records a bounded latest failure
+  ---
+  duration_ms: 2.771042
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:156:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /SDK401.*VER.*PKG.*CERT.*REG.*SEND_206/. Input:
+    
+    'SDK401|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|SEND_0'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: 'SDK401|READY_OK|READY_OK|READY_OK|READY_OK|READY_OK|SEND_0'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:161:16)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: unversioned compatibility is diagnosed honestly and never negotiated
+not ok 34 - unversioned compatibility is diagnosed honestly and never negotiated
+  ---
+  duration_ms: 20.945104
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:167:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(event(h, 'SDK_UNAVAILABLE'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:169:18)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: package failure records both safe callback arguments and suppresses later completion
+not ok 35 - package failure records both safe callback arguments and suppresses later completion
+  ---
+  duration_ms: 2.623334
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:173:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(e)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:177:84)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: fingerprint failure records both safe callback arguments and suppresses later completion
+not ok 36 - fingerprint failure records both safe callback arguments and suppresses later completion
+  ---
+  duration_ms: 1.373386
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:173:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(e)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:177:84)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: diagnostics never invoke native accessors, inherited code, message, toString or toJSON
+not ok 37 - diagnostics never invoke native accessors, inherited code, message, toString or toJSON
+  ---
+  duration_ms: 2.056822
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:182:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(e)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:191:112)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: short numeric-string projection rejects other spellings and caps string lengths
+not ok 38 - short numeric-string projection rejects other spellings and caps string lengths
+  ---
+  duration_ms: 1.349739
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:196:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(e)
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:199:88)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: guarded logger lookup uses $app.$def and isolates logger exceptions
+not ok 39 - guarded logger lookup uses $app.$def and isolates logger exceptions
+  ---
+  duration_ms: 1.259427
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:204:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(event(h, 'SDK_CALL'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:205:52)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: guarded logger lookup uses $app and isolates logger exceptions
+not ok 40 - guarded logger lookup uses $app and isolates logger exceptions
+  ---
+  duration_ms: 1.285208
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:204:5'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(event(h, 'SDK_CALL'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:205:52)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: real app helper receives the native scalar projection without private payload/identity text
+not ok 41 - real app helper receives the native scalar projection without private payload/identity text
+  ---
+  duration_ms: 8.215104
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:211:1'
+  failureType: 'testCodeFailure'
+  error: 'actual app-owned logger must receive the stage'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:218:73)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_0
+# Subtest: proactive failed READY retains SDK/REG detail without pretending that an inbound HELLO arrived
+not ok 42 - proactive failed READY retains SDK/REG detail without pretending that an inbound HELLO arrived
+  ---
+  duration_ms: 89.709271
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:234:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /SDK401.*VER.*PKG.*CERT.*REG/. Input:
+    
+    '回执失败 SEND_0'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '回执失败 SEND_0'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:238:16)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+# Subtest: READY preparation failure has a fixed safe stage and does not record response error strings
+not ok 43 - READY preparation failure has a fixed safe stage and does not record response error strings
+  ---
+  duration_ms: 5.260885
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:249:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The expression evaluated to a falsy value:
+    
+      assert.ok(event(x.h, 'READY_PREPARE_FAIL'))
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: true
+  operator: '=='
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:253:16)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..43
+# tests 43
+# suites 0
+# pass 3
+# fail 40
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 596.489843

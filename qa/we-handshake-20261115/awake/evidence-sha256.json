@@ -1,0 +1,110 @@
+{
+  "qa/we-handshake-20261115/awake/README.md": {
+    "bytes": 4494,
+    "sha256": "706f0af82e300896fd03879d4a9f7e43015649ff0e171d31b6af94d5b5817d52"
+  },
+  "qa/we-handshake-20261115/awake/baseline-tracked-sha256.json": {
+    "bytes": 148908,
+    "sha256": "d1407eca96b279a9ffd450fef8c27275844c96e0217fa3c7ee3d11df812ddf7a"
+  },
+  "qa/we-handshake-20261115/awake/green-01.log": {
+    "bytes": 216,
+    "sha256": "29b65647ba43460f18c71e0d42a903323f10ec51ab1867e2197a768c2fd226e5"
+  },
+  "qa/we-handshake-20261115/awake/green-01.meta.json": {
+    "bytes": 223,
+    "sha256": "2c4dbd4fce98544990711892b15931d4a677c4aced6331655d137e10d8134f80"
+  },
+  "qa/we-handshake-20261115/awake/green-02.log": {
+    "bytes": 934,
+    "sha256": "685414b3ca17ba2f30442a379d024be127fa0bf93a71f5957ff456021854236b"
+  },
+  "qa/we-handshake-20261115/awake/green-02.meta.json": {
+    "bytes": 223,
+    "sha256": "63750ea79ca989c5a8364ef7d0a2e083abdf563a4dec4467abf66533e8975a38"
+  },
+  "qa/we-handshake-20261115/awake/green-03.log": {
+    "bytes": 2224,
+    "sha256": "28b5787d88f704ae366f469aba33e238a595fa67d2da60d0f89b4628f35ed737"
+  },
+  "qa/we-handshake-20261115/awake/green-03.meta.json": {
+    "bytes": 223,
+    "sha256": "c8447f9e008587ff15321aa517e76cfaa5a6d7b8b8e0bcd8433b472e51c2e782"
+  },
+  "qa/we-handshake-20261115/awake/green-04.log": {
+    "bytes": 2222,
+    "sha256": "afb7700a72c12468ebb2bc9386ad9e2af167d246e58271c1d6980fdb29f98433"
+  },
+  "qa/we-handshake-20261115/awake/green-04.meta.json": {
+    "bytes": 223,
+    "sha256": "da2bc14c602c1a36e1bf357523b6c4bf5d6cc2d2a26079754f7819e75f5968e5"
+  },
+  "qa/we-handshake-20261115/awake/green-final.log": {
+    "bytes": 2823,
+    "sha256": "e62ca8b1a9c8b03cc7b255369bdd81146d863ae7b9f769ac148c050035adcc09"
+  },
+  "qa/we-handshake-20261115/awake/green-final.meta.json": {
+    "bytes": 223,
+    "sha256": "6ec343fd49adebbf57c9459923e966ec0f7a20c09a0114d431880d60dd5e8ea5"
+  },
+  "qa/we-handshake-20261115/awake/phone-sync.diff": {
+    "bytes": 2033,
+    "sha256": "78bec2310ff9ab6fea9e7aac25430d1768806051037355f901964062a84d2fb5"
+  },
+  "qa/we-handshake-20261115/awake/plan.md": {
+    "bytes": 2196,
+    "sha256": "f533654833b6f72addfdbe9b71aa3af4b4efd90ef3d612ecf7bf1da2727b89d9"
+  },
+  "qa/we-handshake-20261115/awake/red-01.log": {
+    "bytes": 1199,
+    "sha256": "df3824500bc1bc66aa3733b51e21a476e18178e9f6a684ef9003f536188a5aa1"
+  },
+  "qa/we-handshake-20261115/awake/red-01.meta.json": {
+    "bytes": 223,
+    "sha256": "d647163e8342270bdf4aad5a1de720aed4887286eec3faf0d3519fdb7649c62b"
+  },
+  "qa/we-handshake-20261115/awake/red-02.log": {
+    "bytes": 6554,
+    "sha256": "127bc08c367e97f1d91915cf4019ff0c50a44b70fe34328aed292f8c1d2904c9"
+  },
+  "qa/we-handshake-20261115/awake/red-02.meta.json": {
+    "bytes": 223,
+    "sha256": "461fb9ec745e36f09575a50aa9fbff64a99b88e340892085abda7fbcfffeffad"
+  },
+  "qa/we-handshake-20261115/awake/red-03.log": {
+    "bytes": 7421,
+    "sha256": "ed527c1dc088abd06a8087ffd8ac51c103918e7694735c5562790a6ac5ab240f"
+  },
+  "qa/we-handshake-20261115/awake/red-03.meta.json": {
+    "bytes": 223,
+    "sha256": "9c720ebcc9ffafa3f2e65ed9d60cce33de6b068512634a87365d8d8d21e2f139"
+  },
+  "qa/we-handshake-20261115/awake/red-04.log": {
+    "bytes": 3296,
+    "sha256": "be8fa648fd8e30230d2b8c0fd517548d34ec8362727e5c0d0fccc01c990586ee"
+  },
+  "qa/we-handshake-20261115/awake/red-04.meta.json": {
+    "bytes": 223,
+    "sha256": "268ac620f396d1e10f35d7ab26bec40df03376d26ecdbe6dcbe124f184431808"
+  },
+  "qa/we-handshake-20261115/awake/scope-own-final.json": {
+    "bytes": 4695,
+    "sha256": "3069bd48422f44bd9c90f0b894e9f64c85988c16a39d92c0b1771ac2dd4e5e42"
+  },
+  "qa/we-handshake-20261115/awake/scope-verification.json": {
+    "bytes": 1721,
+    "sha256": "a3e44113f43986f79f981d16bbeccc9f01794cf14adeba8664508dd02ec5e078"
+  },
+  "qa/we-handshake-20261115/awake/sdk-brightness-evidence.txt": {
+    "bytes": 2971,
+    "sha256": "bf0d6b2095688874c7c997a4654f3c56b04fb111289419c2d3f18582d3ea1a7a"
+  },
+  "qa/we-handshake-20261115/awake/weScreenOn.test.mjs.diff": {
+    "bytes": 13656,
+    "sha256": "4c7f9e4799b25983572e47c79c78203e7ad47f72247c49152763a28cde8e54cb"
+  },
+  "qa/we-handshake-20261115/awake/wearAwake.js.diff": {
+    "bytes": 1904,
+    "sha256": "ec6f0556ce8334b79b57fa75bc98833448548b6717dff2d627eba220b767e002"
+  }
+}

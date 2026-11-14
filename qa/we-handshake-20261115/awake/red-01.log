@@ -1,0 +1,33 @@
+✖ onShow requests keepScreenOn true on the visible sync page without creating a timer (25.203542ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 372.615
+
+✖ failing tests:
+
+test at tests/weScreenOn.test.mjs:73:1
+✖ onShow requests keepScreenOn true on the visible sync page without creating a timer (25.203542ms)
+  AssertionError [ERR_ASSERTION]: sync page must expose onShow to request screen-on
+  + actual - expected
+  
+  + 'undefined'
+  - 'function'
+  
+      at show (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:69:12)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:77:9)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'undefined',
+    expected: 'function',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

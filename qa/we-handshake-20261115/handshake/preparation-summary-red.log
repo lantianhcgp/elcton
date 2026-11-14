@@ -1,0 +1,54 @@
+TAP version 13
+# Subtest: inbound HELLO preparation error cannot overwrite a synchronous failed-reply milestone summary
+not ok 1 - inbound HELLO preparation error cannot overwrite a synchronous failed-reply milestone summary
+  ---
+  duration_ms: 41.496458
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:260:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /SDK401.*VER.*PKG.*CERT.*REG.*SEND_206/. Input:
+    
+    '300'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '300'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:266:16)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+# Subtest: proactive preparation error retains registration summary even when its ERROR reply sends successfully
+not ok 2 - proactive preparation error retains registration summary even when its ERROR reply sends successfully
+  ---
+  duration_ms: 10.689532
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:271:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    The input did not match the regular expression /SDK401.*VER.*PKG.*CERT.*REG/. Input:
+    
+    '300'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: '300'
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weNativeContract.test.mjs:276:16)
+    async Test.run (node:internal/test_runner/test:1389:7)
+    async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 486.388697

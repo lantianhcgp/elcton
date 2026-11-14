@@ -1,0 +1,15 @@
+{
+  "android_aar": [
+    {
+      "path": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/01-官方正文与SDK快照/android-aar.zip",
+      "bytes": 254003,
+      "sha256": "97adb85c1092c8b9660b7d26eb7a0bccb162201f1eea1f85373a7f59e827d2ca",
+      "classes_jar_sha256": "b0cc167e7bd6324ba47fc8e4f2668793d5c19e4640a96eed45d17b86d5c3b8ef",
+      "existing_extracted_jar_byte_equal": true
+    }
+  ],
+  "js_sdk_sha256": "8c7f1100c840abdb237991b0d436ef9ab49a215269c5fecdb3dd59fe63a71471",
+  "Capability_symbols": [],
+  "hasAvailableP2pService_in_official_js": false,
+  "hasAvailableP2pService_in_aar_class_bytes": false
+}

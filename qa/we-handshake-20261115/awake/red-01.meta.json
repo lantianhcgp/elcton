@@ -1,0 +1,10 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "tests/weScreenOn.test.mjs"
+  ],
+  "cwd": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "exit_code": 1,
+  "at": "2026-11-15T00:10:09.923020+08:00"
+}

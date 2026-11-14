@@ -1,0 +1,50 @@
+{
+  "apk_path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/build-artifact/artifact/dist/elcton-phone-probe.apk",
+  "bytes": 8237316,
+  "sha256": "664e8eae402f8390b8fcf63d0818d5a96c07b1222d06230f3f7b0927908b5065",
+  "crc_ok": true,
+  "source_commit": "84a6c406099348f75b436a8e9467c34487766859",
+  "repo_head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+  "peer_identity": "watchapp.nexus.0zzip_BOc6BPXgVZY7Ik7lETcDy6ezKw77Dqm0EDBscNFv9kHcXaW7gXBRQmA8RfLcDvcCLkOSQIsB33zj/s2IS6u5utM=",
+  "dex_rows": [
+    {
+      "dex": "classes3.dex",
+      "bytes": 670060,
+      "sha256": "8d327200c7c351bd38f7e3b1ad6134f48aa08cd86cd2149f32b71f14f51d76d5",
+      "targets": [
+        "Lcom/hcbiu/elcton/SyncEngine;",
+        "Lcom/hcbiu/elcton/WearProbe;"
+      ],
+      "source_peer_fingerprint_in_strings": true,
+      "source_peer_package_in_strings": true,
+      "relevant_strings": [
+        "getP2pCapability",
+        "isAppInstalled",
+        "p2p.send",
+        "registerReceiver",
+        "setPeerFingerPrint",
+        "setPeerPkgName",
+        "watchapp.nexus.0zzip",
+        "watchapp.nexus.0zzip_BOc6BPXgVZY7Ik7lETcDy6ezKw77Dqm0EDBscNFv9kHcXaW7gXBRQmA8RfLcDvcCLkOSQIsB33zj/s2IS6u5utM="
+      ]
+    },
+    {
+      "dex": "classes4.dex",
+      "bytes": 3842104,
+      "sha256": "dc726b7f9dde91c7d8203c33bec964ebfac6f4d0d82b7363d0d44b30d9e9f0ed",
+      "targets": [
+        "Lcom/huawei/wearengine/device/Device;",
+        "Lcom/huawei/wearengine/p2p/P2pClient;"
+      ],
+      "source_peer_fingerprint_in_strings": false,
+      "source_peer_package_in_strings": false,
+      "relevant_strings": [
+        "getP2pCapability",
+        "isAppInstalled",
+        "registerReceiver",
+        "setPeerFingerPrint",
+        "setPeerPkgName"
+      ]
+    }
+  ]
+}

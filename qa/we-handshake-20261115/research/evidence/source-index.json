@@ -1,0 +1,170 @@
+[
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "f8a8d73248ab41ac700aa58e96e000c143c8640e",
+    "path": "docs/lan-sync-probe.md",
+    "evidence": "history/1009-lan-sync-probe.md",
+    "sha256": "8eb47704f15ee9643abd9e37df963cec451f10a23b2e40acff200b8a85affa15"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "659128e587c7832ae105c4566b87b7cd7f1ef7bc",
+    "path": "docs/pickup-code.md",
+    "evidence": "history/1009-pickup-code.md",
+    "sha256": "ec652b4ebf3b44969bce7ef3ca8c13a2f48a972f71d5add568697fcbc2e4dda4"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "697ee9dfe921840fbcfe3ee13d32b7c76685324b",
+    "path": "docs/pickup-code.md",
+    "evidence": "history/1010-pickup-code.md",
+    "sha256": "40902bf2e9ed45e5c45d76e6ca8078bf7d95db70b7ea6485954ea9a77f76b069"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "e1f60dda9d1664c2b2932334d6a32db219f6543f",
+    "path": "entry/src/main/js/MainAbility/pages/sync/sync.js",
+    "evidence": "history/1011-0012-sync.js",
+    "sha256": "466d61c6883130d7fff02f6c871c69e3c097043499bd49ecbe16060bff7833cb"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "e1f60dda9d1664c2b2932334d6a32db219f6543f",
+    "path": "docs/sync-endpoint.md",
+    "evidence": "history/1011-cloud-sync-endpoint.md",
+    "sha256": "6161672d82a8f15f88ec03e783755f2eec643db3f1e5019b9c5aa0d4e14cdf03"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "e1f60dda9d1664c2b2932334d6a32db219f6543f",
+    "path": "entry/src/main/config.json",
+    "evidence": "history/1011-config.json",
+    "sha256": "91a5db77149d7b8185d33a15e1428aac34ac7d15c3d7f6dca2786933f65ed432"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "7984758ff19455bb8424d64e8ff2ec8fd82d050c",
+    "path": "docs/pickup-code.md",
+    "evidence": "history/1011-0013-pickup-code.md",
+    "sha256": "48deaa44cf736d277ff1d590816d381a3f775673c28849449a39ee36761d8686"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "rev": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "path": "entry/src/main/js/MainAbility/common/wearService.js",
+    "evidence": "watch-1.1.15/wearService.js",
+    "sha256": "d2af17a1e396ab4c7675ecdc5c8926dacea8766632566a4b0fd25efc997f7a02"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "rev": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "path": "entry/src/main/js/MainAbility/common/wearChannel.js",
+    "evidence": "watch-1.1.15/wearChannel.js",
+    "sha256": "7d09ee0526b4f295234624872ed1be5f8b7d24653b422ff30347cd6cd1dc61d6"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "rev": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "path": "entry/src/main/js/MainAbility/common/wearIdentity.js",
+    "evidence": "watch-1.1.15/wearIdentity.js",
+    "sha256": "3241bdb6fd2785424885f3e8f6013f660341dabbca02d2934fa6bf31710d2b57"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "rev": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "path": "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+    "evidence": "watch-1.1.15/phone-sync.js",
+    "sha256": "316cb077619d5fb0038275705d0cfb7ab864c92aacb34470f9ccbd53faebc129"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "rev": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "path": "entry/src/main/config.json",
+    "evidence": "watch-1.1.15/config.json",
+    "sha256": "11d24fb7d6eb6db408a3c733d7f58237d82bfa41fb7bcefbc973adaf00cc3019"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "rev": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "path": "entry/src/main/js/MainAbility/app.js",
+    "evidence": "watch-1.1.15/app.js",
+    "sha256": "b175160b0e35d483591a74b8eafac25729a662a3869d1b5de3508e65e94adcd3"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "rev": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+    "path": "tools/sign/sign-app-to-hap.js",
+    "evidence": "watch-1.1.15/sign-app-to-hap.js",
+    "sha256": "562b510c2feb483b837c16160742d443c052fbee6018babeca6a7f25ee8740be"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "rev": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "path": "app/src/main/java/com/hcbiu/elcton/WearProbe.kt",
+    "evidence": "phone-0.2.9/WearProbe.kt",
+    "sha256": "15eb45798a6cb4536500b5aebc30715a2c7ee3190fff79175cab0c23eabe8b8a"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "rev": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "path": "app/src/main/java/com/hcbiu/elcton/SyncEngine.kt",
+    "evidence": "phone-0.2.9/SyncEngine.kt",
+    "sha256": "84176876bb297cecfaa8070362bbc0d72b0b99c095557919ba12c9978d26f4e7"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "rev": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "path": "app/src/main/java/com/hcbiu/elcton/PhoneRuntime.kt",
+    "evidence": "phone-0.2.9/PhoneRuntime.kt",
+    "sha256": "33d925acbcde98edc0858a0707ae6e29b52d0e3e4a5ea698ddec7aba734143ba"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "rev": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "path": "app/src/main/java/com/hcbiu/elcton/PhoneActions.kt",
+    "evidence": "phone-0.2.9/PhoneActions.kt",
+    "sha256": "048da107c58a76958c8de5f896681e177822710c62e90bed2ebbc71a46a132a6"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "rev": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "path": "app/src/main/java/com/hcbiu/elcton/DevicePolicy.kt",
+    "evidence": "phone-0.2.9/DevicePolicy.kt",
+    "sha256": "173f65f984981e1a41d4e03318da85572f61c3afcc66f96ed302eb510a329c83"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "rev": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "path": "app/src/main/java/com/hcbiu/elcton/PacketIngress.kt",
+    "evidence": "phone-0.2.9/PacketIngress.kt",
+    "sha256": "3a59181bfe0e1cfd801cd21699ba00c3cfe9ebcfa9fc6f3aa6ab45696536f7fb"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "rev": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "path": "app/src/main/java/com/hcbiu/elcton/Wire.kt",
+    "evidence": "phone-0.2.9/Wire.kt",
+    "sha256": "4d36667a311696cf98891455365af9a9bab09df4171d1e434b14056cdd1bc584"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "rev": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "path": "app/build.gradle.kts",
+    "evidence": "phone-0.2.9/build.gradle.kts",
+    "sha256": "52ff1325ad7c160431634d4187e5c59c9e8a5a0ef6696f38be8ef5695720a2e2"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "0be04ed667392401c6024d892feb6983928c903c",
+    "path": "entry/src/main/js/MainAbility/common/wearChannel.js",
+    "evidence": "watch-pre-1.1.15/wearChannel.js",
+    "sha256": "61418c516766974d9a325bdcf57ed28298e1964e4ed1f74b954485038325751f"
+  },
+  {
+    "repo": "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "rev": "0be04ed667392401c6024d892feb6983928c903c",
+    "path": "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+    "evidence": "watch-pre-1.1.15/phone-sync.js",
+    "sha256": "ab87a592f03027711e4aed6a2804aef51854242bf3cf4d2a32b8d6dbcc86ada9"
+  }
+]

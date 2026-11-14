@@ -1,0 +1,17 @@
+Verifies
+Verified using v1 scheme (JAR signing): false
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): true
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+Signer #1 certificate DN: CN=elcton-phone, OU=Android, O=elcton, C=CN
+Signer #1 certificate SHA-256 digest: fc08a0b474a8ffca5887bd5c88ac15e865a63a64eca81c10f344496c46d9ad94
+Signer #1 certificate SHA-1 digest: b91079b7f4db132f0fa1df20f074f7b46ed2e6b8
+Signer #1 certificate MD5 digest: be70dba622fd42dcf764071541aa1fe3
+Signer #1 key algorithm: RSA
+Signer #1 key size (bits): 3072
+Signer #1 public key SHA-256 digest: e1d5f4b2869da99c7556a6efd4fa0f992259a4bd385e2f760f8dc77f0e4b4a0b
+Signer #1 public key SHA-1 digest: 9711c0526bd53a2b96cc7296ec2394bb31778221
+Signer #1 public key MD5 digest: c5009de143bc2d4d9deef2948f9d8fac

@@ -1,0 +1,42 @@
+[
+  {
+    "suite": "weLogger",
+    "exit_code": 0,
+    "tests": 17,
+    "pass": 17,
+    "fail": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "weScreenOn",
+    "exit_code": 0,
+    "tests": 27,
+    "pass": 27,
+    "fail": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "weNativeContract",
+    "exit_code": 0,
+    "tests": 45,
+    "pass": 45,
+    "fail": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "weDeliveryPipeline",
+    "exit_code": 0,
+    "tests": 4,
+    "pass": 4,
+    "fail": 0,
+    "skipped": 0
+  },
+  {
+    "suite": "weBundleGate",
+    "exit_code": 0,
+    "tests": 11,
+    "pass": 11,
+    "fail": 0,
+    "skipped": 0
+  }
+]

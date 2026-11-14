@@ -1,0 +1,17 @@
+{
+  "original_test_files": 33,
+  "original_test_files_unchanged": true,
+  "phone_readonly_files": 74,
+  "phone_changed": [],
+  "baseline": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+  "frozen_unchanged": {
+    "tools/sign/sign-app-to-hap.js": true,
+    "tools/sign/verify_sign.py": true,
+    "qa/install34/check_signed_ast.cjs": true,
+    "scripts/compact_lite_app.mjs": true,
+    "scripts/compact_p2p_page.mjs": true,
+    "qa/p2p-ready-20261114/final_gate.py": true,
+    "entry/src/main/js/MainAbility/common/wearIdentity.js": true,
+    "package.json": true
+  }
+}

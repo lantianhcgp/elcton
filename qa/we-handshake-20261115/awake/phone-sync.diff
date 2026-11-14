@@ -1,0 +1,37 @@
+diff --git a/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js b/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js
+index 0f750b3..b4d6cec 100644
+--- a/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js
++++ b/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js
+@@ -10,6 +10,7 @@ import makeChannel from '../../common/wearChannel.js';
+ import identity from '../../common/wearIdentity.js';
+ import layout from '../../common/wearLayout.js';
+ import makeExporter from '../../common/wearExporter.js';
++import makeAwake from '../../common/wearAwake.js';
+ 
+ var TEMP_URI = 'internal://app/we-incoming.json';
+ export default {
+@@ -35,6 +36,11 @@ export default {
+         catch (e) { self.status = '\u8bbe\u5907\u63a5\u53e3\u4e0d\u53ef\u7528'; }
+         self._journal = makeJournal({read: fs.readFile, write: fs.writeFile});
+     },
++    onShow: function () {
++        if (this._closed) { return; }
++        if (!this._awake) { this._awake = makeAwake(); }
++        this._awake.show();
++    },
+     watchDog: function () {
+         if (this._timer !== null) { clearTimeout(this._timer); }
+         var self = this, gen = this._gen;
+@@ -178,8 +184,8 @@ export default {
+         this.listening = false; this.buttonLabel = '\u5f00\u59cb\u63a5\u6536';
+         return certain;
+     },
+-    onBack: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },
+-    onLegacy: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },
+-    onHide: function () { this.stop(); },
+-    onDestroy: function () { this._closed = true; this.stop(); }
++    onBack: function () { if (this._awake) { this._awake.hide(); } this.stop(); router.push({uri: 'pages/sync/sync'}); },
++    onLegacy: function () { if (this._awake) { this._awake.hide(); } this.stop(); router.push({uri: 'pages/sync/sync'}); },
++    onHide: function () { if (this._awake) { this._awake.hide(); } this.stop(); },
++    onDestroy: function () { this._closed = true; if (this._awake) { this._awake.hide(); } this.stop(); }
+ };

@@ -1,0 +1,35 @@
+{
+  "observed_at": "2026-11-14T16:05:21Z",
+  "source": "first actual terminal tool capture in this task, before all writes",
+  "repos": {
+    "we-handshake-repair-20261115-watch": {
+      "head": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+      "status": ""
+    },
+    "we-ready-receipt-20261114-watch": {
+      "head": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+      "status": ""
+    },
+    "elcton-wear-realdevice": {
+      "head": "9517f345e8d0e0995708b0a5d0b37b4cae8689ac",
+      "status": "?? tools/sign/node_modules\n"
+    },
+    "elcton-wear-sync": {
+      "head": "2a8183a537db333df1d3eeb350015dbd99ac71d2",
+      "status": "?? .ai-memory/\n?? qa/late_timeout_probe.mjs\n"
+    },
+    "elcton-wear-install34-20261113": {
+      "head": "0be04ed667392401c6024d892feb6983928c903c",
+      "status": "?? qa/install34/.artifact-cache/\n?? tools/sign/node_modules\n"
+    },
+    "work/elcton-hms-investigation-20261114": {
+      "head": "0e72d9a4d1bd49f01a221e62c679eb2059a52bdc",
+      "status": ""
+    },
+    "elcton-phone-release-029-20261114": {
+      "head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+      "tracked_change": " M qa/release-029/evidence/resume-1720/CONTINUATION-R10.md",
+      "tracked_diff_stat": "6 insertions(+); initial untracked release evidence exists (see raw first tool result)"
+    }
+  }
+}

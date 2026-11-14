@@ -1,0 +1,18 @@
+{
+  "command": [
+    "git",
+    "--no-optional-locks",
+    "-C",
+    "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "grep",
+    "-n",
+    "-E",
+    "wearengine|FeatureAbility|subscribeMsg|setFingerprint|HELLO|READY",
+    "e1f60dda9d1664c2b2932334d6a32db219f6543f",
+    "--",
+    "entry/src/main/js/MainAbility"
+  ],
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": ""
+}

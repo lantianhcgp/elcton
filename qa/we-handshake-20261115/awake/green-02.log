@@ -1,0 +1,17 @@
+✔ onShow requests keepScreenOn true on the visible sync page without creating a timer (27.206563ms)
+✔ onHide releases screen-on and preserves real listening/timer teardown (28.179739ms)
+✔ onBack releases screen-on and preserves real listening/timer teardown (36.669791ms)
+✔ onLegacy releases screen-on and preserves real listening/timer teardown (8.768542ms)
+✔ onDestroy releases screen-on and preserves real listening/timer teardown (8.571875ms)
+✔ repeated show/hide/destroy are idempotent for this page request (6.485781ms)
+✔ hide before first onShow has no screen-on request or native import (6.902031ms)
+✔ reentering after hide acquires a new visible request without restarting the listener (5.889636ms)
+✔ stop and cancel-listening keep screen-on while the sync page remains visible (14.503906ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 532.053906

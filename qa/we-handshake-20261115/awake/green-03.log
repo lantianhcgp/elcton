@@ -1,0 +1,29 @@
+✔ onShow requests keepScreenOn true on the visible sync page without creating a timer (24.853906ms)
+✔ onHide releases screen-on and preserves real listening/timer teardown (26.894428ms)
+✔ onBack releases screen-on and preserves real listening/timer teardown (9.336927ms)
+✔ onLegacy releases screen-on and preserves real listening/timer teardown (7.76099ms)
+✔ onDestroy releases screen-on and preserves real listening/timer teardown (7.445938ms)
+✔ repeated show/hide/destroy are idempotent for this page request (5.75323ms)
+✔ hide before first onShow has no screen-on request or native import (5.640468ms)
+✔ reentering after hide acquires a new visible request without restarting the listener (5.495052ms)
+✔ stop and cancel-listening keep screen-on while the sync page remains visible (15.314479ms)
+✔ late native true success after onHide is compensated with false and cannot revive page/listener (8.372448ms)
+✔ late native true success after onBack is compensated with false and cannot revive page/listener (7.201094ms)
+✔ late native true success after onLegacy is compensated with false and cannot revive page/listener (7.01099ms)
+✔ late native true success after onDestroy is compensated with false and cannot revive page/listener (7.580469ms)
+✔ new onShow generation ignores old ON/OFF success and fail without cancelling the visible request (5.706614ms)
+✔ onShow after destruction cannot acquire screen-on or revive a listening page (5.285104ms)
+✔ noRequire is guarded, leaves sync listener functional and logs no native private data (14.213177ms)
+✔ requireThrow is guarded, leaves sync listener functional and logs no native private data (7.389844ms)
+✔ missingMethod is guarded, leaves sync listener functional and logs no native private data (7.719011ms)
+✔ nativeThrow is guarded, leaves sync listener functional and logs no native private data (10.071614ms)
+✔ nativeFail is guarded, leaves sync listener functional and logs no native private data (8.115157ms)
+✔ unmodified old loader without brightness can load/show/hide/destroy the real page (15.463698ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 599.847031

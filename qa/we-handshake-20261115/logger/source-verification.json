@@ -1,0 +1,19 @@
+{
+  "tracked_changed_since_baseline": [
+    "entry/src/main/js/MainAbility/app.js"
+  ],
+  "syntax": [
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/app.js",
+      "syntax_exit": 0
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/logsink.js",
+      "syntax_exit": 0
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/log-config.js",
+      "syntax_exit": 0
+    }
+  ]
+}

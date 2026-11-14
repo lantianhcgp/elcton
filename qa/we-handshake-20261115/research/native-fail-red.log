@@ -1,0 +1,27 @@
+✖ candidate RED: fail(16, 0) remains failure AND retains first-argument diagnostic (32.645156ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 413.258593
+
+✖ failing tests:
+
+test at qa/we-handshake-20261115/research/native-fail-minimal.red.test.mjs:12:1
+✖ candidate RED: fail(16, 0) remains failure AND retains first-argument diagnostic (32.645156ms)
+  AssertionError [ERR_ASSERTION]: bounded diagnostics must preserve raw first arg; actual=SEND_0
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/native-fail-minimal.red.test.mjs:27:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '"SEND_0"',
+    expected: /16/,
+    operator: 'match',
+    diff: 'simple'
+  }

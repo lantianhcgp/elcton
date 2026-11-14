@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-11-15T00:28:06+08:00",
+  "baseline": "83d58a8",
+  "report_absolute_path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/sdk-callback-report.md",
+  "researcher_write_scope": "qa/we-handshake-20261115/research/ only; shared worktree changes are not attributed to researcher",
+  "critical_sources_byte_equal_to_baseline": {
+    "entry/src/main/js/MainAbility/common/wearService.js": true,
+    "entry/src/main/js/MainAbility/common/wearChannel.js": true,
+    "references/source-apps/腕上词典-FIT3/entry/src/main/js/default/common/wearengine.js": true
+  },
+  "credential_signature_scan": {
+    "scanned_text_files": 81,
+    "categories": ["private_key_block", "jwt", "bearer_value"],
+    "hits": [],
+    "scope": "Read-only regex signature scan; not an exhaustive credential audit"
+  },
+  "verified_fixture_results": {
+    "sdk_contract": {"tests": 10, "pass": 10, "fail": 0, "exit_code": 0, "log": "sdk-contract-green.log"},
+    "candidate_diagnostic_red": {"tests": 1, "pass": 0, "fail": 1, "exit_code": 1, "expected_failure": true, "actual": "SEND_0", "log": "native-fail-red.log"},
+    "scope": "Pinned baseline JS callback execution, not native/Bluetooth/device evidence"
+  },
+  "outcome": "No new registration or peer-identity product regression proven; real device failure and native raw arguments remain unknown",
+  "no_device_operation": true,
+  "no_product_code_write_by_researcher": true,
+  "no_commit_or_push_by_researcher": true
+}

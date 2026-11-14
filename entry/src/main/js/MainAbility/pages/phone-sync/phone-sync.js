@@ -10,7 +10,13 @@ import makeChannel from '../../common/wearChannel.js';
 import identity from '../../common/wearIdentity.js';
 import layout from '../../common/wearLayout.js';
 import makeExporter from '../../common/wearExporter.js';
+import makeAwake from '../../common/wearAwake.js';
+import trace from '../../common/wearTrace.js';
 
+function channelSummary(channel) {
+    try { var text = channel && channel.summary ? channel.summary() : ''; return typeof text === 'string' ? text.substr(0, 192) : ''; }
+    catch (ignored) { return ''; }
+}
 var TEMP_URI = 'internal://app/we-incoming.json';
 export default {
     data: {
@@ -34,6 +40,11 @@ export default {
         }, fail: function () { self.status = '\u83b7\u53d6\u5c4f\u5e55\u5931\u8d25\uff0c\u8bf7\u8fd4\u56de\u91cd\u8bd5'; }}); }
         catch (e) { self.status = '\u8bbe\u5907\u63a5\u53e3\u4e0d\u53ef\u7528'; }
         self._journal = makeJournal({read: fs.readFile, write: fs.writeFile});
+    },
+    onShow: function () {
+        if (this._closed) { return; }
+        if (!this._awake) { this._awake = makeAwake(); }
+        this._awake.show();
     },
     watchDog: function () {
         if (this._timer !== null) { clearTimeout(this._timer); }
@@ -107,6 +118,7 @@ export default {
             var message;
             try { message = JSON.parse(raw); } catch (e) { return; }
             if (!message || message.protocol !== 'elcton.sync' || message.version !== 1 || typeof message.type !== 'string') { return; }
+            if (message.type === 'HELLO') { trace.log('HELLO_RECV'); trace.log('READY_PREPARE'); }
             var target = self._receiver;
             var control = message.type === 'HELLO' || message.type === 'STATUS';
             if (message.type.substr(0,7) === 'EXPORT_' || (message.type === 'CANCEL' && self._exporter.isActive())) {
@@ -124,7 +136,8 @@ export default {
             if (message.type === 'END') { self.phase = 'saving'; self.status = '\u6821\u9a8c\u4fdd\u5b58\u4e2d'; }
             target.receive(raw, function (response) {
                 if (self._closed || gen !== self._gen) { return; }
-                self.reply(response);
+                if (message.type === 'HELLO') { trace.log(response.type === 'READY' ? 'READY_PREPARED' : 'READY_PREPARE_FAIL'); }
+                var replyFailure = self.reply(response);
                 if(response.type==='APPLIED'||(response.type==='READY'&&!self._receiver.isBusy()))self._uncertain=false;
                 if(response.type==='ERROR'&&(response.code==='COMMIT_UNKNOWN'||response.code==='COMMIT_IN_PROGRESS'))self._uncertain=true;
                 if (response.type === 'CANCELLED' || (response.type === 'EXPORT_CLOSED' && message.type === 'CANCEL')) {
@@ -141,31 +154,35 @@ export default {
                     self.phase = response.code === 'COMMIT_IN_PROGRESS' ? 'saving' : 'error';
                     self.status = response.code === 'COMMIT_IN_PROGRESS' ? '\u63d0\u4ea4\u4e2d' : (response.code === 'CONFLICT' ? '\u8bf7\u624b\u673a\u786e\u8ba4\u8986\u76d6' : '\u540c\u6b65\u5931\u8d25');
                     self.detail = response.code === 'COMMIT_IN_PROGRESS' || response.code === 'COMMIT_UNKNOWN' ? '\u8bf7\u91cd\u8fde\u6838\u5bf9\u6700\u7ec8\u8bfe\u8868' : String(response.code).substr(0, 48);
+                    if (message.type === 'HELLO') { var summary = channelSummary(self._channel); self.detail = replyFailure || ((summary ? summary + '|' : '') + self.detail); }
                 } else if (response.type === 'ACK' && response.seq >= 0) {
                     self.detail = '\u5df2\u63a5\u6536\u7b2c ' + (response.seq + 1) + ' \u5305';
                 }
             });
         }, function (err) {
             if (self._closed || gen !== self._gen) { return; }
-            if (err) { self.stop(); self.phase = 'error'; self.status = '\u8fde\u63a5\u5931\u8d25'; self.detail = String(err); return; }
+            if (err) { var summary = channelSummary(self._channel); self.stop(); self.phase = 'error'; self.status = '\u8fde\u63a5\u5931\u8d25'; self.detail = (summary ? summary + '|' : '') + String(err).substr(0, 48); return; }
             self.phase = 'ready'; self.status = '\u7b49\u5f85\u624b\u673a';
             if (self._channel.summary) { self.detail = self._channel.summary(); }
+            trace.log('READY_PREPARE');
             self._receiver.receive(protocol.ascii({protocol: 'elcton.sync', version: 1, sender: 'phone', type: 'HELLO', transferId: ''}), function (response) {
                 if (!self._closed && gen === self._gen) {
+                    trace.log(response.type === 'READY' ? 'READY_PREPARED' : 'READY_PREPARE_FAIL');
                     if (response.type === 'READY') { self._uncertain = false; }
-                    else { self.phase = 'error'; self.status = '\u51c6\u5907\u5931\u8d25'; self.detail = String(response.code).substr(0, 48); }
+                    else { var summary = channelSummary(self._channel); self.phase = 'error'; self.status = '\u51c6\u5907\u5931\u8d25'; self.detail = (summary ? summary + '|' : '') + String(response.code).substr(0, 48); }
                     self.reply(response);
                 }
             });
         });
     },
     reply: function (response) {
-        var self = this, gen = this._gen;
+        var self = this, gen = this._gen, failureDetail;
         this._channel.send(response, function (err) {
             if (self._closed || gen !== self._gen) { return; }
-            if (err) { self.detail = '\u56de\u6267\u5931\u8d25 ' + String(err).substr(0, 48); }
+            if (err) { var summary = channelSummary(self._channel); failureDetail = (summary ? summary + '|' : '') + '\u56de\u6267\u5931\u8d25 ' + String(err).substr(0, 48); self.detail = failureDetail; }
             else if (response.type === 'READY' && self._channel.summary) { self.detail = self._channel.summary(); }
         });
+        return failureDetail;
     },
     stop: function () {
         var cancelled = !this._receiver || this._receiver.cancel() !== false;
@@ -178,8 +195,8 @@ export default {
         this.listening = false; this.buttonLabel = '\u5f00\u59cb\u63a5\u6536';
         return certain;
     },
-    onBack: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },
-    onLegacy: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },
-    onHide: function () { this.stop(); },
-    onDestroy: function () { this._closed = true; this.stop(); }
+    onBack: function () { if (this._awake) { this._awake.hide(); } this.stop(); router.push({uri: 'pages/sync/sync'}); },
+    onLegacy: function () { if (this._awake) { this._awake.hide(); } this.stop(); router.push({uri: 'pages/sync/sync'}); },
+    onHide: function () { if (this._awake) { this._awake.hide(); } this.stop(); },
+    onDestroy: function () { this._closed = true; if (this._awake) { this._awake.hide(); } this.stop(); }
 };

@@ -1,0 +1,190 @@
+TAP version 13
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CONFIG_UNAVAILABLE
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CONFIG_UNAVAILABLE
+# Subtest: deferred native identity continuation fails explicitly and cleans the page if fingerprint is absent or throws
+ok 1 - deferred native identity continuation fails explicitly and cleans the page if fingerprint is absent or throws
+  ---
+  duration_ms: 29.760625
+  type: 'test'
+  ...
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|HELLO
+# WE VER|PKG|CERT|REG|HELLO|READY_OK
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|HELLO
+# WE VER|PKG|CERT|REG|HELLO|READY_OK
+# WE VERSION_UNSUPPORTED
+# WE VERSION_INVALID
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|READY_OK
+# Subtest: versioned SDK negotiation precedes identity and subscription; no send before native registration
+ok 2 - versioned SDK negotiation precedes identity and subscription; no send before native registration
+  ---
+  duration_ms: 20.486198
+  type: 'test'
+  ...
+# Subtest: closing while version callback is pending prevents later native registration
+ok 3 - closing while version callback is pending prevents later native registration
+  ---
+  duration_ms: 2.11349
+  type: 'test'
+  ...
+# Subtest: service 303 uses published FeatureAbility messaging rather than calling modern native methods
+ok 4 - service 303 uses published FeatureAbility messaging rather than calling modern native methods
+  ---
+  duration_ms: 3.713802
+  type: 'test'
+  ...
+# Subtest: bad or too-old queried version fails explicitly and never guesses a modern bus
+ok 5 - bad or too-old queried version fails explicitly and never guesses a modern bus
+  ---
+  duration_ms: 5.892552
+  type: 'test'
+  ...
+# WE VER|PKG|CERT|REG|READY_OK|HELLO
+# WE PKG|CERT|REG|READY_OK|HELLO|READY_OK
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|SEND_206
+# Subtest: a negotiated and registered idle listener stays armed after 30s; a fresh HELLO still receives READY
+ok 6 - a negotiated and registered idle listener stays armed after 30s; a fresh HELLO still receives READY
+  ---
+  duration_ms: 40.683021
+  type: 'test'
+  ...
+# Subtest: proactive READY failure is visible with the native send code instead of being swallowed
+ok 7 - proactive READY failure is visible with the native send code instead of being swallowed
+  ---
+  duration_ms: 13.755313
+  type: 'test'
+  ...
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VERSION_UNSUPPORTED
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# Subtest: malformed numeric-looking service versions never qualify as negotiated registrations
+ok 8 - malformed numeric-looking service versions never qualify as negotiated registrations
+  ---
+  duration_ms: 32.252343
+  type: 'test'
+  ...
+# WE VER
+# WE VER|PKG
+# WE VER|PKG|CERT
+# WE VER|PKG|CERT|REG
+# WE VER|PKG|CERT|REG|READY_OK
+# WE VER|PKG|CERT|REG|READY_OK|HELLO
+# Subtest: a stalled initial or later HELLO storage query keeps its finite deadline instead of looking idle
+ok 9 - a stalled initial or later HELLO storage query keeps its finite deadline instead of looking idle
+  ---
+  duration_ms: 44.310885
+  type: 'test'
+  ...
+# (node:8404) [MODULE_TYPELESS_PACKAGE_JSON] Warning: Module type of file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearProtocol.js is not specified and it doesn't parse as CommonJS.
+# Reparsing as ES module because module syntax was detected. This incurs a performance overhead.
+# To eliminate this warning, add "type": "module" to /data/data/com.termux/files/home/we-handshake-repair-20261115-watch/package.json.
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: watchDog rearms and clears a valid numeric timer 0
+ok 10 - watchDog rearms and clears a valid numeric timer 0
+  ---
+  duration_ms: 81.682291
+  type: 'test'
+  ...
+# Subtest: stop cancels numeric timer 0 and repeated stop never clears null
+ok 11 - stop cancels numeric timer 0 and repeated stop never clears null
+  ---
+  duration_ms: 14.762552
+  type: 'test'
+  ...
+# Subtest: onListen cancels a listening session with numeric timer 0
+ok 12 - onListen cancels a listening session with numeric timer 0
+  ---
+  duration_ms: 6.641927
+  type: 'test'
+  ...
+# Subtest: onHide cancels a listening session with numeric timer 0
+ok 13 - onHide cancels a listening session with numeric timer 0
+  ---
+  duration_ms: 5.404948
+  type: 'test'
+  ...
+# Subtest: onDestroy cancels a listening session with numeric timer 0
+ok 14 - onDestroy cancels a listening session with numeric timer 0
+  ---
+  duration_ms: 5.527188
+  type: 'test'
+  ...
+# Subtest: live timeout 0 detaches its own slot before stop without clearing itself
+ok 15 - live timeout 0 detaches its own slot before stop without clearing itself
+  ---
+  duration_ms: 6.701667
+  type: 'test'
+  ...
+# Subtest: live timeout 1 detaches its own slot before stop without clearing itself
+ok 16 - live timeout 1 detaches its own slot before stop without clearing itself
+  ---
+  duration_ms: 4.607865
+  type: 'test'
+  ...
+# Subtest: retained callback from a rearmed watchdog cannot close the current same-generation session
+ok 17 - retained callback from a rearmed watchdog cannot close the current same-generation session
+  ---
+  duration_ms: 4.683021
+  type: 'test'
+  ...
+# Subtest: retained callback from cancelled generation cannot close a reopened session with reused timer 0
+ok 18 - retained callback from cancelled generation cannot close a reopened session with reused timer 0
+  ---
+  duration_ms: 5.5125
+  type: 'test'
+  ...
+# Subtest: retained callback after destroy is inert and cannot clear any other timer
+ok 19 - retained callback after destroy is inert and cannot clear any other timer
+  ---
+  duration_ms: 4.51875
+  type: 'test'
+  ...
+# Subtest: APPLIED cancels the valid numeric-zero watchdog without timing out the saved session
+ok 20 - APPLIED cancels the valid numeric-zero watchdog without timing out the saved session
+  ---
+  duration_ms: 12.157917
+  type: 'test'
+  ...
+# Subtest: channel registers only after configuring the signed phone identity and drops watch loopback
+ok 21 - channel registers only after configuring the signed phone identity and drops watch loopback
+  ---
+  duration_ms: 10.895313
+  type: 'test'
+  ...
+1..21
+# tests 21
+# suites 0
+# pass 21
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 636.996718

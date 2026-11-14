@@ -1,0 +1,12 @@
+{
+  "command": [
+    "python",
+    "scripts/prepare_we_logger.py",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "--mode",
+    "disabled"
+  ],
+  "exit_code": 0,
+  "counts": {},
+  "log": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/logger/prepare-actual-disabled.log"
+}

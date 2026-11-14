@@ -1,0 +1,128 @@
+{
+  "time": "2026-11-15T00:52:12.243329+08:00",
+  "workspace": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "baseline": "83d58a8f931848bdf65bb923e5579ff7285a0714",
+  "product_owned_files": {
+    "entry/src/main/js/MainAbility/common/wearService.js": {
+      "bytes": 7798,
+      "sha256": "345614a459483b531c9ada8d2e07b40b59a8ee060df7b8ffd6821be32dfa030a"
+    },
+    "entry/src/main/js/MainAbility/common/wearChannel.js": {
+      "bytes": 5844,
+      "sha256": "b5adc4dbb7cf5ae3d3eb8c6eca1fa08d7df15f3337df053e09da1b8f26be7656"
+    },
+    "entry/src/main/js/MainAbility/common/wearTrace.js": {
+      "bytes": 3065,
+      "sha256": "d9e123e7dec20db0b76eedb8f101a3d48fd1920f15f5fb73bad228454483fa21"
+    },
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js": {
+      "bytes": 13804,
+      "sha256": "f6e36ef533889bf7a41fee69a972175bbdd3258bf4e33919063378fb6c701cfe"
+    },
+    "tests/weNativeContract.test.mjs": {
+      "bytes": 20273,
+      "sha256": "46556b1a7ca6f040483e57e75118528c36d0baca8d7ac6bfeb13e09daa2b7cbb"
+    }
+  },
+  "evidence_files": {
+    "qa/we-handshake-20261115/handshake/BOUNDARY.md": {
+      "bytes": 1176,
+      "sha256": "c2c998b4d8e399901fc53a996e71c2c655ba434bdcc5af35d50c7cd80c5f9754"
+    },
+    "qa/we-handshake-20261115/handshake/README.md": {
+      "bytes": 5475,
+      "sha256": "a4a730f68652a3d752516963f34428ee8aae856e6347c27041d976a45bf992c4"
+    },
+    "qa/we-handshake-20261115/handshake/baseline-251-regression.log": {
+      "bytes": 60217,
+      "sha256": "6607e3515c5f28c063e5cc0a382eaf298e17eb7b453a3daa3c905e95d1bab142"
+    },
+    "qa/we-handshake-20261115/handshake/baseline-251-regression.meta.json": {
+      "bytes": 1541,
+      "sha256": "6a7a4b881514cb3a027fd967d5c09581cf3dcc469c5d326089ed240a93f62abc"
+    },
+    "qa/we-handshake-20261115/handshake/full-suite-attempt1.log": {
+      "bytes": 84752,
+      "sha256": "2787960b70abb218c251dbb6583be142cf1d2a0f091e8d9aa987da0e9eb331eb"
+    },
+    "qa/we-handshake-20261115/handshake/full-suite-attempt1.meta.json": {
+      "bytes": 238,
+      "sha256": "33cefceef9eb60d45fd34441a548f4a9c6a6b8214bd598ad7039ca7ea26c2f52"
+    },
+    "qa/we-handshake-20261115/handshake/full-suite-final.log": {
+      "bytes": 82706,
+      "sha256": "6f10084c6eb8cebdcb1a8e235c9d594fd258d16e898fb4e47d4c023b5f314b0b"
+    },
+    "qa/we-handshake-20261115/handshake/full-suite-final.meta.json": {
+      "bytes": 161,
+      "sha256": "3b417e841078cf108a62a9ceab4a946bdd14d10308ce11ca8fa4f2d739729493"
+    },
+    "qa/we-handshake-20261115/handshake/full-suite-handoff.log": {
+      "bytes": 92810,
+      "sha256": "7efc6b122468d86af7f5d1b6ca44ffa05fb902c2309672b73280b7c976c1590f"
+    },
+    "qa/we-handshake-20261115/handshake/full-suite-handoff.meta.json": {
+      "bytes": 161,
+      "sha256": "5b433aa1e65a54861625877536a5a3f3775d95abe6c165b8c0b4dd3afca156e1"
+    },
+    "qa/we-handshake-20261115/handshake/native-contract-green-attempt1.log": {
+      "bytes": 9392,
+      "sha256": "9d85daae4eabe0ec9cfe9ec2e7c31e8f6eecf8890e917e089605516068a6fed4"
+    },
+    "qa/we-handshake-20261115/handshake/native-contract-green-attempt1.meta.json": {
+      "bytes": 177,
+      "sha256": "e447817347bb2fe64dbc8fc3a4781509a7ebe174cea9f5ee6e28d5dbfccb521c"
+    },
+    "qa/we-handshake-20261115/handshake/native-contract-green-final.log": {
+      "bytes": 9937,
+      "sha256": "c83623245dd1d634cf719d757c6b90e3b4d41630d3b60c71083d4151197bfd46"
+    },
+    "qa/we-handshake-20261115/handshake/native-contract-green-final.meta.json": {
+      "bytes": 177,
+      "sha256": "5113d299895951f8818cc37880405730b102b48b70fe291a63dad64fde46f2cb"
+    },
+    "qa/we-handshake-20261115/handshake/native-contract-red.log": {
+      "bytes": 49097,
+      "sha256": "9be650d980890bf9b0b7d4f4627383c2527e1584e097da30b6a180d180580f92"
+    },
+    "qa/we-handshake-20261115/handshake/native-contract-red.meta.json": {
+      "bytes": 279,
+      "sha256": "4eb8cd840647ef180e631efd5416fbab694dc589b8ea232e16865e28f914917f"
+    },
+    "qa/we-handshake-20261115/handshake/preparation-summary-red.log": {
+      "bytes": 1997,
+      "sha256": "533d3d74e97b658a1619e4cff2bdc428709c15126c399b8b225249f2394a1f51"
+    },
+    "qa/we-handshake-20261115/handshake/preparation-summary-red.meta.json": {
+      "bytes": 229,
+      "sha256": "b5360e25b821f29c4a494b694e3af71571f105a065e69ba80353c71ac982d60e"
+    },
+    "qa/we-handshake-20261115/handshake/product-source.diff": {
+      "bytes": 25676,
+      "sha256": "17331244ec69401937df32a336a7e2ba055cdec0c49314a2ccfa3c9db1809336"
+    },
+    "qa/we-handshake-20261115/handshake/source-audit-verified.json": {
+      "bytes": 2120,
+      "sha256": "a9850eae9231776e60151e5ba2f55aced5e252ff0081e58acd1fa16efc24f50a"
+    },
+    "qa/we-handshake-20261115/handshake/source-audit.json": {
+      "bytes": 1743,
+      "sha256": "28e4f45c339561badc1c5297d31f879c370c1ca6b1da8f2abdcd1ef7b161796f"
+    },
+    "qa/we-handshake-20261115/handshake/source-audit.py": {
+      "bytes": 3740,
+      "sha256": "5c413c3ae344ee586beacf123d2ab1644b79b96908075c503e95d74be942c65a"
+    }
+  },
+  "product_files_unchanged_since_green": true,
+  "boundary_lines": 10,
+  "original_tests_byte_preserved": true,
+  "frozen_gate_byte_preserved": true,
+  "parent_scope_not_written_by_worker": [
+    "app.js",
+    "pipeline",
+    "config",
+    "version",
+    "phone repo"
+  ]
+}

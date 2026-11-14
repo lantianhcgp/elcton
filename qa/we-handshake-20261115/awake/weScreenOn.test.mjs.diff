@@ -1,0 +1,285 @@
+diff --git a/tests/weScreenOn.test.mjs b/tests/weScreenOn.test.mjs
+new file mode 100644
+index 0000000..65ee9ce
+--- /dev/null
++++ b/tests/weScreenOn.test.mjs
+@@ -0,0 +1,279 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import fs from 'node:fs';
++import path from 'node:path';
++import vm from 'node:vm';
++import {fileURLToPath} from 'node:url';
++import {setImmediate as flush} from 'node:timers/promises';
++import {loader, fakeFile} from './loadSource.mjs';
++
++const root = fileURLToPath(new URL('../entry/src/main/js/MainAbility/', import.meta.url));
++// Real page and real JS dependencies; only native APIs/timers are isolated here.
++function harness(options = {}) {
++    const requests = [], stages = [], events = [], pending = new Map(), retained = [];
++    let nextTimer = 0, unsubscribes = 0, subscriptions = 0, incoming;
++    const doc = {schema: 'elcton.schedule', version: 1, rev: 1,
++        settings: {semesterStart: '2026-09-01'}, courses: []};
++    const file = fakeFile({'internal://app/schedule.json': JSON.stringify(doc)});
++    const brightness = {setKeepScreenOn(p) {
++        requests.push(p); events.push(p.keepScreenOn ? 'ON' : 'OFF');
++        if (options.nativeThrow) throw new Error('PRIVATE_NATIVE_EXCEPTION');
++        if (options.nativeFail) p.fail('PRIVATE_NATIVE_DATA', 500);
++        else if (!options.defer) p.success();
++    }};
++    const engine = {setPackageName: p => p.complete(), setFingerprint: p => p.complete(),
++        subscribeMsg(p) { subscriptions++; incoming = p.success; p.success({isRegister: true}); },
++        unsubscribeMsg() { unsubscribes++; events.push('STOP'); }, sendMsg: p => p.success()};
++    const system = {file: file.api, wearengine: engine,
++        device: {getInfo: p => p.success({windowWidth: 412, windowHeight: 484, screenShape: 'rect'})},
++        router: {replace(p) { events.push('ROUTE:' + p.uri); }}};
++    let requireCalls = 0;
++    const context = vm.createContext({$app: {},
++        console: {info(stage) { stages.push(stage); }},
++        setTimeout(callback, ms) { const id = nextTimer++; const entry = {id, callback, ms};
++            pending.set(id, entry); retained.push(entry); return id; },
++        clearTimeout(id) { pending.delete(id); },
++        setInterval() { throw new Error('awake must not add an interval'); },
++        clearInterval() { throw new Error('awake must not own an interval'); }});
++    if (!options.noRequire) context.require = ref => {
++        requireCalls++; assert.equal(ref, '@system.brightness');
++        if (options.requireThrow) throw new Error('module unavailable');
++        return options.missingMethod ? {} : brightness;
++    };
++    const cache = new Map();
++    function load(name) {
++        const filename = path.resolve(root, name);
++        if (cache.has(filename)) return cache.get(filename);
++        const dependencies = {};
++        const source = fs.readFileSync(filename, 'utf8')
++            .replace(/import\s+(\w+)\s+from\s+['"]([^'"]+)['"];?/g, (_, binding, ref) => {
++                dependencies[ref] = ref.startsWith('@system.') ? system[ref.slice(8)]
++                    : load(path.relative(root, path.resolve(path.dirname(filename), ref)));
++                assert.notEqual(dependencies[ref], undefined, 'missing platform fixture ' + ref);
++                return 'var ' + binding + '=dependencies[' + JSON.stringify(ref) + '];';
++            }).replace(/export default /, 'return ');
++        const value = vm.runInContext('(function(dependencies){' + source + '\n})', context,
++            {filename})(dependencies);
++        cache.set(filename, value); return value;
++    }
++    const spec = load('pages/phone-sync/phone-sync.js');
++    const page = {...spec, ...spec.data}; delete page.data; page.onInit();
++    return {page, system, requests, stages, events, pending, retained,
++        flags: () => requests.map(p => p.keepScreenOn),
++        counts: () => ({subscriptions, unsubscribes, requireCalls}),
++        receive: raw => incoming({isRegister: false, message: raw}),
++        cleanup() { page.onDestroy(); }};
++}
++
++function show(h) {
++    assert.equal(typeof h.page.onShow, 'function', 'sync page must expose onShow to request screen-on');
++    h.page.onShow();
++}
++
++test('onShow requests keepScreenOn true on the visible sync page without creating a timer', () => {
++    const h = harness();
++    try {
++        assert.deepEqual(h.flags(), [], 'onInit must not acquire screen-on');
++        show(h);
++        assert.deepEqual(h.flags(), [true]);
++        assert.equal(h.pending.size, 0);
++        assert.equal(h.page.listening, false);
++        assert.deepEqual(h.stages, ['KEEP_ON']);
++    } finally { h.cleanup(); }
++});
++
++for (const method of ['onHide', 'onBack', 'onLegacy', 'onDestroy']) {
++    test(`${method} releases screen-on and preserves real listening/timer teardown`, async () => {
++        const h = harness();
++        try {
++            show(h); h.page.onListen(); await flush();
++            assert.equal(h.page.listening, true);
++            assert.equal(h.counts().subscriptions, 1);
++            assert.equal(h.pending.size, 1);
++            assert.equal(h.pending.values().next().value.ms, 30000);
++            h.page[method]();
++            assert.deepEqual(h.flags(), [true, false]);
++            assert.equal(h.page.listening, false);
++            assert.equal(h.counts().unsubscribes, 1);
++            assert.equal(h.page._timer, null);
++            assert.equal(h.pending.size, 0);
++            assert.deepEqual(h.stages, ['KEEP_ON', 'KEEP_OFF']);
++            if (method === 'onBack' || method === 'onLegacy') {
++                assert.equal(h.events.at(-1), 'ROUTE:pages/sync/sync');
++                assert.ok(h.events.indexOf('OFF') < h.events.indexOf('ROUTE:pages/sync/sync'));
++            }
++        } finally { h.cleanup(); }
++    });
++}
++
++test('repeated show/hide/destroy are idempotent for this page request', () => {
++    const h = harness();
++    try {
++        show(h); show(h);
++        assert.deepEqual(h.flags(), [true]);
++        h.page.onHide(); h.page.onHide(); h.page.onDestroy(); h.page.onDestroy();
++        assert.deepEqual(h.flags(), [true, false]);
++    } finally { h.cleanup(); }
++});
++
++test('hide before first onShow has no screen-on request or native import', () => {
++    const h = harness();
++    try {
++        h.page.onHide(); h.page.onDestroy();
++        assert.deepEqual(h.flags(), []);
++        assert.equal(h.counts().requireCalls, 0);
++    } finally { h.cleanup(); }
++});
++
++test('reentering after hide acquires a new visible request without restarting the listener', () => {
++    const h = harness();
++    try {
++        show(h); h.page.onHide(); show(h);
++        assert.deepEqual(h.flags(), [true, false, true]);
++        assert.equal(h.page.listening, false);
++        assert.equal(h.pending.size, 0);
++        h.page.onHide();
++        assert.deepEqual(h.flags(), [true, false, true, false]);
++    } finally { h.cleanup(); }
++});
++
++test('stop and cancel-listening keep screen-on while the sync page remains visible', async () => {
++    const h = harness();
++    try {
++        show(h); h.page.onListen(); await flush();
++        h.page.onListen();
++        assert.equal(h.page.listening, false);
++        assert.equal(h.page.status, '已取消');
++        assert.deepEqual(h.flags(), [true]);
++        h.page.onListen(); await flush(); h.page.stop();
++        assert.deepEqual(h.flags(), [true]);
++        assert.equal(h.counts().unsubscribes, 2);
++        assert.equal(h.pending.size, 0);
++        h.page.onHide();
++        assert.deepEqual(h.flags(), [true, false]);
++    } finally { h.cleanup(); }
++});
++
++for (const method of ['onHide', 'onBack', 'onLegacy', 'onDestroy']) {
++    test(`late native true success after ${method} is compensated with false and cannot revive page/listener`, async () => {
++        const h = harness({defer: true});
++        try {
++            show(h); h.page.onListen(); await flush();
++            const old = h.requests[0]; h.page[method]();
++            const generation = h.page._gen;
++            old.success();
++            assert.deepEqual(h.flags(), [true, false, false], 'late successful ON must restore hidden OFF');
++            assert.deepEqual(h.stages, [], 'stale success must not report KEEP_ON');
++            old.success(); old.fail('PRIVATE_LATE_DATA', 999);
++            assert.deepEqual(h.flags(), [true, false, false], 'duplicate native terminal callbacks are inert');
++            h.requests.at(-1).success();
++            assert.deepEqual(h.stages, ['KEEP_OFF']);
++            assert.equal(h.page.listening, false);
++            assert.equal(h.page._gen, generation);
++            assert.equal(h.counts().unsubscribes, 1);
++            assert.equal(h.pending.size, 0);
++        } finally { h.cleanup(); }
++    });
++}
++
++test('new onShow generation reasserts visible ON after old OFF success and ignores stale logs/fail', () => {
++    const h = harness({defer: true});
++    try {
++        show(h); const oldOn = h.requests[0]; h.page.onHide(); const oldOff = h.requests[1]; show(h);
++        oldOn.success(); oldOff.success(); oldOff.fail('PRIVATE_OLD_FAIL', 999);
++        assert.deepEqual(h.flags(), [true, false, true, true], 'late successful OFF must not leave reentered page off');
++        assert.deepEqual(h.stages, []);
++        h.requests[3].success();
++        assert.deepEqual(h.stages, ['KEEP_ON']);
++        h.page.onHide();
++        assert.deepEqual(h.flags(), [true, false, true, true, false]);
++    } finally { h.cleanup(); }
++});
++
++test('onShow after destruction cannot acquire screen-on or revive a listening page', () => {
++    const h = harness();
++    try {
++        show(h); h.page.onDestroy(); show(h);
++        assert.deepEqual(h.flags(), [true, false]);
++        assert.equal(h.page._closed, true);
++        assert.equal(h.page.listening, false);
++    } finally { h.cleanup(); }
++});
++
++for (const fault of ['noRequire', 'requireThrow', 'missingMethod', 'nativeThrow', 'nativeFail']) {
++    test(`${fault} is guarded, leaves sync listener functional and logs no native private data`, async () => {
++        const h = harness({[fault]: true});
++        try {
++            assert.doesNotThrow(() => show(h));
++            assert.equal(h.stages[0], 'FAIL');
++            h.page.onListen(); await flush();
++            assert.equal(h.page.listening, true);
++            assert.equal(h.counts().subscriptions, 1);
++            assert.doesNotThrow(() => h.page.onBack());
++            assert.equal(h.counts().unsubscribes, 1);
++            assert.equal(h.page.listening, false);
++            assert.equal(h.pending.size, 0);
++            assert.equal(h.events.at(-1), 'ROUTE:pages/sync/sync');
++            assert.ok(h.stages.every(stage => stage === 'FAIL'));
++        } finally { h.cleanup(); }
++    });
++}
++
++test('unmodified old loader without brightness can load/show/hide/destroy the real page', () => {
++    const h = harness();
++    const originalInfo = console.info;
++    const stages = [];
++    let page;
++    try {
++        console.info = stage => stages.push(stage);
++        const spec = loader(h.system)('pages/phone-sync/phone-sync.js');
++        page = {...spec, ...spec.data}; delete page.data;
++        assert.doesNotThrow(() => {page.onInit(); page.onShow(); page.onHide(); page.onDestroy();});
++        assert.deepEqual(stages, ['FAIL', 'FAIL']);
++        assert.equal(page.listening, false);
++    } finally { console.info = originalInfo; if (page && !page._closed) page.onDestroy(); h.cleanup(); }
++});
++
++for (const method of ['onHide', 'onBack', 'onLegacy', 'onDestroy']) {
++    test(`async native fail at acquire/release cannot break ${method} teardown or leak private data`, async () => {
++        const h = harness({defer: true});
++        try {
++            show(h); h.requests[0].fail('PRIVATE_ASYNC_DATA', 999);
++            assert.deepEqual(h.stages, ['FAIL']);
++            h.requests[0].success();
++            assert.deepEqual(h.stages, ['FAIL'], 'success after terminal fail must be inert');
++            h.page.onListen(); await flush(); h.page[method]();
++            h.requests[1].fail('PRIVATE_RELEASE_DATA', 999);
++            h.requests[1].success();
++            assert.deepEqual(h.flags(), [true, false]);
++            assert.deepEqual(h.stages, ['FAIL', 'FAIL']);
++            assert.equal(h.page.listening, false);
++            assert.equal(h.counts().unsubscribes, 1);
++            assert.equal(h.pending.size, 0);
++        } finally { h.cleanup(); }
++    });
++}
++
++test('late stale fail after hide is inert and does not undo the OFF request', () => {
++    const h = harness({defer: true});
++    try {
++        show(h); const oldOn = h.requests[0]; h.page.onHide();
++        oldOn.fail('PRIVATE_STALE_DATA', 999); oldOn.success();
++        assert.deepEqual(h.flags(), [true, false]);
++        assert.deepEqual(h.stages, []);
++        h.requests[1].success();
++        assert.deepEqual(h.stages, ['KEEP_OFF']);
++    } finally { h.cleanup(); }
++});
++
++test('current native success and duplicate terminal callbacks report one fixed stage', () => {
++    const h = harness({defer: true});
++    try {
++        show(h); h.requests[0].success(); h.requests[0].success(); h.requests[0].fail('PRIVATE_DUPLICATE', 999);
++        assert.deepEqual(h.stages, ['KEEP_ON']);
++        h.page.onHide(); h.requests[1].success(); h.requests[1].success(); h.requests[1].fail('PRIVATE_DUPLICATE', 999);
++        assert.deepEqual(h.flags(), [true, false]);
++        assert.deepEqual(h.stages, ['KEEP_ON', 'KEEP_OFF']);
++        assert.equal(h.pending.size, 0);
++    } finally { h.cleanup(); }
++});

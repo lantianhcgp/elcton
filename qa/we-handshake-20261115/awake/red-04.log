@@ -1,0 +1,58 @@
+✔ onShow requests keepScreenOn true on the visible sync page without creating a timer (26.74776ms)
+✔ onHide releases screen-on and preserves real listening/timer teardown (28.762396ms)
+✔ onBack releases screen-on and preserves real listening/timer teardown (9.593697ms)
+✔ onLegacy releases screen-on and preserves real listening/timer teardown (7.621511ms)
+✔ onDestroy releases screen-on and preserves real listening/timer teardown (7.394531ms)
+✔ repeated show/hide/destroy are idempotent for this page request (5.847344ms)
+✔ hide before first onShow has no screen-on request or native import (5.563542ms)
+✔ reentering after hide acquires a new visible request without restarting the listener (5.878906ms)
+✔ stop and cancel-listening keep screen-on while the sync page remains visible (16.2875ms)
+✔ late native true success after onHide is compensated with false and cannot revive page/listener (8.9525ms)
+✔ late native true success after onBack is compensated with false and cannot revive page/listener (7.338229ms)
+✔ late native true success after onLegacy is compensated with false and cannot revive page/listener (7.246094ms)
+✔ late native true success after onDestroy is compensated with false and cannot revive page/listener (7.742605ms)
+✖ new onShow generation reasserts visible ON after old OFF success and ignores stale logs/fail (10.84776ms)
+✔ onShow after destruction cannot acquire screen-on or revive a listening page (5.721666ms)
+✔ noRequire is guarded, leaves sync listener functional and logs no native private data (16.487552ms)
+✔ requireThrow is guarded, leaves sync listener functional and logs no native private data (8.419948ms)
+✔ missingMethod is guarded, leaves sync listener functional and logs no native private data (8.639166ms)
+✔ nativeThrow is guarded, leaves sync listener functional and logs no native private data (14.043177ms)
+✔ nativeFail is guarded, leaves sync listener functional and logs no native private data (8.154427ms)
+✔ unmodified old loader without brightness can load/show/hide/destroy the real page (13.458437ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 20
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 595.880885
+
+✖ failing tests:
+
+test at tests/weScreenOn.test.mjs:179:1
+✖ new onShow generation reasserts visible ON after old OFF success and ignores stale logs/fail (10.84776ms)
+  AssertionError [ERR_ASSERTION]: late successful OFF must not leave reentered page off
+  + actual - expected
+  
+    [
+      true,
+      false,
+      true,
+  -   true
+    ]
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weScreenOn.test.mjs:184:16)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ true, false, true ],
+    expected: [ true, false, true, true ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

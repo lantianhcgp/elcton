@@ -1,0 +1,66 @@
+{
+  "time": "2026-11-15T00:49:57.389454+08:00",
+  "baseline": "83d58a8",
+  "original_test_file_count": 33,
+  "original_test_files_changed": [],
+  "frozen_files_byte_equal": {
+    "qa/p2p-ready-20261114/final_gate.py": true,
+    "entry/src/main/js/MainAbility/common/wearIdentity.js": true
+  },
+  "source_files": {
+    "entry/src/main/js/MainAbility/common/wearService.js": {
+      "bytes": 7798,
+      "sha256": "345614a459483b531c9ada8d2e07b40b59a8ee060df7b8ffd6821be32dfa030a"
+    },
+    "entry/src/main/js/MainAbility/common/wearChannel.js": {
+      "bytes": 5844,
+      "sha256": "b5adc4dbb7cf5ae3d3eb8c6eca1fa08d7df15f3337df053e09da1b8f26be7656"
+    },
+    "entry/src/main/js/MainAbility/common/wearTrace.js": {
+      "bytes": 3065,
+      "sha256": "d9e123e7dec20db0b76eedb8f101a3d48fd1920f15f5fb73bad228454483fa21"
+    },
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js": {
+      "bytes": 13804,
+      "sha256": "f6e36ef533889bf7a41fee69a972175bbdd3258bf4e33919063378fb6c701cfe"
+    },
+    "tests/weNativeContract.test.mjs": {
+      "bytes": 20273,
+      "sha256": "46556b1a7ca6f040483e57e75118528c36d0baca8d7ac6bfeb13e09daa2b7cbb"
+    }
+  },
+  "syntax_checks": [
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearService.js",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearChannel.js",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearTrace.js",
+      "exit_code": 0,
+      "stderr": ""
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "exit_code": 0,
+      "stderr": ""
+    }
+  ],
+  "syntax_forbidden": [],
+  "projection_static_checks": {
+    "no_stringify": true,
+    "no_message_read": true,
+    "no_toString_read": true,
+    "own_code_descriptor_gate": true,
+    "uses_9_digit_range": true
+  },
+  "awake_added_lines_preserved": true,
+  "onShow_block_preserved": true,
+  "diff_check_exit": 0,
+  "host_boundary": "source syntax and host tests only; no SDK build, Bluetooth, firmware, device, install or CI"
+}

@@ -1,0 +1,9 @@
+APPLIED /data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/logger/integration-standard (Ability MainAbility)
+Existing logsink import: app.js unchanged; review existing lifecycle ownership
+NO CHANGES (idempotent)
+node --check PASS (app.js + common modules; --input-type=module --check via stdin)
+preflight PASS (app.js + common modules; test-call / escaped-slash-regexp absent; ES5 logger body)
+Module parity: 2921B / 3072B; credential-free stub or existing config preserved
+CI secret command templates ONLY; not executed (replace placeholders privately, prefer stdin):
+gh secret set LOGGER_ENDPOINT --repo '<owner>/<repo>' --body '<https-endpoint>'
+gh secret set LOGGER_WRITE_KEY --repo '<owner>/<repo>' --body '<write-key>'

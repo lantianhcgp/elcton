@@ -1,0 +1,363 @@
+diff --git a/entry/src/main/js/MainAbility/common/wearChannel.js b/entry/src/main/js/MainAbility/common/wearChannel.js
+index bf29723..e228146 100644
+--- a/entry/src/main/js/MainAbility/common/wearChannel.js
++++ b/entry/src/main/js/MainAbility/common/wearChannel.js
+@@ -4,50 +4,80 @@
+ import engine from '@system.wearengine';
+ /* No-version compatibility adapter; versioned production transport lives in the app bundle. */
+ import protocol from './wearProtocol.js';
++import trace from './wearTrace.js';
+ function channel(identity) {
+     // The app owns versioned SDK negotiation; no-version compatibility keeps the old bounded path.
+     if (typeof engine.getWearEngineVersion === 'function') {
+         try { var app = $app.$def || $app; if (typeof app._elctonWearChannel === 'function') { return app._elctonWearChannel(identity, protocol, engine); } } catch (e) {}
++        trace.log('SDK_UNAVAILABLE');
+         return {open: function (onMessage, cb) { cb('APP_CHANNEL_UNAVAILABLE'); }, close: function () {}};
+     }
+-    var open = false;
+-    var generation = 0;
+-    function close() { open = false; generation++; try { engine.unsubscribeMsg(); } catch (e) {} }
++    var open = false, generation = 0, marks = [], last = '';
++    function mark(stage) {
++        if (stage === 'PKG' || stage === 'CERT' || stage === 'REG') {
++            if (marks.indexOf(stage) < 0 && marks.length < 3) { marks.push(stage); }
++        } else { last = stage; }
++    }
++    function code(stage, value) {
++        var n = typeof value === 'number' && isFinite(value) && Math.floor(value) === value && value >= -999999999 && value <= 999999999 ? value : 0;
++        return stage + '_' + n;
++    }
++    function close() { open = false; generation++; try { engine.unsubscribeMsg(); } catch (e) {} trace.log('CLOSE'); }
+     return {
+         open: function (onMessage, cb) {
+             if (!identity || !protocol.id(identity.phonePackage || '', Infinity, '_.') || !protocol.hex(String(identity.phoneFingerprint || '').toLowerCase(), 64)) { cb('INVALID_IDENTITY'); return; }
+-            var gen = ++generation;
+-            var finished = false;
+-            function finish(err) { if (finished || gen !== generation) { return; } finished = true; cb(err); }
++            open = false; marks = []; last = ''; var gen = ++generation;
++            var finished = false, failed = false;
++            function live() { return gen === generation && !failed; }
++            function finish(err) {
++                if (finished || !live()) { return; } finished = true;
++                if (err) { open = false; failed = true; mark(err); } cb(err);
++            }
++            trace.log('SDK_UNAVAILABLE'); trace.log('BUS_UNVERSIONED'); trace.log('PKG_CALL');
+             try {
+-                engine.setPackageName({appName: identity.phonePackage, fail: function () { finish('SET_PACKAGE'); }, complete: function () {
+-                    if (finished || gen !== generation) { return; }
+-                    engine.setFingerprint({appName: identity.phonePackage, appCert: identity.phoneFingerprint, fail: function () { finish('SET_FINGERPRINT'); }, complete: function () {
+-                        if (finished || gen !== generation) { return; }
+-                        engine.subscribeMsg({fail: function (d, code) { finish('REGISTER_' + code); }, success: function (data) {
+-                            if (gen !== generation) { return; }
+-                            if (!data || data.isRegister) { open = true; finish(null); return; }
+-                            if (data.isFileType || typeof data.message !== 'string' || data.message.length > 1024) { return; }
+-                            try { var msg = JSON.parse(data.message); if (msg.sender !== 'phone') { return; } } catch (e) { return; }
++                engine.setPackageName({appName: identity.phonePackage, fail: function (d, c) {
++                    if (finished || !live()) { return; } trace.fail('PKG_FAIL', d, c); finish('SET_PACKAGE');
++                }, complete: function () {
++                    if (finished || !live()) { return; } mark('PKG'); trace.log('PKG_OK'); trace.log('CERT_CALL');
++                    try { engine.setFingerprint({appName: identity.phonePackage, appCert: identity.phoneFingerprint, fail: function (d, c) {
++                        if (finished || !live()) { return; } trace.fail('CERT_FAIL', d, c); finish('SET_FINGERPRINT');
++                    }, complete: function () {
++                        if (finished || !live()) { return; } mark('CERT'); trace.log('CERT_OK'); trace.log('REG_CALL');
++                        try { engine.subscribeMsg({fail: function (d, c) {
++                            if (!live()) { return; }
++                            open = false; failed = true; generation++; finished = true;
++                            trace.fail('REG_FAIL', d, c); var err = code('REGISTER', c); mark(err); cb(err);
++                        }, success: function (data) {
++                            if (!live()) { return; }
++                            if (!data || data.isRegister) { if (finished) { return; } open = true; mark('REG'); trace.log('REG_OK'); finish(null); return; }
++                            if (!open || data.isFileType || typeof data.message !== 'string' || data.message.length > 1024) { return; }
++                            try { var msg = JSON.parse(data.message); if (!msg || msg.sender !== 'phone') { return; } } catch (e) { return; }
+                             onMessage(data.message);
+-                        }});
+-                    }});
++                        }}); } catch (e) { trace.log('REG_FAIL'); finish('CHANNEL_UNAVAILABLE'); }
++                    }}); } catch (e) { trace.log('CERT_FAIL'); finish('CHANNEL_UNAVAILABLE'); }
+                 }});
+-            } catch (e) { finish('CHANNEL_UNAVAILABLE'); }
++            } catch (e) { trace.log('PKG_FAIL'); finish('CHANNEL_UNAVAILABLE'); }
+         },
+         send: function (message, cb) {
+             var text;
+             try { text = protocol.ascii(message); } catch (e) { if (cb) { cb('INVALID_PACKET'); } return; }
+             if (!open || text.length > 1024) { if (cb) { cb('CHANNEL_CLOSED_OR_TOO_LARGE'); } return; }
+-            var gen=generation,finished=false;
+-            function finish(err) {if(finished||gen!==generation)return;finished=true;if(cb)cb(err);}
++            var gen = generation, finished = false, ready = message.type === 'READY';
++            function finish(err, d, c) {
++                if (finished || gen !== generation) { return; } finished = true;
++                if (err) { trace.fail('SEND_FAIL', d, c, err === 'SEND_206' ? 206 : undefined); if (ready) { trace.fail('READY_FAIL', d, c, err === 'SEND_206' ? 206 : undefined); } }
++                else { trace.log('SEND_OK', {code: 207}); if (ready) { trace.log('READY_OK', {code: 207}); } }
++                if (ready || err) { mark(err || 'READY_OK'); }
++                if (cb) { cb(err); }
++            }
++            if (ready) { trace.log('READY_CALL', {bytes: text.length}); } trace.log('SEND_CALL', {bytes: text.length});
+             try { engine.sendMsg({deviceId: 'remote', bundleName: identity.phonePackage, abilityName: '', message: text,
+-                success: function () { finish(null); }, fail: function (d, code) { finish('SEND_' + code); }}); }
++                success: function () { finish(null); }, fail: function (d, c) { finish('SEND_206', d, c); }}); }
+             catch (e) { finish('SEND_UNAVAILABLE'); }
+         },
+         close: close,
+         isNegotiated: function () { return false; },
+-        summary: function () { return 'UNVERSIONED'; }
++        summary: function () { return 'UNVERSIONED' + (marks.length ? '|' + marks.join('|') : '') + (last ? '|' + last : ''); }
+     };
+ }
+ export default channel;
+diff --git a/entry/src/main/js/MainAbility/common/wearService.js b/entry/src/main/js/MainAbility/common/wearService.js
+index bd7c499..9a7c9b5 100644
+--- a/entry/src/main/js/MainAbility/common/wearService.js
++++ b/entry/src/main/js/MainAbility/common/wearService.js
+@@ -2,106 +2,116 @@
+  * App bundle owns this factory so the 48KiB receive page does not duplicate it.
+  * Caller supplies the existing ASCII/identity codec; no schedule or private text is logged.
+  */
++import trace from './wearTrace.js';
+ function service(identity, protocol, engine) {
+     var open = false, generation = 0, bus = null, registered = false, negotiated = false;
+-    var marks = [], serviceVersion = 0;
++    var marks = [], last = '', serviceVersion = 0;
+     function mark(stage) {
+-        marks.push(stage); if (marks.length > 6) { marks.shift(); }
+-        try { console.info('WE ' + marks.join('|')); } catch (e) {}
++        if (stage === 'VER' || stage === 'PKG' || stage === 'CERT' || stage === 'REG') {
++            if (marks.indexOf(stage) < 0 && marks.length < 4) { marks.push(stage); }
++        } else { last = stage; }
+     }
+     function code(stage, value) {
+-        var n = typeof value === 'number' && isFinite(value) ? value : 0;
++        var n = typeof value === 'number' && isFinite(value) && Math.floor(value) === value && value >= -999999999 && value <= 999999999 ? value : 0;
+         return stage + '_' + n;
+     }
+     function close() {
+         open = false; generation++; negotiated = false;
+         if (bus && registered) { try { bus.unsubscribeMsg(); } catch (e) {} }
+-        registered = false; bus = null;
++        registered = false; bus = null; trace.log('CLOSE');
+     }
+     return {
+         open: function (onMessage, cb) {
+             if (!identity || !protocol.id(identity.phonePackage || '', Infinity, '_.') || !protocol.hex(String(identity.phoneFingerprint || '').toLowerCase(), 64)) { cb('INVALID_IDENTITY'); return; }
+-            close(); marks = []; serviceVersion = 0;
+-            var gen = ++generation, finished = false, versionSettled = false;
+-            function live() { return gen === generation; }
++            close(); marks = []; last = ''; serviceVersion = 0;
++            var gen = ++generation, finished = false, failed = false, versionSettled = false;
++            function live() { return gen === generation && !failed; }
+             function finish(err) {
+                 if (finished || !live()) { return; }
+-                finished = true; if (err) { mark(err); } cb(err);
++                finished = true; if (err) { open = false; negotiated = false; failed = true; mark(err); } cb(err);
+             }
+             function configure() {
+                 try {
+                     function fingerprint() {
+                         if (finished || !live()) { return; }
++                        trace.log('CERT_CALL');
+                         try { engine.setFingerprint({appName: identity.phonePackage, appCert: identity.phoneFingerprint,
+-                            fail: function (d, c) { finish(code('CERT', c)); }, complete: function () {
+-                                if (finished || !live()) { return; } mark('CERT'); subscribe();
+-                            }}); } catch (e) { finish('CONFIG_UNAVAILABLE'); }
++                            fail: function (d, c) { if (finished || !live()) { return; } trace.fail('CERT_FAIL', d, c); finish(code('CERT', c)); }, complete: function () {
++                                if (finished || !live()) { return; } mark('CERT'); trace.log('CERT_OK'); subscribe();
++                            }}); } catch (e) { trace.log('CERT_FAIL'); finish('CONFIG_UNAVAILABLE'); }
+                     }
+                     if (serviceVersion >= 303) {
++                        trace.log('PKG_CALL');
+                         engine.setPackageName({appName: identity.phonePackage,
+-                            fail: function (d, c) { finish(code('PKG', c)); }, complete: function () {
+-                                if (finished || !live()) { return; } mark('PKG'); fingerprint();
++                            fail: function (d, c) { if (finished || !live()) { return; } trace.fail('PKG_FAIL', d, c); finish(code('PKG', c)); }, complete: function () {
++                                if (finished || !live()) { return; } mark('PKG'); trace.log('PKG_OK'); fingerprint();
+                             }});
+                     } else { fingerprint(); }
+-                } catch (e) { finish('CONFIG_UNAVAILABLE'); }
++                } catch (e) { trace.log('PKG_FAIL'); finish('CONFIG_UNAVAILABLE'); }
+             }
+             function subscribe() {
+                 if (finished || !live()) { return; }
++                trace.log('REG_CALL');
+                 try {
+                     if (serviceVersion >= 401) { bus.unsubscribeMsg(); }
+                     registered = true;
+                     bus.subscribeMsg({fail: function (d, c) {
+-                        if (!live()) { return; } open = false;
+-                        if (!finished) { finish(code('REG', c)); }
+-                        else { mark(code('REG', c)); cb(code('REG', c)); }
++                        if (!live()) { return; }
++                        open = false; negotiated = false; failed = true; generation++;
++                        trace.fail('REG_FAIL', d, c); var err = code('REG', c); mark(err);
++                        finished = true; cb(err);
+                     }, success: function (data) {
+                         if (!live()) { return; }
+                         if (!data || data.isRegister) {
+-                            if (finished) { return; } open = true; negotiated = true; mark('REG'); finish(null); return;
++                            if (finished) { return; } open = true; negotiated = true; mark('REG'); trace.log('REG_OK'); finish(null); return;
+                         }
+                         if (!open || data.isFileType || typeof data.message !== 'string' || data.message.length > 1024) { return; }
+                         var msg; try { msg = JSON.parse(data.message); } catch (e) { return; }
+                         if (!msg || msg.sender !== 'phone') { return; }
+-                        if (msg.type === 'HELLO') { mark('HELLO'); }
+                         onMessage(data.message);
+                     }});
+-                } catch (e) { finish('REGISTER_UNAVAILABLE'); }
++                } catch (e) { trace.log('REG_FAIL'); finish('REGISTER_UNAVAILABLE'); }
+             }
++            trace.log('SDK_CALL');
+             try {
+                 engine.getWearEngineVersion({sdkVersion: '3', complete: function (data) {
+                     if (finished || !live() || versionSettled) { return; } versionSettled = true;
+-                    if (typeof data !== 'string' || data.length > 40) { finish('VERSION_INVALID'); return; }
+-                    var parts = data.split('.'), valid = parts.length === 4;
++                    if (typeof data !== 'string' || data.length > 40) { trace.log('VER_FAIL'); finish('VERSION_INVALID'); return; }
++                    var parts = data.split('.'), valid = parts.length >= 1 && parts.length <= 4;
+                     for (var i = 0; i < parts.length; i++) {
+                         if (!parts[i]) { valid = false; }
+                         for (var j = 0; j < parts[i].length; j++) { if (parts[i].charCodeAt(j) < 48 || parts[i].charCodeAt(j) > 57) { valid = false; } }
+                     }
+-                    var value = Number(parts[3]);
+-                    if (!valid || !isFinite(value) || Math.floor(value) !== value || value < 302) { finish('VERSION_UNSUPPORTED'); return; }
+-                    serviceVersion = value; mark('VER');
+-                    if (value >= 401) { bus = engine; }
+-                    else if (typeof FeatureAbility !== 'undefined') { bus = FeatureAbility; }
++                    var value = Number(parts[parts.length - 1]);
++                    if (!valid || !isFinite(value) || Math.floor(value) !== value || value < 302) { trace.log('VER_FAIL'); finish('VERSION_UNSUPPORTED'); return; }
++                    serviceVersion = value; mark('VER'); trace.version(parts, value);
++                    if (value >= 401) { bus = engine; trace.log('BUS_NATIVE'); }
++                    else if (typeof FeatureAbility !== 'undefined') { bus = FeatureAbility; trace.log('BUS_LEGACY'); }
+                     if (!bus || typeof bus.subscribeMsg !== 'function' || typeof bus.sendMsg !== 'function' || typeof bus.unsubscribeMsg !== 'function') { finish('BUS_UNAVAILABLE'); return; }
+                     configure();
+                 }});
+-            } catch (e) { finish('VERSION_UNAVAILABLE'); }
++            } catch (e) { trace.log('SDK_UNAVAILABLE'); finish('VERSION_UNAVAILABLE'); }
+         },
+         send: function (message, cb) {
+             var text; try { text = protocol.ascii(message); } catch (e) { if (cb) { cb('INVALID_PACKET'); } return; }
+             if (!open || !bus || text.length > 1024) { if (cb) { cb('CHANNEL_CLOSED_OR_TOO_LARGE'); } return; }
+-            var gen = generation, finished = false;
+-            function finish(err) {
++            var gen = generation, finished = false, ready = message.type === 'READY';
++            function finish(err, d, c) {
+                 if (finished || gen !== generation) { return; } finished = true;
+-                if (message.type === 'READY' || err) { mark(err || 'READY_OK'); }
++                if (err) { trace.fail('SEND_FAIL', d, c, err === 'SEND_206' ? 206 : undefined); if (ready) { trace.fail('READY_FAIL', d, c, err === 'SEND_206' ? 206 : undefined); } }
++                else { trace.log('SEND_OK', {code: 207}); if (ready) { trace.log('READY_OK', {code: 207}); } }
++                if (ready || err) { mark(err || 'READY_OK'); }
+                 if (cb) { cb(err); }
+             }
++            if (ready) { trace.log('READY_CALL', {bytes: text.length}); }
++            trace.log('SEND_CALL', {bytes: text.length});
+             try { bus.sendMsg({deviceId: 'remote', bundleName: identity.phonePackage, abilityName: '', message: text,
+-                success: function () { finish(null); }, fail: function (d, c) { finish(code('SEND', c)); }}); }
++                success: function () { finish(null); }, fail: function (d, c) { finish('SEND_206', d, c); }}); }
+             catch (e) { finish('SEND_UNAVAILABLE'); }
+         },
+         close: close,
+         isNegotiated: function () { return negotiated && open; },
+-        summary: function () { return 'SDK' + serviceVersion + '|' + marks.join('|'); }
++        summary: function () { return 'SDK' + serviceVersion + '|' + marks.join('|') + (last ? '|' + last : ''); }
+     };
+ }
+ export default service;
+diff --git a/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js b/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js
+index 0f750b3..a297e5a 100644
+--- a/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js
++++ b/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js
+@@ -10,7 +10,13 @@ import makeChannel from '../../common/wearChannel.js';
+ import identity from '../../common/wearIdentity.js';
+ import layout from '../../common/wearLayout.js';
+ import makeExporter from '../../common/wearExporter.js';
++import makeAwake from '../../common/wearAwake.js';
++import trace from '../../common/wearTrace.js';
+ 
++function channelSummary(channel) {
++    try { var text = channel && channel.summary ? channel.summary() : ''; return typeof text === 'string' ? text.substr(0, 192) : ''; }
++    catch (ignored) { return ''; }
++}
+ var TEMP_URI = 'internal://app/we-incoming.json';
+ export default {
+     data: {
+@@ -35,6 +41,11 @@ export default {
+         catch (e) { self.status = '\u8bbe\u5907\u63a5\u53e3\u4e0d\u53ef\u7528'; }
+         self._journal = makeJournal({read: fs.readFile, write: fs.writeFile});
+     },
++    onShow: function () {
++        if (this._closed) { return; }
++        if (!this._awake) { this._awake = makeAwake(); }
++        this._awake.show();
++    },
+     watchDog: function () {
+         if (this._timer !== null) { clearTimeout(this._timer); }
+         var self = this, gen = this._gen;
+@@ -107,6 +118,7 @@ export default {
+             var message;
+             try { message = JSON.parse(raw); } catch (e) { return; }
+             if (!message || message.protocol !== 'elcton.sync' || message.version !== 1 || typeof message.type !== 'string') { return; }
++            if (message.type === 'HELLO') { trace.log('HELLO_RECV'); trace.log('READY_PREPARE'); }
+             var target = self._receiver;
+             var control = message.type === 'HELLO' || message.type === 'STATUS';
+             if (message.type.substr(0,7) === 'EXPORT_' || (message.type === 'CANCEL' && self._exporter.isActive())) {
+@@ -124,7 +136,8 @@ export default {
+             if (message.type === 'END') { self.phase = 'saving'; self.status = '\u6821\u9a8c\u4fdd\u5b58\u4e2d'; }
+             target.receive(raw, function (response) {
+                 if (self._closed || gen !== self._gen) { return; }
+-                self.reply(response);
++                if (message.type === 'HELLO') { trace.log(response.type === 'READY' ? 'READY_PREPARED' : 'READY_PREPARE_FAIL'); }
++                var replyFailure = self.reply(response);
+                 if(response.type==='APPLIED'||(response.type==='READY'&&!self._receiver.isBusy()))self._uncertain=false;
+                 if(response.type==='ERROR'&&(response.code==='COMMIT_UNKNOWN'||response.code==='COMMIT_IN_PROGRESS'))self._uncertain=true;
+                 if (response.type === 'CANCELLED' || (response.type === 'EXPORT_CLOSED' && message.type === 'CANCEL')) {
+@@ -141,31 +154,35 @@ export default {
+                     self.phase = response.code === 'COMMIT_IN_PROGRESS' ? 'saving' : 'error';
+                     self.status = response.code === 'COMMIT_IN_PROGRESS' ? '\u63d0\u4ea4\u4e2d' : (response.code === 'CONFLICT' ? '\u8bf7\u624b\u673a\u786e\u8ba4\u8986\u76d6' : '\u540c\u6b65\u5931\u8d25');
+                     self.detail = response.code === 'COMMIT_IN_PROGRESS' || response.code === 'COMMIT_UNKNOWN' ? '\u8bf7\u91cd\u8fde\u6838\u5bf9\u6700\u7ec8\u8bfe\u8868' : String(response.code).substr(0, 48);
++                    if (message.type === 'HELLO') { var summary = channelSummary(self._channel); self.detail = replyFailure || ((summary ? summary + '|' : '') + self.detail); }
+                 } else if (response.type === 'ACK' && response.seq >= 0) {
+                     self.detail = '\u5df2\u63a5\u6536\u7b2c ' + (response.seq + 1) + ' \u5305';
+                 }
+             });
+         }, function (err) {
+             if (self._closed || gen !== self._gen) { return; }
+-            if (err) { self.stop(); self.phase = 'error'; self.status = '\u8fde\u63a5\u5931\u8d25'; self.detail = String(err); return; }
++            if (err) { var summary = channelSummary(self._channel); self.stop(); self.phase = 'error'; self.status = '\u8fde\u63a5\u5931\u8d25'; self.detail = (summary ? summary + '|' : '') + String(err).substr(0, 48); return; }
+             self.phase = 'ready'; self.status = '\u7b49\u5f85\u624b\u673a';
+             if (self._channel.summary) { self.detail = self._channel.summary(); }
++            trace.log('READY_PREPARE');
+             self._receiver.receive(protocol.ascii({protocol: 'elcton.sync', version: 1, sender: 'phone', type: 'HELLO', transferId: ''}), function (response) {
+                 if (!self._closed && gen === self._gen) {
++                    trace.log(response.type === 'READY' ? 'READY_PREPARED' : 'READY_PREPARE_FAIL');
+                     if (response.type === 'READY') { self._uncertain = false; }
+-                    else { self.phase = 'error'; self.status = '\u51c6\u5907\u5931\u8d25'; self.detail = String(response.code).substr(0, 48); }
++                    else { var summary = channelSummary(self._channel); self.phase = 'error'; self.status = '\u51c6\u5907\u5931\u8d25'; self.detail = (summary ? summary + '|' : '') + String(response.code).substr(0, 48); }
+                     self.reply(response);
+                 }
+             });
+         });
+     },
+     reply: function (response) {
+-        var self = this, gen = this._gen;
++        var self = this, gen = this._gen, failureDetail;
+         this._channel.send(response, function (err) {
+             if (self._closed || gen !== self._gen) { return; }
+-            if (err) { self.detail = '\u56de\u6267\u5931\u8d25 ' + String(err).substr(0, 48); }
++            if (err) { var summary = channelSummary(self._channel); failureDetail = (summary ? summary + '|' : '') + '\u56de\u6267\u5931\u8d25 ' + String(err).substr(0, 48); self.detail = failureDetail; }
+             else if (response.type === 'READY' && self._channel.summary) { self.detail = self._channel.summary(); }
+         });
++        return failureDetail;
+     },
+     stop: function () {
+         var cancelled = !this._receiver || this._receiver.cancel() !== false;
+@@ -178,8 +195,8 @@ export default {
+         this.listening = false; this.buttonLabel = '\u5f00\u59cb\u63a5\u6536';
+         return certain;
+     },
+-    onBack: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },
+-    onLegacy: function () { this.stop(); router.push({uri: 'pages/sync/sync'}); },
+-    onHide: function () { this.stop(); },
+-    onDestroy: function () { this._closed = true; this.stop(); }
++    onBack: function () { if (this._awake) { this._awake.hide(); } this.stop(); router.push({uri: 'pages/sync/sync'}); },
++    onLegacy: function () { if (this._awake) { this._awake.hide(); } this.stop(); router.push({uri: 'pages/sync/sync'}); },
++    onHide: function () { if (this._awake) { this._awake.hide(); } this.stop(); },
++    onDestroy: function () { this._closed = true; if (this._awake) { this._awake.hide(); } this.stop(); }
+ };

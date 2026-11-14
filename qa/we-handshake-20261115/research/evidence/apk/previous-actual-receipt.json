@@ -1,0 +1,806 @@
+{
+  "passed": true,
+  "source_sha": "84a6c406099348f75b436a8e9467c34487766859",
+  "build_run": "43600711386",
+  "scope": "actual signed APK/manifest/CRC/hash plus all actual Gradle XML; NOT cloud/physical PASS",
+  "rows": [
+    {
+      "name": "elcton-phone-probe.apk",
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/build-artifact/artifact/dist/elcton-phone-probe.apk",
+      "package": "com.hcbiu.elcton",
+      "versionCode": "11",
+      "versionName": "0.2.9",
+      "bytes": 8237316,
+      "sha256": "664e8eae402f8390b8fcf63d0818d5a96c07b1222d06230f3f7b0927908b5065",
+      "signer_sha256": "fc08a0b474a8ffca5887bd5c88ac15e865a63a64eca81c10f344496c46d9ad94",
+      "v2": true,
+      "zip_crc": true
+    },
+    {
+      "name": "elcton-ui-tests.apk",
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/build-artifact/artifact/dist/elcton-ui-tests.apk",
+      "package": "com.hcbiu.elcton.test",
+      "versionCode": "",
+      "versionName": "",
+      "bytes": 1182151,
+      "sha256": "eb54c78b6f7d447af129d569665b98dd1e61b0fb810820f862fd7b7963a5462d",
+      "signer_sha256": "fc08a0b474a8ffca5887bd5c88ac15e865a63a64eca81c10f344496c46d9ad94",
+      "v2": true,
+      "zip_crc": true
+    }
+  ],
+  "gradle": {
+    "tests": 153,
+    "suites": 30,
+    "skipped": 0,
+    "failures": 0,
+    "errors": 0,
+    "suite_rows": [
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.AdapterScopeTest.xml",
+        "tests": 2,
+        "sha256": "5188f7f56db838de3dc4add6d0620b5cc2d308a8e4adab0ea8ed753daa69a91d"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.DevicePolicyTest.xml",
+        "tests": 1,
+        "sha256": "0b91ffb0d7de0dda7b6540cdde6937dee23cc726d52e9953be7ee5f9d7485c4f"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.DiagnosticMcpServerTest.xml",
+        "tests": 14,
+        "sha256": "40ea413735e41ebbb223bd0e63695fb960066dc58baff1875fe03ccf41bc17d0"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.DiagnosticToolsTest.xml",
+        "tests": 6,
+        "sha256": "70efe44bae4b3d4c047cbacc1a333b5c10b20d8f2cb01cc133a2f29799982ba6"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.DiagnosticsIntegrationTest.xml",
+        "tests": 4,
+        "sha256": "9128bbad862113a46a721bfb3387023e811708791f04e37293a2361e9617607a"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.ErrorJournalBoundaryTest.xml",
+        "tests": 2,
+        "sha256": "a966f039c08df42790a5c846bd88c29df735743a7ae4377dbe6b0aa6f7ea1c01"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.ErrorJournalTest.xml",
+        "tests": 2,
+        "sha256": "01d50af79c10dc5368b4bb4bff37e5f46c1fa9d628ef0d87d3ab11e0849c9983"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.ErrorRecordBoundaryTest.xml",
+        "tests": 15,
+        "sha256": "fd2dd96b95bb7c5b00f3c2d40f7c92d1bebfe165e61abf5b40cd1cc9eb44f1d7"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.ErrorRecordTest.xml",
+        "tests": 1,
+        "sha256": "44462cc46d031e377cb46999f5fc90e9b918da98918c2d807aa829189efdbcd8"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.ExportSessionTest.xml",
+        "tests": 2,
+        "sha256": "6cca4f44d2822681569690ee6ec297b0e926d2785a34889f152c28414feac4a0"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.MainThreadActionsTest.xml",
+        "tests": 5,
+        "sha256": "c0a7e9d7c2a86f1416baa484e3a68cc9999d068598d0cfacd2c7eccc996bff31"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.McpKeepAlivePolicyTest.xml",
+        "tests": 10,
+        "sha256": "164ccda65f5813a09c639201988bd70c521818b14b28bc2cdaadc216a83f78a0"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.McpTokenTest.xml",
+        "tests": 4,
+        "sha256": "64757831ee18031da45d9d2ebd2b8ab952fb56596c94ad4468cfc36662f90446"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.P2pCandidateBuildTest.xml",
+        "tests": 1,
+        "sha256": "dbd215af6e5c82262603d1792ee67faa510e38546b50d62b5e017b66a9ee8f61"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.P2pReadyErrorTest.xml",
+        "tests": 2,
+        "sha256": "dbbf28165978a0c164594f41b39f622dcbf3bbb72199930fc0f8189018b1a1da"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.P2pReadyIngressTest.xml",
+        "tests": 2,
+        "sha256": "f08924eae5cbacc465fe33f19d4269c6d2e335a39716783ab993195400841150"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.PhoneActionsTest.xml",
+        "tests": 11,
+        "sha256": "3c98b544c06cc141f5e3cc5cce96bae0ac83486bcde37ca40852103ff2f2a0de"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.PhoneMcpCompositionTest.xml",
+        "tests": 2,
+        "sha256": "ba1078319dba7f5db157e866b17c5373865b907f574bb802634cf6bd0e30111b"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.PhoneMcpToolsTest.xml",
+        "tests": 14,
+        "sha256": "47555362934fd0cbd3b513d787b5a9b4262e3a9ad8d19e2866afe657aa4f12ef"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.PhoneScheduleTest.xml",
+        "tests": 6,
+        "sha256": "b0121dbef81c20d16b278ca9d13243ff1b95f6b38bd74589de526f90196abcc2"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.PhoneSnapshotTest.xml",
+        "tests": 2,
+        "sha256": "f605b89747c8c9e71ca555c615c8315a7a5f2e45c411462adb6e5f484ac85114"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.PickupClientTest.xml",
+        "tests": 9,
+        "sha256": "13224363bdea09eafe7c3611c72d653309dc9673a9e9a2c8e35cab0051a4903a"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.ProtocolIngressAuditTest.xml",
+        "tests": 6,
+        "sha256": "453b4ca0e8629a7d237aa004112f34537e4d3d30ff7b588f45307bbc416a03ee"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.ScheduleBookTest.xml",
+        "tests": 6,
+        "sha256": "5a02cfd3a8ce87bacc89b33698ed56c72b6bf210c81233d337db26bca031d61f"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.SnapshotPrivacyAuditTest.xml",
+        "tests": 5,
+        "sha256": "aff8454bd7d7891fc975f10571266653ec7792ad445c0900a85e6ff652ba32e3"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.SyncEngineTest.xml",
+        "tests": 7,
+        "sha256": "25a5a053f5154e151c22985764dc3907b0eda7e708b63a8da50405aa79f6c5cc"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.TransferSessionTest.xml",
+        "tests": 2,
+        "sha256": "22c90af00cde7b4a7c00dce9b8a4f5e8e4e055a4742a0fd35d61ef7ac8a20703"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.UserFacingErrorTest.xml",
+        "tests": 2,
+        "sha256": "ac2b079eaab65cddc2ef9c8e3760c4d16bf0516ed9a703b84b2a2703e701d843"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.WearEngineConfigTest.xml",
+        "tests": 6,
+        "sha256": "8586a72bd5f13d7b0cd4fb84a58bef30a63df8c1870d7e114d4e1ead6428e086"
+      },
+      {
+        "path": "app/build/test-results/testDebugUnitTest/TEST-com.hcbiu.elcton.WireTest.xml",
+        "tests": 2,
+        "sha256": "3a00bb869f2854340eb46ca43f8cb29d23c715c00f4b65f86d65eac4b0ec9f8c"
+      }
+    ],
+    "test_cases": [
+      [
+        "com.hcbiu.elcton.AdapterScopeTest",
+        "automaticPeerWakeIsNotEnabledWithoutLifecycleAndRealDeviceEvidence"
+      ],
+      [
+        "com.hcbiu.elcton.AdapterScopeTest",
+        "backupFailureDoesNotExposeExceptionMessageInProductUi"
+      ],
+      [
+        "com.hcbiu.elcton.DevicePolicyTest",
+        "capabilitiesDetermineSupportWithoutAModelWhitelist"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "partialBodiesTimeoutAndStopClosesActiveSocketsThenRestarts"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "initializeAndToolCallsUseActualCallbacksAndJsonText"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "nestedIdsDoNotTurnNotificationsIntoCallsOrReadFiles"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "rejectsEmptyOrWhitespaceTokens"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "notificationsAreAuthenticated202WithEmptyBody"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "bindsOnlyIpv4LoopbackAndBoundedPoolRejectsOverload"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "healthIsAnonymousMinimalAndOnlyExactPathsAreAccepted"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "numericIdsAreEchoedAsExactJsonTokensOverProductionHttp"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "everyMcpMethodAndNotificationRequiresStrictBearerAuthentication"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "numericIdsStayExactOnEveryRpcErrorAndEscapedTopLevelKeys"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "rejectsNonScalarIdsAndEscapedDuplicateIdKeys"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "authenticatedRequestsPreserveStringNumberAndNullIds"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "malformedAndAmbiguousFramingIsRejected"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticMcpServerTest",
+        "jsonRpcErrorsHaveCorrectCodesAndNeverEchoRequests"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticToolsTest",
+        "callbacksReturnActualObjectsAndTailDefaultAndBounds"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticToolsTest",
+        "wrongTypesUnknownKeysAndInvalidLimitsAreRejectedBeforeCallbacks"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticToolsTest",
+        "fsReadOnlyExactWhitelistAndStrictUtf8WithBoundedReads"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticToolsTest",
+        "schemasDescribeExactlyFourReadOnlyTools"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticToolsTest",
+        "fsRejectsSymbolicFilesAndSymbolicParentEscape"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticToolsTest",
+        "unknownToolAndProviderFailuresAreSanitized"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticsIntegrationTest",
+        "diagnosticHttpUsesRawSocketWithoutRelaxingProductionCleartextPolicy"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticsIntegrationTest",
+        "fullDiagnosisIsScrollableAndKeepaliveIsExplicitlyOptIn"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticsIntegrationTest",
+        "versionCapsuleUsesActualBuildConfigAndCodeNine"
+      ],
+      [
+        "com.hcbiu.elcton.DiagnosticsIntegrationTest",
+        "sdkErrorOutletRecordsFullMessageCodeAndExactFailurePhase"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorJournalBoundaryTest",
+        "failedReplacementLeavesPreviousCompleteErrorReadable"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorJournalBoundaryTest",
+        "defaultRingKeepsLast128FullRecordsAndSerializesConcurrentAppends"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorJournalTest",
+        "ringKeepsLastRecordsAcrossRestartAsCompleteUtf8JsonLines"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorJournalTest",
+        "malformedOldLineIsArchivedWithoutLosingValidHistoryOrBlockingNewErrors"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "cyclicCauseChainTerminatesWithExplicitMarker"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "messageGetterFailureStillPreservesCodeAndNestedCause"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "codeSupplierFailureIsReportedWithoutStoppingTheCauseChain"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "causeGetterFailurePreservesFullOriginalMessageAndReportsReadFailure"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "causeGetterFailureCannotReplaceTheOriginalBusinessFailureExit"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "nestedCauseGetterFailureRetainsTheWholeCapturedPrefix"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "preservesLongMultilineUnicodeMessageWithoutEllipsis"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "ordinaryDeepCauseChainIsNotTruncatedOrMarkedAsAReadFailure"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "diagnosticFailureMetadataNeverReadsTheFailingThrowablePayload"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "preservesNullMessageAndCodeOnNestedCause"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "identityCycleDetectionNeverInvokesThrowableEqualityOrHashCode"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "providedMessageStillIsolatesCodeAndCauseFailures"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "providedPrimaryMessageIsNeverReadAgainWhileNestedMessagesAreCapturedOnce"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "providedNullMessageDoesNotFallBackToTheThrowableGetter"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordBoundaryTest",
+        "errorCodeAccessorFailureCannotHideOriginalMessage"
+      ],
+      [
+        "com.hcbiu.elcton.ErrorRecordTest",
+        "fullSdkMessageAndCauseAreAvailableWithoutChangingPrimaryUiPrivacy"
+      ],
+      [
+        "com.hcbiu.elcton.ExportSessionTest",
+        "badChecksumOrReplayCannotCorruptAnImport"
+      ],
+      [
+        "com.hcbiu.elcton.ExportSessionTest",
+        "chunksBecomeAnImportCandidateOnlyAfterLengthAndChecksumMatch"
+      ],
+      [
+        "com.hcbiu.elcton.MainThreadActionsTest",
+        "freshEpochExecutesAndExceptionsCannotStrandTheWaitingThread"
+      ],
+      [
+        "com.hcbiu.elcton.MainThreadActionsTest",
+        "timedOutQueuedWorkIsRevokedRatherThanWrittenLater"
+      ],
+      [
+        "com.hcbiu.elcton.MainThreadActionsTest",
+        "failedPostCannotLeaveAnUnboundedWait"
+      ],
+      [
+        "com.hcbiu.elcton.MainThreadActionsTest",
+        "stopInvalidatesQueuedWritesEvenWhenInterruptedWorkerHasNotRunCleanup"
+      ],
+      [
+        "com.hcbiu.elcton.MainThreadActionsTest",
+        "interruptedRequestCannotExecuteAfterItsSocketIsClosed"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "retainedIntentionIsNotShownAsAnOffSwitchDuringStartOrPermissionFailure"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "latestOptOutVetoesAPreviouslyAllowedQueuedStart"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "stopFenceVetoesLateStartEvenIfSavingFalseFailed"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "historicalExplicitTrueIsPreserved"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "nonUserStartupFailuresKeepIntendedOnButCloseTheSession"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "returningNotificationPermissionDoesNotOverrideExplicitFalse"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "missingPreferenceDefaultsToEnabled"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "defaultChoiceCanStartWhenNotificationsAreAvailable"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "notificationDenialBlocksStartWithoutChangingDefaultChoice"
+      ],
+      [
+        "com.hcbiu.elcton.McpKeepAlivePolicyTest",
+        "historicalExplicitFalseIsPreserved"
+      ],
+      [
+        "com.hcbiu.elcton.McpTokenTest",
+        "emptyMalformedAndOversizedTokensFailClosed"
+      ],
+      [
+        "com.hcbiu.elcton.McpTokenTest",
+        "symbolicTokenAndDirectoryAreRejected"
+      ],
+      [
+        "com.hcbiu.elcton.McpTokenTest",
+        "firstRunCreatesRandomStablePrivateToken"
+      ],
+      [
+        "com.hcbiu.elcton.McpTokenTest",
+        "existingTokenPermissionsAreHardened"
+      ],
+      [
+        "com.hcbiu.elcton.P2pCandidateBuildTest",
+        "actualGeneratedBuildConfigIsBoundToExplicitBuildProfile"
+      ],
+      [
+        "com.hcbiu.elcton.P2pReadyErrorTest",
+        "staleOrActiveTransferErrorDoesNotAbortPreparation"
+      ],
+      [
+        "com.hcbiu.elcton.P2pReadyErrorTest",
+        "matchingHandshakeErrorReachesUserWithFinitePeerCode"
+      ],
+      [
+        "com.hcbiu.elcton.P2pReadyIngressTest",
+        "publishedFileFailuresAreNotDiscardedBeforeReadyDispatch"
+      ],
+      [
+        "com.hcbiu.elcton.P2pReadyIngressTest",
+        "errorCodesRemainBoundedAndDoNotAcceptPrivateTextsOrUnknownNumbers"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "startPublishRequiresConfirmationAndConflictsRequireForce"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "explicitlyConfirmedWatchImportUsesTheSameRepository"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "coursesWriteValidatesAndOnlyConfirmedWriteMutatesTheSharedRepository"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "pickupDocumentUsesTheVerySameSharedImportAndConfirmation"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "syncConnectRequiresTheObservedPairedDevice"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "startImportReturnsPendingAndPreviewDoesNotWriteByDefault"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "abortCancelsTransferAndAnyUnconfirmedPreviewWithoutWriting"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "confirmedWatchImportCannotReplaceAnEditorSaveMadeWhileWaiting"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "deviceAndPairingOutputAreObservedNotGuessedOrModelWhitelisted"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "syncDisconnectSharesTheEngineAndInvalidatesReady"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneActionsTest",
+        "coursesReadUsesTheActualSharedRepositoryAndPendingPreview"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpCompositionTest",
+        "duplicateOwnershipCannotSilentlyReplaceAnOldTool"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpCompositionTest",
+        "originalDiagnosticSchemasAndBehaviorRemainExactAfterAppendingActions"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "abortRoutesToTheSharedAction"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "everyRequestedActionAndDataToolHasARealContractBoundary"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "devicesListRoutesToTheSharedPairing"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "coursesWriteRoutesToTheSharedData"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "coursesReadRoutesToTheSharedData"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "pairingStateReportsOnlyObservedData"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "providerFailuresAndUnknownToolsNeverEchoSecrets"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "syncDisconnectRoutesToTheSharedAction"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "startPublishRoutesToTheSharedAction"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "invalidArgumentsRejectBeforeAnyBusinessAction"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "pickupImportPreservesLeadingZeroAndRoutesToTheSharedImport"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "syncConnectRoutesToTheSharedAction"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "syncStateRoutesToTheSharedState"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneMcpToolsTest",
+        "startImportRoutesToTheSharedAction"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneScheduleTest",
+        "stalePreviewCannotReplaceNewerEditorData"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneScheduleTest",
+        "corruptStorageIsNeverSilentlyResetOrReplaced"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneScheduleTest",
+        "badImportPreservesOldDataAndAbortDiscardsPreview"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneScheduleTest",
+        "sharedPhoneDataLayerExistsRatherThanAnMcpOnlyStore"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneScheduleTest",
+        "previewCannotOverwriteBeforeExplicitConfirmation"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneScheduleTest",
+        "foreignDatasetOrOldRevisionIsRejected"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneSnapshotTest",
+        "orderedSharedDataMatchesTheWatchGoldenVector"
+      ],
+      [
+        "com.hcbiu.elcton.PhoneSnapshotTest",
+        "newerSchemaAndInvalidCalendarDateAreRejected"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "realHttpClientFetchesExactlyTheSixDigitGetRoute"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "flatPublicApiDocumentIsParsedThroughStrictExistingIngress"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "malformedFieldsAndHugeResponsesAreRejectedWithoutTruncation"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "invalidPickupNeverOpensANetworkConnection"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "notFoundAndServerErrorsAreNeverImported"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "malformedUtf8ResponseIsRejected"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "redirect404AndOversizedContentAreRejectedByRealClient"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "nestedPublicApiDocumentUsesTheSameIngress"
+      ],
+      [
+        "com.hcbiu.elcton.PickupClientTest",
+        "cancellationBeforeFetchIsTerminal"
+      ],
+      [
+        "com.hcbiu.elcton.ProtocolIngressAuditTest",
+        "malformedParserExceptionNeverAppearsInUiDiagnostic"
+      ],
+      [
+        "com.hcbiu.elcton.ProtocolIngressAuditTest",
+        "snapshotVersionDoesNotAcceptStringsOrFractions"
+      ],
+      [
+        "com.hcbiu.elcton.ProtocolIngressAuditTest",
+        "wholeOperationDeadlineIsNotExtendedByPacketActivity"
+      ],
+      [
+        "com.hcbiu.elcton.ProtocolIngressAuditTest",
+        "peerPacketMustBeStrictAsciiAndHaveAnExactNumericVersion"
+      ],
+      [
+        "com.hcbiu.elcton.ProtocolIngressAuditTest",
+        "callbackAttemptsDoNotLetAnOldSendTerminateTheCurrentPacket"
+      ],
+      [
+        "com.hcbiu.elcton.ProtocolIngressAuditTest",
+        "yearZeroIsRejectedEvenThoughLocalDateCanParseIt"
+      ],
+      [
+        "com.hcbiu.elcton.ScheduleBookTest",
+        "deletingAndRestartingDoesNotRestoreTheCourse"
+      ],
+      [
+        "com.hcbiu.elcton.ScheduleBookTest",
+        "weeklyFilterUsesMondayBoundaryAndIncludesSaturday"
+      ],
+      [
+        "com.hcbiu.elcton.ScheduleBookTest",
+        "invalidCourseCannotReplaceLastValidState"
+      ],
+      [
+        "com.hcbiu.elcton.ScheduleBookTest",
+        "emptyBookIsNotDemonstrationData"
+      ],
+      [
+        "com.hcbiu.elcton.ScheduleBookTest",
+        "importKeepsDatasetIdentityAndCreatesAnExplicitNewRevision"
+      ],
+      [
+        "com.hcbiu.elcton.ScheduleBookTest",
+        "editingPreservesCourseIdentityAndAdvancesSourceRevision"
+      ],
+      [
+        "com.hcbiu.elcton.SnapshotPrivacyAuditTest",
+        "parserErrorsAreGenericButKnownLocalValidationIsActionable"
+      ],
+      [
+        "com.hcbiu.elcton.SnapshotPrivacyAuditTest",
+        "storageRevisionCannotBeCoercedOrExceededAndYearZeroCannotBeEdited"
+      ],
+      [
+        "com.hcbiu.elcton.SnapshotPrivacyAuditTest",
+        "semesterAndCourseStringsCannotBeCoercedFromOtherJsonTypes"
+      ],
+      [
+        "com.hcbiu.elcton.SnapshotPrivacyAuditTest",
+        "diagnosticContainsOnlyExceptionTypeNotMessageOrCause"
+      ],
+      [
+        "com.hcbiu.elcton.SnapshotPrivacyAuditTest",
+        "unknownFailureNeverPromisesThatBothSchedulesWereUntouched"
+      ],
+      [
+        "com.hcbiu.elcton.SyncEngineTest",
+        "selectedDeviceMustRegisterAndReturnValidReadyBeforeAnyPublication"
+      ],
+      [
+        "com.hcbiu.elcton.SyncEngineTest",
+        "onlyMatchingAppliedAfterEndSavesBaselineTransport207IsNotCompletion"
+      ],
+      [
+        "com.hcbiu.elcton.SyncEngineTest",
+        "interactiveAuthorizationUsesVisiblePermissionRequestAndStopsIfNoActivity"
+      ],
+      [
+        "com.hcbiu.elcton.SyncEngineTest",
+        "backgroundAuthorizationWithoutPermissionNeverOpensUi"
+      ],
+      [
+        "com.hcbiu.elcton.SyncEngineTest",
+        "cancelAndCloseInvalidateCallbacksTimersAndLateReceiverRegistration"
+      ],
+      [
+        "com.hcbiu.elcton.SyncEngineTest",
+        "oldRegistrationSuccessCannotUnregisterAnAlreadyEstablishedReplacement"
+      ],
+      [
+        "com.hcbiu.elcton.SyncEngineTest",
+        "validatedOrderedExportOnlyOffersCandidateNeverSavesPhoneOrBaseline"
+      ],
+      [
+        "com.hcbiu.elcton.TransferSessionTest",
+        "transportSuccessNeverMeansTheWatchSavedData"
+      ],
+      [
+        "com.hcbiu.elcton.TransferSessionTest",
+        "invalidAppliedIsNotAcceptedAndRetryCountIsBounded"
+      ],
+      [
+        "com.hcbiu.elcton.UserFacingErrorTest",
+        "missingHealthIsActionableInChinese"
+      ],
+      [
+        "com.hcbiu.elcton.UserFacingErrorTest",
+        "unknownErrorsDoNotLeakSDKDetailsIntoThePrimaryScreen"
+      ],
+      [
+        "com.hcbiu.elcton.WearEngineConfigTest",
+        "publicCertificateAndRawPointArePinned"
+      ],
+      [
+        "com.hcbiu.elcton.WearEngineConfigTest",
+        "unrelatedWearEngineIntegrationIsPreserved"
+      ],
+      [
+        "com.hcbiu.elcton.WearEngineConfigTest",
+        "litePeerFingerprintUsesBundleAndRawPublicKey"
+      ],
+      [
+        "com.hcbiu.elcton.WearEngineConfigTest",
+        "scopeAuthenticationHasInternetPermission"
+      ],
+      [
+        "com.hcbiu.elcton.WearEngineConfigTest",
+        "fingerprintIsNeitherSpkiNorAsciiHexEncoding"
+      ],
+      [
+        "com.hcbiu.elcton.WearEngineConfigTest",
+        "peerFingerprintDecodesToActualCertificateEcPoint"
+      ],
+      [
+        "com.hcbiu.elcton.WireTest",
+        "asciiAndCrcAreIdenticalToWatchProtocol"
+      ],
+      [
+        "com.hcbiu.elcton.WireTest",
+        "chunksCountTheEntireJsonEnvelopeNotJustPayload"
+      ]
+    ]
+  },
+  "test_apk_version_fields": "AGP instrumentation artifact has actually empty versions; not release APK"
+}

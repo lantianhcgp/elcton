@@ -1,0 +1,5 @@
+{
+  "command": "HMLWSIM_ROOT=$PWD/.qa-hmlwsim node --test --test-reporter=tap tests/*.test.mjs",
+  "exit_code": 1,
+  "time": "2026-11-15T00:46:28.547733+08:00"
+}

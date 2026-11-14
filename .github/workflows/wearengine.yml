@@ -1,7 +1,7 @@
 name: wearengine-watch
 on:
   push:
-    branches: [feat/wearengine-sync, fix/preserve-watch-design, fix/wearengine-install34-20261113, fix/p2p-ready-receipt-20261114]
+    branches: [feat/wearengine-sync, fix/preserve-watch-design, fix/wearengine-install34-20261113, fix/p2p-ready-receipt-20261114, fix/we-handshake-logger-20261115]
   workflow_dispatch:
 permissions:
   contents: read
@@ -33,6 +33,7 @@ jobs:
           HMLWSIM_ROOT: ./.qa-hmlwsim
         run: |
           npm ci --prefix tools/sign --no-audit --no-fund
+          python3 scripts/prepare_we_logger.py . --mode disabled
           node --experimental-default-type=module --test tests/*.test.mjs
       - name: System dependencies
         run: sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
@@ -49,6 +50,9 @@ jobs:
           if [ -d "$HOME/ohos-sdk/command-line-tools/sdk" ]; then printf 'HOS_SDK_HOME=%s\n' "$HOME/ohos-sdk/command-line-tools/sdk" >> "$GITHUB_ENV"; fi
       - name: Build actual Lite package
         run: |
+          mkdir -p build
+          mv entry/src/main/js/MainAbility/common/log-config.js build/we-logger-disabled-config.source.txt
+          python3 scripts/prepare_we_logger.py . --mode public-build
           ohpm install --all
           hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license
           python3 scripts/clean_config_in_app.py build/outputs/default/*.app
@@ -57,6 +61,7 @@ jobs:
           node scripts/compact_lite_app.mjs build/outputs/default/*.app
           node scripts/compact_p2p_page.mjs build/outputs/default/*.app
           python3 scripts/verify_wear_bundle.py build/outputs/default/*.app
+          python3 scripts/verify_we_logger_bundle.py build/outputs/default/*.app
       - name: Sign and verify course application identity
         env:
           SIGN_P12_PEM: ${{ secrets.SIGN_P12_PEM_ELCTON }}
@@ -71,7 +76,7 @@ jobs:
       - name: Exact signed payload and native SDK compatibility gate
         run: |
           python3 -m pip install --quiet cryptography
-          python3 qa/p2p-ready-20261114/final_gate.py dist/*.app dist/elcton-wearengine-probe.hap dist/p2p-final-gate.json "$HOS_SDK_HOME/default/openharmony/js/build-tools/ace-loader/bin/jerry"
+          python3 qa/we-handshake-20261115/final_gate.py dist/*.app dist/elcton-wearengine-probe.hap dist/we-handshake-final-gate.json "$HOS_SDK_HOME/default/openharmony/js/build-tools/ace-loader/bin/jerry"
       - uses: actions/upload-artifact@v4
         with:
           name: wearengine-watch-${{ github.sha }}

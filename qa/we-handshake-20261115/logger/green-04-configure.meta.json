@@ -1,0 +1,17 @@
+{
+  "command": [
+    "node",
+    "--test",
+    "--test-reporter=tap",
+    "tests/weLogger.test.mjs"
+  ],
+  "exit_code": 1,
+  "counts": {
+    "tests": 16,
+    "pass": 15,
+    "fail": 1,
+    "cancelled": 0,
+    "skipped": 0
+  },
+  "log": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/logger/green-04-configure.log"
+}

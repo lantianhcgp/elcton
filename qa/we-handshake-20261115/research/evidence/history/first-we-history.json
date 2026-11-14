@@ -1,0 +1,20 @@
+{
+  "command": [
+    "git",
+    "--no-optional-locks",
+    "-C",
+    "/data/data/com.termux/files/home/elcton-wear-realdevice",
+    "log",
+    "--all",
+    "--reverse",
+    "--date=iso-strict",
+    "--format=%H %ad %s",
+    "--",
+    "entry/src/main/js/MainAbility/common/wearChannel.js",
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+    "docs/wearengine-probe.md"
+  ],
+  "exit_code": 0,
+  "stdout": "6283d964a4c5574ba08a1c29b1b3b900f2b7850b 2026-10-31T18:16:45+08:00 feat(sync): add verified Wear Engine receive pipeline and adaptive entry\n67c08201111ea492f1969b69c1bb8ed4fa4abd61 2026-10-31T19:29:29+08:00 feat: adapt timetable pages to round and rect windows and return watch snapshots\nd6ff26cf0badff99e2669633f20a046504091862 2026-10-31T20:04:28+08:00 fix(sync): reject incomplete messages and guard cancelled commit publication\nc60e5db1dd8d3456f78ae6514f546c65d21915d6 2026-10-31T22:52:08+08:00 fix(ui): keep pickup hints readable and clear stale cancellation errors\n59b97ee5690b1b751d2ba5c5e3e1f466772f36fb 2026-11-01T00:06:28+08:00 fix: isolate transfer cancellation and enforce exact signing identity\n188cf735cf1a1ce008b45e443a927bb39e990dd0 2026-11-01T04:32:45+08:00 fix: harden transactional sync and correct CMS clock-boundary signing\ndc1bfc5185c2c26e1ab46ec72ab1c1f97878e3f3 2026-11-01T05:48:34+08:00 fix: preserve uncertain commits and settle callback locks\ne32d15021168ae9148ddd8ef76503c9190273f76 2026-11-01T07:53:15+08:00 fix(watch): preserve original design and isolate phone sync\n9517f345e8d0e0995708b0a5d0b37b4cae8689ac 2026-11-13T13:50:00+08:00 fix(sync): isolate watchdog handles and expired timeouts\ne62fe509e111a1762f87761694f0c28f506448a7 2026-11-13T19:46:27+08:00 fix(we): replace SDK-rejected regexp paths without changing watch design\n",
+  "stderr": ""
+}
