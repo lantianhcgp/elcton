@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "app_js_sha256": "1233a6e0e0c92d8f09f64ffc6374085be0bee44c412419d88c9a7a91f30a6d4d",
+  "page_js_sha256": "787a251ee68bb104df111415fca13b60f83d4643ae719323676a5e2fd091ddf3",
+  "sandbox_sha256": "97ffc9dcb003773e220ad5f2f5d46b932ca76459dde9a3640ac2f9270bc8caa6",
+  "modes": [
+    {
+      "mode": "modern401",
+      "phase": "ready",
+      "detail": "SDK401|PKG|CERT|REG|READY_OK|HELLO|READY_OK",
+      "calls": [
+        "version",
+        "pkg",
+        "cert",
+        "unsub",
+        "sub",
+        "send",
+        "send",
+        "unsub"
+      ],
+      "sentTypes": [
+        "READY",
+        "READY"
+      ]
+    },
+    {
+      "mode": "legacy303",
+      "phase": "ready",
+      "detail": "SDK303|PKG|CERT|REG|READY_OK|HELLO|READY_OK",
+      "calls": [
+        "version",
+        "pkg",
+        "cert",
+        "sub",
+        "send",
+        "send",
+        "unsub"
+      ],
+      "sentTypes": [
+        "READY",
+        "READY"
+      ]
+    },
+    {
+      "mode": "send206",
+      "phase": "ready",
+      "detail": "回执失败 SEND_206",
+      "calls": [
+        "version",
+        "pkg",
+        "cert",
+        "unsub",
+        "sub",
+        "send",
+        "unsub"
+      ],
+      "sentTypes": [
+        "READY"
+      ]
+    },
+    {
+      "mode": "badVersion",
+      "phase": "error",
+      "detail": "VERSION_UNSUPPORTED",
+      "calls": [
+        "version"
+      ],
+      "sentTypes": []
+    },
+    {
+      "mode": "pendingRead",
+      "phase": "error",
+      "detail": "旧课表已保留，可重试",
+      "calls": [
+        "version",
+        "pkg",
+        "cert",
+        "unsub",
+        "sub",
+        "unsub"
+      ],
+      "sentTypes": []
+    }
+  ],
+  "scope": "Original compiled bundles with real pinned hmlwsim Sandbox and explicit API contract fixtures; no render/browser, Bluetooth, native I/O, heap or device test."
+}

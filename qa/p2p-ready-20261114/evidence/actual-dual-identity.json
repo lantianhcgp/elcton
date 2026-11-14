@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "watch_bundle": "watchapp.nexus.0zzip",
+  "phone_package": "com.hcbiu.elcton",
+  "watch_ec_point_bytes": 65,
+  "watch_sdk_peer_identity": "watchapp.nexus.0zzip_BOc6BPXgVZY7Ik7lETcDy6ezKw77Dqm0EDBscNFv9kHcXaW7gXBRQmA8RfLcDvcCLkOSQIsB33zj/s2IS6u5utM=",
+  "phone_certificate_sha256": "fc08a0b474a8ffca5887bd5c88ac15e865a63a64eca81c10f344496c46d9ad94",
+  "watch_compiled_page_contains_phone_identity": true,
+  "phone_constants_unchanged": true,
+  "scope": "Public signature identity pairing only; firmware acceptance and Bluetooth not tested"
+}

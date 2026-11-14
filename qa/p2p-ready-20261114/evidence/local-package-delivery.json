@@ -1,0 +1,21 @@
+{
+  "delivered": [
+    {
+      "path": "/storage/emulated/0/haps/elcton-20261114-P2P准备回执-1.1.15-73c7823.hap",
+      "bytes": 835972,
+      "sha256": "8865474d76d278f6d61050f4cebca1c1a70b0f5f391f653523d9c9018c91bac0",
+      "exclusive_create": true,
+      "source_bytes_equal": true
+    },
+    {
+      "path": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/phone/hc课程表-0.2.8-code10-2097f32-p2p-signed.apk",
+      "bytes": 8183987,
+      "sha256": "d5778fd80f1bd3758d0c9f2cead660af49aaf6912e2638dc16616bec808bc633",
+      "exclusive_create": true,
+      "source_bytes_equal": true
+    }
+  ],
+  "golden_readonly_sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+  "golden_unchanged": true,
+  "installed": false
+}

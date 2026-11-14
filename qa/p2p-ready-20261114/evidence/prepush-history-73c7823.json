@@ -1,0 +1,7 @@
+{
+  "head": "73c7823ca69deb5e176df52dda89fd02940db67c",
+  "baseline": "0be04ed667392401c6024d892feb6983928c903c",
+  "checked_new_history_blobs": 47,
+  "credential_value_matches": [],
+  "scope": "All blobs of new commits only; public certs and named secret references are not credentials"
+}
