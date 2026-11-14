@@ -182,8 +182,8 @@
     },
     {
       "path": "review-closeout.md",
-      "bytes": 2686,
-      "sha256": "bd835a22fc32b75e0dd15272937d274a35580a3aa6b63db3d5b04e1864d0d8d5"
+      "bytes": 3026,
+      "sha256": "0b455720eca26117bd66c130c20bae46883d7f0bb1b03a98784f41e55d18895c"
     },
     {
       "path": "session-after-original-selfheal.json",
@@ -217,8 +217,8 @@
     },
     {
       "path": "tools/remote_readback.py",
-      "bytes": 4140,
-      "sha256": "1d152b069430f435a424e5380706b17ac8debd98e4266aa68cbaee8b36e8e923"
+      "bytes": 4282,
+      "sha256": "9e38f41ed20c46dfab683a66f31be7384ebd0d5e613a6b9a71abd9520f011431"
     },
     {
       "path": "tools/scope_cdp.mjs",

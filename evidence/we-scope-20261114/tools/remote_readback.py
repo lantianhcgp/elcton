@@ -40,8 +40,12 @@ remote = {item['path']: item for item in remote_tree['tree']
 local_paths = [path.decode() for path in command(
     ['git', 'ls-files', '-z', '--', DIRECTORY]).split(b'\0') if path]
 assert set(local_paths) == set(remote)
-changes = command(['git', 'diff', '--name-status', BASE_COMMIT, commit]).decode().splitlines()
-assert changes and all(line.startswith('A\t' + DIRECTORY) for line in changes)
+changes = command(['git', 'diff', '--name-status', '-z', BASE_COMMIT, commit]).split(b'\0')
+assert changes[-1] == b''
+changes = changes[:-1]
+assert changes and len(changes) % 2 == 0
+pairs = zip(changes[::2], changes[1::2])
+assert all(status == b'A' and path.decode().startswith(DIRECTORY) for status, path in pairs)
 
 
 def read_blob(path):
