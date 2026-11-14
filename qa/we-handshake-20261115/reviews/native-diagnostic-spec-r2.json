@@ -1,0 +1,75 @@
+{
+  "axis": "spec",
+  "round": "R2",
+  "passed": true,
+  "errors": [],
+  "review_mode": "readonly_full_source_and_diff_review_with_five_local_synthetic_tests",
+  "baseline_head": "f4f230056aa31e4980a8a23ea64a147f2d6d6707",
+  "verified_at_utc": "2026-11-14T17:53:37.614549+00:00",
+  "hashscope": {
+    ".github/workflows/wearengine.yml": "7bcd1e6af6e8cad5513f066de1bb9e92ddfefd736d5b7c226f3b8881767b9292",
+    "qa/we-handshake-20261115/native_parse_diagnostic.py": "0a9e70baff01ffd149469fa111228982bb3cc69d7876c4247f021f2a91f3b6fe",
+    "qa/we-handshake-20261115/test_native_parse_diagnostic.py": "aaef711f890765c2d9b548b791e4d5206b3b5a9473618a0a36750bc78aa0eb66"
+  },
+  "scope": "仅复审相对HEAD的workflow 16行追加、诊断helper和新增5项测试；冻结产品及既有355项通过结果不重审、不重跑。",
+  "q1": {
+    "resolved": true,
+    "evidence": "helper:45-60 使用capture_output=True、text=False；stdout/stderr逐流保存hex、字节数及SHA256，无解码或换行归一化；completed保留真实returncode，包括负信号码。合成测试覆盖CRLF、非UTF8、NUL和-11退出码。"
+  },
+  "q2": {
+    "resolved": true,
+    "evidence": "helper:29-66 在循环前创建共享rows/report；TimeoutExpired保存可用partial二进制流，OSError显式launch_error，两者returncode均为null；不清除先前rows，finally落盘。all_parsed只允许非空rows全部completed且原生退出码0，timeout/launch_error/空rows均false。对应合成测试验证第二行失败仍保留第一行和JSON。"
+  },
+  "checks": {
+    "workflow_exactly_16_added_lines_and_no_original_line_change": true,
+    "workflow_without_added_block_byte_identical_to_HEAD": true,
+    "only_workflow_differs_among_tracked_files": true,
+    "final_gate_py_byte_identical_to_HEAD": true,
+    "public_bundle_verifier_byte_identical_to_HEAD": true,
+    "original_355_test_files_and_command_unchanged_not_rerun": true,
+    "original_final_gate_command_sdk_path_and_arguments_unchanged": true,
+    "helper_sdk_sha_same_as_frozen_final_gate_and_R1": true,
+    "helper_exact_parse_only_and_30_second_timeout_unchanged": true,
+    "helper_verifies_public_bundle_before_parsing": true,
+    "original_js_written_as_bytes_without_transform": true,
+    "heap_and_acceptance_budgets_unchanged": true,
+    "diagnostic_and_failure_upload_both_failure_only": true,
+    "failure_upload_explicit_allowlist_public_app_source_sha_and_report_only": true,
+    "failure_upload_excludes_standalone_signed_hap_and_signing_material": true,
+    "failure_artifact_explicit_FAILED_NOT_FOR_INSTALL_label": true,
+    "signing_secret_env_stays_on_original_sign_step": true,
+    "no_continue_on_error_or_gate_success_override": true,
+    "helper_success_does_not_clear_previous_CI_failure": true,
+    "original_delivery_upload_keeps_default_success_condition": true,
+    "all_parsed_is_observation_only_not_CI_or_delivery_authorization": true
+  },
+  "sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+  "evidence": {
+    "r1_review": "qa/we-handshake-20261115/reviews/native-diagnostic-review.json",
+    "r1_review_sha256": "de3225706b30f0c53a9734b4619de7a144adfdffefdfd59a39d75782d46bd367",
+    "preserved_r1_source_sha256": "94ef4060c16eb127e01b820e0dcadbcc0b79315a913e0ec4e4e3225bf7fc7bdc",
+    "preserved_red_log": "qa/we-handshake-20261115/evidence/native-diagnostic-r1-red.log",
+    "preserved_green_log": "qa/we-handshake-20261115/evidence/native-diagnostic-r2-green.log",
+    "r2_test_receipt": "qa/we-handshake-20261115/evidence/native-diagnostic-r2-test-report.json",
+    "r2_receipt_hashes_match_current_helper_and_tests": true,
+    "preserved_red_log_reports_five_failures": true,
+    "preserved_green_log_reports_five_passes": true
+  },
+  "verification": {
+    "git_diff_check_exit_code": 0,
+    "synthetic_test_command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s qa/we-handshake-20261115 -p test_native_parse_diagnostic.py -v",
+    "synthetic_test_exit_code": 0,
+    "synthetic_tests_run": 5,
+    "synthetic_tests_passed": 5,
+    "fake_sdk_and_public_verifier_mocked": true,
+    "native_sdk_executed": false,
+    "original_355_tests_executed": false,
+    "ci_run_observed": false,
+    "network_used": false,
+    "browser_used": false,
+    "branch_or_HEAD_changed": false,
+    "source_or_historical_evidence_modified": false,
+    "only_created_file": "qa/we-handshake-20261115/reviews/native-diagnostic-spec-r2.json"
+  },
+  "summary": "SPEC R2通过：Q1二进制无损输出和Q2超时/启动异常证据保留均已修复，5项本地合成测试全绿。workflow确为16行纯追加；冻结final_gate、SDK参数/30秒超时、预算和原355测试未动。失败artifact仅public APP/source SHA/诊断report，不含独立签名HAP或签名材料；无continue-on-error，helper成功不能把失败CI变绿。本报告不是QUALITY结论、真实SDK/CI通过、安装许可或设备验证；R1原件保留。"
+}

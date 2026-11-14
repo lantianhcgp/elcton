@@ -1,0 +1,6 @@
+{
+  "exit_code": 1,
+  "source": "evidence/native-diagnostic-r1.source.txt",
+  "synthetic_only": true,
+  "native_sdk_executed": false
+}

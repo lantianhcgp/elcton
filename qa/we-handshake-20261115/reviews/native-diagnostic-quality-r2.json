@@ -1,0 +1,107 @@
+{
+  "axis": "quality",
+  "source_axis": "independent QUALITY R2 after passed SPEC R2",
+  "round": "R2",
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "missing_requirements": [],
+  "suggestions": [],
+  "review_mode": "independent_full_three_file_static_review_and_local_synthetic_checks",
+  "baseline_head": "f4f230056aa31e4980a8a23ea64a147f2d6d6707",
+  "frozen_comparison_base": "a197eec",
+  "verified_at_utc": "2026-11-14T17:57:36Z",
+  "scope": "Only the 16 added workflow lines relative to HEAD, native_parse_diagnostic.py, and test_native_parse_diagnostic.py. Existing product, scripts, final_gate and original 355 tests are frozen dependencies, not reopened or rerun.",
+  "hashscope": {
+    ".github/workflows/wearengine.yml": "7bcd1e6af6e8cad5513f066de1bb9e92ddfefd736d5b7c226f3b8881767b9292",
+    "qa/we-handshake-20261115/native_parse_diagnostic.py": "0a9e70baff01ffd149469fa111228982bb3cc69d7876c4247f021f2a91f3b6fe",
+    "qa/we-handshake-20261115/test_native_parse_diagnostic.py": "aaef711f890765c2d9b548b791e4d5206b3b5a9473618a0a36750bc78aa0eb66"
+  },
+  "file_bytes": {
+    ".github/workflows/wearengine.yml": 4663,
+    "qa/we-handshake-20261115/native_parse_diagnostic.py": 3284,
+    "qa/we-handshake-20261115/test_native_parse_diagnostic.py": 6163
+  },
+  "spec_r2": {
+    "path": "qa/we-handshake-20261115/reviews/native-diagnostic-spec-r2.json",
+    "sha256": "cc6abd7cd694d4408ad53a0206654186135ad8abd99ac7a075624ac52da67417",
+    "passed": true,
+    "all_three_hashes_match_reviewed_bytes": true
+  },
+  "preserved_r1": {
+    "path": "qa/we-handshake-20261115/reviews/native-diagnostic-review.json",
+    "sha256": "de3225706b30f0c53a9734b4619de7a144adfdffefdfd59a39d75782d46bd367",
+    "passed": false,
+    "modified": false
+  },
+  "resolved_findings": [
+    {
+      "id": "Q1",
+      "resolved": true,
+      "evidence": "Helper lines 45-60 use capture_output=True, text=False and preserve each binary stream via reversible hex, byte count and SHA256 without decoding/newline conversion. Completed rows retain the observed returncode, including -11. The supplied synthetic test exercises CRLF, non-UTF8 and NUL bytes."
+    },
+    {
+      "id": "Q2",
+      "resolved": true,
+      "evidence": "Helper lines 29-66 allocate rows/report before the process loop, record timeout/launch_error with null returncode, preserve available TimeoutExpired binary output, retain prior rows, and persist JSON in finally. all_parsed requires nonempty rows and every status completed with returncode 0; empty, timeout, launch-error and nonzero-exit cases remain false. Supplied synthetic tests read the persisted JSON for these paths."
+    }
+  ],
+  "checks": {
+    "workflow_exactly_16_added_lines": true,
+    "workflow_without_added_block_byte_identical_to_HEAD": true,
+    "only_workflow_differs_among_tracked_files_from_HEAD": true,
+    "entry_tests_scripts_final_gate_have_no_diff_from_a197eec": true,
+    "original_final_gate_command_sdk_path_and_arguments_preserved": true,
+    "helper_public_bundle_verify_precedes_archive_and_parse": true,
+    "frozen_public_verifier_security_contract_accepted_not_reopened": true,
+    "helper_fixed_sdk_sha_checked_before_parse": true,
+    "helper_exact_parse_only_binary_capture_and_30_second_timeout": true,
+    "helper_original_js_write_bytes_without_transform": true,
+    "timeout_and_launch_error_keep_prior_rows_and_null_returncode": true,
+    "all_parsed_nonempty_all_completed_zero_only": true,
+    "diagnostic_and_failure_upload_both_failure_only": true,
+    "failure_upload_exact_three_entry_allowlist": true,
+    "failure_upload_no_private_key_readkey_or_standalone_hap_path": true,
+    "failure_artifact_explicit_FAILED_NOT_FOR_INSTALL_label": true,
+    "signing_secret_env_stays_on_original_sign_step": true,
+    "no_continue_on_error_or_success_override_added": true,
+    "helper_success_does_not_reset_prior_CI_failure": true,
+    "original_delivery_upload_retains_default_success_condition": true,
+    "all_parsed_observation_not_delivery_authorization": true
+  },
+  "failure_artifact_allowlist": [
+    "dist/*.app",
+    "dist/source-sha.txt",
+    "dist/native-parse-failure-only.json"
+  ],
+  "sdk_sha256_in_helper": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+  "verification": {
+    "git_diff_check_exit_code": 0,
+    "helper_and_tests_ast_parse_passed": true,
+    "synthetic_test_command": "PYTHONDONTWRITEBYTECODE=1 python -m unittest discover -s qa/we-handshake-20261115 -p test_native_parse_diagnostic.py -v",
+    "synthetic_test_exit_code": 0,
+    "synthetic_tests_run": 5,
+    "synthetic_tests_passed": 5,
+    "synthetic_tests_skipped": 0,
+    "test_source_override_matches_or_unset": true,
+    "additional_in_memory_synthetic_checks": {
+      "exact_written_source_bytes_and_row_hashes": true,
+      "public_verify_precedes_every_parse": true,
+      "rejected_public_input_never_parsed": true,
+      "SDK_hash_mismatch_never_parsed": true
+    },
+    "additional_synthetic_checks_exit_code": 0,
+    "fake_sdk_and_public_verifier_mocked": true,
+    "frozen_public_verifier_executed": false,
+    "native_sdk_executed": false,
+    "original_355_tests_executed": false,
+    "product_review_repeated": false,
+    "ci_run_observed": false,
+    "network_used": false,
+    "browser_used": false,
+    "branch_or_HEAD_changed": false,
+    "repository_source_or_historical_evidence_modified": false,
+    "only_created_file": "qa/we-handshake-20261115/reviews/native-diagnostic-quality-r2.json"
+  },
+  "summary": "QUALITY R2 passes within the exact three-file SHA scope: Q1 lossless binary output and Q2 exception-path evidence retention are resolved; independent execution of the 5 supplied synthetic tests passed with no skips. The workflow is precisely 16 added lines, retains failure status and the original success-only delivery condition, and explicitly uploads only public APP/source SHA/diagnostic JSON on failure. No new security concern or logic error was found in this boundary. R1 rejection is preserved. This is not real SDK or CI success, HAP delivery/installability approval, native heap/render/ACK evidence, or a re-review of the frozen product/355 tests."
+}

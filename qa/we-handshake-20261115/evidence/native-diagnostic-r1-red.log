@@ -1,0 +1,116 @@
+test_binary_streams_are_lossless_and_subprocess_stays_exact (test_native_parse_diagnostic.NativeDiagnosticTests.test_binary_streams_are_lossless_and_subprocess_stays_exact) ... FAIL
+test_launch_error_preserves_prior_rows_without_inventing_exit (test_native_parse_diagnostic.NativeDiagnosticTests.test_launch_error_preserves_prior_rows_without_inventing_exit) ... FAIL
+test_no_observed_process_is_not_all_parsed (test_native_parse_diagnostic.NativeDiagnosticTests.test_no_observed_process_is_not_all_parsed) ... FAIL
+test_only_observed_successful_exits_allow_all_parsed (test_native_parse_diagnostic.NativeDiagnosticTests.test_only_observed_successful_exits_allow_all_parsed) ... FAIL
+test_timeout_preserves_prior_rows_and_partial_binary_streams (test_native_parse_diagnostic.NativeDiagnosticTests.test_timeout_preserves_prior_rows_and_partial_binary_streams) ... FAIL
+
+======================================================================
+FAIL: test_binary_streams_are_lossless_and_subprocess_stays_exact (test_native_parse_diagnostic.NativeDiagnosticTests.test_binary_streams_are_lossless_and_subprocess_stays_exact)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 79, in test_binary_streams_are_lossless_and_subprocess_stays_exact
+    self.assert_stream(row, 'stdout', raw_out)
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 67, in assert_stream
+    self.assertIn(stream + '_hex', row, 'lossless native stream missing')
+    ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: 'stdout_hex' not found in {'path': 'assets/js/a.js', 'bytes': 19, 'sha256': '747cf7b1f5bd9df0d152148dacef814dc6debdbf57b4c8128f635669c4591792', 'returncode': 0, 'stdout': 'A\n�\x00', 'stderr': 'B\n�\x00'} : lossless native stream missing
+
+======================================================================
+FAIL: test_launch_error_preserves_prior_rows_without_inventing_exit (test_native_parse_diagnostic.NativeDiagnosticTests.test_launch_error_preserves_prior_rows_without_inventing_exit)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 59, in run_diagnostic
+    helper.diagnostic(self.app, self.sdk, self.output)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/native-diagnostic-r1.source.txt", line 36, in diagnostic
+    p = subprocess.run([str(sdk), '--parse-only', str(src)],
+                       capture_output=True, text=True, timeout=30)
+  File "/data/data/com.termux/files/usr/lib/python3.13/unittest/mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/unittest/mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/unittest/mock.py", line 1240, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 49, in synthetic_run
+    raise effect
+OSError: synthetic launch failure
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 108, in test_launch_error_preserves_prior_rows_without_inventing_exit
+    report, _ = self.run_diagnostic([
+                ~~~~~~~~~~~~~~~~~~~^^
+        subprocess.CompletedProcess([], 0, b'prior', b''),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        OSError('synthetic launch failure'),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ])
+    ^^
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 61, in run_diagnostic
+    self.assertTrue(self.output.exists(), 'exception discarded prior rows/report')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : exception discarded prior rows/report
+
+======================================================================
+FAIL: test_no_observed_process_is_not_all_parsed (test_native_parse_diagnostic.NativeDiagnosticTests.test_no_observed_process_is_not_all_parsed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 134, in test_no_observed_process_is_not_all_parsed
+    self.assertFalse(report['all_parsed'])
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: True is not false
+
+======================================================================
+FAIL: test_only_observed_successful_exits_allow_all_parsed (test_native_parse_diagnostic.NativeDiagnosticTests.test_only_observed_successful_exits_allow_all_parsed)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 127, in test_only_observed_successful_exits_allow_all_parsed
+    self.assertTrue(all(r.get('status') == 'completed' for r in report['rows']))
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_timeout_preserves_prior_rows_and_partial_binary_streams (test_native_parse_diagnostic.NativeDiagnosticTests.test_timeout_preserves_prior_rows_and_partial_binary_streams)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 59, in run_diagnostic
+    helper.diagnostic(self.app, self.sdk, self.output)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/native-diagnostic-r1.source.txt", line 36, in diagnostic
+    p = subprocess.run([str(sdk), '--parse-only', str(src)],
+                       capture_output=True, text=True, timeout=30)
+  File "/data/data/com.termux/files/usr/lib/python3.13/unittest/mock.py", line 1169, in __call__
+    return self._mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/unittest/mock.py", line 1173, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/usr/lib/python3.13/unittest/mock.py", line 1240, in _execute_mock_call
+    result = effect(*args, **kwargs)
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 49, in synthetic_run
+    raise effect
+subprocess.TimeoutExpired: Command '['fake-sdk']' timed out after 30 seconds
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 94, in test_timeout_preserves_prior_rows_and_partial_binary_streams
+    report, _ = self.run_diagnostic([
+                ~~~~~~~~~~~~~~~~~~~^^
+        subprocess.CompletedProcess([], 0, b'prior', b''), timeout,
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ])
+    ^^
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/test_native_parse_diagnostic.py", line 61, in run_diagnostic
+    self.assertTrue(self.output.exists(), 'exception discarded prior rows/report')
+    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: False is not true : exception discarded prior rows/report
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.017s
+
+FAILED (failures=5)

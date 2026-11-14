@@ -1,0 +1,17 @@
+{
+  "red_exit_code": 1,
+  "green_exit_code": 0,
+  "synthetic_only": true,
+  "fake_sdk_sha_patched_in_tests": true,
+  "public_gate_mocked": true,
+  "native_sdk_executed": false,
+  "ci_or_browser_run": false,
+  "changed_sha256": {
+    "qa/we-handshake-20261115/native_parse_diagnostic.py": "0a9e70baff01ffd149469fa111228982bb3cc69d7876c4247f021f2a91f3b6fe",
+    "qa/we-handshake-20261115/test_native_parse_diagnostic.py": "aaef711f890765c2d9b548b791e4d5206b3b5a9473618a0a36750bc78aa0eb66"
+  },
+  "original_source_sha256": "94ef4060c16eb127e01b820e0dcadbcc0b79315a913e0ec4e4e3225bf7fc7bdc",
+  "sdk_sha_unchanged": true,
+  "workflow_sha_unchanged_from_review": true,
+  "helper_ast_valid": true
+}

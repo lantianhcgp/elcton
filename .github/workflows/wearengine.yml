@@ -77,6 +77,22 @@ jobs:
         run: |
           python3 -m pip install --quiet cryptography
           python3 qa/we-handshake-20261115/final_gate.py dist/*.app dist/elcton-wearengine-probe.hap dist/we-handshake-final-gate.json "$HOS_SDK_HOME/default/openharmony/js/build-tools/ace-loader/bin/jerry"
+      - name: Preserve exact native parser failure output (not delivery)
+        if: ${{ failure() }}
+        run: |
+          test -f dist/source-sha.txt
+          python3 qa/we-handshake-20261115/native_parse_diagnostic.py dist/*.app "$HOS_SDK_HOME/default/openharmony/js/build-tools/ace-loader/bin/jerry" dist/native-parse-failure-only.json
+      - name: Upload public failure evidence only
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: FAILED-NOT-FOR-INSTALL-we-sdk-${{ github.sha }}
+          path: |
+            dist/*.app
+            dist/source-sha.txt
+            dist/native-parse-failure-only.json
+          if-no-files-found: error
+          retention-days: 1
       - uses: actions/upload-artifact@v4
         with:
           name: wearengine-watch-${{ github.sha }}

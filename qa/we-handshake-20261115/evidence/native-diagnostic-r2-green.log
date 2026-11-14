@@ -1,0 +1,10 @@
+test_binary_streams_are_lossless_and_subprocess_stays_exact (test_native_parse_diagnostic.NativeDiagnosticTests.test_binary_streams_are_lossless_and_subprocess_stays_exact) ... ok
+test_launch_error_preserves_prior_rows_without_inventing_exit (test_native_parse_diagnostic.NativeDiagnosticTests.test_launch_error_preserves_prior_rows_without_inventing_exit) ... ok
+test_no_observed_process_is_not_all_parsed (test_native_parse_diagnostic.NativeDiagnosticTests.test_no_observed_process_is_not_all_parsed) ... ok
+test_only_observed_successful_exits_allow_all_parsed (test_native_parse_diagnostic.NativeDiagnosticTests.test_only_observed_successful_exits_allow_all_parsed) ... ok
+test_timeout_preserves_prior_rows_and_partial_binary_streams (test_native_parse_diagnostic.NativeDiagnosticTests.test_timeout_preserves_prior_rows_and_partial_binary_streams) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.011s
+
+OK
