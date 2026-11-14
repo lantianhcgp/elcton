@@ -71,8 +71,13 @@ function service(identity, protocol, engine) {
                 engine.getWearEngineVersion({sdkVersion: '3', complete: function (data) {
                     if (finished || !live() || versionSettled) { return; } versionSettled = true;
                     if (typeof data !== 'string' || data.length > 40) { finish('VERSION_INVALID'); return; }
-                    var tail = data.substr(data.lastIndexOf('.') + 1), value = Number(tail);
-                    if (!tail || !isFinite(value) || Math.floor(value) !== value || value < 302) { finish('VERSION_UNSUPPORTED'); return; }
+                    var parts = data.split('.'), valid = parts.length === 4;
+                    for (var i = 0; i < parts.length; i++) {
+                        if (!parts[i]) { valid = false; }
+                        for (var j = 0; j < parts[i].length; j++) { if (parts[i].charCodeAt(j) < 48 || parts[i].charCodeAt(j) > 57) { valid = false; } }
+                    }
+                    var value = Number(parts[3]);
+                    if (!valid || !isFinite(value) || Math.floor(value) !== value || value < 302) { finish('VERSION_UNSUPPORTED'); return; }
                     serviceVersion = value; mark('VER');
                     if (value >= 401) { bus = engine; }
                     else if (typeof FeatureAbility !== 'undefined') { bus = FeatureAbility; }

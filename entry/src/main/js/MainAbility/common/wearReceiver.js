@@ -135,6 +135,6 @@ function createReceiver(storage, options) {
             var applied=answer('APPLIED',msg.transferId);applied.digest=transaction.info.digest;applied.sourceRevision=transaction.info.sourceRevision;finish(commit,applied);
         },function(){return current(commit) && active===transaction;},transaction.baseGeneration,function(){commit.markerIssued=true;});
     }
-    return {receive:receive,cancel:cancel,isBusy:function(){return !!operation || !!active;}};
+    return {receive:receive,cancel:cancel,isBusy:function(){return !!operation || !!active;},isPreparing:function(){return !!query;}};
 }
 export default createReceiver;

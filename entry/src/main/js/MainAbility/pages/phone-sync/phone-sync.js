@@ -41,7 +41,7 @@ export default {
         var timer = setTimeout(function () {
             if (self._closed || !self.listening || gen !== self._gen || self._timer !== timer) { return; }
             self._timer = null;
-            if (self._channel && self._channel.isNegotiated && self._channel.isNegotiated() && self.phase === 'ready' && !self._receiver.isBusy() && !self._exporter.isActive()) { return; }
+            if (self._channel && self._channel.isNegotiated && self._channel.isNegotiated() && self.phase === 'ready' && !self._receiver.isBusy() && !self._receiver.isPreparing() && !self._exporter.isActive()) { return; }
             var certain = self.stop(); self.phase = 'error';
             self.status = '\u7b49\u5f85\u8d85\u65f6';
             self.detail = certain ? '\u65e7\u8bfe\u8868\u5df2\u4fdd\u7559\uff0c\u53ef\u91cd\u8bd5' : '\u63d0\u4ea4\u7ed3\u679c\u672a\u77e5\uff0c\u8bf7\u91cd\u8fde\u6838\u5bf9';
