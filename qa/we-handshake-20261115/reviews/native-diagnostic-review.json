@@ -1,0 +1,78 @@
+{
+  "axis": "quality",
+  "source_axis": "独立规格通过后质量审查",
+  "passed": false,
+  "review_mode": "direct_static_review_and_local_synthetic_subprocess_checks",
+  "jev_called": false,
+  "baseline_head": "a197eecb83a6e15a7f4cdb930c1205ec9c84b1ef",
+  "verified_at_utc": "2026-11-14T17:32:30.896132+00:00",
+  "files": {
+    ".github/workflows/wearengine.yml": {
+      "sha256": "7bcd1e6af6e8cad5513f066de1bb9e92ddfefd736d5b7c226f3b8881767b9292",
+      "bytes": 4663
+    },
+    "qa/we-handshake-20261115/native_parse_diagnostic.py": {
+      "sha256": "94ef4060c16eb127e01b820e0dcadbcc0b79315a913e0ec4e4e3225bf7fc7bdc",
+      "bytes": 2299
+    }
+  },
+  "spec": {
+    "passed": true,
+    "scope": "Only the supplied workflow diff and new helper; frozen verifier security/shape enforcement accepted from task context, not independently reopened.",
+    "checks": {
+      "workflow_is_additions_only": true,
+      "original_final_gate_command_unchanged": true,
+      "existing_tests_sdk_heap_and_budget_not_edited": true,
+      "diagnostic_and_failure_artifact_use_failure_condition": true,
+      "original_failed_job_stays_failed": true,
+      "no_continue_on_error_or_success_override_added": true,
+      "failure_artifact_explicit_app_sha_report_allowlist_no_standalone_hap": true,
+      "signing_secret_env_remains_scoped_to_original_sign_step": true,
+      "helper_calls_existing_public_bundle_verifier": true,
+      "helper_checks_fixed_sdk_sha_before_parse": true,
+      "helper_writes_original_js_content_without_transformation": true,
+      "diagnostic_artifact_explicit_failed_not_for_install_label": true
+    },
+    "sdk_sha256_in_helper": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+    "summary": "Visible acceptance/security boundaries are retained. This is not a new CI green result or an installability approval."
+  },
+  "security_concerns": [],
+  "logic_errors": [
+    {
+      "id": "Q1",
+      "severity": "must_fix",
+      "file": "qa/we-handshake-20261115/native_parse_diagnostic.py",
+      "lines": [36, 40],
+      "summary": "text=True does not preserve exact native stdout/stderr, and undecodable output can prevent any diagnostic report being written.",
+      "evidence": "Local subprocess reproduction on this host: raw stdout 410d0a / stderr 420d0a become A\\n / B\\n in text mode; a stdout byte ff raises UnicodeDecodeError. The helper writes its report only after this decoding succeeds for every row.",
+      "fix": "Capture both streams as bytes. Store lossless base64 or hex, byte counts and SHA-256; optionally add a separately labelled decoded display field. Keep actual subprocess returncodes and do not change the SDK arguments or original gate."
+    },
+    {
+      "id": "Q2",
+      "severity": "must_fix",
+      "file": "qa/we-handshake-20261115/native_parse_diagnostic.py",
+      "lines": [30, 47],
+      "summary": "An uncaught TimeoutExpired or launch error discards previously accumulated rows and produces no failure JSON.",
+      "evidence": "Static control flow: subprocess.run(timeout=30) is not protected; output.write_text is reached only after the whole loop. If a later JS parse times out, prior completed rows and available partial timeout streams are never persisted.",
+      "fix": "Record timeout/launch-error status explicitly and preserve available binary streams plus prior rows; use null returncode when no native exit was observed. Persist the failure report without claiming all_parsed or gate success. Do not loosen timeout or original acceptance conditions."
+    }
+  ],
+  "missing_requirements": [],
+  "suggestions": [
+    "Do not reuse this verdict after either reviewed file changes; hashes bind this receipt to the actual reviewed bytes.",
+    "Keep all_parsed strictly a parser observation, never an alias for native heap/render/ACK compatibility or installability."
+  ],
+  "verification": {
+    "git_diff_check_exit_code": 0,
+    "helper_ast_and_compile_passed": true,
+    "synthetic_capture_reproduction_exit_code": 0,
+    "synthetic_checks_not_sdk_execution": true,
+    "native_sdk_executed": false,
+    "ci_run_observed": false,
+    "network_used": false,
+    "other_repository_files_read": false,
+    "frozen_verifier_dependency_executed": false,
+    "repository_source_files_modified": false
+  },
+  "summary": "SPEC within the two-file boundary passes; QUALITY fails on lossless-output capture and exception-path evidence retention. Original CI remains failed; no green, HAP delivery or installability claim."
+}
