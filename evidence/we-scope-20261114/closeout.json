@@ -1,0 +1,11 @@
+{
+  "checked_at": "2026-11-14T10:55:53.887788+08:00",
+  "ports_listening": {
+    "9233": false,
+    "8777": false
+  },
+  "chromium_or_scope_view_processes": 0,
+  "all_closed": true,
+  "device_actions": 0,
+  "scope_mutations": 0
+}

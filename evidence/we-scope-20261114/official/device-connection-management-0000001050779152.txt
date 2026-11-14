@@ -1,0 +1,196 @@
+   
+穿戴设备信息查询       
+在获取设备列表之前，需要向手机侧用户申请获取DEVICE_MANAGER权限的授权（参见请求用户授权），否则设备列表将获取失败。              
+获取支持应用间消息通信能力的穿戴设备     
+手机侧应用获取已配对的华为穿戴设备列表（仅包含支持应用间消息通信的设备），并从设备列表中选定需要操作的设备。           
+第三方应用调用HiWear中的getDeviceClient方法，获取DeviceClient对象。      
+调用getBondedDevices方法，获取已配对的设备列表。       
+                                           
+若用户的运动健康App版本为11.0.3.512及以上，用户对同一个设备进行了解绑并重新绑定操作后，设备详细信息中的UUID会发生变化，如果使用之前缓存的设备调用业务接口，有可能会出现UUID非法异常（ERROR_CODE_DEVICE_UUID_IS_INVALID），建议此时通过getBondedDevices方法重新获取设备。          
+设备的详细信息参见Device对象。                               
+      
+从设备列表中选定需要操作的设备（可选，若需要实现其他功能，如：应用间消息通信，则需要实现该步骤），必须是已连接的设备，不然后续操作会失败。       
+                                           
+华为运动健康App可以与多款穿戴设备配对，但同一时间只能连接一款穿戴设备。          
+isConnected接口返回的设备连接状态不是实时的，该连接状态为调用getBondedDevices方法时返回的状态。如果需要订阅设备的实时连接状态，参见状态查询与订阅章节。                               
+// 存储已配对的设备列表List
+final List<Device> deviceList = new ArrayList<>();
+
+// 步骤1：获取DeviceClient对象
+DeviceClient deviceClient = HiWear.getDeviceClient(this);
+
+// 步骤2：获取已配对的设备列表
+deviceClient.getBondedDevices()
+    .addOnSuccessListener(new OnSuccessListener<List<Device>>() {
+        @Override
+        public void onSuccess(List<Device> devices) {
+            // 获取到的设备列表
+            deviceList.addAll(devices);
+        }
+    })
+    .addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(Exception e) {
+            // 获取设备列表异常时，处理相关的逻辑
+        }
+    });
+
+// 步骤3：从设备列表选定需要操作的设备，必须是已连接的设备，不然后续操作会失败
+Device connectedDevice = null;
+if (deviceList != null && !deviceList.isEmpty()){
+    // 说明：该部分为获取已连接的设备的代码逻辑，开发者需要根据实际情况修改，获取需要通信的设备
+    for(Device device : deviceList){
+        if(device.isConnected()){
+            connectedDevice = device;
+        }
+    }
+}               在获取到的Device列表中取出Device对象，调用Device对象中的isConnected接口可查询该设备的连接状态（true：已连接；false：未连接）。        
+device.isConnected();              
+                       
+获取支持Wear Engine能力的穿戴设备     
+通过getBondedDevices方法获取的为支持应用间通信能力的穿戴设备，某些穿戴设备不支持应用间通信，但是支持Wear Engine的其他能力，可以通过getCommonDevice方法获取。           
+第三方应用调用HiWear中的getDeviceClient方法，获取DeviceClient对象。      
+调用getCommonDevice方法，获取已配对的设备列表。       
+                                           
+具有Wear Engine能力的穿戴设备才能通过getCommonDevice方法获取到。          
+若用户的运动健康App版本为11.0.3.512及以上，用户对同一个设备进行了解绑并重新绑定操作后，设备详细信息中的UUID会发生变化，如果使用之前缓存的设备调用业务接口，有可能会出现UUID非法异常（ERROR_CODE_DEVICE_UUID_IS_INVALID），建议此时通过getCommonDevice方法重新获取设备。          
+设备的详细信息参见Device对象。                               
+      
+从设备列表中选定需要操作的设备（可选，若需要实现其他功能，如：应用间消息通信，则需要实现该步骤），必须是已连接的设备，不然后续操作会失败。       
+                                 
+华为运动健康App可以与多款穿戴设备配对，但同一时间只能连接一款穿戴设备。                      
+// 存储已配对的设备列表List
+final List<Device> deviceList = new ArrayList<>();
+
+// 步骤1：获取DeviceClient对象
+DeviceClient deviceClient = HiWear.getDeviceClient(this);
+
+// 步骤2：获取已配对的设备列表
+deviceClient.getCommonDevice()
+    .addOnSuccessListener(new OnSuccessListener<List<Device>>() {
+        @Override
+        public void onSuccess(List<Device> devices) {
+            // 获取到的设备列表
+            deviceList.addAll(devices);
+        }
+    })
+    .addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(Exception e) {
+            // 获取设备列表异常时，处理相关的逻辑
+        }
+    });
+
+// 步骤3：从设备列表选定需要操作的设备，必须是已连接的设备，不然后续操作会失败
+Device connectedDevice = null;
+if (deviceList != null && !deviceList.isEmpty()){
+    // 说明：该部分为获取已连接的设备的代码逻辑，开发者需要根据实际情况修改，获取需要通信的设备
+    for(Device device : deviceList){
+        if(device.isConnected()){
+            connectedDevice = device;
+        }
+    }
+}       
+      
+在获取到的Device列表中取出Device对象，调用Device对象中的isConnected接口可查询该设备的连接状态（true：已连接；false：未连接）。       
+       
+device.isConnected();       
+      
+调用Device对象中的getP2pCapability、getMonitorCapability、getNotifyCapability、getSensorCapability接口可以分别判断设备是否支持应用间消息通信、状态查询与订阅、穿戴模板化通知、穿戴设备传感器获取，返回值为0代表支持，1代表不支持，2代表未知。       
+       
+// 判断设备是否支持应用间消息通信能力
+device.getP2pCapability();
+// 判断设备是否支持状态查询与订阅能力
+device.getMonitorCapability();
+// 判断设备是否支持穿戴模板化通知能力
+device.getNotifyCapability();
+// 判断设备是否支持穿戴设备传感器获取能力
+device.getSensorCapability();       
+                       
+查询穿戴设备是否支持某种能力集     
+通过queryDeviceCapability方法查询穿戴设备是否支持某种能力集，目前仅支持查询设备是否支持CBTI数字疗法能力集，ID为128。           
+第三方应用调用HiWear中的getDeviceClient方法，获取DeviceClient对象。      
+调用getBondedDevices或者getCommonDevice方法，获取已配对的设备列表。      
+从设备列表中选定需要操作的设备，必须是已连接的设备，不然后续操作会失败。       
+       
+// 存储已配对的设备列表List
+final List<Device> deviceList = new ArrayList<>();
+
+// 步骤1：获取DeviceClient对象
+DeviceClient deviceClient = HiWear.getDeviceClient(this);
+
+// 步骤2：获取已配对的设备列表
+deviceClient.getCommonDevice()
+    .addOnSuccessListener(new OnSuccessListener<List<Device>>() {
+        @Override
+        public void onSuccess(List<Device> devices) {
+            // 获取到的设备列表
+            deviceList.addAll(devices);
+        }
+    })
+    .addOnFailureListener(new OnFailureListener() {
+        @Override
+        public void onFailure(Exception e) {
+            // 获取设备列表异常时，处理相关的逻辑
+        }
+    });
+
+// 步骤3：从设备列表选定需要操作的设备，必须是已连接的设备，不然后续操作会失败
+Device connectedDevice = null;
+if (deviceList != null && !deviceList.isEmpty()){
+    // 说明：该部分为获取已连接的设备的代码逻辑，开发者需要根据实际情况修改，获取需要通信的设备
+    for(Device device : deviceList){
+        if(device.isConnected()){
+            connectedDevice = device;
+        }
+    }
+}       
+      
+在获取到的Device列表中取出Device对象，调用Device对象中的isConnected接口可查询该设备的连接状态（true：已连接；false：未连接）。       
+       
+device.isConnected();       
+      
+调用Device对象中的queryDeviceCapability方法查询设备是否支持某种能力集，返回值为0代表支持，1代表不支持。       
+       
+// 查询设备是否支持CBTI数字疗法能力集, device:已连接的设备对象, 128:表示设备是否支持CBTI数字疗法能力集。
+deviceClient.queryDeviceCapability(device, 128)    
+    .addOnSuccessListener(new OnSuccessListener<Integer>() {
+        @Override        
+        public void onSuccess(Integer integer) {
+            // 查询设备能力集成功            
+            // Device.DEVICE_CAPABILITY_SUPPORT: 支持            
+            // DEVICE_CAPABILITY_NOT_SUPPORT: 不支持            
+            if(integer == Device.DEVICE_CAPABILITY_SUPPORT){
+                // 处理设备支持CBTI数字疗法能力集相关的逻辑            
+            }        
+        }    
+    })    
+    .addOnFailureListener(new OnFailureListener() {
+        @Override        
+        public void onFailure(Exception e) {
+            // 查询设备能力集出现异常，处理相关的逻辑        
+        }    
+    });       
+                       
+查询穿戴设备的序列号     
+通过getDeviceSn方法查询穿戴设备的SN号。在调用getDeviceSn获取设备SN之前，需要向手机侧用户申请获取DEVICE_SN权限的授权（参见请求用户授权），否则会导致获取设备SN失败。             
+第三方应用调用HiWear中的getDeviceClient方法，获取DeviceClient对象。     
+调用getCommonDevice方法，获取已配对的设备列表。     
+调用DeviceClient对象中的getDeviceSn方法查询穿戴设备的SN号。      
+      
+// 查询穿戴设备的SN号，需要有DEVICE_SN权限。
+deviceClient.getDeviceSn(device)    
+    .addOnSuccessListener(new OnSuccessListener<String>() {
+        @Override        
+        public void onSuccess(String deviceSn) {
+            // 查询设备SN号成功，处理相关逻辑          
+            Log.i(TAG, "getDeviceSn: " + devicesSn);
+        }    
+    })    
+    .addOnFailureListener(new OnFailureListener() {
+        @Override        
+        public void onFailure(Exception e) {
+            // 查询设备SN号异常，处理相关的逻辑        
+        }    
+    });      
+          

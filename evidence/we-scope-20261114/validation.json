@@ -1,0 +1,29 @@
+{
+  "checked_at": "2026-11-14T10:57:12.297156+08:00",
+  "passed": true,
+  "secret_scan": "PASS known-value+pattern+forbidden-artifact gates; values not disclosed",
+  "files_scanned": 55,
+  "syntax_files": [
+    "scope_page_state.js",
+    "scope_cdp.mjs",
+    "scope_grants_readonly.js",
+    "scope_session_probe.mjs",
+    "scope_login_selfheal.mjs",
+    "scope_manual_view.mjs",
+    "test_scope_grants.mjs",
+    "scope_health_init.js",
+    "fetch_official_scope.py",
+    "scope_login_diagnostics.mjs",
+    "prepare_scope_evidence.py",
+    "validate_scope_evidence.py",
+    "remote_readback.py",
+    "test_scope_tool_policy.mjs",
+    "scope_tool_policy.mjs"
+  ],
+  "report_bytes": 15246,
+  "report_sha256": "92b0b9e892939082b7ff69f8b1e097875a456c05ce00781e2d552a58629b9e41",
+  "artifact_only_verification": true,
+  "live_scope_verified": false,
+  "live_scope_mutations": 0,
+  "device_actions": 0
+}

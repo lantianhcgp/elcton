@@ -1,0 +1,102 @@
+  
+Permission 
+
+
+java.lang.Object 
+|---com.huawei.wearengine.auth.Permission 
+public class Permission
+extends java.lang.Object
+implements android.os.Parcelable    
+Wear Engine的权限对象，封装了Wear Engine指定的权限，当前包含DEVICE_MANAGER、MOTION_SENSOR、NOTIFY、SENSOR和WEAR_USER_STATUS权限。 
+申请权限的操作请参见开发指南。 
+Field Summary 
+
+Modifier and Type  
+Field and Description    
+
+
+static Permission  
+
+DEVICE_MANAGER 设备基础信息：扫描、配对、解配对设备；获取设备状态、可用空间、电量状态、充电状态；手机侧应用和穿戴设备侧应用双向传输消息和文件。   
+
+
+static Permission  
+
+MOTION_SENSOR 运动传感器：打开、关闭设备侧传感器，读取运动传感器数据，例如ACC、GYRO、MAG等。   
+
+
+static Permission  
+
+NOTIFY 消息通知：发送模板化消息给设备；当使用NotifyClient相关的API的时候，需要申请该权限。   
+
+
+static Permission  
+
+SENSOR 人体传感器：打开、关闭设备侧传感器，读取人体传感器数据，例如ECG、PPG等。   
+
+
+static Permission  
+
+WEAR_USER_STATUS 穿戴用户状态：查询和订阅用户佩戴状态；订阅用户心率告警。   
+
+
+static Permission  
+
+DEVICE_SN 设备序列号：获取已配对穿戴设备的序列号。       
+Method Summary 
+
+Modifier and Type  
+Method and Description    
+
+
+java.lang.String  
+
+getName() 获取权限名称。       
+Field Detail 
+[h2]DEVICE_MANAGER
+public static final Permission DEVICE_MANAGER 
+设备基础信息：扫描、配对、解配对设备；获取设备状态、可用空间、电量状态、充电状态；手机侧应用和穿戴设备侧应用双向传输消息和文件。 
+当使用DeviceClient、P2pClient、MonitorClient相关的API时，需要申请该权限。 
+Since: 
+API level 0 (SDK 5.0.0.301) 
+  
+[h2]NOTIFY
+public static final Permission NOTIFY 
+消息通知：发送模板化消息给设备；当使用NotifyClient相关的API的时候，需要申请该权限。 
+Since: 
+API level 2 (SDK 5.0.1.300) 
+  
+[h2]SENSOR
+public static final Permission SENSOR 
+人体传感器：打开、关闭设备侧传感器，读取传感器数据，例如ECG、PPG等。 
+当使用SensorClient相关API的时候，需要申请该权限。 
+Since: 
+API level 2 (SDK 5.0.1.300) 
+  
+[h2]MOTION_SENSOR
+public static final Permission MOTION_SENSOR 
+运动传感器：打开、关闭设备侧传感器，读取运动传感器数据，例如ACC、GYRO、MAG等。 
+当使用SensorClient相关API时，需要申请该权限。 
+Since: 
+API level 6 (SDK 5.0.1.302)  
+[h2]WEAR_USER_STATUS
+public static final Permission WEAR_USER_STATUS 
+穿戴用户状态：查询和订阅用户佩戴状态；订阅用户心率告警。 
+当使用MonitorClient相关的API时，需要申请该权限。 
+Since: 
+API level 6 (SDK 5.0.1.302)  
+[h2]DEVICE_SN
+public static final Permission DEVICE_SN 
+设备序列号：获取已配对穿戴设备的序列号。 
+当需要获取设备序列号时，需要申请该权限。 
+Since: 
+API level 11 (SDK 5.0.2.310)  
+Method Detail 
+[h2]getName
+public java.lang.String getName() 
+获取权限名称。 
+Returns: 
+权限名称 
+Since: 
+API level 0 (SDK 5.0.0.301) 
+   

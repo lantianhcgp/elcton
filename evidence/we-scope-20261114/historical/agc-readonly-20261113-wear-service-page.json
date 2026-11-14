@@ -1,0 +1,47 @@
+{
+  "checked_at": "2026-11-13T07:21:12.589Z",
+  "app_id": "118599721",
+  "project_id": "101653523864732872",
+  "scope": "read-only Wear Engine list; no reapply",
+  "sessionReady": {
+    "csrfPresent": true,
+    "developerPresent": true
+  },
+  "http_status": 200,
+  "resultCode": 0,
+  "response_keys": [
+    "resultCode",
+    "appAbsList",
+    "retCount",
+    "totalCount"
+  ],
+  "total": 1,
+  "returned_count": 1,
+  "target_count": 1,
+  "targets": [
+    {
+      "app_id": "118599721",
+      "name": "hc课程表",
+      "packageName": "com.hcbiu.elcton",
+      "prodType": 1,
+      "serviceState": 3,
+      "service_keys": [
+        "maxID",
+        "srvSerialNo",
+        "prodSerialNo",
+        "serviceItem",
+        "openState",
+        "serviceAttrs",
+        "createTime",
+        "updateTime",
+        "serviceState",
+        "prodID",
+        "prodType"
+      ]
+    }
+  ],
+  "visibleStatePhrases": [
+    "已开通"
+  ],
+  "verified": true
+}

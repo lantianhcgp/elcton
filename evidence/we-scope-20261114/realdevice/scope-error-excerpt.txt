@@ -1,0 +1,4 @@
+17|11-14 09:59:27.527 I/WearEngine_ApiLevelUtil(26578): isServiceSupport apiName:device_get_common_device
+18|11-14 09:59:27.527 I/WearEngine_ApiLevelUtil(26578): isServiceSupport serviceApiLevel: 14, minSupportApiLevel:8
+21|11-14 09:59:27.545 W/ElctonWear(26578): 2026-11-14T01:59:27.544Z · getCommonDevice
+22|11-14 09:59:27.545 W/ElctonWear(26578): exception: com.huawei.wearengine.WearEngineException [errorCode=8]: Scope unauthorized

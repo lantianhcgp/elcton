@@ -1,0 +1,33 @@
+{
+  "files": [
+    {
+      "path": "historical/01-官方接入证据.md",
+      "bytes": 36521,
+      "sha256": "360834918f011da1b2992a3eb1fd4e6574d0e9c5bd272ef0ffd9b25b793db41d",
+      "source": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/01-官方接入证据.md",
+      "historical_only": true
+    },
+    {
+      "path": "historical/04-控制台配置核对.md",
+      "bytes": 4783,
+      "sha256": "10c6c0046f06409deac85785b5a56b0590da3780cf4567492411601c1e706039",
+      "source": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/04-控制台配置核对.md",
+      "historical_only": true
+    },
+    {
+      "path": "historical/agc-readonly-20261113-wear-grants.json",
+      "bytes": 804,
+      "sha256": "413ec16f1ecd3584ebcee968505ad750617c62dbeb63e44d694ae56ebec5cc1f",
+      "source": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/console/agc-readonly-20261113-wear-grants.json",
+      "historical_only": true
+    },
+    {
+      "path": "historical/agc-readonly-20261113-wear-service-page.json",
+      "bytes": 950,
+      "sha256": "77eafac2e7edf06fa86dc930fd9ab0527faa42d5b49d6943c0258fea5e361431",
+      "source": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/console/agc-readonly-20261113-wear-service-page.json",
+      "historical_only": true
+    }
+  ],
+  "note": "Historical readback is not a current server read. Missing values must remain unknown."
+}

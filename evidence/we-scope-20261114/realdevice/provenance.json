@@ -1,0 +1,16 @@
+{
+  "source": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/probe-logcat-scope unauthorized-20261114.txt",
+  "bytes": 254020,
+  "sha256": "9d130adfc476d39aad6b5b326b3a9b31e47ec997ac5c69771e74d95b6e9c5377",
+  "selected_lines": [
+    17,
+    18,
+    21,
+    22
+  ],
+  "excerpt_sha256": "02d71ac0073109ec6ff8e4752058fa48feb4ae8bbeab978fe5e5bd8304e6a406",
+  "capture_date": "2026-11-14",
+  "excerpt_prepared_at": "2026-11-14T10:32:48.520927+08:00",
+  "capture_by_this_task": false,
+  "note": "Original capture supplied by initiator; only verbatim relevant lines are published. No new device operation."
+}

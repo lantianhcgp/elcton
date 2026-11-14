@@ -1,0 +1,284 @@
+{
+  "excludes": [
+    "MANIFEST.sha256.json",
+    "validation.json"
+  ],
+  "file_count": 55,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "bytes": 136,
+      "sha256": "3679035aa08a223c4d1af8d93335c6e4248dc48c39ade0963f121f75d5e3b0ea"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2325,
+      "sha256": "a03c755b4262a67dd412559c5f7117cd88de2ada8e5fa90eb719feb4e96c5532"
+    },
+    {
+      "path": "Scope修复报告.md",
+      "bytes": 15246,
+      "sha256": "92b0b9e892939082b7ff69f8b1e097875a456c05ce00781e2d552a58629b9e41"
+    },
+    {
+      "path": "closeout.json",
+      "bytes": 230,
+      "sha256": "781415cdfd84a2544e004c6b0e4f66058222bb2ce4356ab706d66cd99f4ef163"
+    },
+    {
+      "path": "frontend/apply-2c5c1eb5.js",
+      "bytes": 24401,
+      "sha256": "743a252edc79a69bfe744c4a35b451584cbc6a1795146f09bdf38c930cf37945"
+    },
+    {
+      "path": "frontend/detail-8a7f4f7e.js",
+      "bytes": 8967,
+      "sha256": "42fd70e9a68039d8bee50e44d3d1c11cff084665780f92dabef99ec76bd9da12"
+    },
+    {
+      "path": "frontend/openApp-e28e3654.js",
+      "bytes": 407,
+      "sha256": "64fc14fa46604c3fd000b5629b37b6f5a65914b0d666a0338ac598839a7de262"
+    },
+    {
+      "path": "frontend/optionConvertor-564e31fb.js",
+      "bytes": 898,
+      "sha256": "2fa7daaaabd0d9e071dde99b48f9549f7d98be443581fa2743ff256c81f63e1f"
+    },
+    {
+      "path": "frontend/scope-list-excerpt.txt",
+      "bytes": 941,
+      "sha256": "9f6175dd79a027b9e59e6790b3ca98ce0408253e3ff1ffd5ebbe60d62805e2c6"
+    },
+    {
+      "path": "frontend/serviceIndexConfig-444e4b32.js",
+      "bytes": 2086,
+      "sha256": "eb2a06c6f93c86edf9436357c74cd23694725483951c1c8d9826e7f5ec508d61"
+    },
+    {
+      "path": "frontend/source-verification.json",
+      "bytes": 3027,
+      "sha256": "0489cf757445f4be1ba3874f71c51278fc2b0a81e4d3a5a5657932a7258482ca"
+    },
+    {
+      "path": "frontend/wearEngineCheckBox-50a2e529.js",
+      "bytes": 11970,
+      "sha256": "6818060f0519bcc2bdb47b93f02c91a24f4784c80e9eecd6bd7502ff8865d43e"
+    },
+    {
+      "path": "grants-blocked.json",
+      "bytes": 100,
+      "sha256": "30df32f70ebb6c82a1fdd74dea9486db1a7cb0460819a4f68e3b244cb33984bd"
+    },
+    {
+      "path": "historical/01-官方接入证据.md",
+      "bytes": 36521,
+      "sha256": "360834918f011da1b2992a3eb1fd4e6574d0e9c5bd272ef0ffd9b25b793db41d"
+    },
+    {
+      "path": "historical/04-控制台配置核对.md",
+      "bytes": 4783,
+      "sha256": "10c6c0046f06409deac85785b5a56b0590da3780cf4567492411601c1e706039"
+    },
+    {
+      "path": "historical/agc-readonly-20261113-wear-grants.json",
+      "bytes": 804,
+      "sha256": "413ec16f1ecd3584ebcee968505ad750617c62dbeb63e44d694ae56ebec5cc1f"
+    },
+    {
+      "path": "historical/agc-readonly-20261113-wear-service-page.json",
+      "bytes": 950,
+      "sha256": "77eafac2e7edf06fa86dc930fd9ab0527faa42d5b49d6943c0258fea5e361431"
+    },
+    {
+      "path": "historical/provenance.json",
+      "bytes": 1496,
+      "sha256": "981666368635b696719bbd9b175b1290e17683d03eece9387aaad3be115f6a37"
+    },
+    {
+      "path": "local-fixture-tests.json",
+      "bytes": 196,
+      "sha256": "aaa3c4f07d1ed008e449d710a61e93e0c0588aed7dd7edda22717bb0ae8a50f3"
+    },
+    {
+      "path": "local-tool-policy-tests.json",
+      "bytes": 159,
+      "sha256": "9912846ccf527173b24fcec0de50aecd8edc305632036ae599a9f929568b50a5"
+    },
+    {
+      "path": "login-original-final-diagnostics.json",
+      "bytes": 885,
+      "sha256": "c18d8e450bf5f33e975871e8cb763c4f3891b641ef278a3dd30a7c9e485f3e12"
+    },
+    {
+      "path": "login-selfheal-original-profile.json",
+      "bytes": 280,
+      "sha256": "393084741c21c2a271ac2b57520145285ab521406ff47923dca4da3eb27a2ca6"
+    },
+    {
+      "path": "login-selfheal.json",
+      "bytes": 301,
+      "sha256": "03519e953c400f64e556eb53624c2530e90de98efd2df0aae28fee8576e48b6a"
+    },
+    {
+      "path": "official/applying-wearengine-0000001050777982.json",
+      "bytes": 17725,
+      "sha256": "2759f986e24c937e43cbaec053c0a0992d1c8987f23b99ba9adefa0998489bc1"
+    },
+    {
+      "path": "official/applying-wearengine-0000001050777982.txt",
+      "bytes": 6234,
+      "sha256": "1deb98b873a9fb3da3a1199bf2157e4f5f33a3787868cb72f5042e4c63a3427f"
+    },
+    {
+      "path": "official/device-connection-management-0000001050779152.json",
+      "bytes": 26200,
+      "sha256": "8a61226b287ab9db40418932c92927171155b24ffeb75e27fa81213f8a8e5580"
+    },
+    {
+      "path": "official/device-connection-management-0000001050779152.txt",
+      "bytes": 10850,
+      "sha256": "d60f8c14a2cc54391cba6dcdc1bfbc3a608a2dfc83bc5d80187a37cfd2347c94"
+    },
+    {
+      "path": "official/faq-0000001050818031.json",
+      "bytes": 15426,
+      "sha256": "cfb7471302b9080efe2b2c9e51e0546016b05dd540f31b88b715196adf1449f5"
+    },
+    {
+      "path": "official/faq-0000001050818031.txt",
+      "bytes": 6050,
+      "sha256": "335d004c8bcfeb8952cf70dd5c0f5ca0a0c0d8d71f0d386f341bcf4257a9f6af"
+    },
+    {
+      "path": "official/permission-0000001059433005.json",
+      "bytes": 15945,
+      "sha256": "ab6f5dfb589aff5d3e7bd0a49637a78eebfa14179bf94e9d84b002d5d1f19271"
+    },
+    {
+      "path": "official/permission-0000001059433005.txt",
+      "bytes": 3242,
+      "sha256": "10fac76b721afc4cef0a1bab659775f6d306e406ad72fcc568724e68377e1616"
+    },
+    {
+      "path": "official/requesting-user-authorization-0000001050819181.json",
+      "bytes": 11105,
+      "sha256": "99f73d916a23e71f40e49b99b2f5067f02c428c31fa09c4e5dc58c3d91523e67"
+    },
+    {
+      "path": "official/requesting-user-authorization-0000001050819181.txt",
+      "bytes": 4578,
+      "sha256": "d36af28394c96101c670e170074167fd53acf5684f120057deccd7864fc77c2f"
+    },
+    {
+      "path": "realdevice/provenance.json",
+      "bytes": 633,
+      "sha256": "0d491e976038869ca2180cca16acf327560d24f5ed619b1118114df7c054d4cf"
+    },
+    {
+      "path": "realdevice/scope-error-excerpt.txt",
+      "bytes": 438,
+      "sha256": "02d71ac0073109ec6ff8e4752058fa48feb4ae8bbeab978fe5e5bd8304e6a406"
+    },
+    {
+      "path": "review-closeout.md",
+      "bytes": 2686,
+      "sha256": "bd835a22fc32b75e0dd15272937d274a35580a3aa6b63db3d5b04e1864d0d8d5"
+    },
+    {
+      "path": "session-after-original-selfheal.json",
+      "bytes": 369,
+      "sha256": "d96527033d3a6b29e379650fb0f9cdeaffb96ab526626533bfd9c32b6046284d"
+    },
+    {
+      "path": "session-before.json",
+      "bytes": 369,
+      "sha256": "64ce4b1a1ec9f36748de8f6ea3d9c5e6bd8104ee1992ae68681ac6752faa344c"
+    },
+    {
+      "path": "session-original-profile.json",
+      "bytes": 369,
+      "sha256": "83803c8ea33f385875760d3132dd2238b3b2a8b025d3d40c7e50d0da2dabf000"
+    },
+    {
+      "path": "session-prior-verified-probe.json",
+      "bytes": 115,
+      "sha256": "645ce648e231ed5e4e2694a738b0274293ce7271ca7ae4485b038f38455f6cb8"
+    },
+    {
+      "path": "tools/fetch_official_scope.py",
+      "bytes": 2489,
+      "sha256": "2cebae0397889842b8dec112fbaec97c639b28219ac5e65ed22e1ef22f048ea4"
+    },
+    {
+      "path": "tools/prepare_scope_evidence.py",
+      "bytes": 4715,
+      "sha256": "ba27aef394f455242832954c32d92ddf987cc54dd6226948b3362b67c1f4a77d"
+    },
+    {
+      "path": "tools/remote_readback.py",
+      "bytes": 4140,
+      "sha256": "1d152b069430f435a424e5380706b17ac8debd98e4266aa68cbaee8b36e8e923"
+    },
+    {
+      "path": "tools/scope_cdp.mjs",
+      "bytes": 3852,
+      "sha256": "51c58c3403d0e672d465e3abbb0fbd6d4c2cabb987c6e053a563c53d3efcc863"
+    },
+    {
+      "path": "tools/scope_grants_readonly.js",
+      "bytes": 2367,
+      "sha256": "9b6de6c58ca3598123e8945fd4f62fd9b3968e031f2b662c33b7904865495215"
+    },
+    {
+      "path": "tools/scope_health_init.js",
+      "bytes": 982,
+      "sha256": "ffd9a32c219cc42919c97d6526bdbff4586767272035d36140572c835b72b3d6"
+    },
+    {
+      "path": "tools/scope_login_diagnostics.mjs",
+      "bytes": 1388,
+      "sha256": "64e440c6d230de136d43147b8d552259a88ef9b6eabf12fec7ca269a48c7e8ba"
+    },
+    {
+      "path": "tools/scope_login_selfheal.mjs",
+      "bytes": 2486,
+      "sha256": "5eafd8203122dfc5eaae07192ef293843a560eafe3030fd8992efc0f13e6f796"
+    },
+    {
+      "path": "tools/scope_manual_view.mjs",
+      "bytes": 3811,
+      "sha256": "adbf668c02064305e127297e27b53851e3e3912396b308dcbe94942e2db94a8b"
+    },
+    {
+      "path": "tools/scope_page_state.js",
+      "bytes": 1415,
+      "sha256": "0dacb8e7d8d0e7501be14f2ffaca255f7d1ce6be832cbe5a702bccf52199a45a"
+    },
+    {
+      "path": "tools/scope_session_probe.mjs",
+      "bytes": 2267,
+      "sha256": "99710149394a2030bf6dfa2dcca3e0a2d0cbcfc294577bd3e5a2d9f7165f0d44"
+    },
+    {
+      "path": "tools/scope_tool_policy.mjs",
+      "bytes": 1750,
+      "sha256": "0a4384065a052cc100c31c31fe22653c514a9fb2f292e9b31f7766e640f909f5"
+    },
+    {
+      "path": "tools/test_scope_grants.mjs",
+      "bytes": 3079,
+      "sha256": "67e80256b7b98b43b97bbbc03a8f3c69e062f95950b423bba213f1715c305e79"
+    },
+    {
+      "path": "tools/test_scope_tool_policy.mjs",
+      "bytes": 2974,
+      "sha256": "06c7e0b18a38457744d4a5b69bca37f45410564c15d67bf70bce7d2a19c17487"
+    },
+    {
+      "path": "tools/validate_scope_evidence.py",
+      "bytes": 5017,
+      "sha256": "23795898bc6d2753532940dafeea32ef3306bdf9d1df3d1c27fe6a63a8ac6955"
+    }
+  ]
+}

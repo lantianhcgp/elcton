@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-11-14T02:26:05.744Z",
+  "app_id": "118599721",
+  "mutation_attempted": false,
+  "state": {
+    "origin": "https://id5.cloud.huawei.com",
+    "path": "/CAS/portal/loginAuth.html",
+    "hasPhone": true,
+    "hasPassword": true,
+    "hasSlider": false,
+    "needsCode": false,
+    "loginError": false,
+    "expired": false,
+    "agcConsole": false
+  },
+  "page": {
+    "text": "本网站使用 Cookie 功能，为您提供最佳的用户体验。了解更多\n华为账号登录\n\n二维码已过期\n\n刷新\n手机“控制中心”>“扫一扫”或者系统“设置”>“华为账号”>“扫一扫”。\n短信验证码登录\n登录\n注册\n忘记密码\n遇到问题\n\n华为账号用户协议|关于华为账号与隐私的声明|Cookies\n\n加载失败，点击重试\n\n取消\n重试",
+    "hasVisibleCaptcha": true,
+    "errorHints": []
+  }
+}

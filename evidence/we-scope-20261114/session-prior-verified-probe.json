@@ -1,0 +1,5 @@
+{
+  "http_status": 401,
+  "source": "previous verified private AGC session",
+  "scope_mutation_attempted": false
+}

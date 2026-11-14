@@ -1,0 +1,36 @@
+{
+  "checked_at": "2026-11-13T07:19:32.873Z",
+  "app_id": "118599721",
+  "project_id": "101653523864732872",
+  "scope": "read-only exact Wear Engine granted service",
+  "http_status": 200,
+  "resultCode": 0,
+  "verified": true,
+  "packageName": "com.hcbiu.elcton",
+  "service_item": 1062,
+  "open_state": 3,
+  "state_label": "已开通",
+  "attrs_keys": [
+    "approveStatus",
+    "betaPowerList",
+    "huaweiLogoIsShow",
+    "inAuditPowerList",
+    "isCompatible",
+    "isWechatApplet",
+    "passedPowerList",
+    "powerList",
+    "stateRange",
+    "updatedFiles",
+    "wearEngineBasicInfo"
+  ],
+  "granted": {
+    "powerList": [
+      "com.huawei.hiwear.devicemanager"
+    ],
+    "inAuditPowerList": [
+      "com.huawei.hiwear.devicemanager"
+    ],
+    "hasWearApp": null,
+    "deviceType": null
+  }
+}

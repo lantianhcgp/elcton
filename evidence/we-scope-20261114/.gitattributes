@@ -1,0 +1,3 @@
+# Immutable historical snapshots and official extraction keep original whitespace.
+historical/** -whitespace
+official/*.txt -whitespace

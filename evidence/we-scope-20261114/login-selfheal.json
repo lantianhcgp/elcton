@@ -1,0 +1,11 @@
+{
+  "status": "SLIDER-WAITING",
+  "hasSlider": true,
+  "submitted": true,
+  "remoteView": "http://127.0.0.1:8777",
+  "checked_at": "2026-11-14T02:12:54.840Z",
+  "app_id": "118599721",
+  "project_id": "101653523864732872",
+  "certificate_endpoints_called": false,
+  "scope_mutation_attempted": false
+}

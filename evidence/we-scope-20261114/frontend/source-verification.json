@@ -1,0 +1,70 @@
+{
+  "checked_at": "2026-11-14T10:32:50.500105+08:00",
+  "files": [
+    {
+      "path": "frontend/apply-2c5c1eb5.js",
+      "bytes": 24401,
+      "sha256": "743a252edc79a69bfe744c4a35b451584cbc6a1795146f09bdf38c930cf37945",
+      "url": "https://h5hosting-drcn.dbankcdn.cn/sandbox/cc/healthkit/cardPortal/js8I4UZXT1enTrlCW5QNEw/assets/apply-2c5c1eb5.js",
+      "http_status": 200,
+      "remote_equals_local": true,
+      "checked_at": "2026-11-14T10:32:48.930506+08:00"
+    },
+    {
+      "path": "frontend/detail-8a7f4f7e.js",
+      "bytes": 8967,
+      "sha256": "42fd70e9a68039d8bee50e44d3d1c11cff084665780f92dabef99ec76bd9da12",
+      "url": "https://h5hosting-drcn.dbankcdn.cn/sandbox/cc/healthkit/cardPortal/js8I4UZXT1enTrlCW5QNEw/assets/detail-8a7f4f7e.js",
+      "http_status": 200,
+      "remote_equals_local": true,
+      "checked_at": "2026-11-14T10:32:49.318126+08:00"
+    },
+    {
+      "path": "frontend/openApp-e28e3654.js",
+      "bytes": 407,
+      "sha256": "64fc14fa46604c3fd000b5629b37b6f5a65914b0d666a0338ac598839a7de262",
+      "url": "https://h5hosting-drcn.dbankcdn.cn/sandbox/cc/healthkit/cardPortal/js8I4UZXT1enTrlCW5QNEw/assets/openApp-e28e3654.js",
+      "http_status": 200,
+      "remote_equals_local": true,
+      "checked_at": "2026-11-14T10:32:49.646564+08:00"
+    },
+    {
+      "path": "frontend/optionConvertor-564e31fb.js",
+      "bytes": 898,
+      "sha256": "2fa7daaaabd0d9e071dde99b48f9549f7d98be443581fa2743ff256c81f63e1f",
+      "url": "https://h5hosting-drcn.dbankcdn.cn/sandbox/cc/healthkit/cardPortal/js8I4UZXT1enTrlCW5QNEw/assets/optionConvertor-564e31fb.js",
+      "http_status": 200,
+      "remote_equals_local": true,
+      "checked_at": "2026-11-14T10:32:49.958531+08:00"
+    },
+    {
+      "path": "frontend/serviceIndexConfig-444e4b32.js",
+      "bytes": 2086,
+      "sha256": "eb2a06c6f93c86edf9436357c74cd23694725483951c1c8d9826e7f5ec508d61",
+      "url": "https://h5hosting-drcn.dbankcdn.cn/sandbox/cc/healthkit/cardPortal/js8I4UZXT1enTrlCW5QNEw/assets/serviceIndexConfig-444e4b32.js",
+      "http_status": 200,
+      "remote_equals_local": true,
+      "checked_at": "2026-11-14T10:32:50.235112+08:00"
+    },
+    {
+      "path": "frontend/wearEngineCheckBox-50a2e529.js",
+      "bytes": 11970,
+      "sha256": "6818060f0519bcc2bdb47b93f02c91a24f4784c80e9eecd6bd7502ff8865d43e",
+      "url": "https://h5hosting-drcn.dbankcdn.cn/sandbox/cc/healthkit/cardPortal/js8I4UZXT1enTrlCW5QNEw/assets/wearEngineCheckBox-50a2e529.js",
+      "http_status": 200,
+      "remote_equals_local": true,
+      "checked_at": "2026-11-14T10:32:50.497554+08:00"
+    }
+  ],
+  "scope_ids": [
+    "com.huawei.hiwear.devicemanager",
+    "com.huawei.hiwear.notification",
+    "com.huawei.hiwear.wearuserstatus",
+    "com.huawei.hiwear.motionsensor",
+    "com.huawei.hiwear.sensors",
+    "com.huawei.hiwear.startremoteapp"
+  ],
+  "scope_count": 6,
+  "per_api_get_common_device_checkbox_found": false,
+  "claim_scope": "This permission component and its apply/detail callers; not every Huawei backend"
+}
