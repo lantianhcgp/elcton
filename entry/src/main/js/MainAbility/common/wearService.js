@@ -32,10 +32,10 @@ function service(identity, protocol, engine) {
                 try {
                     function fingerprint() {
                         if (finished || !live()) { return; }
-                        engine.setFingerprint({appName: identity.phonePackage, appCert: identity.phoneFingerprint,
+                        try { engine.setFingerprint({appName: identity.phonePackage, appCert: identity.phoneFingerprint,
                             fail: function (d, c) { finish(code('CERT', c)); }, complete: function () {
                                 if (finished || !live()) { return; } mark('CERT'); subscribe();
-                            }});
+                            }}); } catch (e) { finish('CONFIG_UNAVAILABLE'); }
                     }
                     if (serviceVersion >= 303) {
                         engine.setPackageName({appName: identity.phonePackage,
