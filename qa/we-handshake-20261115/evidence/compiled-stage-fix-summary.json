@@ -1,0 +1,68 @@
+{
+  "status": "FIX_IMPLEMENTED_BOUNDARY_UTILITY_VERIFIED_PENDING_PARENT_SPEC_THEN_QUALITY",
+  "started_epoch": 1794703208,
+  "code_stopped_epoch": 1794703372,
+  "code_window_seconds": 164,
+  "evidence_recorded_epoch": 1794703413,
+  "evidence_elapsed_seconds": 205,
+  "scope": [
+    "qa/we-handshake-20261115/compiled-we-stages.mjs",
+    "NEWtests/compiledWeStages.test.mjs",
+    "qa/we-handshake-20261115/evidence/compiled-stage-fix*"
+  ],
+  "changes": {
+    "SPEC-B1": "candidate report remains local until resolved path, realpath, and existing-file bigint dev/ino collision checks pass; colliding failures never assign out or write input",
+    "SPEC-N1": "numeric stage rows validated in local safeRows before attachment to report; rejected msg is not serialized"
+  },
+  "sha256": {
+    "runner_before": "44f2b4485a4877cfaa1be9d88e9d3a72d80690864a198dbb5d69afd8a5c11654",
+    "runner_after": "d666084ff1e7c01b062aa6faeb1d938f584b4e7137a7efd6595e1213429f42a9",
+    "NEWtests/compiledWeStages.test.mjs": "32383c814d6dacfec69315a4e011d38e6581bfbf03ad867c08e1011092f9896d",
+    "readonly_tests/compiledWeStages.test.mjs": "5da866d0f5d41ae45a612fcb561a80b30f02ec9bcbe7c3a8dfea83714d37f73d",
+    "red_final": "1650d256b34a1203f2d21d6864067223cfe3bf897a1303a087f65caef95d00ba",
+    "green": "aed78fde8783c0a3bd401174e530cff5e179c1912eb8e7de818c38bc5b09722a"
+  },
+  "RED": {
+    "command": "node --test --test-reporter=tap NEWtests/compiledWeStages.test.mjs",
+    "exit_code": 1,
+    "tests": 6,
+    "passed": 0,
+    "failed": 5,
+    "skipped": 1,
+    "log": "compiled-stage-fix-red-final.tap",
+    "initial_log": "compiled-stage-fix-red.tap",
+    "failures": [
+      "same path overwrites NEW sentinel",
+      "symlink overwrites NEW sentinel",
+      "symlink parent overwrites NEW sentinel",
+      "isolated same dev/ino guard missing",
+      "rejected msg attached before validation"
+    ]
+  },
+  "GREEN": {
+    "command": "node --test --test-reporter=tap tests/compiledWeStages.test.mjs NEWtests/compiledWeStages.test.mjs",
+    "exit_code": 0,
+    "tests": 10,
+    "passed": 9,
+    "failed": 0,
+    "skipped": 1,
+    "original_utilities_passed": 4,
+    "NEW_checks_passed": 5,
+    "log": "compiled-stage-fix-green.tap",
+    "syntax_checks": "node --check runner and NEW test both successful"
+  },
+  "limitations": [
+    "Actual hardlink CLI creation blocked by Android filesystem EACCES; conditional test explicitly skips, isolated same-inode source-block test is not actual hardlink execution",
+    "No actual APP available per delegated CI failure context; no CI query or actual APP execution performed",
+    "SPEC-N2 per-path callback and close evidence remains pending actual APP; SPEC-N3 keep/off logger evidence remains pending actual APP",
+    "No atomic race/TOCTOU guarantee added; this delta targets pre-existing same-path/realpath/inode aliases only"
+  ],
+  "actual_app_acceptance": "PENDING_NOT_RUN",
+  "actual_stage_pass": false,
+  "native_verified": false,
+  "real_https": false,
+  "real_bluetooth": false,
+  "new_ci_provenance_verified": false,
+  "preserved": "stage keys and callback/files modeling unchanged; product, old38 tests, CI, raw, SDK, gates untouched; no private app/config reads; no auth/network; no commit or push",
+  "next": "Parent independently reviews new delta SPEC then QUALITY; do not infer actual APP stages from utilities or isolated synthetic checks"
+}

@@ -1,0 +1,70 @@
+TAP version 13
+# Subtest: NEW CLI collision rejects same-path without mutating input (NOT actualAPP acceptance)
+ok 1 - NEW CLI collision rejects same-path without mutating input (NOT actualAPP acceptance)
+  ---
+  duration_ms: 332.767916
+  type: 'test'
+  ...
+# Subtest: NEW CLI collision rejects symlink without mutating input (NOT actualAPP acceptance)
+ok 2 - NEW CLI collision rejects symlink without mutating input (NOT actualAPP acceptance)
+  ---
+  duration_ms: 290.850885
+  type: 'test'
+  ...
+# Subtest: NEW CLI collision rejects hardlink without mutating input (NOT actualAPP acceptance)
+ok 3 - NEW CLI collision rejects hardlink without mutating input (NOT actualAPP acceptance) # SKIP actual hardlink creation blocked by filesystem: EACCES
+  ---
+  duration_ms: 1.67375
+  type: 'test'
+  ...
+# Subtest: NEW CLI collision rejects symlink-parent without mutating input (NOT actualAPP acceptance)
+ok 4 - NEW CLI collision rejects symlink-parent without mutating input (NOT actualAPP acceptance)
+  ---
+  duration_ms: 289.867031
+  type: 'test'
+  ...
+# Subtest: NEW isolated inode boundary rejects same dev/ino without publishing output (NOT actual hardlink CLI execution)
+ok 5 - NEW isolated inode boundary rejects same dev/ino without publishing output (NOT actual hardlink CLI execution)
+  ---
+  duration_ms: 7.621718
+  type: 'test'
+  ...
+# Subtest: NEW isolated row-publication block rejects invalid msg before attaching it (NOT compiled APP execution)
+ok 6 - NEW isolated row-publication block rejects invalid msg before attaching it (NOT compiled APP execution)
+  ---
+  duration_ms: 8.292188
+  type: 'test'
+  ...
+# Subtest: stage HOST runner exists and is import-inert (NOT an actualAPP acceptance)
+ok 7 - stage HOST runner exists and is import-inert (NOT an actualAPP acceptance)
+  ---
+  duration_ms: 279.448385
+  type: 'test'
+  ...
+# Subtest: SYNTHETIC clock adapter: timer zero and self-cleared intervals
+ok 8 - SYNTHETIC clock adapter: timer zero and self-cleared intervals
+  ---
+  duration_ms: 43.62875
+  type: 'test'
+  ...
+# Subtest: CLI rejects network options without executing supplied bytes
+ok 9 - CLI rejects network options without executing supplied bytes
+  ---
+  duration_ms: 312.288177
+  type: 'test'
+  ...
+# Subtest: CLI help excludes native and HTTPS acceptance
+ok 10 - CLI help excludes native and HTTPS acceptance
+  ---
+  duration_ms: 315.518282
+  type: 'test'
+  ...
+1..10
+# tests 10
+# suites 0
+# pass 9
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 1383.916614

@@ -1,0 +1,42 @@
+[
+  {
+    "engine_path": "/data/data/com.termux/files/home/liubai-s67-native-jerry/build-s67-clang-512/bin/jerry",
+    "engine_sha256": "b6ce31b0b11e0ecc2011b1b85590eb3e9bb1315a96c01aa3704b522ba85cdd30",
+    "scope": "same-source local control NOT exactSDK/FIT3",
+    "source": "old",
+    "source_sha256": "787a251ee68bb104df111415fca13b60f83d4643ae719323676a5e2fd091ddf3",
+    "returncode": 0,
+    "stdout_hex": "",
+    "stderr_hex": ""
+  },
+  {
+    "engine_path": "/data/data/com.termux/files/home/liubai-s67-native-jerry/build-s67-clang-512/bin/jerry",
+    "engine_sha256": "b6ce31b0b11e0ecc2011b1b85590eb3e9bb1315a96c01aa3704b522ba85cdd30",
+    "scope": "same-source local control NOT exactSDK/FIT3",
+    "source": "new",
+    "source_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "returncode": 1,
+    "stdout_hex": "",
+    "stderr_hex": "536372697074204572726f723a206e756c6c0a"
+  },
+  {
+    "engine_path": "/data/data/com.termux/files/home/liubai-s67-native-jerry/build-s67-effective512/bin/jerry",
+    "engine_sha256": "4746ad8cfe8cf48fa0e0dd80611c7cafb5c336478bfa500adf088183fe79220f",
+    "scope": "same-source local control NOT exactSDK/FIT3",
+    "source": "old",
+    "source_sha256": "787a251ee68bb104df111415fca13b60f83d4643ae719323676a5e2fd091ddf3",
+    "returncode": 0,
+    "stdout_hex": "",
+    "stderr_hex": ""
+  },
+  {
+    "engine_path": "/data/data/com.termux/files/home/liubai-s67-native-jerry/build-s67-effective512/bin/jerry",
+    "engine_sha256": "4746ad8cfe8cf48fa0e0dd80611c7cafb5c336478bfa500adf088183fe79220f",
+    "scope": "same-source local control NOT exactSDK/FIT3",
+    "source": "new",
+    "source_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "returncode": 0,
+    "stdout_hex": "",
+    "stderr_hex": ""
+  }
+]

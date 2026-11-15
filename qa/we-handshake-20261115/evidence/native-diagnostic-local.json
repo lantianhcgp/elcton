@@ -1,0 +1,8 @@
+{
+  "syntax": true,
+  "positive_public_fixture_n": 3,
+  "unknown_sdk_rejected_before_parse": true,
+  "no_report_after_reject": true,
+  "no_product_change": true,
+  "scope": "synthetic gate fixture + unknown interpreter refusal only; not positive exact SDK"
+}

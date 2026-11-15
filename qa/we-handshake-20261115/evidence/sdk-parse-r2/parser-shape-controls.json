@@ -1,0 +1,54 @@
+[
+  {
+    "name": "join-vars-only",
+    "scope": "DIAGNOSTIC ONLY no exactSDK acceptance, source semantics must be verified before use",
+    "compress": {
+      "defaults": false,
+      "join_vars": true,
+      "ecma": 5,
+      "keep_classnames": true,
+      "keep_fnames": true
+    },
+    "before_bytes": 46653,
+    "after_bytes": 46081,
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "1351cc89569bca70ec128bfa8077139b2604ce93bbad52478e7dfa85f9ca48ac",
+    "returncode": 1,
+    "stderr": "Script Error: null\nHeap stats:\n  Heap size = 49144 bytes\n  Allocated = 0 bytes\n  Peak allocated = 48400 bytes\n  Waste = 0 bytes\n  Peak waste = 1759 bytes\n  Allocated byte code data = 0 bytes\n  Peak allocated byte code data = 26784 bytes\n  Allocated string data = 0 bytes\n  Peak allocated string data = 9918 bytes\n  Allocated object data = 0 bytes\n  Peak allocated object data = 128 bytes\n  Allocated property data = 0 bytes\n  Peak allocated property data = 96 bytes\n"
+  },
+  {
+    "name": "sequences-only",
+    "scope": "DIAGNOSTIC ONLY no exactSDK acceptance, source semantics must be verified before use",
+    "compress": {
+      "defaults": false,
+      "sequences": 20,
+      "ecma": 5,
+      "keep_classnames": true,
+      "keep_fnames": true
+    },
+    "before_bytes": 46653,
+    "after_bytes": 46993,
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "2e139e226a71b5cb59a17d48c4a59ca3a051287aebb37095b3c9d67b919b0054",
+    "returncode": 1,
+    "stderr": "Script Error: null\nHeap stats:\n  Heap size = 49144 bytes\n  Allocated = 0 bytes\n  Peak allocated = 48368 bytes\n  Waste = 0 bytes\n  Peak waste = 1757 bytes\n  Allocated byte code data = 0 bytes\n  Peak allocated byte code data = 26976 bytes\n  Allocated string data = 0 bytes\n  Peak allocated string data = 9918 bytes\n  Allocated object data = 0 bytes\n  Peak allocated object data = 128 bytes\n  Allocated property data = 0 bytes\n  Peak allocated property data = 96 bytes\n"
+  },
+  {
+    "name": "join-vars-sequences",
+    "scope": "DIAGNOSTIC ONLY no exactSDK acceptance, source semantics must be verified before use",
+    "compress": {
+      "defaults": false,
+      "join_vars": true,
+      "sequences": 20,
+      "ecma": 5,
+      "keep_classnames": true,
+      "keep_fnames": true
+    },
+    "before_bytes": 46653,
+    "after_bytes": 46688,
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "6a55847cb145baa8c63080b87ec2cdbb44e02cb6fe44c530dd8eb0875421b4ae",
+    "returncode": 1,
+    "stderr": "Script Error: null\nHeap stats:\n  Heap size = 49144 bytes\n  Allocated = 0 bytes\n  Peak allocated = 48376 bytes\n  Waste = 0 bytes\n  Peak waste = 1760 bytes\n  Allocated byte code data = 0 bytes\n  Peak allocated byte code data = 26976 bytes\n  Allocated string data = 0 bytes\n  Peak allocated string data = 9923 bytes\n  Allocated object data = 0 bytes\n  Peak allocated object data = 128 bytes\n  Allocated property data = 0 bytes\n  Peak allocated property data = 96 bytes\n"
+  }
+]

@@ -1,0 +1,38 @@
+{
+  "scope": "Counterfactual original compiled page module-omission controls, not functional or installable; exactSDK unchanged",
+  "sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+  "rows": [
+    {
+      "non_deliverable_control_removed_module": "559",
+      "bytes": 42872,
+      "sha256": "0e87bdd86182840cbd3db01e2a270976da33cc4af2f8ce6b476208642a62101b",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "non_deliverable_control_removed_module": "853",
+      "bytes": 44389,
+      "sha256": "2b504f32a7e733c5204d1237771f000e6a5224679bfd3cdf98e3be706e69757d",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "non_deliverable_control_removed_module": "785",
+      "bytes": 45869,
+      "sha256": "4f3ec6ad3fae6b68a717b6609c7cdaf95f57c3bad717dc44c6ee2c5a24e09459",
+      "returncode": 1,
+      "stdout_bytes": 0,
+      "stderr_bytes": 19
+    },
+    {
+      "non_deliverable_control_removed_module": "235",
+      "bytes": 37396,
+      "sha256": "22070ee63ec04ab64d8ace41d925f121c436cacc62b5fbc85514fc5fa242c145",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    }
+  ]
+}

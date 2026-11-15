@@ -1,0 +1,87 @@
+{
+  "run_id": "43653381875",
+  "artifact_id": 14137340964,
+  "artifact_name": "FAILED-NOT-FOR-INSTALL-we-sdk-70092ba68794b8c4ef905f64e0f676887d9ef703",
+  "source_sha": "70092ba68794b8c4ef905f64e0f676887d9ef703",
+  "actual_app": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/ci-failure-43653381875/elcton-default-unsigned.app",
+  "app_sha256": "beb94482fd6b1982ed5697e1247c8db26a5623cdc08ea710af708e991719a159",
+  "rows": [
+    {
+      "path": "assets/js/MainAbility/app.js",
+      "bytes": 16398,
+      "sha256": "cb7bed669b5b8a509a712c3a4136fa2c73af2caa092be3cdc225d860a7322479",
+      "status": "completed",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_text": "",
+      "stderr_text": ""
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js",
+      "bytes": 10614,
+      "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e",
+      "status": "completed",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_text": "",
+      "stderr_text": ""
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js",
+      "bytes": 35072,
+      "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6",
+      "status": "completed",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_text": "",
+      "stderr_text": ""
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js",
+      "bytes": 36851,
+      "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23",
+      "status": "completed",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_text": "",
+      "stderr_text": ""
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 46653,
+      "sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+      "status": "completed",
+      "returncode": 10,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_text": "",
+      "stderr_text": ""
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js",
+      "bytes": 43685,
+      "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5",
+      "status": "completed",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_text": "",
+      "stderr_text": ""
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js",
+      "bytes": 41651,
+      "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260",
+      "status": "completed",
+      "returncode": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0,
+      "stdout_text": "",
+      "stderr_text": ""
+    }
+  ]
+}

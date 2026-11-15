@@ -1,0 +1,23 @@
+{
+  "kind": "unchanged exact7cb8SDK QEMU guest-loader execution, independent from frozen CI gate",
+  "sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+  "rows": [
+    {
+      "label": "old-1.1.15",
+      "returncode": 0,
+      "bytes": 40979,
+      "sha256": "787a251ee68bb104df111415fca13b60f83d4643ae719323676a5e2fd091ddf3",
+      "stderr_bytes": 167,
+      "stderr_short": "ERROR: ld.so: object '/data/data/com.termux/files/usr/lib/libtermux-exec-ld-preload.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.\n"
+    },
+    {
+      "label": "failed-1.1.16",
+      "returncode": 10,
+      "bytes": 46653,
+      "sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+      "stderr_bytes": 167,
+      "stderr_short": "ERROR: ld.so: object '/data/data/com.termux/files/usr/lib/libtermux-exec-ld-preload.so' from LD_PRELOAD cannot be preloaded (cannot open shared object file): ignored.\n"
+    }
+  ],
+  "expected_old0_failed10": true
+}

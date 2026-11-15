@@ -1,0 +1,12 @@
+✔ stage HOST runner exists and is import-inert (NOT an actualAPP acceptance) (298.884427ms)
+✔ SYNTHETIC clock adapter: timer zero and self-cleared intervals (48.497552ms)
+✔ CLI rejects network options without executing supplied bytes (308.453958ms)
+✔ CLI help excludes native and HTTPS acceptance (321.249271ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 4
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1383.668072

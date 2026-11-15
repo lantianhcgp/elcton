@@ -1,0 +1,14 @@
+{
+  "actual_app_acceptance": "PENDING",
+  "reason": "New actualSDK.app not available in delegated workspace during four-minute window. No test-run/fixture APP was substituted.",
+  "host_only": true,
+  "native": false,
+  "real_https": false,
+  "real_bluetooth": false,
+  "new_ci_provenance_verified": false,
+  "actual_vm_original_bytes": false,
+  "parent_action": "After NEW CI artifact arrives, node qa/we-handshake-20261115/compiled-we-stages.mjs --app /absolute/actualSDK.app --report qa/we-handshake-20261115/evidence/compiled-stage-actual.json",
+  "parent_checks_required": ["NEW CI source SHA", "artifact SHA and manifest identity", "same-identity HAP provenance", "SPEC then QUALITY"],
+  "qa_scope": "Only independent runner and NEW tests; no old gate or product edits. Synthetic adapter tests are not original-bundle acceptance.",
+  "implemented_path_unverified_without_app": ["Original app.js and phone-sync.js ZIP bytes run unchanged", "App-owned versioned path via actual page", "App-owned unversioned compat helper", "Original page HELLO listener and READY receiver", "Original logger status and safe stage request rows", "5s timer drains, 8-row request bound, max 24 drain ticks", "Numeric fail(210301031,0)", "Actual page show/hide/destroy keepScreenOn cleanup", "Timer zero and self-clear semantics", "App destroy/post-stop empty resources"]
+}

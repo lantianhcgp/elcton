@@ -1,0 +1,23 @@
+{
+  "kind": "Exact unchanged CI binary via QEMU x86 guest ABI, parse-only; not watch heap",
+  "sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+  "rows": [
+    {
+      "label": "old-1.1.15",
+      "source_sha256": "787a251ee68bb104df111415fca13b60f83d4643ae719323676a5e2fd091ddf3",
+      "bytes": 40979,
+      "returncode": 255,
+      "stdout_bytes": 0,
+      "stderr_bytes": 85
+    },
+    {
+      "label": "failed-1.1.16",
+      "source_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+      "bytes": 46653,
+      "returncode": 255,
+      "stdout_bytes": 0,
+      "stderr_bytes": 85
+    }
+  ],
+  "qemu": "/data/data/com.termux/files/usr/bin/qemu-x86_64"
+}

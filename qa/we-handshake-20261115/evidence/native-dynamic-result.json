@@ -1,0 +1,40 @@
+{
+  "startedAt": "2026-11-15T08:44:22+08:00",
+  "finishedAt": "2026-11-15T08:46:29.215888+08:00",
+  "scope": [
+    "scripts/share_we_compat_app.mjs",
+    "tests/weCompatSharingDynamicReachability.test.mjs",
+    "qa/we-handshake-20261115/evidence/native-dynamic-*"
+  ],
+  "guardAddedLines": 2,
+  "red": {
+    "exitCode": 1,
+    "tests": 5,
+    "pass": 1,
+    "fail": 4,
+    "reason": "Missing expected rejection (app/page eval and Function)",
+    "log": "native-dynamic-red.tap"
+  },
+  "packingGreen": {
+    "exitCode": 0,
+    "tests": 76,
+    "pass": 76,
+    "fail": 0,
+    "log": "native-dynamic-green-packing.tap"
+  },
+  "hashes": {
+    "scripts/share_we_compat_app.mjs": "914ac7f537ef8dcfdc04e732ccee173a7560494b2b19959a552a9f96a05a8c7b",
+    "tests/weCompatSharingDynamicReachability.test.mjs": "fb9c335e6a87949d2c3c51954db71f23d8247bebca666d41e96b882033fa4ddf"
+  },
+  "oldTestsUnchanged": true,
+  "oldTestFileCount": 47,
+  "outsideNativeScanTextUnchanged": true,
+  "checks": {
+    "nodeCheck": 0,
+    "gitDiffCheck": 0
+  },
+  "syntheticQA": true,
+  "actualSDKVerified": false,
+  "nativeVerified": false,
+  "notes": "No eval/Function payload execution. Reject AST Identifier names and exact Literal values eval/Function before exemption using original native regex/error. No original source gate, helper pin, owner, factory body, map, SDK/final gate, old tests, workflow, commit/push/browser/device/auth/review edits."
+}

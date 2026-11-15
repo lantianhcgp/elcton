@@ -1,0 +1,61 @@
+✔ fixed SDK stub is independently evidenced and helper stays fully pinned (6.947552ms)
+✖ accepts only unreferenced exact SDK declaration: function requireModule(moduleName){return requireNative(moduleName.slice(1))} (84.434271ms)
+✖ accepts only unreferenced exact SDK declaration: function requireModule(moduleName) { return requireNative(moduleName.slice(1)); } (25.990573ms)
+✔ rejects pageTail actual top-level requireNative (31.320885ms)
+✔ rejects appTail actual top-level requireNative (29.246093ms)
+✔ rejects pageTail requireModule invocation (15.694948ms)
+✔ rejects appTail requireModule invocation (13.34ms)
+✔ rejects pageTail other native call (11.321667ms)
+✔ rejects appTail other native call (12.575104ms)
+✔ rejects pageTail system module token (11.785156ms)
+✔ rejects appTail system module token (11.342344ms)
+✔ rejects pageTail renamed parameter (11.038385ms)
+✔ rejects appTail renamed parameter (13.457604ms)
+✔ rejects pageTail extra parameter (10.365729ms)
+✔ rejects appTail extra parameter (10.045469ms)
+✔ rejects pageTail multiple statements (12.121667ms)
+✔ rejects appTail multiple statements (11.984584ms)
+✔ rejects pageTail wrong slice argument (12.695833ms)
+✔ rejects appTail wrong slice argument (10.074062ms)
+✔ rejects pageTail computed slice member (10.709427ms)
+✔ rejects appTail computed slice member (9.52125ms)
+✔ rejects pageTail function expression (10.353021ms)
+✔ rejects appTail function expression (10.074635ms)
+✔ rejects pageTail nested declaration (13.259895ms)
+✔ rejects appTail nested declaration (10.32427ms)
+✔ rejects pageTail shadowed identifier (9.931407ms)
+✔ rejects appTail shadowed identifier (9.418385ms)
+✔ rejects pageTail reassignment (11.415625ms)
+✔ rejects appTail reassignment (15.228385ms)
+✔ rejects pageTail identifier alias (9.661459ms)
+✔ rejects appTail identifier alias (9.322708ms)
+✔ rejects pageTail duplicate declaration (9.904427ms)
+✔ rejects appTail duplicate declaration (9.681406ms)
+ℹ tests 33
+ℹ suites 0
+ℹ pass 31
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1085.042812
+
+✖ failing tests:
+
+test at tests/weCompatSharingNativeStub.test.mjs:29:110
+✖ accepts only unreferenced exact SDK declaration: function requireModule(moduleName){return requireNative(moduleName.slice(1))} (84.434271ms)
+  Error: page: native initialization in compat module
+      at inspect (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:29:51)
+      at shareCompatApp (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:149:14)
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharingNativeStub.test.mjs:31:11)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests/weCompatSharingNativeStub.test.mjs:29:110
+✖ accepts only unreferenced exact SDK declaration: function requireModule(moduleName) { return requireNative(moduleName.slice(1)); } (25.990573ms)
+  Error: page: native initialization in compat module
+      at inspect (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:29:51)
+      at shareCompatApp (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:149:14)
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharingNativeStub.test.mjs:31:11)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

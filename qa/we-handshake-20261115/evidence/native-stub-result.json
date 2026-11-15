@@ -1,0 +1,21 @@
+{
+  "baseHead": "a9359114d495848aadb920ad03c9bf29d26ee6a5",
+  "verificationReturnedAt": "2026-11-15T08:35:57.382332+08:00",
+  "deadline": "2026-11-15T08:35:09+08:00",
+  "deadlineMissed": true,
+  "syntheticQA": true,
+  "actualSDKVerified": false,
+  "nativeVerified": false,
+  "scope": ["scripts/share_we_compat_app.mjs", "tests/weCompatSharingNativeStub.test.mjs", "qa/we-handshake-20261115/evidence/native-stub-*"],
+  "implementationDiff": {"addedLines": 10, "removedLines": 1},
+  "red": {"log": "native-stub-red.tap", "tests": 33, "pass": 31, "fail": 2, "expectedFailure": "page: native initialization in compat module"},
+  "packingGreen": {"log": "native-stub-green-packing.tap", "tests": 74, "pass": 74, "fail": 0},
+  "source38Green": {"log": "native-stub-green-source38.tap", "files": 38, "tests": 356, "pass": 356, "fail": 0},
+  "hashes": {
+    "scripts/share_we_compat_app.mjs": "9b44bf47f4cfc8ac37ee38d0ef771ea1420e8dc17c516ae6695873fc44bae625",
+    "tests/weCompatSharingNativeStub.test.mjs": "e8687cef0cfeccebe6a0db7452a467f0ff4411137667b5e395db9423cc63264c",
+    "unchangedFactoryBody": "5cb48bd88d4a57bfd72c87a4572743af67725d8dd2c60217fc5817e6b194f529"
+  },
+  "checks": ["node --check implementation and new test", "git diff --check"],
+  "notes": "Only exact top-level FunctionDeclaration AST clone with sole requireModule identifier at declaration ID is removed from scan text; unchanged native regex then runs. Product/full factory/map/budgets/original tests were not modified. Concurrent parent workflow change observed but not touched. No CI/push/device/browser/signing performed."
+}

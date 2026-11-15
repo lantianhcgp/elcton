@@ -1,0 +1,101 @@
+[
+  {
+    "module": 711,
+    "bytes_removed": 2471,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "e8df6148a4ca82505faf4a33d600307133f4099c33b83215e0a3b5cf1e1a4c94",
+    "returncode": 0,
+    "stderr_hex": ""
+  },
+  {
+    "module": 25,
+    "bytes_removed": 5274,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "33d0094e72ac5745b3190e53d38aacfc7a8db9bdf76cb472fdab229013760d65",
+    "returncode": 0,
+    "stderr_hex": ""
+  },
+  {
+    "module": 785,
+    "bytes_removed": 786,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "4f3ec6ad3fae6b68a717b6609c7cdaf95f57c3bad717dc44c6ee2c5a24e09459",
+    "returncode": 1,
+    "stderr_hex": "536372697074204572726f723a206e756c6c0a"
+  },
+  {
+    "module": 559,
+    "bytes_removed": 3783,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "0e87bdd86182840cbd3db01e2a270976da33cc4af2f8ce6b476208642a62101b",
+    "returncode": 0,
+    "stderr_hex": ""
+  },
+  {
+    "module": 697,
+    "bytes_removed": 2614,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "505f2479ed6db967947c5a48b38129cdb9b597981d211c6607c61e1b0234895b",
+    "returncode": 1,
+    "stderr_hex": "536372697074204572726f723a206e756c6c0a"
+  },
+  {
+    "module": 674,
+    "bytes_removed": 2798,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "66a5cf95abfa8256681d3f5037c89bdb26a7a1828d937fb5624058a79bb786a4",
+    "returncode": 0,
+    "stderr_hex": ""
+  },
+  {
+    "module": 660,
+    "bytes_removed": 725,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "d3a6ddd8f72eee5d73bae088872c8e222e778d0bee11510c0a7b5c60e1f327dd",
+    "returncode": 10,
+    "stderr_hex": ""
+  },
+  {
+    "module": 218,
+    "bytes_removed": 4202,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "d01c65612f24927979f109a2e07118cb5b1521df58d5d376d36b20ae1dbc4e08",
+    "returncode": 0,
+    "stderr_hex": ""
+  },
+  {
+    "module": 396,
+    "bytes_removed": 6126,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "42b5162e017846f5a46af50a9d940caf7dfff968160a4ebe2045ddd9e7715ef3",
+    "returncode": 0,
+    "stderr_hex": ""
+  },
+  {
+    "module": 853,
+    "bytes_removed": 2266,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "2b504f32a7e733c5204d1237771f000e6a5224679bfd3cdf98e3be706e69757d",
+    "returncode": 1,
+    "stderr_hex": "536372697074204572726f723a206e756c6c0a"
+  },
+  {
+    "module": 235,
+    "bytes_removed": 9259,
+    "scope": "DIAGNOSTIC PARSE CONTROL ONLY not runnable product/no exactSDK/FIT3",
+    "original_sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+    "control_sha256": "22070ee63ec04ab64d8ace41d925f121c436cacc62b5fbc85514fc5fa242c145",
+    "returncode": 0,
+    "stderr_hex": ""
+  }
+]

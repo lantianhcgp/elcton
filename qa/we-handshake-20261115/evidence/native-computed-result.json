@@ -1,0 +1,11 @@
+{
+  "scriptSha256": "c3974c33ef912ff725e789a050fb74e50c70c885914ec418a2619837500a11da",
+  "newTestSha256": "985eb4713e8f4daaf37ab911bb03e779fc7cd8abc85558f892856a372908e732",
+  "protectedUnchanged": true,
+  "sourceComputedNonLiteral": [],
+  "redExitCode": 1,
+  "greenExitCode": 0,
+  "greenCommand": "node --check scripts/share_we_compat_app.mjs && node --test --test-reporter=tap NEWtests/weCompatSharingComputedReachability.test.mjs",
+  "sourceComputedNonLiteralEvidence": "AST source inspected before predicate patch; no computed nonLiteral members",
+  "fullSuiteRun": false
+}

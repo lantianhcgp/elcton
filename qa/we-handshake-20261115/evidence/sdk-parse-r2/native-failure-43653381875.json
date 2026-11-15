@@ -1,0 +1,101 @@
+{
+  "scope": "DIAGNOSTIC ONLY: frozen acceptance gate failed; not delivered",
+  "source_app_sha256": "beb94482fd6b1982ed5697e1247c8db26a5623cdc08ea710af708e991719a159",
+  "exact_sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+  "original_compiled_bytes": true,
+  "heap_or_parse_options_changed": false,
+  "rows": [
+    {
+      "path": "assets/js/MainAbility/app.js",
+      "bytes": 16398,
+      "sha256": "cb7bed669b5b8a509a712c3a4136fa2c73af2caa092be3cdc225d860a7322479",
+      "returncode": 0,
+      "status": "completed",
+      "stdout_hex": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_hex": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js",
+      "bytes": 10614,
+      "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e",
+      "returncode": 0,
+      "status": "completed",
+      "stdout_hex": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_hex": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js",
+      "bytes": 35072,
+      "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6",
+      "returncode": 0,
+      "status": "completed",
+      "stdout_hex": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_hex": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js",
+      "bytes": 36851,
+      "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23",
+      "returncode": 0,
+      "status": "completed",
+      "stdout_hex": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_hex": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 46653,
+      "sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+      "returncode": 10,
+      "status": "completed",
+      "stdout_hex": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_hex": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js",
+      "bytes": 43685,
+      "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5",
+      "returncode": 0,
+      "status": "completed",
+      "stdout_hex": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_hex": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js",
+      "bytes": 41651,
+      "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260",
+      "returncode": 0,
+      "status": "completed",
+      "stdout_hex": "",
+      "stdout_bytes": 0,
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderr_hex": "",
+      "stderr_bytes": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "all_parsed": false
+}

@@ -1,0 +1,140 @@
+build	Build actual Lite package	﻿2026-11-15T00:30:48.4184030Z ##[group]Run mkdir -p build
+build	Build actual Lite package	2026-11-15T00:30:48.4184405Z ^[[36;1mmkdir -p build^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4184805Z ^[[36;1mmv entry/src/main/js/MainAbility/common/log-config.js build/we-logger-disabled-config.source.txt^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4185301Z ^[[36;1mpython3 scripts/prepare_we_logger.py . --mode public-build^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4185624Z ^[[36;1mohpm install --all^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4186042Z ^[[36;1mhvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4186581Z ^[[36;1mpython3 scripts/clean_config_in_app.py build/outputs/default/*.app^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4186987Z ^[[36;1mnpm ci --prefix tools/sign --no-audit --no-fund^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4187283Z ^[[36;1mnode qa/compaction_test.mjs^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4187838Z ^[[36;1mnode scripts/compact_lite_app.mjs build/outputs/default/*.app^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4188288Z ^[[36;1mnode scripts/share_we_compat_app.mjs build/outputs/default/*.app^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4188682Z ^[[36;1mnode scripts/compact_p2p_page.mjs build/outputs/default/*.app^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4189149Z ^[[36;1mpython3 scripts/verify_wear_bundle.py build/outputs/default/*.app^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4189573Z ^[[36;1mpython3 scripts/verify_we_logger_bundle.py build/outputs/default/*.app^[[0m
+build	Build actual Lite package	2026-11-15T00:30:48.4235010Z shell: /usr/bin/bash -e {0}
+build	Build actual Lite package	2026-11-15T00:30:48.4235262Z env:
+build	Build actual Lite package	2026-11-15T00:30:48.4235522Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+build	Build actual Lite package	2026-11-15T00:30:48.4235940Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+build	Build actual Lite package	2026-11-15T00:30:48.4236290Z ##[endgroup]
+build	Build actual Lite package	2026-11-15T00:30:49.0192570Z {"project": "/home/runner/work/elcton/elcton", "public_only": true, "write_enabled": true, "ignored": true, "changed_paths": ["/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility/common/log-config.js"], "canonical_sha256": "6810b5f9ff34fe4dd6cf4655f75a89172c248dd01bb40ade94937e567cefbe77", "generated_sha256": "d4e8572e39d2b7fc62e4c217bbc4db25291f9286639523ebc3a05b1380fc342e", "generated_path": "/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility/common/logsink.js", "configuration_path": "/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility/common/log-config.js", "no_changes": false}
+build	Build actual Lite package	2026-11-15T00:30:51.6662852Z ohpm INFO: fetch package done 1 @ohos/hypium from https://ohpm.openharmony.cn/ohpm/@ohos/hypium/-/hypium-1.0.25.har
+build	Build actual Lite package	2026-11-15T00:30:51.8622097Z ^[[32minstall completed in 1s 803ms^[[39m
+build	Build actual Lite package	2026-11-15T00:30:51.9822970Z Installing pnpm@10.28.2...
+build	Build actual Lite package	2026-11-15T00:30:53.3913568Z 
+build	Build actual Lite package	2026-11-15T00:30:53.3914326Z added 1 package, and audited 2 packages in 1s
+build	Build actual Lite package	2026-11-15T00:30:53.3914695Z 
+build	Build actual Lite package	2026-11-15T00:30:53.3914898Z 1 package is looking for funding
+build	Build actual Lite package	2026-11-15T00:30:53.3915281Z   run `npm fund` for details
+build	Build actual Lite package	2026-11-15T00:30:53.4137849Z 
+build	Build actual Lite package	2026-11-15T00:30:53.4138597Z 1 high severity vulnerability
+build	Build actual Lite package	2026-11-15T00:30:53.4138921Z 
+build	Build actual Lite package	2026-11-15T00:30:53.4139088Z To address all issues, run:
+build	Build actual Lite package	2026-11-15T00:30:53.4139466Z   npm audit fix --force
+build	Build actual Lite package	2026-11-15T00:30:53.4139712Z 
+build	Build actual Lite package	2026-11-15T00:30:53.4139873Z Run `npm audit` for details.
+build	Build actual Lite package	2026-11-15T00:30:53.4258756Z Pnpm install success.
+build	Build actual Lite package	2026-11-15T00:30:55.0935690Z > hvigor ^[[32mFinished ::clean... after 11 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.0951168Z > hvigor ^[[32mFinished :entry:clean... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.0975204Z > hvigor ^[[32mFinished :entry:default@LegacyGenerateMetadata... after 2 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.0980684Z > hvigor ^[[32mFinished :entry:default@PreCheckSyscap... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.0986128Z > hvigor ^[[32mFinished ::PreBuildApp... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1396931Z > hvigor ^[[32mFinished :entry:default@LegacyPreBuild... after 41 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1406611Z > hvigor ^[[32mFinished :entry:default@LegacySyscapTransform... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1411957Z > hvigor ^[[32mFinished ::DuplicateDependencyCheck... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1425568Z > hvigor ^[[32mFinished :entry:default@LegacyMergeProfile... after 2 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1439651Z > hvigor ^[[32mFinished :entry:default@LegacyGenerateJsManifest... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1444382Z > hvigor ^[[32mFinished :entry:default@BuildNativeWithCmake... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1458742Z > hvigor ^[[32mFinished :entry:default@LegacyMakePackInfo... after 2 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1471935Z > hvigor ^[[32mFinished :entry:default@LegacyProcessProfile... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1481276Z > hvigor ^[[32mFinished :entry:default@LegacyGenerateLoaderJson... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1489509Z > hvigor ^[[32mFinished :entry:default@BuildNativeWithNinja... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1503056Z > hvigor ^[[32mFinished :entry:default@LegacyProcessResource... after 2 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.1586014Z > hvigor ^[[32mFinished :entry:default@ProcessLibs... after 8 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.2147516Z > hvigor ^[[32mFinished :entry:default@LegacyCompileResource... after 56 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.2171453Z > hvigor ^[[32mFinished :entry:default@DoNativeStrip... after 3 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.2175277Z > hvigor ^[[32mFinished :entry:default@LegacyHookCompileResource... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:55.2199329Z > hvigor ^[[32mFinished :entry:default@CacheNativeLibs... after 3 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:59.0878838Z > hvigor ^[[33mWARN: ^[[33m WARNING File:/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility/pages/code/code.css:60:5
+build	Build actual Lite package	2026-11-15T00:30:59.0880399Z  `align-content` is not a standard attribute name and may not be supported ^[[39m 
+build	Build actual Lite package	2026-11-15T00:30:59.0881014Z 
+build	Build actual Lite package	2026-11-15T00:30:59.0881626Z ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:59.0887795Z > hvigor ^[[32mFinished :entry:default@LegacyCompileLiteJS... after 3 s 869 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:59.0901117Z > hvigor ^[[32mFinished :entry:default@LegacyCompileArkTS... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:59.0908980Z > hvigor ^[[32mFinished :entry:default@LegacyBuildJS... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:59.5496337Z > hvigor ^[[33mWARN: Will skip sign 'bin'. No signingConfigs profile is configured in current project.
+build	Build actual Lite package	2026-11-15T00:30:59.5497575Z > hvigor ^[[32mFinished :entry:default@LegacyGenerateLiteCode... after 457 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:59.5527487Z              If needed, configure the signingConfigs in /home/runner/work/elcton/elcton/build-profile.json5.^[[39m
+build	Build actual Lite package	2026-11-15T00:30:59.5528806Z > hvigor ^[[32mFinished :entry:default@LegacyProcessNodeAssets... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:30:59.5530026Z > hvigor ^[[32mFinished :entry:default@LegacySignLiteBin... after 2 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:02.8021476Z > hvigor ^[[33mWARN: WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+build	Build actual Lite package	2026-11-15T00:31:02.8023134Z WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar)
+build	Build actual Lite package	2026-11-15T00:31:02.8024535Z WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils
+build	Build actual Lite package	2026-11-15T00:31:02.8025355Z WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+build	Build actual Lite package	2026-11-15T00:31:02.8025981Z ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:02.8027163Z > hvigor ^[[32mFinished :entry:default@LegacyPackageHap... after 3 s 253 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:02.8030753Z > hvigor ^[[33mWARN: Will skip sign 'hos_hap'. No signingConfigs profile is configured in current project.
+build	Build actual Lite package	2026-11-15T00:31:02.8031840Z              If needed, configure the signingConfigs in /home/runner/work/elcton/elcton/build-profile.json5.^[[39m
+build	Build actual Lite package	2026-11-15T00:31:02.8041486Z > hvigor ^[[32mFinished :entry:default@SignHap... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:02.8044889Z > hvigor ^[[32mFinished :entry:assembleHap... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:02.8067008Z > hvigor ^[[32mFinished ::MakeProjectPackInfo... after 2 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:02.8088949Z > hvigor ^[[32mFinished ::ProcessProjectPrivacyProfile... after 2 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:02.8095735Z > hvigor ^[[32mFinished ::GeneratePackRes... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:03.1168493Z > hvigor ^[[33mWARN: WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+build	Build actual Lite package	2026-11-15T00:31:03.1169945Z WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar)
+build	Build actual Lite package	2026-11-15T00:31:03.1170925Z WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils
+build	Build actual Lite package	2026-11-15T00:31:03.1171502Z WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+build	Build actual Lite package	2026-11-15T00:31:03.1171870Z ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:03.1174029Z > hvigor ^[[32mFinished ::PackageApp... after 308 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:03.1181325Z > hvigor ^[[32mFinished ::SignPackagesFromApp... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:03.1184505Z > hvigor ^[[33mWARN: Will skip sign 'app'. No signingConfigs profile is configured in current project.
+build	Build actual Lite package	2026-11-15T00:31:03.1185199Z              If needed, configure the signingConfigs in /home/runner/work/elcton/elcton/build-profile.json5.^[[39m
+build	Build actual Lite package	2026-11-15T00:31:03.1191831Z > hvigor ^[[32mFinished ::SignApp... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:03.1194565Z > hvigor ^[[32mFinished ::assembleApp... after 1 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:03.1205222Z > hvigor ^[[32mBUILD SUCCESSFUL in 9 s 180 ms ^[[39m
+build	Build actual Lite package	2026-11-15T00:31:03.2175450Z 清洗 elcton-default-unsigned.app: app.appEnvironments, app.apiVersion.compileSdkVersion, app.apiVersion.compileSdkType, deviceConfig.default.debug, module.package->com.hcbiu.elcton
+build	Build actual Lite package	2026-11-15T00:31:03.7102129Z 
+build	Build actual Lite package	2026-11-15T00:31:03.7102851Z added 25 packages in 329ms
+build	Build actual Lite package	2026-11-15T00:31:03.7930239Z format-only compaction equivalence: PASS
+build	Build actual Lite package	2026-11-15T00:31:04.4019120Z {"action":"format-only-compaction","identifierMangling":false,"compressionTransforms":false,"results":[{"page":"assets/js/MainAbility/app.js","before":33300,"after":20823},{"page":"assets/js/MainAbility/pages/code/code.js","before":15160,"after":10614},{"page":"assets/js/MainAbility/pages/detail/detail.js","before":47149,"after":35072},{"page":"assets/js/MainAbility/pages/week/week.js","before":54961,"after":41651},{"page":"assets/js/MainAbility/pages/sync/sync.js","before":60159,"after":43685},{"page":"assets/js/MainAbility/pages/index/index.js","before":49694,"after":36851},{"page":"assets/js/MainAbility/pages/phone-sync/phone-sync.js","before":81096,"after":57776}]}
+build	Build actual Lite package	2026-11-15T00:31:04.5794575Z file:///home/runner/work/elcton/elcton/scripts/share_we_compat_app.mjs:29
+build	Build actual Lite package	2026-11-15T00:31:04.5795359Z     if(/requireNative|@system\./.test(text))throw Error(label+': native initialization in compat module');
+build	Build actual Lite package	2026-11-15T00:31:04.5795808Z                                                   ^
+build	Build actual Lite package	2026-11-15T00:31:04.5795985Z 
+build	Build actual Lite package	2026-11-15T00:31:04.5796163Z Error: page: native initialization in compat module
+build	Build actual Lite package	2026-11-15T00:31:04.5796641Z     at inspect (file:///home/runner/work/elcton/elcton/scripts/share_we_compat_app.mjs:29:51)
+build	Build actual Lite package	2026-11-15T00:31:04.5797210Z     at shareCompatApp (file:///home/runner/work/elcton/elcton/scripts/share_we_compat_app.mjs:149:14)
+build	Build actual Lite package	2026-11-15T00:31:04.5797986Z     at async file:///home/runner/work/elcton/elcton/scripts/share_we_compat_app.mjs:171:16
+build	Build actual Lite package	2026-11-15T00:31:04.5798459Z 
+build	Build actual Lite package	2026-11-15T00:31:04.5798593Z Node.js v18.20.1
+build	Build actual Lite package	2026-11-15T00:31:04.5853341Z ##[error]Process completed with exit code 1.
+build	Preserve exact native parser failure output (not delivery)	﻿2026-11-15T00:31:04.6169028Z ##[group]Run test -f dist/source-sha.txt
+build	Preserve exact native parser failure output (not delivery)	2026-11-15T00:31:04.6169381Z ^[[36;1mtest -f dist/source-sha.txt^[[0m
+build	Preserve exact native parser failure output (not delivery)	2026-11-15T00:31:04.6170019Z ^[[36;1mpython3 qa/we-handshake-20261115/native_parse_diagnostic.py dist/*.app "$HOS_SDK_HOME/default/openharmony/js/build-tools/ace-loader/bin/jerry" dist/native-parse-failure-only.json^[[0m
+build	Preserve exact native parser failure output (not delivery)	2026-11-15T00:31:04.6215695Z shell: /usr/bin/bash -e {0}
+build	Preserve exact native parser failure output (not delivery)	2026-11-15T00:31:04.6215962Z env:
+build	Preserve exact native parser failure output (not delivery)	2026-11-15T00:31:04.6216218Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+build	Preserve exact native parser failure output (not delivery)	2026-11-15T00:31:04.6216631Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+build	Preserve exact native parser failure output (not delivery)	2026-11-15T00:31:04.6216984Z ##[endgroup]
+build	Preserve exact native parser failure output (not delivery)	2026-11-15T00:31:04.6288650Z ##[error]Process completed with exit code 1.
+build	Upload public failure evidence only	﻿2026-11-15T00:31:04.6797799Z ##[group]Run actions/upload-artifact@v4
+build	Upload public failure evidence only	2026-11-15T00:31:04.6798092Z with:
+build	Upload public failure evidence only	2026-11-15T00:31:04.6798418Z   name: FAILED-NOT-FOR-INSTALL-we-sdk-a9359114d495848aadb920ad03c9bf29d26ee6a5
+build	Upload public failure evidence only	2026-11-15T00:31:04.6798879Z   path: dist/*.app
+build	Upload public failure evidence only	dist/source-sha.txt
+build	Upload public failure evidence only	dist/native-parse-failure-only.json
+build	Upload public failure evidence only	
+build	Upload public failure evidence only	2026-11-15T00:31:04.6799222Z   if-no-files-found: error
+build	Upload public failure evidence only	2026-11-15T00:31:04.6799448Z   retention-days: 1
+build	Upload public failure evidence only	2026-11-15T00:31:04.6799648Z   compression-level: 6
+build	Upload public failure evidence only	2026-11-15T00:31:04.6799856Z   overwrite: false
+build	Upload public failure evidence only	2026-11-15T00:31:04.6800062Z   include-hidden-files: false
+build	Upload public failure evidence only	2026-11-15T00:31:04.6800275Z env:
+build	Upload public failure evidence only	2026-11-15T00:31:04.6800511Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+build	Upload public failure evidence only	2026-11-15T00:31:04.6800894Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+build	Upload public failure evidence only	2026-11-15T00:31:04.6801224Z ##[endgroup]
+build	Upload public failure evidence only	2026-11-15T00:31:04.8248971Z (node:3863) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+build	Upload public failure evidence only	2026-11-15T00:31:04.8249713Z (Use `node --trace-deprecation ...` to show where the warning was created)
+build	Upload public failure evidence only	2026-11-15T00:31:04.8281886Z ##[error]No files were found with the provided path: dist/*.app
+build	Upload public failure evidence only	dist/source-sha.txt
+build	Upload public failure evidence only	dist/native-parse-failure-only.json. No artifacts will be uploaded.

@@ -1,0 +1,50 @@
+{
+  "review": "native-stub-spec-r1",
+  "axis": "SPEC",
+  "verdict": "PASS_SCOPED_SPEC_HOST_ONLY",
+  "baseHead": "a9359114d495848aadb920ad03c9bf29d26ee6a5",
+  "hashes": {
+    "scripts/share_we_compat_app.mjs": "9b44bf47f4cfc8ac37ee38d0ef771ea1420e8dc17c516ae6695873fc44bae625",
+    "tests/weCompatSharingNativeStub.test.mjs": "e8687cef0cfeccebe6a0db7452a467f0ff4411137667b5e395db9423cc63264c",
+    ".github/workflows/wearengine.yml": "bae9a2f2ae2123f170c4cfee181bbbb4ef7aebb5b53677b710cef59987089dc8",
+    "tests/weSdkFailureEvidence.test.mjs": "025c606887e58a12d96b8a26d677c89f51154b62e400426a9d3590218f327e88"
+  },
+  "requirements": [
+    {
+      "id": "exact-unused-sdk-declaration",
+      "verdict": "PASS",
+      "evidence": "scripts/share_we_compat_app.mjs:20-27,38; tests/weCompatSharingNativeStub.test.mjs:24-66",
+      "reason": "Only one direct module-scope FunctionDeclaration with exact cleaned ES5 AST requireModule(moduleName){return requireNative(moduleName.slice(1))}, and no other requireModule Identifier, is omitted from scan text. Actual APP bytes are not changed by this exemption. Remaining requireNative/@system rejection is unchanged; calls, aliases, writes, shadowing, duplicates and declaration tampering still reject."
+    },
+    {
+      "id": "failure-only-public-pre-share-app-evidence",
+      "verdict": "PASS_STATIC",
+      "evidence": ".github/workflows/wearengine.yml:55-65,89-101; tests/weSdkFailureEvidence.test.mjs:5-16",
+      "reason": "Copy source is the actual public-build APP after existing compact_lite_app and before share, not synthetic QA bytes and not pristine pre-compaction output. Saved APP and GITHUB_SHA are uploaded only by existing failure() FAILED-NOT-FOR-INSTALL artifact. Copy occurs during build; upload is failure-only. No new secret access or signed HAP upload is introduced."
+    }
+  ],
+  "unchangedGates": {
+    "scriptReversingOnlyGuardDeltaEqualsHEAD": true,
+    "workflowRemovingExactlyFiveAddedLinesEqualsHEAD": true,
+    "pipelineSignFinalFailureBranchesUnchanged": true,
+    "originalSDKAndHeapGatesUnchanged": true,
+    "productAndSource38ByteVerification": "Inherited parent verification; not re-reviewed"
+  },
+  "verification": {
+    "command": "node --test tests/weCompatSharingNativeStub.test.mjs tests/weSdkFailureEvidence.test.mjs",
+    "exitCode": 0,
+    "tests": 34,
+    "pass": 34,
+    "fail": 0,
+    "gitDiffCheckExitCode": 0,
+    "priorRedGreenReceiptsRead": true
+  },
+  "findings": [],
+  "actualSDKVerified": false,
+  "newActualSDKParseVerified": false,
+  "nativeVerified": false,
+  "actualCIArtifactReadbackVerified": false,
+  "releaseOrInstallApproval": false,
+  "limitations": "Static/HOST only. No source/test edits, auth, secrets/private binaries, CI, browser, phone or additional fuzzing. Review exceeded requested time budget.",
+  "issues": "Unsupported initial Node flag retried successfully with plain node --test. Initial report was mistakenly written at root reviews/native-stub-spec-r1.json; this correctly located concise report supersedes it."
+}

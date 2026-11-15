@@ -1,0 +1,22 @@
+{
+  "kind": "Exact unchanged7cb8SDK via QEMU guest loader; inherited Android-only preload omitted, SDK args unchanged",
+  "rows": [
+    {
+      "label": "old-1.1.15",
+      "returncode": 0,
+      "bytes": 40979,
+      "sha256": "787a251ee68bb104df111415fca13b60f83d4643ae719323676a5e2fd091ddf3",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "label": "failed-1.1.16",
+      "returncode": 10,
+      "bytes": 46653,
+      "sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130",
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    }
+  ],
+  "sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31"
+}

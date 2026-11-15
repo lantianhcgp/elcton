@@ -1,0 +1,179 @@
+#!/usr/bin/env node
+// HOST ONLY: original compiled app/page bytes. No HTTP, Bluetooth, native engine,
+// source factories, module rewriting, private config, sign keys or phone access.
+import fs from 'node:fs';
+import vm from 'node:vm';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import {createRequire} from 'node:module';
+import {pathToFileURL} from 'node:url';
+import {selectCompiledChannel} from './compiled-logger-host.mjs';
+const require = createRequire(import.meta.url);
+const hash = bytes => crypto.createHash('sha256').update(bytes).digest('hex');
+class HostError extends Error {}
+const need = (value, code) => { if (!value) throw new HostError(code); };
+
+export function makeHostClock() {
+  const timers = new Map(), cleared = [];
+  let next = 0, now = 1700000000000;
+  function set(fn, ms, repeat = false) {
+    need(typeof fn === 'function' && Number.isFinite(Number(ms)) && Number(ms) >= 0, 'host_timer_contract');
+    const id = next++; timers.set(id, {id, fn, delay:Number(ms), due:now+Number(ms), repeat}); return id;
+  }
+  function clear(id) { cleared.push(id); timers.delete(id); }
+  function fire(id) {
+    const t = timers.get(id); need(t, 'host_timer_missing'); now = Math.max(now,t.due);
+    if (!t.repeat) timers.delete(id);
+    t.fn();
+    // A self-clearing interval must never be resurrected.
+    if (t.repeat && timers.get(id) === t) t.due = now + t.delay;
+  }
+  return {timers,cleared,set,clear,fire,now:()=>now};
+}
+
+async function loadApp(file, report) {
+  need(fs.statSync(file).isFile() && fs.statSync(file).size <= 64*1024*1024, 'app_input_bound');
+  const bytes = fs.readFileSync(file), JSZip = require('../../tools/sign/node_modules/jszip');
+  const outer = await JSZip.loadAsync(bytes);
+  const haps = Object.values(outer.files).filter(e=>!e.dir && /\.hap$/i.test(e.name));
+  need(haps.length === 1,'unique_nested_hap_required');
+  const inner = await JSZip.loadAsync(await haps[0].async('nodebuffer'));
+  async function one(pattern, code) {
+    const entries = Object.values(inner.files).filter(e=>!e.dir && pattern.test(e.name));
+    need(entries.length===1,code); return entries[0].async('nodebuffer');
+  }
+  const app = await one(/(?:^|\/)js\/[^/]+\/app\.js$/,'unique_original_app_required');
+  const page = await one(/(?:^|\/)js\/[^/]+\/pages\/phone-sync\/phone-sync\.js$/,'unique_original_page_required');
+  report.app_sha256=hash(bytes); report.app_js_sha256=hash(app); report.page_js_sha256=hash(page);
+  report.unique_nested_hap=true;
+  // CI SHA, manifest identity/signature and latest-run linkage are parent checks.
+  return {app,page};
+}
+
+function exercise(bytes, report) {
+  const clock = makeHostClock(), definitions=[], rows=[], keep=[], originals={};
+  let app, page, listener, sendFail=false, fetches=0, reads=0, unsubscribes=0;
+  for (const level of ['debug','log','info','warn','error']) originals[level]=()=>{};
+  const hostConsole={...originals};
+  const status=()=>app._elctonLogStatus.call(app);
+  function drain() {
+    for (let i=0; status().pending && i<24; i++) {
+      const t=[...clock.timers.values()].filter(t=>t.delay<=5000).sort((a,b)=>a.due-b.due || a.id-b.id)[0];
+      need(t,'logger_drain_timer_missing'); clock.fire(t.id);
+    }
+    need(!status().pending && !status().busy && !status().dropped && !status().failed,'logger_bounded_drain');
+  }
+  const checkpoint=()=>{ if(app && status().pending>=6) drain(); };
+  const engine={
+    getWearEngineVersion(o){checkpoint();o.complete('5.0.0.401');checkpoint();},
+    setPackageName(o){checkpoint();o.complete();checkpoint();},
+    setFingerprint(o){checkpoint();o.complete();checkpoint();},
+    subscribeMsg(o){listener=o.success;checkpoint();o.success({isRegister:true});checkpoint();},
+    unsubscribeMsg(){unsubscribes++;},
+    sendMsg(o){checkpoint();if(sendFail)o.fail(210301031,0);else o.success();checkpoint();}
+  };
+  const native={
+    'system.configuration':{},
+    'system.device':{getInfo(o){o.success({brand:'HOST',model:'HOST_NOT_FIT3',windowWidth:412,windowHeight:484});}},
+    'system.router':{getParams(){return {};},replace(){throw new HostError('unexpected_host_navigation');}},
+    'system.file':{get(o){reads++;o.fail(null,301);},readText(){throw new HostError('unexpected_host_read_text');},writeText(){throw new HostError('unexpected_host_file_write');}},
+    'system.storage':{get(o){if(o.success)o.success('');},set(){throw new HostError('unexpected_host_storage_write');}},
+    'system.wearengine':engine,
+    'system.brightness':{setKeepScreenOn(o){need(typeof o.keepScreenOn==='boolean','awake_boolean');keep.push(o.keepScreenOn);o.success();}},
+    'system.fetch':{fetch(o){
+      need(o.method==='POST' && typeof o.data==='string','host_logger_request_contract');
+      const body=JSON.parse(o.data);need(Array.isArray(body.logs) && body.logs.length<=8,'logger_batch_bound');
+      for(const r of body.logs) rows.push({tag:r.tag,msg:r.msg});
+      fetches++; report.adapter_ack_not_real=true;
+      o.success({code:200,data:'{"ok":true}'});
+    }}
+  };
+  function nativeRequire(name){const normalized=name.replace(/^@/,'');need(Object.hasOwn(native,normalized),'unmodelled_native_module');return native[normalized];}
+  function ViewModel(def){definitions.push(def);Object.assign(this,def.data||{},def);this.data=def.data||def;}
+  class HostDate extends Date {constructor(...args){super(...(args.length?args:[clock.now()]));}static now(){return clock.now();}}
+  const context=vm.createContext({ViewModel,console:hostConsole,requireNative:nativeRequire,require:nativeRequire,
+    setTimeout:(fn,ms)=>clock.set(fn,ms),clearTimeout:clock.clear,
+    setInterval:(fn,ms)=>clock.set(fn,ms,true),clearInterval:clock.clear,Date:HostDate},
+    {name:'ORIGINAL_BYTES_HOST_NOT_NATIVE',codeGeneration:{strings:false,wasm:false}});
+  function execute(b,name){
+    need(b.length>0 && b.length<2*1024*1024,'compiled_byte_bound');
+    const text=b.toString('utf8');need(Buffer.from(text).equals(b),'original_utf8_roundtrip');
+    need(/^\s*\(function\s*\(/.test(text)&&/__webpack_modules__/.test(text),'compiled_sdk_shape_required');
+    return new vm.Script(text,{filename:name}).runInContext(context,{timeout:3000});
+  }
+  execute(bytes.app,'original-hap-app.js');need(definitions.length===1,'one_original_app_definition');app=definitions[0];
+  need(typeof app.onCreate==='function' && typeof app.onDestroy==='function' && typeof app._elctonLogStatus==='function','original_app_bridges_required');
+  context.$app={$def:app};
+  try {
+    app.onCreate.call(app);need(status().seq>0,'configured_logger_required');
+    need(clock.timers.has(0) && clock.timers.get(0).delay===5000,'valid_zero_logger_timer');drain();
+    report.original_app_bytes_executed=true;
+    const result=execute(bytes.page,'original-hap-phone-sync.js');
+    need(definitions.length===2,'one_original_page_definition');page=result;
+    need(page && typeof page.onListen==='function' && typeof page.onDestroy==='function','original_page_lifecycle_required');
+    page.onInit();need(page.ready,'host_page_device_callback_ready');page.onShow();
+    need(keep.length===1 && keep[0]===true,'awake_on_actual_page_show');
+    page.onListen();need(page.listening && typeof listener==='function','actual_page_registered_listener');
+    drain();
+    listener({isRegister:false,isFileType:false,message:JSON.stringify({protocol:'elcton.sync',version:1,sender:'phone',type:'HELLO',transferId:''})});
+    drain();
+    need(rows.some(r=>r.tag==='WE/HELLO_RECV') && rows.some(r=>r.tag==='WE/READY_PREPARED'),'actual_page_hello_ready_logged');
+    sendFail=true;
+    page._channel.send({protocol:'elcton.sync',version:1,sender:'watch',type:'READY',transferId:''},()=>{});drain();
+    need(rows.some(r=>r.tag==='WE/SEND_FAIL' && /arg1=210301031 arg2=0 type1=3 type2=3/.test(r.msg)),'numeric_zero_failure_actual_logger');
+    // Exercise actual app-owned compat factory too. Protocol is an explicit HOST
+    // identity/ASCII seam, never a replacement engine or a product source factory.
+    delete engine.getWearEngineVersion;
+    const compat=selectCompiledChannel(app,{noVersion:true},{phonePackage:'HOST.placeholder',phoneFingerprint:'0'.repeat(64)},
+      {id:v=>typeof v==='string'&&v.length>0,hex:(v,n)=>v.length===n,ascii:JSON.stringify},engine);
+    compat.open(()=>{},err=>need(!err,'original_compat_open'));checkpoint();
+    compat.send({type:'READY'},()=>{});drain();compat.close();drain();
+    const required=['SDK_CALL','VER_OK','PKG_CALL','PKG_OK','CERT_CALL','CERT_OK','REG_CALL','REG_OK','HELLO_RECV','READY_PREPARED','READY_CALL','READY_OK','SEND_CALL','SEND_OK','SEND_FAIL'];
+    report.stages=Object.fromEntries(required.map(s=>[s,rows.some(r=>r.tag==='WE/'+s)]));
+    need(Object.values(report.stages).every(Boolean),'required_actual_stage_rows_missing');
+    report.original_page_bytes_executed=true; report.actual_vm_original_bytes=true;
+    page.onHide();need(keep.at(-1)===false,'awake_off_actual_page_hide');
+    page.onShow();page.onDestroy();need(keep.join(',')==='true,false,true,false','awake_reacquire_destroy_release');
+    report.awake_reclaimed=true;report.listener_closed=unsubscribes>0;drain();
+    app.onDestroy.call(app);need(clock.timers.size===0 && status().pending===0 && !status().busy,'destroy_live_resources_empty');
+    need(Object.keys(originals).every(k=>hostConsole[k]===originals[k]),'destroy_console_restored');
+    const stopped=JSON.stringify(status()), before=fetches;
+    app._elctonLog.call(app,'SEND_FAIL',{code:206,arg1:210301031,arg2:0,type1:3,type2:3});hostConsole.info('HOST_POST_STOP');
+    need(JSON.stringify(status())===stopped && fetches===before && clock.timers.size===0,'post_stop_no_rows_fetch_timers');
+    report.post_stop_verified=true;report.timer_zero_verified=true;report.logger_status_from_actual_app=true;
+    const safeRows=rows.filter(r=>/^WE\/[A-Z0-9_]+$/.test(r.tag));
+    need(safeRows.every(r=>typeof r.msg==='string' && r.msg.length<=160 && /^(?:[a-z][a-z0-9]*=(?:-?\d+|true|false)(?: |$))*$/.test(r.msg)),'safe_numeric_stage_rows_only');
+    report.safe_rows=safeRows;
+    report.rows=report.safe_rows.length; report.host_fetches=fetches;report.empty_host_file_reads=reads;
+    report.final_timers=clock.timers.size;report.passed=true;
+  } finally {
+    if(page)try{page.onDestroy();}catch{}
+    if(app)try{app.onDestroy.call(app);}catch{}
+  }
+}
+
+export async function main(argv=process.argv.slice(2)) {
+  const report={passed:false,host_only:true,native:false,native_verified:false,real_https:false,real_bluetooth:false,
+    adapter_ack_not_real:false,new_ci_provenance_verified:false,manifest_identity_verified:false,
+    parent_provenance_check_required:true,actual_vm_original_bytes:false,original_app_bytes_executed:false,original_page_bytes_executed:false};
+  let out;
+  try {
+    if(argv.length===1 && argv[0]==='--help'){process.stdout.write('HOST ONLY: --app actualSDK.app --report evidence/compiled-stage-actual.json; no HTTPS/native/Bluetooth; parent verifies CI+manifest+SHA\n');return report;}
+    need(argv.length===4 && argv[0]==='--app' && argv[2]==='--report','cli_exact_app_report_only');
+    const input=path.resolve(argv[1]);
+    const candidateReportPath=path.resolve(argv[3]);
+    need(candidateReportPath!==input,'report_input_collision');
+    const inputRealPath=fs.realpathSync(input), inputStat=fs.statSync(input,{bigint:true});
+    let reportRealPath, reportStat;
+    try { reportRealPath=fs.realpathSync(candidateReportPath); reportStat=fs.statSync(candidateReportPath,{bigint:true}); }
+    catch(error) { if(error.code!=='ENOENT') throw error; }
+    need(reportRealPath!==inputRealPath && !(reportStat && reportStat.dev===inputStat.dev && reportStat.ino===inputStat.ino),'report_input_collision');
+    // Publish a writable target only after path and existing-file identity checks.
+    out=candidateReportPath;
+    const bytes=await loadApp(input,report);exercise(bytes,report);
+  } catch(error) {report.failure=error instanceof HostError?error.message:'host_input_or_execution_failed';}
+  if(out){fs.mkdirSync(path.dirname(out),{recursive:true});fs.writeFileSync(out,JSON.stringify(report,null,2)+'\n');}
+  process.stdout.write(JSON.stringify({passed:report.passed,host_only:true,native:false,real_https:false,failure:report.failure})+'\n');
+  if(!report.passed)process.exitCode=1;return report;
+}
+if(process.argv[1] && pathToFileURL(path.resolve(process.argv[1])).href===import.meta.url) await main();

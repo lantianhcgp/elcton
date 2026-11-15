@@ -1,0 +1,192 @@
+{
+  "kind": "R2 budget checkpoint original-byte snapshots, NOT approved active code or delivery",
+  "active_code_head": "a9359114d495848aadb920ad03c9bf29d26ee6a5",
+  "last_ci": "43658398691",
+  "last_ci_conclusion": "failure before final SDK gate",
+  "new_hap": null,
+  "real_we_root_cause": "unknown",
+  "last_dynamic_quality": "incomplete at budget stop; not accepted",
+  "snapshot_count": 30,
+  "files": [
+    {
+      "original": "scripts/share_we_compat_app.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/scripts__share_we_compat_app.mjs.source.txt",
+      "bytes": 16545,
+      "sha256": "c3974c33ef912ff725e789a050fb74e50c70c885914ec418a2619837500a11da"
+    },
+    {
+      "original": ".github/workflows/wearengine.yml",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/.github__workflows__wearengine.yml.source.txt",
+      "bytes": 5014,
+      "sha256": "bae9a2f2ae2123f170c4cfee181bbbb4ef7aebb5b53677b710cef59987089dc8"
+    },
+    {
+      "original": "tests/weCompatSharingNativeStub.test.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/tests__weCompatSharingNativeStub.test.mjs.source.txt",
+      "bytes": 5714,
+      "sha256": "e8687cef0cfeccebe6a0db7452a467f0ff4411137667b5e395db9423cc63264c"
+    },
+    {
+      "original": "tests/weSdkFailureEvidence.test.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/tests__weSdkFailureEvidence.test.mjs.source.txt",
+      "bytes": 1121,
+      "sha256": "025c606887e58a12d96b8a26d677c89f51154b62e400426a9d3590218f327e88"
+    },
+    {
+      "original": "tests/weCompatSharingDynamicReachability.test.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/tests__weCompatSharingDynamicReachability.test.mjs.source.txt",
+      "bytes": 2825,
+      "sha256": "fb9c335e6a87949d2c3c51954db71f23d8247bebca666d41e96b882033fa4ddf"
+    },
+    {
+      "original": "NEWtests/weCompatSharingComputedReachability.test.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/NEWtests__weCompatSharingComputedReachability.test.mjs.source.txt",
+      "bytes": 3010,
+      "sha256": "985eb4713e8f4daaf37ab911bb03e779fc7cd8abc85558f892856a372908e732"
+    },
+    {
+      "original": "qa/we-handshake-20261115/compiled-logger-host.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__compiled-logger-host.mjs.source.txt",
+      "bytes": 20380,
+      "sha256": "08b48596363817ff2ddc473ba72f40d42d31b3626b2b4a394951c21640b43399"
+    },
+    {
+      "original": "qa/we-handshake-20261115/compiled-logger-https.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__compiled-logger-https.mjs.source.txt",
+      "bytes": 12550,
+      "sha256": "3a10da8fb118750373da78e955df2664fa835c4ee94b87932a3f74e9855d3522"
+    },
+    {
+      "original": "qa/we-handshake-20261115/compiled-we-stages.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__compiled-we-stages.mjs.source.txt",
+      "bytes": 12423,
+      "sha256": "d666084ff1e7c01b062aa6faeb1d938f584b4e7137a7efd6595e1213429f42a9"
+    },
+    {
+      "original": "tests/compiledLoggerHttps.test.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/tests__compiledLoggerHttps.test.mjs.source.txt",
+      "bytes": 9302,
+      "sha256": "b50a7848f588d6a2b6c9914c6ad268e052c255ea57b71049c622c705a593959c"
+    },
+    {
+      "original": "tests/compiledLoggerHostOwnership.test.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/tests__compiledLoggerHostOwnership.test.mjs.source.txt",
+      "bytes": 4302,
+      "sha256": "7e4a8cacb3af13619dfc2cb71bcf9ec274e7e30be58866c22dfb96953f6f4535"
+    },
+    {
+      "original": "tests/compiledWeStages.test.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/tests__compiledWeStages.test.mjs.source.txt",
+      "bytes": 1864,
+      "sha256": "5da866d0f5d41ae45a612fcb561a80b30f02ec9bcbe7c3a8dfea83714d37f73d"
+    },
+    {
+      "original": "NEWtests/compiledWeStages.test.mjs",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/NEWtests__compiledWeStages.test.mjs.source.txt",
+      "bytes": 4432,
+      "sha256": "32383c814d6dacfec69315a4e011d38e6581bfbf03ad867c08e1011092f9896d"
+    },
+    {
+      "original": "qa/we-handshake-20261115/README-compiled-logger-host.md",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__README-compiled-logger-host.md.source.txt",
+      "bytes": 5032,
+      "sha256": "f93f1a97455bc88deafbce29669c4584cea2299d3d3bdab4f1955b44b1a19a73"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/compiled-logger-spec-r2.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__compiled-logger-spec-r2.json.source.txt",
+      "bytes": 8464,
+      "sha256": "83d4ee8034b5e6b4ddd8b52f7465de664152efc9ed6ba53f2d1e7782103ca1b8"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/compiled-logger-spec-r3.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__compiled-logger-spec-r3.json.source.txt",
+      "bytes": 7893,
+      "sha256": "f5dd2cca3a50639730dd2640c7cd2ecca1aa943126b51017d8ca44a421cc3c5a"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/compiled-logger-quality-r3.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__compiled-logger-quality-r3.json.source.txt",
+      "bytes": 7387,
+      "sha256": "af4cc4876f8404a36f814af7d17601a7b099d8928e5121672bbdd69445cde42b"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/compiled-logger-host-owner-quality.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__compiled-logger-host-owner-quality.json.source.txt",
+      "bytes": 4767,
+      "sha256": "8ebd78d11093805b20483a30ce6726fa0f2d7de70d130c20bbc4b05a0dae4a35"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/compiled-stage-spec.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__compiled-stage-spec.json.source.txt",
+      "bytes": 6924,
+      "sha256": "45963523896746136745a1d63582589f769fd9f914b2f5c04412b9f6778993a5"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/native-stub-spec-r1.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__native-stub-spec-r1.json.source.txt",
+      "bytes": 3040,
+      "sha256": "fd93bc9f85915d6800497de835ba37dc37f780c81149e8caf9f73bcaf5398684"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/native-stub-quality-r1.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__native-stub-quality-r1.json.source.txt",
+      "bytes": 1910,
+      "sha256": "5cc0d730c67f068136e35e5e21283adb416c253163b8dd541f471b1b34f6c60d"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/native-dynamic-spec-r1.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__native-dynamic-spec-r1.json.source.txt",
+      "bytes": 2738,
+      "sha256": "3c4697a0ac0d3ef267e1fb1291a8a3eaab8dfe199dc492e3b82f0c91472d65b7"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/compiled-stage-quality-r1.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__compiled-stage-quality-r1.json.source.txt",
+      "bytes": 3087,
+      "sha256": "b78bf47c014a0726678fa45ebc0cf23cbcc21072f7a6389d3f9b2499d9393cb0"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/native-dynamic-spec-r2.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__native-dynamic-spec-r2.json.source.txt",
+      "bytes": 2651,
+      "sha256": "1a8e1ffa8aea6b65191d93b6f77dbccec0ec81116694e65ea8451164fce24de0"
+    },
+    {
+      "original": "qa/we-handshake-20261115/reviews/native-dynamic-quality-r2.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__reviews__native-dynamic-quality-r2.json.source.txt",
+      "bytes": 2728,
+      "sha256": "ae6ec79281a7f217bebcd959fbaeda63ba68a7ad28cd4359b7c42148779bc361"
+    },
+    {
+      "original": "reviews/compiled-logger-host-owner-spec.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/reviews__compiled-logger-host-owner-spec.json.source.txt",
+      "bytes": 5325,
+      "sha256": "0d92e20deb13d95505ca595c7b77e9b2b88ec8435774e3654406675ba78ff65f"
+    },
+    {
+      "original": "reviews/native-stub-spec-r1.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/reviews__native-stub-spec-r1.json.source.txt",
+      "bytes": 5929,
+      "sha256": "b9a1eb39f68b325eff866e0039f9e2502aa60fc4e9e5bca8406484b3ff4c4578"
+    },
+    {
+      "original": "reviews/compiled-stage-spec-r2.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/reviews__compiled-stage-spec-r2.json.source.txt",
+      "bytes": 3124,
+      "sha256": "4ae4878813f9cc40fe708aab38e477e21022c329ea2e490124b5c4debde112c4"
+    },
+    {
+      "original": "qa/evidence/host-owner-before.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__evidence__host-owner-before.json.source.txt",
+      "bytes": 354,
+      "sha256": "b470ad4bfbcb3bd03fc7af47bb182f7c413cce7d8f4711310cfe51894aa9561b"
+    },
+    {
+      "original": "qa/evidence/host-owner-result.json",
+      "snapshot": "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__evidence__host-owner-result.json.source.txt",
+      "bytes": 2156,
+      "sha256": "74bf5d43d12e8f10bfdb70497237eee6f67d44f79693bc86ba34cb6934939483"
+    }
+  ]
+}

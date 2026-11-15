@@ -1,0 +1,39 @@
+{
+  "review": "native-dynamic-quality-r2",
+  "axis": "QUALITY",
+  "passed": true,
+  "verdict": "PASS_SCOPED_QUALITY_HOST_ONLY",
+  "spec": "qa/we-handshake-20261115/reviews/native-dynamic-spec-r2.json",
+  "inheritedSpec": "qa/we-handshake-20261115/reviews/native-stub-spec-r1.json",
+  "hashes": {
+    "scripts/share_we_compat_app.mjs": "c3974c33ef912ff725e789a050fb74e50c70c885914ec418a2619837500a11da",
+    "tests/weCompatSharingNativeStub.test.mjs": "e8687cef0cfeccebe6a0db7452a467f0ff4411137667b5e395db9423cc63264c",
+    ".github/workflows/wearengine.yml": "bae9a2f2ae2123f170c4cfee181bbbb4ef7aebb5b53677b710cef59987089dc8",
+    "tests/weSdkFailureEvidence.test.mjs": "025c606887e58a12d96b8a26d677c89f51154b62e400426a9d3590218f327e88",
+    "tests/weCompatSharingDynamicReachability.test.mjs": "fb9c335e6a87949d2c3c51954db71f23d8247bebca666d41e96b882033fa4ddf",
+    "NEWtests/weCompatSharingComputedReachability.test.mjs": "985eb4713e8f4daaf37ab911bb03e779fc7cd8abc85558f892856a372908e732"
+  },
+  "findings": [],
+  "summary": [
+    "Two-line AST guard precedes inert-stub exemption: eval/Function Identifier or Literal tokens reject; non-Literal computed access on globalThis/window/self/this rejects. Existing raw requireNative/@system scan and exact unreferenced SDK declaration checks remain unchanged. No payload execution or additional alias/property fuzz.",
+    "Only the requested 11 new cases ran: 11 passed, zero failed/skipped, exit 0. App/page direct eval, Function and computed global eval/Function reject; inert SDK stub, ordinary data[key] and literal default remain accepted. Every case asserts unchanged input bytes; accepted cases also exercise packer non-target/app-byte guards.",
+    "All six current hashes equal passed SPEC r2. Removing exactly two guard lines reproduces stub SPEC r1 script SHA; prior static test/workflow hashes and wearCompat source SHA are unchanged. Inherit full factory/owner/SDK/maps/48KiB/config/sign and failure-only public pre-share APP evidence gates; no reopening. Historical QUALITY r1 failure remains intact; only this report is written."
+  ],
+  "verification": {
+    "command": "node --test --test-reporter=tap tests/weCompatSharingDynamicReachability.test.mjs NEWtests/weCompatSharingComputedReachability.test.mjs",
+    "exitCode": 0,
+    "tests": 11,
+    "pass": 11,
+    "fail": 0,
+    "skipped": 0,
+    "durationMs": 911.209791,
+    "gitDiffCheckExitCode": 0,
+    "hashesMatchSpec": true,
+    "reverseOnlyTwoGuardLinesEqualsStubR1": true,
+    "sourceSha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e"
+  },
+  "actualSDKVerified": false,
+  "nativeVerified": false,
+  "actualCIArtifactReadbackVerified": false,
+  "releaseOrInstallApproval": false
+}

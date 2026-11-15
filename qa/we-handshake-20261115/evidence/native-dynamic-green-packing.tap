@@ -1,0 +1,466 @@
+TAP version 13
+# Subtest: actual package logger gate validates public placeholders, every app/page budget, real page set, full logger stages and runtime calls
+ok 1 - actual package logger gate validates public placeholders, every app/page budget, real page set, full logger stages and runtime calls
+  ---
+  duration_ms: 559.654635
+  type: 'test'
+  ...
+# Subtest: package gate rejects bytecode
+ok 2 - package gate rejects bytecode
+  ---
+  duration_ms: 449.226823
+  type: 'test'
+  ...
+# Subtest: package gate rejects extra JS not in manifest
+ok 3 - package gate rejects extra JS not in manifest
+  ---
+  duration_ms: 557.679948
+  type: 'test'
+  ...
+# Subtest: package gate rejects mismatched manifest version
+ok 4 - package gate rejects mismatched manifest version
+  ---
+  duration_ms: 347.845521
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK emitted external dependency
+ok 5 - package gate rejects SDK emitted external dependency
+  ---
+  duration_ms: 163.643802
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK emitted unbound require
+ok 6 - package gate rejects SDK emitted unbound require
+  ---
+  duration_ms: 167.426146
+  type: 'test'
+  ...
+# Subtest: package gate rejects actual app exceeds old 48KiB gate
+ok 7 - package gate rejects actual app exceeds old 48KiB gate
+  ---
+  duration_ms: 158.432344
+  type: 'test'
+  ...
+# Subtest: package gate rejects logger lost X-Log-Key marker
+ok 8 - package gate rejects logger lost X-Log-Key marker
+  ---
+  duration_ms: 181.861041
+  type: 'test'
+  ...
+# Subtest: package gate rejects logger init not actually emitted
+ok 9 - package gate rejects logger init not actually emitted
+  ---
+  duration_ms: 159.425052
+  type: 'test'
+  ...
+# Subtest: package gate rejects SDK omitted HELLO diagnostics
+ok 10 - package gate rejects SDK omitted HELLO diagnostics
+  ---
+  duration_ms: 166.239167
+  type: 'test'
+  ...
+# Subtest: package gate rejects unknown private runtime key in CI
+ok 11 - package gate rejects unknown private runtime key in CI
+  ---
+  duration_ms: 153.261771
+  type: 'test'
+  ...
+# Subtest: R3 unrelated factory require cannot attest an inert owner
+ok 12 - R3 unrelated factory require cannot attest an inert owner
+  ---
+  duration_ms: 259.680677
+  type: 'test'
+  ...
+# Subtest: R3 lazy wrapper must delegate the same three parameters in order
+ok 13 - R3 lazy wrapper must delegate the same three parameters in order
+  ---
+  duration_ms: 100.925834
+  type: 'test'
+  ...
+# Subtest: R3 current lazy wrapper and explicit Babel import aliases are accepted without provenance claims
+ok 14 - R3 current lazy wrapper and explicit Babel import aliases are accepted without provenance claims
+  ---
+  duration_ms: 414.527864
+  type: 'test'
+  ...
+# Subtest: R3 every original map source requires string content, including null and missing maps
+ok 15 - R3 every original map source requires string content, including null and missing maps
+  ---
+  duration_ms: 258.29651
+  type: 'test'
+  ...
+# Subtest: R3 retained original map contents are verbatim strings
+ok 16 - R3 retained original map contents are verbatim strings
+  ---
+  duration_ms: 96.571823
+  type: 'test'
+  ...
+# Subtest: compat is the entire unchanged bounded factory, dependency injected and owned by app without native initialization
+ok 17 - compat is the entire unchanged bounded factory, dependency injected and owned by app without native initialization
+  ---
+  duration_ms: 19.280677
+  type: 'test'
+  ...
+# Subtest: source bridge preserves exact protocol/engine references and all unversioned channel behavior
+ok 18 - source bridge preserves exact protocol/engine references and all unversioned channel behavior
+  ---
+  duration_ms: 10.563281
+  type: 'test'
+  ...
+# Subtest: packing replaces exactly the pinned page module, preserves app factory and every non-target resource/source
+ok 19 - packing replaces exactly the pinned page module, preserves app factory and every non-target resource/source
+  ---
+  duration_ms: 198.727032
+  type: 'test'
+  ...
+# Subtest: packing fails closed for absent/ambiguous/drifted modules or missing app owner and never mutates the input
+ok 20 - packing fails closed for absent/ambiguous/drifted modules or missing app owner and never mutates the input
+  ---
+  duration_ms: 129.36099
+  type: 'test'
+  ...
+# Subtest: R4 decoy object cannot attest the exported inert application owner
+ok 21 - R4 decoy object cannot attest the exported inert application owner
+  ---
+  duration_ms: 62.840573
+  type: 'test'
+  ...
+# Subtest: R4 explicit exported application aliases retain Babel lazy factory ownership
+ok 22 - R4 explicit exported application aliases retain Babel lazy factory ownership
+  ---
+  duration_ms: 135.594792
+  type: 'test'
+  ...
+# Subtest: rejects appTail dynamic reachability via direct eval
+ok 23 - rejects appTail dynamic reachability via direct eval
+  ---
+  duration_ms: 256.018593
+  type: 'test'
+  ...
+# Subtest: rejects pageTail dynamic reachability via direct eval
+ok 24 - rejects pageTail dynamic reachability via direct eval
+  ---
+  duration_ms: 53.069062
+  type: 'test'
+  ...
+# Subtest: rejects appTail dynamic reachability via Function constructor
+ok 25 - rejects appTail dynamic reachability via Function constructor
+  ---
+  duration_ms: 156.058541
+  type: 'test'
+  ...
+# Subtest: rejects pageTail dynamic reachability via Function constructor
+ok 26 - rejects pageTail dynamic reachability via Function constructor
+  ---
+  duration_ms: 40.093021
+  type: 'test'
+  ...
+# Subtest: unreferenced fixed inert stub remains accepted without dynamic execution
+ok 27 - unreferenced fixed inert stub remains accepted without dynamic execution
+  ---
+  duration_ms: 254.558281
+  type: 'test'
+  ...
+# Subtest: external helper has the independent complete SDK hash and quoted default export
+ok 28 - external helper has the independent complete SDK hash and quoted default export
+  ---
+  duration_ms: 13.554428
+  type: 'test'
+  ...
+# Subtest: external pinned Babel helper accepts requested literal module 143
+ok 29 - external pinned Babel helper accepts requested literal module 143
+  ---
+  duration_ms: 459.100572
+  type: 'test'
+  ...
+# Subtest: external pinned Babel helper accepts requested literal module 714
+ok 30 - external pinned Babel helper accepts requested literal module 714
+  ---
+  duration_ms: 192.056094
+  type: 'test'
+  ...
+# Subtest: external helper rejects same spelling with malicious return
+ok 31 - external helper rejects same spelling with malicious return
+  ---
+  duration_ms: 101.801875
+  type: 'test'
+  ...
+# Subtest: external helper rejects requested module missing despite pinned helper at another ID
+ok 32 - external helper rejects requested module missing despite pinned helper at another ID
+  ---
+  duration_ms: 141.042916
+  type: 'test'
+  ...
+# Subtest: external helper rejects ambiguous literal module ID
+ok 33 - external helper rejects ambiguous literal module ID
+  ---
+  duration_ms: 102.886146
+  type: 'test'
+  ...
+# Subtest: fixed SDK stub is independently evidenced and helper stays fully pinned
+ok 34 - fixed SDK stub is independently evidenced and helper stays fully pinned
+  ---
+  duration_ms: 23.587396
+  type: 'test'
+  ...
+# Subtest: accepts only unreferenced exact SDK declaration: function requireModule(moduleName){return requireNative(moduleName.slice(1))}
+ok 35 - accepts only unreferenced exact SDK declaration: function requireModule(moduleName){return requireNative(moduleName.slice(1))}
+  ---
+  duration_ms: 517.587239
+  type: 'test'
+  ...
+# Subtest: accepts only unreferenced exact SDK declaration: function requireModule(moduleName) { return requireNative(moduleName.slice(1)); }
+ok 36 - accepts only unreferenced exact SDK declaration: function requireModule(moduleName) { return requireNative(moduleName.slice(1)); }
+  ---
+  duration_ms: 109.574895
+  type: 'test'
+  ...
+# Subtest: rejects pageTail actual top-level requireNative
+ok 37 - rejects pageTail actual top-level requireNative
+  ---
+  duration_ms: 29.93901
+  type: 'test'
+  ...
+# Subtest: rejects appTail actual top-level requireNative
+ok 38 - rejects appTail actual top-level requireNative
+  ---
+  duration_ms: 52.005729
+  type: 'test'
+  ...
+# Subtest: rejects pageTail requireModule invocation
+ok 39 - rejects pageTail requireModule invocation
+  ---
+  duration_ms: 28.117761
+  type: 'test'
+  ...
+# Subtest: rejects appTail requireModule invocation
+ok 40 - rejects appTail requireModule invocation
+  ---
+  duration_ms: 47.48026
+  type: 'test'
+  ...
+# Subtest: rejects pageTail other native call
+ok 41 - rejects pageTail other native call
+  ---
+  duration_ms: 24.470573
+  type: 'test'
+  ...
+# Subtest: rejects appTail other native call
+ok 42 - rejects appTail other native call
+  ---
+  duration_ms: 67.050938
+  type: 'test'
+  ...
+# Subtest: rejects pageTail system module token
+ok 43 - rejects pageTail system module token
+  ---
+  duration_ms: 25.162032
+  type: 'test'
+  ...
+# Subtest: rejects appTail system module token
+ok 44 - rejects appTail system module token
+  ---
+  duration_ms: 43.628333
+  type: 'test'
+  ...
+# Subtest: rejects pageTail renamed parameter
+ok 45 - rejects pageTail renamed parameter
+  ---
+  duration_ms: 23.40875
+  type: 'test'
+  ...
+# Subtest: rejects appTail renamed parameter
+ok 46 - rejects appTail renamed parameter
+  ---
+  duration_ms: 41.077239
+  type: 'test'
+  ...
+# Subtest: rejects pageTail extra parameter
+ok 47 - rejects pageTail extra parameter
+  ---
+  duration_ms: 25.029271
+  type: 'test'
+  ...
+# Subtest: rejects appTail extra parameter
+ok 48 - rejects appTail extra parameter
+  ---
+  duration_ms: 37.129427
+  type: 'test'
+  ...
+# Subtest: rejects pageTail multiple statements
+ok 49 - rejects pageTail multiple statements
+  ---
+  duration_ms: 23.118021
+  type: 'test'
+  ...
+# Subtest: rejects appTail multiple statements
+ok 50 - rejects appTail multiple statements
+  ---
+  duration_ms: 34.194479
+  type: 'test'
+  ...
+# Subtest: rejects pageTail wrong slice argument
+ok 51 - rejects pageTail wrong slice argument
+  ---
+  duration_ms: 18.985156
+  type: 'test'
+  ...
+# Subtest: rejects appTail wrong slice argument
+ok 52 - rejects appTail wrong slice argument
+  ---
+  duration_ms: 31.478541
+  type: 'test'
+  ...
+# Subtest: rejects pageTail computed slice member
+ok 53 - rejects pageTail computed slice member
+  ---
+  duration_ms: 22.697552
+  type: 'test'
+  ...
+# Subtest: rejects appTail computed slice member
+ok 54 - rejects appTail computed slice member
+  ---
+  duration_ms: 33.0775
+  type: 'test'
+  ...
+# Subtest: rejects pageTail function expression
+ok 55 - rejects pageTail function expression
+  ---
+  duration_ms: 19.448229
+  type: 'test'
+  ...
+# Subtest: rejects appTail function expression
+ok 56 - rejects appTail function expression
+  ---
+  duration_ms: 31.589115
+  type: 'test'
+  ...
+# Subtest: rejects pageTail nested declaration
+ok 57 - rejects pageTail nested declaration
+  ---
+  duration_ms: 18.555156
+  type: 'test'
+  ...
+# Subtest: rejects appTail nested declaration
+ok 58 - rejects appTail nested declaration
+  ---
+  duration_ms: 31.369896
+  type: 'test'
+  ...
+# Subtest: rejects pageTail shadowed identifier
+ok 59 - rejects pageTail shadowed identifier
+  ---
+  duration_ms: 19.11625
+  type: 'test'
+  ...
+# Subtest: rejects appTail shadowed identifier
+ok 60 - rejects appTail shadowed identifier
+  ---
+  duration_ms: 31.861979
+  type: 'test'
+  ...
+# Subtest: rejects pageTail reassignment
+ok 61 - rejects pageTail reassignment
+  ---
+  duration_ms: 18.235417
+  type: 'test'
+  ...
+# Subtest: rejects appTail reassignment
+ok 62 - rejects appTail reassignment
+  ---
+  duration_ms: 32.060365
+  type: 'test'
+  ...
+# Subtest: rejects pageTail identifier alias
+ok 63 - rejects pageTail identifier alias
+  ---
+  duration_ms: 20.078594
+  type: 'test'
+  ...
+# Subtest: rejects appTail identifier alias
+ok 64 - rejects appTail identifier alias
+  ---
+  duration_ms: 31.238854
+  type: 'test'
+  ...
+# Subtest: rejects pageTail duplicate declaration
+ok 65 - rejects pageTail duplicate declaration
+  ---
+  duration_ms: 18.316771
+  type: 'test'
+  ...
+# Subtest: rejects appTail duplicate declaration
+ok 66 - rejects appTail duplicate declaration
+  ---
+  duration_ms: 33.222083
+  type: 'test'
+  ...
+# Subtest: SDK shape accepts literal default export root
+ok 67 - SDK shape accepts literal default export root
+  ---
+  duration_ms: 420.837031
+  type: 'test'
+  ...
+# Subtest: SDK shape accepts literal default factory resolver
+ok 68 - SDK shape accepts literal default factory resolver
+  ---
+  duration_ms: 156.618281
+  type: 'test'
+  ...
+# Subtest: SDK shape accepts actual Babel literal default root and lazy interop import
+ok 69 - SDK shape accepts actual Babel literal default root and lazy interop import
+  ---
+  duration_ms: 106.133958
+  type: 'test'
+  ...
+# Subtest: SDK shape rejects computed export variable even when its value is default
+ok 70 - SDK shape rejects computed export variable even when its value is default
+  ---
+  duration_ms: 125.288125
+  type: 'test'
+  ...
+# Subtest: SDK shape rejects computed factory variable even when its value is default
+ok 71 - SDK shape rejects computed factory variable even when its value is default
+  ---
+  duration_ms: 85.382032
+  type: 'test'
+  ...
+# Subtest: SDK shape rejects wrong literal export key
+ok 72 - SDK shape rejects wrong literal export key
+  ---
+  duration_ms: 58.204896
+  type: 'test'
+  ...
+# Subtest: SDK shape rejects wrong literal factory key
+ok 73 - SDK shape rejects wrong literal factory key
+  ---
+  duration_ms: 67.007448
+  type: 'test'
+  ...
+# Subtest: SDK shape rejects unrelated static owner decoy with an empty proper exported root
+ok 74 - SDK shape rejects unrelated static owner decoy with an empty proper exported root
+  ---
+  duration_ms: 76.571355
+  type: 'test'
+  ...
+# Subtest: public failure evidence retains the exact SDK APP before the new sharing transform
+ok 75 - public failure evidence retains the exact SDK APP before the new sharing transform
+  ---
+  duration_ms: 4.790729
+  type: 'test'
+  ...
+# Subtest: actual SDK package shares the compat factory before receive compaction and unchanged verification
+ok 76 - actual SDK package shares the compat factory before receive compaction and unchanged verification
+  ---
+  duration_ms: 5.235469
+  type: 'test'
+  ...
+1..76
+# tests 76
+# suites 0
+# pass 76
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 3538.294686

@@ -1,0 +1,42 @@
+{
+  "bundle": "watchapp.nexus.0zzip",
+  "old_hap_sha256": "8865474d76d278f6d61050f4cebca1c1a70b0f5f391f653523d9c9018c91bac0",
+  "files": 28,
+  "js": [
+    {
+      "path": "assets/js/MainAbility/app.js",
+      "bytes": 5954,
+      "sha256": "1233a6e0e0c92d8f09f64ffc6374085be0bee44c412419d88c9a7a91f30a6d4d"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js",
+      "bytes": 10614,
+      "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js",
+      "bytes": 35072,
+      "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js",
+      "bytes": 36851,
+      "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 40979,
+      "sha256": "787a251ee68bb104df111415fca13b60f83d4643ae719323676a5e2fd091ddf3"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js",
+      "bytes": 43685,
+      "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js",
+      "bytes": 41651,
+      "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260"
+    }
+  ]
+}

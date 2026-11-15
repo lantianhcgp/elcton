@@ -1,0 +1,52 @@
+{
+  "status": "HELPER_GREEN_CALLSITE_BLOCKED",
+  "started_epoch": 1794701571.7124627,
+  "verified_epoch": 1794701731.8261006,
+  "elapsed_seconds": 160.11363792419434,
+  "hard_budget_seconds": 180,
+  "within_budget": true,
+  "tests_command": "node --test --test-reporter=tap tests/compiledLoggerHostOwnership.test.mjs",
+  "red_exit": 1,
+  "green_exit": 0,
+  "green_tests": 6,
+  "checks": {
+    "qa/we-handshake-20261115/compiled-logger-host.mjs": 0,
+    "tests/compiledLoggerHostOwnership.test.mjs": 0,
+    "git_diff_check": 0
+  },
+  "sha256": {
+    "qa/we-handshake-20261115/compiled-logger-host.mjs": "08b48596363817ff2ddc473ba72f40d42d31b3626b2b4a394951c21640b43399",
+    "tests/compiledLoggerHostOwnership.test.mjs": "7e4a8cacb3af13619dfc2cb71bcf9ec274e7e30be58866c22dfb96953f6f4535"
+  },
+  "blocked_requirements": [
+    "Current original host has no runSdkProbe or noVersion call site to replace",
+    "Current original host has no loadNoVersionSource to delete or disable",
+    "Current original host has no records.noVersion or unversionedSource label to patch",
+    "Do not claim main path uses helper; actual probe owner wiring requires the missing stage-probe host revision"
+  ],
+  "helper_verified": [
+    "unversioned actualVm._elctonWearCompat called once with original identity/protocol/engine refs and receiver",
+    "versioned actualVm._elctonWearChannel retained",
+    "missing compat explicit fail without source fallback",
+    "throwing owner preserves failure without source fallback",
+    "CLI-inert import",
+    "direct HOST help retained"
+  ],
+  "boundaries": {
+    "actual_app_bytes_read": false,
+    "configured_secret_read": false,
+    "new_ci_app_run": false,
+    "watch_or_https_run": false,
+    "old_355_suite_run": false,
+    "product_app_channel_compat_packing_workflow_oldtests_httpsqa_modified": false,
+    "commit_or_push": false
+  },
+  "writes": [
+    "qa/we-handshake-20261115/compiled-logger-host.mjs",
+    "tests/compiledLoggerHostOwnership.test.mjs",
+    "qa/evidence/host-owner-red.tap",
+    "qa/evidence/host-owner-before.json",
+    "qa/evidence/host-owner-green.tap",
+    "qa/evidence/host-owner-result.json"
+  ]
+}

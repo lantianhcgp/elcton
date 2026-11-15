@@ -1,0 +1,13 @@
+{
+  "started_epoch": 1794701571.7124627,
+  "red_epoch": 1794701649.8390365,
+  "red_exit": 1,
+  "host_before_sha256": "7783276b30e5e7704fe0a7ff8658c9b176ffe38457e9b2277c386b7ce5aea4fd",
+  "source_symbols_absent": [
+    "runSdkProbe",
+    "loadNoVersionSource",
+    "unversionedSource",
+    "records.noVersion"
+  ],
+  "private_app_or_secret_read": false
+}
