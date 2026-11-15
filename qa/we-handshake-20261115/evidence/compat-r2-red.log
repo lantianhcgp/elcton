@@ -1,0 +1,86 @@
+✖ compat is the entire unchanged bounded factory, dependency injected and owned by app without native initialization (12.010469ms)
+✖ source bridge preserves exact protocol/engine references and all unversioned channel behavior (1.749271ms)
+✖ packing replaces exactly the pinned page module, preserves app factory and every non-target resource/source (1.953958ms)
+✖ packing fails closed for absent/ambiguous/drifted modules or missing app owner and never mutates the input (1.463125ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 0
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1462.513229
+
+✖ failing tests:
+
+test at tests/weCompatSharing.test.mjs:33:1
+✖ compat is the entire unchanged bounded factory, dependency injected and owned by app without native initialization (12.010469ms)
+  AssertionError [ERR_ASSERTION]: app-owned full compatibility factory is missing
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:34:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weCompatSharing.test.mjs:47:1
+✖ source bridge preserves exact protocol/engine references and all unversioned channel behavior (1.749271ms)
+  AssertionError [ERR_ASSERTION]: compat dependency missing
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:48:10)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weCompatSharing.test.mjs:60:1
+✖ packing replaces exactly the pinned page module, preserves app factory and every non-target resource/source (1.953958ms)
+  AssertionError [ERR_ASSERTION]: host sharing step is missing
+      at packer (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:20:32)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:61:32)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/weCompatSharing.test.mjs:79:1
+✖ packing fails closed for absent/ambiguous/drifted modules or missing app owner and never mutates the input (1.463125ms)
+  AssertionError [ERR_ASSERTION]: host sharing step is missing
+      at packer (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:20:32)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:80:32)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -1,0 +1,223 @@
+{
+  "review_id": "compat-sharing-spec-sdk-shape",
+  "axis": "SPEC",
+  "status": "passed",
+  "passed": true,
+  "pass_scope": "Only the SDK static literal default-equivalence addition; all other R4 approvals inherited by exact SHA equality/reconstruction. Static/host-local only, no SDK/native success.",
+  "reviewer_mode": "delegated-read-only-sdk-shape-incremental",
+  "scope_root": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "head": "70092ba68794b8c4ef905f64e0f676887d9ef703",
+  "started_utc": "2026-11-15T00:11:29+00:00",
+  "hash_capture_utc": "2026-11-15T00:13:48.498373+00:00",
+  "hard_time_budget_seconds": 120,
+  "elapsed_seconds_at_final_hash_capture": 139.498373,
+  "within_hard_budget": false,
+  "authority": "Review the two static default member matching sites and the eight already-proven shape cases only; no old-355 SPECQUALITY re-review, no expanded fuzzing. Only this appended report is written.",
+  "prior_review": "qa/we-handshake-20261115/reviews/compat-sharing-spec-r4.json",
+  "prior_review_sha256": "5c12e75eba6049e6b616c164083d3624b0e87eeeb6921ae37e52c45c3b1f420a",
+  "hashscope": [
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearCompat.js",
+      "bytes": 5120,
+      "sha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e",
+      "r4_unchanged": true
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearChannel.js",
+      "bytes": 1012,
+      "sha256": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179",
+      "r4_unchanged": true
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/app.js",
+      "bytes": 2426,
+      "sha256": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a",
+      "r4_unchanged": true
+    },
+    {
+      "path": "scripts/share_we_compat_app.mjs",
+      "bytes": 14423,
+      "sha256": "c6e32642ba29851f5e484ebd1af5b206b764fd39a079b42057f0e144e0ddc095",
+      "r4_unchanged": false
+    },
+    {
+      "path": "tests/weCompatSharing.test.mjs",
+      "bytes": 13777,
+      "sha256": "1993526480e6f3e373b3f63814060a313b3e2987ff1a136de902f6458c204190",
+      "r4_unchanged": true
+    },
+    {
+      "path": "tests/weSdkSharingPipeline.test.mjs",
+      "bytes": 1059,
+      "sha256": "7ca9da69a0643aa67d69b2bf4676ee8a4ba655f259ff1c7ec38769d0cced0217",
+      "r4_unchanged": true
+    },
+    {
+      "path": ".github/workflows/wearengine.yml",
+      "bytes": 4738,
+      "sha256": "3017c1f888604573c6fabae70b835cb4222a829d2257a465fc0e498d0eb57deb",
+      "r4_unchanged": true
+    },
+    {
+      "path": "tests/weCompatSharingSdkShape.test.mjs",
+      "bytes": 4607,
+      "sha256": "97674821f700114c08d1b082569d0e9955d5c88f078282dc464b2e65c1263e75",
+      "r4_unchanged": null
+    }
+  ],
+  "scope_path_count": 8,
+  "author_stopped_script_sha256_match": true,
+  "r4_non_script_original_scope_hashes_unchanged": true,
+  "delta_proof": {
+    "method": "In memory, remove one isStaticMember helper and restore the two prior dot-only conditions; exact complete-file SHA equals R4. No source writes.",
+    "changed_sites": 3,
+    "reconstructed_r4_script_sha256": "3cb6eb0b54f7e60d569b86c4d5090def26477411af5dd0d01262fa81578882d3",
+    "r4_script_sha256": "3cb6eb0b54f7e60d569b86c4d5090def26477411af5dd0d01262fa81578882d3",
+    "exact_match": true
+  },
+  "checks": [
+    {
+      "id": "SDK-SHAPE-SPEC-01",
+      "passed": true,
+      "file": "scripts/share_we_compat_app.mjs",
+      "lines": "18,47,88",
+      "basis": "Shared predicate accepts only Identifier .default or computed Literal whose value is exactly default. Both export-root collection and factory resolution use it. Computed variables and other literals remain rejected; lexical exports-parameter binding, stable exported-root alias resolution, single root owner, exact lazy 3-parameter forwarding, interop shape and maps are unchanged."
+    },
+    {
+      "id": "SDK-SHAPE-SPEC-02",
+      "passed": true,
+      "file": "tests/weCompatSharingSdkShape.test.mjs",
+      "lines": "27-60",
+      "basis": "Three independent/root+resolver combined positives and five established negatives pass. Positives preserve full source factory, laziness, exact identity/protocol/engine reference order, unchanged app bytes/non-target bytes and every original map source string. Tests explicitly syntheticQA=true and actualSDKVerified=false.",
+      "cases": [
+        {
+          "case": "literal default export root",
+          "expected": "accept",
+          "passed": true
+        },
+        {
+          "case": "literal default factory resolver",
+          "expected": "accept",
+          "passed": true
+        },
+        {
+          "case": "actual Babel literal default root and lazy interop import",
+          "expected": "accept",
+          "passed": true
+        },
+        {
+          "case": "computed export variable even when its value is default",
+          "expected": "reject /not linked/",
+          "passed": true
+        },
+        {
+          "case": "computed factory variable even when its value is default",
+          "expected": "reject /not linked/",
+          "passed": true
+        },
+        {
+          "case": "wrong literal export key",
+          "expected": "reject /not linked/",
+          "passed": true
+        },
+        {
+          "case": "wrong literal factory key",
+          "expected": "reject /not linked/",
+          "passed": true
+        },
+        {
+          "case": "unrelated static owner decoy with an empty proper exported root",
+          "expected": "reject /not linked/",
+          "passed": true
+        }
+      ]
+    }
+  ],
+  "sdk_byte_shape_evidence": {
+    "path": "qa/we-handshake-20261115/evidence/sdk-parse-r2/actual-ci-43653381875-app.js.source.txt",
+    "sha256": "cb7bed669b5b8a509a712c3a4136fa2c73af2caa092be3cdc225d860a7322479",
+    "bytes": 16398,
+    "observed_es5_ast_parse_exit_code": 0,
+    "literal_excerpts": [
+      "exports[\"default\"]=void 0",
+      "exports[\"default\"]=_default",
+      "_wearTrace[\"default\"]",
+      "_wearService[\"default\"]"
+    ],
+    "boundary": "Existing CI source-text syntax evidence only; not proof of the current final packer against a real SDK artifact."
+  },
+  "findings": [],
+  "inherited_preserved_invariants": {
+    "basis": "Six original non-script paths equal R4; reversing exactly the helper and two conditions restores the complete R4 script hash. Rootowner/decoy, alias and wrapper arguments, map and original sourcefactory/version routing approvals are retained, not reopened.",
+    "original_body_sha256": "5cb48bd88d4a57bfd72c87a4572743af67725d8dd2c60217fc5817e6b194f529",
+    "source_factory_app_channel_workflow_pipeline_unchanged": true
+  },
+  "verification": {
+    "independent_host_tests": {
+      "command": "node --test --test-reporter=tap tests/weCompatSharingSdkShape.test.mjs tests/weCompatSharing.test.mjs tests/weSdkSharingPipeline.test.mjs",
+      "exit_code": 0,
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 1268.847291,
+      "new_shape_tests": 8
+    },
+    "evidence_log_readback": {
+      "red": {
+        "path": "qa/we-handshake-20261115/evidence/compat-sdk-shape-red.log",
+        "sha256": "b634b53c9f4c04f3ac13d6422e0c82bc03928329a102b6b42866a8f2d79607a1",
+        "tests": 8,
+        "suites": 0,
+        "pass": 5,
+        "fail": 3,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 851.854167
+      },
+      "author_green": {
+        "path": "qa/we-handshake-20261115/evidence/compat-sdk-shape-green.log",
+        "sha256": "caebe41a07b676bcb3ee29ed2a6c6a9efc02e6a7430709de70f07b07e66009e4",
+        "tests": 66,
+        "suites": 0,
+        "pass": 66,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 1362.442395
+      },
+      "parent_green": {
+        "path": "qa/we-handshake-20261115/evidence/compat-sdk-shape-parent-green.log",
+        "sha256": "9217181b34097faaa59e5e3c37bf60eb1930b22b914d494644f18c86a0f8bb1a",
+        "tests": 66,
+        "suites": 0,
+        "pass": 66,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "duration_ms": 1447.749791
+      }
+    },
+    "red_failure": "All three supported literal positives failed with App _elctonWearCompat is not linked to the full factory module; five established negatives already passed.",
+    "packer_node_check_exit_code": 0,
+    "git_diff_check_exit_code": 0,
+    "old_355_reexecuted": false,
+    "prior_specquality_reopened": false,
+    "additional_fuzzing": false,
+    "source_fixes": false,
+    "historical_report_edits": false,
+    "commit_or_push": false,
+    "actualSDKVerified": false,
+    "native_verified": false,
+    "real_wearengine_verified": false,
+    "fit3_verified": false
+  },
+  "native_boundary": "SPEC PASS only for static default equivalence and synthetic host cases. Does not attest final real-SDK packing/parse, JerryScript OOM repair, memory/heap safety, WearEngine handshake or physical Fit3 watch success. Parent CI/native readback remains required.",
+  "noNative": true,
+  "disposition": "Scoped SDK-shape SPEC PASS; no blocking finding in the requested delta. R4 inherited without reopening other requirements."
+}

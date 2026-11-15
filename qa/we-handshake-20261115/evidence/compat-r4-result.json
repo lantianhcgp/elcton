@@ -1,0 +1,63 @@
+{
+  "round": "compat-r4",
+  "status": "green-stopped",
+  "scope": "Actual webpack exports-parameter.default application root ownership only; no additional fuzz or source/workflow changes",
+  "start_epoch": 1794701003,
+  "last_verification_epoch": 1794701150.2503943,
+  "elapsed_to_verification_seconds": 147.25039505958557,
+  "implementation": "Collect default assignments on the second webpack parameter. Resolve stable lexical aliases to one ObjectExpression root, allowing preceding Babel void-0 initialization. Select exactly one direct root _elctonWearCompat property, then apply unchanged factory resolution and exact ordered three-argument lazy-wrapper checks. Unknown or ambiguous root shapes reject.",
+  "red": {
+    "command": "node --test --test-name-pattern='R4 ' tests/weCompatSharing.test.mjs",
+    "exit_code": 1,
+    "tests": 2,
+    "pass": 1,
+    "fail": 1,
+    "failure": "R4 decoy object cannot attest the exported inert application owner: Missing expected rejection",
+    "positive": "R4 explicit exported application aliases retain Babel lazy factory ownership passed before and after fix",
+    "path": "qa/we-handshake-20261115/evidence/compat-r4-red.log",
+    "sha256": "b16dc13aae6e6fdaf11a128171900043d1477043429c2544d441c95757d4c633"
+  },
+  "green": {
+    "command": "node --test tests/weCompatSharing.test.mjs tests/weNativeContract.test.mjs tests/wearChannel.test.mjs tests/weSdkSharingPipeline.test.mjs",
+    "exit_code": 0,
+    "tests": 58,
+    "pass": 58,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "path": "qa/we-handshake-20261115/evidence/compat-r4-green.log",
+    "sha256": "82e754f345a36f38d070123eb05593ee9bfae5db358241d01cc40327da73a9af"
+  },
+  "modified_files": [
+    {"path":"scripts/share_we_compat_app.mjs","before_sha256":"d348367c524fdba329735a99bdf512ab937fdd79ff348092b78a6b316aa930e4","after_sha256":"3cb6eb0b54f7e60d569b86c4d5090def26477411af5dd0d01262fa81578882d3","bytes":14325},
+    {"path":"tests/weCompatSharing.test.mjs","before_sha256":"988f818588ff8c1f2c4f8baac8dacdc669cae4a9f25c5b02eeab0c984dbf6f4c","after_sha256":"1993526480e6f3e373b3f63814060a313b3e2987ff1a136de902f6458c204190","bytes":13777,"original_12472_byte_prefix_sha256_verified_unchanged":true}
+  ],
+  "unchanged_hashes": {
+    "entry/src/main/js/MainAbility/app.js":"090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a",
+    "entry/src/main/js/MainAbility/common/wearChannel.js":"711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179",
+    "entry/src/main/js/MainAbility/common/wearCompat.js":"f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e",
+    ".github/workflows/wearengine.yml":"3017c1f888604573c6fabae70b835cb4222a829d2257a465fc0e498d0eb57deb",
+    "tests/weNativeContract.test.mjs":"46556b1a7ca6f040483e57e75118528c36d0baca8d7ac6bfeb13e09daa2b7cbb",
+    "tests/wearChannel.test.mjs":"76b901a79a9a2cf8078611ccee4c62ff241184447a222e53480099b46e017022",
+    "tests/weSdkSharingPipeline.test.mjs":"7ca9da69a0643aa67d69b2bf4676ee8a4ba655f259ff1c7ec38769d0cced0217"
+  },
+  "preserved": {
+    "original_tests_and_assertions": true,
+    "original_complete_factory_body_sha256": "5cb48bd88d4a57bfd72c87a4572743af67725d8dd2c60217fc5817e6b194f529",
+    "factory_resolution_and_ordered_three_params": true,
+    "source_map_all_strings_and_include_sources": true,
+    "full_factory_parity_and_non_target_bytes": true,
+    "fail_closed": true
+  },
+  "boundary": {
+    "synthetic_QA_only": true,
+    "actual_SDK_owner_shape_verified": false,
+    "actual_SDK_validation": "Parent CI readback pending; unknown export shape must reject, not weaken gate",
+    "native_verified": false,
+    "browser_phone_certificate_or_secret_access": false,
+    "commit_or_push": false,
+    "third_cycle": false,
+    "issues": "No local test blocker; SDK/native validation explicitly not claimed"
+  }
+}

@@ -1,0 +1,61 @@
+✖ R3 unrelated factory require cannot attest an inert owner (225.775365ms)
+✖ R3 lazy wrapper must delegate the same three parameters in order (61.483855ms)
+✔ R3 current lazy wrapper and explicit Babel import aliases are accepted without provenance claims (106.394636ms)
+✖ R3 every original map source requires string content, including null and missing maps (52.532865ms)
+✔ R3 retained original map contents are verbatim strings (40.988333ms)
+✔ compat is the entire unchanged bounded factory, dependency injected and owned by app without native initialization (8.492865ms)
+✔ source bridge preserves exact protocol/engine references and all unversioned channel behavior (6.859948ms)
+✔ packing replaces exactly the pinned page module, preserves app factory and every non-target resource/source (75.161614ms)
+✔ packing fails closed for absent/ambiguous/drifted modules or missing app owner and never mutates the input (65.750989ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 6
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1103.648854
+
+✖ failing tests:
+
+test at tests/weCompatSharing.test.mjs:45:1
+✖ R3 unrelated factory require cannot attest an inert owner (225.775365ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:48:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /not linked/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests/weCompatSharing.test.mjs:50:1
+✖ R3 lazy wrapper must delegate the same three parameters in order (61.483855ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:53:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /not linked/,
+    operator: 'rejects',
+    diff: 'simple'
+  }
+
+test at tests/weCompatSharing.test.mjs:63:1
+✖ R3 every original map source requires string content, including null and missing maps (52.532865ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:66:5)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /includeSources/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

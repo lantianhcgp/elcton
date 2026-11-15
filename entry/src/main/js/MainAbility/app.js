@@ -2,8 +2,10 @@ import L from './common/logsink.js';
 import logConfig from './common/log-config.js';
 
 import wearService from './common/wearService.js';
+import wearCompat from './common/wearCompat.js';
 export default {
   _elctonWearChannel: wearService,
+  _elctonWearCompat: function (identity, protocol, engine) { return wearCompat(identity, protocol, engine); },
   _elctonLog: function (stage, message) {
     try {
       if (typeof stage !== 'string' || !stage.length || stage.length > 29) return false;

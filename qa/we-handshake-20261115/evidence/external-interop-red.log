@@ -1,0 +1,32 @@
+✔ external helper has the independent complete SDK hash and quoted default export (5.565678ms)
+✖ external pinned Babel helper accepts requested literal module 143 (101.248646ms)
+✖ external pinned Babel helper accepts requested literal module 714 (45.975885ms)
+✔ external helper rejects same spelling with malicious return (53.534792ms)
+✔ external helper rejects requested module missing despite pinned helper at another ID (42.057552ms)
+✔ external helper rejects ambiguous literal module ID (32.03875ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 4
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 779.529791
+
+✖ failing tests:
+
+test at tests/weCompatSharingExternalHelper.test.mjs:32:33
+✖ external pinned Babel helper accepts requested literal module 143 (101.248646ms)
+  Error: App _elctonWearCompat is not linked to the full factory module
+      at shareCompatApp (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:142:27)
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharingExternalHelper.test.mjs:34:11)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests/weCompatSharingExternalHelper.test.mjs:32:33
+✖ external pinned Babel helper accepts requested literal module 714 (45.975885ms)
+  Error: App _elctonWearCompat is not linked to the full factory module
+      at shareCompatApp (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:142:27)
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharingExternalHelper.test.mjs:34:11)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

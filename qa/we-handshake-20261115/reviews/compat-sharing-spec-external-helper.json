@@ -1,0 +1,154 @@
+{
+  "review_id": "compat-sharing-spec-external-helper",
+  "axis": "SPEC",
+  "status": "passed",
+  "passed": true,
+  "pass_scope": "Only COMPAT-QUALITY-R2-01 imported-helper resolver delta and six new targeted synthetic HOST cases. Other SDK-shape SPEC approvals and previously passing QUALITY checks are inherited, not reopened. This is not an overall QUALITY pass or a real SDK/native success receipt.",
+  "reviewer_mode": "delegated-read-only-external-helper-incremental",
+  "jev_called": false,
+  "scope_root": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "head": "70092ba68794b8c4ef905f64e0f676887d9ef703",
+  "started_utc": "2026-11-15T00:20:28Z",
+  "hash_capture_utc": "2026-11-15T00:21:27.480890+00:00",
+  "delta_verification_utc": "2026-11-15T00:22:04.897374+00:00",
+  "hard_time_budget_seconds": 90,
+  "elapsed_seconds_at_last_verification": 96.897392,
+  "within_hard_budget": false,
+  "budget_issue": "Read/tool round trips and two unsuccessful in-memory reconstruction attempts exceeded the hard budget; final exact reconstruction succeeded. No additional tests/fuzzing or product re-review was performed.",
+  "authority": "Only the confirmed external imported SDK helper recognition gap; nine paths (SDK-shape eight plus tests/weCompatSharingExternalHelper.test.mjs). No source changes, historical report edits, old-355 review, expanded fuzzing or product review. Only this new report is written.",
+  "read_order": [
+    "qa/we-handshake-20261115/reviews/compat-sharing-spec-sdk-shape.json",
+    "qa/we-handshake-20261115/reviews/compat-sharing-quality-r2.json"
+  ],
+  "prior_spec_review": {
+    "path": "qa/we-handshake-20261115/reviews/compat-sharing-spec-sdk-shape.json",
+    "sha256": "c070e09cc4ee72ed0c4117310c5e19b1dfd0fab097afea908082169aecc72e26",
+    "status": "passed"
+  },
+  "prior_quality_review": {
+    "path": "qa/we-handshake-20261115/reviews/compat-sharing-quality-r2.json",
+    "sha256": "c701ddc1c455a801321e4991641c28b452c0a1895fb5a7a1e17a0e006f7d0143",
+    "historical_status": "blocked",
+    "preserved_without_edit": true,
+    "inherited_checks": [
+      "QUALITY-FACTORY-OWNERSHIP",
+      "QUALITY-PACKING-SIDE-EFFECTS",
+      "QUALITY-ROOT-MAPS-PRIVACY",
+      "QUALITY-WORKFLOW-INCREMENT"
+    ],
+    "boundary": "Historical QUALITY status is not rewritten. This SPEC report closes the named recognizer gap only within static/HOST scope. Parent retains original-artifact migration control and SDK/native gates."
+  },
+  "scope_path_count": 9,
+  "hashscope": [
+    {"path": "entry/src/main/js/MainAbility/common/wearCompat.js", "bytes": 5120, "sha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e", "sdk_shape_unchanged": true},
+    {"path": "entry/src/main/js/MainAbility/common/wearChannel.js", "bytes": 1012, "sha256": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179", "sdk_shape_unchanged": true},
+    {"path": "entry/src/main/js/MainAbility/app.js", "bytes": 2426, "sha256": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a", "sdk_shape_unchanged": true},
+    {"path": "scripts/share_we_compat_app.mjs", "bytes": 15383, "sha256": "3d9852607d3560532d528fc16dac10896bd7be1c9c476079267688ecff4c5961", "sdk_shape_unchanged": false},
+    {"path": "tests/weCompatSharing.test.mjs", "bytes": 13777, "sha256": "1993526480e6f3e373b3f63814060a313b3e2987ff1a136de902f6458c204190", "sdk_shape_unchanged": true},
+    {"path": "tests/weSdkSharingPipeline.test.mjs", "bytes": 1059, "sha256": "7ca9da69a0643aa67d69b2bf4676ee8a4ba655f259ff1c7ec38769d0cced0217", "sdk_shape_unchanged": true},
+    {"path": ".github/workflows/wearengine.yml", "bytes": 4738, "sha256": "3017c1f888604573c6fabae70b835cb4222a829d2257a465fc0e498d0eb57deb", "sdk_shape_unchanged": true},
+    {"path": "tests/weCompatSharingSdkShape.test.mjs", "bytes": 4607, "sha256": "97674821f700114c08d1b082569d0e9955d5c88f078282dc464b2e65c1263e75", "sdk_shape_unchanged": true},
+    {"path": "tests/weCompatSharingExternalHelper.test.mjs", "bytes": 5346, "sha256": "14182d8552faeef6d872f5341bfc57b0cf88660d9172bb9b5243da47aafcf6e2", "sdk_shape_unchanged": null}
+  ],
+  "author_stopped_script_sha256_match": true,
+  "seven_existing_non_script_paths_unchanged": true,
+  "delta_proof": {
+    "method": "In memory only: remove the three-line external-helper SHA pin/comment block; remove inspect return code field; restore interop(name), its original inline missing-helper guard and call site; remove the imported-helper branch. No source writes.",
+    "reconstructed_bytes": 14423,
+    "reconstructed_sdk_shape_script_sha256": "c6e32642ba29851f5e484ebd1af5b206b764fd39a079b42057f0e144e0ddc095",
+    "prior_sdk_shape_script_sha256": "c6e32642ba29851f5e484ebd1af5b206b764fd39a079b42057f0e144e0ddc095",
+    "exact_match": true,
+    "inherited_preserved_invariants": "Original source factory/body, exported application root and lexical alias ownership, ordered exact three-parameter lazy forwarding, real resources, maps, static default matching, application/channel/workflow routing and all remaining packer code are unchanged."
+  },
+  "helper_pin": {
+    "path": "qa/we-handshake-20261115/evidence/sdk-parse-r2/pinned-babel-interop-module143.source.txt",
+    "bytes": 300,
+    "sha256": "e282a73c6d4a635b6aa168ad8ff37d95bc71c3b9fd70b2f56caa63cdc4094bf3",
+    "exact_fixture_and_resolver_pin_match": true,
+    "module_id_is_not_pinned": true,
+    "boundary": "Complete historical SDK module-function text, including one module parameter, exact Babel value/export semantics and inert requireModule declaration. Recognition does not invoke requireNative or attest a newly built SDK artifact."
+  },
+  "checks": [
+    {
+      "id": "EXTERNAL-HELPER-SPEC-01",
+      "passed": true,
+      "file": "scripts/share_we_compat_app.mjs",
+      "lines": "13-15,33,73-85,97",
+      "basis": "inspect now retains the exact app source. Only a stable lexical helper binding to a one-literal-argument call of the owner webpack third parameter is accepted; mutated/shadowed require/helper identifiers are rejected by existing guards. The requested literal ID must identify exactly one literal-key AST Property value. It must be a FunctionExpression whose complete source slice SHA equals the independently pinned 300-byte module. That exact pin entails one module parameter and the observed helper export; no generalized external-helper trust is added. Unknown, changed or duplicate candidates fail closed. Local-helper recognition is unchanged."
+    },
+    {
+      "id": "EXTERNAL-HELPER-SPEC-02",
+      "passed": true,
+      "file": "tests/weCompatSharingExternalHelper.test.mjs",
+      "lines": "12-17,27-62",
+      "basis": "Full current compatibility source factory is used, not a marker substitute. Independent literal helper equals the SDK evidence byte-for-byte and has the exact complete SHA. Requested module IDs 143 and 714 both pass. Each preserves app/input/non-target resource bytes, unchanged page prefix/suffix and original map source; VM checks show no eager factory call and exact identity/protocol/engine reference order on the lazy owner call. Malicious-return drift, missing requested ID and ambiguous literal ID reject without input mutation. All claims remain syntheticQA=true, actualSDKVerified=false and nativeVerified=false."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "COMPAT-QUALITY-R2-01",
+      "resolution": "closed_in_SPEC_static_HOST_scope",
+      "basis": "The previously unrecognized one-parameter imported SDK helper is now recognized by unique requested AST module and exact full-source hash, while complete factory and owner-root gates are retained. Both previously failing literal-ID positives now pass; malicious/missing/ambiguous helpers remain rejected.",
+      "not_claimed": "No final real-SDK .app migration/packing success, new CI parse, JerryScript heap/OOM repair, WearEngine handshake or Fit3 success."
+    }
+  ],
+  "findings": [],
+  "verification": {
+    "independent_host_tests": {
+      "command": "node --test --test-reporter=tap tests/weCompatSharingExternalHelper.test.mjs tests/weCompatSharingSdkShape.test.mjs tests/weCompatSharing.test.mjs tests/weSdkSharingPipeline.test.mjs",
+      "exit_code": 0,
+      "tests": 26,
+      "suites": 0,
+      "pass": 26,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 1421.855156,
+      "new_external_helper_tests": 6,
+      "test_commands_executed_by_reviewer": 1
+    },
+    "evidence_log_readback": {
+      "red": {
+        "path": "qa/we-handshake-20261115/evidence/external-interop-red.log",
+        "sha256": "24373953c9ed96eb3be104c665e73332635427a8fafeb54f8fb76a8416f66619",
+        "tests": 6,
+        "pass": 4,
+        "fail": 2,
+        "duration_ms": 779.529791,
+        "failure": "Requested literal module 143 and 714 positives failed with App _elctonWearCompat is not linked to the full factory module."
+      },
+      "existing_green": {
+        "path": "qa/we-handshake-20261115/evidence/external-interop-green.log",
+        "sha256": "bbe1e0ff7b874fa1bfbca418cb9999541129afc1e8f0b957f22aa478de34a13c",
+        "tests": 47,
+        "pass": 47,
+        "fail": 0,
+        "duration_ms": 1668.878645,
+        "basis": "Existing complete receipt read; not independently rerun as a 47-test suite."
+      },
+      "inherited_gates_log": {
+        "path": "qa/we-handshake-20261115/evidence/external-interop-gates.log",
+        "sha256": "dc68ced70676b75799313be6e85442314fa2e8a3abbb1ab2682622fa23b0d0bd",
+        "basis": "Existing receipt hash captured; gate requirements are inherited, not independently reexecuted or re-reviewed."
+      }
+    },
+    "old_355_reexecuted": false,
+    "prior_specquality_reopened": false,
+    "additional_fuzzing": false,
+    "source_fixes": false,
+    "historical_report_edits": false,
+    "commit_or_push": false,
+    "browser_or_phone_used": false,
+    "new_ci_run": false,
+    "actualSDKVerified": false,
+    "native_verified": false,
+    "real_wearengine_verified": false,
+    "fit3_verified": false
+  },
+  "native_boundary": "PASS only for this imported-helper recognizer delta and synthetic HOST/static tests. Parent must still verify controlled original-APP migration, exact payload/readback, final SDK parsing/byte gates and native behavior. Other historic review boundaries and QUALITY nonblocking follow-ups remain inherited.",
+  "noNative": true,
+  "disposition": "Scoped external-helper SPEC PASS with exact stopped-source hashes and prior-script reconstruction; confirmed recognizer blocker closed at HOST/static level only. Hard 90-second budget was exceeded and is explicitly not claimed satisfied.",
+  "files_created": ["qa/we-handshake-20261115/reviews/compat-sharing-spec-external-helper.json"],
+  "files_modified": []
+}

@@ -1,0 +1,156 @@
+{
+  "review_id": "compat-sharing-spec-r4",
+  "axis": "SPEC",
+  "status": "passed",
+  "passed": true,
+  "pass_scope": "Only the already-proven R3 exported-app-root owner gap and retained map assertions; static review plus synthetic host tests, NOT SDK/native success.",
+  "reviewer_mode": "delegated-read-only-final-local-recheck",
+  "scope_root": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "head": "70092ba68794b8c4ef905f64e0f676887d9ef703",
+  "prior_review": "qa/we-handshake-20261115/reviews/compat-sharing-spec-r3.json",
+  "hash_scope_source": "qa/we-handshake-20261115/reviews/compat-sharing-spec-r2.json:hashscope",
+  "started_utc": "2026-11-15T00:06:25+00:00",
+  "hash_capture_utc": "2026-11-15T00:07:55.790756+00:00",
+  "hard_time_budget_seconds": 120,
+  "within_hard_budget": true,
+  "authority": "Final R4 SPEC-only local review of the previously proven decoy owner counterexample and exported-root alias positive. Same seven-path hash scope. Only this new JSON is written; no source, original tests, factory, config, page or historical reports changed. No expanded fuzzing or old-355 re-review.",
+  "hashscope": [
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearCompat.js",
+      "bytes": 5120,
+      "sha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e",
+      "r2_unchanged": true
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/common/wearChannel.js",
+      "bytes": 1012,
+      "sha256": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179",
+      "r2_unchanged": true
+    },
+    {
+      "path": "entry/src/main/js/MainAbility/app.js",
+      "bytes": 2426,
+      "sha256": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a",
+      "r2_unchanged": true
+    },
+    {
+      "path": "scripts/share_we_compat_app.mjs",
+      "bytes": 14325,
+      "sha256": "3cb6eb0b54f7e60d569b86c4d5090def26477411af5dd0d01262fa81578882d3",
+      "r2_unchanged": false
+    },
+    {
+      "path": "tests/weCompatSharing.test.mjs",
+      "bytes": 13777,
+      "sha256": "1993526480e6f3e373b3f63814060a313b3e2987ff1a136de902f6458c204190",
+      "r2_unchanged": false
+    },
+    {
+      "path": "tests/weSdkSharingPipeline.test.mjs",
+      "bytes": 1059,
+      "sha256": "7ca9da69a0643aa67d69b2bf4676ee8a4ba655f259ff1c7ec38769d0cced0217",
+      "r2_unchanged": true
+    },
+    {
+      "path": ".github/workflows/wearengine.yml",
+      "bytes": 4738,
+      "sha256": "3017c1f888604573c6fabae70b835cb4222a829d2257a465fc0e498d0eb57deb",
+      "r2_unchanged": true
+    }
+  ],
+  "scope_sha256_rechecked_unchanged": true,
+  "author_stopped_hashes_match": true,
+  "checks": [
+    {
+      "id": "COMPAT-SPEC-R3-01",
+      "closes": "COMPAT-SPEC-R2-01",
+      "passed": true,
+      "file": "scripts/share_we_compat_app.mjs",
+      "lines": "35-66,91-98,141",
+      "basis": "Lexical scan records only non-computed default assignments to the webpack module second (exports) parameter. Optional prior void-0 initialization is checked. Final assignment resolves through stable lexical object aliases; missing/unresolved roots reject. Owner candidates are taken exclusively from that root ObjectExpression.properties, and exactly one _elctonWearCompat is required. No unrelated object property can supply ownership. Existing selected factory resolution, lexical aliases, Babel helper shape and exact ordered three-parameter wrapper checks remain in place.",
+      "counterexample": "var unrelated={_elctonWearCompat:require(\"compat\").default};exports.default={_elctonWearCompat:function(){return {};}};",
+      "observed": "Existing R4 decoy negative rejects with /not linked/; R4 Babel import + application/_default export-alias positive accepts, reports appSourceMethodHas:true and actualSDKVerified:false.",
+      "test_lines": "tests/weCompatSharing.test.mjs:142-154"
+    },
+    {
+      "id": "COMPAT-SPEC-R2-02",
+      "passed": true,
+      "file": "scripts/share_we_compat_app.mjs",
+      "lines": "108-129",
+      "basis": "Existing every-original-source string includeSources validation remains: missing map, absent content and null content reject. Existing retained original Unicode/newline/NUL string preservation test passes. No new map probing or changes."
+    }
+  ],
+  "findings": [],
+  "inherited_preserved_invariants": {
+    "basis": "All five non-packer/non-new-sharing-test scope SHA256 values equal R2. Source factory, app/channel, workflow and new pipeline are not reopened. Existing complete-body test passes; original factory, version routing, functionality and original gates retain prior approval by hash equality.",
+    "original_body_sha256": "5cb48bd88d4a57bfd72c87a4572743af67725d8dd2c60217fc5817e6b194f529",
+    "source_factory_app_channel_workflow_pipeline_unchanged_since_r2": true
+  },
+  "verification": {
+    "independent_host_tests": {
+      "command": "node --test --test-reporter=tap tests/weCompatSharing.test.mjs tests/weSdkSharingPipeline.test.mjs",
+      "exit_code": 0,
+      "tests": 12,
+      "pass": 12,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 1306.088489,
+      "specific_r4_results": [
+        {
+          "test": "R4 decoy object cannot attest the exported inert application owner",
+          "passed": true,
+          "expected": "reject /not linked/"
+        },
+        {
+          "test": "R4 explicit exported application aliases retain Babel lazy factory ownership",
+          "passed": true,
+          "expected": "accepted; actualSDKVerified false"
+        }
+      ]
+    },
+    "r4_red_readback": {
+      "path": "qa/we-handshake-20261115/evidence/compat-r4-red.log",
+      "sha256": "b16dc13aae6e6fdaf11a128171900043d1477043429c2544d441c95757d4c633",
+      "tests": 2,
+      "suites": 0,
+      "pass": 1,
+      "fail": 1,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 729.759895
+    },
+    "author_r4_green_readback": {
+      "path": "qa/we-handshake-20261115/evidence/compat-r4-green.log",
+      "sha256": "82e754f345a36f38d070123eb05593ee9bfae5db358241d01cc40327da73a9af",
+      "tests": 58,
+      "suites": 0,
+      "pass": 58,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 1234.411614
+    },
+    "red_failure": "R4 decoy test: AssertionError [ERR_ASSERTION]: Missing expected rejection. Exported alias positive already passed in RED.",
+    "packer_node_check_exit_code": 0,
+    "git_diff_check_exit_code": 0,
+    "old_355_reexecuted": false,
+    "prior_specquality_reopened": false,
+    "additional_fuzzing": false,
+    "source_fixes": false,
+    "historical_report_edits": false,
+    "commit_or_push": false,
+    "new_actual_sdk_generated_or_parsed": false,
+    "actualSDKVerified": false,
+    "native_verified": false,
+    "real_wearengine_verified": false,
+    "fit3_verified": false,
+    "secret_values_accessed": false
+  },
+  "native_boundary": "PASS is strictly static/host-local for the scoped known cases. Synthetic packing and the pipeline assertion do not prove actual SDK compilation/parse, JerryScript OOM repair, memory/heap safety, real WearEngine handshake or watch success. Actual SDK/native gates still require parent CI/readback.",
+  "disposition": "Scoped R4 SPEC PASS: reproduced decoy false acceptance is closed by exported-root binding, supported exported-object alias positive remains accepted, and the prior map fix remains green. No remaining blocking finding within these already-proven cases. Stop without broadening scope.",
+  "elapsed_seconds_at_final_hash_capture": 90.790756
+}

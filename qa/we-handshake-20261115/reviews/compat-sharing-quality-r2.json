@@ -1,0 +1,117 @@
+{
+  "review_id": "compat-sharing-quality-r2",
+  "axis": "QUALITY",
+  "status": "blocked",
+  "passed": false,
+  "reviewer_mode": "independent-read-only-eight-path-incremental",
+  "scope_root": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "head": "70092ba68794b8c4ef905f64e0f676887d9ef703",
+  "first_captured_utc": "2026-11-15T00:14:40Z",
+  "hash_capture_utc": "2026-11-15T00:16:21.632832+00:00",
+  "hard_time_budget_seconds": 180,
+  "authority": "QUALITY only for current eight-path application factory ownership/packing delta. Do not reopen a197eec355 or old SPECQUALITY, change sources, expand property fuzzing, run browser/phone/secrets or amend historical reviews. Only this report is created. Parent steering requires immediate BLOCKED report for the actual external SDK interop-helper shape.",
+  "spec_read_first": {
+    "path": "qa/we-handshake-20261115/reviews/compat-sharing-spec-sdk-shape.json",
+    "status": "passed",
+    "boundary": "Accepted literal default equivalence is inherited. This QUALITY finding concerns independently observed imported SDK interop-helper ownership, not a reversal of the supported local-helper SPEC cases."
+  },
+  "hashscope": [
+    {"path": "entry/src/main/js/MainAbility/common/wearCompat.js", "bytes": 5120, "sha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e", "spec_match": true},
+    {"path": "entry/src/main/js/MainAbility/common/wearChannel.js", "bytes": 1012, "sha256": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179", "spec_match": true},
+    {"path": "entry/src/main/js/MainAbility/app.js", "bytes": 2426, "sha256": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a", "spec_match": true},
+    {"path": "scripts/share_we_compat_app.mjs", "bytes": 14423, "sha256": "c6e32642ba29851f5e484ebd1af5b206b764fd39a079b42057f0e144e0ddc095", "spec_match": true},
+    {"path": "tests/weCompatSharing.test.mjs", "bytes": 13777, "sha256": "1993526480e6f3e373b3f63814060a313b3e2987ff1a136de902f6458c204190", "spec_match": true},
+    {"path": "tests/weSdkSharingPipeline.test.mjs", "bytes": 1059, "sha256": "7ca9da69a0643aa67d69b2bf4676ee8a4ba655f259ff1c7ec38769d0cced0217", "spec_match": true},
+    {"path": ".github/workflows/wearengine.yml", "bytes": 4738, "sha256": "3017c1f888604573c6fabae70b835cb4222a829d2257a465fc0e498d0eb57deb", "spec_match": true},
+    {"path": "tests/weCompatSharingSdkShape.test.mjs", "bytes": 4607, "sha256": "97674821f700114c08d1b082569d0e9955d5c88f078282dc464b2e65c1263e75", "spec_match": true}
+  ],
+  "scope_path_count": 8,
+  "all_scope_sha256_match_spec_at_initial_and_final_capture": true,
+  "findings": [
+    {
+      "id": "COMPAT-QUALITY-R2-01",
+      "severity": "high",
+      "blocking": true,
+      "title": "Actual SDK imported interop helper is not recognized by ownerHas",
+      "file": "scripts/share_we_compat_app.mjs",
+      "lines": "21,35-42,68-75,84-88,142",
+      "evidence_kind": "actual CI source and source-map AST readback plus current resolver static proof; not fuzz or source-substitute execution",
+      "actual_observation": "Actual CI application module 831 binds var _interopRequireDefault=__webpack_require__(143), then _wearService=_interopRequireDefault(__webpack_require__(622)). Its FunctionDeclarations contain only requireModule, not _interopRequireDefault. Helper module 143 has one webpack parameter (module), contains the exact Babel __esModule/default conditional and exports that helper through module.exports.",
+      "current_resolver_proof": "ownerHas records FunctionDeclarations only in the owner module lexical scope. interop(name) checks helpers.get(name), so the real imported helper binding is not recognized. resolve of the helper's require(143) does not identify the selected compatibility factory, and the helper-call branch cannot resolve an imported factory through it. inspect's app.modules also omits the one-parameter helper module. Accepting static [\"default\"] members does not fix this separate imported-helper gap.",
+      "impact": "An application owner using the observed SDK imported-helper topology cannot be attested, so the real ownership-transfer build path is blocked despite supported synthetic/local-helper tests passing. Stop before claiming final SDK packing or OOM repair success.",
+      "reproduction_boundary": "The historical CI application predates the new _elctonWearCompat owner. Reviewer did NOT run a reconstructed/source-replaced artifact and does NOT claim an observed final current .app rejection or a new SDK compile result. Parent explicitly reported this actual topology and will perform an original-APP migration control. The missing recognizer shape itself is confirmed by actual AST and current source.",
+      "required_follow_up": "Parent should use the actual original APP/SDK helper topology for the controlled migration and exact byte/native gates. Any fix must resolve the actual helper module export and exact Babel value semantics without weakening factory identity, exported-root ownership, ordered lazy three-argument forwarding or unchanged payload gates. No fix performed by this reviewer."
+    }
+  ],
+  "checks": [
+    {
+      "id": "QUALITY-FACTORY-OWNERSHIP",
+      "passed_for_static_host_scope": true,
+      "basis": "Full original source-body SHA 5cb48bd88d4a57bfd72c87a4572743af67725d8dd2c60217fc5817e6b194f529 is asserted by the independently pinned test and passes. app.js changes only the factory import and lazy three-argument owner. wearChannel preserves the existing versioned route and delegates only its former no-version body. Factory creation performs no native API call; engine/protocol references remain caller-supplied and uncopied."
+    },
+    {
+      "id": "QUALITY-PACKING-SIDE-EFFECTS",
+      "passed_for_static_host_scope": true,
+      "basis": "Complete cleaned AST factory equivalence, exact page-module replacement, unchanged prefix/suffix, app bytes and all non-target inner/outer payload readback are checked before returning. APP bridge forwards exact references and returns APP_COMPAT_UNAVAILABLE when the owner is absent. This is fail-closed, not a fallback replacement factory. CLI writes only its explicitly supplied artifact after packing returns; no CLI write was executed here."
+    },
+    {
+      "id": "QUALITY-ROOT-MAPS-PRIVACY",
+      "passed_for_static_host_scope": true,
+      "basis": "Retained R4 exported-root/decoy/alias and original map string checks pass. Map includes the input bundle/delegate plus every original sourcesContent string. Existing numeric trace sanitization is unchanged; new bridge introduces no logging of identity, protocol, payload or native objects. Literal default positives and five established negatives pass, but all interop fixtures define the helper locally and therefore miss finding COMPAT-QUALITY-R2-01."
+    },
+    {
+      "id": "QUALITY-WORKFLOW-INCREMENT",
+      "passed_for_static_host_scope": true,
+      "basis": "Actual working-tree workflow diff is exactly one share command after compact_lite_app and before compact_p2p_page, verifiers, signing and unchanged final_gate. compact_lite_app uses compress:false/mangle:false; it retains the imported SDK helper topology. No final byte/native gate is relaxed."
+    }
+  ],
+  "actual_sdk_syntax_evidence": {
+    "source": {"path": "qa/we-handshake-20261115/evidence/sdk-parse-r2/actual-ci-43653381875-app.js.source.txt", "bytes": 16398, "sha256": "cb7bed669b5b8a509a712c3a4136fa2c73af2caa092be3cdc225d860a7322479", "es5_ast_parse_succeeded": true},
+    "app_map": {"path": "qa/we-handshake-20261115/evidence/sdk-parse-r2/actual-ci-43653381875-app.js.map.source.txt", "sha256": "0c33fbd711ba427be1a1039aabdbcf99ad0c9dc8ef77f11391ec04f7e8ca7843", "sources": ["assets/js/MainAbility/app.js"], "sourcesContent_sha256": "1be8eb442012011bcbfdf73f8809b3dd7a30dd014d3b99755cd701a2908b89d2", "sourcesContent_es5_parsed": true},
+    "page_map": {"path": "qa/we-handshake-20261115/evidence/sdk-parse-r2/actual-ci-43653381875-phone-sync.js.map.source.txt", "sha256": "b8b320218aa0635ae2a9adc69dce91d92cdfe0dd683c26af1227408129bc95d1", "sources": ["assets/js/MainAbility/pages/phone-sync/phone-sync.js"], "sourcesContent_es5_parsed": true},
+    "owner_module": {"id": 831, "start": 12625, "end": 14966, "parameters": ["module", "exports", "__webpack_require__"], "interop_binding": "_interopRequireDefault=__webpack_require__(143)", "function_declarations": ["requireModule"]},
+    "helper_module": {"id": 143, "start": 14971, "end": 15271, "parameters": ["module"], "exact_value": "function _interopRequireDefault(obj){return obj&&obj.__esModule?obj:{default:obj}}", "export": "module.exports=_interopRequireDefault,module.exports.__esModule=true,module.exports[\"default\"]=module.exports"},
+    "boundary": "Historical actual SDK syntax evidence, not final current artifact success. Source-map sourcesContent is an actual pre-format bundle, not new source substituted into a pretend SDK artifact."
+  },
+  "verification": {
+    "independent_host_tests": {
+      "command": "node --test --test-reporter=tap tests/weCompatSharingSdkShape.test.mjs tests/weCompatSharing.test.mjs tests/weSdkSharingPipeline.test.mjs",
+      "exit_code": 0,
+      "tests": 20,
+      "pass": 20,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 1265.446822,
+      "actualSDKVerified": false
+    },
+    "evidence_log_readback": {
+      "red": {"path": "qa/we-handshake-20261115/evidence/compat-sdk-shape-red.log", "sha256": "b634b53c9f4c04f3ac13d6422e0c82bc03928329a102b6b42866a8f2d79607a1", "tests": 8, "pass": 5, "fail": 3, "basis": "Read actual log; all three supported literal positives failed with not linked."},
+      "author_green": {"path": "qa/we-handshake-20261115/evidence/compat-sdk-shape-green.log", "sha256": "caebe41a07b676bcb3ee29ed2a6c6a9efc02e6a7430709de70f07b07e66009e4", "tests": 66, "pass": 66, "fail": 0, "duration_ms": 1362.442395, "basis": "Parsed actual log summary; not rerun by reviewer."},
+      "parent_green": {"path": "qa/we-handshake-20261115/evidence/compat-sdk-shape-parent-green.log", "sha256": "9217181b34097faaa59e5e3c37bf60eb1930b22b914d494644f18c86a0f8bb1a", "tests": 66, "pass": 66, "fail": 0, "duration_ms": 1447.749791, "basis": "Parsed actual log summary; not rerun by reviewer."}
+    },
+    "git_diff_check_exit_code": 0,
+    "old_355_reexecuted": false,
+    "prior_specquality_reopened": false,
+    "additional_fuzzing": false,
+    "source_fixes": false,
+    "historical_report_edits": false,
+    "commit_or_push": false,
+    "browser_or_phone_used": false,
+    "secret_values_accessed": false,
+    "source_substitute_used_as_real_app": false,
+    "new_ci_run": false,
+    "actualSDKVerified": false,
+    "native_verified": false,
+    "real_wearengine_verified": false,
+    "fit3_verified": false
+  },
+  "nonblocking_follow_up": [
+    "Actual SDK bundles append a requireModule/requireNative function declaration even to helper and diagnostic modules. A textual requireNative presence check is not proof of eager native initialization. Review this against the real newly built compatibility module in the parent's controlled run; no current-artifact rejection is claimed here."
+  ],
+  "native_boundary": "Static/HOST checks do not prove cross-VM JerryScript engine-object behavior, heap/OOM repair, final real-SDK packing/parse, WearEngine handshake or physical Fit3 success. No new CI/native run was performed. No image/resource/audio/UI changes are in this eight-path delta; those existing capabilities are not re-reviewed.",
+  "disposition": "BLOCKED for confirmed missing actual SDK imported-interop-helper owner shape. Supported static/HOST cases pass and all eight stopped-source hashes match SPEC. Return immediately; parent owns original-artifact migration control and unchanged final SDK/native gates.",
+  "files_created": ["qa/we-handshake-20261115/reviews/compat-sharing-quality-r2.json"],
+  "files_modified": []
+}

@@ -1,0 +1,53 @@
+{
+  "result_id": "compat-r3-freshfixworker",
+  "role": "freshfixworker-notauthor-notreviewer",
+  "status": "local-fix-green-awaiting-independent-R3-SPEC",
+  "first_observed_local": "2026-11-15T07:57:19+08:00",
+  "verification_local": "2026-11-15T07:59:37.779278+08:00",
+  "hard_stop_local": "2026-11-15T08:00:03+08:00",
+  "scope_root": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "scope": ["scripts/share_we_compat_app.mjs", "tests/weCompatSharing.test.mjs", "qa/we-handshake-20261115/evidence/compat-r3*"],
+  "fixes": [
+    {
+      "id": "COMPAT-SPEC-R2-01",
+      "local_verification": "resolved-for-reproduced-counterexamples",
+      "implementation": "Owner property value must resolve through explicit lexical variable/import bindings to require(selected module).default, or be a lazy three-argument single-return wrapper delegating those exact parameters in original order. Arbitrary calls are rejected; Babel default interop is recognized only via an exact helper AST shape; zero-sequence call syntax is supported. Reassigned and shadowed identifiers fail closed.",
+      "red": "Unrelated require plus inert owner and swapped-argument wrapper both produced Missing expected rejection before implementation.",
+      "green": "Both counterexamples reject. Direct existing factory ownership, current lazy wrapper and explicit import aliases pass with actualSDKVerified:false. No actual new SDK bundle was parsed."
+    },
+    {
+      "id": "COMPAT-SPEC-R2-02",
+      "local_verification": "resolved-for-reproduced-counterexamples",
+      "implementation": "Reject missing source map, missing sourcesContent or any original content that is not a string; retain original strings verbatim using existing map generation.",
+      "red": "sourcesContent:[null] produced Missing expected rejection before implementation.",
+      "green": "Null, missing contents and absent maps reject; complete original source content including Unicode/newline/NUL is preserved exactly and every output content is a string."
+    }
+  ],
+  "verification": {
+    "red": {"command": "node --test tests/weCompatSharing.test.mjs", "exit_code": 1, "tests": 9, "pass": 6, "fail": 3, "skipped": 0, "cancelled": 0},
+    "green": {"command": "node --test tests/weCompatSharing.test.mjs tests/weNativeContract.test.mjs tests/wearChannel.test.mjs tests/weSdkSharingPipeline.test.mjs", "exit_code": 0, "tests": 56, "pass": 56, "fail": 0, "skipped": 0, "cancelled": 0},
+    "node_check_script_exit_code": 0,
+    "node_check_new_test_exit_code": 0,
+    "old_test_assertions_byte_preserved": true,
+    "old_test_sha256_after_removing_only_R3_additions": "5a17dfe7144cdba403fd96fa04c1d32b1c2cb9adb72f822beadb886dd4d341f8",
+    "original_body_sha256": "5cb48bd88d4a57bfd72c87a4572743af67725d8dd2c60217fc5817e6b194f529",
+    "old_355_reexecuted": false,
+    "prior_SPECQUALITY_reopened": false,
+    "product_app_channel_compat_written": false,
+    "workflow_or_old_tests_or_original_gates_written": false,
+    "commit_or_push": false,
+    "secret_browser_phone_access": false,
+    "synthetic_became_actual": false,
+    "actualSDKVerified": false,
+    "new_actual_sdk_parse_fixed": false,
+    "native_verified": false,
+    "independent_SPEC_review_passed": false
+  },
+  "hashscope": [
+    {"path": "scripts/share_we_compat_app.mjs", "bytes": 13249, "sha256": "d348367c524fdba329735a99bdf512ab937fdd79ff348092b78a6b316aa930e4"},
+    {"path": "tests/weCompatSharing.test.mjs", "bytes": 12472, "sha256": "988f818588ff8c1f2c4f8baac8dacdc669cae4a9f25c5b02eeab0c984dbf6f4c"},
+    {"path": "qa/we-handshake-20261115/evidence/compat-r3-red.log", "bytes": 3039, "sha256": "eda0b12d65ddafecc46773485222bb855abe21b021eb97cbbb71ec3c9eae4ab7"},
+    {"path": "qa/we-handshake-20261115/evidence/compat-r3-green.log", "bytes": 5382, "sha256": "62067b3b0d32b0a14ecc30a6cd85d9a6b0f138d16ea3ee768a5a09d77bc5aa56"}
+  ],
+  "issues": ["Delegated reports/compat-sharing-spec-r2.json path was absent; actual existing report read at qa/we-handshake-20261115/reviews/compat-sharing-spec-r2.json.", "Actual SDK rc10/OOM/CI/signing remains entirely the parent mainline; local synthetic/source GREEN is not parse-success evidence."]
+}

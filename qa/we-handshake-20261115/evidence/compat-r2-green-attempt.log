@@ -1,0 +1,77 @@
+✔ compat is the entire unchanged bounded factory, dependency injected and owned by app without native initialization (37.877187ms)
+✔ source bridge preserves exact protocol/engine references and all unversioned channel behavior (7.094167ms)
+✖ packing replaces exactly the pinned page module, preserves app factory and every non-target resource/source (308.101615ms)
+✔ packing fails closed for absent/ambiguous/drifted modules or missing app owner and never mutates the input (117.472864ms)
+✔ versioned native fail always maps to SEND_206: numeric second zero (129.012604ms)
+✔ versioned native fail always maps to SEND_206: missing arguments (2.644531ms)
+✔ versioned native fail always maps to SEND_206: numeric string (2.461614ms)
+✔ versioned native fail always maps to SEND_206: object own code (2.863229ms)
+✔ versioned native fail always maps to SEND_206: free text (3.978125ms)
+✔ versioned native fail always maps to SEND_206: null and bool (6.015885ms)
+✔ versioned native fail always maps to SEND_206: fraction and infinite (2.324532ms)
+✔ versioned native fail always maps to SEND_206: out of bound numeric (1.843229ms)
+✔ versioned success is the separate 207 callback branch (4.827552ms)
+✔ versioned registration failure invalidates once, blocks resurrection and pending send callbacks (4.694583ms)
+✔ versioned failure before registration is terminal for that callback generation (2.558646ms)
+✔ versioned close and reopen discard old callbacks without losing the new session (1.995208ms)
+✔ unversioned native fail always maps to SEND_206: numeric second zero (2.770312ms)
+✔ unversioned native fail always maps to SEND_206: missing arguments (1.217552ms)
+✔ unversioned native fail always maps to SEND_206: numeric string (1.147187ms)
+✔ unversioned native fail always maps to SEND_206: object own code (0.985885ms)
+✔ unversioned native fail always maps to SEND_206: free text (1.08625ms)
+✔ unversioned native fail always maps to SEND_206: null and bool (1.262343ms)
+✔ unversioned native fail always maps to SEND_206: fraction and infinite (1.409531ms)
+✔ unversioned native fail always maps to SEND_206: out of bound numeric (1.52401ms)
+✔ unversioned success is the separate 207 callback branch (1.311406ms)
+✔ unversioned registration failure invalidates once, blocks resurrection and pending send callbacks (1.773907ms)
+✔ unversioned failure before registration is terminal for that callback generation (1.198021ms)
+✔ unversioned close and reopen discard old callbacks without losing the new session (0.967604ms)
+✔ one through four numeric version segments use the last segment: 401 (1.170364ms)
+✔ one through four numeric version segments use the last segment: 3.401 (0.910781ms)
+✔ one through four numeric version segments use the last segment: 5.0.401 (0.811718ms)
+✔ one through four numeric version segments use the last segment: 5.0.0.401 (0.737396ms)
+✔ legacy routing and package threshold remain unchanged: 3.302 (1.675989ms)
+✔ legacy routing and package threshold remain unchanged: 5.0.303 (0.858646ms)
+✔ legacy routing and package threshold remain unchanged: 3.400 (0.862343ms)
+✔ short-version support does not relax numeric/nonempty/four-segment/length/minimum rules (8.85776ms)
+✔ milestone summary survives more than six READY/send events and records a bounded latest failure (1.755781ms)
+✔ unversioned compatibility is diagnosed honestly and never negotiated (1.050833ms)
+✔ package failure records both safe callback arguments and suppresses later completion (1.069375ms)
+✔ fingerprint failure records both safe callback arguments and suppresses later completion (1.015937ms)
+✔ diagnostics never invoke native accessors, inherited code, message, toString or toJSON (3.818646ms)
+✔ short numeric-string projection rejects other spellings and caps string lengths (4.955521ms)
+✔ guarded logger lookup uses $app.$def and isolates logger exceptions (4.621302ms)
+✔ guarded logger lookup uses $app and isolates logger exceptions (1.696406ms)
+✔ real app helper receives the native scalar projection without private payload/identity text (24.157396ms)
+✔ proactive failed READY retains SDK/REG detail without pretending that an inbound HELLO arrived (150.421406ms)
+✔ READY preparation failure has a fixed safe stage and does not record response error strings (8.262396ms)
+✔ inbound HELLO preparation error cannot overwrite a synchronous failed-reply milestone summary (4.949531ms)
+✔ proactive preparation error retains registration summary even when its ERROR reply sends successfully (3.523177ms)
+✔ channel registers only after configuring the signed phone identity and drops watch loopback (127.413177ms)
+ℹ tests 50
+ℹ suites 0
+ℹ pass 49
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1663.327083
+
+✖ failing tests:
+
+test at tests/weCompatSharing.test.mjs:60:1
+✖ packing replaces exactly the pinned page module, preserves app factory and every non-target resource/source (308.101615ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(map.sources.includes('webpack:///common/wearCompat.js'))
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:71:83)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

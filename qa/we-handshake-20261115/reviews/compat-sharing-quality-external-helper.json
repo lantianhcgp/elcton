@@ -1,0 +1,50 @@
+{
+  "review_id": "compat-sharing-quality-external-helper",
+  "axis": "QUALITY",
+  "status": "passed",
+  "passed": true,
+  "scope": "COMPAT-QUALITY-R2-01 imported SDK Babel helper recognizer only; static/HOST closure, not a new real-SDK or native success receipt.",
+  "scope_root": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "started_utc": "2026-11-15T00:24:38Z",
+  "hard_time_budget_seconds": 90,
+  "within_hard_budget": false,
+  "budget_issue": "Final report write and receipt readback completed after the 90-second deadline; budget compliance is not claimed. No expanded review or extra fuzzing was performed.",
+  "hash_capture_utc": "2026-11-15T00:25:43.678666+00:00",
+  "spec_read_first": {"path": "qa/we-handshake-20261115/reviews/compat-sharing-spec-external-helper.json", "status": "passed", "sha256": "2a0be80095409a383a820871f19b2916a5ba685b097289a071f732c1cffb3d4a"},
+  "prior_quality": {"path": "qa/we-handshake-20261115/reviews/compat-sharing-quality-r2.json", "historical_status": "blocked", "sha256": "c701ddc1c455a801321e4991641c28b452c0a1895fb5a7a1e17a0e006f7d0143", "preserved_without_edit": true},
+  "points": [
+    "COMPAT-QUALITY-R2-01 closed in static/HOST scope: unique requested literal AST Property must contain a FunctionExpression whose complete 300-byte source SHA is e282a73c6d4a635b6aa168ad8ff37d95bc71c3b9fd70b2f56caa63cdc4094bf3. Independently parsed historical actual CI module 143 equals this pin, including Babel exports and inert requireModule declaration. New tests pass for IDs 143/714 and reject malicious-return drift, another/missing requested ID and ambiguity; no arbitrary function is trusted.",
+    "Four prior QUALITY passes inherited: QUALITY-FACTORY-OWNERSHIP, QUALITY-PACKING-SIDE-EFFECTS, QUALITY-ROOT-MAPS-PRIVACY, QUALITY-WORKFLOW-INCREMENT. In-memory removal of only the helper delta reconstructs the exact prior 14423-byte script SHA c6e32642ba29851f5e484ebd1af5b206b764fd39a079b42057f0e144e0ddc095. Other seven existing scope paths match; full factory/body, static members, ordered lazy three arguments, complete AST parity, source/non-target payload/maps and original gates are unchanged.",
+    "No new blocking finding. Six targeted tests independently pass; original RED receipt has two valid-ID failures and parent current receipt is 72/72 green. Host results do not establish the original artifact gate: parent must judge the newly built real SDK APP through controlled migration, exact payload/parse/final gates and native readback. Historical textual requireNative follow-up remains nonblocking without a current real-CI runtime failure; no unobserved rejection, OOM fix or device success is claimed."
+  ],
+  "resolved_findings": [{"id": "COMPAT-QUALITY-R2-01", "resolution": "closed_in_QUALITY_static_HOST_scope"}],
+  "findings": [],
+  "scope_path_count": 9,
+  "all_current_hashes_match_spec": true,
+  "hashscope": [
+    {"path": "entry/src/main/js/MainAbility/common/wearCompat.js", "sha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e"},
+    {"path": "entry/src/main/js/MainAbility/common/wearChannel.js", "sha256": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179"},
+    {"path": "entry/src/main/js/MainAbility/app.js", "sha256": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a"},
+    {"path": "scripts/share_we_compat_app.mjs", "sha256": "3d9852607d3560532d528fc16dac10896bd7be1c9c476079267688ecff4c5961"},
+    {"path": "tests/weCompatSharing.test.mjs", "sha256": "1993526480e6f3e373b3f63814060a313b3e2987ff1a136de902f6458c204190"},
+    {"path": "tests/weSdkSharingPipeline.test.mjs", "sha256": "7ca9da69a0643aa67d69b2bf4676ee8a4ba655f259ff1c7ec38769d0cced0217"},
+    {"path": ".github/workflows/wearengine.yml", "sha256": "3017c1f888604573c6fabae70b835cb4222a829d2257a465fc0e498d0eb57deb"},
+    {"path": "tests/weCompatSharingSdkShape.test.mjs", "sha256": "97674821f700114c08d1b082569d0e9955d5c88f078282dc464b2e65c1263e75"},
+    {"path": "tests/weCompatSharingExternalHelper.test.mjs", "sha256": "14182d8552faeef6d872f5341bfc57b0cf88660d9172bb9b5243da47aafcf6e2"}
+  ],
+  "verification": {
+    "independent_command": "node --test --test-reporter=tap tests/weCompatSharingExternalHelper.test.mjs",
+    "exit_code": 0, "tests": 6, "pass": 6, "fail": 0, "duration_ms": 834.086718,
+    "prior_script_reconstruction_exact_match": true,
+    "historical_actual_helper_ast_pin_match": true,
+    "git_diff_check_exit_code": 0,
+    "red_receipt": {"path": "qa/we-handshake-20261115/evidence/external-interop-red.log", "sha256": "24373953c9ed96eb3be104c665e73332635427a8fafeb54f8fb76a8416f66619", "tests": 6, "pass": 4, "fail": 2, "independently_rerun": false},
+    "parent_receipt": {"path": "qa/we-handshake-20261115/evidence/external-interop-parent-green.log", "sha256": "35019b08290a091d727f2589637854830ade6e2a670cb54c0553b285c0dc48ff", "tests": 72, "pass": 72, "fail": 0, "independently_rerun": false},
+    "new_ci_run": false, "actualSDKVerified": false, "nativeVerified": false,
+    "source_changes": false, "historical_report_edits": false, "additional_fuzzing": false,
+    "new_model_review": false, "old_355_reopened": false, "browser_or_phone_used": false, "auth_or_secrets_accessed": false
+  },
+  "issues": ["Requested SPEC shorthand path was absent at repository-root reviews; existing authoritative report was read from qa/we-handshake-20261115/reviews. New QUALITY report is colocated with it."],
+  "files_created": ["qa/we-handshake-20261115/reviews/compat-sharing-quality-external-helper.json"],
+  "files_modified": []
+}

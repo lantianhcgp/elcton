@@ -1,0 +1,26 @@
+{
+  "scope": "minimal source + host packing compatibility ownership",
+  "newTest": "tests/weCompatSharing.test.mjs",
+  "red": {"passed": 0, "failed": 4, "exitCode": 1, "log": "compat-r2-red.log"},
+  "green": {"passed": 50, "failed": 0, "exitCode": 0, "log": "compat-r2-green-final.log", "command": "node --test tests/weCompatSharing.test.mjs tests/weNativeContract.test.mjs tests/wearChannel.test.mjs"},
+  "originalBodySha256": "5cb48bd88d4a57bfd72c87a4572743af67725d8dd2c60217fc5817e6b194f529",
+  "hashes": {
+    "entry/src/main/js/MainAbility/common/wearCompat.js": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e",
+    "entry/src/main/js/MainAbility/common/wearChannel.js": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179",
+    "entry/src/main/js/MainAbility/app.js": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a",
+    "scripts/share_we_compat_app.mjs": "154ffd17d71481d29b4513fa7c3ad0426db6781a945339948c48d1f4f8464568",
+    "tests/weCompatSharing.test.mjs": "5a17dfe7144cdba403fd96fa04c1d32b1c2cb9adb72f822beadb886dd4d341f8"
+  },
+  "sourceOwnership": "app lazy wrapper + full pure injected factory; page source delegates to compat; host packing replaces page compat module with app-owner bridge",
+  "missingOwner": "APP_COMPAT_UNAVAILABLE; close no-op; no send/fake-success fallback",
+  "packingParity": "synthetic QA tested: exact module-only change, app/non-target payload byte equality, source map source retention",
+  "actualSDKVerified": false,
+  "nativeVerified": false,
+  "sdkProvenance": "requires-parent-CI-readback",
+  "existingTestsEdited": false,
+  "existingGatesEdited": false,
+  "workflowEditedBySubagent": false,
+  "commitOrPush": false,
+  "checks": ["git diff --check passed", "node --check packing and NEW test passed"],
+  "issues": ["initial source-map implementation dropped unmapped sources; fixed implementation, assertions unchanged", "complete HEAD parity helper aborted on untracked logger source; no all-file parity claim", "SDK build/actual packed APP matching and native memory acceptance remain untested locally"]
+}

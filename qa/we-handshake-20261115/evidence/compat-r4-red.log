@@ -1,0 +1,26 @@
+✖ R4 decoy object cannot attest the exported inert application owner (229.835209ms)
+✔ R4 explicit exported application aliases retain Babel lazy factory ownership (56.729948ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 729.759895
+
+✖ failing tests:
+
+test at tests/weCompatSharing.test.mjs:142:1
+✖ R4 decoy object cannot attest the exported inert application owner (229.835209ms)
+  AssertionError [ERR_ASSERTION]: Missing expected rejection.
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharing.test.mjs:146:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /not linked/,
+    operator: 'rejects',
+    diff: 'simple'
+  }

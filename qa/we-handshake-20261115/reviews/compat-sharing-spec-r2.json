@@ -1,0 +1,99 @@
+{
+  "review_id": "compat-sharing-spec-r2",
+  "axis": "SPEC",
+  "status": "blocked",
+  "passed": false,
+  "reviewer_mode": "current-agent-read-only-source-review",
+  "jev_called": false,
+  "scope_root": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "head": "70092ba68794b8c4ef905f64e0f676887d9ef703",
+  "product_baseline": "a197eecb83a6e15a7f4cdb930c1205ec9c84b1ef",
+  "first_observed_review_utc": "2026-11-14T23:52:51Z",
+  "hash_recheck_utc": "2026-11-14T23:54:52.544137+00:00",
+  "hard_time_budget_seconds": 180,
+  "within_hard_budget": false,
+  "first_report_hash_readback_utc": "2026-11-14T23:56:06Z",
+  "budget_issue": "The first observed start was 23:52:51Z and the report hash readback completed at 23:56:06Z, beyond the hard three-minute budget. This overrun is disclosed; returning without further investigation.",
+  "authority": "Only the seven new unversioned-factory ownership/sharing increment files. Existing product 355 and prior SPECQUALITY approvals are not reopened. The sole authorized write is this new review JSON; no source fix, original-test edit, commit, push, signing, native-init change or secret-value access.",
+  "spec_sources": [
+    "Delegated task and exact seven-file scope supplied by parent/user",
+    "qa/we-handshake-20261115/SDK-PARSE-R2-PLAN.md:5-10,21-22,27-28"
+  ],
+  "hashscope": [
+    {"path": "entry/src/main/js/MainAbility/common/wearCompat.js", "bytes": 5120, "sha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e"},
+    {"path": "entry/src/main/js/MainAbility/common/wearChannel.js", "bytes": 1012, "sha256": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179"},
+    {"path": "entry/src/main/js/MainAbility/app.js", "bytes": 2426, "sha256": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a"},
+    {"path": "scripts/share_we_compat_app.mjs", "bytes": 9644, "sha256": "154ffd17d71481d29b4513fa7c3ad0426db6781a945339948c48d1f4f8464568"},
+    {"path": "tests/weCompatSharing.test.mjs", "bytes": 9212, "sha256": "5a17dfe7144cdba403fd96fa04c1d32b1c2cb9adb72f822beadb886dd4d341f8"},
+    {"path": "tests/weSdkSharingPipeline.test.mjs", "bytes": 1059, "sha256": "7ca9da69a0643aa67d69b2bf4676ee8a4ba655f259ff1c7ec38769d0cced0217"},
+    {"path": ".github/workflows/wearengine.yml", "bytes": 4738, "sha256": "3017c1f888604573c6fabae70b835cb4222a829d2257a465fc0e498d0eb57deb"}
+  ],
+  "scope_sha256_rechecked_unchanged": true,
+  "verified_invariants": [
+    {"id": "unchanged-original-body", "passed": true, "body_sha256": "5cb48bd88d4a57bfd72c87a4572743af67725d8dd2c60217fc5817e6b194f529", "basis": "Reviewer extracted original HEAD wearChannel body and moved wearCompat body independently; byte equality and pinned original hash both match. All APIs, bounds, callback generation guards, diagnostics, summary, READY/SEND_206/207 and close behavior remain in the complete body."},
+    {"id": "unchanged-versioned-routing", "passed": true, "basis": "Original wearChannel prefix/version branch matches byte-for-byte except the additive compat import. Only the previous unversioned body becomes return compat(identity, protocol, engine)."},
+    {"id": "lazy-app-and-literal-dependencies", "passed": true, "basis": "app.js adds only import and lazy three-argument wrapper. Source and packed-bridge tests retain literal identity/protocol/engine object references; no native import/init in compat or new app wrapper. Packed bridge explicitly resolves $app.$def||$app and missing owner returns APP_COMPAT_UNAVAILABLE without local factory fallback."},
+    {"id": "full-factory-and-module-parity", "passed": true, "basis": "Packer requires unique marker/API-bearing three-argument factory in each app/page webpack candidate, compares entire cleaned factory AST, rejects compat native initialization, and preserves page prefix/suffix and all non-target HAP/APP payload bytes. Current fixture app bundle is unchanged. Two separately proven missing fail-closed assertions are listed below."},
+    {"id": "old-gates-and-identity-preserved", "passed": true, "basis": "git diff HEAD lists no changed original tests, config identity or original verification/final_gate files. Workflow is exactly its HEAD bytes plus one share step after compact_lite_app and before compact_p2p_page/verification/signing. Existing byte/native/signature/failure-only gates remain complete."}
+  ],
+  "findings": [
+    {
+      "id": "COMPAT-SPEC-R2-01",
+      "severity": "medium",
+      "blocking": true,
+      "file": "scripts/share_we_compat_app.mjs",
+      "lines": "31-37,76,90",
+      "requirement": "The app owner must actually link/delegate to the entire original factory; packing must fail closed for missing/drifted app ownership.",
+      "finding": "ownerHas only finds an _elctonWearCompat property and any require(target) anywhere in the same webpack module. It does not prove that this property's value or wrapper invokes that factory. A disconnected owner is accepted and appSourceMethodHas is reported true, so factory AST equality alone does not protect dispatch.",
+      "independent_reproduction": "Synthetic QA app changed _elctonWearCompat:require(\"compat\").default to _elctonWearCompat:function(){return {};},unrelated:require(\"compat\").default, retaining identical complete page/app factories. shareCompatApp accepted the input and reported appSourceMethodHas:true. This is a gate defect, not a claim that the present app.js wrapper is disconnected.",
+      "minimal_resolution": "Validate the actual _elctonWearCompat property value/wrapper and its dependency linkage to the selected factory, including three-argument delegation, rather than two independent module-wide booleans. Add a disconnected-owner negative case only to the new sharing test.",
+      "verification": "The reproduced disconnected-owner fixture must reject; present lazy wrapper and existing positive ownership fixtures must continue to pass. No old tests or gates need edits."
+    },
+    {
+      "id": "COMPAT-SPEC-R2-02",
+      "severity": "medium",
+      "blocking": true,
+      "file": "scripts/share_we_compat_app.mjs",
+      "lines": "44-49,60-64,90",
+      "requirement": "Preserve includeSources for every original module and fail closed rather than attest missing module-source content.",
+      "finding": "updateMap validates only array existence/equal lengths; null source content is accepted and re-appended verbatim while sourceMapIncludeSources is unconditionally true. Thus the claimed per-original-module includeSources invariant is not enforced. The added whole input-bundle source is not the missing original module source.",
+      "independent_reproduction": "Synthetic QA map {version:3,sources:[\"webpack:///compat.js\"],sourcesContent:[null],names:[],mappings:\"\"} was accepted; shareCompatApp reported sourceMapIncludeSources:true. No actual SDK input or source map was fabricated or changed.",
+      "minimal_resolution": "Require actual string sourcesContent entries for each original source before claiming includeSources, preserving all original source strings exactly. Add this negative case to the new test; retain existing mapped sources and byte-parity guards.",
+      "verification": "A null/missing original module content fixture must reject or return a non-passing verified invariant, while complete includeSources inputs retain their original sources/content pairs."
+    }
+  ],
+  "verification": {
+    "independent_tests": {"command": "node --test --test-reporter=tap tests/weCompatSharing.test.mjs tests/weSdkSharingPipeline.test.mjs", "exit_code": 0, "tests": 5, "pass": 5, "fail": 0, "cancelled": 0, "skipped": 0, "todo": 0, "duration_ms": 1298.074427},
+    "git_diff_check_exit_code": 0,
+    "packer_node_check_exit_code": 0,
+    "independent_negative_probes": [
+      {"name": "wrong_owner", "syntheticQA": true, "expected_acceptance": false, "actual_accepted": true, "appSourceMethodHas": true},
+      {"name": "missing_includeSources", "syntheticQA": true, "expected_acceptance": false, "actual_accepted": true, "sourceMapIncludeSources": true}
+    ],
+    "negative_probe_exit_code": 0,
+    "author_child_green_readback": {"path": "qa/we-handshake-20261115/evidence/compat-r2-green-final.log", "tests": 50, "pass": 50, "fail": 0, "sha256": "0d5de34de623a2b24e34814529fbf38ccef80ab3cb9840116b2f63572739890c"},
+    "parent_green_readback": {"path": "qa/we-handshake-20261115/evidence/r2-incremental-parent-green.log", "tests": 66, "pass": 66, "fail": 0, "sha256": "e54794a83c58791bc5adaea49624883f65b376be4d45365dffc2d32eb7db4226"},
+    "red_originals_preserved": [
+      {"path": "qa/we-handshake-20261115/evidence/compat-r2-red.log", "tests": 4, "pass": 0, "fail": 4, "sha256": "34bbbe83221caba6799549fc873fa5f729f09f509d0e748df3ce702e744da173"},
+      {"path": "qa/we-handshake-20261115/evidence/sdk-sharing-pipeline-red.log", "tests": 1, "pass": 0, "fail": 1, "sha256": "fbb05a99fb972f8513b9235b11549b2e9773235d420f3059c90207a96ac2b03b"}
+    ],
+    "old_355_reexecuted": false,
+    "prior_specquality_reopened": false,
+    "new_actual_sdk_app_generated_or_parsed_by_reviewer": false,
+    "source_fixes": false,
+    "commit_or_push": false,
+    "native_verified": false,
+    "real_wearengine_verified": false,
+    "fit3_verified": false,
+    "secret_values_accessed": false
+  },
+  "native_boundary": {
+    "read_evidence": "qa/we-handshake-20261115/evidence/sdk-parse-r2/exact-qemu-clean-replay-original.json",
+    "exact_sdk_sha256": "7cb8af6c01f4848216f429bf35d1d497734ee299e055f3f93d58a4d176cfda31",
+    "old_actual": {"version": "1.1.15", "bytes": 40979, "returncode": 0, "sha256": "787a251ee68bb104df111415fca13b60f83d4643ae719323676a5e2fd091ddf3"},
+    "failed_actual": {"version": "1.1.16", "bytes": 46653, "returncode": 10, "sha256": "d5aa9f636feca64c471bd4c69668a3c52a51dfc9020e0c25c635235017251130"},
+    "new_parse_fixed": false,
+    "basis": "Existing actual SDK/QEMU failure evidence only. New actual SDK artifact plus unchanged exact-native CI gate/readback is still required. Local green source/synthetic tests do not prove parse OOM repaired, watch heap safety or WE handshake. Moving parse ownership to app is a strategy, not measured memory success. Image/audio/UI/device profile are unchanged and out of this increment's scope."
+  },
+  "disposition": "BLOCKED only on two reproduced fail-closed packaging assertion gaps in the new scope. Present source factory move is byte-identical, lazy wrapper and literal injected references are correct, old version routing/identity/tests/gates remain intact. No functional deletion or gate reduction found. Fix the two smallest new packer/new-test checks, rebind hashes and re-review the increment; do not reopen product baseline or claim actual SDK parse success."
+}

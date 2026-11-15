@@ -1,0 +1,42 @@
+✖ SDK shape accepts literal default export root (103.269584ms)
+✖ SDK shape accepts literal default factory resolver (39.02599ms)
+✖ SDK shape accepts actual Babel literal default root and lazy interop import (31.810052ms)
+✔ SDK shape rejects computed export variable even when its value is default (48.705834ms)
+✔ SDK shape rejects computed factory variable even when its value is default (35.814791ms)
+✔ SDK shape rejects wrong literal export key (25.955469ms)
+✔ SDK shape rejects wrong literal factory key (23.817552ms)
+✔ SDK shape rejects unrelated static owner decoy with an empty proper exported root (23.959635ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 5
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 851.854167
+
+✖ failing tests:
+
+test at tests/weCompatSharingSdkShape.test.mjs:31:3
+✖ SDK shape accepts literal default export root (103.269584ms)
+  Error: App _elctonWearCompat is not linked to the full factory module
+      at shareCompatApp (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:141:27)
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharingSdkShape.test.mjs:33:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+
+test at tests/weCompatSharingSdkShape.test.mjs:31:3
+✖ SDK shape accepts literal default factory resolver (39.02599ms)
+  Error: App _elctonWearCompat is not linked to the full factory module
+      at shareCompatApp (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:141:27)
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharingSdkShape.test.mjs:33:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)
+
+test at tests/weCompatSharingSdkShape.test.mjs:31:3
+✖ SDK shape accepts actual Babel literal default root and lazy interop import (31.810052ms)
+  Error: App _elctonWearCompat is not linked to the full factory module
+      at shareCompatApp (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/scripts/share_we_compat_app.mjs:141:27)
+      at async TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/weCompatSharingSdkShape.test.mjs:33:16)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7)

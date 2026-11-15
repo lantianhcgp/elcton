@@ -1,0 +1,41 @@
+{
+  "action": "compat-sdk-static-default-shape",
+  "finishedUtc": "2026-11-15T00:11:17.742929+00:00",
+  "syntheticQA": true,
+  "actualSDKVerified": false,
+  "nativeVerified": false,
+  "scope": [
+    "scripts/share_we_compat_app.mjs",
+    "tests/weCompatSharingSdkShape.test.mjs",
+    "qa/we-handshake-20261115/evidence/compat-sdk-shape*"
+  ],
+  "changedResolverSites": ["exportRoots actual module second parameter", "factory module default member"],
+  "acceptedMemberForms": ["noncomputed Identifier default", "computed Literal with value exactly default"],
+  "productCodecChanged": false,
+  "red": {
+    "exitCode": 1,
+    "counts": {"tests": 8, "pass": 5, "fail": 3, "cancelled": 0, "skipped": 0, "todo": 0},
+    "expectedFailure": "not linked (three independent positive shape tests)",
+    "log": "compat-sdk-shape-red.log"
+  },
+  "green": {
+    "exitCode": 0,
+    "command": "node --test tests/weCompatSharingSdkShape.test.mjs tests/weCompatSharing.test.mjs tests/weNativeContract.test.mjs tests/wearChannel.test.mjs tests/weSdkSharingPipeline.test.mjs",
+    "counts": {"tests": 66, "pass": 66, "fail": 0, "cancelled": 0, "skipped": 0, "todo": 0},
+    "log": "compat-sdk-shape-green.log"
+  },
+  "files": {
+    "scripts/share_we_compat_app.mjs": {"sha256": "c6e32642ba29851f5e484ebd1af5b206b764fd39a079b42057f0e144e0ddc095", "bytes": 14423},
+    "tests/weCompatSharingSdkShape.test.mjs": {"sha256": "97674821f700114c08d1b082569d0e9955d5c88f078282dc464b2e65c1263e75", "bytes": 4607},
+    "tests/weCompatSharing.test.mjs": {"sha256": "1993526480e6f3e373b3f63814060a313b3e2987ff1a136de902f6458c204190", "bytes": 13777},
+    "tests/weNativeContract.test.mjs": {"sha256": "46556b1a7ca6f040483e57e75118528c36d0baca8d7ac6bfeb13e09daa2b7cbb", "bytes": 20273},
+    "tests/wearChannel.test.mjs": {"sha256": "76b901a79a9a2cf8078611ccee4c62ff241184447a222e53480099b46e017022", "bytes": 1459},
+    "tests/weSdkSharingPipeline.test.mjs": {"sha256": "7ca9da69a0643aa67d69b2bf4676ee8a4ba655f259ff1c7ec38769d0cced0217", "bytes": 1059},
+    "entry/src/main/js/MainAbility/app.js": {"sha256": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a", "bytes": 2426},
+    "entry/src/main/js/MainAbility/common/wearChannel.js": {"sha256": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179", "bytes": 1012},
+    "entry/src/main/js/MainAbility/common/wearCompat.js": {"sha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e", "bytes": 5120},
+    "qa/we-handshake-20261115/evidence/compat-sdk-shape-red.log": {"sha256": "b634b53c9f4c04f3ac13d6422e0c82bc03928329a102b6b42866a8f2d79607a1", "bytes": 2715},
+    "qa/we-handshake-20261115/evidence/compat-sdk-shape-green.log": {"sha256": "caebe41a07b676bcb3ee29ed2a6c6a9efc02e6a7430709de70f07b07e66009e4", "bytes": 6208}
+  },
+  "commitPush": false
+}

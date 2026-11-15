@@ -1,0 +1,36 @@
+{
+  "task": "exact SDK external Babel interop helper adaptation only",
+  "startedUtc": "2026-11-15T00:17:47Z",
+  "sourceAndTestEditsStoppedByUtc": "2026-11-15T00:19:36Z",
+  "verificationFinishedUtc": "2026-11-15T00:20:23.395409Z",
+  "elapsedSecondsAtVerification": 156.395409,
+  "hardStopUtc": "2026-11-15T00:20:37Z",
+  "syntheticQA": true,
+  "actualSDKVerified": false,
+  "nativeVerified": false,
+  "actualPackageGenerated": false,
+  "helperBytes": 300,
+  "helperSha256": "e282a73c6d4a635b6aa168ad8ff37d95bc71c3b9fd70b2f56caa63cdc4094bf3",
+  "helperEvidence": "qa/we-handshake-20261115/evidence/sdk-parse-r2/pinned-babel-interop-module143.source.txt",
+  "recognition": "stable lexical helper binding initialized by direct webpack third-parameter require of a literal ID; uniquely matching literal AST property; FunctionExpression full source slice exact SHA only; local FunctionDeclaration strict shape unchanged",
+  "red": {"tests": 6, "pass": 4, "fail": 2, "exitCode": 1, "reason": "valid external helpers at requested IDs 143 and 714 falsely rejected as not linked"},
+  "greenAffected": {"tests": 47, "pass": 47, "fail": 0, "exitCode": 0},
+  "greenExistingGates": {"tests": 105, "pass": 105, "fail": 0, "exitCode": 0},
+  "totalGreen": 152,
+  "counterexamples": ["same helper spelling with malicious return", "requested ID missing while pinned helper exists at another ID", "ambiguous literal module ID"],
+  "syntaxChecksPassed": ["scripts/share_we_compat_app.mjs", "tests/weCompatSharingExternalHelper.test.mjs"],
+  "scriptBeforeSha256": "c6e32642ba29851f5e484ebd1af5b206b764fd39a079b42057f0e144e0ddc095",
+  "scriptAfterSha256": "3d9852607d3560532d528fc16dac10896bd7be1c9c476079267688ecff4c5961",
+  "newTestSha256": "14182d8552faeef6d872f5341bfc57b0cf88660d9172bb9b5243da47aafcf6e2",
+  "unchangedPriorTests": {
+    "tests/weCompatSharing.test.mjs": "1993526480e6f3e373b3f63814060a313b3e2987ff1a136de902f6458c204190",
+    "tests/weCompatSharingSdkShape.test.mjs": "97674821f700114c08d1b082569d0e9955d5c88f078282dc464b2e65c1263e75"
+  },
+  "logSha256": {
+    "external-interop-red.log": "24373953c9ed96eb3be104c665e73332635427a8fafeb54f8fb76a8416f66619",
+    "external-interop-green.log": "bbe1e0ff7b874fa1bfbca418cb9999541129afc1e8f0b957f22aa478de34a13c",
+    "external-interop-gates.log": "dc68ced70676b75799313be6e85442314fa2e8a3abbb1ab2682622fa23b0d0bd"
+  },
+  "scope": {"sourceBodyEdited": false, "appChannelEdited": false, "priorTestsEdited": false, "gatesEdited": false, "secretsAccessed": false, "browserOrPhoneUsed": false, "committedOrPushed": false},
+  "handoff": "parent incremental SPEC then QUALITY review of external-helper recognition; real SDK CI/readback remains parent responsibility"
+}
