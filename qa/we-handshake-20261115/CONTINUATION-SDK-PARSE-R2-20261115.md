@@ -8,7 +8,7 @@
 - 没有合格新 HAP，没有改 /storage/emulated/0/haps/，没有安装或操作手机/手表，没有修改手机仓、表盘或留白。
 - 唯一主线仍是原 SDK 解析接收页 → CI 全绿 → 配置后真实 APP logger → 同 1.1.15 身份/签名链 → HAP。
 - 四轮真实 WE 握手失败的底层原因仍 unknown；已证 SEND 失败信息丢失，不冒称握手根因修好。
-- 本棒因运行预算结束。最后动态扫描修补 SPEC 已通过，QUALITY 未完成，未推这些待审活动改动，不声称可交付。
+- 本棒因运行预算结束。最后动态扫描修补 SPEC/QUALITY 已通过；质量回执在停靠时晚到，已核对当前六路径哈希一致。活动修补尚未提交，也未重跑新CI，不声称可交付。
 
 ## 已证解析根因与原件
 
@@ -41,7 +41,7 @@ CI43653381875（70092ba）保存实际失败 APP，未用于交付：
    - nativeScanText 只在精确 SDK FunctionDeclaration requireModule(moduleName){return requireNative(moduleName.slice(1))} 且整个模块没有其他 requireModule 标识引用时，扫描时排除声明；真实 APP 字节不删除声明。
    - 真正原生调用、篡改/引用/别名/嵌套/重复声明仍拒。
    - QUALITY R1发现 eval 动态回收惰性函数，最小增加 Identifier/Literal eval、Function 以及 globalThis/window/self/this 的 nonLiteral computed member 拒绝；普通 data[key] / literal default 保留。
-   - 最后 SPEC：qa/we-handshake-20261115/reviews/native-dynamic-spec-r2.json passed=true，六路径哈希绑定。最后 QUALITY：新委派在运行预算停靠时停止，尚无有效通过回执。不能直接当双审通过。
+   - 最后 SPEC：qa/we-handshake-20261115/reviews/native-dynamic-spec-r2.json passed=true，六路径哈希绑定。最后 QUALITY：qa/we-handshake-20261115/reviews/native-dynamic-quality-r2.json passed=true，verdict=PASS_SCOPED_QUALITY_HOST_ONLY；停靠时晚到回执已经核对六路径当前哈希相等。双审通过仅指新增 HOST 扫描增量，绝不是新 CI、原SDK解析或安装成功。
 2. .github/workflows/wearengine.yml SHA256 bae9a2f2ae2123f170c4cfee181bbbb4ef7aebb5b53677b710cef59987089dc8：仅在分享前保存真实 public APP 到 build/qa-pre-share/actual-pre-share.app + source-sha.txt，失败 artifact 新增这两路径。原 SDK/字节/签名门不变。
 3. 新测试：
    - tests/weCompatSharingNativeStub.test.mjs：e8687cef0cfeccebe6a0db7452a467f0ff4411137667b5e395db9423cc63264c。
@@ -71,8 +71,8 @@ CI43653381875（70092ba）保存实际失败 APP，未用于交付：
 
 ## 续跑顺序（唯一主线，禁止旁支）
 
-1. 读本断点和最后六路径哈希；补完最后动态扫描增量 QUALITY，不重审原产品/355。
-2. 若通过，提交/推最小 script+workflow+新增测试；必须带300B公开helper原件（已在a935911）。读回精确head，跑 wearengine-watch。
+1. 读本断点和最后六路径哈希；最后新增增量 SPEC/QUALITY 已通过，回执与当前哈希已核。无代码漂移就不重做这两次审查，也不重审原产品/355。
+2. 提交/推最小 script+workflow+新增测试；必须带300B公开helper原件（已在a935911）。读回精确head，跑 wearengine-watch。活动修补尚未提交，新CI未跑。
 3. 新 CI 原 tests/真实 SDK build/分享/压缩/签名/原 exact SDK 门全部成功。若失败，取 FAILED-NOT-FOR-INSTALL artifact 的 actual-pre-share.app 和 source-sha，直接按实际字节定位，不猜结构、不降门。
 4. 成功 actual APP 用配置后 JS/map、精确七JS SDK解析、上述HOST和阶段HOST、Node HTTPS→认证云API/canonical raw/独立collector闭环实跑。不把宿主 ACK 叫手表成功。
 5. 同身份/同链签 HAP，完整强验、payload/版本/资源、1B反例、签后七JS精确解析；最后交付 /haps/ 根只留最新elcton，旧elcton只mv旧包归档，不rm、不碰表盘子目录和其他产品。

@@ -5,7 +5,7 @@
   "last_ci_conclusion": "failure before final SDK gate",
   "new_hap": null,
   "real_we_root_cause": "unknown",
-  "last_dynamic_quality": "incomplete at budget stop; not accepted",
+  "last_dynamic_quality": "passed at stop; current six-path hashes verified, active delta not committed and no new CI",
   "snapshot_count": 30,
   "files": [
     {
