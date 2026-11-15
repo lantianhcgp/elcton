@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "verified_at": "2026-11-15 09:56:22 +0800",
+  "hap": "/storage/emulated/0/haps/elcton-20261115-WE分阶段日志常亮-1.1.16-cbd1715.hap",
+  "bytes": 900659,
+  "sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a",
+  "proof_names": [
+    "shared-delivery.json",
+    "shared-strong.json",
+    "shared-final-gate.json",
+    "shared-exact-native.json",
+    "remote-readback-d4d0a44.json"
+  ],
+  "source_ci": 43661966735,
+  "source_sha": "cbd171553e70eb614ca4283534915b92ebb870de",
+  "same_identity": "watchapp.nexus.0zzip",
+  "native_parse_js_count": 7,
+  "evidence_readback_count": 105,
+  "archive_moves": 2,
+  "non_target_files_unchanged": 157,
+  "task_browser_qemu_node_residue": [],
+  "phone_install_or_foreground_operation_used": false,
+  "real_watch_root_cause": "unknown",
+  "user_install_and_test_pending": true
+}

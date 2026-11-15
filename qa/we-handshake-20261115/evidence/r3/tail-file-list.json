@@ -1,0 +1,12 @@
+[
+  "qa/we-handshake-20261115/DELIVERY-R3-20261115.md",
+  "qa/we-handshake-20261115/evidence/r3/shared-delivery-before.json",
+  "qa/we-handshake-20261115/evidence/r3/shared-delivery.json",
+  "qa/we-handshake-20261115/evidence/r3/shared-strong.json",
+  "qa/we-handshake-20261115/evidence/r3/shared-final-gate.json",
+  "qa/we-handshake-20261115/evidence/r3/shared-exact-native.json",
+  "qa/we-handshake-20261115/evidence/r3/remote-readback-d4d0a44.json",
+  "qa/we-handshake-20261115/evidence/r3/delivery-final.json",
+  "qa/we-handshake-20261115/evidence/r3/final-live-scope.json",
+  "qa/we-handshake-20261115/evidence/r3/tail-file-list.json"
+]

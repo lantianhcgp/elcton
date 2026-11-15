@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "verified_at": "2026-11-15 09:58:34 +0800",
+  "phone_readonly_files": 74,
+  "phone_file_drift": [],
+  "baseline_original_test_files": 33,
+  "baseline_original_tests_unchanged": true,
+  "r1_38_file_freeze_receipt": "final-scope-protection.json",
+  "frozen_current_byte_equal": {
+    "tools/sign/sign-app-to-hap.js": true,
+    "tools/sign/verify_sign.py": true,
+    "qa/install34/check_signed_ast.cjs": true,
+    "scripts/compact_lite_app.mjs": true,
+    "scripts/compact_p2p_page.mjs": true,
+    "qa/p2p-ready-20261114/final_gate.py": true,
+    "entry/src/main/js/MainAbility/common/wearIdentity.js": true,
+    "package.json": true
+  },
+  "new_QA_test_files_are_not_original_assertion_changes": true
+}

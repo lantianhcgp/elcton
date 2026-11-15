@@ -1,0 +1,809 @@
+{
+  "protected_non_target_files": {
+    "实验Z-20261113-保存锁与提示布局修复.hap": {
+      "bytes": 4107754,
+      "mtime_ns": 1794575004539013016,
+      "sha256": "7e6e8fda7513fbeff9e4c8618be46d1a40a0a90891238a7c9a892dae4c1710ac"
+    },
+    "编译所需/default.csr": {
+      "bytes": 427,
+      "mtime_ns": 1785735738000000000,
+      "sha256": "d809bd6a36e1668100423fc2afa3090e068cec5cf0c4168d74fae06e95438cab"
+    },
+    "编译所需/日历Debug.p7b": {
+      "bytes": 4110,
+      "mtime_ns": 1785905064000000000,
+      "sha256": "32661ab1e85057424fd33f7cc10bbb050ddf84899392c78512e73459fd1375e0"
+    },
+    "编译所需/腕上待办Debug(1).p7b": {
+      "bytes": 4104,
+      "mtime_ns": 1786077965702524813,
+      "sha256": "eb55e181a23a30fccce3b048919cbab19e755676388c035a5d6fded17aa5a26f"
+    },
+    "表盘/p2-trial-a26035ec.hwt": {
+      "bytes": 223971,
+      "mtime_ns": 1794587198426977006,
+      "sha256": "a26035ecf02b1d7bf8cb728c1710f970a30c49e80d6208bd2ca3bdc091c5c769"
+    },
+    "表盘/p2-trial-0c28a27c.hwt": {
+      "bytes": 223942,
+      "mtime_ns": 1794587201566977005,
+      "sha256": "0c28a27c8a9709f3c4f51e33df8dda6d8d051c81f1f2096d69c58985d483dba3"
+    },
+    "表盘/p2-trial2-29eeb661.hwt": {
+      "bytes": 306143,
+      "mtime_ns": 1794615056255443562,
+      "sha256": "29eeb6610cc76002000951ef873e3e96aeb6b0e8486bd39f9f3966482affc0ef"
+    },
+    "表盘/p2-real-bb617832.hwt": {
+      "bytes": 329668,
+      "mtime_ns": 1794620088899372688,
+      "sha256": "bb6178322fd3170a65b26bcb498c8cb0e877108bf65376ed7ad1b0365e006c6f"
+    },
+    "表盘/p2-real-v2-9557a536.hwt": {
+      "bytes": 329650,
+      "mtime_ns": 1794627911622908212,
+      "sha256": "9557a536e0eb6a8e49ef67f067df93005e60750eeb79a5df4513c394d6c53f9c"
+    },
+    "腕上词典6.4.0(FIT3)(移植作者nxtei)_(3)_signed/entry.bin": {
+      "bytes": 9248076,
+      "mtime_ns": 1785735141588541767,
+      "sha256": "cc7a02ef485148dcf14f7716a72d1652d01e956296f130be3e99d374481b92fc"
+    },
+    "华为表盘/AW1bk.fit4_pro.2.8.1.hwt": {
+      "bytes": 270199,
+      "mtime_ns": 1785737163424540996,
+      "sha256": "a45e9c546e68959468b9a4c59b946dd17bafca36c0fb5128b371152471283aac"
+    },
+    "华为表盘/AWU4.fit3.2.5.1.hwt": {
+      "bytes": 374323,
+      "mtime_ns": 1785737261692540958,
+      "sha256": "e416feb77880f33b31fa8e150ea3170f8a58b1b25b317cfba324797bf5a83440"
+    },
+    "华为表盘/Nothing 2.hwt": {
+      "bytes": 253449,
+      "mtime_ns": 1785737924000000000,
+      "sha256": "748c2d3f5179bfa51fd3c3bced0b8dc689d748d2fbf6f6fe1633533b831edfc6"
+    },
+    "华为表盘/Nothing type.hwt": {
+      "bytes": 201839,
+      "mtime_ns": 1785737924000000000,
+      "sha256": "86ab9a7b2fe569aa4a2b2276622678635bd0e812ac9b5ae9c166541dddc1d23d"
+    },
+    "华为表盘/Nothing.hwt": {
+      "bytes": 263908,
+      "mtime_ns": 1785737924000000000,
+      "sha256": "61693671117c12c886a9905eeee0abbf13f3f846aea3ff1b38c0bdc70ca6d3cb"
+    },
+    "华为表盘/cmf wf.hwt": {
+      "bytes": 296455,
+      "mtime_ns": 1785737841000000000,
+      "sha256": "58fad826633769a2b5a251bec15a418f2dc21928ac2d45a7ffca503b9fa24bac"
+    },
+    "华为表盘/clear number.hwt": {
+      "bytes": 179789,
+      "mtime_ns": 1785737841000000000,
+      "sha256": "8c1a3bf29f00af4d6255cb705b1f0c6bcaeda4e9a9703280e4792ddb49ecf9e7"
+    },
+    "华为表盘/glassforfit3.hwt": {
+      "bytes": 878623,
+      "mtime_ns": 1785740899628539570,
+      "sha256": "50d309535201a22b335b34900121561d4c237b39aefc80a59ce2e4cf902f3d1b"
+    },
+    "APP 源文件/腕上词典6.4.0(FIT3)(移植作者@nxtei) (3).app": {
+      "bytes": 9264767,
+      "mtime_ns": 1785733056264542562,
+      "sha256": "0f8101ba97c056e64ac91f7cbe9bcb1f3a1658d7a42b77213c6eaf1584c81321"
+    },
+    "APP 源文件/腕上待办_1.6.0.app": {
+      "bytes": 2885914,
+      "mtime_ns": 1785812609610874777,
+      "sha256": "8b0277b16fd3f7c0b32e554851b830bc9605692b77c6fa61bda1c0526000e8d9"
+    },
+    "APP 源文件/MyApplication-default-unsigned.app": {
+      "bytes": 124264,
+      "mtime_ns": 1785904762000000000,
+      "sha256": "f9fa3b8f9fc931f6457479a317f30b20173feab0e5f347b9aa80ce1fc3e8a1a9"
+    },
+    "APP 源文件/腕上日历fit2 更新2026调休.app": {
+      "bytes": 1061132,
+      "mtime_ns": 1786028305072931507,
+      "sha256": "73477c34f331fbc56d4fa401fa4a0c961c7486172d59bca7f09297d33899caa7"
+    },
+    "旧包归档/2048.hap": {
+      "bytes": 225811,
+      "mtime_ns": 1785732333000000000,
+      "sha256": "447f8e5115715df650e5f0af18668fb2ef0b262448774d889bfd1361cf14248d"
+    },
+    "旧包归档/clan-v1.0.2.hap": {
+      "bytes": 69260,
+      "mtime_ns": 1791009164000000000,
+      "sha256": "302caadcb17bca04d82fba111b10f2b94a7103cc1b0417b48e36d950e090401c"
+    },
+    "旧包归档/clogger-2026-11-04-课程表日志载体.hap": {
+      "bytes": 412394,
+      "mtime_ns": 1793835890764148358,
+      "sha256": "1955119f936e161878991325a156d7a89dfb236a74eb4ace55ba112e79a649d4"
+    },
+    "旧包归档/clogger-2026-11-05-实验H1-网络半.hap": {
+      "bytes": 408457,
+      "mtime_ns": 1793849855386787887,
+      "sha256": "d618744111b58892541e3f232d6342a74a3fc2b11617ab1bc2d1070a33a020f5"
+    },
+    "旧包归档/clogger-2026-11-05-实验H2-捕获半.hap": {
+      "bytes": 405863,
+      "mtime_ns": 1793849855778787887,
+      "sha256": "cb4e7b1c0899901381bac15d42747c6cd772b005580c580637acee2a06e70b36"
+    },
+    "旧包归档/clogger-2026-11-05-实验H3-无正则无random.hap": {
+      "bytes": 408405,
+      "mtime_ns": 1793852726834362208,
+      "sha256": "398a3544fe8c4f59064ab8addbe1eab5eeb2eee28d3c14d0aae2b4d64c3bee6a"
+    },
+    "旧包归档/clogger-2026-11-05-实验H4-无POST无random.hap": {
+      "bytes": 408166,
+      "mtime_ns": 1793852727490362208,
+      "sha256": "feb4bef4c3bdf2d86aad7586a69731881ffe53abf6abbc85029fa9e87dea4d7d"
+    },
+    "旧包归档/clogger-2026-11-05-载体v2-无device.hap": {
+      "bytes": 411803,
+      "mtime_ns": 1793847519885303915,
+      "sha256": "de742be6f9aa239fa7b2a8e2b9476212f6e11419a2de8e5100d680746d3f6be5"
+    },
+    "旧包归档/clogger-2026-11-05-载体终版-修复logsink.hap": {
+      "bytes": 411750,
+      "mtime_ns": 1793857551410360368,
+      "sha256": "e98a3dd659f1116a39a47d50924335467a1ebad8f529f3eeef6b3ab174b25e1e"
+    },
+    "旧包归档/elcton-1009-取件码v2-私钥出库.hap": {
+      "bytes": 416910,
+      "mtime_ns": 1791556983641573117,
+      "sha256": "1cfc746bfec06f4c82190fcdc3fa79fbbce3ce96ab5afdf2bdc5a3904f6d877b"
+    },
+    "旧包归档/elcton-1009-取件码系统.hap": {
+      "bytes": 416621,
+      "mtime_ns": 1791523968165491590,
+      "sha256": "1c32af3ac499f6cdfbaed0ae91e967b22f18f1388e6f3b9f07b3ebfdc6930c9b"
+    },
+    "旧包归档/elcton-1009-同步功能.hap": {
+      "bytes": 393041,
+      "mtime_ns": 1791521921709492371,
+      "sha256": "390424c49ea2eb1c8a84e0b5f696333f69478f15c5f375ae51dbdcf2f6695dfc"
+    },
+    "旧包归档/elcton-1009-持久化+同步探测.hap": {
+      "bytes": 346113,
+      "mtime_ns": 1791506579245729741,
+      "sha256": "15416ea0e65c8c44e981bcc9cac8681a90e3ded08c86b5b949e116a54d133113"
+    },
+    "旧包归档/elcton-1009-探测v2.hap": {
+      "bytes": 348177,
+      "mtime_ns": 1791507257706550835,
+      "sha256": "daf83ff0371be72a6b045365a94fa5e6b369a4959e16ec204e1401cc3f85eddc"
+    },
+    "旧包归档/elcton-1009-探测v3.hap": {
+      "bytes": 349415,
+      "mtime_ns": 1791508190665505531,
+      "sha256": "aa467e58b2b427a07908139284f1124250cc5f1eec582e0bbe7983349b5a7c9e"
+    },
+    "旧包归档/elcton-1009-探测v4.hap": {
+      "bytes": 349234,
+      "mtime_ns": 1791510228197504754,
+      "sha256": "fe6ae559419c28ab88ca4be4009b5d64a2a16a072ca649647d8d6826a6c4c6c9"
+    },
+    "旧包归档/elcton-1009-探测v5-v1.0.1.hap": {
+      "bytes": 349233,
+      "mtime_ns": 1791510984605504466,
+      "sha256": "cb5cdb82a63933f47ea46d097a6b30d9fae90a5cd3e02cb42947cbabcd855e55"
+    },
+    "旧包归档/elcton-1009-探测v6-修闪退.hap": {
+      "bytes": 351269,
+      "mtime_ns": 1791514026925796574,
+      "sha256": "dbf0859d3ae9e0300ecbe6a205a8b055cd6f57abb94b2225d2d4ba4554ca8915"
+    },
+    "旧包归档/elcton-1009-探测v7-内网终验.hap": {
+      "bytes": 351430,
+      "mtime_ns": 1791519193633493411,
+      "sha256": "9467e458796426803c0993ed30ec8bd7c9af32be425a6e95036aea9bdae69ca8"
+    },
+    "旧包归档/elcton-1010-UI改版v2.hap": {
+      "bytes": 349659,
+      "mtime_ns": 1791607818663630375,
+      "sha256": "20e59973cb0e1e2a30c31f297a1384751140da1ec35d0c2128639c6993467942"
+    },
+    "旧包归档/elcton-1010-切片同步.hap": {
+      "bytes": 360560,
+      "mtime_ns": 1791646868117590770,
+      "sha256": "318e7f30ecf6a4cabb9edd611c18d7eea38d93c1fc293bf5a257c16edbea4978"
+    },
+    "旧包归档/elcton-1010-切片同步v2.hap": {
+      "bytes": 360924,
+      "mtime_ns": 1791647557913590507,
+      "sha256": "25d7a1b216b886bc4c1805daf99f3bcef1ebe2baf09f5bddd8659f66244e061b"
+    },
+    "旧包归档/elcton-1010-切片同步v3-防卡死.hap": {
+      "bytes": 368785,
+      "mtime_ns": 1791648885421590000,
+      "sha256": "16376f777f46333d7920cc20a27f9bd2301321de5503b1aee89bcbf44efe1df0"
+    },
+    "旧包归档/elcton-1010-删除弹窗修复-已重签.hap": {
+      "bytes": 348317,
+      "mtime_ns": 1791592460209847213,
+      "sha256": "6e1e18967cdfabacc420ea00bfdb05f17e9de8bdd60a47efa7983c1c258a404a"
+    },
+    "旧包归档/elcton-1010-删除弹窗修复.hap": {
+      "bytes": 348316,
+      "mtime_ns": 1791591812701847460,
+      "sha256": "b6257bb715568530149a0e4a2efaaa8ea3de89700c52ff834328e75a3a533c1f"
+    },
+    "旧包归档/elcton-1010-删除课程+独立身份.hap": {
+      "bytes": 303988,
+      "mtime_ns": 1791562077873571173,
+      "sha256": "d1f55d280a406692e49c1b3e4c148814305c32b1d971ec5ced72a765d8a10253"
+    },
+    "旧包归档/elcton-1010-四项修复.hap": {
+      "bytes": 351402,
+      "mtime_ns": 1791608965507629937,
+      "sha256": "5a23065fc164da14e07fbca0dd647eeae5c7ff3fb325a307f844ada4651665eb"
+    },
+    "旧包归档/elcton-1010-弹性布局测试版.hap": {
+      "bytes": 351598,
+      "mtime_ns": 1791625790577480040,
+      "sha256": "52b9a6179d26e87e58c290cd62e7ae3c43e6e010df9fde09bee5bf22d665e1de"
+    },
+    "旧包归档/elcton-1010-弹窗按钮修复.hap": {
+      "bytes": 348366,
+      "mtime_ns": 1791597849768502150,
+      "sha256": "d1ee12ac05206d49b44ad8860d06505c5ab7141b08bb07a60cfa3be17c808126"
+    },
+    "旧包归档/elcton-1010-弹窗放大-按钮完整.hap": {
+      "bytes": 348399,
+      "mtime_ns": 1791599311120501593,
+      "sha256": "c979c8117349a25d1d3e35b6b0806ab24fe9feaacf40334ce5ddcd4a052f82be"
+    },
+    "旧包归档/elcton-1010-按钮完整v2.hap": {
+      "bytes": 348377,
+      "mtime_ns": 1791601467625094663,
+      "sha256": "05227a6efd1629f50df45f7963f6361fb8da67daaf1f38b50104c0e6b2edf1f5"
+    },
+    "旧包归档/elcton-1010-新图标114版.hap": {
+      "bytes": 348089,
+      "mtime_ns": 1791588066518359383,
+      "sha256": "2a8fd85fa45e095f5815cff66b260047436326343e55f17cee82e094aa5050d8"
+    },
+    "旧包归档/elcton-1010-课名显式尺寸.hap": {
+      "bytes": 351522,
+      "mtime_ns": 1791609730679629646,
+      "sha256": "e14607caba984ba25d35f753a2eebea5f8824571eb899d6b69834ae01551703a"
+    },
+    "旧包归档/elcton-1012-同步页圆角与teacher修复.hap": {
+      "bytes": 395537,
+      "mtime_ns": 1791790424281977839,
+      "sha256": "a9117f1ccd18eccdfacc5a36edbc34440927fba9068ef155cea79b532dd5239f"
+    },
+    "旧包归档/elcton-1012-圆屏-单双字修复.hap": {
+      "bytes": 395580,
+      "mtime_ns": 1791779463179833325,
+      "sha256": "804c4519c2d93a094b84df1ab81a8e728b64777c4d368fad6790b713ef5c506d"
+    },
+    "旧包归档/elcton-1012-圆屏-同套修复.hap": {
+      "bytes": 395760,
+      "mtime_ns": 1791777481663099030,
+      "sha256": "151ae0d94882e2b225a6798eb74076a6c568e0823f5898c4effde0eb4041f86b"
+    },
+    "旧包归档/elcton-1012-方屏-单双字修复.hap": {
+      "bytes": 395489,
+      "mtime_ns": 1791779455567833328,
+      "sha256": "97c98d1ac3cb53e594b0ebeb00fe8c8ed47857c582dd0d1e52f5206c103e0336"
+    },
+    "旧包归档/elcton-1012-方屏-安全区+胶囊+黑条修复.hap": {
+      "bytes": 395672,
+      "mtime_ns": 1791777481651099030,
+      "sha256": "321d2f294642a52305aeca82cbbf95ad55fc025fe1bc4949b623f138523b5a0e"
+    },
+    "旧包归档/elcton-1012-自检强制复位.hap": {
+      "bytes": 395641,
+      "mtime_ns": 1791791766897977327,
+      "sha256": "9fe9c2c5e414e9f1b5ba4cbcc5026db59dfb0b1bc1bc12504baf38587ddf2150"
+    },
+    "旧包归档/elcton-1013-圆屏-三项修复.hap": {
+      "bytes": 395733,
+      "mtime_ns": 1791821729067860269,
+      "sha256": "16ba379c5d6ac462b718355bc85e8238d0f151d094542cf7177d93b7511e4cc4"
+    },
+    "旧包归档/elcton-default-unsigned_20260901_125340.hap": {
+      "bytes": 250250,
+      "mtime_ns": 1788238641078262972,
+      "sha256": "6abcf27d64cd852a11277009b8ea37ebab489fb88806ac28cb9b3e09fff6099a"
+    },
+    "旧包归档/elcton-lanprobe.hap": {
+      "bytes": 291754,
+      "mtime_ns": 1791505405123247535,
+      "sha256": "70a993bdf51e6bb4f14f0733a01bc2ce3f151d124f263b3321441ba6f03a437b"
+    },
+    "旧包归档/elcton-square.hap": {
+      "bytes": 394409,
+      "mtime_ns": 1791732146000000000,
+      "sha256": "32a0f1e9ef1579013bd09ddf17a9b7e333f53eed5798291fe6fa1ae342920a3f"
+    },
+    "旧包归档/liubai-2026-11-02-V3-r2.hap": {
+      "bytes": 4057647,
+      "mtime_ns": 1793574885853025222,
+      "sha256": "d0038eef49b08e07f3bf67cf94ff813e1e36ef3bf4c20f6ebf48312495b208a1"
+    },
+    "旧包归档/memo-todo.hap": {
+      "bytes": 511388,
+      "mtime_ns": 1791180639000000000,
+      "sha256": "ae6bd54b57c3cf2504410f52765f608d15f9b4e8db30def36bac1d594656b7cd"
+    },
+    "旧包归档/liubai-2026-11-02-V3-r3.hap": {
+      "bytes": 4058961,
+      "mtime_ns": 1793577672095346567,
+      "sha256": "f9d1fe193e037445dc30a8d647105a419a7c44e8c82c71a8ae511f89313db71b"
+    },
+    "旧包归档/liubai-2026-11-02-V3-r4-boot.hap": {
+      "bytes": 4066441,
+      "mtime_ns": 1793582941717367036,
+      "sha256": "bc602365ec16dabce06068d8913897dbcd0bb8c03ab374849423924e1637dbe0"
+    },
+    "旧包归档/liubai-2026-11-02-V3-r5-pruned.hap": {
+      "bytes": 3962308,
+      "mtime_ns": 1793586844191240271,
+      "sha256": "460f4b2e5861e2e151924325840c7ce1e9edab7ff2eaa0a5e26bde9176e6fc05"
+    },
+    "旧包归档/liubai-2026-11-02-V3.hap": {
+      "bytes": 4057646,
+      "mtime_ns": 1793574571737025342,
+      "sha256": "2a18db3521f9ceb73c11550ac10af8e477b203c6173ffceacd31386303314082"
+    },
+    "旧包归档/liubai-2026-11-02-diag-r6-pages.hap": {
+      "bytes": 3778058,
+      "mtime_ns": 1793589967768479145,
+      "sha256": "bca568f63e927232fa8ec7a1466fb28de1bac9b132f069d77b9a5a4d46f2d9c7"
+    },
+    "旧包归档/liubai-2026-11-02-diag-r7-minimal.hap": {
+      "bytes": 106267,
+      "mtime_ns": 1793590272134304809,
+      "sha256": "9c648c80993d3debe2b8a438d4afb6b88307cfa03172143dc3a474f1946037c2"
+    },
+    "旧包归档/liubai-2026-11-02-r10-无bc.hap": {
+      "bytes": 3958068,
+      "mtime_ns": 1793598040463844908,
+      "sha256": "a8702b01beac2431ffd68daefda890782b3bc69325089ac9c44bd23c5b73afae"
+    },
+    "旧包归档/liubai-2026-11-02-r11-debug完整对照.hap": {
+      "bytes": 4517355,
+      "mtime_ns": 1793601120068208879,
+      "sha256": "2a5513cb26e4342835599f985fc07e2af1b773aeb20f48863b764529f4745b0a"
+    },
+    "旧包归档/liubai-2026-11-02-r12-debug启动诊断.hap": {
+      "bytes": 3924580,
+      "mtime_ns": 1793601118024208880,
+      "sha256": "e7bd9c24a356a013b774275a48472124f27105516ab16df8f603a2e3a6f9404d"
+    },
+    "旧包归档/liubai-2026-11-02-r13-周期表正对照.hap": {
+      "bytes": 181433,
+      "mtime_ns": 1793603309887993070,
+      "sha256": "f30d57141b709f4808a6cc9f2a359a7ed22eb90ab79cdcc29b0a33aed19fad4f"
+    },
+    "旧包归档/liubai-2026-11-02-r14-留白版本字段对照.hap": {
+      "bytes": 3924580,
+      "mtime_ns": 1793604793165662263,
+      "sha256": "bead727faf62ee06c98c6d5112d3aeb54453475cbde7910a3a0c6ab89181b9b7"
+    },
+    "旧包归档/liubai-2026-11-02-r15-留白正则载荷对照.hap": {
+      "bytes": 3926077,
+      "mtime_ns": 1793607609023482755,
+      "sha256": "b387f7c02ea822dcbeb3552081a00042262014aca93f19f41d9567b448988d16"
+    },
+    "旧包归档/liubai-2026-11-02-r16-启动修复与图标.hap": {
+      "bytes": 3972852,
+      "mtime_ns": 1793612970715480710,
+      "sha256": "2e6a670d187483c5cfdb915352a7d7d326a014432422c38fb4fd61cf116ffa79"
+    },
+    "旧包归档/liubai-2026-11-02-r8-nolicense.hap": {
+      "bytes": 3961155,
+      "mtime_ns": 1793592116539594773,
+      "sha256": "c61377469173cb9d7cb41bb267f7b5619576e7e3deea72f13869310894b6a016"
+    },
+    "旧包归档/liubai-2026-11-02-r9-hc项目-caps.hap": {
+      "bytes": 3962421,
+      "mtime_ns": 1793597030519845293,
+      "sha256": "334dd2eef3fba477f7a5e17f3efcf0bcb8c2447d2b85b115f9fbb695bb662ecd"
+    },
+    "旧包归档/liubai-2026-11-03-V3-r18.hap": {
+      "bytes": 4405518,
+      "mtime_ns": 1793679652628581075,
+      "sha256": "9064f62640d61536f630c0c211d1a20a705246c19a8d9aefada00ac86f4b5527"
+    },
+    "旧包归档/liubai-2026-11-04-0.2.1-保存恢复取证.hap": {
+      "bytes": 4231001,
+      "mtime_ns": 1793757159531018389,
+      "sha256": "628b6e2f9fd31df513e15560a1c2525933bf42bba523e8e4a3fc31d946d888e4"
+    },
+    "旧包归档/liubai-2026-11-04-V3-elcton-final.hap": {
+      "bytes": 4228570,
+      "mtime_ns": 1793748880340101175,
+      "sha256": "a97038035fbed42cea105de0a7edeee1077b672ea8ab46a47020c4cca6c8d669"
+    },
+    "旧包归档/liubai-2026-11-04-v0.2.2-IO_BUSY.hap": {
+      "bytes": 4231710,
+      "mtime_ns": 1793762995056603045,
+      "sha256": "0cca45745564ee9cd3250c7e40ac4e6a90a09df4299ff34dcbe10c16cad7bc3f"
+    },
+    "旧包归档/liubai-2026-11-04-v0.2.3-初始化阶段定位.hap": {
+      "bytes": 4243276,
+      "mtime_ns": 1793771605683012399,
+      "sha256": "841ab20008b9be8ab492277e1e0a910196656ea9eeb0176af6d682ba4672556b"
+    },
+    "旧包归档/liubai-2026-11-04-v0.2.4-启动黑屏修复候选.hap": {
+      "bytes": 4251511,
+      "mtime_ns": 1793778261278188267,
+      "sha256": "d3186781719620b3f624629b9e69e03d58de46711dff63ec9a71b473e47e1ef8"
+    },
+    "旧包归档/liubai-2026-11-04-v0.2.5-读取续链修复候选.hap": {
+      "bytes": 4254260,
+      "mtime_ns": 1793787264842858333,
+      "sha256": "b56058bf1142ddcdcee1b996c588bad4b6c72167b8becedaad210d75af024f66"
+    },
+    "旧包归档/liubai-2026-11-05-日志版.hap": {
+      "bytes": 3939917,
+      "mtime_ns": 1793901212181976434,
+      "sha256": "1b932d69a5796083d01a72a8db4af5c6822757d121fe5bcafd6b9a2717cd5666"
+    },
+    "旧包归档/liubai-2026-11-06-日志版v2.hap": {
+      "bytes": 3941210,
+      "mtime_ns": 1793923551433282601,
+      "sha256": "c1ad9397fa582ba1f8625a6ef94e07a93eef6e0c68fd4c7a8f609690f6e768d3"
+    },
+    "旧包归档/logger-2026-11-04-demo-BROKEN-34.hap": {
+      "bytes": 99150,
+      "mtime_ns": 1793788653498857804,
+      "sha256": "5f94708b92f9962669ce0f88b3e4bbf641af92b1ce205dc1d4446bc607c52b63"
+    },
+    "旧包归档/logger-2026-11-04-demo-v2.hap": {
+      "bytes": 99270,
+      "mtime_ns": 1793806169874975653,
+      "sha256": "7b27039b2802985f13ccc5de93208af425b5e5aef0e735d5b8ba25f8a673b9ec"
+    },
+    "旧包归档/logger-v3-无i18n.hap": {
+      "bytes": 99087,
+      "mtime_ns": 1793807394014975186,
+      "sha256": "f89f1b45fb72f8038f2879eb66392d474d2de3c5956a30113a257c00017f9a5d"
+    },
+    "旧包归档/logger-v4-修复.hap": {
+      "bytes": 4182674,
+      "mtime_ns": 1793834805793311542,
+      "sha256": "4865c7d5274ff6940b515da3d7efe6c8b27382128f7da6e556242cd5b2659eef"
+    },
+    "旧包归档/memo-todo (10).hap": {
+      "bytes": 417737,
+      "mtime_ns": 1791213446000000000,
+      "sha256": "ce47022fdd54daf4eb75bfcd57cf0d879c63dd158c00edea20d08d01cbcbf480"
+    },
+    "旧包归档/memo-todo (11).hap": {
+      "bytes": 419802,
+      "mtime_ns": 1791240295000000000,
+      "sha256": "d7dde3416f8f4deae5897e1a4e3e8d38926e32fa1ce04344faefad5b85c414f5"
+    },
+    "旧包归档/memo-todo (12).hap": {
+      "bytes": 417100,
+      "mtime_ns": 1791241714000000000,
+      "sha256": "dfca93afe3c5cd1578596306dd271883dad71402ec29e42548d17fb29f195c72"
+    },
+    "旧包归档/memo-todo (13).hap": {
+      "bytes": 417092,
+      "mtime_ns": 1791244353000000000,
+      "sha256": "280fac8becc6a8791c73d3fb34b79e2b53ddb0d2d73598d63fe25980f93a699f"
+    },
+    "旧包归档/memo-todo (14).hap": {
+      "bytes": 417450,
+      "mtime_ns": 1791246576000000000,
+      "sha256": "f563e4cde5b929b1483d946db20cd5851cf27538c451e33eb96bfaba9a4c122e"
+    },
+    "旧包归档/memo-todo (15).hap": {
+      "bytes": 417527,
+      "mtime_ns": 1791250900000000000,
+      "sha256": "34660752d03ccf305d2f9eb9758efb803058aaa76bc97ba0b1641e2864b66574"
+    },
+    "旧包归档/memo-todo (9).hap": {
+      "bytes": 409743,
+      "mtime_ns": 1791211270000000000,
+      "sha256": "9e540d961b60a646192d2e3b1a20af52ef4b7c8a47bfe7101461e4b561201e14"
+    },
+    "旧包归档/memo-todo-1010-数字键盘.hap": {
+      "bytes": 389799,
+      "mtime_ns": 1791588621054169009,
+      "sha256": "8c0ab5fb7f7d24b02cdabcb8d7b23d0031bbe20b46b929903616351433f724da"
+    },
+    "旧包归档/memo-todo-1018-v2贴底表冠防滑死机.hap": {
+      "bytes": 3886491,
+      "mtime_ns": 1792308491440171671,
+      "sha256": "6dbb8f89ff6e8b18386bcaa5cb3cdf2e9517512cc5a3136f71a9094bc3774685"
+    },
+    "旧包归档/memo-todo-1018-v3防连点崩表.hap": {
+      "bytes": 3886958,
+      "mtime_ns": 1792319239355118656,
+      "sha256": "1b4dd4f5ecffe9bc335f72d182b4f33e4937a911a1980d95324fb47565bcea79"
+    },
+    "旧包归档/memo-todo-1018-v4防展开崩表.hap": {
+      "bytes": 3887247,
+      "mtime_ns": 1792325890407815529,
+      "sha256": "84ac04f4dbd78491dc0bdb22228c84500fdff7a48b2a146cb823d7264b9c206d"
+    },
+    "旧包归档/memo-todo-1018-v5连点合并渲染.hap": {
+      "bytes": 3887498,
+      "mtime_ns": 1792328870836020730,
+      "sha256": "4843f5227c425a885384d88b836316f16da9648bebcfe9274dd8d55a1fbbf18e"
+    },
+    "旧包归档/memo-todo-1018-圆屏-无备忘版.hap": {
+      "bytes": 3944298,
+      "mtime_ns": 1792332605768019305,
+      "sha256": "3e8794074b4dde69d575af62cc16c56b3fd1f65b315b5c5c331c8dec61788b96"
+    },
+    "旧包归档/memo-todo-1018-方屏-无备忘版.hap": {
+      "bytes": 3848054,
+      "mtime_ns": 1792332605740019305,
+      "sha256": "1680b3b534458e5610aa7aeca96be9f1e134ebc30b3ad73442de7082c1e6afd3"
+    },
+    "旧包归档/memo-todo-1019-圆屏-todo改名版.hap": {
+      "bytes": 3944272,
+      "mtime_ns": 1792333990916018777,
+      "sha256": "822663a6b6787de482807ebfe2f384271c469158324c27581f50c8a6c8d50f59"
+    },
+    "旧包归档/memo-todo-1019-方屏-todo改名版.hap": {
+      "bytes": 3848028,
+      "mtime_ns": 1792333990900018777,
+      "sha256": "8d42d1c9911c80ecb0da39c68387d6256f3599a442be149973929a13ab865314"
+    },
+    "旧包归档/memo-todo-20261014-v3动效加强.hap": {
+      "bytes": 421104,
+      "mtime_ns": 1791956328758254005,
+      "sha256": "2e873dad42c25c39603949016b3c1bd50bc8eb24cf761cd66c70498c7e66617a"
+    },
+    "旧包归档/memo-todo-crab键盘-100适配-20261018.hap": {
+      "bytes": 3885570,
+      "mtime_ns": 1792305738309605956,
+      "sha256": "786898cf123c9684a56538948c012776813b189cf04a0a7346551e4888368d1d"
+    },
+    "旧包归档/periodic-table-20261028-redo-v1.1.0.hap": {
+      "bytes": 260063,
+      "mtime_ns": 1793200761263466344,
+      "sha256": "d81b97998e50424c20fbb1969787ee27c45bac11413a992d3bc75000a9b78003"
+    },
+    "旧包归档/periodic-table-20261028-自适应横滑版-签名.hap": {
+      "bytes": 206064,
+      "mtime_ns": 1793174006396989420,
+      "sha256": "6b655992adc04b7906ed89a3dcbeea92cb1db22c06dd79350558fb539e7c540e"
+    },
+    "旧包归档/periodic-table-20261029-连续拖动版-b6ff8d5.hap": {
+      "bytes": 3354548,
+      "mtime_ns": 1793252123528801899,
+      "sha256": "9b1974037d1fe65e8dfcbf3635ed0967c331f3093683ca095e59f35f3c660d00"
+    },
+    "旧包归档/专注计时 (2).hap": {
+      "bytes": 110121,
+      "mtime_ns": 1791039793000000000,
+      "sha256": "e864f6bccdda3dd489de1d01a14bd04abe5581d8f8d2335ef2e063fe8027de06"
+    },
+    "旧包归档/命运游戏模拟器_3.0_HUAWEI_WATCH_FIT_3-CEB_ORDMSZB678J412774D02D7A5E17.hap": {
+      "bytes": 7398587,
+      "mtime_ns": 1788329805233945973,
+      "sha256": "00b1e58c32696a512001b36e865c82bb6b36b4f9d061a8260f34f0870b689d97"
+    },
+    "旧包归档/腕上词典6.4.0(FIT3)(移植作者nxtei)_(3.hap": {
+      "bytes": 9247898,
+      "mtime_ns": 1785736399000000000,
+      "sha256": "70f209552ab5aee63258c0e2019819dcbd5c5746b98e351a0ea3bc55fb88624b"
+    },
+    "旧包归档/实验L-诊断打点.hap": {
+      "bytes": 4023793,
+      "mtime_ns": 1793980394071321822,
+      "sha256": "1cf5b65fa0edc402a110254570fdf3fdc8de619b4701d2d6f8a0d2ea47f248dc"
+    },
+    "旧包归档/elcton-1010-课名显式尺寸-未签名.app": {
+      "bytes": 348252,
+      "mtime_ns": 1791609879227629589,
+      "sha256": "a76ad071d0349d2054d63bf259b0a7e942832abb76f035ebacd996fed5b9c76f"
+    },
+    "旧包归档/elcton-square-20261012.app": {
+      "bytes": 392401,
+      "mtime_ns": 1791775220000000000,
+      "sha256": "948be7e09a757cd37a1e5d5b62e3f1a33b638cd55c93016a1ee471ad0851ebce"
+    },
+    "旧包归档/periodic-table-20261028-首版未签名.app": {
+      "bytes": 168811,
+      "mtime_ns": 1793130402787638362,
+      "sha256": "98bcce28c78d7f3a20d16c22a656b6110daa5f1ea348ea08e11a63e659b33d29"
+    },
+    "旧包归档/实验J-liubai-v2内容-无正则.hap": {
+      "bytes": 3945929,
+      "mtime_ns": 1793936380375068649,
+      "sha256": "0ed47f5880d3fbfbde879a10564c70ea8ebe5d8622a6b8e35cfc3ca2c55b8107"
+    },
+    "旧包归档/实验M-守卫修复与def探针.hap": {
+      "bytes": 4025516,
+      "mtime_ns": 1794014507705775210,
+      "sha256": "5e0f5c6a717aa21cb69a17ad2ca152bc725608c3837a17eb014024bddd7cb65c"
+    },
+    "旧包归档/实验N-app解析探针与回退.hap": {
+      "bytes": 4026907,
+      "mtime_ns": 1794022417653334497,
+      "sha256": "800b0724043d9cd1a8f28da5a57d5144471ea0019e7a4e121c8ec7659a5eb2f3"
+    },
+    "旧包归档/实验P-today读取修复.hap": {
+      "bytes": 4033797,
+      "mtime_ns": 1794059073487521926,
+      "sha256": "f4c17b05c3a9d7c3d999b9470feb26bf7cf81d1990a856763447531a9c039d8a"
+    },
+    "旧包归档/实验V-20261112-文字显示与交互修复.hap": {
+      "bytes": 4067735,
+      "mtime_ns": 1794466857175957369,
+      "sha256": "d45b80ec79026a2ea94bb2de68275d4600988625f215efaf0f9e955315ed9040"
+    },
+    "旧包归档/实验W-20261112-首次初始化与键盘工具修复.hap": {
+      "bytes": 4104968,
+      "mtime_ns": 1794495119207523564,
+      "sha256": "fb7d0cf0d9bc765cf26483e16281c783f25f94a9ca768bbade43f07880c5e6b2"
+    },
+    "旧包归档/memo-todo-memo-todo.hap": {
+      "bytes": 417875,
+      "mtime_ns": 1791251384930097459,
+      "sha256": "03421e6ecb5054fab6eb388517de008dafa6c48cbfad90ce4616a91b4bffc6ac"
+    },
+    "旧包归档/归档-elcton-lanprobe.hap": {
+      "bytes": 351598,
+      "mtime_ns": 1791625789005480040,
+      "sha256": "52b9a6179d26e87e58c290cd62e7ae3c43e6e010df9fde09bee5bf22d665e1de"
+    },
+    "旧包归档/memo-todo-20261014-动效+键盘禁滑.hap": {
+      "bytes": 406347,
+      "mtime_ns": 1791952938134255298,
+      "sha256": "5f574ef007707fe78a2beb7f17883a2fb89817eab4c9ea3d64f58baf8c1c7271"
+    },
+    "旧包归档/memo-todo-20261014-动效v2换名.hap": {
+      "bytes": 408204,
+      "mtime_ns": 1791954432642254728,
+      "sha256": "d9ebcc7ac2fb12eb885ff75fc529045932a95beb1add43427f5d38ad3e49b735"
+    },
+    "旧包归档/periodic-table-20261028-缩放表冠版-签名.hap": {
+      "bytes": 181437,
+      "mtime_ns": 1793164322983567028,
+      "sha256": "1c89abd91d9593d2b9a887801ee8a8338079cfd573743dfe765428b11f9e7cbc"
+    },
+    "旧包归档/txtreader-signed (1).hap": {
+      "bytes": 103792,
+      "mtime_ns": 1791037747000000000,
+      "sha256": "cfe5b15f9386e477ade6312547ca5ad5af67185a66f84a99852a6bd4c31cff4f"
+    },
+    "旧包归档/实验D-liubai加日志字符串.hap": {
+      "bytes": 4254464,
+      "mtime_ns": 1793836861920152361,
+      "sha256": "8b68c44b406ace7f171b0be4ad58bd5e768f63db0a7c1cee0456e279d2a882d5"
+    },
+    "旧包归档/实验E-v4去字符串.hap": {
+      "bytes": 4182568,
+      "mtime_ns": 1793836861944152361,
+      "sha256": "1e8767bef468c9a44facdd67fd8e3fa65e9810c696cb5205d5396ebc17a30514"
+    },
+    "旧包归档/实验F-liubai加logsink代码.hap": {
+      "bytes": 4257331,
+      "mtime_ns": 1793845446465304706,
+      "sha256": "24a01f51f6526c69682dcc38a0e5b3dc14c20a3efcc0658f7e6809fd9e7e93fa"
+    },
+    "旧包归档/实验G-纯课程表-clogger身份.hap": {
+      "bytes": 405770,
+      "mtime_ns": 1793845446485304706,
+      "sha256": "6716f7c34f38f33e481ef904613f4352702580e208d00968945b9ea0837a5dca"
+    },
+    "旧包归档/实验I-liubai-v2内容-vihtf身份.hap": {
+      "bytes": 3941216,
+      "mtime_ns": 1793924875067490422,
+      "sha256": "1752d983d7898b50e5e84d511771f4893595afc4cd28752e8a5bce0f4a911b9c"
+    },
+    "旧包归档/对照B-liubai内容-vihtf身份.hap": {
+      "bytes": 4254268,
+      "mtime_ns": 1793807394030975186,
+      "sha256": "e39b5edabfbc41e03cf8ad9c3b483c44431dd38c9cbda949ad0f91a7a4c9602a"
+    },
+    "旧包归档/日升_月落.hap": {
+      "bytes": 213200,
+      "mtime_ns": 1785732342000000000,
+      "sha256": "6697a0420972d6d748018bed99f25dcc782b15abaa77f9874b010e6fc546ac47"
+    },
+    "旧包归档/腕上日历fit2_更新2026调休.hap": {
+      "bytes": 1059140,
+      "mtime_ns": 1786028371628931482,
+      "sha256": "0ef9c1aa64c5216cc10e3e268198d55e9d0236a1e72f3e3e327c4fcc0f4279c8"
+    },
+    "旧包归档/实验K-应用入口与日志key修复候选-114图标.hap": {
+      "bytes": 3997091,
+      "mtime_ns": 1793942730251481139,
+      "sha256": "be8a87a1fda7904a005e2b5b34129cbd192feb55e22f1e7dacc42ffc31ba3786"
+    },
+    "旧包归档/periodic-table-20261028-缩放表冠版未签名.app": {
+      "bytes": 177206,
+      "mtime_ns": 1793150081441841735,
+      "sha256": "71eb866777925a61d8016b49b2390649444b2d42bb67ed583f65c966002e7de1"
+    },
+    "旧包归档/实验O-日志组定位.hap": {
+      "bytes": 4031226,
+      "mtime_ns": 1794049323579525646,
+      "sha256": "03ae9a7fe73de4c8093b0489ca98a47d8e59caf8b52013b6c67ce4bb169d8e1f"
+    },
+    "旧包归档/实验Q-g6c定位候选.hap": {
+      "bytes": 4035081,
+      "mtime_ns": 1794067356187518767,
+      "sha256": "22da3a61bd83348c63634d3700b6d07dea5992dca50f5198bb6492238cd97a07"
+    },
+    "旧包归档/实验R-日期格式化修复.hap": {
+      "bytes": 4035225,
+      "mtime_ns": 1794097351906823897,
+      "sha256": "3bcb3cf5b80c5e70b8cda797824ce761b4bac22eaa028e09cdcbc2bddee4bf4d"
+    },
+    "旧包归档/实验S-存储与编辑修复.hap": {
+      "bytes": 4062155,
+      "mtime_ns": 1794418215158773118,
+      "sha256": "e1d011b05c15acb8e969fca04f96ae24fbf9b71426ef4da8bcfbe10563a7b60a"
+    },
+    "旧包归档/实验T-20261112-存储初始化保险与日志聚合.hap": {
+      "bytes": 4066300,
+      "mtime_ns": 1794451325522157954,
+      "sha256": "a5236bd3e83824de69dcd7f74ab7ab73f432294b757dbe60e8222c58be2820f9"
+    },
+    "旧包归档/实验U-20261112-原生定时器卡死修复.hap": {
+      "bytes": 4066550,
+      "mtime_ns": 1794458626885175754,
+      "sha256": "60b1302bdef1ce99ddd193c51b728d1c89a9f6c31db942c79a278c34c15df3a7"
+    },
+    "旧包归档/实验X-20261113-首启恢复与输入延迟修复.hap": {
+      "bytes": 4105662,
+      "mtime_ns": 1794536451666084938,
+      "sha256": "b34d28bf2f28944ee16c8ad1630048728f9d8b8bffb83ab420a6747efe154e5b"
+    },
+    "旧包归档/txtreader-GT2-signed.hap": {
+      "bytes": 6734250,
+      "mtime_ns": 1791038628038707875,
+      "sha256": "cc27f56ba84b37755a7fa447b307e90bacf0684ed579233700a349e89dc439d4"
+    },
+    "旧包归档/归档-memo-todo.hap": {
+      "bytes": 417875,
+      "mtime_ns": 1791251384930097459,
+      "sha256": "03421e6ecb5054fab6eb388517de008dafa6c48cbfad90ce4616a91b4bffc6ac"
+    },
+    "旧包归档/实验Y-20261113-保存队列修复.hap": {
+      "bytes": 4105911,
+      "mtime_ns": 1794544641695654774,
+      "sha256": "14bb783d71ff2db8068374b975c980f77b7c19f51d2116e79c6988e415622331"
+    },
+    "旧包归档/elcton-20261113-wearengine-timerfix.hap": {
+      "bytes": 838329,
+      "mtime_ns": 1794549686007652850,
+      "sha256": "e61ea7189ce342bdefc905d15c131d6c5ce8cbf0b8169f26a5dfb98441ca4b1d"
+    },
+    "专注计时/entry.bin": {
+      "bytes": 60653,
+      "mtime_ns": 1791036459378708702,
+      "sha256": "293ac1d42c182de4d9d26c49cab4a24490a0ab482a9485ba834b04d153dd62f9"
+    }
+  },
+  "old": [
+    {
+      "from": "/storage/emulated/0/haps/elcton-20261113-34fix-464738a7.hap",
+      "to": "/storage/emulated/0/haps/旧包归档/elcton-20261113-34fix-464738a7.hap",
+      "sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0"
+    },
+    {
+      "from": "/storage/emulated/0/haps/elcton-20261114-P2P准备回执-1.1.15-73c7823.hap",
+      "to": "/storage/emulated/0/haps/旧包归档/elcton-20261114-P2P准备回执-1.1.15-73c7823.hap",
+      "sha256": "8865474d76d278f6d61050f4cebca1c1a70b0f5f391f653523d9c9018c91bac0"
+    }
+  ],
+  "new": {
+    "source": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/elcton-20261115-WE分阶段日志常亮-1.1.16-cbd1715.hap",
+    "target": "/storage/emulated/0/haps/elcton-20261115-WE分阶段日志常亮-1.1.16-cbd1715.hap",
+    "sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a",
+    "bytes": 900659
+  },
+  "delete_used": false,
+  "recorded_at": "2026-11-15 09:53:57 +0800"
+}

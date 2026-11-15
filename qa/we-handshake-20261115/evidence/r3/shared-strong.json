@@ -1,0 +1,103 @@
+{
+  "verified_cst": "2026-11-15T09:55:22.359581+08:00",
+  "profile_capabilities": [
+    "com.huawei.service.device_security.device_verify",
+    "webAccessServiceForAIQA"
+  ],
+  "build_form": "debug entry-default+.map",
+  "i18n_files": [
+    "assets/js/MainAbility/i18n/en-US.json",
+    "assets/js/MainAbility/i18n/zh-CN.json"
+  ],
+  "icon_sizes": {
+    "icon.png": [
+      114,
+      114
+    ],
+    "icon_small.png": [
+      32,
+      32
+    ]
+  },
+  "hap": "/storage/emulated/0/haps/elcton-20261115-WE\u5206\u9636\u6bb5\u65e5\u5fd7\u5e38\u4eae-1.1.16-cbd1715.hap",
+  "hap_bytes": 900659,
+  "hap_sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a",
+  "profile_sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e",
+  "bundle": "watchapp.nexus.0zzip",
+  "version": {
+    "code": 1000119,
+    "name": "1.1.16"
+  },
+  "module_package": "com.hcbiu.elcton",
+  "api_version": {
+    "compatible": 40000010,
+    "releaseType": "Release",
+    "target": 60101024
+  },
+  "device_config": {},
+  "profile_valid_now": true,
+  "profile_device_count": 1,
+  "p7b_cms_integrity": true,
+  "cms_verified_using_only_profile_development_leaf": true,
+  "payload_sha256_matches": true,
+  "payload_digest": "de7a023794e6a66d6c15121bb30a6dbff84f6263973edbe5843f51aea7bdf7eb",
+  "only_authorized_bundle_changed": true,
+  "all_other_resources_byte_identical": true,
+  "configured_write_only": true,
+  "private_key_token_patterns_absent": true,
+  "file_count": 28,
+  "pages": [
+    {
+      "file": "assets/js/MainAbility/pages/code/code.js",
+      "bytes": 10614,
+      "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e",
+      "logger_integrated": false
+    },
+    {
+      "file": "assets/js/MainAbility/pages/detail/detail.js",
+      "bytes": 35072,
+      "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6",
+      "logger_integrated": false
+    },
+    {
+      "file": "assets/js/MainAbility/pages/index/index.js",
+      "bytes": 36851,
+      "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23",
+      "logger_integrated": false
+    },
+    {
+      "file": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 43898,
+      "sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d",
+      "logger_integrated": false
+    },
+    {
+      "file": "assets/js/MainAbility/pages/sync/sync.js",
+      "bytes": 43685,
+      "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5",
+      "logger_integrated": false
+    },
+    {
+      "file": "assets/js/MainAbility/pages/week/week.js",
+      "bytes": 41651,
+      "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260",
+      "logger_integrated": false
+    }
+  ],
+  "install34_application_gate": {
+    "scope": "assets/js/MainAbility/app.js",
+    "test_calls_absent": true,
+    "escaped_slash_regexp_absent": true
+  },
+  "cms_bytes": 2480,
+  "unsigned_bin_bytes": 893808,
+  "negative_control": {
+    "single_byte_flipped": true,
+    "offset": 165318,
+    "rejected": true,
+    "reason": "Signed payload SHA256 mismatch",
+    "cms_still_valid": true
+  },
+  "ca_trust_revocation_verified": false,
+  "pass": true
+}

@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "target": "/storage/emulated/0/haps/elcton-20261115-WE分阶段日志常亮-1.1.16-cbd1715.hap",
+  "bytes": 900659,
+  "sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a",
+  "root_elcton_hap_count": 1,
+  "archive_moves": [
+    {
+      "from": "/storage/emulated/0/haps/elcton-20261113-34fix-464738a7.hap",
+      "to": "/storage/emulated/0/haps/旧包归档/elcton-20261113-34fix-464738a7.hap",
+      "sha256": "464738a7dee163e22a24309568e4132924b092899ab5341e6627282bb6068bb0",
+      "source_absent": true,
+      "target_exact_bytes": true
+    },
+    {
+      "from": "/storage/emulated/0/haps/elcton-20261114-P2P准备回执-1.1.15-73c7823.hap",
+      "to": "/storage/emulated/0/haps/旧包归档/elcton-20261114-P2P准备回执-1.1.15-73c7823.hap",
+      "sha256": "8865474d76d278f6d61050f4cebca1c1a70b0f5f391f653523d9c9018c91bac0",
+      "source_absent": true,
+      "target_exact_bytes": true
+    }
+  ],
+  "protected_non_target_file_count": 157,
+  "protected_non_target_files_drift": [],
+  "old_bytes_retained": true,
+  "no_delete_or_overwrite": true,
+  "tableface_and_liubai_untouched": true,
+  "device_install_attempted": false,
+  "delivered_at": "2026-11-15 09:53:58 +0800"
+}

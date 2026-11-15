@@ -1,0 +1,224 @@
+{
+  "passed": true,
+  "hap_sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a",
+  "app_sha256": "b315d67dbd19c0403b0c404a8b1e3a462d8254dc1b40c6e8575ae73d2c7567d8",
+  "hap_bytes": 900659,
+  "bundle": "watchapp.nexus.0zzip",
+  "version": {
+    "code": 1000119,
+    "name": "1.1.16"
+  },
+  "profile_sha256": "29675fba03bc5be63ba4072c4ab0daec58090c9df3447496b52892c6dd0c764e",
+  "cms": {
+    "cms_bytes": 2480,
+    "package_bytes": 900541,
+    "bundle": "watchapp.nexus.0zzip",
+    "public_key_sha256": "e57bbc00ad8f928e6f9d24d0a8453fea9edd865b6b44216e8799551610cdf742",
+    "profile_exact": true,
+    "payload_digest_bound": true
+  },
+  "chain": {
+    "exact_same_certificates": true,
+    "issuer_signatures_valid": true,
+    "currently_valid": true,
+    "certificate_sha256": [
+      "0daa8a965b5153124f79d4b42378d0ac2f5536acb5fce1924f43723e97587180",
+      "8926257d1bd9ff653dcd84100d53cbbabbd39371fdda5126dfb37429e55c67be",
+      "df21a3c09f7954579305f85c64f80cad86f79853ee3a887c1dec95d218df3a37"
+    ],
+    "scope": "No online revocation/device trust claim"
+  },
+  "one_byte_negative_rejected": true,
+  "signed_ast_passed": true,
+  "resource_count": 28,
+  "resources": [
+    {
+      "path": "config.json",
+      "bytes": 805,
+      "sha256": "d5c94cdb46e1d9036c5d2f33545a8a33838ee09daba2da5653fd441731529bda"
+    },
+    {
+      "path": "pack.info",
+      "bytes": 628,
+      "sha256": "47b9f95231e7977d432c2b9e2e58189d4427806bc50714b11505996ad827dab1"
+    },
+    {
+      "path": "assets/entry/resources.index",
+      "bytes": 544,
+      "sha256": "75ee7a5928a547fcc5f27e7563fcaceaf7637d274da7238a50aa19a9f7ebeb26"
+    },
+    {
+      "path": "assets/js/MainAbility/app.js",
+      "bytes": 20818,
+      "sha256": "b568c9988155357dc2c86d61ed2b77b311b0419f8ecfd52214e91f0bf0109377"
+    },
+    {
+      "path": "assets/js/MainAbility/app.js.map",
+      "bytes": 57218,
+      "sha256": "c50287b465b97af8bf420736f108dfbfc904aef0aa52d8f9b651b5880dd938f8"
+    },
+    {
+      "path": "assets/js/MainAbility/image_convert_result.txt",
+      "bytes": 12,
+      "sha256": "49ab4dfe7ddef300e71fa70066a6afa9833d776a840213fb08e1cb22d2eea686"
+    },
+    {
+      "path": "assets/js/MainAbility/manifest.json",
+      "bytes": 301,
+      "sha256": "7f5f1721baa2bb235d9b2e9eca69f711908ef82214fba45c9d94924d21ec545a"
+    },
+    {
+      "path": "assets/entry/resources/rawfile/seed-schedule.json",
+      "bytes": 7718,
+      "sha256": "80103df4cc833414ddc3ce20e87cb38a438d01642788c45adf22e5241010156b"
+    },
+    {
+      "path": "assets/js/MainAbility/i18n/en-US.json",
+      "bytes": 665,
+      "sha256": "598364948416761c522724c70d08d174c5f248f2659903388460fb9343fa5558"
+    },
+    {
+      "path": "assets/js/MainAbility/i18n/zh-CN.json",
+      "bytes": 768,
+      "sha256": "4ab889f8a4c629791f0e3a1f8425d084c51679f224497bd0f5f86d94d9c6ec58"
+    },
+    {
+      "path": "assets/entry/resources/base/media/icon_small_new.png",
+      "bytes": 1813,
+      "sha256": "4221ba2cbdd750d58755db30264bd79e85a29c6aa92bc64bba46a56fb80855bc"
+    },
+    {
+      "path": "assets/entry/resources/base/media/icon_small_new.png.bin",
+      "bytes": 4104,
+      "sha256": "ff3011e574f4338c8f4b3f2ff4fffbc48fee9f73933bc7cf13631a412208ccbb"
+    },
+    {
+      "path": "assets/entry/resources/base/media/icon_small.png",
+      "bytes": 1813,
+      "sha256": "4221ba2cbdd750d58755db30264bd79e85a29c6aa92bc64bba46a56fb80855bc"
+    },
+    {
+      "path": "assets/entry/resources/base/media/icon_small.png.bin",
+      "bytes": 4104,
+      "sha256": "ff3011e574f4338c8f4b3f2ff4fffbc48fee9f73933bc7cf13631a412208ccbb"
+    },
+    {
+      "path": "assets/entry/resources/base/media/icon.png",
+      "bytes": 5763,
+      "sha256": "54e5854a9166af398a8a3a1fd69ee47c407743baf7220480a1dc0553a0898a19"
+    },
+    {
+      "path": "assets/entry/resources/base/media/icon.png.bin",
+      "bytes": 51992,
+      "sha256": "94fad400d26c342c5f967bdd20249533810c8ae898ae9521cae2e01198bca0ce"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js",
+      "bytes": 10614,
+      "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js.map",
+      "bytes": 27272,
+      "sha256": "c2cb887ea05ae7236d41842922b070dfbb7390b0297c529688b6091e910a95ab"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js",
+      "bytes": 35072,
+      "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js.map",
+      "bytes": 85898,
+      "sha256": "6267c6c8043777d43bd6a8bda1fed9ad56edbd9bc81df08c3e7f8c671f3874a1"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js",
+      "bytes": 36851,
+      "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js.map",
+      "bytes": 90807,
+      "sha256": "522933196a34b60da4d96a1be44a1b3c5eac1e43a3dd7a6e2ecc9b845145351f"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 43898,
+      "sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+      "bytes": 108198,
+      "sha256": "bcb8955344ef537d22438709c158c32dd06ef3a077a9a3d50f529efa3d9bd614"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js",
+      "bytes": 43685,
+      "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js.map",
+      "bytes": 108880,
+      "sha256": "c2556db8bbaf2f9401c39dd863850cdf5b3067fab3f25c9de618eedad3102536"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js",
+      "bytes": 41651,
+      "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js.map",
+      "bytes": 100295,
+      "sha256": "900ef91189a8d6ebd3ec75d63f6102d25ef5d961d0da690e5ada27ce337c0a0f"
+    }
+  ],
+  "pages": [
+    "pages/index/index",
+    "pages/week/week",
+    "pages/detail/detail",
+    "pages/sync/sync",
+    "pages/code/code",
+    "pages/phone-sync/phone-sync"
+  ],
+  "js": [
+    {
+      "path": "assets/js/MainAbility/app.js",
+      "bytes": 20818,
+      "sha256": "b568c9988155357dc2c86d61ed2b77b311b0419f8ecfd52214e91f0bf0109377"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js",
+      "bytes": 10614,
+      "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js",
+      "bytes": 35072,
+      "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js",
+      "bytes": 36851,
+      "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 43898,
+      "sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js",
+      "bytes": 43685,
+      "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js",
+      "bytes": 41651,
+      "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260"
+    }
+  ],
+  "native_parse": [],
+  "native_sdk_sha256": null,
+  "scope": "Static signing/bytes and SDK parse only; no device installation, UI or Wear Engine E2E claim"
+}
