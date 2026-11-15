@@ -1,0 +1,46 @@
+{
+  "status": "R4_EVIDENCE_AND_PLAN_DELIVERED_REPAIR_NOT_COMPLETED",
+  "root_cause_proven": false,
+  "handshake_repaired": false,
+  "next_approval": "phone_pure_observation_diagnostics_only",
+  "phone_implementation_authorized": false,
+  "watch_product_changed": false,
+  "phone_changed_or_pushed": false,
+  "device_operations": false,
+  "new_hap_or_ci": false,
+  "main_evidence_commit": "21ffd76107570b1ac86586945ce961a9d82167c7",
+  "main_evidence_readback": {
+    "passed": true,
+    "files": 79,
+    "bytes": 2906654,
+    "verified_at": "2026-11-15 11:59:41 +0800"
+  },
+  "regression": {
+    "passed": 445,
+    "tests": 445,
+    "failed": 0,
+    "skipped": 0
+  },
+  "host402": {
+    "modes": 2,
+    "checks": 68,
+    "native": false,
+    "sends_per_mode": 5,
+    "factory_per_mode": 1,
+    "timers_final": 0
+  },
+  "scope": {
+    "phone_files": 9455,
+    "phone_drift": [],
+    "watch_files": 121,
+    "watch_drift": [],
+    "HAP_files": 160,
+    "moved_or_deleted": false
+  },
+  "true_watch_session": "mwh7l2un-1",
+  "host_session_not_device": "mwh5okyh-1",
+  "host_fake_code": 210301031,
+  "true_watch_fail_args": "undefined/undefined",
+  "compiled_watch_source": "cbd171553e70eb614ca4283534915b92ebb870de",
+  "at": "2026-11-15 12:02:40 +0800"
+}
