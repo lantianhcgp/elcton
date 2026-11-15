@@ -1,0 +1,65 @@
+{
+  "run_id": 43661966735,
+  "head_sha": "cbd171553e70eb614ca4283534915b92ebb870de",
+  "artifact_id": 14140751342,
+  "artifact_digest_verified": true,
+  "downloads": {
+    "artifact": {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/artifact.zip",
+      "bytes": 466722,
+      "sha256": "a66ceb3dc11dc2d5031026410f7fc1462b0143b289a847005ca26fca0ab8157e"
+    },
+    "ci_log": {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/ci-logs.zip",
+      "bytes": 100345,
+      "sha256": "4317b09f9776f6541a9df5ebc97e7518e567278f7a3d47653103d6c48162b956"
+    },
+    "legacy_log": {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/legacy-logs.zip",
+      "bytes": 53103,
+      "sha256": "bf0b408e4cf8bc42c1384024246925c7862e5f3093dc7c91cd0331a9879f3280"
+    }
+  },
+  "app_path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/dist/elcton-default-unsigned.app",
+  "source_sha_exact": true,
+  "gate_passed": true,
+  "native_js_count": 7,
+  "js": [
+    {
+      "path": "assets/js/MainAbility/app.js",
+      "bytes": 20823,
+      "sha256": "17b0a6d11096a65776ceaa241dbca76c9656eb2e36521e19f5bf1de7a98e9570"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/code/code.js",
+      "bytes": 10614,
+      "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/detail/detail.js",
+      "bytes": 35072,
+      "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/index/index.js",
+      "bytes": 36851,
+      "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 43898,
+      "sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/sync/sync.js",
+      "bytes": 43685,
+      "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5"
+    },
+    {
+      "path": "assets/js/MainAbility/pages/week/week.js",
+      "bytes": 41651,
+      "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260"
+    }
+  ],
+  "scope": "new real CI/public APP, not final configured deliverable or watch E2E"
+}

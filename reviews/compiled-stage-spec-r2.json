@@ -1,0 +1,52 @@
+{
+  "review": "compiled-stage SPEC-r2 limited collision/failure-publication followup",
+  "verdict": "PASS_SPEC_DELTA_WITH_EXECUTION_LIMITATIONS",
+  "passed": true,
+  "scope": "SPEC-B1 and SPEC-N1 only; runner main boundary and safe_rows publication. No stage/product/callback logic re-review or edits; no APP fabrication, network, CI or device execution.",
+  "sha256": {
+    "qa/we-handshake-20261115/compiled-we-stages.mjs": "d666084ff1e7c01b062aa6faeb1d938f584b4e7137a7efd6595e1213429f42a9",
+    "NEWtests/compiledWeStages.test.mjs": "32383c814d6dacfec69315a4e011d38e6581bfbf03ad867c08e1011092f9896d"
+  },
+  "hashes_rechecked_stable": true,
+  "findings": {
+    "SPEC-B1": "CLOSED for pre-existing aliases: lines 163-172 keep candidate local until resolved-path, realpath and bigint dev/ino checks pass. out remains unset on collision; final write cannot overwrite that rejected input. Real same-path, symlink and symlink-parent sentinel CLI checks passed.",
+    "SPEC-N1": "CLOSED: lines 144-146 validate local safeRows before assigning report.safe_rows. Isolated unchanged block rejects invalid msg without attaching/serializing it and accepts numeric-zero failure fields.",
+    "unsupported_cli": "Exact argument guard precedes input/out processing; failure output uses fixed code, not argv/error stack. Extra unsupported-option sentinel probe returned exit 1, empty stderr, cli_exact_app_report_only, no sentinel echo."
+  },
+  "verification": {
+    "command": "node --test --test-reporter=tap tests/compiledWeStages.test.mjs NEWtests/compiledWeStages.test.mjs",
+    "runs": 1,
+    "exit_code": 0,
+    "tests": 10,
+    "pass": 9,
+    "fail": 0,
+    "skipped": 1,
+    "original_utility_pass": 4,
+    "new_pass": 5,
+    "new_skipped": 1,
+    "original_utility_file_unchanged_from_prior_review": true,
+    "meaning": "Utility/boundary checks only, never actual compiled-APP stage acceptance."
+  },
+  "limitations": [
+    "Actual hardlink CLI test skipped: Android fs.linkSync EACCES. Static dev/ino guard and isolated same-inode block passed; neither is actual hardlink CLI execution.",
+    "No atomic/TOCTOU guarantee: this fix is limited to aliases existing during identity checks.",
+    "Original stage/callback/close and keep/off findings were not re-reviewed and remain pending actual APP."
+  ],
+  "actual_app_acceptance": "PENDING_NOT_RUN",
+  "actual_stage_pass": false,
+  "actual_vm_original_bytes": false,
+  "native_verified": false,
+  "real_https": false,
+  "real_bluetooth": false,
+  "new_ci_provenance_verified": false,
+  "timing": {
+    "review_started_at": "2026-11-15T08:45:31+08:00",
+    "review_last_check_at": "2026-11-15T08:46:45+08:00",
+    "review_elapsed_seconds_at_check": 74.299,
+    "fix_code_seconds_recorded_by_owner": 164,
+    "fix_evidence_seconds_recorded_by_owner": 205,
+    "fix_full_evidence_within_180_seconds": false,
+    "note": "Owner fix metadata preserved: full evidence exceeded the three-minute window. Scoped SPEC pass is not a timing-gate green."
+  },
+  "persisted_write_scope": "reviews/compiled-stage-spec-r2.json only; original review/evidence, product and tests unmodified."
+}

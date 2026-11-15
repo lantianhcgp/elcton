@@ -1,0 +1,140 @@
+{
+  "passed": true,
+  "kind": "Actual configured CI APP HTTPS marker and 12 logs exact readback API/canonical/independent fetch-logs.py mirror; HOST NOT FIT3/WE",
+  "marker": "WE-HOST-HTTPS-9eb9af98edcfb02f",
+  "app_sha256": "b315d67dbd19c0403b0c404a8b1e3a462d8254dc1b40c6e8575ae73d2c7567d8",
+  "app_js_sha256": "b568c9988155357dc2c86d61ed2b77b311b0419f8ecfd52214e91f0bf0109377",
+  "requests": [
+    {
+      "http": 200,
+      "ack": true,
+      "accepted": 2,
+      "rows": 2
+    },
+    {
+      "http": 200,
+      "ack": true,
+      "accepted": 8,
+      "rows": 8
+    },
+    {
+      "http": 200,
+      "ack": true,
+      "accepted": 2,
+      "rows": 2
+    }
+  ],
+  "pull_pages": [
+    {
+      "http": 200,
+      "rows": 24,
+      "next": 1424,
+      "has_more": false
+    }
+  ],
+  "enumerated_all_elcton_rows": 24,
+  "session_rows": 12,
+  "api_canonical_collector_all_row_fields_equal": true,
+  "raw_metadata": [
+    {
+      "date": "2026-11-15",
+      "bytes": 6098,
+      "sha256": "f647de7daffca892d58cbb5b15a93cf3c4e56b0801dbf030bd209ebff26295b7",
+      "guard_present": true
+    }
+  ],
+  "deployed_source_sha256": {
+    "index.php": "0403174b2f006a2d3626794e14e373d73a1de821c8ee9a7368e973ecfb5e394f",
+    "retention.php": "e3f41f43ebefdce7421a5ca77a1a4f0725c7f772b8faeafce6e5fb0d0ab31713"
+  },
+  "rows": [
+    {
+      "cursor": 1413,
+      "seq": 1,
+      "tag": "page",
+      "log_msg": "MainAbility",
+      "canonical_row_sha256": "2aef3e46f199bd0bb0b900796487f8c59655a0b13ffd728504207fc98ee40984"
+    },
+    {
+      "cursor": 1414,
+      "seq": 2,
+      "tag": "console",
+      "log_msg": "Application onCreate",
+      "canonical_row_sha256": "34ba9e1e799e903b85543ee82e0232647bdaaad7951f6df9caf37e3eaa024cb6"
+    },
+    {
+      "cursor": 1415,
+      "seq": 3,
+      "tag": "console",
+      "log_msg": "WE-HOST-HTTPS-9eb9af98edcfb02f",
+      "canonical_row_sha256": "4f8076675e2be94372fc105b6d7a3e8b46fc98a85b7f0d43b59e55834a728a2d"
+    },
+    {
+      "cursor": 1416,
+      "seq": 4,
+      "tag": "WE/SDK_CALL",
+      "log_msg": "code=0 arg1=0 arg2=0",
+      "canonical_row_sha256": "a4171238a434528fa06a41a2253b8ac890e126fdf8c695e38030edbff5fd136c"
+    },
+    {
+      "cursor": 1417,
+      "seq": 5,
+      "tag": "WE/VER_OK",
+      "log_msg": "code=0 arg1=0 arg2=0",
+      "canonical_row_sha256": "b422ddc05c057c49aebdeecc8f348704068dd25f75ca13953f0f4e2dc777f816"
+    },
+    {
+      "cursor": 1418,
+      "seq": 6,
+      "tag": "WE/PKG_OK",
+      "log_msg": "code=0 arg1=0 arg2=0",
+      "canonical_row_sha256": "1e1dc4829757dc48375f193d7548bb6c6fff94d0dcc9a04bd74f9de31805d919"
+    },
+    {
+      "cursor": 1419,
+      "seq": 7,
+      "tag": "WE/CERT_OK",
+      "log_msg": "code=0 arg1=0 arg2=0",
+      "canonical_row_sha256": "c8950e26aba84d8cf37719a282503a90a7d1a931f19fc816e41e25e88d52adba"
+    },
+    {
+      "cursor": 1420,
+      "seq": 8,
+      "tag": "WE/REG_OK",
+      "log_msg": "code=0 arg1=0 arg2=0",
+      "canonical_row_sha256": "3627d79ecc497a2f90b46e3c78d33730f622413bcf365b1894b97a6cfba95477"
+    },
+    {
+      "cursor": 1421,
+      "seq": 9,
+      "tag": "WE/HELLO_RECV",
+      "log_msg": "code=0 arg1=0 arg2=0",
+      "canonical_row_sha256": "8e7b9185117fe31717e5bf9cb4872ee234003f9bc9085569d3dcfc71e5ece86d"
+    },
+    {
+      "cursor": 1422,
+      "seq": 10,
+      "tag": "WE/READY_CALL",
+      "log_msg": "code=0 arg1=0 arg2=0",
+      "canonical_row_sha256": "b5d2859cd88def5e8a4d2d3badac4e6a66bc972900e4a2190d70fb8d7a24e789"
+    },
+    {
+      "cursor": 1423,
+      "seq": 11,
+      "tag": "WE/READY_OK",
+      "log_msg": "code=0 arg1=0 arg2=0",
+      "canonical_row_sha256": "79ddf3af37a649da95f9bab155cb9a74343bb21598e6cdbaee12df847504f593"
+    },
+    {
+      "cursor": 1424,
+      "seq": 12,
+      "tag": "WE/SEND_FAIL",
+      "log_msg": "code=206 arg1=210301031 arg2=0",
+      "canonical_row_sha256": "e1dfb1f6f08a4e1d312fd5ca7bcf4d2662309bce0906d378f96f104e38dab68b"
+    }
+  ],
+  "watch_origin": false,
+  "real_wearengine": false,
+  "credentials_or_full_config_printed": false,
+  "verified_at": "2026-11-15 09:30:35 +0800"
+}

@@ -1,0 +1,2140 @@
+﻿2026-11-15T01:12:26.9252225Z Current runner version: '2.338.2'
+2026-11-15T01:12:26.9278332Z ##[group]Runner Image Provisioner
+2026-11-15T01:12:26.9279402Z Hosted Compute Agent
+2026-11-15T01:12:26.9280309Z Version: 20261103.629
+2026-11-15T01:12:26.9281159Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-15T01:12:26.9282135Z Build Date: 2026-11-03T17:26:59Z
+2026-11-15T01:12:26.9283429Z Worker ID: {1e7770e3-c07c-494e-aedf-18af8f3534a4}
+2026-11-15T01:12:26.9284513Z Region: westus3
+2026-11-15T01:12:26.9285241Z Cloud: Azure
+2026-11-15T01:12:26.9286010Z ##[endgroup]
+2026-11-15T01:12:26.9287730Z ##[group]Operating System
+2026-11-15T01:12:26.9288676Z Ubuntu
+2026-11-15T01:12:26.9289352Z 26.04.1
+2026-11-15T01:12:26.9290089Z LTS
+2026-11-15T01:12:26.9290745Z ##[endgroup]
+2026-11-15T01:12:26.9291551Z ##[group]Runner Image
+2026-11-15T01:12:26.9292308Z Image: ubuntu-26.04
+2026-11-15T01:12:26.9293485Z Version: 20261111.196.1
+2026-11-15T01:12:26.9295117Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-15T01:12:26.9296882Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-15T01:12:26.9298076Z ##[endgroup]
+2026-11-15T01:12:26.9299587Z ##[group]GITHUB_TOKEN Permissions
+2026-11-15T01:12:26.9301628Z Contents: read
+2026-11-15T01:12:26.9302455Z Metadata: read
+2026-11-15T01:12:26.9303507Z Packages: read
+2026-11-15T01:12:26.9304349Z ##[endgroup]
+2026-11-15T01:12:26.9306920Z Secret source: Actions
+2026-11-15T01:12:26.9308195Z Cache mode: write
+2026-11-15T01:12:26.9309050Z Prepare workflow directory
+2026-11-15T01:12:26.9668366Z Prepare all required actions
+2026-11-15T01:12:26.9717127Z Getting action download info
+2026-11-15T01:12:27.2845475Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-15T01:12:27.4499506Z Download action repository 'ErBWs/setup-ohos@v2' (SHA:4dbb63025116eb6165ceac58a4bf47cbdc5ac721)
+2026-11-15T01:12:27.6846721Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-15T01:12:27.8918561Z Getting action download info
+2026-11-15T01:12:28.0148432Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-11-15T01:12:28.1687689Z Complete job name: build (elcton, .)
+2026-11-15T01:12:28.2629046Z ##[group]Run actions/checkout@v4
+2026-11-15T01:12:28.2630073Z with:
+2026-11-15T01:12:28.2630670Z   repository: lantianhcgp/elcton
+2026-11-15T01:12:28.2634665Z   token: ***
+2026-11-15T01:12:28.2635229Z   ssh-strict: true
+2026-11-15T01:12:28.2635804Z   ssh-user: git
+2026-11-15T01:12:28.2636380Z   persist-credentials: true
+2026-11-15T01:12:28.2636999Z   clean: true
+2026-11-15T01:12:28.2637568Z   sparse-checkout-cone-mode: true
+2026-11-15T01:12:28.2638217Z   fetch-depth: 1
+2026-11-15T01:12:28.2638774Z   fetch-tags: false
+2026-11-15T01:12:28.2639341Z   show-progress: true
+2026-11-15T01:12:28.2639921Z   lfs: false
+2026-11-15T01:12:28.2640451Z   submodules: false
+2026-11-15T01:12:28.2641081Z   set-safe-directory: true
+2026-11-15T01:12:28.2641716Z   allow-unsafe-pr-checkout: false
+2026-11-15T01:12:28.2716004Z ##[endgroup]
+2026-11-15T01:12:28.8525687Z Syncing repository: lantianhcgp/elcton
+2026-11-15T01:12:28.8529274Z ##[group]Getting Git version info
+2026-11-15T01:12:28.8531293Z Working directory is '/home/runner/work/elcton/elcton'
+2026-11-15T01:12:28.8534703Z [command]/usr/bin/git version
+2026-11-15T01:12:28.8536471Z git version 2.56.1
+2026-11-15T01:12:28.8565117Z ##[endgroup]
+2026-11-15T01:12:28.8574415Z Temporarily overriding HOME='/home/runner/work/_temp/63546eb0-a043-4df0-a4a3-df3d8baeb8d2' before making global git config changes
+2026-11-15T01:12:28.8579062Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T01:12:28.8582155Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/elcton/elcton
+2026-11-15T01:12:28.9009143Z Deleting the contents of '/home/runner/work/elcton/elcton'
+2026-11-15T01:12:28.9025835Z ##[group]Initializing the repository
+2026-11-15T01:12:28.9029194Z [command]/usr/bin/git init /home/runner/work/elcton/elcton
+2026-11-15T01:12:28.9137454Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-15T01:12:28.9140687Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-15T01:12:28.9144475Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-15T01:12:28.9147274Z hint: call:
+2026-11-15T01:12:28.9149122Z hint:
+2026-11-15T01:12:28.9151311Z hint: 	git config --global init.defaultBranch <name>
+2026-11-15T01:12:28.9153684Z hint:
+2026-11-15T01:12:28.9156249Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-15T01:12:28.9159117Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-15T01:12:28.9161433Z hint:
+2026-11-15T01:12:28.9163420Z hint: 	git branch -m <name>
+2026-11-15T01:12:28.9165448Z hint:
+2026-11-15T01:12:28.9167333Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-15T01:12:28.9170293Z Initialized empty Git repository in /home/runner/work/elcton/elcton/.git/
+2026-11-15T01:12:28.9175967Z [command]/usr/bin/git remote add origin https://github.com/lantianhcgp/elcton
+2026-11-15T01:12:28.9441120Z ##[endgroup]
+2026-11-15T01:12:28.9444466Z ##[group]Disabling automatic garbage collection
+2026-11-15T01:12:28.9447525Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-15T01:12:28.9481222Z ##[endgroup]
+2026-11-15T01:12:28.9484608Z ##[group]Setting up auth
+2026-11-15T01:12:28.9488191Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T01:12:28.9538973Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-15T01:12:29.0465336Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T01:12:29.0500839Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-15T01:12:29.0781447Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T01:12:29.0822598Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-15T01:12:29.1102604Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-15T01:12:29.1297342Z ##[endgroup]
+2026-11-15T01:12:29.1299371Z ##[group]Fetching the repository
+2026-11-15T01:12:29.1309045Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cbd171553e70eb614ca4283534915b92ebb870de:refs/remotes/origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:30.0539886Z From https://github.com/lantianhcgp/elcton
+2026-11-15T01:12:30.0540901Z  * [new ref]         cbd171553e70eb614ca4283534915b92ebb870de -> origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:30.0544126Z ##[endgroup]
+2026-11-15T01:12:30.0545227Z ##[group]Determining the checkout info
+2026-11-15T01:12:30.0547339Z ##[endgroup]
+2026-11-15T01:12:30.0553807Z [command]/usr/bin/git sparse-checkout disable
+2026-11-15T01:12:30.0615498Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-15T01:12:30.0645029Z ##[group]Checking out the ref
+2026-11-15T01:12:30.0649324Z [command]/usr/bin/git checkout --progress --force -B fix/we-handshake-logger-20261115 refs/remotes/origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:30.2502897Z Switched to a new branch 'fix/we-handshake-logger-20261115'
+2026-11-15T01:12:30.2524392Z branch 'fix/we-handshake-logger-20261115' set up to track 'origin/fix/we-handshake-logger-20261115'.
+2026-11-15T01:12:30.2528806Z ##[endgroup]
+2026-11-15T01:12:30.2578329Z [command]/usr/bin/git log -1 --format=%H
+2026-11-15T01:12:30.2605495Z cbd171553e70eb614ca4283534915b92ebb870de
+2026-11-15T01:12:30.2844532Z ##[group]Run sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
+2026-11-15T01:12:30.2845510Z [36;1msudo apt-get update && sudo apt-get install -y libgl1-mesa-dev[0m
+2026-11-15T01:12:30.2899240Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:12:30.2899812Z ##[endgroup]
+2026-11-15T01:12:30.3736739Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-15T01:12:30.4094218Z Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+2026-11-15T01:12:30.4117568Z Get:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease [3964 B]
+2026-11-15T01:12:30.4122297Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+2026-11-15T01:12:30.4149337Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+2026-11-15T01:12:30.4186873Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+2026-11-15T01:12:30.4467536Z Get:7 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main amd64 Packages [158 kB]
+2026-11-15T01:12:30.4708008Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 Packages [869 kB]
+2026-11-15T01:12:30.4754289Z Get:12 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main arm64 Packages [143 kB]
+2026-11-15T01:12:30.4824119Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [195 kB]
+2026-11-15T01:12:30.4850198Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 Packages [390 kB]
+2026-11-15T01:12:30.4852438Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [122 kB]
+2026-11-15T01:12:30.4971866Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute-security/main amd64v3 Packages [718 kB]
+2026-11-15T01:12:30.5016474Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute-security/main Translation-en [157 kB]
+2026-11-15T01:12:30.5032329Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe amd64v3 Packages [220 kB]
+2026-11-15T01:12:30.5050732Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe Translation-en [72.5 kB]
+2026-11-15T01:12:30.5064686Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted amd64v3 Packages [590 kB]
+2026-11-15T01:12:30.5098722Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted Translation-en [122 kB]
+2026-11-15T01:12:32.6590294Z Fetched 4172 kB in 0s (11.2 MB/s)
+2026-11-15T01:12:33.3074448Z Reading package lists...
+2026-11-15T01:12:33.3410296Z Reading package lists...
+2026-11-15T01:12:33.4866068Z Building dependency tree...
+2026-11-15T01:12:33.4873388Z Reading state information...
+2026-11-15T01:12:33.5704604Z Solving dependencies...
+2026-11-15T01:12:33.6542455Z The following additional packages will be installed:
+2026-11-15T01:12:33.6543664Z   libegl-dev libegl-mesa0 libegl1 libgl-dev libgles-dev libgles1 libgles2
+2026-11-15T01:12:33.6546413Z   libglvnd-core-dev libglvnd-dev libglx-dev libopengl-dev libopengl0
+2026-11-15T01:12:33.6549384Z   libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-dev
+2026-11-15T01:12:33.6550192Z   xorg-sgml-doctools xtrans-dev
+2026-11-15T01:12:33.6556731Z Suggested packages:
+2026-11-15T01:12:33.6557193Z   libx11-doc libxcb-doc
+2026-11-15T01:12:33.6822283Z The following NEW packages will be installed:
+2026-11-15T01:12:33.6823767Z   libegl-dev libegl-mesa0 libegl1 libgl-dev libgl1-mesa-dev libgles-dev
+2026-11-15T01:12:33.6824770Z   libgles1 libgles2 libglvnd-core-dev libglvnd-dev libglx-dev libopengl-dev
+2026-11-15T01:12:33.6829899Z   libopengl0 libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-dev
+2026-11-15T01:12:33.6830777Z   xorg-sgml-doctools xtrans-dev
+2026-11-15T01:12:33.7041137Z 0 upgraded, 20 newly installed, 0 to remove and 24 not upgraded.
+2026-11-15T01:12:33.7041736Z Need to get 1997 kB of archives.
+2026-11-15T01:12:33.7042168Z After this operation, 8963 kB of additional disk space will be used.
+2026-11-15T01:12:33.7043532Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-15T01:12:33.7762794Z Get:2 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libegl-mesa0 amd64 26.0.8-1ubuntu0.3 [134 kB]
+2026-11-15T01:12:33.8236096Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libegl1 amd64 1.7.0-3 [29.8 kB]
+2026-11-15T01:12:33.8698361Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xorg-sgml-doctools all 1:1.11-1.1build1 [10.3 kB]
+2026-11-15T01:12:33.9158023Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 x11proto-dev all 2025.1-1 [608 kB]
+2026-11-15T01:12:33.9644553Z Get:6 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxau-dev amd64 1:1.0.11-1build2 [9780 B]
+2026-11-15T01:12:34.0105011Z Get:7 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxdmcp-dev amd64 1:1.1.5-2 [25.7 kB]
+2026-11-15T01:12:34.0565825Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xtrans-dev all 1.6.0-1build1 [66.2 kB]
+2026-11-15T01:12:34.1033587Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxcb1-dev amd64 1.17.0-2ubuntu1 [86.4 kB]
+2026-11-15T01:12:34.1499679Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libx11-dev amd64 2:1.8.13-1ubuntu0.1 [743 kB]
+2026-11-15T01:12:34.2002973Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglx-dev amd64 1.7.0-3 [14.1 kB]
+2026-11-15T01:12:34.2464016Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgl-dev amd64 1.7.0-3 [103 kB]
+2026-11-15T01:12:34.2928030Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libegl-dev amd64 1.7.0-3 [18.2 kB]
+2026-11-15T01:12:34.3387695Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles1 amd64 1.7.0-3 [11.5 kB]
+2026-11-15T01:12:34.3846184Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles2 amd64 1.7.0-3 [17.5 kB]
+2026-11-15T01:12:34.4316685Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles-dev amd64 1.7.0-3 [50.6 kB]
+2026-11-15T01:12:34.4779242Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libopengl0 amd64 1.7.0-3 [32.8 kB]
+2026-11-15T01:12:34.5240493Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libopengl-dev amd64 1.7.0-3 [3408 B]
+2026-11-15T01:12:34.5698263Z Get:19 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglvnd-core-dev amd64 1.7.0-3 [13.7 kB]
+2026-11-15T01:12:34.6157887Z Get:20 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglvnd-dev amd64 1.7.0-3 [3156 B]
+2026-11-15T01:12:34.6623354Z Get:21 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libgl1-mesa-dev amd64 26.0.8-1ubuntu0.3 [15.9 kB]
+2026-11-15T01:12:34.9976465Z Fetched 1997 kB in 1s (2057 kB/s)
+2026-11-15T01:12:35.0223248Z Selecting previously unselected package libegl-mesa0:amd64.
+2026-11-15T01:12:35.0520249Z (Reading database ... 
+2026-11-15T01:12:35.0520794Z (Reading database ... 5%
+2026-11-15T01:12:35.0521308Z (Reading database ... 10%
+2026-11-15T01:12:35.0521800Z (Reading database ... 15%
+2026-11-15T01:12:35.0522205Z (Reading database ... 20%
+2026-11-15T01:12:35.0522898Z (Reading database ... 25%
+2026-11-15T01:12:35.0523553Z (Reading database ... 30%
+2026-11-15T01:12:35.0524171Z (Reading database ... 35%
+2026-11-15T01:12:35.0524758Z (Reading database ... 40%
+2026-11-15T01:12:35.0525229Z (Reading database ... 45%
+2026-11-15T01:12:35.0525615Z (Reading database ... 50%
+2026-11-15T01:12:35.1488306Z (Reading database ... 55%
+2026-11-15T01:12:35.2941810Z (Reading database ... 60%
+2026-11-15T01:12:35.4514850Z (Reading database ... 65%
+2026-11-15T01:12:35.6339183Z (Reading database ... 70%
+2026-11-15T01:12:35.7971475Z (Reading database ... 75%
+2026-11-15T01:12:35.9964957Z (Reading database ... 80%
+2026-11-15T01:12:36.1881252Z (Reading database ... 85%
+2026-11-15T01:12:36.3963496Z (Reading database ... 90%
+2026-11-15T01:12:36.5949944Z (Reading database ... 95%
+2026-11-15T01:12:36.5950455Z (Reading database ... 100%
+2026-11-15T01:12:36.5951389Z (Reading database ... 213946 files and directories currently installed.)
+2026-11-15T01:12:36.5991551Z Preparing to unpack .../00-libegl-mesa0_26.0.8-1ubuntu0.3_amd64v3.deb ...
+2026-11-15T01:12:36.6065875Z Unpacking libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:36.6342434Z Selecting previously unselected package libegl1:amd64.
+2026-11-15T01:12:36.6478344Z Preparing to unpack .../01-libegl1_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.6488597Z Unpacking libegl1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.6733917Z Selecting previously unselected package xorg-sgml-doctools.
+2026-11-15T01:12:36.6872891Z Preparing to unpack .../02-xorg-sgml-doctools_1%3a1.11-1.1build1_all.deb ...
+2026-11-15T01:12:36.6880752Z Unpacking xorg-sgml-doctools (1:1.11-1.1build1) ...
+2026-11-15T01:12:36.7130543Z Selecting previously unselected package x11proto-dev.
+2026-11-15T01:12:36.7266647Z Preparing to unpack .../03-x11proto-dev_2025.1-1_all.deb ...
+2026-11-15T01:12:36.7274621Z Unpacking x11proto-dev (2025.1-1) ...
+2026-11-15T01:12:36.7783629Z Selecting previously unselected package libxau-dev:amd64.
+2026-11-15T01:12:36.7920836Z Preparing to unpack .../04-libxau-dev_1%3a1.0.11-1build2_amd64v3.deb ...
+2026-11-15T01:12:36.7928572Z Unpacking libxau-dev:amd64 (1:1.0.11-1build2) ...
+2026-11-15T01:12:36.8305509Z Selecting previously unselected package libxdmcp-dev:amd64.
+2026-11-15T01:12:36.8447968Z Preparing to unpack .../05-libxdmcp-dev_1%3a1.1.5-2_amd64v3.deb ...
+2026-11-15T01:12:36.8454476Z Unpacking libxdmcp-dev:amd64 (1:1.1.5-2) ...
+2026-11-15T01:12:36.8671126Z Selecting previously unselected package xtrans-dev.
+2026-11-15T01:12:36.8822013Z Preparing to unpack .../06-xtrans-dev_1.6.0-1build1_all.deb ...
+2026-11-15T01:12:36.8829564Z Unpacking xtrans-dev (1.6.0-1build1) ...
+2026-11-15T01:12:36.9070536Z Selecting previously unselected package libxcb1-dev:amd64.
+2026-11-15T01:12:36.9208107Z Preparing to unpack .../07-libxcb1-dev_1.17.0-2ubuntu1_amd64v3.deb ...
+2026-11-15T01:12:36.9216344Z Unpacking libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+2026-11-15T01:12:36.9450519Z Selecting previously unselected package libx11-dev:amd64.
+2026-11-15T01:12:36.9589014Z Preparing to unpack .../08-libx11-dev_2%3a1.8.13-1ubuntu0.1_amd64v3.deb ...
+2026-11-15T01:12:36.9596945Z Unpacking libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+2026-11-15T01:12:36.9934610Z Selecting previously unselected package libglx-dev:amd64.
+2026-11-15T01:12:37.0071627Z Preparing to unpack .../09-libglx-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.0087379Z Unpacking libglx-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.0301738Z Selecting previously unselected package libgl-dev:amd64.
+2026-11-15T01:12:37.0438983Z Preparing to unpack .../10-libgl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.0445880Z Unpacking libgl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.0701918Z Selecting previously unselected package libegl-dev:amd64.
+2026-11-15T01:12:37.0839757Z Preparing to unpack .../11-libegl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.0850682Z Unpacking libegl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.1084556Z Selecting previously unselected package libgles1:amd64.
+2026-11-15T01:12:37.1220899Z Preparing to unpack .../12-libgles1_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.1229459Z Unpacking libgles1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.1502597Z Selecting previously unselected package libgles2:amd64.
+2026-11-15T01:12:37.1639662Z Preparing to unpack .../13-libgles2_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.1648501Z Unpacking libgles2:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.1872228Z Selecting previously unselected package libgles-dev:amd64.
+2026-11-15T01:12:37.2007861Z Preparing to unpack .../14-libgles-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.2015488Z Unpacking libgles-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.2271640Z Selecting previously unselected package libopengl0:amd64.
+2026-11-15T01:12:37.2407423Z Preparing to unpack .../15-libopengl0_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.2416399Z Unpacking libopengl0:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.2633419Z Selecting previously unselected package libopengl-dev:amd64.
+2026-11-15T01:12:37.2769805Z Preparing to unpack .../16-libopengl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.2778378Z Unpacking libopengl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.2991474Z Selecting previously unselected package libglvnd-core-dev:amd64.
+2026-11-15T01:12:37.3128618Z Preparing to unpack .../17-libglvnd-core-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.3135173Z Unpacking libglvnd-core-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.3351355Z Selecting previously unselected package libglvnd-dev:amd64.
+2026-11-15T01:12:37.3487488Z Preparing to unpack .../18-libglvnd-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.3498001Z Unpacking libglvnd-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.3705260Z Selecting previously unselected package libgl1-mesa-dev:amd64.
+2026-11-15T01:12:37.3840425Z Preparing to unpack .../19-libgl1-mesa-dev_26.0.8-1ubuntu0.3_amd64v3.deb ...
+2026-11-15T01:12:37.3848299Z Unpacking libgl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:37.4302605Z Setting up libglvnd-core-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4326094Z Setting up libopengl0:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4347980Z Setting up xtrans-dev (1.6.0-1build1) ...
+2026-11-15T01:12:37.4371332Z Setting up libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:37.4394459Z Setting up libgles2:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4418368Z Setting up libgles1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4440875Z Setting up libegl1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4464485Z Setting up xorg-sgml-doctools (1:1.11-1.1build1) ...
+2026-11-15T01:12:37.4485235Z Setting up libopengl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4573252Z Processing triggers for libc-bin (2.43-2ubuntu2.4) ...
+2026-11-15T01:12:37.5111905Z Processing triggers for man-db (2.13.1-1build1) ...
+2026-11-15T01:12:37.5134448Z Not building database; man-db/auto-update is not 'true'.
+2026-11-15T01:12:37.5154790Z Processing triggers for sgml-base (1.31+nmu1build1) ...
+2026-11-15T01:12:37.5338102Z Setting up x11proto-dev (2025.1-1) ...
+2026-11-15T01:12:37.5361292Z Setting up libxau-dev:amd64 (1:1.0.11-1build2) ...
+2026-11-15T01:12:37.5390665Z Setting up libxdmcp-dev:amd64 (1:1.1.5-2) ...
+2026-11-15T01:12:37.5428382Z Setting up libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+2026-11-15T01:12:37.5453648Z Setting up libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+2026-11-15T01:12:37.5485472Z Setting up libglx-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5514654Z Setting up libgl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5540003Z Setting up libegl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5575397Z Setting up libgles-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5601011Z Setting up libglvnd-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5625858Z Setting up libgl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:38.2027615Z 
+2026-11-15T01:12:38.2028053Z Running kernel seems to be up-to-date.
+2026-11-15T01:12:38.2028380Z 
+2026-11-15T01:12:38.2028526Z Restarting services...
+2026-11-15T01:12:38.2123158Z 
+2026-11-15T01:12:38.2123660Z Service restarts being deferred:
+2026-11-15T01:12:38.2126770Z  systemctl restart hosted-compute-agent.service
+2026-11-15T01:12:38.2127217Z 
+2026-11-15T01:12:38.2127694Z No containers need to be restarted.
+2026-11-15T01:12:38.2128039Z 
+2026-11-15T01:12:38.2128283Z No user sessions are running outdated binaries.
+2026-11-15T01:12:38.2128692Z 
+2026-11-15T01:12:38.2129071Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-11-15T01:12:39.0607854Z ##[group]Run ErBWs/setup-ohos@v2
+2026-11-15T01:12:39.0608184Z with:
+2026-11-15T01:12:39.0608417Z   version: 6.1.1.280
+2026-11-15T01:12:39.0608664Z   cache: true
+2026-11-15T01:12:39.0608894Z ##[endgroup]
+2026-11-15T01:12:39.0693716Z ##[start-action display=Make the script executable;id=ohos.__run]
+2026-11-15T01:12:39.0722296Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2026-11-15T01:12:39.0722974Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2026-11-15T01:12:39.0775519Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-15T01:12:39.0776071Z ##[endgroup]
+2026-11-15T01:12:39.0887591Z ##[end-action id=ohos.__run;outcome=success;conclusion=success;duration_ms=19]
+2026-11-15T01:12:39.0890131Z ##[start-action display=Cache SDK;id=ohos.__actions_cache]
+2026-11-15T01:12:39.0974012Z ##[group]Run actions/cache@v4
+2026-11-15T01:12:39.0974304Z with:
+2026-11-15T01:12:39.0974533Z   path: ~/ohos-sdk
+2026-11-15T01:12:39.0974797Z   key: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:12:39.0975150Z   enableCrossOsArchive: false
+2026-11-15T01:12:39.0975450Z   fail-on-cache-miss: false
+2026-11-15T01:12:39.0975726Z   lookup-only: false
+2026-11-15T01:12:39.0975975Z   save-always: false
+2026-11-15T01:12:39.0976217Z ##[endgroup]
+2026-11-15T01:12:39.2052863Z (node:2774) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T01:12:39.2053813Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T01:12:39.4141575Z Cache hit for: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:12:39.4277580Z (node:2774) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-15T01:12:40.6288665Z Received 50331648 of 3991182027 (1.3%), 48.0 MBs/sec
+2026-11-15T01:12:41.6376119Z Received 197132288 of 3991182027 (4.9%), 93.8 MBs/sec
+2026-11-15T01:12:42.6391038Z Received 352321536 of 3991182027 (8.8%), 111.8 MBs/sec
+2026-11-15T01:12:43.6350383Z Received 499122176 of 3991182027 (12.5%), 118.8 MBs/sec
+2026-11-15T01:12:44.6352041Z Received 641728512 of 3991182027 (16.1%), 122.2 MBs/sec
+2026-11-15T01:12:45.6354864Z Received 754974720 of 3991182027 (18.9%), 119.8 MBs/sec
+2026-11-15T01:12:46.6393854Z Received 893386752 of 3991182027 (22.4%), 121.6 MBs/sec
+2026-11-15T01:12:47.6359350Z Received 1040187392 of 3991182027 (26.1%), 123.9 MBs/sec
+2026-11-15T01:12:48.6359807Z Received 1182793728 of 3991182027 (29.6%), 125.2 MBs/sec
+2026-11-15T01:12:49.6371921Z Received 1321205760 of 3991182027 (33.1%), 125.9 MBs/sec
+2026-11-15T01:12:50.6387371Z Received 1459617792 of 3991182027 (36.6%), 126.4 MBs/sec
+2026-11-15T01:12:51.6396295Z Received 1581252608 of 3991182027 (39.6%), 125.5 MBs/sec
+2026-11-15T01:12:52.6400339Z Received 1711276032 of 3991182027 (42.9%), 125.4 MBs/sec
+2026-11-15T01:12:53.6407314Z Received 1858076672 of 3991182027 (46.6%), 126.5 MBs/sec
+2026-11-15T01:12:54.6423707Z Received 2000683008 of 3991182027 (50.1%), 127.1 MBs/sec
+2026-11-15T01:12:55.6429829Z Received 2134900736 of 3991182027 (53.5%), 127.1 MBs/sec
+2026-11-15T01:12:56.6439155Z Received 2235564032 of 3991182027 (56.0%), 125.3 MBs/sec
+2026-11-15T01:12:57.6446036Z Received 2373976064 of 3991182027 (59.5%), 125.7 MBs/sec
+2026-11-15T01:12:58.6450254Z Received 2545942528 of 3991182027 (63.8%), 127.7 MBs/sec
+2026-11-15T01:12:59.6463438Z Received 2684354560 of 3991182027 (67.3%), 127.9 MBs/sec
+2026-11-15T01:13:00.6478904Z Received 2818572288 of 3991182027 (70.6%), 127.9 MBs/sec
+2026-11-15T01:13:01.6473768Z Received 2952790016 of 3991182027 (74.0%), 127.9 MBs/sec
+2026-11-15T01:13:02.6484175Z Received 3087007744 of 3991182027 (77.3%), 127.9 MBs/sec
+2026-11-15T01:13:03.6495443Z Received 3221225472 of 3991182027 (80.7%), 127.9 MBs/sec
+2026-11-15T01:13:04.6506121Z Received 3355443200 of 3991182027 (84.1%), 127.9 MBs/sec
+2026-11-15T01:13:05.6525805Z Received 3489660928 of 3991182027 (87.4%), 127.9 MBs/sec
+2026-11-15T01:13:06.6535264Z Received 3628072960 of 3991182027 (90.9%), 128.0 MBs/sec
+2026-11-15T01:13:07.6545768Z Received 3795845120 of 3991182027 (95.1%), 129.2 MBs/sec
+2026-11-15T01:13:08.6559131Z Received 3925868544 of 3991182027 (98.4%), 129.0 MBs/sec
+2026-11-15T01:13:09.0108057Z Received 3991182027 of 3991182027 (100.0%), 129.5 MBs/sec
+2026-11-15T01:13:09.0110151Z Cache Size: ~3806 MB (3991182027 B)
+2026-11-15T01:13:09.0230384Z [command]/usr/bin/tar -xf /home/runner/work/_temp/72ef6ae9-faff-4d98-aab0-adf71393e74b/cache.tzst -P -C /home/runner/work/elcton/elcton --use-compress-program unzstd
+2026-11-15T01:13:28.8469241Z Cache restored successfully
+2026-11-15T01:13:29.2440983Z Cache restored from key: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:13:29.2608663Z ##[end-action id=ohos.__actions_cache;outcome=success;conclusion=success;duration_ms=50171]
+2026-11-15T01:13:29.2617787Z ##[start-action display=Run setup script;id=ohos.setup-ohos]
+2026-11-15T01:13:29.2952084Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2026-11-15T01:13:29.2952913Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2026-11-15T01:13:29.2953485Z [36;1m  -v '6.1.1.280'[0m
+2026-11-15T01:13:29.3014157Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-15T01:13:29.3014555Z env:
+2026-11-15T01:13:29.3016998Z   GH_TOKEN: ***
+2026-11-15T01:13:29.3017271Z ##[endgroup]
+2026-11-15T01:13:29.3980840Z Successfully setup 6.1.1.125 SDK with API24!
+2026-11-15T01:13:29.4010896Z ##[end-action id=ohos.setup-ohos;outcome=success;conclusion=success;duration_ms=139]
+2026-11-15T01:13:29.5330159Z ##[group]Run for p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do
+2026-11-15T01:13:29.5331204Z [36;1mfor p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do[0m
+2026-11-15T01:13:29.5331970Z [36;1m  if [ -d "$p" ]; then echo "$p" >> "$GITHUB_PATH"; fi[0m
+2026-11-15T01:13:29.5332417Z [36;1mdone[0m
+2026-11-15T01:13:29.5332958Z [36;1mif [ -d "$HOME/ohos-sdk/command-line-tools/sdk" ]; then[0m
+2026-11-15T01:13:29.5333598Z [36;1m  echo "HOS_SDK_HOME=$HOME/ohos-sdk/command-line-tools/sdk" >> "$GITHUB_ENV"[0m
+2026-11-15T01:13:29.5334114Z [36;1mfi[0m
+2026-11-15T01:13:29.5334373Z [36;1mecho "--- toolchain check ---"[0m
+2026-11-15T01:13:29.5334710Z [36;1mcommand -v hvigorw || true[0m
+2026-11-15T01:13:29.5335020Z [36;1mcommand -v ohpm || true[0m
+2026-11-15T01:13:29.5386008Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:29.5386316Z env:
+2026-11-15T01:13:29.5386675Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:29.5387246Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:29.5387697Z ##[endgroup]
+2026-11-15T01:13:29.5938687Z --- toolchain check ---
+2026-11-15T01:13:29.5942133Z /home/runner/ohos-sdk/command-line-tools/bin/hvigorw
+2026-11-15T01:13:29.5943287Z /home/runner/ohos-sdk/command-line-tools/bin/ohpm
+2026-11-15T01:13:29.5984997Z ##[group]Run ohpm install --all
+2026-11-15T01:13:29.5985352Z [36;1mohpm install --all[0m
+2026-11-15T01:13:29.6034562Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:29.6034858Z env:
+2026-11-15T01:13:29.6035174Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:29.6035706Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:29.6036151Z ##[endgroup]
+2026-11-15T01:13:32.6734916Z ohpm INFO: fetch package done 1 @ohos/hypium from https://ohpm.openharmony.cn/ohpm/@ohos/hypium/-/hypium-1.0.25.har
+2026-11-15T01:13:32.8320594Z [32minstall completed in 1s 823ms[39m
+2026-11-15T01:13:32.8495521Z ##[group]Run hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license
+2026-11-15T01:13:32.8496458Z [36;1mhvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license[0m
+2026-11-15T01:13:32.8546786Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:32.8547089Z env:
+2026-11-15T01:13:32.8547412Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:32.8547954Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:32.8548416Z ##[endgroup]
+2026-11-15T01:13:32.9873452Z Installing pnpm@10.28.2...
+2026-11-15T01:13:34.7079042Z 
+2026-11-15T01:13:34.7079679Z added 1 package, and audited 2 packages in 2s
+2026-11-15T01:13:34.7080125Z 
+2026-11-15T01:13:34.7080698Z 1 package is looking for funding
+2026-11-15T01:13:34.7081304Z   run `npm fund` for details
+2026-11-15T01:13:34.7374951Z 
+2026-11-15T01:13:34.7375955Z 1 high severity vulnerability
+2026-11-15T01:13:34.7376519Z 
+2026-11-15T01:13:34.7376689Z To address all issues, run:
+2026-11-15T01:13:34.7377058Z   npm audit fix --force
+2026-11-15T01:13:34.7377271Z 
+2026-11-15T01:13:34.7377414Z Run `npm audit` for details.
+2026-11-15T01:13:34.7489903Z Pnpm install success.
+2026-11-15T01:13:36.7726498Z > hvigor [32mFinished ::clean... after 15 ms [39m
+2026-11-15T01:13:36.7740376Z > hvigor [32mFinished :entry:clean... after 2 ms [39m
+2026-11-15T01:13:36.7769491Z > hvigor [32mFinished :entry:default@LegacyGenerateMetadata... after 3 ms [39m
+2026-11-15T01:13:36.7776082Z > hvigor [32mFinished :entry:default@PreCheckSyscap... after 1 ms [39m
+2026-11-15T01:13:36.7783937Z > hvigor [32mFinished ::PreBuildApp... after 1 ms [39m
+2026-11-15T01:13:36.8257501Z > hvigor [32mFinished :entry:default@LegacyPreBuild... after 47 ms [39m
+2026-11-15T01:13:36.8269064Z > hvigor [32mFinished :entry:default@LegacySyscapTransform... after 1 ms [39m
+2026-11-15T01:13:36.8275828Z > hvigor [32mFinished ::DuplicateDependencyCheck... after 1 ms [39m
+2026-11-15T01:13:36.8293372Z > hvigor [32mFinished :entry:default@LegacyMergeProfile... after 2 ms [39m
+2026-11-15T01:13:36.8310888Z > hvigor [32mFinished :entry:default@LegacyGenerateJsManifest... after 2 ms [39m
+2026-11-15T01:13:36.8316892Z > hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 1 ms [39m
+2026-11-15T01:13:36.8335101Z > hvigor [32mFinished :entry:default@LegacyMakePackInfo... after 2 ms [39m
+2026-11-15T01:13:36.8350699Z > hvigor [32mFinished :entry:default@LegacyProcessProfile... after 2 ms [39m
+2026-11-15T01:13:36.8361686Z > hvigor [32mFinished :entry:default@LegacyGenerateLoaderJson... after 1 ms [39m
+2026-11-15T01:13:36.8371493Z > hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 1 ms [39m
+2026-11-15T01:13:36.8388628Z > hvigor [32mFinished :entry:default@LegacyProcessResource... after 2 ms [39m
+2026-11-15T01:13:36.8491452Z > hvigor [32mFinished :entry:default@ProcessLibs... after 10 ms [39m
+2026-11-15T01:13:36.9125914Z > hvigor [32mFinished :entry:default@LegacyCompileResource... after 63 ms [39m
+2026-11-15T01:13:36.9155941Z > hvigor [32mFinished :entry:default@DoNativeStrip... after 3 ms [39m
+2026-11-15T01:13:36.9165688Z > hvigor [32mFinished :entry:default@LegacyHookCompileResource... after 1 ms [39m
+2026-11-15T01:13:36.9191194Z > hvigor [32mFinished :entry:default@CacheNativeLibs... after 3 ms [39m
+2026-11-15T01:13:42.0110089Z > hvigor [91mERROR: Failed :entry:default@LegacyCompileLiteJS... [39m
+2026-11-15T01:13:42.0193521Z > hvigor [91mERROR: [31mError Code: 00308018 Unknown Error
+2026-11-15T01:13:42.0194188Z Tools execution failed.
+2026-11-15T01:13:42.0195083Z [33m WARNING File:/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility/pages/code/code.css:60:5
+2026-11-15T01:13:42.0196027Z  `align-content` is not a standard attribute name and may not be supported [39m 
+2026-11-15T01:13:42.0196459Z 
+2026-11-15T01:13:42.0197461Z [31m Module not found: Error: Can't resolve './common/logsink.js' in '/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility'
+2026-11-15T01:13:42.0198350Z  [39m 
+2026-11-15T01:13:42.0198534Z 
+2026-11-15T01:13:42.0199294Z [31m Module not found: Error: Can't resolve './common/log-config.js' in '/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility'
+2026-11-15T01:13:42.0200061Z  
+2026-11-15T01:13:42.0200235Z 
+2026-11-15T01:13:42.0200464Z * Try the following:
+2026-11-15T01:13:42.0201515Z   > This error is unknown, view the detailed error logs in the '.hvigor > outputs > build-logs' directory in the project directory for analysis, or contact the developer's official website for help.
+2026-11-15T01:13:42.0203178Z   > More info: https://developer.huawei.com/consumer/en/doc/harmonyos-faqs/faqs-compiling-and-building
+2026-11-15T01:13:42.0203940Z [39m
+2026-11-15T01:13:42.0204412Z 	 Detail: Please check the message from tools.
+2026-11-15T01:13:42.0204781Z 
+2026-11-15T01:13:42.0205016Z [31m* Try:
+2026-11-15T01:13:42.0205727Z > Run with --stacktrace option to get the stack trace.
+2026-11-15T01:13:42.0206265Z > Run with --debug option to get more log output.
+2026-11-15T01:13:42.0212525Z [39m
+2026-11-15T01:13:42.0213744Z > hvigor [91mERROR: BUILD FAILED in 6 s 688 ms [39m
+2026-11-15T01:13:42.0881526Z ##[error]Process completed with exit code 255.
+2026-11-15T01:13:42.1045742Z Post job cleanup.
+2026-11-15T01:13:42.1049766Z ##[start-action display=Cache SDK;id=__7ebc60a3-9213-4f3f-bb4d-3ba13e67bee2.__actions_cache]
+2026-11-15T01:13:42.1053343Z ##[end-action id=__7ebc60a3-9213-4f3f-bb4d-3ba13e67bee2.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+2026-11-15T01:13:42.1147013Z Post job cleanup.
+2026-11-15T01:13:42.2030874Z [command]/usr/bin/git version
+2026-11-15T01:13:42.2077588Z git version 2.56.1
+2026-11-15T01:13:42.2117984Z Temporarily overriding HOME='/home/runner/work/_temp/ce6b1291-a4e8-457b-b347-191f4f1e52b0' before making global git config changes
+2026-11-15T01:13:42.2119517Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T01:13:42.2123856Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/elcton/elcton
+2026-11-15T01:13:42.2168921Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T01:13:42.2209034Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-15T01:13:42.2523880Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T01:13:42.2559403Z http.https://github.com/.extraheader
+2026-11-15T01:13:42.2573044Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-15T01:13:42.2620734Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-15T01:13:42.2947937Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T01:13:42.2986228Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-15T01:13:42.3454603Z Cleaning up orphan processes
+2026-11-15T01:13:42.3961543Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
+2026-11-15T01:12:23.6750000Z Evaluating build.if
+2026-11-15T01:12:23.6750000Z Evaluating: success()
+2026-11-15T01:12:23.6750000Z Result: true
+2026-11-15T01:12:23.6780000Z Requested labels: ubuntu-latest
+2026-11-15T01:12:23.6780000Z Job defined at: lantianhcgp/elcton/.github/workflows/build.yml@refs/heads/fix/we-handshake-logger-20261115
+2026-11-15T01:12:23.6780000Z Waiting for a runner to pick up this job...
+2026-11-15T01:12:24.5290000Z Job is waiting for a hosted runner to come online.
+2026-11-15T01:12:24.5290000Z Job is about to start running on the hosted runner: GitHub Actions 1000001664
+﻿2026-11-15T01:12:26.9251297Z Current runner version: '2.338.2'
+2026-11-15T01:12:26.9278308Z ##[group]Runner Image Provisioner
+2026-11-15T01:12:26.9279397Z Hosted Compute Agent
+2026-11-15T01:12:26.9280305Z Version: 20261103.629
+2026-11-15T01:12:26.9281155Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-15T01:12:26.9282131Z Build Date: 2026-11-03T17:26:59Z
+2026-11-15T01:12:26.9283419Z Worker ID: {1e7770e3-c07c-494e-aedf-18af8f3534a4}
+2026-11-15T01:12:26.9284509Z Region: westus3
+2026-11-15T01:12:26.9285238Z Cloud: Azure
+2026-11-15T01:12:26.9286007Z ##[endgroup]
+2026-11-15T01:12:26.9287717Z ##[group]Operating System
+2026-11-15T01:12:26.9288671Z Ubuntu
+2026-11-15T01:12:26.9289348Z 26.04.1
+2026-11-15T01:12:26.9290085Z LTS
+2026-11-15T01:12:26.9290742Z ##[endgroup]
+2026-11-15T01:12:26.9291547Z ##[group]Runner Image
+2026-11-15T01:12:26.9292304Z Image: ubuntu-26.04
+2026-11-15T01:12:26.9293473Z Version: 20261111.196.1
+2026-11-15T01:12:26.9294796Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-15T01:12:26.9296878Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-15T01:12:26.9298072Z ##[endgroup]
+2026-11-15T01:12:26.9299582Z ##[group]GITHUB_TOKEN Permissions
+2026-11-15T01:12:26.9301610Z Contents: read
+2026-11-15T01:12:26.9302451Z Metadata: read
+2026-11-15T01:12:26.9303499Z Packages: read
+2026-11-15T01:12:26.9304345Z ##[endgroup]
+2026-11-15T01:12:26.9306901Z Secret source: Actions
+2026-11-15T01:12:26.9308190Z Cache mode: write
+2026-11-15T01:12:26.9309045Z Prepare workflow directory
+2026-11-15T01:12:26.9668334Z Prepare all required actions
+2026-11-15T01:12:26.9717064Z Getting action download info
+2026-11-15T01:12:27.2845445Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-15T01:12:27.4499475Z Download action repository 'ErBWs/setup-ohos@v2' (SHA:4dbb63025116eb6165ceac58a4bf47cbdc5ac721)
+2026-11-15T01:12:27.6846685Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-15T01:12:27.8918531Z Getting action download info
+2026-11-15T01:12:28.0148402Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-11-15T01:12:28.1687666Z Complete job name: build (elcton, .)
+
+﻿2026-11-15T01:12:28.2629020Z ##[group]Run actions/checkout@v4
+2026-11-15T01:12:28.2630066Z with:
+2026-11-15T01:12:28.2630666Z   repository: lantianhcgp/elcton
+2026-11-15T01:12:28.2634660Z   token: ***
+2026-11-15T01:12:28.2635226Z   ssh-strict: true
+2026-11-15T01:12:28.2635801Z   ssh-user: git
+2026-11-15T01:12:28.2636377Z   persist-credentials: true
+2026-11-15T01:12:28.2636996Z   clean: true
+2026-11-15T01:12:28.2637564Z   sparse-checkout-cone-mode: true
+2026-11-15T01:12:28.2638214Z   fetch-depth: 1
+2026-11-15T01:12:28.2638771Z   fetch-tags: false
+2026-11-15T01:12:28.2639338Z   show-progress: true
+2026-11-15T01:12:28.2639919Z   lfs: false
+2026-11-15T01:12:28.2640448Z   submodules: false
+2026-11-15T01:12:28.2641072Z   set-safe-directory: true
+2026-11-15T01:12:28.2641713Z   allow-unsafe-pr-checkout: false
+2026-11-15T01:12:28.2715971Z ##[endgroup]
+2026-11-15T01:12:28.8525617Z Syncing repository: lantianhcgp/elcton
+2026-11-15T01:12:28.8529243Z ##[group]Getting Git version info
+2026-11-15T01:12:28.8531171Z Working directory is '/home/runner/work/elcton/elcton'
+2026-11-15T01:12:28.8534677Z [command]/usr/bin/git version
+2026-11-15T01:12:28.8536458Z git version 2.56.1
+2026-11-15T01:12:28.8565091Z ##[endgroup]
+2026-11-15T01:12:28.8574388Z Temporarily overriding HOME='/home/runner/work/_temp/63546eb0-a043-4df0-a4a3-df3d8baeb8d2' before making global git config changes
+2026-11-15T01:12:28.8579030Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T01:12:28.8582144Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/elcton/elcton
+2026-11-15T01:12:28.9009099Z Deleting the contents of '/home/runner/work/elcton/elcton'
+2026-11-15T01:12:28.9025803Z ##[group]Initializing the repository
+2026-11-15T01:12:28.9029179Z [command]/usr/bin/git init /home/runner/work/elcton/elcton
+2026-11-15T01:12:28.9137184Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-15T01:12:28.9140632Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-15T01:12:28.9144439Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-15T01:12:28.9147251Z hint: call:
+2026-11-15T01:12:28.9149110Z hint:
+2026-11-15T01:12:28.9151293Z hint: 	git config --global init.defaultBranch <name>
+2026-11-15T01:12:28.9153659Z hint:
+2026-11-15T01:12:28.9156225Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-15T01:12:28.9159111Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-15T01:12:28.9161422Z hint:
+2026-11-15T01:12:28.9163395Z hint: 	git branch -m <name>
+2026-11-15T01:12:28.9165433Z hint:
+2026-11-15T01:12:28.9167326Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-15T01:12:28.9170286Z Initialized empty Git repository in /home/runner/work/elcton/elcton/.git/
+2026-11-15T01:12:28.9175940Z [command]/usr/bin/git remote add origin https://github.com/lantianhcgp/elcton
+2026-11-15T01:12:28.9441041Z ##[endgroup]
+2026-11-15T01:12:28.9444389Z ##[group]Disabling automatic garbage collection
+2026-11-15T01:12:28.9447513Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-15T01:12:28.9481186Z ##[endgroup]
+2026-11-15T01:12:28.9484567Z ##[group]Setting up auth
+2026-11-15T01:12:28.9488155Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T01:12:28.9538934Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-15T01:12:29.0465260Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T01:12:29.0500805Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-15T01:12:29.0780947Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T01:12:29.0822558Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-15T01:12:29.1102497Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-15T01:12:29.1297284Z ##[endgroup]
+2026-11-15T01:12:29.1299364Z ##[group]Fetching the repository
+2026-11-15T01:12:29.1309014Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cbd171553e70eb614ca4283534915b92ebb870de:refs/remotes/origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:30.0539792Z From https://github.com/lantianhcgp/elcton
+2026-11-15T01:12:30.0540892Z  * [new ref]         cbd171553e70eb614ca4283534915b92ebb870de -> origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:30.0544111Z ##[endgroup]
+2026-11-15T01:12:30.0545214Z ##[group]Determining the checkout info
+2026-11-15T01:12:30.0547332Z ##[endgroup]
+2026-11-15T01:12:30.0553763Z [command]/usr/bin/git sparse-checkout disable
+2026-11-15T01:12:30.0615453Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-15T01:12:30.0644994Z ##[group]Checking out the ref
+2026-11-15T01:12:30.0649300Z [command]/usr/bin/git checkout --progress --force -B fix/we-handshake-logger-20261115 refs/remotes/origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:30.2502622Z Switched to a new branch 'fix/we-handshake-logger-20261115'
+2026-11-15T01:12:30.2524357Z branch 'fix/we-handshake-logger-20261115' set up to track 'origin/fix/we-handshake-logger-20261115'.
+2026-11-15T01:12:30.2528785Z ##[endgroup]
+2026-11-15T01:12:30.2578306Z [command]/usr/bin/git log -1 --format=%H
+2026-11-15T01:12:30.2605452Z cbd171553e70eb614ca4283534915b92ebb870de
+
+﻿2026-11-15T01:12:30.2844507Z ##[group]Run sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
+2026-11-15T01:12:30.2845492Z [36;1msudo apt-get update && sudo apt-get install -y libgl1-mesa-dev[0m
+2026-11-15T01:12:30.2899223Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:12:30.2899808Z ##[endgroup]
+2026-11-15T01:12:30.3736684Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-15T01:12:30.4094184Z Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+2026-11-15T01:12:30.4117542Z Get:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease [3964 B]
+2026-11-15T01:12:30.4122278Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+2026-11-15T01:12:30.4149317Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+2026-11-15T01:12:30.4186825Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+2026-11-15T01:12:30.4467337Z Get:7 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main amd64 Packages [158 kB]
+2026-11-15T01:12:30.4707971Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 Packages [869 kB]
+2026-11-15T01:12:30.4754255Z Get:12 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main arm64 Packages [143 kB]
+2026-11-15T01:12:30.4824086Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [195 kB]
+2026-11-15T01:12:30.4850171Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 Packages [390 kB]
+2026-11-15T01:12:30.4852424Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [122 kB]
+2026-11-15T01:12:30.4971845Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute-security/main amd64v3 Packages [718 kB]
+2026-11-15T01:12:30.5016451Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute-security/main Translation-en [157 kB]
+2026-11-15T01:12:30.5032308Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe amd64v3 Packages [220 kB]
+2026-11-15T01:12:30.5050679Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe Translation-en [72.5 kB]
+2026-11-15T01:12:30.5064659Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted amd64v3 Packages [590 kB]
+2026-11-15T01:12:30.5098700Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted Translation-en [122 kB]
+2026-11-15T01:12:32.6590252Z Fetched 4172 kB in 0s (11.2 MB/s)
+2026-11-15T01:12:33.3074402Z Reading package lists...
+2026-11-15T01:12:33.3410252Z Reading package lists...
+2026-11-15T01:12:33.4866032Z Building dependency tree...
+2026-11-15T01:12:33.4873373Z Reading state information...
+2026-11-15T01:12:33.5704551Z Solving dependencies...
+2026-11-15T01:12:33.6542413Z The following additional packages will be installed:
+2026-11-15T01:12:33.6543651Z   libegl-dev libegl-mesa0 libegl1 libgl-dev libgles-dev libgles1 libgles2
+2026-11-15T01:12:33.6546395Z   libglvnd-core-dev libglvnd-dev libglx-dev libopengl-dev libopengl0
+2026-11-15T01:12:33.6549352Z   libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-dev
+2026-11-15T01:12:33.6550102Z   xorg-sgml-doctools xtrans-dev
+2026-11-15T01:12:33.6556718Z Suggested packages:
+2026-11-15T01:12:33.6557189Z   libx11-doc libxcb-doc
+2026-11-15T01:12:33.6822245Z The following NEW packages will be installed:
+2026-11-15T01:12:33.6823754Z   libegl-dev libegl-mesa0 libegl1 libgl-dev libgl1-mesa-dev libgles-dev
+2026-11-15T01:12:33.6824763Z   libgles1 libgles2 libglvnd-core-dev libglvnd-dev libglx-dev libopengl-dev
+2026-11-15T01:12:33.6829886Z   libopengl0 libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-dev
+2026-11-15T01:12:33.6830772Z   xorg-sgml-doctools xtrans-dev
+2026-11-15T01:12:33.7041104Z 0 upgraded, 20 newly installed, 0 to remove and 24 not upgraded.
+2026-11-15T01:12:33.7041732Z Need to get 1997 kB of archives.
+2026-11-15T01:12:33.7042161Z After this operation, 8963 kB of additional disk space will be used.
+2026-11-15T01:12:33.7043526Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-15T01:12:33.7762235Z Get:2 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libegl-mesa0 amd64 26.0.8-1ubuntu0.3 [134 kB]
+2026-11-15T01:12:33.8236073Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libegl1 amd64 1.7.0-3 [29.8 kB]
+2026-11-15T01:12:33.8698337Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xorg-sgml-doctools all 1:1.11-1.1build1 [10.3 kB]
+2026-11-15T01:12:33.9158005Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 x11proto-dev all 2025.1-1 [608 kB]
+2026-11-15T01:12:33.9644534Z Get:6 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxau-dev amd64 1:1.0.11-1build2 [9780 B]
+2026-11-15T01:12:34.0104994Z Get:7 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxdmcp-dev amd64 1:1.1.5-2 [25.7 kB]
+2026-11-15T01:12:34.0565808Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xtrans-dev all 1.6.0-1build1 [66.2 kB]
+2026-11-15T01:12:34.1033517Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxcb1-dev amd64 1.17.0-2ubuntu1 [86.4 kB]
+2026-11-15T01:12:34.1499651Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libx11-dev amd64 2:1.8.13-1ubuntu0.1 [743 kB]
+2026-11-15T01:12:34.2002953Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglx-dev amd64 1.7.0-3 [14.1 kB]
+2026-11-15T01:12:34.2463999Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgl-dev amd64 1.7.0-3 [103 kB]
+2026-11-15T01:12:34.2928012Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libegl-dev amd64 1.7.0-3 [18.2 kB]
+2026-11-15T01:12:34.3387672Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles1 amd64 1.7.0-3 [11.5 kB]
+2026-11-15T01:12:34.3846167Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles2 amd64 1.7.0-3 [17.5 kB]
+2026-11-15T01:12:34.4316668Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles-dev amd64 1.7.0-3 [50.6 kB]
+2026-11-15T01:12:34.4779191Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libopengl0 amd64 1.7.0-3 [32.8 kB]
+2026-11-15T01:12:34.5240473Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libopengl-dev amd64 1.7.0-3 [3408 B]
+2026-11-15T01:12:34.5698245Z Get:19 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglvnd-core-dev amd64 1.7.0-3 [13.7 kB]
+2026-11-15T01:12:34.6157866Z Get:20 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglvnd-dev amd64 1.7.0-3 [3156 B]
+2026-11-15T01:12:34.6623334Z Get:21 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libgl1-mesa-dev amd64 26.0.8-1ubuntu0.3 [15.9 kB]
+2026-11-15T01:12:34.9976427Z Fetched 1997 kB in 1s (2057 kB/s)
+2026-11-15T01:12:35.0223208Z Selecting previously unselected package libegl-mesa0:amd64.
+2026-11-15T01:12:35.0520229Z (Reading database ... 
+2026-11-15T01:12:35.0520790Z (Reading database ... 5%
+2026-11-15T01:12:35.0521305Z (Reading database ... 10%
+2026-11-15T01:12:35.0521782Z (Reading database ... 15%
+2026-11-15T01:12:35.0522202Z (Reading database ... 20%
+2026-11-15T01:12:35.0522891Z (Reading database ... 25%
+2026-11-15T01:12:35.0523544Z (Reading database ... 30%
+2026-11-15T01:12:35.0524167Z (Reading database ... 35%
+2026-11-15T01:12:35.0524755Z (Reading database ... 40%
+2026-11-15T01:12:35.0525224Z (Reading database ... 45%
+2026-11-15T01:12:35.0525613Z (Reading database ... 50%
+2026-11-15T01:12:35.1488272Z (Reading database ... 55%
+2026-11-15T01:12:35.2941783Z (Reading database ... 60%
+2026-11-15T01:12:35.4514821Z (Reading database ... 65%
+2026-11-15T01:12:35.6339151Z (Reading database ... 70%
+2026-11-15T01:12:35.7971447Z (Reading database ... 75%
+2026-11-15T01:12:35.9964921Z (Reading database ... 80%
+2026-11-15T01:12:36.1881223Z (Reading database ... 85%
+2026-11-15T01:12:36.3963463Z (Reading database ... 90%
+2026-11-15T01:12:36.5949903Z (Reading database ... 95%
+2026-11-15T01:12:36.5950452Z (Reading database ... 100%
+2026-11-15T01:12:36.5951223Z (Reading database ... 213946 files and directories currently installed.)
+2026-11-15T01:12:36.5991530Z Preparing to unpack .../00-libegl-mesa0_26.0.8-1ubuntu0.3_amd64v3.deb ...
+2026-11-15T01:12:36.6065857Z Unpacking libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:36.6342402Z Selecting previously unselected package libegl1:amd64.
+2026-11-15T01:12:36.6478314Z Preparing to unpack .../01-libegl1_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.6488574Z Unpacking libegl1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.6733896Z Selecting previously unselected package xorg-sgml-doctools.
+2026-11-15T01:12:36.6872853Z Preparing to unpack .../02-xorg-sgml-doctools_1%3a1.11-1.1build1_all.deb ...
+2026-11-15T01:12:36.6880732Z Unpacking xorg-sgml-doctools (1:1.11-1.1build1) ...
+2026-11-15T01:12:36.7130516Z Selecting previously unselected package x11proto-dev.
+2026-11-15T01:12:36.7266628Z Preparing to unpack .../03-x11proto-dev_2025.1-1_all.deb ...
+2026-11-15T01:12:36.7274605Z Unpacking x11proto-dev (2025.1-1) ...
+2026-11-15T01:12:36.7783580Z Selecting previously unselected package libxau-dev:amd64.
+2026-11-15T01:12:36.7920819Z Preparing to unpack .../04-libxau-dev_1%3a1.0.11-1build2_amd64v3.deb ...
+2026-11-15T01:12:36.7928556Z Unpacking libxau-dev:amd64 (1:1.0.11-1build2) ...
+2026-11-15T01:12:36.8305493Z Selecting previously unselected package libxdmcp-dev:amd64.
+2026-11-15T01:12:36.8447950Z Preparing to unpack .../05-libxdmcp-dev_1%3a1.1.5-2_amd64v3.deb ...
+2026-11-15T01:12:36.8454464Z Unpacking libxdmcp-dev:amd64 (1:1.1.5-2) ...
+2026-11-15T01:12:36.8671111Z Selecting previously unselected package xtrans-dev.
+2026-11-15T01:12:36.8822000Z Preparing to unpack .../06-xtrans-dev_1.6.0-1build1_all.deb ...
+2026-11-15T01:12:36.8829552Z Unpacking xtrans-dev (1.6.0-1build1) ...
+2026-11-15T01:12:36.9070507Z Selecting previously unselected package libxcb1-dev:amd64.
+2026-11-15T01:12:36.9208090Z Preparing to unpack .../07-libxcb1-dev_1.17.0-2ubuntu1_amd64v3.deb ...
+2026-11-15T01:12:36.9216330Z Unpacking libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+2026-11-15T01:12:36.9450480Z Selecting previously unselected package libx11-dev:amd64.
+2026-11-15T01:12:36.9588998Z Preparing to unpack .../08-libx11-dev_2%3a1.8.13-1ubuntu0.1_amd64v3.deb ...
+2026-11-15T01:12:36.9596931Z Unpacking libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+2026-11-15T01:12:36.9934577Z Selecting previously unselected package libglx-dev:amd64.
+2026-11-15T01:12:37.0071608Z Preparing to unpack .../09-libglx-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.0087357Z Unpacking libglx-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.0301715Z Selecting previously unselected package libgl-dev:amd64.
+2026-11-15T01:12:37.0438963Z Preparing to unpack .../10-libgl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.0445864Z Unpacking libgl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.0701885Z Selecting previously unselected package libegl-dev:amd64.
+2026-11-15T01:12:37.0839739Z Preparing to unpack .../11-libegl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.0850665Z Unpacking libegl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.1084512Z Selecting previously unselected package libgles1:amd64.
+2026-11-15T01:12:37.1220883Z Preparing to unpack .../12-libgles1_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.1229444Z Unpacking libgles1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.1502581Z Selecting previously unselected package libgles2:amd64.
+2026-11-15T01:12:37.1639647Z Preparing to unpack .../13-libgles2_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.1648488Z Unpacking libgles2:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.1872213Z Selecting previously unselected package libgles-dev:amd64.
+2026-11-15T01:12:37.2007847Z Preparing to unpack .../14-libgles-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.2015475Z Unpacking libgles-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.2271625Z Selecting previously unselected package libopengl0:amd64.
+2026-11-15T01:12:37.2407406Z Preparing to unpack .../15-libopengl0_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.2416388Z Unpacking libopengl0:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.2633118Z Selecting previously unselected package libopengl-dev:amd64.
+2026-11-15T01:12:37.2769792Z Preparing to unpack .../16-libopengl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.2778357Z Unpacking libopengl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.2991459Z Selecting previously unselected package libglvnd-core-dev:amd64.
+2026-11-15T01:12:37.3128602Z Preparing to unpack .../17-libglvnd-core-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.3135158Z Unpacking libglvnd-core-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.3351341Z Selecting previously unselected package libglvnd-dev:amd64.
+2026-11-15T01:12:37.3487477Z Preparing to unpack .../18-libglvnd-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:37.3497991Z Unpacking libglvnd-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.3705248Z Selecting previously unselected package libgl1-mesa-dev:amd64.
+2026-11-15T01:12:37.3840412Z Preparing to unpack .../19-libgl1-mesa-dev_26.0.8-1ubuntu0.3_amd64v3.deb ...
+2026-11-15T01:12:37.3848288Z Unpacking libgl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:37.4302551Z Setting up libglvnd-core-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4326072Z Setting up libopengl0:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4347965Z Setting up xtrans-dev (1.6.0-1build1) ...
+2026-11-15T01:12:37.4371320Z Setting up libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:37.4394447Z Setting up libgles2:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4418355Z Setting up libgles1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4440865Z Setting up libegl1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4464475Z Setting up xorg-sgml-doctools (1:1.11-1.1build1) ...
+2026-11-15T01:12:37.4485224Z Setting up libopengl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.4573238Z Processing triggers for libc-bin (2.43-2ubuntu2.4) ...
+2026-11-15T01:12:37.5111888Z Processing triggers for man-db (2.13.1-1build1) ...
+2026-11-15T01:12:37.5134429Z Not building database; man-db/auto-update is not 'true'.
+2026-11-15T01:12:37.5154778Z Processing triggers for sgml-base (1.31+nmu1build1) ...
+2026-11-15T01:12:37.5338089Z Setting up x11proto-dev (2025.1-1) ...
+2026-11-15T01:12:37.5361256Z Setting up libxau-dev:amd64 (1:1.0.11-1build2) ...
+2026-11-15T01:12:37.5390653Z Setting up libxdmcp-dev:amd64 (1:1.1.5-2) ...
+2026-11-15T01:12:37.5428371Z Setting up libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+2026-11-15T01:12:37.5453637Z Setting up libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+2026-11-15T01:12:37.5485460Z Setting up libglx-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5514643Z Setting up libgl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5539992Z Setting up libegl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5575385Z Setting up libgles-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5600999Z Setting up libglvnd-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.5625846Z Setting up libgl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:38.2027585Z 
+2026-11-15T01:12:38.2028030Z Running kernel seems to be up-to-date.
+2026-11-15T01:12:38.2028376Z 
+2026-11-15T01:12:38.2028523Z Restarting services...
+2026-11-15T01:12:38.2123144Z 
+2026-11-15T01:12:38.2123629Z Service restarts being deferred:
+2026-11-15T01:12:38.2126757Z  systemctl restart hosted-compute-agent.service
+2026-11-15T01:12:38.2127211Z 
+2026-11-15T01:12:38.2127684Z No containers need to be restarted.
+2026-11-15T01:12:38.2128033Z 
+2026-11-15T01:12:38.2128278Z No user sessions are running outdated binaries.
+2026-11-15T01:12:38.2128686Z 
+2026-11-15T01:12:38.2129067Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+﻿2026-11-15T01:12:39.0607841Z ##[group]Run ErBWs/setup-ohos@v2
+2026-11-15T01:12:39.0608181Z with:
+2026-11-15T01:12:39.0608414Z   version: 6.1.1.280
+2026-11-15T01:12:39.0608662Z   cache: true
+2026-11-15T01:12:39.0608892Z ##[endgroup]
+2026-11-15T01:12:39.0693703Z ##[start-action display=Make the script executable;id=ohos.__run]
+2026-11-15T01:12:39.0722286Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2026-11-15T01:12:39.0722967Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2026-11-15T01:12:39.0775509Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-15T01:12:39.0776067Z ##[endgroup]
+2026-11-15T01:12:39.0887578Z ##[end-action id=ohos.__run;outcome=success;conclusion=success;duration_ms=19]
+2026-11-15T01:12:39.0890124Z ##[start-action display=Cache SDK;id=ohos.__actions_cache]
+2026-11-15T01:12:39.0974002Z ##[group]Run actions/cache@v4
+2026-11-15T01:12:39.0974301Z with:
+2026-11-15T01:12:39.0974530Z   path: ~/ohos-sdk
+2026-11-15T01:12:39.0974794Z   key: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:12:39.0975112Z   enableCrossOsArchive: false
+2026-11-15T01:12:39.0975442Z   fail-on-cache-miss: false
+2026-11-15T01:12:39.0975724Z   lookup-only: false
+2026-11-15T01:12:39.0975973Z   save-always: false
+2026-11-15T01:12:39.0976215Z ##[endgroup]
+2026-11-15T01:12:39.2052819Z (node:2774) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T01:12:39.2053810Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T01:12:39.4141552Z Cache hit for: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:12:39.4277562Z (node:2774) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-15T01:12:40.6288617Z Received 50331648 of 3991182027 (1.3%), 48.0 MBs/sec
+2026-11-15T01:12:41.6376076Z Received 197132288 of 3991182027 (4.9%), 93.8 MBs/sec
+2026-11-15T01:12:42.6390965Z Received 352321536 of 3991182027 (8.8%), 111.8 MBs/sec
+2026-11-15T01:12:43.6350345Z Received 499122176 of 3991182027 (12.5%), 118.8 MBs/sec
+2026-11-15T01:12:44.6352005Z Received 641728512 of 3991182027 (16.1%), 122.2 MBs/sec
+2026-11-15T01:12:45.6354832Z Received 754974720 of 3991182027 (18.9%), 119.8 MBs/sec
+2026-11-15T01:12:46.6393812Z Received 893386752 of 3991182027 (22.4%), 121.6 MBs/sec
+2026-11-15T01:12:47.6359318Z Received 1040187392 of 3991182027 (26.1%), 123.9 MBs/sec
+2026-11-15T01:12:48.6359765Z Received 1182793728 of 3991182027 (29.6%), 125.2 MBs/sec
+2026-11-15T01:12:49.6371881Z Received 1321205760 of 3991182027 (33.1%), 125.9 MBs/sec
+2026-11-15T01:12:50.6387331Z Received 1459617792 of 3991182027 (36.6%), 126.4 MBs/sec
+2026-11-15T01:12:51.6396256Z Received 1581252608 of 3991182027 (39.6%), 125.5 MBs/sec
+2026-11-15T01:12:52.6400292Z Received 1711276032 of 3991182027 (42.9%), 125.4 MBs/sec
+2026-11-15T01:12:53.6407277Z Received 1858076672 of 3991182027 (46.6%), 126.5 MBs/sec
+2026-11-15T01:12:54.6423631Z Received 2000683008 of 3991182027 (50.1%), 127.1 MBs/sec
+2026-11-15T01:12:55.6429795Z Received 2134900736 of 3991182027 (53.5%), 127.1 MBs/sec
+2026-11-15T01:12:56.6439118Z Received 2235564032 of 3991182027 (56.0%), 125.3 MBs/sec
+2026-11-15T01:12:57.6445993Z Received 2373976064 of 3991182027 (59.5%), 125.7 MBs/sec
+2026-11-15T01:12:58.6450213Z Received 2545942528 of 3991182027 (63.8%), 127.7 MBs/sec
+2026-11-15T01:12:59.6463403Z Received 2684354560 of 3991182027 (67.3%), 127.9 MBs/sec
+2026-11-15T01:13:00.6478866Z Received 2818572288 of 3991182027 (70.6%), 127.9 MBs/sec
+2026-11-15T01:13:01.6473726Z Received 2952790016 of 3991182027 (74.0%), 127.9 MBs/sec
+2026-11-15T01:13:02.6484141Z Received 3087007744 of 3991182027 (77.3%), 127.9 MBs/sec
+2026-11-15T01:13:03.6495401Z Received 3221225472 of 3991182027 (80.7%), 127.9 MBs/sec
+2026-11-15T01:13:04.6506023Z Received 3355443200 of 3991182027 (84.1%), 127.9 MBs/sec
+2026-11-15T01:13:05.6525764Z Received 3489660928 of 3991182027 (87.4%), 127.9 MBs/sec
+2026-11-15T01:13:06.6534621Z Received 3628072960 of 3991182027 (90.9%), 128.0 MBs/sec
+2026-11-15T01:13:07.6545729Z Received 3795845120 of 3991182027 (95.1%), 129.2 MBs/sec
+2026-11-15T01:13:08.6559094Z Received 3925868544 of 3991182027 (98.4%), 129.0 MBs/sec
+2026-11-15T01:13:09.0108018Z Received 3991182027 of 3991182027 (100.0%), 129.5 MBs/sec
+2026-11-15T01:13:09.0110140Z Cache Size: ~3806 MB (3991182027 B)
+2026-11-15T01:13:09.0230359Z [command]/usr/bin/tar -xf /home/runner/work/_temp/72ef6ae9-faff-4d98-aab0-adf71393e74b/cache.tzst -P -C /home/runner/work/elcton/elcton --use-compress-program unzstd
+2026-11-15T01:13:28.8469212Z Cache restored successfully
+2026-11-15T01:13:29.2440950Z Cache restored from key: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:13:29.2608651Z ##[end-action id=ohos.__actions_cache;outcome=success;conclusion=success;duration_ms=50171]
+2026-11-15T01:13:29.2617778Z ##[start-action display=Run setup script;id=ohos.setup-ohos]
+2026-11-15T01:13:29.2952074Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2026-11-15T01:13:29.2952891Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2026-11-15T01:13:29.2953480Z [36;1m  -v '6.1.1.280'[0m
+2026-11-15T01:13:29.3014149Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-15T01:13:29.3014552Z env:
+2026-11-15T01:13:29.3016994Z   GH_TOKEN: ***
+2026-11-15T01:13:29.3017269Z ##[endgroup]
+2026-11-15T01:13:29.3980824Z Successfully setup 6.1.1.125 SDK with API24!
+2026-11-15T01:13:29.4010887Z ##[end-action id=ohos.setup-ohos;outcome=success;conclusion=success;duration_ms=139]
+
+﻿2026-11-15T01:13:29.5330148Z ##[group]Run for p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do
+2026-11-15T01:13:29.5331196Z [36;1mfor p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do[0m
+2026-11-15T01:13:29.5331967Z [36;1m  if [ -d "$p" ]; then echo "$p" >> "$GITHUB_PATH"; fi[0m
+2026-11-15T01:13:29.5332414Z [36;1mdone[0m
+2026-11-15T01:13:29.5332955Z [36;1mif [ -d "$HOME/ohos-sdk/command-line-tools/sdk" ]; then[0m
+2026-11-15T01:13:29.5333595Z [36;1m  echo "HOS_SDK_HOME=$HOME/ohos-sdk/command-line-tools/sdk" >> "$GITHUB_ENV"[0m
+2026-11-15T01:13:29.5334112Z [36;1mfi[0m
+2026-11-15T01:13:29.5334371Z [36;1mecho "--- toolchain check ---"[0m
+2026-11-15T01:13:29.5334708Z [36;1mcommand -v hvigorw || true[0m
+2026-11-15T01:13:29.5335018Z [36;1mcommand -v ohpm || true[0m
+2026-11-15T01:13:29.5386000Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:29.5386313Z env:
+2026-11-15T01:13:29.5386632Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:29.5387243Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:29.5387694Z ##[endgroup]
+2026-11-15T01:13:29.5938672Z --- toolchain check ---
+2026-11-15T01:13:29.5942125Z /home/runner/ohos-sdk/command-line-tools/bin/hvigorw
+2026-11-15T01:13:29.5943276Z /home/runner/ohos-sdk/command-line-tools/bin/ohpm
+
+﻿2026-11-15T01:13:29.5984988Z ##[group]Run ohpm install --all
+2026-11-15T01:13:29.5985349Z [36;1mohpm install --all[0m
+2026-11-15T01:13:29.6034550Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:29.6034855Z env:
+2026-11-15T01:13:29.6035171Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:29.6035704Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:29.6036149Z ##[endgroup]
+2026-11-15T01:13:32.6734874Z ohpm INFO: fetch package done 1 @ohos/hypium from https://ohpm.openharmony.cn/ohpm/@ohos/hypium/-/hypium-1.0.25.har
+2026-11-15T01:13:32.8320557Z [32minstall completed in 1s 823ms[39m
+
+﻿2026-11-15T01:13:32.8495509Z ##[group]Run hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license
+2026-11-15T01:13:32.8496454Z [36;1mhvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license[0m
+2026-11-15T01:13:32.8546780Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:32.8547086Z env:
+2026-11-15T01:13:32.8547409Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:32.8547952Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:32.8548414Z ##[endgroup]
+2026-11-15T01:13:32.9873419Z Installing pnpm@10.28.2...
+2026-11-15T01:13:34.7078991Z 
+2026-11-15T01:13:34.7079666Z added 1 package, and audited 2 packages in 2s
+2026-11-15T01:13:34.7080120Z 
+2026-11-15T01:13:34.7080686Z 1 package is looking for funding
+2026-11-15T01:13:34.7081298Z   run `npm fund` for details
+2026-11-15T01:13:34.7374903Z 
+2026-11-15T01:13:34.7375945Z 1 high severity vulnerability
+2026-11-15T01:13:34.7376425Z 
+2026-11-15T01:13:34.7376685Z To address all issues, run:
+2026-11-15T01:13:34.7377055Z   npm audit fix --force
+2026-11-15T01:13:34.7377268Z 
+2026-11-15T01:13:34.7377410Z Run `npm audit` for details.
+2026-11-15T01:13:34.7489888Z Pnpm install success.
+2026-11-15T01:13:36.7726467Z > hvigor [32mFinished ::clean... after 15 ms [39m
+2026-11-15T01:13:36.7740366Z > hvigor [32mFinished :entry:clean... after 2 ms [39m
+2026-11-15T01:13:36.7769481Z > hvigor [32mFinished :entry:default@LegacyGenerateMetadata... after 3 ms [39m
+2026-11-15T01:13:36.7776065Z > hvigor [32mFinished :entry:default@PreCheckSyscap... after 1 ms [39m
+2026-11-15T01:13:36.7783893Z > hvigor [32mFinished ::PreBuildApp... after 1 ms [39m
+2026-11-15T01:13:36.8257464Z > hvigor [32mFinished :entry:default@LegacyPreBuild... after 47 ms [39m
+2026-11-15T01:13:36.8269054Z > hvigor [32mFinished :entry:default@LegacySyscapTransform... after 1 ms [39m
+2026-11-15T01:13:36.8275804Z > hvigor [32mFinished ::DuplicateDependencyCheck... after 1 ms [39m
+2026-11-15T01:13:36.8293361Z > hvigor [32mFinished :entry:default@LegacyMergeProfile... after 2 ms [39m
+2026-11-15T01:13:36.8310877Z > hvigor [32mFinished :entry:default@LegacyGenerateJsManifest... after 2 ms [39m
+2026-11-15T01:13:36.8316881Z > hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 1 ms [39m
+2026-11-15T01:13:36.8335089Z > hvigor [32mFinished :entry:default@LegacyMakePackInfo... after 2 ms [39m
+2026-11-15T01:13:36.8350689Z > hvigor [32mFinished :entry:default@LegacyProcessProfile... after 2 ms [39m
+2026-11-15T01:13:36.8361676Z > hvigor [32mFinished :entry:default@LegacyGenerateLoaderJson... after 1 ms [39m
+2026-11-15T01:13:36.8371482Z > hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 1 ms [39m
+2026-11-15T01:13:36.8388581Z > hvigor [32mFinished :entry:default@LegacyProcessResource... after 2 ms [39m
+2026-11-15T01:13:36.8491438Z > hvigor [32mFinished :entry:default@ProcessLibs... after 10 ms [39m
+2026-11-15T01:13:36.9125807Z > hvigor [32mFinished :entry:default@LegacyCompileResource... after 63 ms [39m
+2026-11-15T01:13:36.9155920Z > hvigor [32mFinished :entry:default@DoNativeStrip... after 3 ms [39m
+2026-11-15T01:13:36.9165670Z > hvigor [32mFinished :entry:default@LegacyHookCompileResource... after 1 ms [39m
+2026-11-15T01:13:36.9191180Z > hvigor [32mFinished :entry:default@CacheNativeLibs... after 3 ms [39m
+2026-11-15T01:13:42.0110063Z > hvigor [91mERROR: Failed :entry:default@LegacyCompileLiteJS... [39m
+2026-11-15T01:13:42.0193495Z > hvigor [91mERROR: [31mError Code: 00308018 Unknown Error
+2026-11-15T01:13:42.0194183Z Tools execution failed.
+2026-11-15T01:13:42.0195078Z [33m WARNING File:/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility/pages/code/code.css:60:5
+2026-11-15T01:13:42.0196023Z  `align-content` is not a standard attribute name and may not be supported [39m 
+2026-11-15T01:13:42.0196455Z 
+2026-11-15T01:13:42.0197083Z [31m Module not found: Error: Can't resolve './common/logsink.js' in '/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility'
+2026-11-15T01:13:42.0198345Z  [39m 
+2026-11-15T01:13:42.0198530Z 
+2026-11-15T01:13:42.0199290Z [31m Module not found: Error: Can't resolve './common/log-config.js' in '/home/runner/work/elcton/elcton/entry/src/main/js/MainAbility'
+2026-11-15T01:13:42.0200058Z  
+2026-11-15T01:13:42.0200233Z 
+2026-11-15T01:13:42.0200461Z * Try the following:
+2026-11-15T01:13:42.0201511Z   > This error is unknown, view the detailed error logs in the '.hvigor > outputs > build-logs' directory in the project directory for analysis, or contact the developer's official website for help.
+2026-11-15T01:13:42.0203170Z   > More info: https://developer.huawei.com/consumer/en/doc/harmonyos-faqs/faqs-compiling-and-building
+2026-11-15T01:13:42.0203936Z [39m
+2026-11-15T01:13:42.0204408Z 	 Detail: Please check the message from tools.
+2026-11-15T01:13:42.0204778Z 
+2026-11-15T01:13:42.0204991Z [31m* Try:
+2026-11-15T01:13:42.0205714Z > Run with --stacktrace option to get the stack trace.
+2026-11-15T01:13:42.0206262Z > Run with --debug option to get more log output.
+2026-11-15T01:13:42.0212515Z [39m
+2026-11-15T01:13:42.0213736Z > hvigor [91mERROR: BUILD FAILED in 6 s 688 ms [39m
+2026-11-15T01:13:42.0881502Z ##[error]Process completed with exit code 255.
+
+﻿2026-11-15T01:13:42.1045729Z Post job cleanup.
+2026-11-15T01:13:42.1049758Z ##[start-action display=Cache SDK;id=__7ebc60a3-9213-4f3f-bb4d-3ba13e67bee2.__actions_cache]
+2026-11-15T01:13:42.1053333Z ##[end-action id=__7ebc60a3-9213-4f3f-bb4d-3ba13e67bee2.__actions_cache;outcome=skipped;conclusion=skipped;duration_ms=0]
+
+﻿2026-11-15T01:13:42.1147003Z Post job cleanup.
+2026-11-15T01:13:42.2030828Z [command]/usr/bin/git version
+2026-11-15T01:13:42.2077559Z git version 2.56.1
+2026-11-15T01:13:42.2117963Z Temporarily overriding HOME='/home/runner/work/_temp/ce6b1291-a4e8-457b-b347-191f4f1e52b0' before making global git config changes
+2026-11-15T01:13:42.2119512Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T01:13:42.2123849Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/elcton/elcton
+2026-11-15T01:13:42.2168905Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T01:13:42.2209011Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-15T01:13:42.2523843Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T01:13:42.2559244Z http.https://github.com/.extraheader
+2026-11-15T01:13:42.2573028Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-15T01:13:42.2620685Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-15T01:13:42.2947894Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T01:13:42.2986201Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+
+﻿2026-11-15T01:13:42.3454590Z Cleaning up orphan processes
+2026-11-15T01:13:42.3961525Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
+﻿2026-11-15T01:12:26.8037047Z Current runner version: '2.338.2'
+2026-11-15T01:12:26.8063100Z ##[group]Runner Image Provisioner
+2026-11-15T01:12:26.8064164Z Hosted Compute Agent
+2026-11-15T01:12:26.8064994Z Version: 20261103.629
+2026-11-15T01:12:26.8065795Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-15T01:12:26.8066753Z Build Date: 2026-11-03T17:26:59Z
+2026-11-15T01:12:26.8067646Z Worker ID: {c820af48-31bd-4572-8dc1-e3a585b4ae27}
+2026-11-15T01:12:26.8068562Z Region: westus
+2026-11-15T01:12:26.8069259Z Cloud: Azure
+2026-11-15T01:12:26.8069986Z ##[endgroup]
+2026-11-15T01:12:26.8071612Z ##[group]Operating System
+2026-11-15T01:12:26.8072871Z Ubuntu
+2026-11-15T01:12:26.8073618Z 26.04.1
+2026-11-15T01:12:26.8074396Z LTS
+2026-11-15T01:12:26.8075024Z ##[endgroup]
+2026-11-15T01:12:26.8075757Z ##[group]Runner Image
+2026-11-15T01:12:26.8076486Z Image: ubuntu-26.04
+2026-11-15T01:12:26.8077281Z Version: 20261111.196.1
+2026-11-15T01:12:26.8078755Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-15T01:12:26.8080437Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-15T01:12:26.8081680Z ##[endgroup]
+2026-11-15T01:12:26.8083294Z ##[group]GITHUB_TOKEN Permissions
+2026-11-15T01:12:26.8085307Z Contents: read
+2026-11-15T01:12:26.8086166Z Metadata: read
+2026-11-15T01:12:26.8086859Z Packages: read
+2026-11-15T01:12:26.8087567Z ##[endgroup]
+2026-11-15T01:12:26.8090057Z Secret source: Actions
+2026-11-15T01:12:26.8091380Z Cache mode: write
+2026-11-15T01:12:26.8092177Z Prepare workflow directory
+2026-11-15T01:12:26.8430966Z Prepare all required actions
+2026-11-15T01:12:26.8481424Z Getting action download info
+2026-11-15T01:12:27.1887381Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-15T01:12:27.2890612Z Download action repository 'ErBWs/setup-ohos@v2' (SHA:4dbb63025116eb6165ceac58a4bf47cbdc5ac721)
+2026-11-15T01:12:27.5733189Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-15T01:12:27.8178039Z Getting action download info
+2026-11-15T01:12:27.9344174Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-11-15T01:12:28.0585126Z Complete job name: build (focus, focus)
+2026-11-15T01:12:28.1679778Z ##[group]Run actions/checkout@v4
+2026-11-15T01:12:28.1681185Z with:
+2026-11-15T01:12:28.1682050Z   repository: lantianhcgp/elcton
+2026-11-15T01:12:28.1691837Z   token: ***
+2026-11-15T01:12:28.1692881Z   ssh-strict: true
+2026-11-15T01:12:28.1693770Z   ssh-user: git
+2026-11-15T01:12:28.1694648Z   persist-credentials: true
+2026-11-15T01:12:28.1695617Z   clean: true
+2026-11-15T01:12:28.1696495Z   sparse-checkout-cone-mode: true
+2026-11-15T01:12:28.1697538Z   fetch-depth: 1
+2026-11-15T01:12:28.1698389Z   fetch-tags: false
+2026-11-15T01:12:28.1699256Z   show-progress: true
+2026-11-15T01:12:28.1700137Z   lfs: false
+2026-11-15T01:12:28.1700953Z   submodules: false
+2026-11-15T01:12:28.1701877Z   set-safe-directory: true
+2026-11-15T01:12:28.1702973Z   allow-unsafe-pr-checkout: false
+2026-11-15T01:12:28.1785079Z ##[endgroup]
+2026-11-15T01:12:28.4600257Z Syncing repository: lantianhcgp/elcton
+2026-11-15T01:12:28.4605517Z ##[group]Getting Git version info
+2026-11-15T01:12:28.4608132Z Working directory is '/home/runner/work/elcton/elcton'
+2026-11-15T01:12:28.4612218Z [command]/usr/bin/git version
+2026-11-15T01:12:28.4614512Z git version 2.56.1
+2026-11-15T01:12:28.4648202Z ##[endgroup]
+2026-11-15T01:12:28.4674801Z Temporarily overriding HOME='/home/runner/work/_temp/2c43e8c6-24c8-41c6-a7bd-3255ef6ddb32' before making global git config changes
+2026-11-15T01:12:28.4680818Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T01:12:28.4685278Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/elcton/elcton
+2026-11-15T01:12:28.4759473Z Deleting the contents of '/home/runner/work/elcton/elcton'
+2026-11-15T01:12:28.4766280Z ##[group]Initializing the repository
+2026-11-15T01:12:28.4781266Z [command]/usr/bin/git init /home/runner/work/elcton/elcton
+2026-11-15T01:12:28.4905961Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-15T01:12:28.4909079Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-15T01:12:28.4911807Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-15T01:12:28.4914444Z hint: call:
+2026-11-15T01:12:28.4916075Z hint:
+2026-11-15T01:12:28.4918062Z hint: 	git config --global init.defaultBranch <name>
+2026-11-15T01:12:28.4920217Z hint:
+2026-11-15T01:12:28.4922230Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-15T01:12:28.4924764Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-15T01:12:28.4926496Z hint:
+2026-11-15T01:12:28.4927468Z hint: 	git branch -m <name>
+2026-11-15T01:12:28.4928587Z hint:
+2026-11-15T01:12:28.4930515Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-15T01:12:28.4933379Z Initialized empty Git repository in /home/runner/work/elcton/elcton/.git/
+2026-11-15T01:12:28.4939486Z [command]/usr/bin/git remote add origin https://github.com/lantianhcgp/elcton
+2026-11-15T01:12:28.5006608Z ##[endgroup]
+2026-11-15T01:12:28.5009668Z ##[group]Disabling automatic garbage collection
+2026-11-15T01:12:28.5013003Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-15T01:12:28.5060700Z ##[endgroup]
+2026-11-15T01:12:28.5063883Z ##[group]Setting up auth
+2026-11-15T01:12:28.5068756Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T01:12:28.5127276Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-15T01:12:28.5620183Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T01:12:28.5668669Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-15T01:12:28.6010187Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T01:12:28.6040879Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-15T01:12:28.6359591Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-15T01:12:28.6406745Z ##[endgroup]
+2026-11-15T01:12:28.6409598Z ##[group]Fetching the repository
+2026-11-15T01:12:28.6420740Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cbd171553e70eb614ca4283534915b92ebb870de:refs/remotes/origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:29.3320873Z From https://github.com/lantianhcgp/elcton
+2026-11-15T01:12:29.3324856Z  * [new ref]         cbd171553e70eb614ca4283534915b92ebb870de -> origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:29.3336980Z ##[endgroup]
+2026-11-15T01:12:29.3339333Z ##[group]Determining the checkout info
+2026-11-15T01:12:29.3341292Z ##[endgroup]
+2026-11-15T01:12:29.3345452Z [command]/usr/bin/git sparse-checkout disable
+2026-11-15T01:12:29.3404621Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-15T01:12:29.3440770Z ##[group]Checking out the ref
+2026-11-15T01:12:29.3446359Z [command]/usr/bin/git checkout --progress --force -B fix/we-handshake-logger-20261115 refs/remotes/origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:29.5318597Z Switched to a new branch 'fix/we-handshake-logger-20261115'
+2026-11-15T01:12:29.5320747Z branch 'fix/we-handshake-logger-20261115' set up to track 'origin/fix/we-handshake-logger-20261115'.
+2026-11-15T01:12:29.5327984Z ##[endgroup]
+2026-11-15T01:12:29.5377798Z [command]/usr/bin/git log -1 --format=%H
+2026-11-15T01:12:29.5403868Z cbd171553e70eb614ca4283534915b92ebb870de
+2026-11-15T01:12:29.5660646Z ##[group]Run sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
+2026-11-15T01:12:29.5662261Z [36;1msudo apt-get update && sudo apt-get install -y libgl1-mesa-dev[0m
+2026-11-15T01:12:29.5720408Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:12:29.5721500Z ##[endgroup]
+2026-11-15T01:12:29.6591261Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-15T01:12:29.6778719Z Get:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease [3964 B]
+2026-11-15T01:12:29.6910328Z Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+2026-11-15T01:12:29.6938429Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+2026-11-15T01:12:29.6961748Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+2026-11-15T01:12:29.6989744Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+2026-11-15T01:12:29.7095276Z Get:7 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main arm64 Packages [143 kB]
+2026-11-15T01:12:29.7301835Z Get:8 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main amd64 Packages [158 kB]
+2026-11-15T01:12:29.7566074Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 Packages [869 kB]
+2026-11-15T01:12:29.7720505Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [195 kB]
+2026-11-15T01:12:29.7755337Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 Packages [390 kB]
+2026-11-15T01:12:29.7784765Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [122 kB]
+2026-11-15T01:12:29.7875100Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute-security/main amd64v3 Packages [718 kB]
+2026-11-15T01:12:29.7906557Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute-security/main Translation-en [157 kB]
+2026-11-15T01:12:29.7924009Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe amd64v3 Packages [220 kB]
+2026-11-15T01:12:29.7935645Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe Translation-en [72.5 kB]
+2026-11-15T01:12:29.7964843Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted amd64v3 Packages [590 kB]
+2026-11-15T01:12:29.7985626Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted Translation-en [122 kB]
+2026-11-15T01:12:31.8916016Z Fetched 4172 kB in 0s (11.4 MB/s)
+2026-11-15T01:12:32.5509463Z Reading package lists...
+2026-11-15T01:12:32.5838899Z Reading package lists...
+2026-11-15T01:12:32.7291630Z Building dependency tree...
+2026-11-15T01:12:32.7299022Z Reading state information...
+2026-11-15T01:12:32.8141450Z Solving dependencies...
+2026-11-15T01:12:32.9007462Z The following additional packages will be installed:
+2026-11-15T01:12:32.9008612Z   libegl-dev libegl-mesa0 libegl1 libgl-dev libgles-dev libgles1 libgles2
+2026-11-15T01:12:32.9013557Z   libglvnd-core-dev libglvnd-dev libglx-dev libopengl-dev libopengl0
+2026-11-15T01:12:32.9014621Z   libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-dev
+2026-11-15T01:12:32.9015058Z   xorg-sgml-doctools xtrans-dev
+2026-11-15T01:12:32.9023493Z Suggested packages:
+2026-11-15T01:12:32.9024248Z   libx11-doc libxcb-doc
+2026-11-15T01:12:32.9238004Z The following NEW packages will be installed:
+2026-11-15T01:12:32.9239273Z   libegl-dev libegl-mesa0 libegl1 libgl-dev libgl1-mesa-dev libgles-dev
+2026-11-15T01:12:32.9240487Z   libgles1 libgles2 libglvnd-core-dev libglvnd-dev libglx-dev libopengl-dev
+2026-11-15T01:12:32.9242060Z   libopengl0 libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-dev
+2026-11-15T01:12:32.9243307Z   xorg-sgml-doctools xtrans-dev
+2026-11-15T01:12:32.9449044Z 0 upgraded, 20 newly installed, 0 to remove and 24 not upgraded.
+2026-11-15T01:12:32.9449806Z Need to get 1997 kB of archives.
+2026-11-15T01:12:32.9450513Z After this operation, 8963 kB of additional disk space will be used.
+2026-11-15T01:12:32.9451843Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-15T01:12:33.0305594Z Get:2 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libegl-mesa0 amd64 26.0.8-1ubuntu0.3 [134 kB]
+2026-11-15T01:12:33.0928123Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libegl1 amd64 1.7.0-3 [29.8 kB]
+2026-11-15T01:12:33.1541014Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xorg-sgml-doctools all 1:1.11-1.1build1 [10.3 kB]
+2026-11-15T01:12:33.2154859Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 x11proto-dev all 2025.1-1 [608 kB]
+2026-11-15T01:12:33.2812576Z Get:6 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxau-dev amd64 1:1.0.11-1build2 [9780 B]
+2026-11-15T01:12:33.3427322Z Get:7 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxdmcp-dev amd64 1:1.1.5-2 [25.7 kB]
+2026-11-15T01:12:33.4040966Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xtrans-dev all 1.6.0-1build1 [66.2 kB]
+2026-11-15T01:12:33.4659775Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxcb1-dev amd64 1.17.0-2ubuntu1 [86.4 kB]
+2026-11-15T01:12:33.5278479Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libx11-dev amd64 2:1.8.13-1ubuntu0.1 [743 kB]
+2026-11-15T01:12:33.5948066Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglx-dev amd64 1.7.0-3 [14.1 kB]
+2026-11-15T01:12:33.6561036Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgl-dev amd64 1.7.0-3 [103 kB]
+2026-11-15T01:12:33.7189521Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libegl-dev amd64 1.7.0-3 [18.2 kB]
+2026-11-15T01:12:33.7802847Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles1 amd64 1.7.0-3 [11.5 kB]
+2026-11-15T01:12:33.8413965Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles2 amd64 1.7.0-3 [17.5 kB]
+2026-11-15T01:12:33.9027492Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles-dev amd64 1.7.0-3 [50.6 kB]
+2026-11-15T01:12:33.9644351Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libopengl0 amd64 1.7.0-3 [32.8 kB]
+2026-11-15T01:12:34.0256377Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libopengl-dev amd64 1.7.0-3 [3408 B]
+2026-11-15T01:12:34.0869619Z Get:19 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglvnd-core-dev amd64 1.7.0-3 [13.7 kB]
+2026-11-15T01:12:34.1481942Z Get:20 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglvnd-dev amd64 1.7.0-3 [3156 B]
+2026-11-15T01:12:34.2096308Z Get:21 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libgl1-mesa-dev amd64 26.0.8-1ubuntu0.3 [15.9 kB]
+2026-11-15T01:12:34.5270583Z Fetched 1997 kB in 1s (1563 kB/s)
+2026-11-15T01:12:34.5509256Z Selecting previously unselected package libegl-mesa0:amd64.
+2026-11-15T01:12:34.5794653Z (Reading database ... 
+2026-11-15T01:12:34.5795488Z (Reading database ... 5%
+2026-11-15T01:12:34.5796268Z (Reading database ... 10%
+2026-11-15T01:12:34.5797047Z (Reading database ... 15%
+2026-11-15T01:12:34.5797755Z (Reading database ... 20%
+2026-11-15T01:12:34.5798475Z (Reading database ... 25%
+2026-11-15T01:12:34.5799180Z (Reading database ... 30%
+2026-11-15T01:12:34.5799911Z (Reading database ... 35%
+2026-11-15T01:12:34.5800649Z (Reading database ... 40%
+2026-11-15T01:12:34.5801362Z (Reading database ... 45%
+2026-11-15T01:12:34.5802046Z (Reading database ... 50%
+2026-11-15T01:12:34.6701607Z (Reading database ... 55%
+2026-11-15T01:12:34.8138314Z (Reading database ... 60%
+2026-11-15T01:12:34.9758076Z (Reading database ... 65%
+2026-11-15T01:12:35.1719766Z (Reading database ... 70%
+2026-11-15T01:12:35.3226317Z (Reading database ... 75%
+2026-11-15T01:12:35.5243232Z (Reading database ... 80%
+2026-11-15T01:12:35.7140115Z (Reading database ... 85%
+2026-11-15T01:12:35.9207512Z (Reading database ... 90%
+2026-11-15T01:12:36.0751075Z (Reading database ... 95%
+2026-11-15T01:12:36.0751483Z (Reading database ... 100%
+2026-11-15T01:12:36.0752412Z (Reading database ... 213946 files and directories currently installed.)
+2026-11-15T01:12:36.0794074Z Preparing to unpack .../00-libegl-mesa0_26.0.8-1ubuntu0.3_amd64v3.deb ...
+2026-11-15T01:12:36.0830585Z Unpacking libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:36.1095890Z Selecting previously unselected package libegl1:amd64.
+2026-11-15T01:12:36.1235080Z Preparing to unpack .../01-libegl1_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.1244256Z Unpacking libegl1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.1469409Z Selecting previously unselected package xorg-sgml-doctools.
+2026-11-15T01:12:36.1609606Z Preparing to unpack .../02-xorg-sgml-doctools_1%3a1.11-1.1build1_all.deb ...
+2026-11-15T01:12:36.1617043Z Unpacking xorg-sgml-doctools (1:1.11-1.1build1) ...
+2026-11-15T01:12:36.1861365Z Selecting previously unselected package x11proto-dev.
+2026-11-15T01:12:36.1998508Z Preparing to unpack .../03-x11proto-dev_2025.1-1_all.deb ...
+2026-11-15T01:12:36.2007319Z Unpacking x11proto-dev (2025.1-1) ...
+2026-11-15T01:12:36.2518513Z Selecting previously unselected package libxau-dev:amd64.
+2026-11-15T01:12:36.2657020Z Preparing to unpack .../04-libxau-dev_1%3a1.0.11-1build2_amd64v3.deb ...
+2026-11-15T01:12:36.2664817Z Unpacking libxau-dev:amd64 (1:1.0.11-1build2) ...
+2026-11-15T01:12:36.2927567Z Selecting previously unselected package libxdmcp-dev:amd64.
+2026-11-15T01:12:36.3065633Z Preparing to unpack .../05-libxdmcp-dev_1%3a1.1.5-2_amd64v3.deb ...
+2026-11-15T01:12:36.3073468Z Unpacking libxdmcp-dev:amd64 (1:1.1.5-2) ...
+2026-11-15T01:12:36.3284696Z Selecting previously unselected package xtrans-dev.
+2026-11-15T01:12:36.3420746Z Preparing to unpack .../06-xtrans-dev_1.6.0-1build1_all.deb ...
+2026-11-15T01:12:36.3430733Z Unpacking xtrans-dev (1.6.0-1build1) ...
+2026-11-15T01:12:36.3661297Z Selecting previously unselected package libxcb1-dev:amd64.
+2026-11-15T01:12:36.3797473Z Preparing to unpack .../07-libxcb1-dev_1.17.0-2ubuntu1_amd64v3.deb ...
+2026-11-15T01:12:36.3805140Z Unpacking libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+2026-11-15T01:12:36.4043466Z Selecting previously unselected package libx11-dev:amd64.
+2026-11-15T01:12:36.4179823Z Preparing to unpack .../08-libx11-dev_2%3a1.8.13-1ubuntu0.1_amd64v3.deb ...
+2026-11-15T01:12:36.4188159Z Unpacking libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+2026-11-15T01:12:36.4499102Z Selecting previously unselected package libglx-dev:amd64.
+2026-11-15T01:12:36.4636114Z Preparing to unpack .../09-libglx-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.4643305Z Unpacking libglx-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.4867305Z Selecting previously unselected package libgl-dev:amd64.
+2026-11-15T01:12:36.5004015Z Preparing to unpack .../10-libgl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.5015068Z Unpacking libgl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.5303438Z Selecting previously unselected package libegl-dev:amd64.
+2026-11-15T01:12:36.5442879Z Preparing to unpack .../11-libegl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.5451365Z Unpacking libegl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.5691502Z Selecting previously unselected package libgles1:amd64.
+2026-11-15T01:12:36.5830322Z Preparing to unpack .../12-libgles1_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.5839034Z Unpacking libgles1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.6079916Z Selecting previously unselected package libgles2:amd64.
+2026-11-15T01:12:36.6222221Z Preparing to unpack .../13-libgles2_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.6230818Z Unpacking libgles2:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.6463529Z Selecting previously unselected package libgles-dev:amd64.
+2026-11-15T01:12:36.6602226Z Preparing to unpack .../14-libgles-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.6610049Z Unpacking libgles-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.6876712Z Selecting previously unselected package libopengl0:amd64.
+2026-11-15T01:12:36.7015759Z Preparing to unpack .../15-libopengl0_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.7024726Z Unpacking libopengl0:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.7252462Z Selecting previously unselected package libopengl-dev:amd64.
+2026-11-15T01:12:36.7392493Z Preparing to unpack .../16-libopengl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.7401557Z Unpacking libopengl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.7622358Z Selecting previously unselected package libglvnd-core-dev:amd64.
+2026-11-15T01:12:36.7760251Z Preparing to unpack .../17-libglvnd-core-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.7767421Z Unpacking libglvnd-core-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.7988902Z Selecting previously unselected package libglvnd-dev:amd64.
+2026-11-15T01:12:36.8129056Z Preparing to unpack .../18-libglvnd-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.8136093Z Unpacking libglvnd-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.8345282Z Selecting previously unselected package libgl1-mesa-dev:amd64.
+2026-11-15T01:12:36.8485556Z Preparing to unpack .../19-libgl1-mesa-dev_26.0.8-1ubuntu0.3_amd64v3.deb ...
+2026-11-15T01:12:36.8494541Z Unpacking libgl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:36.8930476Z Setting up libglvnd-core-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.8960842Z Setting up libopengl0:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.8981777Z Setting up xtrans-dev (1.6.0-1build1) ...
+2026-11-15T01:12:36.9002086Z Setting up libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:36.9023099Z Setting up libgles2:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9042484Z Setting up libgles1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9063012Z Setting up libegl1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9082594Z Setting up xorg-sgml-doctools (1:1.11-1.1build1) ...
+2026-11-15T01:12:36.9110530Z Setting up libopengl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9198899Z Processing triggers for libc-bin (2.43-2ubuntu2.4) ...
+2026-11-15T01:12:36.9491664Z Processing triggers for man-db (2.13.1-1build1) ...
+2026-11-15T01:12:36.9512994Z Not building database; man-db/auto-update is not 'true'.
+2026-11-15T01:12:36.9531636Z Processing triggers for sgml-base (1.31+nmu1build1) ...
+2026-11-15T01:12:36.9727244Z Setting up x11proto-dev (2025.1-1) ...
+2026-11-15T01:12:36.9752300Z Setting up libxau-dev:amd64 (1:1.0.11-1build2) ...
+2026-11-15T01:12:36.9782532Z Setting up libxdmcp-dev:amd64 (1:1.1.5-2) ...
+2026-11-15T01:12:36.9817091Z Setting up libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+2026-11-15T01:12:36.9841445Z Setting up libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+2026-11-15T01:12:36.9872813Z Setting up libglx-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9906335Z Setting up libgl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9932415Z Setting up libegl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9965424Z Setting up libgles-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9990894Z Setting up libglvnd-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.0017024Z Setting up libgl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:37.6314563Z 
+2026-11-15T01:12:37.6315192Z Running kernel seems to be up-to-date.
+2026-11-15T01:12:37.6315524Z 
+2026-11-15T01:12:37.6315665Z Restarting services...
+2026-11-15T01:12:37.6410518Z 
+2026-11-15T01:12:37.6411004Z Service restarts being deferred:
+2026-11-15T01:12:37.6413879Z  systemctl restart hosted-compute-agent.service
+2026-11-15T01:12:37.6414411Z 
+2026-11-15T01:12:37.6414802Z No containers need to be restarted.
+2026-11-15T01:12:37.6415183Z 
+2026-11-15T01:12:37.6415338Z No user sessions are running outdated binaries.
+2026-11-15T01:12:37.6415588Z 
+2026-11-15T01:12:37.6415815Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-11-15T01:12:38.4946258Z ##[group]Run ErBWs/setup-ohos@v2
+2026-11-15T01:12:38.4946591Z with:
+2026-11-15T01:12:38.4946823Z   version: 6.1.1.280
+2026-11-15T01:12:38.4947068Z   cache: true
+2026-11-15T01:12:38.4970188Z ##[endgroup]
+2026-11-15T01:12:38.5033370Z ##[start-action display=Make the script executable;id=ohos.__run]
+2026-11-15T01:12:38.5069577Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2026-11-15T01:12:38.5069999Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2026-11-15T01:12:38.5120640Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-15T01:12:38.5121047Z ##[endgroup]
+2026-11-15T01:12:38.5237729Z ##[end-action id=ohos.__run;outcome=success;conclusion=success;duration_ms=20]
+2026-11-15T01:12:38.5240706Z ##[start-action display=Cache SDK;id=ohos.__actions_cache]
+2026-11-15T01:12:38.5331691Z ##[group]Run actions/cache@v4
+2026-11-15T01:12:38.5331970Z with:
+2026-11-15T01:12:38.5332199Z   path: ~/ohos-sdk
+2026-11-15T01:12:38.5332457Z   key: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:12:38.5333093Z   enableCrossOsArchive: false
+2026-11-15T01:12:38.5333390Z   fail-on-cache-miss: false
+2026-11-15T01:12:38.5333653Z   lookup-only: false
+2026-11-15T01:12:38.5333895Z   save-always: false
+2026-11-15T01:12:38.5334136Z ##[endgroup]
+2026-11-15T01:12:38.6406719Z (node:2814) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T01:12:38.6408047Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T01:12:38.9027178Z Cache hit for: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:12:38.9129922Z (node:2814) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-15T01:12:40.1731263Z Received 16777216 of 3991182027 (0.4%), 16.0 MBs/sec
+2026-11-15T01:12:41.1730152Z Received 163577856 of 3991182027 (4.1%), 78.0 MBs/sec
+2026-11-15T01:12:42.1738833Z Received 301989888 of 3991182027 (7.6%), 96.0 MBs/sec
+2026-11-15T01:12:43.1823908Z Received 478150656 of 3991182027 (12.0%), 113.9 MBs/sec
+2026-11-15T01:12:44.1753522Z Received 603979776 of 3991182027 (15.1%), 115.1 MBs/sec
+2026-11-15T01:12:45.1761528Z Received 746586112 of 3991182027 (18.7%), 118.6 MBs/sec
+2026-11-15T01:12:46.1793904Z Received 918552576 of 3991182027 (23.0%), 125.1 MBs/sec
+2026-11-15T01:12:47.1778597Z Received 1061158912 of 3991182027 (26.6%), 126.4 MBs/sec
+2026-11-15T01:12:48.1833617Z Received 1207959552 of 3991182027 (30.3%), 127.9 MBs/sec
+2026-11-15T01:12:49.1822501Z Received 1342177280 of 3991182027 (33.6%), 127.9 MBs/sec
+2026-11-15T01:12:50.1883894Z Received 1480589312 of 3991182027 (37.1%), 128.2 MBs/sec
+2026-11-15T01:12:51.1883929Z Received 1614807040 of 3991182027 (40.5%), 128.2 MBs/sec
+2026-11-15T01:12:52.1868453Z Received 1744830464 of 3991182027 (43.7%), 127.9 MBs/sec
+2026-11-15T01:12:53.1876200Z Received 1879048192 of 3991182027 (47.1%), 127.9 MBs/sec
+2026-11-15T01:12:54.1880824Z Received 2013265920 of 3991182027 (50.4%), 127.9 MBs/sec
+2026-11-15T01:12:55.1885413Z Received 2147483648 of 3991182027 (53.8%), 127.9 MBs/sec
+2026-11-15T01:12:56.1893154Z Received 2281701376 of 3991182027 (57.2%), 127.9 MBs/sec
+2026-11-15T01:12:57.1903300Z Received 2415919104 of 3991182027 (60.5%), 127.9 MBs/sec
+2026-11-15T01:12:58.1910557Z Received 2550136832 of 3991182027 (63.9%), 127.9 MBs/sec
+2026-11-15T01:12:59.1911943Z Received 2684354560 of 3991182027 (67.3%), 127.9 MBs/sec
+2026-11-15T01:13:00.1918088Z Received 2810183680 of 3991182027 (70.4%), 127.5 MBs/sec
+2026-11-15T01:13:01.1941834Z Received 2923429888 of 3991182027 (73.2%), 126.6 MBs/sec
+2026-11-15T01:13:02.1944525Z Received 3040870400 of 3991182027 (76.2%), 126.0 MBs/sec
+2026-11-15T01:13:03.1954211Z Received 3158310912 of 3991182027 (79.1%), 125.4 MBs/sec
+2026-11-15T01:13:04.1946896Z Received 3275751424 of 3991182027 (82.1%), 124.9 MBs/sec
+2026-11-15T01:13:05.1958735Z Received 3388997632 of 3991182027 (84.9%), 124.2 MBs/sec
+2026-11-15T01:13:06.1965666Z Received 3514826752 of 3991182027 (88.1%), 124.0 MBs/sec
+2026-11-15T01:13:07.1972338Z Received 3623878656 of 3991182027 (90.8%), 123.3 MBs/sec
+2026-11-15T01:13:08.1973598Z Received 3758096384 of 3991182027 (94.2%), 123.5 MBs/sec
+2026-11-15T01:13:09.1972440Z Received 3892314112 of 3991182027 (97.5%), 123.6 MBs/sec
+2026-11-15T01:13:09.8916007Z Received 3991182027 of 3991182027 (100.0%), 123.9 MBs/sec
+2026-11-15T01:13:09.8919089Z Cache Size: ~3806 MB (3991182027 B)
+2026-11-15T01:13:09.9041119Z [command]/usr/bin/tar -xf /home/runner/work/_temp/aad695cd-4510-480e-b279-07fe0ec08865/cache.tzst -P -C /home/runner/work/elcton/elcton --use-compress-program unzstd
+2026-11-15T01:13:29.8469498Z Cache restored successfully
+2026-11-15T01:13:30.0838405Z Cache restored from key: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:13:30.1013385Z ##[end-action id=ohos.__actions_cache;outcome=success;conclusion=success;duration_ms=51577]
+2026-11-15T01:13:30.1022182Z ##[start-action display=Run setup script;id=ohos.setup-ohos]
+2026-11-15T01:13:30.1624217Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2026-11-15T01:13:30.1624872Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2026-11-15T01:13:30.1625429Z [36;1m  -v '6.1.1.280'[0m
+2026-11-15T01:13:30.1679988Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-15T01:13:30.1680383Z env:
+2026-11-15T01:13:30.1683284Z   GH_TOKEN: ***
+2026-11-15T01:13:30.1683562Z ##[endgroup]
+2026-11-15T01:13:30.2377008Z Successfully setup 6.1.1.125 SDK with API24!
+2026-11-15T01:13:30.2407460Z ##[end-action id=ohos.setup-ohos;outcome=success;conclusion=success;duration_ms=138]
+2026-11-15T01:13:30.3731239Z ##[group]Run for p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do
+2026-11-15T01:13:30.3732999Z [36;1mfor p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do[0m
+2026-11-15T01:13:30.3734146Z [36;1m  if [ -d "$p" ]; then echo "$p" >> "$GITHUB_PATH"; fi[0m
+2026-11-15T01:13:30.3734793Z [36;1mdone[0m
+2026-11-15T01:13:30.3735361Z [36;1mif [ -d "$HOME/ohos-sdk/command-line-tools/sdk" ]; then[0m
+2026-11-15T01:13:30.3736309Z [36;1m  echo "HOS_SDK_HOME=$HOME/ohos-sdk/command-line-tools/sdk" >> "$GITHUB_ENV"[0m
+2026-11-15T01:13:30.3737092Z [36;1mfi[0m
+2026-11-15T01:13:30.3737478Z [36;1mecho "--- toolchain check ---"[0m
+2026-11-15T01:13:30.3738055Z [36;1mcommand -v hvigorw || true[0m
+2026-11-15T01:13:30.3738589Z [36;1mcommand -v ohpm || true[0m
+2026-11-15T01:13:30.3790909Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:30.3791230Z env:
+2026-11-15T01:13:30.3791585Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:30.3792135Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:30.3792591Z ##[endgroup]
+2026-11-15T01:13:30.4648682Z --- toolchain check ---
+2026-11-15T01:13:30.4649292Z /home/runner/ohos-sdk/command-line-tools/bin/hvigorw
+2026-11-15T01:13:30.4650131Z /home/runner/ohos-sdk/command-line-tools/bin/ohpm
+2026-11-15T01:13:30.5124163Z ##[group]Run ohpm install --all
+2026-11-15T01:13:30.5124734Z [36;1mohpm install --all[0m
+2026-11-15T01:13:30.5174412Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:30.5174709Z env:
+2026-11-15T01:13:30.5175029Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:30.5175560Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:30.5176008Z ##[endgroup]
+2026-11-15T01:13:33.1997393Z ohpm INFO: fetch package done 1 @ohos/hypium from https://ohpm.openharmony.cn/ohpm/@ohos/hypium/-/hypium-1.0.25.har
+2026-11-15T01:13:33.3256909Z [32minstall completed in 1s 380ms[39m
+2026-11-15T01:13:33.3731587Z ##[group]Run hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license
+2026-11-15T01:13:33.3732565Z [36;1mhvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license[0m
+2026-11-15T01:13:33.3781256Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:33.3781550Z env:
+2026-11-15T01:13:33.3781869Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:33.3782405Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:33.3782963Z ##[endgroup]
+2026-11-15T01:13:33.5082026Z Installing pnpm@10.28.2...
+2026-11-15T01:13:35.1874563Z 
+2026-11-15T01:13:35.1875319Z added 1 package, and audited 2 packages in 1s
+2026-11-15T01:13:35.1875994Z 
+2026-11-15T01:13:35.1876420Z 1 package is looking for funding
+2026-11-15T01:13:35.1877374Z   run `npm fund` for details
+2026-11-15T01:13:35.2222019Z 
+2026-11-15T01:13:35.2222610Z 1 high severity vulnerability
+2026-11-15T01:13:35.2223329Z 
+2026-11-15T01:13:35.2223534Z To address all issues, run:
+2026-11-15T01:13:35.2224347Z   npm audit fix --force
+2026-11-15T01:13:35.2224675Z 
+2026-11-15T01:13:35.2228290Z Run `npm audit` for details.
+2026-11-15T01:13:35.2363318Z Pnpm install success.
+2026-11-15T01:13:37.3079899Z > hvigor [32mFinished ::clean... after 15 ms [39m
+2026-11-15T01:13:37.3099600Z > hvigor [32mFinished :entry:clean... after 2 ms [39m
+2026-11-15T01:13:37.3133065Z > hvigor [32mFinished :entry:default@LegacyGenerateMetadata... after 4 ms [39m
+2026-11-15T01:13:37.3163722Z > hvigor [32mFinished :entry:default@PreCheckSyscap... after 1 ms [39m
+2026-11-15T01:13:37.3164893Z > hvigor [32mFinished ::PreBuildApp... after 1 ms [39m
+2026-11-15T01:13:37.3711013Z > hvigor [32mFinished :entry:default@LegacyPreBuild... after 56 ms [39m
+2026-11-15T01:13:37.3723401Z > hvigor [32mFinished :entry:default@LegacySyscapTransform... after 1 ms [39m
+2026-11-15T01:13:37.3729552Z > hvigor [32mFinished ::DuplicateDependencyCheck... after 1 ms [39m
+2026-11-15T01:13:37.3748227Z > hvigor [32mFinished :entry:default@LegacyMergeProfile... after 2 ms [39m
+2026-11-15T01:13:37.3764678Z > hvigor [32mFinished :entry:default@LegacyGenerateJsManifest... after 2 ms [39m
+2026-11-15T01:13:37.3770613Z > hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 1 ms [39m
+2026-11-15T01:13:37.3788832Z > hvigor [32mFinished :entry:default@LegacyMakePackInfo... after 2 ms [39m
+2026-11-15T01:13:37.3804479Z > hvigor [32mFinished :entry:default@LegacyProcessProfile... after 2 ms [39m
+2026-11-15T01:13:37.3815541Z > hvigor [32mFinished :entry:default@LegacyGenerateLoaderJson... after 1 ms [39m
+2026-11-15T01:13:37.3825892Z > hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 1 ms [39m
+2026-11-15T01:13:37.3842903Z > hvigor [32mFinished :entry:default@LegacyProcessResource... after 2 ms [39m
+2026-11-15T01:13:37.3947528Z > hvigor [32mFinished :entry:default@ProcessLibs... after 11 ms [39m
+2026-11-15T01:13:37.4761241Z > hvigor [32mFinished :entry:default@LegacyCompileResource... after 81 ms [39m
+2026-11-15T01:13:37.4803759Z > hvigor [32mFinished :entry:default@DoNativeStrip... after 2 ms [39m
+2026-11-15T01:13:37.4805543Z > hvigor [32mFinished :entry:default@LegacyHookCompileResource... after 1 ms [39m
+2026-11-15T01:13:37.4819455Z > hvigor [32mFinished :entry:default@CacheNativeLibs... after 3 ms [39m
+2026-11-15T01:13:41.5236922Z > hvigor [32mFinished :entry:default@LegacyCompileLiteJS... after 4 s 41 ms [39m
+2026-11-15T01:13:41.5249869Z > hvigor [32mFinished :entry:default@LegacyCompileArkTS... after 2 ms [39m
+2026-11-15T01:13:41.5259161Z > hvigor [32mFinished :entry:default@LegacyBuildJS... after 1 ms [39m
+2026-11-15T01:13:41.5403502Z > hvigor [32mFinished :entry:default@LegacyGenerateLiteCode... after 15 ms [39m
+2026-11-15T01:13:41.5411017Z > hvigor [32mFinished :entry:default@LegacyProcessNodeAssets... after 1 ms [39m
+2026-11-15T01:13:41.5416441Z > hvigor [33mWARN: No signingConfig found for product default[39m
+2026-11-15T01:13:41.5422317Z > hvigor [32mFinished :entry:default@LegacySignLiteBin... after 1 ms [39m
+2026-11-15T01:13:42.7891966Z > hvigor [33mWARN: WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+2026-11-15T01:13:42.7894224Z WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar)
+2026-11-15T01:13:42.7896192Z WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils
+2026-11-15T01:13:42.7897401Z WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+2026-11-15T01:13:42.7898305Z [39m
+2026-11-15T01:13:42.7899304Z > hvigor [32mFinished :entry:default@LegacyPackageHap... after 1 s 248 ms [39m
+2026-11-15T01:13:42.7904191Z > hvigor [33mWARN: No signingConfig found for product default[39m
+2026-11-15T01:13:42.7924499Z > hvigor [32mFinished :entry:default@SignHap... after 2 ms [39m
+2026-11-15T01:13:42.7925506Z > hvigor [32mFinished :entry:assembleHap... after 1 ms [39m
+2026-11-15T01:13:42.7948619Z > hvigor [32mFinished ::MakeProjectPackInfo... after 3 ms [39m
+2026-11-15T01:13:42.7977457Z > hvigor [32mFinished ::ProcessProjectPrivacyProfile... after 3 ms [39m
+2026-11-15T01:13:42.7986677Z > hvigor [32mFinished ::GeneratePackRes... after 1 ms [39m
+2026-11-15T01:13:43.1835479Z > hvigor [33mWARN: WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+2026-11-15T01:13:43.1836722Z WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar)
+2026-11-15T01:13:43.1837894Z WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils
+2026-11-15T01:13:43.1838617Z WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+2026-11-15T01:13:43.1839093Z [39m
+2026-11-15T01:13:43.1841634Z > hvigor [32mFinished ::PackageApp... after 386 ms [39m
+2026-11-15T01:13:43.1850389Z > hvigor [32mFinished ::SignPackagesFromApp... after 1 ms [39m
+2026-11-15T01:13:43.1855992Z > hvigor [33mWARN: No signingConfig found for product default[39m
+2026-11-15T01:13:43.1864361Z > hvigor [32mFinished ::SignApp... after 2 ms [39m
+2026-11-15T01:13:43.1868268Z > hvigor [32mFinished ::assembleApp... after 1 ms [39m
+2026-11-15T01:13:43.1881256Z > hvigor [32mBUILD SUCCESSFUL in 7 s 357 ms [39m
+2026-11-15T01:13:43.2634489Z ##[group]Run python3 scripts/clean_config_in_app.py "focus"/build/outputs/default/*.app
+2026-11-15T01:13:43.2635202Z [36;1mpython3 scripts/clean_config_in_app.py "focus"/build/outputs/default/*.app[0m
+2026-11-15T01:13:43.2683981Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:43.2684284Z env:
+2026-11-15T01:13:43.2684617Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:43.2685157Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:43.2685603Z ##[endgroup]
+2026-11-15T01:13:43.3082575Z 清洗 focus-default-unsigned.app: app.appEnvironments, app.apiVersion.compileSdkVersion, app.apiVersion.compileSdkType, deviceConfig.default.debug, module.package->com.hcbiu.focus
+2026-11-15T01:13:43.3173964Z ##[group]Run mkdir -p dist
+2026-11-15T01:13:43.3174335Z [36;1mmkdir -p dist[0m
+2026-11-15T01:13:43.3174622Z [36;1mP7B=certs/app.p7b[0m
+2026-11-15T01:13:43.3174989Z [36;1mif [ "focus" = "elcton" ]; then P7B=certs/elcton.p7b; fi[0m
+2026-11-15T01:13:43.3175408Z [36;1mif [ -f "$P7B" ]; then[0m
+2026-11-15T01:13:43.3175761Z [36;1m  cp -r tools/sign /tmp/sign && cd /tmp/sign[0m
+2026-11-15T01:13:43.3176144Z [36;1m  npm install --no-audit --no-fund[0m
+2026-11-15T01:13:43.3176472Z [36;1m  cd -[0m
+2026-11-15T01:13:43.3177011Z [36;1m  FORCE_P7B_BUNDLE=1 node /tmp/sign/sign-app-to-hap.js "focus"/build/outputs/default/*.app "$P7B" "dist/focus.hap"[0m
+2026-11-15T01:13:43.3177601Z [36;1melse[0m
+2026-11-15T01:13:43.3177867Z [36;1m  echo "$P7B 不存在 → 本次只交付未签名 .app"[0m
+2026-11-15T01:13:43.3178171Z [36;1mfi[0m
+2026-11-15T01:13:43.3225120Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:43.3225418Z env:
+2026-11-15T01:13:43.3225779Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:43.3226337Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:43.3227996Z   SIGN_P12_PEM: ***
+2026-11-15T01:13:43.3228281Z ##[endgroup]
+2026-11-15T01:13:44.7890315Z 
+2026-11-15T01:13:44.7890578Z added 25 packages in 1s
+2026-11-15T01:13:44.7999204Z /home/runner/work/elcton/elcton
+2026-11-15T01:13:44.9028438Z 正在签名
+2026-11-15T01:13:44.9115171Z Signing identity verified: ac2ad970f710b2dcd979e2dcf42150d4254ab4316b20e248ac0ef327ae061e32
+2026-11-15T01:13:45.0213924Z 签名完成：dist/focus.hap
+2026-11-15T01:13:45.0312339Z ##[group]Run P7B=certs/app.p7b
+2026-11-15T01:13:45.0313246Z [36;1mP7B=certs/app.p7b[0m
+2026-11-15T01:13:45.0313616Z [36;1mif [ "focus" = "elcton" ]; then P7B=certs/elcton.p7b; fi[0m
+2026-11-15T01:13:45.0314045Z [36;1mif [ -f "dist/focus.hap" ]; then[0m
+2026-11-15T01:13:45.0314475Z [36;1m  python3 tools/sign/verify_sign.py "dist/focus.hap" "$P7B"[0m
+2026-11-15T01:13:45.0314873Z [36;1melse[0m
+2026-11-15T01:13:45.0315164Z [36;1m  echo "无签名产物（仅未签名 .app），跳过验签"[0m
+2026-11-15T01:13:45.0315468Z [36;1mfi[0m
+2026-11-15T01:13:45.0364604Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:45.0364899Z env:
+2026-11-15T01:13:45.0365226Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:45.0365759Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:45.0366210Z ##[endgroup]
+2026-11-15T01:13:45.1415318Z PASS: CMS/profile identity and full package digest verified {"cms_bytes": 2482, "package_bytes": 110011, "bundle": "drt.sign.yzm.nexus.jvor1", "public_key_sha256": "ac2ad970f710b2dcd979e2dcf42150d4254ab4316b20e248ac0ef327ae061e32", "profile_exact": true, "payload_digest_bound": true}
+2026-11-15T01:13:45.1514873Z ##[group]Run mkdir -p dist
+2026-11-15T01:13:45.1515226Z [36;1mmkdir -p dist[0m
+2026-11-15T01:13:45.1515664Z [36;1mcp "focus"/build/outputs/default/*.app dist/ 2>/dev/null || true[0m
+2026-11-15T01:13:45.1516083Z [36;1mls -la dist/[0m
+2026-11-15T01:13:45.1565060Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:45.1565359Z env:
+2026-11-15T01:13:45.1565676Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:45.1566227Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:45.1566679Z ##[endgroup]
+2026-11-15T01:13:45.1714058Z total 220
+2026-11-15T01:13:45.1714584Z drwxr-xr-x  2 runner runner   4096 Nov 15 01:13 .
+2026-11-15T01:13:45.1715593Z drwxr-xr-x 20 runner runner   4096 Nov 15 01:13 ..
+2026-11-15T01:13:45.1716568Z -rw-r--r--  1 runner runner 105657 Nov 15 01:13 focus-default-unsigned.app
+2026-11-15T01:13:45.1717736Z -rw-r--r--  1 runner runner 110129 Nov 15 01:13 focus.hap
+2026-11-15T01:13:45.1789948Z ##[group]Run actions/upload-artifact@v4
+2026-11-15T01:13:45.1790310Z with:
+2026-11-15T01:13:45.1790541Z   name: focus-99
+2026-11-15T01:13:45.1790780Z   path: dist/
+2026-11-15T01:13:45.1791023Z   if-no-files-found: error
+2026-11-15T01:13:45.1791299Z   compression-level: 6
+2026-11-15T01:13:45.1791552Z   overwrite: false
+2026-11-15T01:13:45.1791813Z   include-hidden-files: false
+2026-11-15T01:13:45.1792085Z env:
+2026-11-15T01:13:45.1792384Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:45.1793153Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:45.1793597Z ##[endgroup]
+2026-11-15T01:13:45.3481488Z (node:3052) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T01:13:45.3483126Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T01:13:45.3538420Z With the provided path, there will be 2 files uploaded
+2026-11-15T01:13:45.3546791Z Artifact name is valid!
+2026-11-15T01:13:45.3547676Z Root directory input is valid!
+2026-11-15T01:13:45.7097519Z Beginning upload of artifact content to blob storage
+2026-11-15T01:13:45.7353746Z (node:3052) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-15T01:13:46.1202465Z Uploaded bytes 60606
+2026-11-15T01:13:46.1947000Z Finished uploading artifact content to blob storage!
+2026-11-15T01:13:46.1948729Z SHA256 digest of uploaded artifact zip is bd0c177bca1ad1b4719ec2cf6914d5250e9035522fb6c7432ba1628abb1e4525
+2026-11-15T01:13:46.1950501Z Finalizing artifact upload
+2026-11-15T01:13:46.5673990Z Artifact focus-99.zip successfully finalized. Artifact ID 14140143161
+2026-11-15T01:13:46.5674943Z Artifact focus-99 has been successfully uploaded! Final size is 60606 bytes. Artifact ID is 14140143161
+2026-11-15T01:13:46.5681030Z Artifact download URL: https://github.com/lantianhcgp/elcton/actions/runs/43661966727/artifacts/14140143161
+2026-11-15T01:13:46.5891354Z Post job cleanup.
+2026-11-15T01:13:46.5895446Z ##[start-action display=Cache SDK;id=__025bc131-92fe-4668-93ff-26e6ae3f7e57.__actions_cache]
+2026-11-15T01:13:46.5931039Z Post job cleanup.
+2026-11-15T01:13:46.7063927Z Cache hit occurred on the primary key ohos-sdk-Linux-X64-6.1.1.280, not saving cache.
+2026-11-15T01:13:46.7065528Z (node:3064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T01:13:46.7066621Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T01:13:46.7144631Z ##[end-action id=__025bc131-92fe-4668-93ff-26e6ae3f7e57.__actions_cache;outcome=success;conclusion=success;duration_ms=124]
+2026-11-15T01:13:46.7220185Z Post job cleanup.
+2026-11-15T01:13:46.8117761Z [command]/usr/bin/git version
+2026-11-15T01:13:46.8165900Z git version 2.56.1
+2026-11-15T01:13:46.8210932Z Temporarily overriding HOME='/home/runner/work/_temp/8dc6e575-999b-4eb9-9da1-a62a327b8831' before making global git config changes
+2026-11-15T01:13:46.8212488Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T01:13:46.8217074Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/elcton/elcton
+2026-11-15T01:13:46.8258806Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T01:13:46.8296066Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-15T01:13:46.8607120Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T01:13:46.8634738Z http.https://github.com/.extraheader
+2026-11-15T01:13:46.8647109Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-15T01:13:46.8695614Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-15T01:13:46.9100776Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T01:13:46.9139369Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-15T01:13:46.9616026Z Cleaning up orphan processes
+2026-11-15T01:13:47.0007135Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
+2026-11-15T01:12:23.6660000Z Evaluating build.if
+2026-11-15T01:12:23.6660000Z Evaluating: success()
+2026-11-15T01:12:23.6660000Z Result: true
+2026-11-15T01:12:23.6680000Z Requested labels: ubuntu-latest
+2026-11-15T01:12:23.6680000Z Job defined at: lantianhcgp/elcton/.github/workflows/build.yml@refs/heads/fix/we-handshake-logger-20261115
+2026-11-15T01:12:23.6680000Z Waiting for a runner to pick up this job...
+2026-11-15T01:12:24.0270000Z Job is about to start running on the hosted runner: GitHub Actions 1000001663
+2026-11-15T01:12:24.0260000Z Job is waiting for a hosted runner to come online.
+﻿2026-11-15T01:12:26.8036120Z Current runner version: '2.338.2'
+2026-11-15T01:12:26.8063076Z ##[group]Runner Image Provisioner
+2026-11-15T01:12:26.8064158Z Hosted Compute Agent
+2026-11-15T01:12:26.8064990Z Version: 20261103.629
+2026-11-15T01:12:26.8065791Z Commit: 15dbd9ccb5dbf34fae002b6ed1a2670f52df37bc
+2026-11-15T01:12:26.8066746Z Build Date: 2026-11-03T17:26:59Z
+2026-11-15T01:12:26.8067642Z Worker ID: {c820af48-31bd-4572-8dc1-e3a585b4ae27}
+2026-11-15T01:12:26.8068558Z Region: westus
+2026-11-15T01:12:26.8069256Z Cloud: Azure
+2026-11-15T01:12:26.8069982Z ##[endgroup]
+2026-11-15T01:12:26.8071599Z ##[group]Operating System
+2026-11-15T01:12:26.8072782Z Ubuntu
+2026-11-15T01:12:26.8073614Z 26.04.1
+2026-11-15T01:12:26.8074392Z LTS
+2026-11-15T01:12:26.8075021Z ##[endgroup]
+2026-11-15T01:12:26.8075754Z ##[group]Runner Image
+2026-11-15T01:12:26.8076482Z Image: ubuntu-26.04
+2026-11-15T01:12:26.8077278Z Version: 20261111.196.1
+2026-11-15T01:12:26.8078499Z Included Software: https://github.com/actions/runner-images/blob/ubuntu26/20261111.196/images/ubuntu/Ubuntu2604-Readme.md
+2026-11-15T01:12:26.8080432Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu26%2F20261111.196
+2026-11-15T01:12:26.8081676Z ##[endgroup]
+2026-11-15T01:12:26.8083287Z ##[group]GITHUB_TOKEN Permissions
+2026-11-15T01:12:26.8085288Z Contents: read
+2026-11-15T01:12:26.8086161Z Metadata: read
+2026-11-15T01:12:26.8086856Z Packages: read
+2026-11-15T01:12:26.8087564Z ##[endgroup]
+2026-11-15T01:12:26.8090038Z Secret source: Actions
+2026-11-15T01:12:26.8091375Z Cache mode: write
+2026-11-15T01:12:26.8092172Z Prepare workflow directory
+2026-11-15T01:12:26.8430940Z Prepare all required actions
+2026-11-15T01:12:26.8481398Z Getting action download info
+2026-11-15T01:12:27.1887310Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-11-15T01:12:27.2890592Z Download action repository 'ErBWs/setup-ohos@v2' (SHA:4dbb63025116eb6165ceac58a4bf47cbdc5ac721)
+2026-11-15T01:12:27.5733146Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-15T01:12:27.8178008Z Getting action download info
+2026-11-15T01:12:27.9344145Z Download action repository 'actions/cache@v4' (SHA:0057852bfaa89a56745cba8c7296529d2fc39830)
+2026-11-15T01:12:28.0585089Z Complete job name: build (focus, focus)
+
+﻿2026-11-15T01:12:28.1679743Z ##[group]Run actions/checkout@v4
+2026-11-15T01:12:28.1681175Z with:
+2026-11-15T01:12:28.1682046Z   repository: lantianhcgp/elcton
+2026-11-15T01:12:28.1691828Z   token: ***
+2026-11-15T01:12:28.1692876Z   ssh-strict: true
+2026-11-15T01:12:28.1693767Z   ssh-user: git
+2026-11-15T01:12:28.1694644Z   persist-credentials: true
+2026-11-15T01:12:28.1695613Z   clean: true
+2026-11-15T01:12:28.1696491Z   sparse-checkout-cone-mode: true
+2026-11-15T01:12:28.1697535Z   fetch-depth: 1
+2026-11-15T01:12:28.1698386Z   fetch-tags: false
+2026-11-15T01:12:28.1699253Z   show-progress: true
+2026-11-15T01:12:28.1700134Z   lfs: false
+2026-11-15T01:12:28.1700942Z   submodules: false
+2026-11-15T01:12:28.1701873Z   set-safe-directory: true
+2026-11-15T01:12:28.1702968Z   allow-unsafe-pr-checkout: false
+2026-11-15T01:12:28.1785039Z ##[endgroup]
+2026-11-15T01:12:28.4600172Z Syncing repository: lantianhcgp/elcton
+2026-11-15T01:12:28.4605473Z ##[group]Getting Git version info
+2026-11-15T01:12:28.4608003Z Working directory is '/home/runner/work/elcton/elcton'
+2026-11-15T01:12:28.4612189Z [command]/usr/bin/git version
+2026-11-15T01:12:28.4614488Z git version 2.56.1
+2026-11-15T01:12:28.4648178Z ##[endgroup]
+2026-11-15T01:12:28.4674768Z Temporarily overriding HOME='/home/runner/work/_temp/2c43e8c6-24c8-41c6-a7bd-3255ef6ddb32' before making global git config changes
+2026-11-15T01:12:28.4680789Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T01:12:28.4685250Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/elcton/elcton
+2026-11-15T01:12:28.4759443Z Deleting the contents of '/home/runner/work/elcton/elcton'
+2026-11-15T01:12:28.4766252Z ##[group]Initializing the repository
+2026-11-15T01:12:28.4781214Z [command]/usr/bin/git init /home/runner/work/elcton/elcton
+2026-11-15T01:12:28.4905895Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-15T01:12:28.4909005Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-15T01:12:28.4911783Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-15T01:12:28.4914416Z hint: call:
+2026-11-15T01:12:28.4916058Z hint:
+2026-11-15T01:12:28.4918042Z hint: 	git config --global init.defaultBranch <name>
+2026-11-15T01:12:28.4920207Z hint:
+2026-11-15T01:12:28.4922215Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-15T01:12:28.4924753Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-15T01:12:28.4926492Z hint:
+2026-11-15T01:12:28.4927465Z hint: 	git branch -m <name>
+2026-11-15T01:12:28.4928584Z hint:
+2026-11-15T01:12:28.4930501Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-15T01:12:28.4933363Z Initialized empty Git repository in /home/runner/work/elcton/elcton/.git/
+2026-11-15T01:12:28.4939478Z [command]/usr/bin/git remote add origin https://github.com/lantianhcgp/elcton
+2026-11-15T01:12:28.5006549Z ##[endgroup]
+2026-11-15T01:12:28.5009603Z ##[group]Disabling automatic garbage collection
+2026-11-15T01:12:28.5012613Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-15T01:12:28.5060650Z ##[endgroup]
+2026-11-15T01:12:28.5063860Z ##[group]Setting up auth
+2026-11-15T01:12:28.5068745Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T01:12:28.5127234Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-15T01:12:28.5620094Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T01:12:28.5668621Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-15T01:12:28.6009561Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T01:12:28.6040838Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-15T01:12:28.6359509Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-15T01:12:28.6406680Z ##[endgroup]
+2026-11-15T01:12:28.6409587Z ##[group]Fetching the repository
+2026-11-15T01:12:28.6420716Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +cbd171553e70eb614ca4283534915b92ebb870de:refs/remotes/origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:29.3320791Z From https://github.com/lantianhcgp/elcton
+2026-11-15T01:12:29.3324841Z  * [new ref]         cbd171553e70eb614ca4283534915b92ebb870de -> origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:29.3336946Z ##[endgroup]
+2026-11-15T01:12:29.3339321Z ##[group]Determining the checkout info
+2026-11-15T01:12:29.3341287Z ##[endgroup]
+2026-11-15T01:12:29.3345386Z [command]/usr/bin/git sparse-checkout disable
+2026-11-15T01:12:29.3404587Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-11-15T01:12:29.3440734Z ##[group]Checking out the ref
+2026-11-15T01:12:29.3446327Z [command]/usr/bin/git checkout --progress --force -B fix/we-handshake-logger-20261115 refs/remotes/origin/fix/we-handshake-logger-20261115
+2026-11-15T01:12:29.5318509Z Switched to a new branch 'fix/we-handshake-logger-20261115'
+2026-11-15T01:12:29.5320736Z branch 'fix/we-handshake-logger-20261115' set up to track 'origin/fix/we-handshake-logger-20261115'.
+2026-11-15T01:12:29.5327960Z ##[endgroup]
+2026-11-15T01:12:29.5377769Z [command]/usr/bin/git log -1 --format=%H
+2026-11-15T01:12:29.5403842Z cbd171553e70eb614ca4283534915b92ebb870de
+
+﻿2026-11-15T01:12:29.5660602Z ##[group]Run sudo apt-get update && sudo apt-get install -y libgl1-mesa-dev
+2026-11-15T01:12:29.5662255Z [36;1msudo apt-get update && sudo apt-get install -y libgl1-mesa-dev[0m
+2026-11-15T01:12:29.5720387Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:12:29.5721495Z ##[endgroup]
+2026-11-15T01:12:29.6591175Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-15T01:12:29.6778622Z Get:6 https://packages.microsoft.com/ubuntu/26.04/prod resolute InRelease [3964 B]
+2026-11-15T01:12:29.6910259Z Hit:2 http://azure.archive.ubuntu.com/ubuntu resolute InRelease
+2026-11-15T01:12:29.6938393Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute-updates InRelease [137 kB]
+2026-11-15T01:12:29.6961715Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute-backports InRelease [137 kB]
+2026-11-15T01:12:29.6989713Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute-security InRelease [137 kB]
+2026-11-15T01:12:29.7095135Z Get:7 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main arm64 Packages [143 kB]
+2026-11-15T01:12:29.7301756Z Get:8 https://packages.microsoft.com/ubuntu/26.04/prod resolute/main amd64 Packages [158 kB]
+2026-11-15T01:12:29.7565998Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 Packages [869 kB]
+2026-11-15T01:12:29.7720442Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main Translation-en [195 kB]
+2026-11-15T01:12:29.7755306Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe amd64v3 Packages [390 kB]
+2026-11-15T01:12:29.7784721Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute-updates/universe Translation-en [122 kB]
+2026-11-15T01:12:29.7875035Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute-security/main amd64v3 Packages [718 kB]
+2026-11-15T01:12:29.7906525Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute-security/main Translation-en [157 kB]
+2026-11-15T01:12:29.7923982Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe amd64v3 Packages [220 kB]
+2026-11-15T01:12:29.7935586Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute-security/universe Translation-en [72.5 kB]
+2026-11-15T01:12:29.7964818Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted amd64v3 Packages [590 kB]
+2026-11-15T01:12:29.7985600Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute-security/restricted Translation-en [122 kB]
+2026-11-15T01:12:31.8915924Z Fetched 4172 kB in 0s (11.4 MB/s)
+2026-11-15T01:12:32.5509397Z Reading package lists...
+2026-11-15T01:12:32.5838835Z Reading package lists...
+2026-11-15T01:12:32.7291567Z Building dependency tree...
+2026-11-15T01:12:32.7298847Z Reading state information...
+2026-11-15T01:12:32.8141376Z Solving dependencies...
+2026-11-15T01:12:32.9007403Z The following additional packages will be installed:
+2026-11-15T01:12:32.9008603Z   libegl-dev libegl-mesa0 libegl1 libgl-dev libgles-dev libgles1 libgles2
+2026-11-15T01:12:32.9013530Z   libglvnd-core-dev libglvnd-dev libglx-dev libopengl-dev libopengl0
+2026-11-15T01:12:32.9014602Z   libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-dev
+2026-11-15T01:12:32.9015052Z   xorg-sgml-doctools xtrans-dev
+2026-11-15T01:12:32.9023463Z Suggested packages:
+2026-11-15T01:12:32.9024240Z   libx11-doc libxcb-doc
+2026-11-15T01:12:32.9237956Z The following NEW packages will be installed:
+2026-11-15T01:12:32.9239230Z   libegl-dev libegl-mesa0 libegl1 libgl-dev libgl1-mesa-dev libgles-dev
+2026-11-15T01:12:32.9240475Z   libgles1 libgles2 libglvnd-core-dev libglvnd-dev libglx-dev libopengl-dev
+2026-11-15T01:12:32.9242040Z   libopengl0 libx11-dev libxau-dev libxcb1-dev libxdmcp-dev x11proto-dev
+2026-11-15T01:12:32.9243290Z   xorg-sgml-doctools xtrans-dev
+2026-11-15T01:12:32.9449018Z 0 upgraded, 20 newly installed, 0 to remove and 24 not upgraded.
+2026-11-15T01:12:32.9449802Z Need to get 1997 kB of archives.
+2026-11-15T01:12:32.9450508Z After this operation, 8963 kB of additional disk space will be used.
+2026-11-15T01:12:32.9451837Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-11-15T01:12:33.0305053Z Get:2 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libegl-mesa0 amd64 26.0.8-1ubuntu0.3 [134 kB]
+2026-11-15T01:12:33.0928088Z Get:3 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libegl1 amd64 1.7.0-3 [29.8 kB]
+2026-11-15T01:12:33.1540980Z Get:4 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xorg-sgml-doctools all 1:1.11-1.1build1 [10.3 kB]
+2026-11-15T01:12:33.2154824Z Get:5 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 x11proto-dev all 2025.1-1 [608 kB]
+2026-11-15T01:12:33.2812548Z Get:6 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxau-dev amd64 1:1.0.11-1build2 [9780 B]
+2026-11-15T01:12:33.3427289Z Get:7 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxdmcp-dev amd64 1:1.1.5-2 [25.7 kB]
+2026-11-15T01:12:33.4040950Z Get:8 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 xtrans-dev all 1.6.0-1build1 [66.2 kB]
+2026-11-15T01:12:33.4659716Z Get:9 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libxcb1-dev amd64 1.17.0-2ubuntu1 [86.4 kB]
+2026-11-15T01:12:33.5278445Z Get:10 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libx11-dev amd64 2:1.8.13-1ubuntu0.1 [743 kB]
+2026-11-15T01:12:33.5948040Z Get:11 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglx-dev amd64 1.7.0-3 [14.1 kB]
+2026-11-15T01:12:33.6561013Z Get:12 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgl-dev amd64 1.7.0-3 [103 kB]
+2026-11-15T01:12:33.7189491Z Get:13 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libegl-dev amd64 1.7.0-3 [18.2 kB]
+2026-11-15T01:12:33.7802823Z Get:14 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles1 amd64 1.7.0-3 [11.5 kB]
+2026-11-15T01:12:33.8413951Z Get:15 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles2 amd64 1.7.0-3 [17.5 kB]
+2026-11-15T01:12:33.9027463Z Get:16 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libgles-dev amd64 1.7.0-3 [50.6 kB]
+2026-11-15T01:12:33.9644264Z Get:17 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libopengl0 amd64 1.7.0-3 [32.8 kB]
+2026-11-15T01:12:34.0256336Z Get:18 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libopengl-dev amd64 1.7.0-3 [3408 B]
+2026-11-15T01:12:34.0869574Z Get:19 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglvnd-core-dev amd64 1.7.0-3 [13.7 kB]
+2026-11-15T01:12:34.1481903Z Get:20 http://azure.archive.ubuntu.com/ubuntu resolute/main amd64v3 libglvnd-dev amd64 1.7.0-3 [3156 B]
+2026-11-15T01:12:34.2096223Z Get:21 http://azure.archive.ubuntu.com/ubuntu resolute-updates/main amd64v3 libgl1-mesa-dev amd64 26.0.8-1ubuntu0.3 [15.9 kB]
+2026-11-15T01:12:34.5270544Z Fetched 1997 kB in 1s (1563 kB/s)
+2026-11-15T01:12:34.5509222Z Selecting previously unselected package libegl-mesa0:amd64.
+2026-11-15T01:12:34.5794620Z (Reading database ... 
+2026-11-15T01:12:34.5795481Z (Reading database ... 5%
+2026-11-15T01:12:34.5796261Z (Reading database ... 10%
+2026-11-15T01:12:34.5796994Z (Reading database ... 15%
+2026-11-15T01:12:34.5797750Z (Reading database ... 20%
+2026-11-15T01:12:34.5798469Z (Reading database ... 25%
+2026-11-15T01:12:34.5799174Z (Reading database ... 30%
+2026-11-15T01:12:34.5799905Z (Reading database ... 35%
+2026-11-15T01:12:34.5800643Z (Reading database ... 40%
+2026-11-15T01:12:34.5801356Z (Reading database ... 45%
+2026-11-15T01:12:34.5802041Z (Reading database ... 50%
+2026-11-15T01:12:34.6701583Z (Reading database ... 55%
+2026-11-15T01:12:34.8138281Z (Reading database ... 60%
+2026-11-15T01:12:34.9758039Z (Reading database ... 65%
+2026-11-15T01:12:35.1719733Z (Reading database ... 70%
+2026-11-15T01:12:35.3226280Z (Reading database ... 75%
+2026-11-15T01:12:35.5243193Z (Reading database ... 80%
+2026-11-15T01:12:35.7140092Z (Reading database ... 85%
+2026-11-15T01:12:35.9207488Z (Reading database ... 90%
+2026-11-15T01:12:36.0751033Z (Reading database ... 95%
+2026-11-15T01:12:36.0751480Z (Reading database ... 100%
+2026-11-15T01:12:36.0752252Z (Reading database ... 213946 files and directories currently installed.)
+2026-11-15T01:12:36.0794057Z Preparing to unpack .../00-libegl-mesa0_26.0.8-1ubuntu0.3_amd64v3.deb ...
+2026-11-15T01:12:36.0830570Z Unpacking libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:36.1095863Z Selecting previously unselected package libegl1:amd64.
+2026-11-15T01:12:36.1235039Z Preparing to unpack .../01-libegl1_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.1244243Z Unpacking libegl1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.1469394Z Selecting previously unselected package xorg-sgml-doctools.
+2026-11-15T01:12:36.1609587Z Preparing to unpack .../02-xorg-sgml-doctools_1%3a1.11-1.1build1_all.deb ...
+2026-11-15T01:12:36.1617028Z Unpacking xorg-sgml-doctools (1:1.11-1.1build1) ...
+2026-11-15T01:12:36.1861347Z Selecting previously unselected package x11proto-dev.
+2026-11-15T01:12:36.1998492Z Preparing to unpack .../03-x11proto-dev_2025.1-1_all.deb ...
+2026-11-15T01:12:36.2007305Z Unpacking x11proto-dev (2025.1-1) ...
+2026-11-15T01:12:36.2518446Z Selecting previously unselected package libxau-dev:amd64.
+2026-11-15T01:12:36.2657000Z Preparing to unpack .../04-libxau-dev_1%3a1.0.11-1build2_amd64v3.deb ...
+2026-11-15T01:12:36.2664804Z Unpacking libxau-dev:amd64 (1:1.0.11-1build2) ...
+2026-11-15T01:12:36.2927536Z Selecting previously unselected package libxdmcp-dev:amd64.
+2026-11-15T01:12:36.3065619Z Preparing to unpack .../05-libxdmcp-dev_1%3a1.1.5-2_amd64v3.deb ...
+2026-11-15T01:12:36.3073457Z Unpacking libxdmcp-dev:amd64 (1:1.1.5-2) ...
+2026-11-15T01:12:36.3284677Z Selecting previously unselected package xtrans-dev.
+2026-11-15T01:12:36.3420733Z Preparing to unpack .../06-xtrans-dev_1.6.0-1build1_all.deb ...
+2026-11-15T01:12:36.3430718Z Unpacking xtrans-dev (1.6.0-1build1) ...
+2026-11-15T01:12:36.3661272Z Selecting previously unselected package libxcb1-dev:amd64.
+2026-11-15T01:12:36.3797457Z Preparing to unpack .../07-libxcb1-dev_1.17.0-2ubuntu1_amd64v3.deb ...
+2026-11-15T01:12:36.3805128Z Unpacking libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+2026-11-15T01:12:36.4043429Z Selecting previously unselected package libx11-dev:amd64.
+2026-11-15T01:12:36.4179802Z Preparing to unpack .../08-libx11-dev_2%3a1.8.13-1ubuntu0.1_amd64v3.deb ...
+2026-11-15T01:12:36.4188143Z Unpacking libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+2026-11-15T01:12:36.4499082Z Selecting previously unselected package libglx-dev:amd64.
+2026-11-15T01:12:36.4636101Z Preparing to unpack .../09-libglx-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.4643292Z Unpacking libglx-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.4867274Z Selecting previously unselected package libgl-dev:amd64.
+2026-11-15T01:12:36.5003997Z Preparing to unpack .../10-libgl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.5015053Z Unpacking libgl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.5303404Z Selecting previously unselected package libegl-dev:amd64.
+2026-11-15T01:12:36.5442849Z Preparing to unpack .../11-libegl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.5451348Z Unpacking libegl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.5691434Z Selecting previously unselected package libgles1:amd64.
+2026-11-15T01:12:36.5830293Z Preparing to unpack .../12-libgles1_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.5839023Z Unpacking libgles1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.6079893Z Selecting previously unselected package libgles2:amd64.
+2026-11-15T01:12:36.6222196Z Preparing to unpack .../13-libgles2_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.6230805Z Unpacking libgles2:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.6463493Z Selecting previously unselected package libgles-dev:amd64.
+2026-11-15T01:12:36.6602198Z Preparing to unpack .../14-libgles-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.6610036Z Unpacking libgles-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.6876678Z Selecting previously unselected package libopengl0:amd64.
+2026-11-15T01:12:36.7015733Z Preparing to unpack .../15-libopengl0_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.7024712Z Unpacking libopengl0:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.7252004Z Selecting previously unselected package libopengl-dev:amd64.
+2026-11-15T01:12:36.7392464Z Preparing to unpack .../16-libopengl-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.7401545Z Unpacking libopengl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.7622330Z Selecting previously unselected package libglvnd-core-dev:amd64.
+2026-11-15T01:12:36.7760229Z Preparing to unpack .../17-libglvnd-core-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.7767410Z Unpacking libglvnd-core-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.7988866Z Selecting previously unselected package libglvnd-dev:amd64.
+2026-11-15T01:12:36.8129027Z Preparing to unpack .../18-libglvnd-dev_1.7.0-3_amd64v3.deb ...
+2026-11-15T01:12:36.8136074Z Unpacking libglvnd-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.8345246Z Selecting previously unselected package libgl1-mesa-dev:amd64.
+2026-11-15T01:12:36.8485534Z Preparing to unpack .../19-libgl1-mesa-dev_26.0.8-1ubuntu0.3_amd64v3.deb ...
+2026-11-15T01:12:36.8494526Z Unpacking libgl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:36.8930429Z Setting up libglvnd-core-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.8960815Z Setting up libopengl0:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.8981765Z Setting up xtrans-dev (1.6.0-1build1) ...
+2026-11-15T01:12:36.9002074Z Setting up libegl-mesa0:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:36.9023080Z Setting up libgles2:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9042470Z Setting up libgles1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9062998Z Setting up libegl1:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9082581Z Setting up xorg-sgml-doctools (1:1.11-1.1build1) ...
+2026-11-15T01:12:36.9110517Z Setting up libopengl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9198886Z Processing triggers for libc-bin (2.43-2ubuntu2.4) ...
+2026-11-15T01:12:36.9491649Z Processing triggers for man-db (2.13.1-1build1) ...
+2026-11-15T01:12:36.9512979Z Not building database; man-db/auto-update is not 'true'.
+2026-11-15T01:12:36.9531623Z Processing triggers for sgml-base (1.31+nmu1build1) ...
+2026-11-15T01:12:36.9727226Z Setting up x11proto-dev (2025.1-1) ...
+2026-11-15T01:12:36.9752261Z Setting up libxau-dev:amd64 (1:1.0.11-1build2) ...
+2026-11-15T01:12:36.9782519Z Setting up libxdmcp-dev:amd64 (1:1.1.5-2) ...
+2026-11-15T01:12:36.9817077Z Setting up libxcb1-dev:amd64 (1.17.0-2ubuntu1) ...
+2026-11-15T01:12:36.9841425Z Setting up libx11-dev:amd64 (2:1.8.13-1ubuntu0.1) ...
+2026-11-15T01:12:36.9872620Z Setting up libglx-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9906322Z Setting up libgl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9932403Z Setting up libegl-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9965412Z Setting up libgles-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:36.9990883Z Setting up libglvnd-dev:amd64 (1.7.0-3) ...
+2026-11-15T01:12:37.0017012Z Setting up libgl1-mesa-dev:amd64 (26.0.8-1ubuntu0.3) ...
+2026-11-15T01:12:37.6314509Z 
+2026-11-15T01:12:37.6315188Z Running kernel seems to be up-to-date.
+2026-11-15T01:12:37.6315521Z 
+2026-11-15T01:12:37.6315661Z Restarting services...
+2026-11-15T01:12:37.6410500Z 
+2026-11-15T01:12:37.6410976Z Service restarts being deferred:
+2026-11-15T01:12:37.6413870Z  systemctl restart hosted-compute-agent.service
+2026-11-15T01:12:37.6414405Z 
+2026-11-15T01:12:37.6414797Z No containers need to be restarted.
+2026-11-15T01:12:37.6415179Z 
+2026-11-15T01:12:37.6415336Z No user sessions are running outdated binaries.
+2026-11-15T01:12:37.6415585Z 
+2026-11-15T01:12:37.6415813Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+
+﻿2026-11-15T01:12:38.4946245Z ##[group]Run ErBWs/setup-ohos@v2
+2026-11-15T01:12:38.4946588Z with:
+2026-11-15T01:12:38.4946821Z   version: 6.1.1.280
+2026-11-15T01:12:38.4947066Z   cache: true
+2026-11-15T01:12:38.4970172Z ##[endgroup]
+2026-11-15T01:12:38.5033358Z ##[start-action display=Make the script executable;id=ohos.__run]
+2026-11-15T01:12:38.5069566Z ##[group]Run chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+2026-11-15T01:12:38.5069995Z [36;1mchmod +x "$GITHUB_ACTION_PATH/setup.sh"[0m
+2026-11-15T01:12:38.5120632Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-15T01:12:38.5121044Z ##[endgroup]
+2026-11-15T01:12:38.5237715Z ##[end-action id=ohos.__run;outcome=success;conclusion=success;duration_ms=20]
+2026-11-15T01:12:38.5240698Z ##[start-action display=Cache SDK;id=ohos.__actions_cache]
+2026-11-15T01:12:38.5331681Z ##[group]Run actions/cache@v4
+2026-11-15T01:12:38.5331968Z with:
+2026-11-15T01:12:38.5332196Z   path: ~/ohos-sdk
+2026-11-15T01:12:38.5332455Z   key: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:12:38.5333041Z   enableCrossOsArchive: false
+2026-11-15T01:12:38.5333387Z   fail-on-cache-miss: false
+2026-11-15T01:12:38.5333651Z   lookup-only: false
+2026-11-15T01:12:38.5333894Z   save-always: false
+2026-11-15T01:12:38.5334134Z ##[endgroup]
+2026-11-15T01:12:38.6406693Z (node:2814) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T01:12:38.6408035Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T01:12:38.9027155Z Cache hit for: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:12:38.9129887Z (node:2814) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-15T01:12:40.1731220Z Received 16777216 of 3991182027 (0.4%), 16.0 MBs/sec
+2026-11-15T01:12:41.1730115Z Received 163577856 of 3991182027 (4.1%), 78.0 MBs/sec
+2026-11-15T01:12:42.1738760Z Received 301989888 of 3991182027 (7.6%), 96.0 MBs/sec
+2026-11-15T01:12:43.1823859Z Received 478150656 of 3991182027 (12.0%), 113.9 MBs/sec
+2026-11-15T01:12:44.1753474Z Received 603979776 of 3991182027 (15.1%), 115.1 MBs/sec
+2026-11-15T01:12:45.1761473Z Received 746586112 of 3991182027 (18.7%), 118.6 MBs/sec
+2026-11-15T01:12:46.1793856Z Received 918552576 of 3991182027 (23.0%), 125.1 MBs/sec
+2026-11-15T01:12:47.1778559Z Received 1061158912 of 3991182027 (26.6%), 126.4 MBs/sec
+2026-11-15T01:12:48.1833576Z Received 1207959552 of 3991182027 (30.3%), 127.9 MBs/sec
+2026-11-15T01:12:49.1822459Z Received 1342177280 of 3991182027 (33.6%), 127.9 MBs/sec
+2026-11-15T01:12:50.1883843Z Received 1480589312 of 3991182027 (37.1%), 128.2 MBs/sec
+2026-11-15T01:12:51.1883869Z Received 1614807040 of 3991182027 (40.5%), 128.2 MBs/sec
+2026-11-15T01:12:52.1868406Z Received 1744830464 of 3991182027 (43.7%), 127.9 MBs/sec
+2026-11-15T01:12:53.1876154Z Received 1879048192 of 3991182027 (47.1%), 127.9 MBs/sec
+2026-11-15T01:12:54.1880746Z Received 2013265920 of 3991182027 (50.4%), 127.9 MBs/sec
+2026-11-15T01:12:55.1885369Z Received 2147483648 of 3991182027 (53.8%), 127.9 MBs/sec
+2026-11-15T01:12:56.1893106Z Received 2281701376 of 3991182027 (57.2%), 127.9 MBs/sec
+2026-11-15T01:12:57.1903266Z Received 2415919104 of 3991182027 (60.5%), 127.9 MBs/sec
+2026-11-15T01:12:58.1910508Z Received 2550136832 of 3991182027 (63.9%), 127.9 MBs/sec
+2026-11-15T01:12:59.1911881Z Received 2684354560 of 3991182027 (67.3%), 127.9 MBs/sec
+2026-11-15T01:13:00.1918040Z Received 2810183680 of 3991182027 (70.4%), 127.5 MBs/sec
+2026-11-15T01:13:01.1941790Z Received 2923429888 of 3991182027 (73.2%), 126.6 MBs/sec
+2026-11-15T01:13:02.1944481Z Received 3040870400 of 3991182027 (76.2%), 126.0 MBs/sec
+2026-11-15T01:13:03.1954167Z Received 3158310912 of 3991182027 (79.1%), 125.4 MBs/sec
+2026-11-15T01:13:04.1946857Z Received 3275751424 of 3991182027 (82.1%), 124.9 MBs/sec
+2026-11-15T01:13:05.1958697Z Received 3388997632 of 3991182027 (84.9%), 124.2 MBs/sec
+2026-11-15T01:13:06.1965047Z Received 3514826752 of 3991182027 (88.1%), 124.0 MBs/sec
+2026-11-15T01:13:07.1972286Z Received 3623878656 of 3991182027 (90.8%), 123.3 MBs/sec
+2026-11-15T01:13:08.1973557Z Received 3758096384 of 3991182027 (94.2%), 123.5 MBs/sec
+2026-11-15T01:13:09.1972398Z Received 3892314112 of 3991182027 (97.5%), 123.6 MBs/sec
+2026-11-15T01:13:09.8915963Z Received 3991182027 of 3991182027 (100.0%), 123.9 MBs/sec
+2026-11-15T01:13:09.8919073Z Cache Size: ~3806 MB (3991182027 B)
+2026-11-15T01:13:09.9041101Z [command]/usr/bin/tar -xf /home/runner/work/_temp/aad695cd-4510-480e-b279-07fe0ec08865/cache.tzst -P -C /home/runner/work/elcton/elcton --use-compress-program unzstd
+2026-11-15T01:13:29.8469461Z Cache restored successfully
+2026-11-15T01:13:30.0838370Z Cache restored from key: ohos-sdk-Linux-X64-6.1.1.280
+2026-11-15T01:13:30.1013368Z ##[end-action id=ohos.__actions_cache;outcome=success;conclusion=success;duration_ms=51577]
+2026-11-15T01:13:30.1022152Z ##[start-action display=Run setup script;id=ohos.setup-ohos]
+2026-11-15T01:13:30.1624202Z ##[group]Run $GITHUB_ACTION_PATH/setup.sh \
+2026-11-15T01:13:30.1624869Z [36;1m$GITHUB_ACTION_PATH/setup.sh \[0m
+2026-11-15T01:13:30.1625426Z [36;1m  -v '6.1.1.280'[0m
+2026-11-15T01:13:30.1679980Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-15T01:13:30.1680381Z env:
+2026-11-15T01:13:30.1683280Z   GH_TOKEN: ***
+2026-11-15T01:13:30.1683559Z ##[endgroup]
+2026-11-15T01:13:30.2376984Z Successfully setup 6.1.1.125 SDK with API24!
+2026-11-15T01:13:30.2407450Z ##[end-action id=ohos.setup-ohos;outcome=success;conclusion=success;duration_ms=138]
+
+﻿2026-11-15T01:13:30.3731226Z ##[group]Run for p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do
+2026-11-15T01:13:30.3732985Z [36;1mfor p in "$HOME/ohos-sdk/command-line-tools/bin" "$HOME/ohos-sdk/command-line-tools/tool/node/bin"; do[0m
+2026-11-15T01:13:30.3734142Z [36;1m  if [ -d "$p" ]; then echo "$p" >> "$GITHUB_PATH"; fi[0m
+2026-11-15T01:13:30.3734789Z [36;1mdone[0m
+2026-11-15T01:13:30.3735357Z [36;1mif [ -d "$HOME/ohos-sdk/command-line-tools/sdk" ]; then[0m
+2026-11-15T01:13:30.3736305Z [36;1m  echo "HOS_SDK_HOME=$HOME/ohos-sdk/command-line-tools/sdk" >> "$GITHUB_ENV"[0m
+2026-11-15T01:13:30.3737088Z [36;1mfi[0m
+2026-11-15T01:13:30.3737474Z [36;1mecho "--- toolchain check ---"[0m
+2026-11-15T01:13:30.3738052Z [36;1mcommand -v hvigorw || true[0m
+2026-11-15T01:13:30.3738586Z [36;1mcommand -v ohpm || true[0m
+2026-11-15T01:13:30.3790902Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:30.3791227Z env:
+2026-11-15T01:13:30.3791549Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:30.3792132Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:30.3792589Z ##[endgroup]
+2026-11-15T01:13:30.4648661Z --- toolchain check ---
+2026-11-15T01:13:30.4649287Z /home/runner/ohos-sdk/command-line-tools/bin/hvigorw
+2026-11-15T01:13:30.4650126Z /home/runner/ohos-sdk/command-line-tools/bin/ohpm
+
+﻿2026-11-15T01:13:30.5124153Z ##[group]Run ohpm install --all
+2026-11-15T01:13:30.5124729Z [36;1mohpm install --all[0m
+2026-11-15T01:13:30.5174399Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:30.5174706Z env:
+2026-11-15T01:13:30.5175026Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:30.5175557Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:30.5176006Z ##[endgroup]
+2026-11-15T01:13:33.1997355Z ohpm INFO: fetch package done 1 @ohos/hypium from https://ohpm.openharmony.cn/ohpm/@ohos/hypium/-/hypium-1.0.25.har
+2026-11-15T01:13:33.3256862Z [32minstall completed in 1s 380ms[39m
+
+﻿2026-11-15T01:13:33.3731575Z ##[group]Run hvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license
+2026-11-15T01:13:33.3732561Z [36;1mhvigorw assembleApp --mode project -p product=default -p buildMode=debug --no-daemon --accept-license[0m
+2026-11-15T01:13:33.3781251Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:33.3781548Z env:
+2026-11-15T01:13:33.3781866Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:33.3782402Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:33.3782960Z ##[endgroup]
+2026-11-15T01:13:33.5081986Z Installing pnpm@10.28.2...
+2026-11-15T01:13:35.1874507Z 
+2026-11-15T01:13:35.1875309Z added 1 package, and audited 2 packages in 1s
+2026-11-15T01:13:35.1875985Z 
+2026-11-15T01:13:35.1876412Z 1 package is looking for funding
+2026-11-15T01:13:35.1877366Z   run `npm fund` for details
+2026-11-15T01:13:35.2221964Z 
+2026-11-15T01:13:35.2222605Z 1 high severity vulnerability
+2026-11-15T01:13:35.2223217Z 
+2026-11-15T01:13:35.2223530Z To address all issues, run:
+2026-11-15T01:13:35.2224340Z   npm audit fix --force
+2026-11-15T01:13:35.2224670Z 
+2026-11-15T01:13:35.2228275Z Run `npm audit` for details.
+2026-11-15T01:13:35.2363288Z Pnpm install success.
+2026-11-15T01:13:37.3079851Z > hvigor [32mFinished ::clean... after 15 ms [39m
+2026-11-15T01:13:37.3099573Z > hvigor [32mFinished :entry:clean... after 2 ms [39m
+2026-11-15T01:13:37.3133035Z > hvigor [32mFinished :entry:default@LegacyGenerateMetadata... after 4 ms [39m
+2026-11-15T01:13:37.3163702Z > hvigor [32mFinished :entry:default@PreCheckSyscap... after 1 ms [39m
+2026-11-15T01:13:37.3164885Z > hvigor [32mFinished ::PreBuildApp... after 1 ms [39m
+2026-11-15T01:13:37.3710973Z > hvigor [32mFinished :entry:default@LegacyPreBuild... after 56 ms [39m
+2026-11-15T01:13:37.3723386Z > hvigor [32mFinished :entry:default@LegacySyscapTransform... after 1 ms [39m
+2026-11-15T01:13:37.3729529Z > hvigor [32mFinished ::DuplicateDependencyCheck... after 1 ms [39m
+2026-11-15T01:13:37.3748215Z > hvigor [32mFinished :entry:default@LegacyMergeProfile... after 2 ms [39m
+2026-11-15T01:13:37.3764668Z > hvigor [32mFinished :entry:default@LegacyGenerateJsManifest... after 2 ms [39m
+2026-11-15T01:13:37.3770605Z > hvigor [32mFinished :entry:default@BuildNativeWithCmake... after 1 ms [39m
+2026-11-15T01:13:37.3788820Z > hvigor [32mFinished :entry:default@LegacyMakePackInfo... after 2 ms [39m
+2026-11-15T01:13:37.3804467Z > hvigor [32mFinished :entry:default@LegacyProcessProfile... after 2 ms [39m
+2026-11-15T01:13:37.3815530Z > hvigor [32mFinished :entry:default@LegacyGenerateLoaderJson... after 1 ms [39m
+2026-11-15T01:13:37.3825882Z > hvigor [32mFinished :entry:default@BuildNativeWithNinja... after 1 ms [39m
+2026-11-15T01:13:37.3842894Z > hvigor [32mFinished :entry:default@LegacyProcessResource... after 2 ms [39m
+2026-11-15T01:13:37.3947516Z > hvigor [32mFinished :entry:default@ProcessLibs... after 11 ms [39m
+2026-11-15T01:13:37.4761157Z > hvigor [32mFinished :entry:default@LegacyCompileResource... after 81 ms [39m
+2026-11-15T01:13:37.4803739Z > hvigor [32mFinished :entry:default@DoNativeStrip... after 2 ms [39m
+2026-11-15T01:13:37.4805524Z > hvigor [32mFinished :entry:default@LegacyHookCompileResource... after 1 ms [39m
+2026-11-15T01:13:37.4819438Z > hvigor [32mFinished :entry:default@CacheNativeLibs... after 3 ms [39m
+2026-11-15T01:13:41.5236886Z > hvigor [32mFinished :entry:default@LegacyCompileLiteJS... after 4 s 41 ms [39m
+2026-11-15T01:13:41.5249861Z > hvigor [32mFinished :entry:default@LegacyCompileArkTS... after 2 ms [39m
+2026-11-15T01:13:41.5259147Z > hvigor [32mFinished :entry:default@LegacyBuildJS... after 1 ms [39m
+2026-11-15T01:13:41.5403488Z > hvigor [32mFinished :entry:default@LegacyGenerateLiteCode... after 15 ms [39m
+2026-11-15T01:13:41.5411011Z > hvigor [32mFinished :entry:default@LegacyProcessNodeAssets... after 1 ms [39m
+2026-11-15T01:13:41.5416049Z > hvigor [33mWARN: No signingConfig found for product default[39m
+2026-11-15T01:13:41.5422311Z > hvigor [32mFinished :entry:default@LegacySignLiteBin... after 1 ms [39m
+2026-11-15T01:13:42.7891917Z > hvigor [33mWARN: WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+2026-11-15T01:13:42.7894204Z WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar)
+2026-11-15T01:13:42.7896176Z WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils
+2026-11-15T01:13:42.7897391Z WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+2026-11-15T01:13:42.7898295Z [39m
+2026-11-15T01:13:42.7899292Z > hvigor [32mFinished :entry:default@LegacyPackageHap... after 1 s 248 ms [39m
+2026-11-15T01:13:42.7904175Z > hvigor [33mWARN: No signingConfig found for product default[39m
+2026-11-15T01:13:42.7924459Z > hvigor [32mFinished :entry:default@SignHap... after 2 ms [39m
+2026-11-15T01:13:42.7925498Z > hvigor [32mFinished :entry:assembleHap... after 1 ms [39m
+2026-11-15T01:13:42.7948602Z > hvigor [32mFinished ::MakeProjectPackInfo... after 3 ms [39m
+2026-11-15T01:13:42.7977442Z > hvigor [32mFinished ::ProcessProjectPrivacyProfile... after 3 ms [39m
+2026-11-15T01:13:42.7986669Z > hvigor [32mFinished ::GeneratePackRes... after 1 ms [39m
+2026-11-15T01:13:43.1835438Z > hvigor [33mWARN: WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+2026-11-15T01:13:43.1836718Z WARNING: sun.misc.Unsafe::arrayBaseOffset has been called by com.alibaba.fastjson2.util.JDKUtils (file:/home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony/toolchains/lib/app_packing_tool.jar)
+2026-11-15T01:13:43.1837891Z WARNING: Please consider reporting this to the maintainers of class com.alibaba.fastjson2.util.JDKUtils
+2026-11-15T01:13:43.1838614Z WARNING: sun.misc.Unsafe::arrayBaseOffset will be removed in a future release
+2026-11-15T01:13:43.1839078Z [39m
+2026-11-15T01:13:43.1841622Z > hvigor [32mFinished ::PackageApp... after 386 ms [39m
+2026-11-15T01:13:43.1850381Z > hvigor [32mFinished ::SignPackagesFromApp... after 1 ms [39m
+2026-11-15T01:13:43.1855980Z > hvigor [33mWARN: No signingConfig found for product default[39m
+2026-11-15T01:13:43.1864352Z > hvigor [32mFinished ::SignApp... after 2 ms [39m
+2026-11-15T01:13:43.1868263Z > hvigor [32mFinished ::assembleApp... after 1 ms [39m
+2026-11-15T01:13:43.1881249Z > hvigor [32mBUILD SUCCESSFUL in 7 s 357 ms [39m
+
+﻿2026-11-15T01:13:43.2634477Z ##[group]Run python3 scripts/clean_config_in_app.py "focus"/build/outputs/default/*.app
+2026-11-15T01:13:43.2635198Z [36;1mpython3 scripts/clean_config_in_app.py "focus"/build/outputs/default/*.app[0m
+2026-11-15T01:13:43.2683976Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:43.2684282Z env:
+2026-11-15T01:13:43.2684613Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:43.2685154Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:43.2685601Z ##[endgroup]
+2026-11-15T01:13:43.3082539Z 清洗 focus-default-unsigned.app: app.appEnvironments, app.apiVersion.compileSdkVersion, app.apiVersion.compileSdkType, deviceConfig.default.debug, module.package->com.hcbiu.focus
+
+﻿2026-11-15T01:13:43.3173954Z ##[group]Run mkdir -p dist
+2026-11-15T01:13:43.3174332Z [36;1mmkdir -p dist[0m
+2026-11-15T01:13:43.3174619Z [36;1mP7B=certs/app.p7b[0m
+2026-11-15T01:13:43.3174986Z [36;1mif [ "focus" = "elcton" ]; then P7B=certs/elcton.p7b; fi[0m
+2026-11-15T01:13:43.3175405Z [36;1mif [ -f "$P7B" ]; then[0m
+2026-11-15T01:13:43.3175758Z [36;1m  cp -r tools/sign /tmp/sign && cd /tmp/sign[0m
+2026-11-15T01:13:43.3176141Z [36;1m  npm install --no-audit --no-fund[0m
+2026-11-15T01:13:43.3176470Z [36;1m  cd -[0m
+2026-11-15T01:13:43.3177008Z [36;1m  FORCE_P7B_BUNDLE=1 node /tmp/sign/sign-app-to-hap.js "focus"/build/outputs/default/*.app "$P7B" "dist/focus.hap"[0m
+2026-11-15T01:13:43.3177598Z [36;1melse[0m
+2026-11-15T01:13:43.3177864Z [36;1m  echo "$P7B 不存在 → 本次只交付未签名 .app"[0m
+2026-11-15T01:13:43.3178168Z [36;1mfi[0m
+2026-11-15T01:13:43.3225115Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:43.3225415Z env:
+2026-11-15T01:13:43.3225737Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:43.3226334Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:43.3227993Z   SIGN_P12_PEM: ***
+2026-11-15T01:13:43.3228272Z ##[endgroup]
+2026-11-15T01:13:44.7890284Z 
+2026-11-15T01:13:44.7890573Z added 25 packages in 1s
+2026-11-15T01:13:44.7999188Z /home/runner/work/elcton/elcton
+2026-11-15T01:13:44.9028388Z 正在签名
+2026-11-15T01:13:44.9115142Z Signing identity verified: ac2ad970f710b2dcd979e2dcf42150d4254ab4316b20e248ac0ef327ae061e32
+2026-11-15T01:13:45.0213881Z 签名完成：dist/focus.hap
+
+﻿2026-11-15T01:13:45.0312328Z ##[group]Run P7B=certs/app.p7b
+2026-11-15T01:13:45.0313242Z [36;1mP7B=certs/app.p7b[0m
+2026-11-15T01:13:45.0313613Z [36;1mif [ "focus" = "elcton" ]; then P7B=certs/elcton.p7b; fi[0m
+2026-11-15T01:13:45.0314043Z [36;1mif [ -f "dist/focus.hap" ]; then[0m
+2026-11-15T01:13:45.0314472Z [36;1m  python3 tools/sign/verify_sign.py "dist/focus.hap" "$P7B"[0m
+2026-11-15T01:13:45.0314871Z [36;1melse[0m
+2026-11-15T01:13:45.0315161Z [36;1m  echo "无签名产物（仅未签名 .app），跳过验签"[0m
+2026-11-15T01:13:45.0315466Z [36;1mfi[0m
+2026-11-15T01:13:45.0364596Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:45.0364896Z env:
+2026-11-15T01:13:45.0365223Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:45.0365757Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:45.0366207Z ##[endgroup]
+2026-11-15T01:13:45.1415188Z PASS: CMS/profile identity and full package digest verified {"cms_bytes": 2482, "package_bytes": 110011, "bundle": "drt.sign.yzm.nexus.jvor1", "public_key_sha256": "ac2ad970f710b2dcd979e2dcf42150d4254ab4316b20e248ac0ef327ae061e32", "profile_exact": true, "payload_digest_bound": true}
+
+﻿2026-11-15T01:13:45.1514863Z ##[group]Run mkdir -p dist
+2026-11-15T01:13:45.1515223Z [36;1mmkdir -p dist[0m
+2026-11-15T01:13:45.1515661Z [36;1mcp "focus"/build/outputs/default/*.app dist/ 2>/dev/null || true[0m
+2026-11-15T01:13:45.1516081Z [36;1mls -la dist/[0m
+2026-11-15T01:13:45.1565054Z shell: /usr/bin/bash -e {0}
+2026-11-15T01:13:45.1565357Z env:
+2026-11-15T01:13:45.1565674Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:45.1566224Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:45.1566676Z ##[endgroup]
+2026-11-15T01:13:45.1714031Z total 220
+2026-11-15T01:13:45.1714580Z drwxr-xr-x  2 runner runner   4096 Nov 15 01:13 .
+2026-11-15T01:13:45.1715588Z drwxr-xr-x 20 runner runner   4096 Nov 15 01:13 ..
+2026-11-15T01:13:45.1716562Z -rw-r--r--  1 runner runner 105657 Nov 15 01:13 focus-default-unsigned.app
+2026-11-15T01:13:45.1717730Z -rw-r--r--  1 runner runner 110129 Nov 15 01:13 focus.hap
+
+﻿2026-11-15T01:13:45.1789939Z ##[group]Run actions/upload-artifact@v4
+2026-11-15T01:13:45.1790308Z with:
+2026-11-15T01:13:45.1790539Z   name: focus-99
+2026-11-15T01:13:45.1790778Z   path: dist/
+2026-11-15T01:13:45.1791021Z   if-no-files-found: error
+2026-11-15T01:13:45.1791298Z   compression-level: 6
+2026-11-15T01:13:45.1791550Z   overwrite: false
+2026-11-15T01:13:45.1791811Z   include-hidden-files: false
+2026-11-15T01:13:45.1792083Z env:
+2026-11-15T01:13:45.1792381Z   HOS_SDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk
+2026-11-15T01:13:45.1793149Z   OHOS_NDK_HOME: /home/runner/ohos-sdk/command-line-tools/sdk/default/openharmony
+2026-11-15T01:13:45.1793594Z ##[endgroup]
+2026-11-15T01:13:45.3481443Z (node:3052) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T01:13:45.3483114Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T01:13:45.3538405Z With the provided path, there will be 2 files uploaded
+2026-11-15T01:13:45.3546699Z Artifact name is valid!
+2026-11-15T01:13:45.3547664Z Root directory input is valid!
+2026-11-15T01:13:45.7097489Z Beginning upload of artifact content to blob storage
+2026-11-15T01:13:45.7353716Z (node:3052) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-15T01:13:46.1202437Z Uploaded bytes 60606
+2026-11-15T01:13:46.1946963Z Finished uploading artifact content to blob storage!
+2026-11-15T01:13:46.1948713Z SHA256 digest of uploaded artifact zip is bd0c177bca1ad1b4719ec2cf6914d5250e9035522fb6c7432ba1628abb1e4525
+2026-11-15T01:13:46.1950493Z Finalizing artifact upload
+2026-11-15T01:13:46.5673964Z Artifact focus-99.zip successfully finalized. Artifact ID 14140143161
+2026-11-15T01:13:46.5674939Z Artifact focus-99 has been successfully uploaded! Final size is 60606 bytes. Artifact ID is 14140143161
+2026-11-15T01:13:46.5680999Z Artifact download URL: https://github.com/lantianhcgp/elcton/actions/runs/43661966727/artifacts/14140143161
+
+﻿2026-11-15T01:13:46.5891345Z Post job cleanup.
+2026-11-15T01:13:46.5895438Z ##[start-action display=Cache SDK;id=__025bc131-92fe-4668-93ff-26e6ae3f7e57.__actions_cache]
+2026-11-15T01:13:46.5931032Z Post job cleanup.
+2026-11-15T01:13:46.7063889Z Cache hit occurred on the primary key ohos-sdk-Linux-X64-6.1.1.280, not saving cache.
+2026-11-15T01:13:46.7065521Z (node:3064) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-15T01:13:46.7066610Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-15T01:13:46.7144622Z ##[end-action id=__025bc131-92fe-4668-93ff-26e6ae3f7e57.__actions_cache;outcome=success;conclusion=success;duration_ms=124]
+
+﻿2026-11-15T01:13:46.7220177Z Post job cleanup.
+2026-11-15T01:13:46.8117725Z [command]/usr/bin/git version
+2026-11-15T01:13:46.8165874Z git version 2.56.1
+2026-11-15T01:13:46.8210915Z Temporarily overriding HOME='/home/runner/work/_temp/8dc6e575-999b-4eb9-9da1-a62a327b8831' before making global git config changes
+2026-11-15T01:13:46.8212482Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-15T01:13:46.8217061Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/elcton/elcton
+2026-11-15T01:13:46.8258792Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-15T01:13:46.8296051Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-15T01:13:46.8607071Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-15T01:13:46.8634603Z http.https://github.com/.extraheader
+2026-11-15T01:13:46.8647093Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-11-15T01:13:46.8695590Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-15T01:13:46.9100735Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-15T01:13:46.9139350Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+
+﻿2026-11-15T01:13:46.9616014Z Cleaning up orphan processes
+2026-11-15T01:13:47.0007118Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/cache@v4, actions/checkout@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

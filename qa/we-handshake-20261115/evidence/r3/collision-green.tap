@@ -1,0 +1,100 @@
+TAP version 13
+# Subtest: NEW CLI collision rejects same-path without mutating input (NOT actualAPP acceptance)
+ok 1 - NEW CLI collision rejects same-path without mutating input (NOT actualAPP acceptance)
+  ---
+  duration_ms: 494.575625
+  type: 'test'
+  ...
+# Subtest: NEW CLI collision rejects symlink without mutating input (NOT actualAPP acceptance)
+ok 2 - NEW CLI collision rejects symlink without mutating input (NOT actualAPP acceptance)
+  ---
+  duration_ms: 864.828698
+  type: 'test'
+  ...
+# Subtest: NEW CLI collision rejects hardlink without mutating input (NOT actualAPP acceptance)
+ok 3 - NEW CLI collision rejects hardlink without mutating input (NOT actualAPP acceptance) # SKIP actual hardlink creation blocked by filesystem: EACCES
+  ---
+  duration_ms: 9.118698
+  type: 'test'
+  ...
+# Subtest: NEW CLI collision rejects symlink-parent without mutating input (NOT actualAPP acceptance)
+ok 4 - NEW CLI collision rejects symlink-parent without mutating input (NOT actualAPP acceptance)
+  ---
+  duration_ms: 529.535573
+  type: 'test'
+  ...
+# Subtest: NEW isolated inode boundary rejects same dev/ino without publishing output (NOT actual hardlink CLI execution)
+ok 5 - NEW isolated inode boundary rejects same dev/ino without publishing output (NOT actual hardlink CLI execution)
+  ---
+  duration_ms: 14.486458
+  type: 'test'
+  ...
+# Subtest: NEW isolated row-publication block rejects invalid msg before attaching it (NOT compiled APP execution)
+ok 6 - NEW isolated row-publication block rejects invalid msg before attaching it (NOT compiled APP execution)
+  ---
+  duration_ms: 9.293958
+  type: 'test'
+  ...
+# Subtest: actual APP AST TABLE call: unbound TABLE must not equal bound e (shape only)
+ok 7 - actual APP AST TABLE call: unbound TABLE must not equal bound e (shape only)
+  ---
+  duration_ms: 275.527083
+  type: 'test'
+  ...
+# Subtest: actual APP AST cached lookup: unbound CACHE must not equal bound t (shape only)
+ok 8 - actual APP AST cached lookup: unbound CACHE must not equal bound t (shape only)
+  ---
+  duration_ms: 59.734219
+  type: 'test'
+  ...
+# Subtest: actual original SDK APP/page and consistent alpha-renaming remain accepted
+ok 9 - actual original SDK APP/page and consistent alpha-renaming remain accepted
+  ---
+  duration_ms: 80.968282
+  type: 'test'
+  ...
+# Subtest: NEW actual CI SDK alpha-renamed bootstrap passes exact shape; noncompiled and broken bootstraps fail (shape-only negatives)
+ok 10 - NEW actual CI SDK alpha-renamed bootstrap passes exact shape; noncompiled and broken bootstraps fail (shape-only negatives)
+  ---
+  duration_ms: 679.171197
+  type: 'test'
+  ...
+# Subtest: NEW actual CI APP original-byte VM: callback contracts, all stages and destruction (HOST NOT native)
+ok 11 - NEW actual CI APP original-byte VM: callback contracts, all stages and destruction (HOST NOT native)
+  ---
+  duration_ms: 1301.514792
+  type: 'test'
+  ...
+# Subtest: stage HOST runner exists and is import-inert (NOT an actualAPP acceptance)
+ok 12 - stage HOST runner exists and is import-inert (NOT an actualAPP acceptance)
+  ---
+  duration_ms: 490.62375
+  type: 'test'
+  ...
+# Subtest: SYNTHETIC clock adapter: timer zero and self-cleared intervals
+ok 13 - SYNTHETIC clock adapter: timer zero and self-cleared intervals
+  ---
+  duration_ms: 120.789166
+  type: 'test'
+  ...
+# Subtest: CLI rejects network options without executing supplied bytes
+ok 14 - CLI rejects network options without executing supplied bytes
+  ---
+  duration_ms: 793.707448
+  type: 'test'
+  ...
+# Subtest: CLI help excludes native and HTTPS acceptance
+ok 15 - CLI help excludes native and HTTPS acceptance
+  ---
+  duration_ms: 644.250312
+  type: 'test'
+  ...
+1..15
+# tests 15
+# suites 0
+# pass 14
+# fail 0
+# cancelled 0
+# skipped 1
+# todo 0
+# duration_ms 3440.121717

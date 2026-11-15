@@ -1,0 +1,36 @@
+✔ NEW CLI collision rejects same-path without mutating input (NOT actualAPP acceptance) (338.186875ms)
+✔ NEW CLI collision rejects symlink without mutating input (NOT actualAPP acceptance) (312.930834ms)
+﹣ NEW CLI collision rejects hardlink without mutating input (NOT actualAPP acceptance) (1.754427ms) # actual hardlink creation blocked by filesystem: EACCES
+✔ NEW CLI collision rejects symlink-parent without mutating input (NOT actualAPP acceptance) (353.379063ms)
+✔ NEW isolated inode boundary rejects same dev/ino without publishing output (NOT actual hardlink CLI execution) (8.36ms)
+✔ NEW isolated row-publication block rejects invalid msg before attaching it (NOT compiled APP execution) (7.731354ms)
+✖ NEW actual CI SDK alpha-renamed bootstrap passes exact shape; noncompiled and broken bootstraps fail (shape-only negatives) (194.81552ms)
+✔ NEW actual CI APP original-byte VM: callback contracts, all stages and destruction (HOST NOT native) (653.079219ms)
+✔ stage HOST runner exists and is import-inert (NOT an actualAPP acceptance) (346.364895ms)
+✔ SYNTHETIC clock adapter: timer zero and self-cleared intervals (60.784011ms)
+✔ CLI rejects network options without executing supplied bytes (331.757187ms)
+✔ CLI help excludes native and HTTPS acceptance (340.611822ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 10
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 1515.810156
+
+✖ failing tests:
+
+test at NEWtests/compiledWeStagesSdkActual.test.mjs:21:1
+✖ NEW actual CI SDK alpha-renamed bootstrap passes exact shape; noncompiled and broken bootstraps fail (shape-only negatives) (194.81552ms)
+  AssertionError [ERR_ASSERTION]: Missing expected exception.
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledWeStagesSdkActual.test.mjs:33:13)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: /compiled_sdk_shape_required/,
+    operator: 'throws',
+    diff: 'simple'
+  }

@@ -1,0 +1,28 @@
+{
+  "pass": true,
+  "original_test_files": 33,
+  "original_test_files_unchanged": true,
+  "old_r2_QA_tests_unchanged": {
+    "tests/compiledLoggerHttps.test.mjs": true,
+    "tests/compiledWeStages.test.mjs": true,
+    "NEWtests/compiledWeStages.test.mjs": true
+  },
+  "frozen_unchanged": {
+    "tools/sign/sign-app-to-hap.js": true,
+    "tools/sign/verify_sign.py": true,
+    "qa/install34/check_signed_ast.cjs": true,
+    "scripts/compact_lite_app.mjs": true,
+    "scripts/compact_p2p_page.mjs": true,
+    "qa/p2p-ready-20261114/final_gate.py": true,
+    "entry/src/main/js/MainAbility/common/wearIdentity.js": true,
+    "package.json": true
+  },
+  "phone_readonly_files": 74,
+  "phone_changed": [],
+  "product_scripts_gate_delta_after_cbd1715": "",
+  "phone_app_operations_used": false,
+  "chromium_used": false,
+  "phone_hashes_checked_live": true,
+  "r1_355_suite_files": 38,
+  "r1_355_suite_files_byte_equal": true
+}

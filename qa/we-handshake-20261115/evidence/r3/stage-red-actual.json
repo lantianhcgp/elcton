@@ -1,0 +1,20 @@
+{
+  "passed": false,
+  "host_only": true,
+  "native": false,
+  "native_verified": false,
+  "real_https": false,
+  "real_bluetooth": false,
+  "adapter_ack_not_real": true,
+  "new_ci_provenance_verified": false,
+  "manifest_identity_verified": false,
+  "parent_provenance_check_required": true,
+  "actual_vm_original_bytes": false,
+  "original_app_bytes_executed": true,
+  "original_page_bytes_executed": false,
+  "app_sha256": "1930aea4c158df1af3e496246bae570b7e4fefa91d278710e08c63c55b857c34",
+  "app_js_sha256": "17b0a6d11096a65776ceaa241dbca76c9656eb2e36521e19f5bf1de7a98e9570",
+  "page_js_sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d",
+  "unique_nested_hap": true,
+  "failure": "compiled_sdk_shape_required"
+}

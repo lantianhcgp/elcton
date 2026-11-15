@@ -1,0 +1,69 @@
+{
+  "kind": "implementation_evidence_not_independent_review",
+  "finished_at": "2026-11-15T09:26:32.378882+08:00",
+  "baseline_head": "cbd171553e70eb614ca4283534915b92ebb870de",
+  "qa_before_sha256": "d666084ff1e7c01b062aa6faeb1d938f584b4e7137a7efd6595e1213429f42a9",
+  "changed": {
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/compiled-we-stages.mjs": "6906274cab692b2098942ec020ce564f9bdd13218848ee0f62de21b70d760491",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledWeStagesSdkActual.test.mjs": "43682a00d113294832b036c7ee41ffb74c59158531cc8a07f865bc7977c2132e"
+  },
+  "test_exit": 0,
+  "actual_app_vm_exit": 0,
+  "actual_app_sha256": "1930aea4c158df1af3e496246bae570b7e4fefa91d278710e08c63c55b857c34",
+  "actual_js_sha256": {
+    "app": "17b0a6d11096a65776ceaa241dbca76c9656eb2e36521e19f5bf1de7a98e9570",
+    "page": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d"
+  },
+  "all_required_stages": {
+    "SDK_CALL": true,
+    "VER_OK": true,
+    "PKG_CALL": true,
+    "PKG_OK": true,
+    "CERT_CALL": true,
+    "CERT_OK": true,
+    "REG_CALL": true,
+    "REG_OK": true,
+    "HELLO_RECV": true,
+    "READY_PREPARED": true,
+    "READY_CALL": true,
+    "READY_OK": true,
+    "SEND_CALL": true,
+    "SEND_OK": true,
+    "SEND_FAIL": true
+  },
+  "awake_sequence": [
+    true,
+    false,
+    true,
+    false
+  ],
+  "final_timers": 0,
+  "callback_contract": {
+    "sdk_version_request": "3",
+    "version_complete": "5.0.0.401",
+    "registration_success": true,
+    "message_success": true,
+    "send_success": true,
+    "send_fail_numeric_zero": true
+  },
+  "original_failure_preserved": true,
+  "original_failure_sha256": "221e341117199717b49e7adb26e348a6192d9bab696ffaa053c20132f8e57d68",
+  "tracked_product_old_tests_gate_diff_exit": 0,
+  "tracked_product_old_tests_gate_diff": "",
+  "old_tests_modified_by_this_task": false,
+  "network_phone_browser_keys_commit_push_used": false,
+  "native_verified": false,
+  "actual_vm_original_bytes": true,
+  "shape_fix": "AST exact SDK module-table, cache, module-loader, existing entry and ViewModel export, alpha-invariant; original payload bytes never rewritten",
+  "callback_note": "Existing complete(version string)/success({isRegister:true}) matched real wearService; now argument contract asserted and listener release/actual page cleanup verified",
+  "negative_test_fixture_correction": "Append newline before extra statement; actual sourceMappingURL ends in a line comment",
+  "evidence": {
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/stage-red-actual.json": "880e38e595b1b1f16a2110e872df45f206632f8b7c0e2f126b01e00941e9c510",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/stage-test-actual.json": "a089823bc2eb2712ff6e2899db2148b6d7ad017cecfda5fa16ab24f3d56aa61e",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/stage-test-red.tap": "108df85da1a51e66a48db4cc23ab9614e4438a79c7ba500c41286c60460135a7",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/stage-test-green-attempt.tap": "b2a0b5b0228d883459837fb1f4713b0f4aa1757834c7cd31a28729664140ef1a",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/stage-test-green.tap": "e785274d0327b00ee8495ea652706cf4e7a39cacfe390bc20353db1a67fb790b",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/stage-actual-green.json": "a089823bc2eb2712ff6e2899db2148b6d7ad017cecfda5fa16ab24f3d56aa61e",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/stage-actual-green.stdout.txt": "1c597afdb0eef66b8105f0c86d7bec25032320640b6fa9ff507fdec40b427d57"
+  }
+}

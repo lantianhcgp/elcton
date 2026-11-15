@@ -1,0 +1,53 @@
+{
+  "role": "independent-fixworker-not-reviewer",
+  "task": "HTTPS QA SPEC-r2 scoped repair",
+  "qa_adapter_tests_passed": true,
+  "spec_original_preserved": true,
+  "spec_original_sha256": "83d4ee8034b5e6b4ddd8b52f7465de664152efc9ed6ba53f2d1e7782103ca1b8",
+  "started_epoch": 1794699549,
+  "verification_epoch": 1794699922,
+  "elapsed_at_verification_seconds": 373,
+  "hard_budget_seconds": 360,
+  "within_hard_budget": false,
+  "budget_issue": "Verification exceeded hard budget; returning immediately after evidence write. No product/native success claimed.",
+  "tdd": {
+    "baseline_red": {"path": "qa/we-handshake-20261115/evidence/https-r2-red.tap", "sha256": "ff6031e77c5ad73a9aff2ddc2ac836d7b0fa80b45262515529e5b9969a6ba4c9", "tests": 7, "pass": 0, "fail": 7, "skipped": 0, "exit_code": 1},
+    "expanded_red": {"path": "qa/we-handshake-20261115/evidence/https-r2-red-expanded.tap", "sha256": "95889922ed05a3f6fb2da52c097800374ca13153c8e055d9f2ca9766f3bb215e", "tests": 9, "pass": 1, "fail": 8, "skipped": 0, "exit_code": 1, "note": "README already fixed using its baseline RED; two added async/clean-lifecycle cases failed before HTTPS implementation."},
+    "green": {"path": "qa/we-handshake-20261115/evidence/https-r2-green-verified.tap", "sha256": "06a2acff1d1d729039f3d59e34713d5b967c8c0e2c5bb81c47e02514d66fc5c2", "tests": 15, "pass": 15, "fail": 0, "skipped": 0, "exit_code": 0},
+    "additional_regressions": "Five post-destroy residue cases and real-close-count tracking added after initial green; not claimed as additional independent RED cycles.",
+    "command": "node --test tests/compiledLoggerHttps.test.mjs",
+    "node_version": "v26.4.0"
+  },
+  "repairs": {
+    "SPEC-R2-01": "Boolean private comparisons; fixed safe failure codes; callback/timer and CLI errors suppressed; importing module has no runtime secret/APP/network side effects.",
+    "SPEC-R2-02": "Shared settled gate; response error/aborted/close, request error/close/timeout; independent requests with agent:false; resource counts retained until real close; bounded emergency teardown.",
+    "SPEC-R2-03": "Initialize/exercise/destroy failures separately coded; destroy cannot replace primary; cleanup and passed=false report survive failures.",
+    "SPEC-R2-04": "Post-destroy pending/busy/console/timer/request/socket snapshot before emergency cleanup; only all clean checks can mark passed; cleanup failures also fail closed.",
+    "SPEC-R2-05": "Public-build nonempty placeholder key uses --expect configured; --expect public reserved for genuinely disabled compiled inputs."
+  },
+  "modified_files": [
+    {"path": "qa/we-handshake-20261115/compiled-logger-https.mjs", "sha256": "3a10da8fb118750373da78e955df2664fa835c4ee94b87932a3f74e9855d3522", "bytes": 12550},
+    {"path": "qa/we-handshake-20261115/README-compiled-logger-host.md", "sha256": "f93f1a97455bc88deafbce29669c4584cea2299d3d3bdab4f1955b44b1a19a73", "bytes": 5032},
+    {"path": "tests/compiledLoggerHttps.test.mjs", "sha256": "b50a7848f588d6a2b6c9914c6ad268e052c255ea57b71049c622c705a593959c", "bytes": 9302}
+  ],
+  "verification": {
+    "syntax_exit": 0,
+    "git_diff_check_exit": 0,
+    "tracked_worktree_and_index_unchanged": true,
+    "runtime_secrets_read": false,
+    "actual_network_used": false,
+    "actual_compiled_app_executed": false,
+    "sdk_or_source_synthesized": false,
+    "product_modified": false,
+    "old_355_tests_run_or_changed": false,
+    "gates_workflows_signing_changed": false,
+    "commit_or_push": false,
+    "native_verified": false,
+    "fit3_verified": false,
+    "wearengine_verified": false,
+    "new_ci_verified": false,
+    "canonical_cloud_verified": false,
+    "independent_collector_verified": false
+  },
+  "remaining": "Parent independent review and authorized actual configured APP/HTTPS/canonical/collector execution remain required. This evidence tests QA itself only."
+}

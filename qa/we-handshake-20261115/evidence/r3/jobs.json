@@ -1,0 +1,193 @@
+{
+  "total_count": 1,
+  "jobs": [
+    {
+      "id": 132653041568,
+      "run_id": 43661966735,
+      "workflow_name": "wearengine-watch",
+      "head_branch": "fix/we-handshake-logger-20261115",
+      "run_url": "https://api.github.com/repos/lantianhcgp/elcton/actions/runs/43661966735",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU5ulv88AAAAe4rzHoA",
+      "head_sha": "cbd171553e70eb614ca4283534915b92ebb870de",
+      "url": "https://api.github.com/repos/lantianhcgp/elcton/actions/jobs/132653041568",
+      "html_url": "https://github.com/lantianhcgp/elcton/actions/runs/43661966735/job/132653041568",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T01:12:23Z",
+      "started_at": "2026-11-15T01:12:25Z",
+      "completed_at": "2026-11-15T01:13:45Z",
+      "name": "build",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-15T01:12:26Z",
+          "completed_at": "2026-11-15T01:12:27Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-15T01:12:27Z",
+          "completed_at": "2026-11-15T01:12:28Z"
+        },
+        {
+          "name": "Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-15T01:12:28Z",
+          "completed_at": "2026-11-15T01:12:29Z"
+        },
+        {
+          "name": "Checkout the fixed simulator QA dependency",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-15T01:12:29Z",
+          "completed_at": "2026-11-15T01:12:30Z"
+        },
+        {
+          "name": "Apply disclosed simulator compatibility patches",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-15T01:12:30Z",
+          "completed_at": "2026-11-15T01:12:30Z"
+        },
+        {
+          "name": "Protocol and persistence regression tests",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-15T01:12:30Z",
+          "completed_at": "2026-11-15T01:12:38Z"
+        },
+        {
+          "name": "System dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-15T01:12:38Z",
+          "completed_at": "2026-11-15T01:12:46Z"
+        },
+        {
+          "name": "Run ErBWs/setup-ohos@v2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-15T01:12:46Z",
+          "completed_at": "2026-11-15T01:13:20Z"
+        },
+        {
+          "name": "Toolchain paths",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-15T01:13:20Z",
+          "completed_at": "2026-11-15T01:13:21Z"
+        },
+        {
+          "name": "Build actual Lite package",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-15T01:13:21Z",
+          "completed_at": "2026-11-15T01:13:39Z"
+        },
+        {
+          "name": "Sign and verify course application identity",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-15T01:13:39Z",
+          "completed_at": "2026-11-15T01:13:40Z"
+        },
+        {
+          "name": "Exact signed payload and native SDK compatibility gate",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-15T01:13:40Z",
+          "completed_at": "2026-11-15T01:13:41Z"
+        },
+        {
+          "name": "Preserve exact native parser failure output (not delivery)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 13,
+          "started_at": "2026-11-15T01:13:41Z",
+          "completed_at": "2026-11-15T01:13:41Z"
+        },
+        {
+          "name": "Upload public failure evidence only",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 14,
+          "started_at": "2026-11-15T01:13:41Z",
+          "completed_at": "2026-11-15T01:13:41Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15,
+          "started_at": "2026-11-15T01:13:41Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Post Run ErBWs/setup-ohos@v2",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 27,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Post Checkout the fixed simulator QA dependency",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 28,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:43Z"
+        },
+        {
+          "name": "Post Run actions/setup-node@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 29,
+          "started_at": "2026-11-15T01:13:43Z",
+          "completed_at": "2026-11-15T01:13:43Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 30,
+          "started_at": "2026-11-15T01:13:43Z",
+          "completed_at": "2026-11-15T01:13:43Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 31,
+          "started_at": "2026-11-15T01:13:43Z",
+          "completed_at": "2026-11-15T01:13:43Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/lantianhcgp/elcton/check-runs/132653041568",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001665,
+      "runner_name": "GitHub Actions 1000001665",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

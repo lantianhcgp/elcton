@@ -1,0 +1,25 @@
+✔ NEW QA ACK matches actual PHP ok=1 and boolean ok=true, without truthy coercion (8.944011ms)
+✔ NEW QA ACK rejects all other types/values and preserves independent accepted field (3.554115ms)
+✔ SPEC-01 endpoint and key failures never expose actual/expected private values (6.283073ms)
+✔ SPEC-02 success then late request error settles exactly once (2.016198ms)
+✔ SPEC-02 response abort/error are handled and request/socket teardown is tracked (1.087344ms)
+✔ SPEC-03 primary failure survives throwing destroy and evidence/cleanup still happen (2.180261ms)
+✔ SPEC-03 initialization failure also writes safe passed=false evidence (0.746615ms)
+✔ SPEC-04 post-destroy leak is recorded before emergency clearing and prevents pass (0.862552ms)
+✔ SPEC-01 asynchronous response callback exceptions are converted to fixed safe failure codes (0.906979ms)
+✔ SPEC-04 clean lifecycle only passes after destruction and captured resource checks (0.546094ms)
+✔ SPEC-04 pending residue prevents pass before emergency cleanup (1.159844ms)
+✔ SPEC-04 busy residue prevents pass before emergency cleanup (0.988542ms)
+✔ SPEC-04 console residue prevents pass before emergency cleanup (0.561145ms)
+✔ SPEC-04 request residue prevents pass before emergency cleanup (0.658229ms)
+✔ SPEC-04 socket residue prevents pass before emergency cleanup (0.481145ms)
+✔ SPEC-02 live transport counts are retained until real close notifications (0.965781ms)
+✔ SPEC-05 public-build placeholder is documented as configured, public only disabled (0.907916ms)
+ℹ tests 17
+ℹ suites 0
+ℹ pass 17
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 481.149687

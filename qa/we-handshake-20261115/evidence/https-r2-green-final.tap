@@ -1,0 +1,22 @@
+✔ SPEC-01 endpoint and key failures never expose actual/expected private values (6.259895ms)
+✔ SPEC-02 success then late request error settles exactly once (1.96948ms)
+✔ SPEC-02 response abort/error are handled and request/socket teardown is tracked (0.959428ms)
+✔ SPEC-03 primary failure survives throwing destroy and evidence/cleanup still happen (2.22ms)
+✔ SPEC-03 initialization failure also writes safe passed=false evidence (0.712864ms)
+✔ SPEC-04 post-destroy leak is recorded before emergency clearing and prevents pass (0.797292ms)
+✔ SPEC-01 asynchronous response callback exceptions are converted to fixed safe failure codes (0.89474ms)
+✔ SPEC-04 clean lifecycle only passes after destruction and captured resource checks (0.517813ms)
+✔ SPEC-04 pending residue prevents pass before emergency cleanup (1.004063ms)
+✔ SPEC-04 busy residue prevents pass before emergency cleanup (0.989636ms)
+✔ SPEC-04 console residue prevents pass before emergency cleanup (0.527552ms)
+✔ SPEC-04 request residue prevents pass before emergency cleanup (0.461093ms)
+✔ SPEC-04 socket residue prevents pass before emergency cleanup (0.451042ms)
+✔ SPEC-05 public-build placeholder is documented as configured, public only disabled (1.095781ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 467.946875

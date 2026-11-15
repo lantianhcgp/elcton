@@ -1,0 +1,15 @@
+{
+  "work_evidence_main_location": "https://github.com/lantianhcgp/elcton/tree/fix/we-handshake-logger-20261115/qa/we-handshake-20261115",
+  "product_source": "cbd171553e70eb614ca4283534915b92ebb870de",
+  "source_ci": 43661966735,
+  "version": "1.1.16",
+  "version_code": 1000119,
+  "bundle": "watchapp.nexus.0zzip",
+  "hap_bytes": 900659,
+  "hap_sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a",
+  "shared_target": "/storage/emulated/0/haps/elcton-20261115-WE分阶段日志常亮-1.1.16-cbd1715.hap",
+  "native_handshake_root_cause": "unknown",
+  "real_watch_validation": "pending user install and test",
+  "configured_hap_local_only": true,
+  "public_upload": false
+}

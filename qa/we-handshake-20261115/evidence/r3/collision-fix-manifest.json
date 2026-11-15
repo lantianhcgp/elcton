@@ -1,0 +1,102 @@
+{
+  "pass": true,
+  "hashes": {
+    "before": {
+      "qa/we-handshake-20261115/compiled-we-stages.mjs": "6906274cab692b2098942ec020ce564f9bdd13218848ee0f62de21b70d760491"
+    },
+    "after": {
+      "qa/we-handshake-20261115/compiled-we-stages.mjs": "91a5ef887f5105dc46342419e1b47afcb86158eb29a7a3ccf43c7c8454c7fbcf",
+      "tests/compiledWeStages.test.mjs": "5da866d0f5d41ae45a612fcb561a80b30f02ec9bcbe7c3a8dfea83714d37f73d",
+      "NEWtests/compiledWeStages.test.mjs": "32383c814d6dacfec69315a4e011d38e6581bfbf03ad867c08e1011092f9896d",
+      "NEWtests/compiledWeStagesSdkActual.test.mjs": "43682a00d113294832b036c7ee41ffb74c59158531cc8a07f865bc7977c2132e",
+      "NEWtests/compiledWeStagesBindingCollision.test.mjs": "8ac77880b0aa4df77aa91d79cf44504f439c6277a1ee588479fee63609469408",
+      "qa/we-handshake-20261115/evidence/r3/collision-red.tap": "97502369accb371070af9fe51eb63a593dd5a70a8b0bc8e739536fe8eb5c6fdc",
+      "qa/we-handshake-20261115/evidence/r3/collision-green.tap": "8498c8d73bfd635bb3b4bab50b0b039ca98440534ed5de7458b015cf2004af47",
+      "qa/we-handshake-20261115/evidence/r3/collision-actual-host.json": "a089823bc2eb2712ff6e2899db2148b6d7ad017cecfda5fa16ab24f3d56aa61e"
+    },
+    "original_public_app": {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/dist/elcton-default-unsigned.app",
+      "sha256": "1930aea4c158df1af3e496246bae570b7e4fefa91d278710e08c63c55b857c34",
+      "unchanged": true
+    }
+  },
+  "tests": {
+    "files": [
+      "tests/compiledWeStages.test.mjs",
+      "NEWtests/compiledWeStages.test.mjs",
+      "NEWtests/compiledWeStagesSdkActual.test.mjs",
+      "NEWtests/compiledWeStagesBindingCollision.test.mjs"
+    ],
+    "red": {
+      "exit_code": 1,
+      "tests": 2,
+      "passed": 0,
+      "failed": 2,
+      "stderr": ""
+    },
+    "green": {
+      "exit_code": 0,
+      "tests": 15,
+      "passed": 14,
+      "failed": 0,
+      "skipped": 1,
+      "skip_reason": "existing hardlink creation EACCES; isolated same dev/ino test passed",
+      "stderr": ""
+    },
+    "evidence_redirect": "runtime-only exact legacy stage-test-actual.json output/read redirect to collision-actual-host.json; original test bytes and assertions unchanged"
+  },
+  "host": {
+    "passed": true,
+    "stages": {
+      "SDK_CALL": true,
+      "VER_OK": true,
+      "PKG_CALL": true,
+      "PKG_OK": true,
+      "CERT_CALL": true,
+      "CERT_OK": true,
+      "REG_CALL": true,
+      "REG_OK": true,
+      "HELLO_RECV": true,
+      "READY_PREPARED": true,
+      "READY_CALL": true,
+      "READY_OK": true,
+      "SEND_CALL": true,
+      "SEND_OK": true,
+      "SEND_FAIL": true
+    },
+    "actual_vm_original_bytes": true,
+    "final_timers": 0,
+    "listener_closed": true,
+    "timer_zero_verified": true,
+    "post_stop_verified": true,
+    "native_verified": false,
+    "real_https": false,
+    "real_bluetooth": false
+  },
+  "scope": {
+    "modified": [
+      "qa/we-handshake-20261115/compiled-we-stages.mjs"
+    ],
+    "new": [
+      "NEWtests/compiledWeStagesBindingCollision.test.mjs",
+      "qa/we-handshake-20261115/evidence/r3/collision-red.tap",
+      "qa/we-handshake-20261115/evidence/r3/collision-green.tap",
+      "qa/we-handshake-20261115/evidence/r3/collision-actual-host.json",
+      "qa/we-handshake-20261115/evidence/r3/collision-fix-manifest.json"
+    ],
+    "baseline_checked_files": 308,
+    "baseline_changed_paths": [
+      "qa/we-handshake-20261115/compiled-we-stages.mjs"
+    ],
+    "old_tests_unchanged": true,
+    "old_evidence_reviews_unchanged": true,
+    "input_app_unchanged": true,
+    "no_product_gate_phone_keys_network_browser_commit_push_or_self_review": true
+  },
+  "timebox": {
+    "requested_seconds": 150,
+    "elapsed_seconds": 197.503,
+    "met": false,
+    "deadline_boundary": "GREEN run returned after timebox; only final read-only hashes/report verification and this manifest followed; no further repair or test runs"
+  }
+}

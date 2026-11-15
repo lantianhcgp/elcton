@@ -1,0 +1,69 @@
+{
+  "review": "independent compiled-WE HOST SPEC",
+  "verdict": "NEEDS_FIX_BOUNDARY_GUARD",
+  "scope": "Current independent runner and NEW utility tests; minimal read-only source contract comparison. No product edits, old tests/gates, CI/network/cloud/device actions, SDK synthesis or synthetic APP acceptance.",
+  "sha256": {
+    "qa/we-handshake-20261115/compiled-we-stages.mjs": "44f2b4485a4877cfaa1be9d88e9d3a72d80690864a198dbb5d69afd8a5c11654",
+    "tests/compiledWeStages.test.mjs": "5da866d0f5d41ae45a612fcb561a80b30f02ec9bcbe7c3a8dfea83714d37f73d"
+  },
+  "actual_app_acceptance": "PENDING_NOT_RUN",
+  "actual_stage_pass": false,
+  "native_verified": false,
+  "real_https": false,
+  "real_bluetooth": false,
+  "new_ci_provenance_verified": false,
+  "ci_context": "Delegated context says CI4 build-stub gate failed and produced no APP; not independently queried. Local pending evidence explicitly disclaims actual SDK APP acceptance.",
+  "verification": {
+    "command": "node --test tests/compiledWeStages.test.mjs",
+    "exit_code": 0,
+    "tests": 4,
+    "pass": 4,
+    "fail": 0,
+    "meaning": "Utility/import/CLI/clock checks only, not compiled stage execution.",
+    "hashes_rechecked_stable": true,
+    "jszip_relative_resolution": "../../tools/sign/node_modules/jszip resolves using createRequire(import.meta.url), through existing dependency link to /data/data/com.termux/files/home/we-ready-receipt-20261114-watch/tools/sign/node_modules/jszip/lib/index.js"
+  },
+  "blockers": [
+    {
+      "id": "SPEC-B1",
+      "severity": "high",
+      "location": "qa/we-handshake-20261115/compiled-we-stages.mjs:162-165",
+      "requirement": "Boundary guard must reject report/input collision without changing the supplied artifact.",
+      "static_contradiction": "out is assigned before need(out!==input). On exact equality need throws report_input_collision, catch records failure, but the unconditional if(out) write then overwrites that SAME input with report JSON. This occurs before loadApp, without requiring any valid APP or hypothetical protocol data.",
+      "requested_fix": "Do not set a writable report target until collision validation succeeds, or gate the final write on successful collision validation. Add a NEW sentinel-file CLI test proving collision rejection preserves input bytes; do not alter old gates. Also consider existing-file/symlink alias collisions.",
+      "reproduction": "Not executed: static control flow is sufficient and avoids deliberately overwriting any input."
+    }
+  ],
+  "nonblocking_observations": [
+    {
+      "id": "SPEC-N1",
+      "location": "qa/we-handshake-20261115/compiled-we-stages.mjs:144-145,164-165",
+      "finding": "safe_rows is attached to report before numeric-msg validation. If validation fails, catch still writes the attached invalid rows. Current product app.js:17-36 and wearTrace.js:26-36 sanitize fixed numeric fields, so no current-source secret leak was demonstrated. This is a fail-path hardening concern, not an invented malformed-APP blocker.",
+      "suggestion": "Validate rows in a local value before publishing them to report; preferably retain the exact product field whitelist rather than arbitrary numeric key names. Never serialize rejected msg text."
+    },
+    {
+      "id": "SPEC-N2",
+      "location": "qa/we-handshake-20261115/compiled-we-stages.mjs:71-73,127-137",
+      "finding": "HOST callbacks preserve complete/success/fail signatures and numeric zero. However unsubscribe count includes the versioned pre-registration unsubscribe and compat close, so listener_closed=unsubscribes>0 is not independently a page-close listener proof. Stage presence also combines versioned and compat runs; compat send remains on injected fail mode.",
+      "suggestion": "On real APP execution, identify per-path stage rows/callback results and per-close subscription deltas; do not promote aggregate booleans to full native/listener acceptance."
+    },
+    {
+      "id": "SPEC-N3",
+      "location": "qa/we-handshake-20261115/compiled-we-stages.mjs:114-115,135-145",
+      "finding": "Original show/hide/destroy callbacks are invoked and boolean keepScreenOn transitions are asserted. Actual logger receives rows in memory, but original console KEEP_ON/KEEP_OFF capture is not asserted and only WE rows are serialized.",
+      "suggestion": "If keep/off logger capture is an acceptance criterion, assert those fixed console rows on the actual APP path without dumping console payloads."
+    }
+  ],
+  "static_contract_checks": {
+    "original_bytes": "loadApp selects one nested HAP and one app/page entry; SHA hashes are of extracted buffers. UTF-8 roundtrip equality precedes direct vm.Script execution, with no source rewriting/factory import. Actual extracted bytes not available for this review.",
+    "owner": "page uses wearChannel.js:11-14 to call app._elctonWearChannel. Helper selectCompiledChannel uses only app._elctonWearCompat for noVersion and fails if missing; HOST identity/ASCII seam is explicitly labeled, not real identity proof.",
+    "hello": "Runner line 118 matches wearProtocol packet keys and wearReceiver.js:33-38: protocol elcton.sync, version 1, sender phone, type HELLO, empty string transferId is allowed. No static HELLO contradiction found.",
+    "callbacks": "wearService.js:38-47,58-77,108-109 agrees with engine complete version/package/cert; success({isRegister:true}); success message envelope; fail(210301031,0). Brightness success callback agrees with wearAwake.js:19-30.",
+    "filesystem": "Runner get.fail(null,301) matches fs.js:29-48 fail(data,code), journal missing-file handling and page legacy-file fallback. context.$app is provided before page executes fs.js. This proves only the modeled empty-file route, not real files or transfer/commit persistence.",
+    "privacy": "No private config is read separately; no request URL/header/body, identity, error stack or archive paths are emitted by report. Current product stage messages are numeric/boolean whitelist output. Failure-row publication hardening is SPEC-N1.",
+    "cleanup": "Runner checks original page keep sequence, final logger pending/busy/timers and console restoration, then post-stop stable status/fetch count. These remain planned actual-APP assertions, not executed stage facts.",
+    "import_cli": "Both runner and imported helper have direct CLI guards; real import utility test was silent and passed. CLI accepts only --app/--report, with HOST ACK/native/network disclaimers."
+  },
+  "next_acceptance": "Fix SPEC-B1 within authorized runner/NEW tests scope. Then parent must supply NEW successful-CI actualSDK.app, independently verify source/artifact SHA and manifest/signature identity, and run main with a distinct report path. Four green utility tests do not prove stages; HOST callback ACK never proves real HTTPS, WearEngine, Bluetooth, JerryScript heap or a worn watch.",
+  "review_file_is_only_write": true
+}

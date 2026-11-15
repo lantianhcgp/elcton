@@ -1,0 +1,34 @@
+{
+  "passed": false,
+  "security_concerns": [],
+  "logic_errors": [
+    {
+      "path": "qa/we-handshake-20261115/compiled-we-stages.mjs",
+      "location": "assertCompiledSdkShape / canonical(loader,names) comparison",
+      "severity": "blocking",
+      "description": "AST alpha canonicalization is not injective: real bound identifiers e/t are renamed to fixed TABLE/CACHE sentinels, but already-spelled, unbound TABLE/CACHE identifiers remain unchanged and compare equal. The exact loader gate therefore accepts incorrect binding relationships and is not fail-closed as required.",
+      "reproduction": "Read original public CI APP phone-sync.js (table=e, cache=t); replace only loader module invocation callee object e with TABLE, or cached lookup object t with CACHE, using parsed AST source offsets. Both assertCompiledSdkShape(mutant) returned true, although TABLE/CACHE are not the corresponding bound SDK table/cache variables. Mutants were in-memory only.",
+      "boundary": "This proves a shape-validator false positive, not a demonstrated full HOST pass or native/security exploit. Existing HOST VM may reject an unbound identifier at execution time; that does not repair the promised exact AST gate.",
+      "recommendation": "Make identifier canonicalization binding-aware and collision-free (distinct structured binding tokens rather than ordinary identifier names), and add these incorrect-binding negative cases. Do not modify original APP bytes."
+    }
+  ],
+  "reviewed_hashes": {
+    "qa/we-handshake-20261115/compiled-we-stages.mjs": "6906274cab692b2098942ec020ce564f9bdd13218848ee0f62de21b70d760491",
+    "NEWtests/compiledWeStagesSdkActual.test.mjs": "43682a00d113294832b036c7ee41ffb74c59158531cc8a07f865bc7977c2132e",
+    "qa/we-handshake-20261115/compiled-logger-https.mjs": "fdeb6aeb7e8cf8e0084345a225c6b857c6bbd6822a901531c751da0c1106b8de",
+    "NEWtests/compiledLoggerHttpsNumericAck.test.mjs": "58a4ce9cdeb30974b28e26fa60c736aeb9d02a0c35286b22286be81e5f45c2db"
+  },
+  "summary": "独立 QUALITY 仅审四路径新 delta，hash 全匹配，SPEC 只作已通过上下文。阻断一项：AST 固定哨兵名 canonicalization 发生碰撞，实际页两种错误绑定 mutant 被形状门接纳，未满足 fail-closed。numeric ACK 唯一一行严格 true 或数值 1，非 truthy；新 ACK 2 项和原 HTTPS 15 项离线测试全部通过。实际 CI APP 的 shape 正反例测试通过；另直接 HOST main(--report /dev/null) 实测 15 阶段全绿、timer-zero/post-stop/listener 清理通过、awake=[true,false,true,false]，回调契约均绿。新增测试明确 HOST NOT native，未发现新增敏感值输出。未重审产品/打包/旧门，未读取 configuredAPP/secret/签key，未使用 HTTPS/手机/浏览器。原件及 RED 证据未写；仅新增本 JSON。",
+  "verification": {
+    "offline_ack_tests": {"exit_code": 0, "passed": 17, "new_numeric_ack": 2, "existing_https": 15},
+    "actual_ci_alpha_shape_test": {"exit_code": 0, "passed": 1},
+    "original_public_app_host": {"exit_code": 0, "passed": true, "required_stages": 15, "all_stages_true": true, "final_timers": 0, "listener_closed": true, "timer_zero_verified": true, "post_stop_verified": true, "awake_sequence": [true, false, true, false], "native_verified": false, "real_https": false, "real_bluetooth": false},
+    "incorrect_binding_mutants": [{"change": "loader TABLE call object e -> unbound TABLE", "shape_accepted": true}, {"change": "loader cache lookup t -> unbound CACHE", "shape_accepted": true}],
+    "new_stage_second_test": "Read all assertions; exercised identical original-APP HOST path directly with report=/dev/null instead of overwriting its fixed stage-test-actual.json evidence target.",
+    "review_started_epoch": 1794706469,
+    "last_execution_epoch": 1794706581,
+    "network_used": false,
+    "product_or_old_gate_code_modified": false,
+    "red_evidence_overwritten": false
+  }
+}

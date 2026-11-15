@@ -1,0 +1,13 @@
+{
+  "code_and_docs_check_passed": true,
+  "raw_evidence_trailing_whitespace_preserved": true,
+  "raw_originals_edited": false,
+  "raw_only_findings_files": [
+    "qa/we-handshake-20261115/evidence/r3/ci_log-full.txt",
+    "qa/we-handshake-20261115/evidence/r3/https-numeric-ack-red.tap",
+    "qa/we-handshake-20261115/evidence/r3/legacy_log-full.txt",
+    "qa/we-handshake-20261115/evidence/r3/stage-test-red.tap"
+  ],
+  "raw_only_findings_count": 119,
+  "scope": "publication text lint only; no runtime/test/SDK gates changed"
+}

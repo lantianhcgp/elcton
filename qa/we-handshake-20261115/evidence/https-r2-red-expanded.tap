@@ -1,0 +1,153 @@
+✖ SPEC-01 endpoint and key failures never expose actual/expected private values (12.707188ms)
+✖ SPEC-02 success then late request error settles exactly once (9.523593ms)
+✖ SPEC-02 response abort/error are handled and request/socket teardown is tracked (3.030729ms)
+✖ SPEC-03 primary failure survives throwing destroy and evidence/cleanup still happen (4.725364ms)
+✖ SPEC-03 initialization failure also writes safe passed=false evidence (3.26625ms)
+✖ SPEC-04 post-destroy leak is recorded before emergency clearing and prevents pass (29.369115ms)
+✖ SPEC-01 asynchronous response callback exceptions are converted to fixed safe failure codes (4.041979ms)
+✖ SPEC-04 clean lifecycle only passes after destruction and captured resource checks (4.150261ms)
+✔ SPEC-05 public-build placeholder is documented as configured, public only disabled (1.344896ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 1
+ℹ fail 8
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 477.535677
+
+✖ failing tests:
+
+test at tests/compiledLoggerHttps.test.mjs:49:1
+✖ SPEC-01 endpoint and key failures never expose actual/expected private values (12.707188ms)
+  AssertionError [ERR_ASSERTION]: comparison diagnostics must be value-free
+      at check (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:11:33)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:54:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/compiledLoggerHttps.test.mjs:58:1
+✖ SPEC-02 success then late request error settles exactly once (9.523593ms)
+  AssertionError [ERR_ASSERTION]: one completion only
+      at check (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:11:33)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:61:3)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/compiledLoggerHttps.test.mjs:63:1
+✖ SPEC-02 response abort/error are handled and request/socket teardown is tracked (3.030729ms)
+  AssertionError [ERR_ASSERTION]: response failure handler required
+      at check (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:11:33)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:67:5)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/compiledLoggerHttps.test.mjs:73:1
+✖ SPEC-03 primary failure survives throwing destroy and evidence/cleanup still happen (4.725364ms)
+  AssertionError [ERR_ASSERTION]: failure evidence must be written
+      at check (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:11:33)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:75:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/compiledLoggerHttps.test.mjs:81:1
+✖ SPEC-03 initialization failure also writes safe passed=false evidence (3.26625ms)
+  AssertionError [ERR_ASSERTION]: init safe failure report
+      at check (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:11:33)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:83:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/compiledLoggerHttps.test.mjs:86:1
+✖ SPEC-04 post-destroy leak is recorded before emergency clearing and prevents pass (29.369115ms)
+  AssertionError [ERR_ASSERTION]: destructor leak prevents pass
+      at check (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:11:33)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:88:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/compiledLoggerHttps.test.mjs:93:1
+✖ SPEC-01 asynchronous response callback exceptions are converted to fixed safe failure codes (4.041979ms)
+  AssertionError [ERR_ASSERTION]: async exception must not escape
+      at check (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:11:33)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:97:3)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/compiledLoggerHttps.test.mjs:99:1
+✖ SPEC-04 clean lifecycle only passes after destruction and captured resource checks (4.150261ms)
+  AssertionError [ERR_ASSERTION]: destruction checks required
+      at check (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:11:33)
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tests/compiledLoggerHttps.test.mjs:102:3)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

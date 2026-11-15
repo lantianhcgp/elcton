@@ -1,0 +1,16 @@
+{
+  "head_sha": "a197eecb83a6e15a7f4cdb930c1205ec9c84b1ef",
+  "remote_head_equal": true,
+  "root_report_exact_readback": true,
+  "raw_report_sha256": "a58a539a806217f8174e461b1745962c17e0b864aa96b51fa786ba8639931fa3",
+  "root_report_url": "https://raw.githubusercontent.com/lantianhcgp/elcton/a197eecb83a6e15a7f4cdb930c1205ec9c84b1ef/qa/we-handshake-20261115/ROOT-CAUSE.md",
+  "runs": [
+    {
+      "conclusion": "",
+      "databaseId": 43620391145,
+      "headSha": "a197eecb83a6e15a7f4cdb930c1205ec9c84b1ef",
+      "status": "in_progress",
+      "url": "https://github.com/lantianhcgp/elcton/actions/runs/43620391145"
+    }
+  ]
+}

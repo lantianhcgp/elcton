@@ -1,0 +1,44 @@
+name: 'Setup HarmonyOS NEXT CLI tools'
+description: 'Download and setup HarmonyOS command line tools'
+author: 'ErBW_s'
+branding:
+  icon: download-cloud
+  color: gray-dark
+
+inputs:
+  version:
+    description: 'CLI tools build version'
+    required: false
+  cache:
+    description: 'Whether to cache the SDK or not'
+    required: false
+    default: 'false'
+
+outputs:
+  sdk-version:
+    description: "HarmonyOS SDK version (e.g. 5.0.5.165)"
+    value: ${{ steps.setup-ohos.outputs.sdk-version }}
+  api-version:
+    description: "API version (e.g. 17)"
+    value: ${{ steps.setup-ohos.outputs.api-version }}
+
+runs:
+  using: composite
+  steps:
+    - name: Make the script executable
+      run: chmod +x "$GITHUB_ACTION_PATH/setup.sh"
+      shell: bash
+    - name: Cache SDK
+      uses: actions/cache@v4
+      if: ${{ inputs.cache == 'true' }}
+      with:
+        path: ~/ohos-sdk
+        key: ohos-sdk-${{ runner.os }}-${{ runner.arch }}-${{ inputs.version }}
+    - name: Run setup script
+      id: setup-ohos
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        $GITHUB_ACTION_PATH/setup.sh \
+          -v '${{ inputs.version }}'
+      shell: bash

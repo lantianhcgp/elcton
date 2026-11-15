@@ -1,0 +1,56 @@
+{
+  "axis": "quality",
+  "passed": true,
+  "verdict": "PASS_QUALITY_DELTA_WITH_EXECUTION_LIMITATIONS",
+  "scope": "Current collision guard and safe_rows failure-publication delta only; not whole-stage, product or native acceptance.",
+  "spec_receipt": "reviews/compiled-stage-spec-r2.json",
+  "spec_binding_verified": true,
+  "sha256": {
+    "qa/we-handshake-20261115/compiled-we-stages.mjs": "d666084ff1e7c01b062aa6faeb1d938f584b4e7137a7efd6595e1213429f42a9",
+    "NEWtests/compiledWeStages.test.mjs": "32383c814d6dacfec69315a4e011d38e6581bfbf03ad867c08e1011092f9896d"
+  },
+  "hashes_rechecked_stable": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "missing_requirements": [],
+  "suggestions": [],
+  "checks": {
+    "collision": "Lines 163-172 reject resolved-path, realpath and existing-file bigint dev/ino aliases before assigning out. Rejected collisions cannot reach final report write. Real same-path, symlink and parent-symlink sentinel checks preserve input and emit only fixed failure code.",
+    "failure_rows": "Lines 144-146 validate local safeRows for string, length and numeric/boolean grammar before publication. Isolated unchanged block rejects invalid msg without attachment/serialization, and accepts numeric-zero failure fields."
+  },
+  "verification": {
+    "command": "node --test --test-reporter=tap tests/compiledWeStages.test.mjs NEWtests/compiledWeStages.test.mjs",
+    "runs": 1,
+    "exit_code": 0,
+    "tests": 10,
+    "pass": 9,
+    "fail": 0,
+    "skipped": 1,
+    "original_utility_pass": 4,
+    "new_pass": 5,
+    "syntax_checks": "runner and NEW test: exit 0",
+    "original_utility_sha256": "5da866d0f5d41ae45a612fcb561a80b30f02ec9bcbe7c3a8dfea83714d37f73d",
+    "original_utility_unchanged": true
+  },
+  "limitations": [
+    "Actual hardlink CLI creation skipped on filesystem EACCES; isolated same-dev/ino proof is not real hardlink execution.",
+    "Pre-existing aliases only: no atomic/TOCTOU guarantee, fuzzing or new native-call contract review.",
+    "Utility/sentinel/isolated-block checks are not compiled APP stage acceptance. Original callback/HELLO/close/keep-off findings not re-reviewed; actual APP execution and strong provenance gates remain parent responsibilities.",
+    "Owner evidence_elapsed_seconds=205 exceeds its 180-second window; this scoped quality verdict does not change that historical timing failure."
+  ],
+  "actual_app_acceptance": "PENDING_NOT_RUN",
+  "actual_stage_pass": false,
+  "actual_vm_original_bytes": false,
+  "native_verified": false,
+  "real_https": false,
+  "real_bluetooth": false,
+  "new_ci_provenance_verified": false,
+  "timing": {
+    "review_start_epoch": 1794703912.3632646,
+    "budget_seconds": 90,
+    "elapsed_seconds_at_last_check": 54.106,
+    "last_check_at": "2026-11-15T08:52:46.468849+08:00"
+  },
+  "persisted_write_scope": "This report only; source, tests and historical evidence unmodified; no actual APP, auth or network access.",
+  "summary": "No blocking quality finding in the two authorized current deltas. Verified 9 PASS/1 SKIP, not ten passes or actual-stage green."
+}

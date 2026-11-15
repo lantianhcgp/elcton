@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "reviewed_hashes": {
+    "qa/we-handshake-20261115/compiled-we-stages.mjs": "91a5ef887f5105dc46342419e1b47afcb86158eb29a7a3ccf43c7c8454c7fbcf",
+    "NEWtests/compiledWeStagesBindingCollision.test.mjs": "8ac77880b0aa4df77aa91d79cf44504f439c6277a1ee588479fee63609469408"
+  },
+  "summary": "PASS，仅闭合旧 QUALITY 的 canonical Identifier 普通名称碰撞发现，不重审旧 R3、QA、HTTPS、产品或泛化 shape grammar。实读目标 19–67 行及新增测试；六角色 bindings/expectedBindings 顺序相同，bindings.size 强制互异。只在指定声明/引用位置把绑定 Identifier 转为独立 Sdk*Binding AST type；未绑定名称仍为 Identifier，不能碰撞结构 token，非 computed .exports 与对象属性字面保持原样。独立执行 node --test NEWtests/compiledWeStagesBindingCollision.test.mjs：3 PASS、0 FAIL、0 SKIP，exit 0；指定 publicAPP 的六处未绑定 TABLE/CACHE/ID/MODULE/CACHED 引用全拒绝，原 app.js/page.js 与三角色一致 alpha（参数 exports、局部 TABLE/CACHE，属性 .exports 不变）全接受；各项 APP 原 bytes 回读相等。执行后两文件 SHA-256 再核验完全匹配；写报告前实测 53.782 秒，立即收口。不读取 configuredAPP、privatekey 或 runtime secret，无网络、产品/旧 tests/旧证据修改、commit/push；仅新增本 JSON。父方全量及 configuredAPP 结果不作为本次独立执行凭据。"
+}

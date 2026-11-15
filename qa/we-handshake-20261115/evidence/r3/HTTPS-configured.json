@@ -1,0 +1,110 @@
+{
+  "passed": false,
+  "primary_failure": "EXERCISE_FAILED",
+  "destroy_failure": null,
+  "cleanup_failure": null,
+  "module_status": {
+    "seq": 13,
+    "sent": 12,
+    "pending": 0,
+    "failed": 0,
+    "dropped": 0,
+    "busy": 0
+  },
+  "post_destroy": {
+    "pending": 0,
+    "busy": 0,
+    "console_restored": true,
+    "timers": 0,
+    "requests": 0,
+    "sockets": 0
+  },
+  "remaining_timers": 0,
+  "remaining_requests": 0,
+  "remaining_sockets": 0,
+  "watch_origin": false,
+  "wearengine_handshake": false,
+  "kind": "HOST actual compiled SDK APP -> Node HTTPS -> real cloud ACK; NOT FIT3 or real WE",
+  "source_app_sha256": "b315d67dbd19c0403b0c404a8b1e3a462d8254dc1b40c6e8575ae73d2c7567d8",
+  "app_js_sha256": "b568c9988155357dc2c86d61ed2b77b311b0419f8ecfd52214e91f0bf0109377",
+  "original_compiled_bytes": true,
+  "marker": "WE-HOST-HTTPS-924d6d50b68ee0aa",
+  "stages": [
+    "SDK_CALL",
+    "VER_OK",
+    "PKG_OK",
+    "CERT_OK",
+    "REG_OK",
+    "HELLO_RECV",
+    "READY_CALL",
+    "READY_OK",
+    "SEND_FAIL"
+  ],
+  "expected_logs": [
+    {
+      "tag": "console",
+      "msg": "WE-HOST-HTTPS-924d6d50b68ee0aa",
+      "seq": 3
+    },
+    {
+      "tag": "WE/SDK_CALL",
+      "seq": 4
+    },
+    {
+      "tag": "WE/VER_OK",
+      "seq": 5
+    },
+    {
+      "tag": "WE/PKG_OK",
+      "seq": 6
+    },
+    {
+      "tag": "WE/CERT_OK",
+      "seq": 7
+    },
+    {
+      "tag": "WE/REG_OK",
+      "seq": 8
+    },
+    {
+      "tag": "WE/HELLO_RECV",
+      "seq": 9
+    },
+    {
+      "tag": "WE/READY_CALL",
+      "seq": 10
+    },
+    {
+      "tag": "WE/READY_OK",
+      "seq": 11
+    },
+    {
+      "tag": "WE/SEND_FAIL",
+      "seq": 12
+    }
+  ],
+  "requests": [
+    {
+      "http": 200,
+      "ack": false,
+      "accepted": 2,
+      "rows": 2
+    },
+    {
+      "http": 200,
+      "ack": false,
+      "accepted": 8,
+      "rows": 8
+    },
+    {
+      "http": 200,
+      "ack": false,
+      "accepted": 2,
+      "rows": 2
+    }
+  ],
+  "native_calls": [
+    "system.fetch"
+  ],
+  "generated_at": "2026-11-15T01:20:37.365Z"
+}

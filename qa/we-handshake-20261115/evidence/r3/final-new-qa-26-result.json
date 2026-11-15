@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "stats": {
+    "tests": 26,
+    "pass": 26,
+    "fail": 0,
+    "skipped": 0
+  },
+  "test_exit_code": 0,
+  "wrapper_first_pass_counter_parser_failed": true,
+  "parser_failure_reason": "Node26 auto reporter uses info prefix not TAP #; original test exit was0; no re-run/fabrication",
+  "original_output_preserved": true
+}

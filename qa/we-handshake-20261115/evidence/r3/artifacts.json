@@ -1,0 +1,25 @@
+{
+  "total_count": 1,
+  "artifacts": [
+    {
+      "id": 14140751342,
+      "node_id": "MDg6QXJ0aWZhY3QxNDE0MDc1MTM0Mg==",
+      "name": "wearengine-watch-cbd171553e70eb614ca4283534915b92ebb870de",
+      "size_in_bytes": 466722,
+      "url": "https://api.github.com/repos/lantianhcgp/elcton/actions/artifacts/14140751342",
+      "archive_download_url": "https://api.github.com/repos/lantianhcgp/elcton/actions/artifacts/14140751342/zip",
+      "expired": false,
+      "digest": "sha256:a66ceb3dc11dc2d5031026410f7fc1462b0143b289a847005ca26fca0ab8157e",
+      "created_at": "2026-11-15T01:13:42Z",
+      "updated_at": "2026-11-15T01:13:42Z",
+      "expires_at": "2027-02-13T01:12:22Z",
+      "workflow_run": {
+        "id": 43661966735,
+        "repository_id": 1402709439,
+        "head_repository_id": 1402709439,
+        "head_branch": "fix/we-handshake-logger-20261115",
+        "head_sha": "cbd171553e70eb614ca4283534915b92ebb870de"
+      }
+    }
+  ]
+}

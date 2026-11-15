@@ -1,0 +1,18 @@
+{
+  "source": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/dist/elcton-default-unsigned.app",
+  "output": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/configured-elcton-1.1.16.app",
+  "source_sha256": "1930aea4c158df1af3e496246bae570b7e4fefa91d278710e08c63c55b857c34",
+  "configured_sha256": "b315d67dbd19c0403b0c404a8b1e3a462d8254dc1b40c6e8575ae73d2c7567d8",
+  "changed_paths": [
+    "assets/js/MainAbility/app.js",
+    "assets/js/MainAbility/app.js.map"
+  ],
+  "all_other_files_identical": true,
+  "write_only": true,
+  "bytecode_absent": true,
+  "gzip_absent": true,
+  "configured_file_hashes": {
+    "assets/js/MainAbility/app.js": "b568c9988155357dc2c86d61ed2b77b311b0419f8ecfd52214e91f0bf0109377",
+    "assets/js/MainAbility/app.js.map": "c50287b465b97af8bf420736f108dfbfc904aef0aa52d8f9b651b5880dd938f8"
+  }
+}

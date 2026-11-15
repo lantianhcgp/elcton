@@ -1,0 +1,34 @@
+✔ NEW QA ACK matches actual PHP ok=1 and boolean ok=true, without truthy coercion (11.28073ms)
+✔ NEW QA ACK rejects all other types/values and preserves independent accepted field (5.045417ms)
+✔ actual APP AST TABLE call: unbound TABLE must not equal bound e (shape only) (93.051614ms)
+✔ actual APP AST cached lookup: unbound CACHE must not equal bound t (shape only) (51.474531ms)
+✔ actual original SDK APP/page and consistent alpha-renaming remain accepted (34.067396ms)
+✔ unversioned selects actual app compat exactly once with original argument references (11.769792ms)
+✔ versioned keeps the actual app versioned factory and receiver (1.043282ms)
+✔ missing actual compat fails explicitly and never falls back to source (2.039323ms)
+✔ throwing actual compat preserves failure without invoking source (1.254948ms)
+✔ import is CLI-inert and exposes the real helper without app or secret IO (409.737761ms)
+✔ direct CLI help retains HOST usage without requiring input (398.443333ms)
+✔ SPEC-01 endpoint and key failures never expose actual/expected private values (25.345625ms)
+✔ SPEC-02 success then late request error settles exactly once (2.874323ms)
+✔ SPEC-02 response abort/error are handled and request/socket teardown is tracked (1.441354ms)
+✔ SPEC-03 primary failure survives throwing destroy and evidence/cleanup still happen (3.280261ms)
+✔ SPEC-03 initialization failure also writes safe passed=false evidence (1.188646ms)
+✔ SPEC-04 post-destroy leak is recorded before emergency clearing and prevents pass (1.359688ms)
+✔ SPEC-01 asynchronous response callback exceptions are converted to fixed safe failure codes (1.399688ms)
+✔ SPEC-04 clean lifecycle only passes after destruction and captured resource checks (0.879271ms)
+✔ SPEC-04 pending residue prevents pass before emergency cleanup (1.462187ms)
+✔ SPEC-04 busy residue prevents pass before emergency cleanup (1.536302ms)
+✔ SPEC-04 console residue prevents pass before emergency cleanup (0.702552ms)
+✔ SPEC-04 request residue prevents pass before emergency cleanup (0.936094ms)
+✔ SPEC-04 socket residue prevents pass before emergency cleanup (0.763854ms)
+✔ SPEC-02 live transport counts are retained until real close notifications (1.173177ms)
+✔ SPEC-05 public-build placeholder is documented as configured, public only disabled (1.637031ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1726.136093

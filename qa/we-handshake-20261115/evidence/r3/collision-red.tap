@@ -1,0 +1,52 @@
+TAP version 13
+# Subtest: actual APP AST TABLE call: unbound TABLE must not equal bound e (shape only)
+not ok 1 - actual APP AST TABLE call: unbound TABLE must not equal bound e (shape only)
+  ---
+  duration_ms: 34.846041
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledWeStagesBindingCollision.test.mjs:28:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'throws'
+  stack: |-
+    reject (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledWeStagesBindingCollision.test.mjs:22:28)
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledWeStagesBindingCollision.test.mjs:29:3)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.start (node:internal/test_runner/test:1242:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17)
+  ...
+# Subtest: actual APP AST cached lookup: unbound CACHE must not equal bound t (shape only)
+not ok 2 - actual APP AST cached lookup: unbound CACHE must not equal bound t (shape only)
+  ---
+  duration_ms: 13.693073
+  type: 'test'
+  location: '/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledWeStagesBindingCollision.test.mjs:37:1'
+  failureType: 'testCodeFailure'
+  error: 'Missing expected exception.'
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  operator: 'throws'
+  stack: |-
+    reject (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledWeStagesBindingCollision.test.mjs:22:28)
+    TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledWeStagesBindingCollision.test.mjs:38:3)
+    Test.runInAsyncScope (node:async_hooks:226:14)
+    Test.run (node:internal/test_runner/test:1382:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:960:18)
+    Test.postRun (node:internal/test_runner/test:1522:19)
+    Test.run (node:internal/test_runner/test:1447:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3)
+  ...
+1..2
+# tests 2
+# suites 0
+# pass 0
+# fail 2
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 1409.825364

@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "blocking_issues": [],
+  "reviewed_hashes": {
+    "qa/we-handshake-20261115/compiled-we-stages.mjs": "6906274cab692b2098942ec020ce564f9bdd13218848ee0f62de21b70d760491",
+    "NEWtests/compiledWeStagesSdkActual.test.mjs": "43682a00d113294832b036c7ee41ffb74c59158531cc8a07f865bc7977c2132e",
+    "qa/we-handshake-20261115/compiled-logger-https.mjs": "fdeb6aeb7e8cf8e0084345a225c6b857c6bbd6822a901531c751da0c1106b8de",
+    "NEWtests/compiledLoggerHttpsNumericAck.test.mjs": "58a4ce9cdeb30974b28e26fa60c736aeb9d02a0c35286b22286be81e5f45c2db",
+    "qa/we-handshake-20261115/evidence/r2-budget-checkpoint/qa__we-handshake-20261115__compiled-we-stages.mjs.source.txt": "d666084ff1e7c01b062aa6faeb1d938f584b4e7137a7efd6595e1213429f42a9",
+    "tests/compiledLoggerHttps.test.mjs": "b50a7848f588d6a2b6c9914c6ad268e052c255ea57b71049c622c705a593959c",
+    "entry/src/main/js/MainAbility/common/wearService.js": "345614a459483b531c9ada8d2e07b40b59a8ee060df7b8ffd6821be32dfa030a",
+    "../lite-watch-logger/server/index.php": "0403174b2f006a2d3626794e14e373d73a1de821c8ee9a7368e973ecfb5e394f",
+    "../lw_build/we-handshake-20261115/r3-ci-43661966735/dist/elcton-default-unsigned.app": "1930aea4c158df1af3e496246bae570b7e4fefa91d278710e08c63c55b857c34",
+    "qa/we-handshake-20261115/evidence/r3/HOST-stage-configured.json": "221e341117199717b49e7adb26e348a6192d9bab696ffaa053c20132f8e57d68",
+    "qa/we-handshake-20261115/evidence/r3/HTTPS-configured.json": "9ea3d155746d6e5b120597aa5d294799b270fd21dfb6e2b6c0c24cbce4145538",
+    "qa/we-handshake-20261115/evidence/r3/HTTPS-configured-green.json": "091a93089b9a917f344999ad3d2e8beacb8bf74a37af87feb17246d97da40b93",
+    "qa/we-handshake-20261115/evidence/r3/stage-test-red.tap": "108df85da1a51e66a48db4cc23ab9614e4438a79c7ba500c41286c60460135a7",
+    "qa/we-handshake-20261115/evidence/r3/stage-test-green.tap": "e785274d0327b00ee8495ea652706cf4e7a39cacfe390bc20353db1a67fb790b",
+    "qa/we-handshake-20261115/evidence/r3/stage-actual-green.json": "a089823bc2eb2712ff6e2899db2148b6d7ad017cecfda5fa16ab24f3d56aa61e",
+    "qa/we-handshake-20261115/evidence/r3/https-numeric-ack-red.tap": "35b09a87b49c1bf7d0cb902a29c1f1204257799878c5cce22d14818b2279607b",
+    "qa/we-handshake-20261115/evidence/r3/https-numeric-ack-green.tap": "a53951bf15ec3eb0fbaec7bdf8728a907568d9dc4a416e60fe845cb937f89ac9"
+  },
+  "summary": "独立 SPEC 仅审 R2→R3 两处 QA delta 和必要调用上下文，无阻断。stage 由标识符正则改为 SDK module-table/cache/loader/entry/ViewModel AST 结构验证；实际 alpha page 通过，非 compiled、错误 loader、缺失 entry、额外语句被拒绝。VM 直接执行原 APP/app.js/page.js 字节；既有阶段、timer-zero、安全数值行和停机断言均保留，并增加回调契约与实际页资源销毁断言。HTTPS 唯一改动为严格接纳 true 或数值 1；PHP index.php:191 确认 ok=1，非法值不作 truthy 转换。旧测试与 R2 快照字节一致，生产门禁范围无 tracked delta；原 RED、configured 失败证据均保留。通过仅代表 HOST QA 适配，不代表 native、手表或真实蓝牙握手通过。",
+  "verification": {
+    "fresh_readonly_runs": [
+      {"command": "node --test NEWtests/compiledLoggerHttpsNumericAck.test.mjs", "exit_code": 0, "passed_tests": 2},
+      {"command": "node --test --test-name-pattern='alpha-renamed bootstrap' NEWtests/compiledWeStagesSdkActual.test.mjs", "exit_code": 0, "passed_tests": 1},
+      {"command": "compiled-we-stages.main(original unsigned APP, --report /dev/null)", "exit_code": 0, "passed": true, "required_stages": 15, "all_stages_true": true, "awake_sequence": [true, false, true, false], "final_timers": 0, "timer_zero_verified": true, "listener_closed": true, "post_stop_verified": true},
+      {"command": "node --test tests/compiledLoggerHttps.test.mjs", "exit_code": 0, "passed_tests": 15}
+    ],
+    "app_js_sha256": "17b0a6d11096a65776ceaa241dbca76c9656eb2e36521e19f5bf1de7a98e9570",
+    "page_js_sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d",
+    "original_app_sha_matches_before_and_after_execution": true,
+    "old_tests_byte_equal_r2": ["tests/compiledLoggerHttps.test.mjs", "tests/compiledWeStages.test.mjs", "NEWtests/compiledWeStages.test.mjs"],
+    "original_https_failed_accepted_total": 12,
+    "original_https_failed_ack_false": true,
+    "existing_https_green_ack_true_accepted_total": 12,
+    "red_green_evidence_preserved": true,
+    "native_verified": false,
+    "watch_verified": false,
+    "real_bluetooth": false,
+    "network_used_by_reviewer": false,
+    "phone_browser_commit_used": false,
+    "configured_app_or_private_keys_read": false
+  },
+  "scope_exclusions": ["已双审产品及 scripts/share_we_compat_app.mjs 不重审", "旧 QA 全量代码不重审", "CI/签名/manifest 来源链不重新验收，由父会话负责", "HTTPS 云端不重跑，仅读取已有安全证据及本地 PHP 契约"],
+  "unreviewed_requested_scope": [],
+  "files_modified_by_reviewer": ["qa/we-handshake-20261115/reviews/r3-qa-spec.json"]
+}

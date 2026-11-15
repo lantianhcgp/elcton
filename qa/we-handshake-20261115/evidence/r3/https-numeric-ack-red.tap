@@ -1,0 +1,31 @@
+✖ NEW QA ACK matches actual PHP ok=1 and boolean ok=true, without truthy coercion (8.819792ms)
+✔ NEW QA ACK rejects all other types/values and preserves independent accepted field (2.759635ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 1
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 427.26875
+
+✖ failing tests:
+
+test at NEWtests/compiledLoggerHttpsNumericAck.test.mjs:25:1
+✖ NEW QA ACK matches actual PHP ok=1 and boolean ok=true, without truthy coercion (8.819792ms)
+  AssertionError [ERR_ASSERTION]: canonical PHP numeric and boolean ACK accepted exactly
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///data/data/com.termux/files/home/we-handshake-repair-20261115-watch/NEWtests/compiledLoggerHttpsNumericAck.test.mjs:28:12)
+      at Test.runInAsyncScope (node:async_hooks:226:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Test.start (node:internal/test_runner/test:1242:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:387:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

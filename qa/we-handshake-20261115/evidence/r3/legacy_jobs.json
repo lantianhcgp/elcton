@@ -1,0 +1,301 @@
+{
+  "total_count": 2,
+  "jobs": [
+    {
+      "id": 132653041414,
+      "run_id": 43661966727,
+      "workflow_name": "build",
+      "head_branch": "fix/we-handshake-logger-20261115",
+      "run_url": "https://api.github.com/repos/lantianhcgp/elcton/actions/runs/43661966727",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU5ulv88AAAAe4rzHBg",
+      "head_sha": "cbd171553e70eb614ca4283534915b92ebb870de",
+      "url": "https://api.github.com/repos/lantianhcgp/elcton/actions/jobs/132653041414",
+      "html_url": "https://github.com/lantianhcgp/elcton/actions/runs/43661966727/job/132653041414",
+      "status": "completed",
+      "conclusion": "success",
+      "created_at": "2026-11-15T01:12:23Z",
+      "started_at": "2026-11-15T01:12:25Z",
+      "completed_at": "2026-11-15T01:13:49Z",
+      "name": "build (focus, focus)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-15T01:12:26Z",
+          "completed_at": "2026-11-15T01:12:28Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-15T01:12:28Z",
+          "completed_at": "2026-11-15T01:12:29Z"
+        },
+        {
+          "name": "Install system deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-15T01:12:29Z",
+          "completed_at": "2026-11-15T01:12:38Z"
+        },
+        {
+          "name": "Setup HarmonyOS Command Line Tools",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-15T01:12:38Z",
+          "completed_at": "2026-11-15T01:13:30Z"
+        },
+        {
+          "name": "Ensure toolchain on PATH",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-15T01:13:30Z",
+          "completed_at": "2026-11-15T01:13:30Z"
+        },
+        {
+          "name": "Install project dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-15T01:13:30Z",
+          "completed_at": "2026-11-15T01:13:33Z"
+        },
+        {
+          "name": "Build unsigned App",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7,
+          "started_at": "2026-11-15T01:13:33Z",
+          "completed_at": "2026-11-15T01:13:43Z"
+        },
+        {
+          "name": "Sanitize packed config.json (Lite schema)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 8,
+          "started_at": "2026-11-15T01:13:43Z",
+          "completed_at": "2026-11-15T01:13:43Z"
+        },
+        {
+          "name": "Sign (needs certs/*.p7b)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 9,
+          "started_at": "2026-11-15T01:13:43Z",
+          "completed_at": "2026-11-15T01:13:45Z"
+        },
+        {
+          "name": "Verify signature (fail loud)",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 10,
+          "started_at": "2026-11-15T01:13:45Z",
+          "completed_at": "2026-11-15T01:13:45Z"
+        },
+        {
+          "name": "Collect artifacts",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 11,
+          "started_at": "2026-11-15T01:13:45Z",
+          "completed_at": "2026-11-15T01:13:45Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 12,
+          "started_at": "2026-11-15T01:13:45Z",
+          "completed_at": "2026-11-15T01:13:46Z"
+        },
+        {
+          "name": "Post Setup HarmonyOS Command Line Tools",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-11-15T01:13:46Z",
+          "completed_at": "2026-11-15T01:13:46Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-11-15T01:13:46Z",
+          "completed_at": "2026-11-15T01:13:46Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-11-15T01:13:46Z",
+          "completed_at": "2026-11-15T01:13:47Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/lantianhcgp/elcton/check-runs/132653041414",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001663,
+      "runner_name": "GitHub Actions 1000001663",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    },
+    {
+      "id": 132653041602,
+      "run_id": 43661966727,
+      "workflow_name": "build",
+      "head_branch": "fix/we-handshake-logger-20261115",
+      "run_url": "https://api.github.com/repos/lantianhcgp/elcton/actions/runs/43661966727",
+      "run_attempt": 1,
+      "node_id": "CR_kwDOU5ulv88AAAAe4rzHwg",
+      "head_sha": "cbd171553e70eb614ca4283534915b92ebb870de",
+      "url": "https://api.github.com/repos/lantianhcgp/elcton/actions/jobs/132653041602",
+      "html_url": "https://github.com/lantianhcgp/elcton/actions/runs/43661966727/job/132653041602",
+      "status": "completed",
+      "conclusion": "failure",
+      "created_at": "2026-11-15T01:12:23Z",
+      "started_at": "2026-11-15T01:12:25Z",
+      "completed_at": "2026-11-15T01:13:44Z",
+      "name": "build (elcton, .)",
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1,
+          "started_at": "2026-11-15T01:12:26Z",
+          "completed_at": "2026-11-15T01:12:28Z"
+        },
+        {
+          "name": "Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2,
+          "started_at": "2026-11-15T01:12:28Z",
+          "completed_at": "2026-11-15T01:12:30Z"
+        },
+        {
+          "name": "Install system deps",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3,
+          "started_at": "2026-11-15T01:12:30Z",
+          "completed_at": "2026-11-15T01:12:39Z"
+        },
+        {
+          "name": "Setup HarmonyOS Command Line Tools",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4,
+          "started_at": "2026-11-15T01:12:39Z",
+          "completed_at": "2026-11-15T01:13:29Z"
+        },
+        {
+          "name": "Ensure toolchain on PATH",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5,
+          "started_at": "2026-11-15T01:13:29Z",
+          "completed_at": "2026-11-15T01:13:29Z"
+        },
+        {
+          "name": "Install project dependencies",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6,
+          "started_at": "2026-11-15T01:13:29Z",
+          "completed_at": "2026-11-15T01:13:32Z"
+        },
+        {
+          "name": "Build unsigned App",
+          "status": "completed",
+          "conclusion": "failure",
+          "number": 7,
+          "started_at": "2026-11-15T01:13:32Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Sanitize packed config.json (Lite schema)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 8,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Sign (needs certs/*.p7b)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 9,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Verify signature (fail loud)",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 10,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Collect artifacts",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 11,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Run actions/upload-artifact@v4",
+          "status": "completed",
+          "conclusion": "skipped",
+          "number": 12,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Post Setup HarmonyOS Command Line Tools",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 23,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Post Run actions/checkout@v4",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 24,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 25,
+          "started_at": "2026-11-15T01:13:42Z",
+          "completed_at": "2026-11-15T01:13:42Z"
+        }
+      ],
+      "check_run_url": "https://api.github.com/repos/lantianhcgp/elcton/check-runs/132653041602",
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "runner_id": 1000001664,
+      "runner_name": "GitHub Actions 1000001664",
+      "runner_group_id": 0,
+      "runner_group_name": "GitHub Actions"
+    }
+  ]
+}

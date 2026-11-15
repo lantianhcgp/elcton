@@ -1,0 +1,85 @@
+{
+  "review_id": "compiled-logger-spec-r2",
+  "axis": "SPEC",
+  "status": "blocked",
+  "passed": false,
+  "scope_root": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "review_started_epoch": 1794699040.1559026,
+  "review_snapshot_utc": "2026-11-14T23:34:33.001629+00:00",
+  "hard_time_budget_seconds": 300,
+  "scope": [
+    {"path": "qa/we-handshake-20261115/compiled-logger-host.mjs", "sha256": "7783276b30e5e7704fe0a7ff8658c9b176ffe38457e9b2277c386b7ce5aea4fd", "bytes": 19480, "lines": 351},
+    {"path": "qa/we-handshake-20261115/compiled-logger-https.mjs", "sha256": "b97b6fa8fa73240078fd6dac205a2bde502a256af56af1eaa3e6ab715496014b", "bytes": 6101, "lines": 106},
+    {"path": "qa/we-handshake-20261115/README-compiled-logger-host.md", "sha256": "eeaf5ae79f3f6fde8989f5eabf876fe710b967d76ad1ffba0b1721d7b605295c", "bytes": 3366, "lines": 25}
+  ],
+  "scope_hashes_rechecked_unchanged": true,
+  "authority": "Delegated user SPEC only: exact compiled bytes, explicit HOST adapters, lifecycle/cleanup, configured public-build semantics, safe actual HTTPS payload, independent canonical/collector readback. Not a general product review.",
+  "writes_authorized": ["qa/we-handshake-20261115/reviews/compiled-logger-spec-r2.json"],
+  "findings": [
+    {
+      "id": "SPEC-R2-01", "severity": "blocking",
+      "file": "qa/we-handshake-20261115/compiled-logger-https.mjs", "lines": "39-40, 75-106",
+      "requirement": "Endpoint/key must not be echoed by comparison failures or compiled/adapter exceptions.",
+      "defect": "assert.equal retains and formats actual/expected endpoint and write_key. Assertion errors escape the try/finally or asynchronous timer callback unsanitized. Descriptive assertion messages do not hide values.",
+      "verified": "Executed the exact realHTTPS function only with sentinel strings and an in-memory transport. Both URL and key mismatch AssertionError stacks contained expected and actual sentinel values. No real secrets were read.",
+      "fix_boundary": "Boolean comparisons with fixed safe codes, and sanitized top-level/asynchronous error reporting; never serialize AssertionError actual/expected or raw compiled exceptions."
+    },
+    {
+      "id": "SPEC-R2-02", "severity": "blocking",
+      "file": "qa/we-handshake-20261115/compiled-logger-https.mjs", "lines": "44-58, 93-106",
+      "requirement": "Response/error completion must be exactly once; late failures and outstanding request resources must be closed before final evidence.",
+      "defect": "done is set only by req.error, never by res.end. Success then late request error invokes both options.success and options.fail; record.ack stays true. IncomingMessage error/aborted have no handlers. Requests/sockets are not tracked or cancelled by finalization; clearing QA timers cannot quiesce HTTPS callbacks.",
+      "verified": "Exact realHTTPS function with EventEmitter request/response: success_callbacks=1, fail_callbacks_after_success=1, response_error_listener_count=0, response_aborted_listener_count=0. No sockets or SDK bundle used.",
+      "fix_boundary": "Single settled completion gate shared by all response/request outcomes, response error/aborted handling, bounded transport teardown, and failure state captured before immutable report generation."
+    },
+    {
+      "id": "SPEC-R2-03", "severity": "blocking",
+      "file": "qa/we-handshake-20261115/compiled-logger-https.mjs", "lines": "92-106",
+      "requirement": "Failure report and cleanup must survive onDestroy exceptions; original failure must remain identifiable without secret text.",
+      "defect": "Unguarded app.onDestroy in finally precedes timer cleanup and report write. If it throws, it replaces the original error and skips both cleanup and evidence. Extraction/config/init failures before line 75 likewise have no safe report path.",
+      "verified": "Executed exact finalizer with only stubs: original PRIMARY_SENTINEL was replaced by DESTROY_SENTINEL, cleanup_calls=0, report_writes_to_stub=0, live_timers_after=1.",
+      "fix_boundary": "Preserve safe primary failure code, catch destroy failure separately, perform cleanup in nested finally, and write passed=false evidence even when initialization or destruction fails."
+    },
+    {
+      "id": "SPEC-R2-04", "severity": "blocking",
+      "file": "qa/we-handshake-20261115/compiled-logger-https.mjs", "lines": "86-102",
+      "requirement": "onDestroy/clean must be verified, not simulated by harness cleanup.",
+      "defect": "passed=true is decided before destruction. Finalizer then forcibly clears all timers and reports remaining_timers=0 regardless of whether product onDestroy leaked timers. module_status is the pre-destroy snapshot; stopped pending/busy and restored console are not asserted.",
+      "verified": "Exact finalizer with a destructor that leaves one timer: cleanup_calls=1, reported_passed=true and reported_remaining_timers=0. This is QA-finalizer verification only, not a claim the actual product leaks.",
+      "fix_boundary": "Capture and assert post-destroy state and adapter resource counts before emergency cleanup; only mark success afterward. Report pre-cleanup leakage separately."
+    },
+    {
+      "id": "SPEC-R2-05", "severity": "blocking",
+      "file": "qa/we-handshake-20261115/README-compiled-logger-host.md", "lines": "6, 17, 25",
+      "requirement": "public-build placeholder config has a key, therefore expect configured; public means truly disabled configuration only.",
+      "defect": "Example labels /actual/public.app as --expect public and instructs the parent to run those two commands. For the stated placeholder public-build APP that is the wrong expected state; false failure or misleading public coverage follows. The script's expected_configuration_matches logic itself is correct.",
+      "fix_boundary": "Document public-build APP with --expect configured; reserve --expect public for independently identified genuinely disabled compiled input. Do not use raw source as compiled input."
+    }
+  ],
+  "non_blocking_scope_notes": [
+    "HOST script converts exact input bytes to UTF-8 and verifies byte roundtrip, uses explicit ViewModel/requireNative/timer adapters, observes original logger closure via inspector, verifies configured and disabled lifecycle separately, and suppresses raw execution error text. No additional static HOST-script SPEC defect established in this scope; not an actual compiled-APP pass.",
+    "HOST report app_js_sha256 is independently checkable for --js. For --app it records archive entry names and JS digest but not enclosing APP/HAP digests; parent must bind extraction to the specific new CI APP. new_ci_provenance_verified=false is honest and must remain false until independent provenance verification.",
+    "HTTPS reports actual supplied APP and compiled JS SHA256 and captures generated requests, but ACK is transport/application acknowledgement only. Canonical cloud and independent collector exact marker/stage readback remain separate mandatory parent work.",
+    "HTTPS method reads actual APP bytes without source/export rewrite; the adapter-only probes used QA functions with in-memory stubs, not synthesized SDK output. No new SDK/APP was manufactured, extracted or executed during this review.",
+    "README's prior CI/current-evidence assertions were not revalidated; old products, old reviews and green gates were deliberately outside scope."
+  ],
+  "verification": {
+    "syntax": {"host_node_check_exit": 0, "https_node_check_exit": 0},
+    "adapter_only_probes": {"https_callback_and_safe_sentinel_assertions_exit": 0, "finalizer_exception_and_cleanup_stubs_exit": 0},
+    "actual_compiled_app_executed": false,
+    "actual_network_used": false,
+    "runtime_secrets_read": false,
+    "source_or_sdk_synthesis_used": false,
+    "product_reviewed_or_modified": false,
+    "old_355_suite_run": false,
+    "phone_or_browser_used": false,
+    "config_modified": false,
+    "native_verified": false,
+    "fit3_verified": false,
+    "real_wearengine_verified": false,
+    "new_ci_verified": false,
+    "canonical_cloud_readback_verified": false,
+    "independent_collector_readback_verified": false
+  },
+  "disposition": "BLOCKED. Parent should fix the scoped QA/README defects and run targeted adapter failure/cleanup tests before exercising the actual new configured CI APP. This report is not native/WE/CI success and must not replace independent canonical/collector readback."
+}

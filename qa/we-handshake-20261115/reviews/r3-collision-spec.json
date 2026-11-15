@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "blocking_issues": [],
+  "reviewed_hashes": {
+    "qa/we-handshake-20261115/compiled-we-stages.mjs": "91a5ef887f5105dc46342419e1b47afcb86158eb29a7a3ccf43c7c8454c7fbcf",
+    "NEWtests/compiledWeStagesBindingCollision.test.mjs": "8ac77880b0aa4df77aa91d79cf44504f439c6277a1ee588479fee63609469408"
+  },
+  "summary": "PASS：仅增量审 canonical 结构化 binding token、actual/expected bindingMap 与新增碰撞测试，未重审 R3、产品、旧 QA 或 HTTPS。Sdk*Binding 独立 AST type 与普通 Identifier(name) 不可碰撞；六角色实际/expected 映射同序且强制互异，仅声明/引用位置替换，非 computed property 不替换；精确 loader AST 比较保留。独立只读执行 node --test NEWtests/compiledWeStagesBindingCollision.test.mjs：3/3 PASS、0 FAIL、0 SKIP；实际原 APP 的未绑定 TABLE/CACHE/ID/MODULE/CACHED 六处错误引用全部拒绝；原 app.js/page.js 与三角色一致 alpha-renaming（参数 exports、局部 TABLE/CACHE，.exports 属性保留）全部接受，APP 原 bytes 每项回读不变。两目标 hash 完全匹配；旧三测试及 RED/GREEN/HOST 证据 hash 与 manifest 匹配。RED 为 2/2 失败，既有 GREEN 为 14 PASS/1 历史 hardlink EACCES SKIP；只读 HOST 证据 15 stage true、timer=0、listener/post-stop true，未重新运行旧 HOST 门。其余 308 文件范围未改依据既有 manifest，不重审。未读 configuredAPP、密钥；无网络/浏览器/手机/产品写入。仅新增本回执，不覆盖旧证据；本结论只闭合固定名称碰撞单缺陷，不扩泛模型或原验收范围。时限例外：终检实测107.775秒，超过要求90秒；功能增量已完整审查，后续仅补记本时限事实，不再检查或运行测试。"
+}

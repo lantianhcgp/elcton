@@ -1,0 +1,225 @@
+{
+  "passed": true,
+  "host_only": true,
+  "native": false,
+  "native_verified": false,
+  "real_https": false,
+  "real_bluetooth": false,
+  "adapter_ack_not_real": true,
+  "new_ci_provenance_verified": false,
+  "manifest_identity_verified": false,
+  "parent_provenance_check_required": true,
+  "actual_vm_original_bytes": true,
+  "original_app_bytes_executed": true,
+  "original_page_bytes_executed": true,
+  "app_sha256": "b315d67dbd19c0403b0c404a8b1e3a462d8254dc1b40c6e8575ae73d2c7567d8",
+  "app_js_sha256": "b568c9988155357dc2c86d61ed2b77b311b0419f8ecfd52214e91f0bf0109377",
+  "page_js_sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d",
+  "unique_nested_hap": true,
+  "stages": {
+    "SDK_CALL": true,
+    "VER_OK": true,
+    "PKG_CALL": true,
+    "PKG_OK": true,
+    "CERT_CALL": true,
+    "CERT_OK": true,
+    "REG_CALL": true,
+    "REG_OK": true,
+    "HELLO_RECV": true,
+    "READY_PREPARED": true,
+    "READY_CALL": true,
+    "READY_OK": true,
+    "SEND_CALL": true,
+    "SEND_OK": true,
+    "SEND_FAIL": true
+  },
+  "awake_sequence": [
+    true,
+    false,
+    true,
+    false
+  ],
+  "callback_contract": {
+    "sdk_version_request": "3",
+    "version_complete": "5.0.0.401",
+    "registration_success": true,
+    "message_success": true,
+    "send_success": true,
+    "send_fail_numeric_zero": true
+  },
+  "awake_reclaimed": true,
+  "listener_closed": true,
+  "post_stop_verified": true,
+  "timer_zero_verified": true,
+  "logger_status_from_actual_app": true,
+  "safe_rows": [
+    {
+      "tag": "WE/CLOSE",
+      "msg": ""
+    },
+    {
+      "tag": "WE/SDK_CALL",
+      "msg": ""
+    },
+    {
+      "tag": "WE/VER_OK",
+      "msg": "service=401 v0=5 v1=0 v2=0 v3=401"
+    },
+    {
+      "tag": "WE/BUS_NATIVE",
+      "msg": ""
+    },
+    {
+      "tag": "WE/PKG_CALL",
+      "msg": ""
+    },
+    {
+      "tag": "WE/PKG_OK",
+      "msg": ""
+    },
+    {
+      "tag": "WE/CERT_CALL",
+      "msg": ""
+    },
+    {
+      "tag": "WE/CERT_OK",
+      "msg": ""
+    },
+    {
+      "tag": "WE/REG_CALL",
+      "msg": ""
+    },
+    {
+      "tag": "WE/REG_OK",
+      "msg": ""
+    },
+    {
+      "tag": "WE/READY_PREPARE",
+      "msg": ""
+    },
+    {
+      "tag": "WE/READY_PREPARED",
+      "msg": ""
+    },
+    {
+      "tag": "WE/READY_CALL",
+      "msg": "bytes=207"
+    },
+    {
+      "tag": "WE/SEND_CALL",
+      "msg": "bytes=207"
+    },
+    {
+      "tag": "WE/SEND_OK",
+      "msg": "code=207"
+    },
+    {
+      "tag": "WE/READY_OK",
+      "msg": "code=207"
+    },
+    {
+      "tag": "WE/HELLO_RECV",
+      "msg": ""
+    },
+    {
+      "tag": "WE/READY_PREPARE",
+      "msg": ""
+    },
+    {
+      "tag": "WE/READY_PREPARED",
+      "msg": ""
+    },
+    {
+      "tag": "WE/READY_CALL",
+      "msg": "bytes=207"
+    },
+    {
+      "tag": "WE/SEND_CALL",
+      "msg": "bytes=207"
+    },
+    {
+      "tag": "WE/SEND_OK",
+      "msg": "code=207"
+    },
+    {
+      "tag": "WE/READY_OK",
+      "msg": "code=207"
+    },
+    {
+      "tag": "WE/READY_CALL",
+      "msg": "bytes=86"
+    },
+    {
+      "tag": "WE/SEND_CALL",
+      "msg": "bytes=86"
+    },
+    {
+      "tag": "WE/SEND_FAIL",
+      "msg": "code=206 arg1=210301031 arg2=0 type1=3 type2=3"
+    },
+    {
+      "tag": "WE/READY_FAIL",
+      "msg": "code=206 arg1=210301031 arg2=0 type1=3 type2=3"
+    },
+    {
+      "tag": "WE/SDK_UNAVAILABLE",
+      "msg": ""
+    },
+    {
+      "tag": "WE/BUS_UNVERSIONED",
+      "msg": ""
+    },
+    {
+      "tag": "WE/PKG_CALL",
+      "msg": ""
+    },
+    {
+      "tag": "WE/PKG_OK",
+      "msg": ""
+    },
+    {
+      "tag": "WE/CERT_CALL",
+      "msg": ""
+    },
+    {
+      "tag": "WE/CERT_OK",
+      "msg": ""
+    },
+    {
+      "tag": "WE/REG_CALL",
+      "msg": ""
+    },
+    {
+      "tag": "WE/REG_OK",
+      "msg": ""
+    },
+    {
+      "tag": "WE/READY_CALL",
+      "msg": "bytes=16"
+    },
+    {
+      "tag": "WE/SEND_CALL",
+      "msg": "bytes=16"
+    },
+    {
+      "tag": "WE/SEND_FAIL",
+      "msg": "code=206 arg1=210301031 arg2=0 type1=3 type2=3"
+    },
+    {
+      "tag": "WE/READY_FAIL",
+      "msg": "code=206 arg1=210301031 arg2=0 type1=3 type2=3"
+    },
+    {
+      "tag": "WE/CLOSE",
+      "msg": ""
+    },
+    {
+      "tag": "WE/CLOSE",
+      "msg": ""
+    }
+  ],
+  "rows": 41,
+  "host_fetches": 11,
+  "empty_host_file_reads": 6,
+  "final_timers": 0
+}
