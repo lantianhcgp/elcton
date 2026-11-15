@@ -1,0 +1,97 @@
+[
+  {
+    "obj": "errocode-0000001054450278",
+    "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/errocode-0000001054450278",
+    "payload": {
+      "objectId": "errocode-0000001054450278",
+      "language": "cn",
+      "catalogName": "connectivity-Guides"
+    },
+    "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+    "time": "2026-11-15T02:41:49.404959+00:00",
+    "http": 200,
+    "code": 0,
+    "title": "返回码",
+    "content_type": "str",
+    "body_chars": 15058,
+    "sha256": "b93e8892bc7960546c1b97ae54a5ff30b5da44aec31d211aca41c38d14e3719f",
+    "mentions210301031": false,
+    "mentionsconnectChannel": false
+  },
+  {
+    "obj": "p2pclient-0000001060779118",
+    "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/p2pclient-0000001060779118",
+    "payload": {
+      "objectId": "p2pclient-0000001060779118",
+      "language": "cn",
+      "catalogName": "connectivity-References"
+    },
+    "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+    "time": "2026-11-15T02:41:49.405804+00:00",
+    "http": 200,
+    "code": 92531031,
+    "title": null,
+    "content_type": "str",
+    "body_chars": 0,
+    "sha256": "a2f11ec6ca653e379719953553ea780c8d2c99da382c1f68413dcb356505b2b9",
+    "mentions210301031": false,
+    "mentionsconnectChannel": false
+  },
+  {
+    "obj": "wearengineerrorcode-0000001059980969",
+    "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/wearengineerrorcode-0000001059980969",
+    "payload": {
+      "objectId": "wearengineerrorcode-0000001059980969",
+      "language": "cn",
+      "catalogName": "connectivity-References"
+    },
+    "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+    "time": "2026-11-15T02:41:49.406209+00:00",
+    "http": 200,
+    "code": 0,
+    "title": "WearEngineErrorCode",
+    "content_type": "str",
+    "body_chars": 16544,
+    "sha256": "b0e99be4fc29c54b706d9f34512f3c5dfc4b30948371c10277dd7422073f8bde",
+    "mentions210301031": false,
+    "mentionsconnectChannel": false
+  },
+  {
+    "obj": "point-to-point-message-0000001052164296",
+    "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/point-to-point-message-0000001052164296",
+    "payload": {
+      "objectId": "point-to-point-message-0000001052164296",
+      "language": "cn",
+      "catalogName": "connectivity-References"
+    },
+    "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+    "time": "2026-11-15T02:41:49.406646+00:00",
+    "http": 200,
+    "code": 0,
+    "title": "点对点消息",
+    "content_type": "str",
+    "body_chars": 6482,
+    "sha256": "d47a00b63bc4a5876a618d9672cff2a9d94f286e8600cdb67ceb5eeb8bbb8624",
+    "mentions210301031": false,
+    "mentionsconnectChannel": false
+  },
+  {
+    "obj": "send-message-0000001052460491",
+    "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/send-message-0000001052460491",
+    "payload": {
+      "objectId": "send-message-0000001052460491",
+      "language": "cn",
+      "catalogName": "connectivity-Guides"
+    },
+    "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+    "time": "2026-11-15T02:41:49.810196+00:00",
+    "http": 200,
+    "code": 0,
+    "title": "应用间消息通信",
+    "content_type": "str",
+    "body_chars": 7394,
+    "sha256": "f30f7a19f3dcc78a2354f72f18705ff19e81628e5b5f5efa73fe693d054fe9bc",
+    "mentions210301031": false,
+    "mentionsconnectChannel": false
+  }
+]

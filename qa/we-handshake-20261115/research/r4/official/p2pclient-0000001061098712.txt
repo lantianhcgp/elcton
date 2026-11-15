@@ -1,0 +1,705 @@
+  
+P2pClient
+ 
+java.lang.Object
+ 
+|---com.huawei.wearengine.p2p.P2pClient
+ 
+public final class P2pClient
+extends java.lang.Object
+ 
+ 
+ 
+ 
+用于点对点通信的客户端。
+ 
+Method Summary
+ 
+Modifier and Type
+ 
+ 
+Method and Description
+ 
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Void>
+ 
+ 
+ping
+(
+Device
+ device, 
+PingCallback
+ pingCallback) 检测需要通信的穿戴设备侧应用是否在线。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Void>
+ 
+ 
+registerReceiver
+(
+Device
+ device, 
+Receiver
+ receiver) 向指定的设备上的指定应用注册一个接收消息或文件的回调对象。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Void>
+ 
+ 
+registerReceiver
+(
+Peer
+ peer, 
+Receiver
+ receiver) 通过设备信息对象来向指定的设备上的指定应用注册一个接收消息或文件的回调对象。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Void>
+ 
+ 
+send
+(
+Device
+ device, 
+Message
+ message, 
+SendCallback
+ sendCallback) 向需要通信的穿戴设备侧应用发送通信消息。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Void>
+ 
+ 
+send
+(
+Peer
+ peer, 
+Message
+ message, 
+SendCallback
+ sendCallback) 通过设备信息对象来向需要通信的穿戴设备侧应用发送通信消息。
+ 
+ 
+ 
+P2pClient
+ 
+ 
+setPeerFingerPrint
+(java.lang.String fingerPrint) 设置需要通信的穿戴设备侧应用签名证书指纹，否则不能正常通信。
+ 
+ 
+ 
+P2pClient
+ 
+ 
+setPeerPkgName
+(java.lang.String peerPkgName) 穿戴设备侧需要通信的应用包名。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Void>
+ 
+ 
+unregisterReceiver
+(
+Receiver
+ receiver) 注销一个已经被注册的监测对象。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Void>
+ 
+ 
+cancelFileTransfer
+(final 
+Device
+ device, final 
+FileIdentification
+ fileIdentification, final 
+CancelFileTransferCallBack
+ cancelFileTransferCallBack) 向需要通信的穿戴设备取消文件发送。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Void>
+ 
+ 
+cancelFileTransfer
+(final 
+Peer
+ peer, final 
+FileIdentification
+ fileIdentification, final 
+CancelFileTransferCallBack
+ cancelFileTransferCallBack) 通过设备信息对象来向需要通信的穿戴设备取消文件发送。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Boolean>
+ 
+ 
+isAppInstalled
+(final 
+Device
+ device, final String targetPkgName) 查看是否安装指定的设备应用。
+ 
+ 
+ 
+com.huawei.hmf.tasks.Task<java.lang.Integer>
+ 
+ 
+getAppVersion
+(final 
+Device
+ device, final String targetPkgName) 查看已安装的指定设备应用版本号，未安装则返回-1。
+ 
+ 
+  
+ 
+ 
+ 
+Method Detail
+ 
+[h2]
+ping
+public com.huawei.hmf.tasks.Task<java.lang.Void> ping(
+Device
+ device, 
+PingCallback
+ pingCallback)
+ 
+检测需要通信的穿戴设备侧应用是否在线。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+device
+ 
+ 
+三方应用指定的需要通信的设备对象
+ 
+ 
+ 
+pingCallback
+ 
+ 
+ping消息的结果回调
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果
+ 
+Since:
+ 
+API level 0 (SDK 5.0.0.301)
+ 
+ 
+ 
+[h2]
+send
+public com.huawei.hmf.tasks.Task<java.lang.Void> send(
+Device
+ device, 
+Message
+ message, 
+SendCallback
+ sendCallback)
+ 
+向需要通信的穿戴设备侧应用发送通信消息。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+device
+ 
+ 
+三方应用指定的需要通信的设备对象
+ 
+ 
+ 
+message
+ 
+ 
+三方应用指定的需要发送的消息
+ 
+ 
+ 
+sendCallback
+ 
+ 
+发送消息的结果回调对象
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果
+ 
+Since:
+ 
+API level 0 (SDK 5.0.0.301)
+ 
+ 
+ 
+[h2]
+send
+public com.huawei.hmf.tasks.Task<java.lang.Void> send(
+Peer
+ peer, 
+Message
+ message, 
+SendCallback
+ sendCallback)
+ 
+通过设备信息对象来向需要通信的穿戴设备侧应用发送通信消息。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+peer
+ 
+ 
+三方应用指定的设备信息对象
+ 
+ 
+ 
+message
+ 
+ 
+三方应用指定的需要发送的消息
+ 
+ 
+ 
+sendCallback
+ 
+ 
+发送消息的结果回调对象
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果
+ 
+Since:
+ 
+API level 0 (SDK 5.0.0.301)
+ 
+ 
+ 
+[h2]
+setPeerPkgName
+public 
+P2pClient
+ setPeerPkgName(java.lang.String peerPkgName)
+ 
+穿戴设备侧需要通信的应用包名。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+peerPkgName
+ 
+ 
+三方应用指定的需要通信的设备侧应用包名
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+P2pClient实例
+ 
+Since:
+ 
+API level 0 (SDK 5.0.0.301)
+ 
+ 
+ 
+[h2]
+setPeerFingerPrint
+public 
+P2pClient
+ setPeerFingerPrint(java.lang.String fingerPrint)
+ 
+设置需要通信的穿戴设备侧应用签名证书指纹，否则不能正常通信。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+fingerPrint
+ 
+ 
+三方应用指定的需要通信的设备侧应用指纹
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+P2pClient实例
+ 
+Since:
+ 
+API level 0 (SDK 5.0.0.301)
+ 
+ 
+ 
+[h2]
+registerReceiver
+public com.huawei.hmf.tasks.Task<java.lang.Void> registerReceiver(
+Device
+ device, 
+Receiver
+ receiver)
+ 
+向指定的设备上的指定应用注册一个接收消息或文件的回调对象。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+device
+ 
+ 
+三方应用指定的需要通信的设备对象
+ 
+ 
+ 
+receiver
+ 
+ 
+接收消息或文件的回调对象
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果
+ 
+Since:
+ 
+API level 2 (SDK 5.0.1.300)
+ 
+ 
+ 
+[h2]
+registerReceiver
+public com.huawei.hmf.tasks.Task<java.lang.Void> registerReceiver(
+Peer
+ peer, 
+Receiver
+ receiver)
+ 
+通过设备信息对象来向指定的设备上的指定应用注册一个接收消息或文件的回调对象。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+peer
+ 
+ 
+三方应用指定的需要通信的设备信息对象
+ 
+ 
+ 
+receiver
+ 
+ 
+接收消息或文件的回调对象
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果
+ 
+Since:
+ 
+API level 2 (SDK 5.0.1.300)
+ 
+ 
+ 
+[h2]
+unregisterReceiver
+public com.huawei.hmf.tasks.Task<java.lang.Void> unregisterReceiver(
+Receiver
+ receiver)
+ 
+注销一个已经被注册的接收消息或文件的回调对象。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+receiver
+ 
+ 
+需要被注销的接收消息或文件的回调函数
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果
+ 
+Since:
+ 
+API level 2 (SDK 5.0.1.300)
+ 
+ 
+[h2]
+cancelFileTransfer
+public com.huawei.hmf.tasks.Task<java.lang.Void> cancelFileTransfer(final Device device, final FileIdentification fileIdentification, final CancelFileTransferCallBack cancelFileTransferCallBack)
+ 
+向需要通信的穿戴设备侧应用取消发送文件。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+device
+ 
+ 
+三方应用指定的需要通信的设备对象
+ 
+ 
+ 
+fileIdentification
+ 
+ 
+三方应用指定的需要取消发送的文件标识
+ 
+ 
+ 
+cancelFileTransferCallBack
+ 
+ 
+取消发送文件的结果回调对象
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果。
+ 
+Since:
+ 
+API level 5 (SDK 5.0.1.301)
+ 
+ 
+[h2]
+cancelFileTransfer
+public com.huawei.hmf.tasks.Task<java.lang.Void> cancelFileTransfer(final Peer peer, final FileIdentification fileIdentification, final CancelFileTransferCallBack cancelFileTransferCallBack)
+ 
+通过设备信息对象来向需要通信的穿戴设备侧应用取消发送文件。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+peer
+ 
+ 
+三方应用指定的设备信息对象
+ 
+ 
+ 
+fileIdentification
+ 
+ 
+三方应用指定的需要取消发送的文件标识
+ 
+ 
+ 
+cancelFileTransferCallBack
+ 
+ 
+取消发送文件的结果回调对象
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果。
+ 
+Since:
+ 
+API level 5 (SDK 5.0.1.301)
+ 
+ 
+[h2]
+isAppInstalled
+public com.huawei.hmf.tasks.Task<java.lang.Boolean> isAppInstalled(final Device device, final String targetPkgName)
+ 
+查看是否安装指定的设备应用。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+Device
+ 
+ 
+三方应用指定的需要通信的设备对象
+ 
+ 
+ 
+targetPkgName
+ 
+ 
+设备应用包名
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果。
+ 
+Since:
+ 
+API level 5 (SDK 5.0.1.301)
+ 
+ 
+[h2]
+getAppVersion
+public com.huawei.hmf.tasks.Task<java.lang.Integer> getAppVersion(final Device device, final String targetPkgName)
+ 
+查看已安装的指定设备应用版本号，未安装则返回-1。
+ 
+Parameters:
+  
+Parameter Name
+ 
+ 
+Parameter Description
+ 
+ 
+ 
+ 
+Device
+ 
+ 
+三方应用指定的需要通信的设备对象
+ 
+ 
+ 
+targetPkgName
+ 
+ 
+设备应用包名
+ 
+ 
+  
+ 
+ 
+Returns:
+ 
+返回一个任务，三方应用可以调用任务的addOnSuccessListener和addOnFailureListener等方法来检查任务执行的结果。
+ 
+Since:
+ 
+API level 8 (SDK 5.0.2.306)
+ 
+ 
+ 

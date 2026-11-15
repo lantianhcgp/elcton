@@ -1,0 +1,1049 @@
+{
+  "schema": "r4-host-route-402-v1",
+  "passed": true,
+  "host_only": true,
+  "native": false,
+  "native_verified": false,
+  "network": false,
+  "real_https": false,
+  "real_bluetooth": false,
+  "device": false,
+  "browser": false,
+  "mcp": false,
+  "production_writes": false,
+  "git_commit": false,
+  "app_onCreate_called": false,
+  "actual_vm_original_bytes": true,
+  "source_rewritten": false,
+  "host_observers": "App factory/log observers delegate to original compiled functions; no byte edits.",
+  "service_version": "5.0.0.402",
+  "native_send_behavior": "o.fail() with zero arguments",
+  "argv": [
+    "/data/data/com.termux/files/usr/bin/node",
+    "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/host-route-402.mjs",
+    "--compiled-dir",
+    "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/signed-native-js",
+    "--report",
+    "qa/we-handshake-20261115/evidence/r4/host-route-402.json"
+  ],
+  "cwd": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "node_version": "v26.4.0",
+  "started_at": "2026-11-15T03:30:14.124Z",
+  "script": {
+    "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/host-route-402.mjs",
+    "sha256": "b75afc472cc8dc52e4a408545b3e43226bedbd03e7b5f7bcc0a25f19133e9970"
+  },
+  "inputs": [
+    {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/signed-native-js/0.js",
+      "sha256": "b568c9988155357dc2c86d61ed2b77b311b0419f8ecfd52214e91f0bf0109377",
+      "bytes": 20818,
+      "hap_entry": "assets/js/MainAbility/app.js",
+      "equals_documented_HAP": true
+    },
+    {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/signed-native-js/4.js",
+      "sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d",
+      "bytes": 43898,
+      "hap_entry": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "equals_documented_HAP": true
+    }
+  ],
+  "tests": [
+    {
+      "mode": "synchronous",
+      "passed": true,
+      "checks": {
+        "utf8_roundtrip_original-hap-0.js": true,
+        "single_original_app_ViewModel": true,
+        "original_app_factory_exists": true,
+        "utf8_roundtrip_original-hap-4.js": true,
+        "single_original_page_ViewModel": true,
+        "host_device_ready": true,
+        "single_app_channel_factory": true,
+        "one_initial_REG_send": true,
+        "negotiated_despite_initial_send_fail": true,
+        "HELLO_1_adds_one_READY": true,
+        "HELLO_2_adds_one_READY": true,
+        "HELLO_3_adds_one_READY": true,
+        "HELLO_4_adds_one_READY": true,
+        "one_version_package_certificate_subscription": true,
+        "exact_five_noargfail_READY_sends": true,
+        "four_listener_HELLO_routes": true,
+        "five_original_noargfail_trace_code206_type0": true,
+        "compiled_service402_trace": true,
+        "negotiation_is_not_reception_ACK": true,
+        "page_ready_despite_SEND_206": true,
+        "valid_zero_timer_exercised": true,
+        "watchdog_timer_exists": true,
+        "watchdog_retains_registered_ready_without_send_ACK": true,
+        "no_extra_engine_API": true,
+        "no_network_or_writes": true,
+        "empty_file301_path_exercised": true,
+        "destroy_cleanup_zero_timers_and_subscription": true
+      },
+      "checkpoints": [
+        {
+          "stage": "REG_initial_READY",
+          "send_count": 1,
+          "factory_count": 1,
+          "version": 1,
+          "package": 1,
+          "fingerprint": 1,
+          "subscribe": 1,
+          "unsubscribe": 1,
+          "isNegotiated": true,
+          "phase": "ready"
+        },
+        {
+          "stage": "after_four_listener_HELLO",
+          "send_count": 5,
+          "factory_count": 1,
+          "version": 1,
+          "package": 1,
+          "fingerprint": 1,
+          "subscribe": 1,
+          "unsubscribe": 1,
+          "isNegotiated": true,
+          "phase": "ready"
+        }
+      ],
+      "sends": [
+        {
+          "index": 1,
+          "trigger": "REG_initial_READY",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        },
+        {
+          "index": 2,
+          "trigger": "listener_HELLO_1",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        },
+        {
+          "index": 3,
+          "trigger": "listener_HELLO_2",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        },
+        {
+          "index": 4,
+          "trigger": "listener_HELLO_3",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        },
+        {
+          "index": 5,
+          "trigger": "listener_HELLO_4",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        }
+      ],
+      "safe_rows": [
+        {
+          "stage": "CLOSE",
+          "meta": {}
+        },
+        {
+          "stage": "SDK_CALL",
+          "meta": {}
+        },
+        {
+          "stage": "VER_OK",
+          "meta": {
+            "service": 402,
+            "v0": 5,
+            "v1": 0,
+            "v2": 0,
+            "v3": 402
+          }
+        },
+        {
+          "stage": "BUS_NATIVE",
+          "meta": {}
+        },
+        {
+          "stage": "PKG_CALL",
+          "meta": {}
+        },
+        {
+          "stage": "PKG_OK",
+          "meta": {}
+        },
+        {
+          "stage": "CERT_CALL",
+          "meta": {}
+        },
+        {
+          "stage": "CERT_OK",
+          "meta": {}
+        },
+        {
+          "stage": "REG_CALL",
+          "meta": {}
+        },
+        {
+          "stage": "REG_OK",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "HELLO_RECV",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "HELLO_RECV",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "HELLO_RECV",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "HELLO_RECV",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "CLOSE",
+          "meta": {}
+        }
+      ],
+      "counts": {
+        "version": 1,
+        "package": 1,
+        "fingerprint": 1,
+        "subscribe": 1,
+        "send": 5,
+        "unsubscribe": 2,
+        "file_get": 15,
+        "file_write": 0,
+        "storage_get": 0,
+        "storage_write": 0,
+        "device_info": 1,
+        "brightness": 0
+      },
+      "violations": [],
+      "channel_summary": "SDK402|VER|PKG|CERT|REG|SEND_206",
+      "isNegotiated_after_five_failed_sends": true,
+      "phone_reception_ack_injected": false,
+      "native_send_success_count": 0,
+      "cleanup": {
+        "timers": 0,
+        "listener_closed": true,
+        "registered": false,
+        "app_destroyed": true,
+        "page_destroyed": true,
+        "page_channel_null": true,
+        "page_receiver_null": true,
+        "page_exporter_null": true,
+        "page_timer_null": true
+      },
+      "factory_count": 1,
+      "fetch_calls": 0
+    },
+    {
+      "mode": "deferred_VERSION_PKG_CERT_REG",
+      "passed": true,
+      "checks": {
+        "utf8_roundtrip_original-hap-0.js": true,
+        "single_original_app_ViewModel": true,
+        "original_app_factory_exists": true,
+        "utf8_roundtrip_original-hap-4.js": true,
+        "single_original_page_ViewModel": true,
+        "host_device_ready": true,
+        "single_app_channel_factory": true,
+        "zero_send_before_VERSION": true,
+        "not_negotiated_before_VERSION": true,
+        "exact_held_callback_VERSION": true,
+        "zero_send_before_PKG": true,
+        "not_negotiated_before_PKG": true,
+        "exact_held_callback_PKG": true,
+        "zero_send_before_CERT": true,
+        "not_negotiated_before_CERT": true,
+        "exact_held_callback_CERT": true,
+        "zero_send_before_REG": true,
+        "not_negotiated_before_REG": true,
+        "exact_held_callback_REG": true,
+        "listener_installed_before_REG": true,
+        "preREG_HELLO_no_send_or_route": true,
+        "one_initial_REG_send": true,
+        "negotiated_despite_initial_send_fail": true,
+        "HELLO_1_adds_one_READY": true,
+        "HELLO_2_adds_one_READY": true,
+        "HELLO_3_adds_one_READY": true,
+        "HELLO_4_adds_one_READY": true,
+        "one_version_package_certificate_subscription": true,
+        "exact_five_noargfail_READY_sends": true,
+        "four_listener_HELLO_routes": true,
+        "five_original_noargfail_trace_code206_type0": true,
+        "compiled_service402_trace": true,
+        "negotiation_is_not_reception_ACK": true,
+        "page_ready_despite_SEND_206": true,
+        "valid_zero_timer_exercised": true,
+        "watchdog_timer_exists": true,
+        "watchdog_retains_registered_ready_without_send_ACK": true,
+        "no_extra_engine_API": true,
+        "no_network_or_writes": true,
+        "empty_file301_path_exercised": true,
+        "destroy_cleanup_zero_timers_and_subscription": true
+      },
+      "checkpoints": [
+        {
+          "stage": "before_VERSION",
+          "send_count": 0,
+          "factory_count": 1,
+          "version": 1,
+          "package": 0,
+          "fingerprint": 0,
+          "subscribe": 0,
+          "unsubscribe": 0,
+          "isNegotiated": false,
+          "phase": "opening"
+        },
+        {
+          "stage": "before_PKG",
+          "send_count": 0,
+          "factory_count": 1,
+          "version": 1,
+          "package": 1,
+          "fingerprint": 0,
+          "subscribe": 0,
+          "unsubscribe": 0,
+          "isNegotiated": false,
+          "phase": "opening"
+        },
+        {
+          "stage": "before_CERT",
+          "send_count": 0,
+          "factory_count": 1,
+          "version": 1,
+          "package": 1,
+          "fingerprint": 1,
+          "subscribe": 0,
+          "unsubscribe": 0,
+          "isNegotiated": false,
+          "phase": "opening"
+        },
+        {
+          "stage": "before_REG",
+          "send_count": 0,
+          "factory_count": 1,
+          "version": 1,
+          "package": 1,
+          "fingerprint": 1,
+          "subscribe": 1,
+          "unsubscribe": 1,
+          "isNegotiated": false,
+          "phase": "opening"
+        },
+        {
+          "stage": "preREG_HELLO_ignored",
+          "send_count": 0,
+          "factory_count": 1,
+          "version": 1,
+          "package": 1,
+          "fingerprint": 1,
+          "subscribe": 1,
+          "unsubscribe": 1,
+          "isNegotiated": false,
+          "phase": "opening"
+        },
+        {
+          "stage": "REG_initial_READY",
+          "send_count": 1,
+          "factory_count": 1,
+          "version": 1,
+          "package": 1,
+          "fingerprint": 1,
+          "subscribe": 1,
+          "unsubscribe": 1,
+          "isNegotiated": true,
+          "phase": "ready"
+        },
+        {
+          "stage": "after_four_listener_HELLO",
+          "send_count": 5,
+          "factory_count": 1,
+          "version": 1,
+          "package": 1,
+          "fingerprint": 1,
+          "subscribe": 1,
+          "unsubscribe": 1,
+          "isNegotiated": true,
+          "phase": "ready"
+        }
+      ],
+      "sends": [
+        {
+          "index": 1,
+          "trigger": "REG_initial_READY",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        },
+        {
+          "index": 2,
+          "trigger": "listener_HELLO_1",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        },
+        {
+          "index": 3,
+          "trigger": "listener_HELLO_2",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        },
+        {
+          "index": 4,
+          "trigger": "listener_HELLO_3",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        },
+        {
+          "index": 5,
+          "trigger": "listener_HELLO_4",
+          "deviceId": "remote",
+          "bundleName": "com.hcbiu.elcton",
+          "abilityName": "",
+          "protocol": "elcton.sync",
+          "version": 1,
+          "sender": "watch",
+          "type": "READY",
+          "bytes": 207,
+          "max_bytes": 1024,
+          "ascii": true,
+          "payload_sha256": "585639e886aee36242bc6f159ab03831b17ebab2dc933e482abca598389b38d8",
+          "same_channel": true,
+          "fail_argument_count": 0,
+          "fail_argument_types": [
+            "undefined",
+            "undefined"
+          ]
+        }
+      ],
+      "safe_rows": [
+        {
+          "stage": "CLOSE",
+          "meta": {}
+        },
+        {
+          "stage": "SDK_CALL",
+          "meta": {}
+        },
+        {
+          "stage": "VER_OK",
+          "meta": {
+            "service": 402,
+            "v0": 5,
+            "v1": 0,
+            "v2": 0,
+            "v3": 402
+          }
+        },
+        {
+          "stage": "BUS_NATIVE",
+          "meta": {}
+        },
+        {
+          "stage": "PKG_CALL",
+          "meta": {}
+        },
+        {
+          "stage": "PKG_OK",
+          "meta": {}
+        },
+        {
+          "stage": "CERT_CALL",
+          "meta": {}
+        },
+        {
+          "stage": "CERT_OK",
+          "meta": {}
+        },
+        {
+          "stage": "REG_CALL",
+          "meta": {}
+        },
+        {
+          "stage": "REG_OK",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "HELLO_RECV",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "HELLO_RECV",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "HELLO_RECV",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "HELLO_RECV",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARE",
+          "meta": {}
+        },
+        {
+          "stage": "READY_PREPARED",
+          "meta": {}
+        },
+        {
+          "stage": "READY_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_CALL",
+          "meta": {
+            "bytes": 207
+          }
+        },
+        {
+          "stage": "SEND_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "READY_FAIL",
+          "meta": {
+            "code": 206,
+            "type1": 0,
+            "type2": 0
+          }
+        },
+        {
+          "stage": "CLOSE",
+          "meta": {}
+        }
+      ],
+      "counts": {
+        "version": 1,
+        "package": 1,
+        "fingerprint": 1,
+        "subscribe": 1,
+        "send": 5,
+        "unsubscribe": 2,
+        "file_get": 15,
+        "file_write": 0,
+        "storage_get": 0,
+        "storage_write": 0,
+        "device_info": 1,
+        "brightness": 0
+      },
+      "violations": [],
+      "channel_summary": "SDK402|VER|PKG|CERT|REG|SEND_206",
+      "isNegotiated_after_five_failed_sends": true,
+      "phone_reception_ack_injected": false,
+      "native_send_success_count": 0,
+      "cleanup": {
+        "timers": 0,
+        "listener_closed": true,
+        "registered": false,
+        "app_destroyed": true,
+        "page_destroyed": true,
+        "page_channel_null": true,
+        "page_receiver_null": true,
+        "page_exporter_null": true,
+        "page_timer_null": true
+      },
+      "factory_count": 1,
+      "fetch_calls": 0
+    }
+  ],
+  "limitations": [
+    "HOST VM proves only original compiled JavaScript routing under declared stubs.",
+    "HOST does not prove FIT3 send root cause, native buffers, JerryScript heap, phone receipt or reception ACK.",
+    "HAP byte identity is checked against the existing watch-read-hashes.json; no new installed-device read or HAP signature verification.",
+    "isNegotiated is a local registration/open state, not a phone reception ACK or proof of successful send."
+  ],
+  "parent_v401": {
+    "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r4/compiled-stage-parent-recheck.json",
+    "sha256": "51c6e2d059938508df0a35254fe6c2e9c847a78c4e0dbc099110d3e5f53c57c1",
+    "passed": true,
+    "service_version": "5.0.0.401",
+    "reexecuted": false
+  },
+  "hap_identity": {
+    "evidence_path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/watch-read-hashes.json",
+    "evidence_sha256": "33130263c73f0273072552b02b301955bfed7d6ae071da671d423e2ca3f00a4f",
+    "hap_path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/elcton-20261115-WE分阶段日志常亮-1.1.16-cbd1715.hap",
+    "hap_sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a",
+    "identity_basis": "Existing HAP extraction hashes only; no new device or HAP execution."
+  },
+  "inputs_unchanged": true,
+  "parent_evidence_unchanged": true,
+  "watch_read_evidence_unchanged": true,
+  "check_counts": {
+    "passed": 68,
+    "failed": 0
+  },
+  "finished_at": "2026-11-15T03:30:14.478Z",
+  "exit_code": 0
+}

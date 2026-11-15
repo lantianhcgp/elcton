@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/verify-evidence.py", line 26, in <module>
+    check('host_marker', any(row['log']['tag'] == 'HOST' and previous['marker'] in row['log']['msg'] for row in host))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/verify-evidence.py", line 19, in check
+    raise AssertionError(name)
+AssertionError: host_marker

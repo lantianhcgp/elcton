@@ -1,0 +1,478 @@
+{
+  "schema_version": 1,
+  "task": "R4 read-only phone investigation",
+  "collected_at": "2026-11-15T10:47:23.709730+08:00",
+  "phone_repo": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+  "phone_head_initial": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+  "phone_head_final": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+  "watch_repo": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+  "watch_head_initial": "ff2a1b2858af88887b2132b77bcfce162a60fa48",
+  "hash_algorithm": "SHA-256",
+  "phone_file_count": 37,
+  "phone_files": [
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/AndroidManifest.xml",
+      "relative_path": "app/src/main/AndroidManifest.xml",
+      "sha256": "ab8b60e2abfee7d9b14ff75fa09cbe813e16238db5f05aa64d1f716ca5e9252e",
+      "bytes": 1563,
+      "line_count": 19,
+      "mtime_ns": 1794644608219567987,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/DevicePolicy.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/DevicePolicy.kt",
+      "sha256": "173f65f984981e1a41d4e03318da85572f61c3afcc66f96ed302eb510a329c83",
+      "bytes": 307,
+      "line_count": 7,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/DiagnosticMcpServer.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/DiagnosticMcpServer.kt",
+      "sha256": "609994ffef2c39adefeeacf1ec71cba24492efe9e5447c991dadd95be4ca64aa",
+      "bytes": 17501,
+      "line_count": 313,
+      "mtime_ns": 1794642604176904745,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/DiagnosticRuntime.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/DiagnosticRuntime.kt",
+      "sha256": "270a35fb2c47fddd4466ea2847bc3d06aef44202eca350342f6077680ae6eb64",
+      "bytes": 6566,
+      "line_count": 141,
+      "mtime_ns": 1794643315657312286,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/DiagnosticTools.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/DiagnosticTools.kt",
+      "sha256": "160cc7e9df1554b2b767fceb39b128d0ef461ae8035d5bb79bbf617f22f689f7",
+      "bytes": 5230,
+      "line_count": 97,
+      "mtime_ns": 1794642604268904745,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/ElctonApplication.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/ElctonApplication.kt",
+      "sha256": "5d4756fa613d2cf27b7771d6a0d5a566867ae29dfe68afd281705726ff8bfec0",
+      "bytes": 991,
+      "line_count": 25,
+      "mtime_ns": 1794644215429311943,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/ErrorJournal.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/ErrorJournal.kt",
+      "sha256": "e39bd97ae63ba8880d3653b80cc6609d17d8fd3829824b27b6c00440e8c7e898",
+      "bytes": 2390,
+      "line_count": 52,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/ExportSession.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/ExportSession.kt",
+      "sha256": "707d0ee89e042c57c65642558460fd68730a0069ca33c6b1723cefa6638ecbb5",
+      "bytes": 1307,
+      "line_count": 28,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/ExpressiveComponents.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/ExpressiveComponents.kt",
+      "sha256": "1060db94bb9ca430f8e7c1e89804b944e42cc888fc3dc35983c9db105f41280e",
+      "bytes": 10625,
+      "line_count": 213,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/M3xTheme.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/M3xTheme.kt",
+      "sha256": "6d3c421250359ce471e44a325a54262fc5a21e4afbacfbab198c76ad1bd3e608",
+      "bytes": 25418,
+      "line_count": 634,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/MainActivity.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/MainActivity.kt",
+      "sha256": "a12fc52736c9a9dc6d87afa6e836994b18a0fce42785b44829166f5de1d5d458",
+      "bytes": 43019,
+      "line_count": 537,
+      "mtime_ns": 1794651751918345206,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/MainThreadActions.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/MainThreadActions.kt",
+      "sha256": "9fd2d977319af86748600f8de4e2ee05044fe8d7e999e74d68e3f737ef221cd1",
+      "bytes": 1985,
+      "line_count": 49,
+      "mtime_ns": 1794646026998368328,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/McpKeepAlive.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/McpKeepAlive.kt",
+      "sha256": "a911d381e3ab1f5ac7d596ae9b010c196539ed8f27f5e6d154da8fb2695d8aae",
+      "bytes": 12684,
+      "line_count": 229,
+      "mtime_ns": 1794647091622346984,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/McpKeepAlivePolicy.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/McpKeepAlivePolicy.kt",
+      "sha256": "2d4ecac52ccbd7f3938bbf059d941445c619d19964340df741baee3fd56e7135",
+      "bytes": 442,
+      "line_count": 12,
+      "mtime_ns": 1794642979429312414,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/McpKeepAliveSettings.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/McpKeepAliveSettings.kt",
+      "sha256": "765f5077b9433d2cd2f915d6714d2e2521cb4581a5a2ff3dd0dda6e3a35d5e12",
+      "bytes": 5917,
+      "line_count": 109,
+      "mtime_ns": 1794648222306346552,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/McpToken.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/McpToken.kt",
+      "sha256": "76c8da5de0d3fcac175315c46f75ed542c4bbd2ea952bfc93e7cd39b99675601",
+      "bytes": 2804,
+      "line_count": 56,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/McpToolProvider.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/McpToolProvider.kt",
+      "sha256": "00957be37b3848d1d9aca3c6c056da53852e69b28d8452a43704ecf1096aca5f",
+      "bytes": 1540,
+      "line_count": 33,
+      "mtime_ns": 1794642548380904767,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/OperationDeadline.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/OperationDeadline.kt",
+      "sha256": "48e84ece758488ead30a54bbc44972f92bd1e59660b5f869c08a389065deb31a",
+      "bytes": 357,
+      "line_count": 9,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/PacketIngress.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/PacketIngress.kt",
+      "sha256": "3a59181bfe0e1cfd801cd21699ba00c3cfe9ebcfa9fc6f3aa6ab45696536f7fb",
+      "bytes": 2481,
+      "line_count": 38,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/PhoneActions.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/PhoneActions.kt",
+      "sha256": "048da107c58a76958c8de5f896681e177822710c62e90bed2ebbc71a46a132a6",
+      "bytes": 3681,
+      "line_count": 59,
+      "mtime_ns": 1794646028666368327,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/PhoneMcpTools.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/PhoneMcpTools.kt",
+      "sha256": "e9c8ea471058e771e396967c421f56966de8009245adad17b218ae12396b909b",
+      "bytes": 5392,
+      "line_count": 60,
+      "mtime_ns": 1794642548392904767,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/PhoneRuntime.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/PhoneRuntime.kt",
+      "sha256": "33d925acbcde98edc0858a0707ae6e29b52d0e3e4a5ea698ddec7aba734143ba",
+      "bytes": 5926,
+      "line_count": 103,
+      "mtime_ns": 1794646147154347344,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/PhoneSchedule.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/PhoneSchedule.kt",
+      "sha256": "862d48996b4a9ed7be84a4513fbc29ffd9a7a68cb038dfee89e30d6c48c5d040",
+      "bytes": 2985,
+      "line_count": 66,
+      "mtime_ns": 1794642548380904767,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/PhoneSnapshot.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/PhoneSnapshot.kt",
+      "sha256": "dceeb0b41a52d6a3eecad765443820ffe03ce10d460bf0cad3efbeb79975c9bf",
+      "bytes": 4943,
+      "line_count": 83,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/PickupClient.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/PickupClient.kt",
+      "sha256": "66a1193e854a0381882f7ecf9380ba46afb5a58d7cc3fdaadee820d9a843cd0d",
+      "bytes": 3306,
+      "line_count": 64,
+      "mtime_ns": 1794643251633312310,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/ScheduleBook.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/ScheduleBook.kt",
+      "sha256": "4a8f14ef02fbeef7283a14f206b06495c188d60618e08fd261a12a3b74dabd81",
+      "bytes": 4668,
+      "line_count": 80,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/ScheduleStore.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/ScheduleStore.kt",
+      "sha256": "2d7a225500360e179eef052c2395ab0a4d3acb4ad2aea88e703e6024d5c367c5",
+      "bytes": 2147,
+      "line_count": 43,
+      "mtime_ns": 1794643314457312286,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/SendAttempts.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/SendAttempts.kt",
+      "sha256": "5cc8fdbdcab8b2373c62bbeb2943c4f43c6e7dd9a0087b136c01a84d51051529",
+      "bytes": 277,
+      "line_count": 9,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/SyncEngine.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/SyncEngine.kt",
+      "sha256": "84176876bb297cecfaa8070362bbc0d72b0b99c095557919ba12c9978d26f4e7",
+      "bytes": 19525,
+      "line_count": 357,
+      "mtime_ns": 1794646197750347325,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/TransferSession.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/TransferSession.kt",
+      "sha256": "3bd542a39f188ca754dd31304268d3bf3e267ed739f5751f52511e7ba07f55bc",
+      "bytes": 2352,
+      "line_count": 54,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/UserFacingError.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/UserFacingError.kt",
+      "sha256": "1bfaea8e5c76ce63c9bab92ec4ae06d331f3585ab0ac52e0b2d0a0afdaf6676b",
+      "bytes": 2096,
+      "line_count": 29,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/WearErrorRecord.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/WearErrorRecord.kt",
+      "sha256": "543a04a1ba4fc93e6e17f3999d161bd32730d648cdbfd1f116aaac5d6ea86c54",
+      "bytes": 4890,
+      "line_count": 99,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/WearProbe.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/WearProbe.kt",
+      "sha256": "15eb45798a6cb4536500b5aebc30715a2c7ee3190fff79175cab0c23eabe8b8a",
+      "bytes": 12305,
+      "line_count": 231,
+      "mtime_ns": 1794644027173312015,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/java/com/hcbiu/elcton/Wire.kt",
+      "relative_path": "app/src/main/java/com/hcbiu/elcton/Wire.kt",
+      "sha256": "4d36667a311696cf98891455365af9a9bab09df4171d1e434b14056cdd1bc584",
+      "bytes": 2277,
+      "line_count": 60,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/res/values/themes.xml",
+      "relative_path": "app/src/main/res/values/themes.xml",
+      "sha256": "231c907463700d761862dd59a4574e70479a067e1d74e572b8482182fdeb8ab4",
+      "bytes": 938,
+      "line_count": 16,
+      "mtime_ns": 1794641799564905052,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/src/main/res/xml/network_security_config.xml",
+      "relative_path": "app/src/main/res/xml/network_security_config.xml",
+      "sha256": "02ad9ce2141cde98e21733fa04f64db3e1d335597a7b9ad793b1b8978e3faa23",
+      "bytes": 467,
+      "line_count": 9,
+      "mtime_ns": 1794643251693312310,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114/app/build.gradle.kts",
+      "relative_path": "app/build.gradle.kts",
+      "sha256": "52ff1325ad7c160431634d4187e5c59c9e8a5a0ef6696f38be8ef5695720a2e2",
+      "bytes": 2637,
+      "line_count": 59,
+      "mtime_ns": 1794644073185311997,
+      "read_scope": "bounded production source content-symbol scan; selected files also read with numbered source tools"
+    }
+  ],
+  "supplemental_inputs": [
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/sdk/classes.jar",
+      "sha256": "b0cc167e7bd6324ba47fc8e4f2668793d5c19e4640a96eed45d17b86d5c3b8ef",
+      "bytes": 281844,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/sdk/decompiled-excerpts/P2pClient.java",
+      "sha256": "4c1f1e19390fdfb5c9f4fa1c2edf4ce8842b9985e21bc4d6b96423109d190be5",
+      "bytes": 31127,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/sdk/verification.json",
+      "sha256": "e1428eaaa4153d31d2f7b65d62a5f40a8d0fb9217e40172492efa2f978091d68",
+      "bytes": 647,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/sdk/AndroidManifest.xml",
+      "sha256": "f718a0a181443186f0714f23c44be2c58fc3c59fbc75b9b1366ba00f22337e7c",
+      "bytes": 779,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/sdk/P2pClient.javap.json",
+      "sha256": "8ca95f2b7a70d07bacbfade0e7089fa894b9b6acedb414baffbca7d7982336fd",
+      "bytes": 39368,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/apk/public-dual-identity-actual.json",
+      "sha256": "9e3483b67a73a05e5d9c2caee789dae416647a9356e3cd377fc6d9ed99bdff49",
+      "bytes": 1337,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/watch-real-sessions.json",
+      "sha256": "be557101d1ea5d5af040358457a700396dcb7843a6ca5f40802434c2386bc403",
+      "bytes": 18960,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearService.js",
+      "sha256": "345614a459483b531c9ada8d2e07b40b59a8ee060df7b8ffd6821be32dfa030a",
+      "bytes": 7798,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearIdentity.js",
+      "sha256": "3241bdb6fd2785424885f3e8f6013f660341dabbca02d2934fa6bf31710d2b57",
+      "bytes": 216,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearTrace.js",
+      "sha256": "d9e123e7dec20db0b76eedb8f101a3d48fd1920f15f5fb73bad228454483fa21",
+      "bytes": 3065,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/compiled-logger-https.mjs",
+      "sha256": "fdeb6aeb7e8cf8e0084345a225c6b857c6bbd6822a901531c751da0c1106b8de",
+      "bytes": 12563,
+      "kind": "watch supplementary static source/evidence"
+    },
+    {
+      "path": "/storage/emulated/0/Documents/elcton-WearEngine-真机联调-20261113-123000/01-官方正文与SDK快照/android-aar.zip",
+      "sha256": "97adb85c1092c8b9660b7d26eb7a0bccb162201f1eea1f85373a7f59e827d2ca",
+      "bytes": 254003,
+      "kind": "official SDK local snapshot outside phone repository"
+    }
+  ],
+  "phone_symbol_scan": {
+    "counts": {
+      "connectChannel": 0,
+      "disconnectChannel": 0,
+      "FeatureAbility": 0,
+      "releaseConnection": 0,
+      "getP2pClient": 1
+    },
+    "callsite_references": {
+      "connectChannel": [],
+      "disconnectChannel": [],
+      "FeatureAbility": [],
+      "releaseConnection": [],
+      "getP2pClient": [
+        "app/src/main/java/com/hcbiu/elcton/WearProbe.kt:23"
+      ]
+    }
+  },
+  "sdk_verification": {
+    "version_name": "5.0.3.301",
+    "jar_class_count": 280,
+    "connectChannel_or_disconnectChannel_class_hits": [],
+    "jar_sha256": "b0cc167e7bd6324ba47fc8e4f2668793d5c19e4640a96eed45d17b86d5c3b8ef",
+    "aar_classes_jar_byte_equal": true,
+    "actual_javap_invocations_exit_code": 0
+  },
+  "read_only_verification": {
+    "initial_phone_status_sha256": "a757ac2fb039def4ae2d520d87de124b30da945cf3b8f724e5bcdb451a6fd1d0",
+    "final_phone_status_sha256": "a757ac2fb039def4ae2d520d87de124b30da945cf3b8f724e5bcdb451a6fd1d0",
+    "phone_status_matches_initial": true,
+    "final_phone_status_porcelain": " M qa/release-029/evidence/resume-1720/CONTINUATION-R10.md\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/full-artifact/artifact-original.zip\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/full-verification/raw/artifact-original.zip\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/FINAL-CLOSURE.json\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/commit.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/commit.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.failed1-timeout.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.failed1-timeout.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/push.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/push.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/readback.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback-continuation.failed1-timeout/\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback-continuation/\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback/\n?? qa/release-029/evidence/resume-1720/resume-fourth/resume_tail_readback.py\n",
+    "phone_production_diff_name_only": [],
+    "two_pass_hash_changed_files": [],
+    "two_pass_hashes_equal": true,
+    "scope": "file hashes collected at report completion; two-pass stability check does not assert a saved hash existed before the first source read"
+  },
+  "deliverable_report": {
+    "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/phone-readonly-analysis.md",
+    "sha256": "d5d24584a4d0020790b8d7c53d802b5341fb37932b59c8f222e530db6f4e9fd1",
+    "bytes": 25207,
+    "line_count": 134
+  },
+  "constraints": {
+    "phone_file_writes": 0,
+    "device_mcp_adb_actions": 0,
+    "installs_builds_commits_pushes": 0,
+    "only_new_watch_outputs": [
+      "qa/we-handshake-20261115/research/r4/phone-readonly-analysis.md",
+      "qa/we-handshake-20261115/research/r4/phone-readonly-hashes.json"
+    ]
+  },
+  "limitations": [
+    "File-name-only discovery is not a content read and is excluded.",
+    "Git metadata is automatically read by read-only Git commands; Git status and HEAD are recorded separately, not hashed as phone application inputs.",
+    "Existing phone qa evidence modifications were present before this task; no phone qa evidence file content was opened.",
+    "No installed APK/HAP/device readback was done; SDK snapshot is local static evidence."
+  ]
+}

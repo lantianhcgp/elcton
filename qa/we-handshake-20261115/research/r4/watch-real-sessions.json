@@ -1,0 +1,822 @@
+{
+  "mwh7l2un-1": [
+    {
+      "cursor": 1425,
+      "date": "2026-11-15",
+      "received_ts": 1794709318992,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709310643,
+        "sid": "mwh7l2un-1",
+        "seq": 1,
+        "level": "info",
+        "tag": "page",
+        "msg": "MainAbility"
+      }
+    },
+    {
+      "cursor": 1426,
+      "date": "2026-11-15",
+      "received_ts": 1794709319005,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709310649,
+        "sid": "mwh7l2un-1",
+        "seq": 2,
+        "level": "info",
+        "tag": "console",
+        "msg": "Application onCreate"
+      }
+    },
+    {
+      "cursor": 1427,
+      "date": "2026-11-15",
+      "received_ts": 1794709319013,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709314122,
+        "sid": "mwh7l2un-1",
+        "seq": 3,
+        "level": "info",
+        "tag": "console",
+        "msg": "KEEP_ON"
+      }
+    },
+    {
+      "cursor": 1428,
+      "date": "2026-11-15",
+      "received_ts": 1794709335242,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328419,
+        "sid": "mwh7l2un-1",
+        "seq": 4,
+        "level": "info",
+        "tag": "WE/CLOSE",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1429,
+      "date": "2026-11-15",
+      "received_ts": 1794709335245,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328429,
+        "sid": "mwh7l2un-1",
+        "seq": 5,
+        "level": "info",
+        "tag": "WE/SDK_CALL",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1430,
+      "date": "2026-11-15",
+      "received_ts": 1794709335248,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328451,
+        "sid": "mwh7l2un-1",
+        "seq": 6,
+        "level": "info",
+        "tag": "WE/VER_OK",
+        "msg": "service=402 v0=5 v1=0 v2=0 v3=402"
+      }
+    },
+    {
+      "cursor": 1431,
+      "date": "2026-11-15",
+      "received_ts": 1794709335251,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328462,
+        "sid": "mwh7l2un-1",
+        "seq": 7,
+        "level": "info",
+        "tag": "WE/BUS_NATIVE",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1432,
+      "date": "2026-11-15",
+      "received_ts": 1794709335253,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328486,
+        "sid": "mwh7l2un-1",
+        "seq": 8,
+        "level": "info",
+        "tag": "WE/PKG_CALL",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1433,
+      "date": "2026-11-15",
+      "received_ts": 1794709335257,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328497,
+        "sid": "mwh7l2un-1",
+        "seq": 9,
+        "level": "info",
+        "tag": "WE/PKG_OK",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1434,
+      "date": "2026-11-15",
+      "received_ts": 1794709335262,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328506,
+        "sid": "mwh7l2un-1",
+        "seq": 10,
+        "level": "info",
+        "tag": "WE/CERT_CALL",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1435,
+      "date": "2026-11-15",
+      "received_ts": 1794709335267,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328517,
+        "sid": "mwh7l2un-1",
+        "seq": 11,
+        "level": "info",
+        "tag": "WE/CERT_OK",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1436,
+      "date": "2026-11-15",
+      "received_ts": 1794709337455,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328527,
+        "sid": "mwh7l2un-1",
+        "seq": 12,
+        "level": "info",
+        "tag": "WE/REG_CALL",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1437,
+      "date": "2026-11-15",
+      "received_ts": 1794709337460,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328551,
+        "sid": "mwh7l2un-1",
+        "seq": 13,
+        "level": "info",
+        "tag": "WE/REG_OK",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1438,
+      "date": "2026-11-15",
+      "received_ts": 1794709337464,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709328613,
+        "sid": "mwh7l2un-1",
+        "seq": 14,
+        "level": "info",
+        "tag": "WE/READY_PREPARE",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1439,
+      "date": "2026-11-15",
+      "received_ts": 1794709337470,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709329505,
+        "sid": "mwh7l2un-1",
+        "seq": 16,
+        "level": "info",
+        "tag": "WE/SEND_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1440,
+      "date": "2026-11-15",
+      "received_ts": 1794709337480,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709329539,
+        "sid": "mwh7l2un-1",
+        "seq": 17,
+        "level": "info",
+        "tag": "WE/READY_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1441,
+      "date": "2026-11-15",
+      "received_ts": 1794709437953,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709430041,
+        "sid": "mwh7l2un-1",
+        "seq": 18,
+        "level": "info",
+        "tag": "WE/HELLO_RECV",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1442,
+      "date": "2026-11-15",
+      "received_ts": 1794709437956,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709430051,
+        "sid": "mwh7l2un-1",
+        "seq": 19,
+        "level": "info",
+        "tag": "WE/READY_PREPARE",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1443,
+      "date": "2026-11-15",
+      "received_ts": 1794709437960,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709430089,
+        "sid": "mwh7l2un-1",
+        "seq": 20,
+        "level": "info",
+        "tag": "WE/READY_PREPARED",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1444,
+      "date": "2026-11-15",
+      "received_ts": 1794709437962,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709430233,
+        "sid": "mwh7l2un-1",
+        "seq": 21,
+        "level": "info",
+        "tag": "WE/SEND_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1445,
+      "date": "2026-11-15",
+      "received_ts": 1794709437964,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709430251,
+        "sid": "mwh7l2un-1",
+        "seq": 22,
+        "level": "info",
+        "tag": "WE/READY_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1446,
+      "date": "2026-11-15",
+      "received_ts": 1794709440153,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709435437,
+        "sid": "mwh7l2un-1",
+        "seq": 23,
+        "level": "info",
+        "tag": "WE/HELLO_RECV",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1447,
+      "date": "2026-11-15",
+      "received_ts": 1794709440178,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709435447,
+        "sid": "mwh7l2un-1",
+        "seq": 24,
+        "level": "info",
+        "tag": "WE/READY_PREPARE",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1448,
+      "date": "2026-11-15",
+      "received_ts": 1794709440185,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709435485,
+        "sid": "mwh7l2un-1",
+        "seq": 25,
+        "level": "info",
+        "tag": "WE/READY_PREPARED",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1449,
+      "date": "2026-11-15",
+      "received_ts": 1794709440191,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709435638,
+        "sid": "mwh7l2un-1",
+        "seq": 26,
+        "level": "info",
+        "tag": "WE/SEND_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1450,
+      "date": "2026-11-15",
+      "received_ts": 1794709440196,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709435657,
+        "sid": "mwh7l2un-1",
+        "seq": 27,
+        "level": "info",
+        "tag": "WE/READY_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1451,
+      "date": "2026-11-15",
+      "received_ts": 1794709447851,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709440063,
+        "sid": "mwh7l2un-1",
+        "seq": 28,
+        "level": "info",
+        "tag": "WE/HELLO_RECV",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1452,
+      "date": "2026-11-15",
+      "received_ts": 1794709447854,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709440087,
+        "sid": "mwh7l2un-1",
+        "seq": 29,
+        "level": "info",
+        "tag": "WE/READY_PREPARE",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1453,
+      "date": "2026-11-15",
+      "received_ts": 1794709447858,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709440112,
+        "sid": "mwh7l2un-1",
+        "seq": 30,
+        "level": "info",
+        "tag": "WE/READY_PREPARED",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1454,
+      "date": "2026-11-15",
+      "received_ts": 1794709447864,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709440282,
+        "sid": "mwh7l2un-1",
+        "seq": 31,
+        "level": "info",
+        "tag": "WE/SEND_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1455,
+      "date": "2026-11-15",
+      "received_ts": 1794709447870,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709440301,
+        "sid": "mwh7l2un-1",
+        "seq": 32,
+        "level": "info",
+        "tag": "WE/READY_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1456,
+      "date": "2026-11-15",
+      "received_ts": 1794709450185,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709445441,
+        "sid": "mwh7l2un-1",
+        "seq": 33,
+        "level": "info",
+        "tag": "WE/HELLO_RECV",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1457,
+      "date": "2026-11-15",
+      "received_ts": 1794709450204,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709445451,
+        "sid": "mwh7l2un-1",
+        "seq": 34,
+        "level": "info",
+        "tag": "WE/READY_PREPARE",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1458,
+      "date": "2026-11-15",
+      "received_ts": 1794709450211,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709445478,
+        "sid": "mwh7l2un-1",
+        "seq": 35,
+        "level": "info",
+        "tag": "WE/READY_PREPARED",
+        "msg": ""
+      }
+    },
+    {
+      "cursor": 1459,
+      "date": "2026-11-15",
+      "received_ts": 1794709450216,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709445638,
+        "sid": "mwh7l2un-1",
+        "seq": 36,
+        "level": "info",
+        "tag": "WE/SEND_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    },
+    {
+      "cursor": 1460,
+      "date": "2026-11-15",
+      "received_ts": 1794709450220,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794709445670,
+        "sid": "mwh7l2un-1",
+        "seq": 37,
+        "level": "info",
+        "tag": "WE/READY_FAIL",
+        "msg": "code=206 type1=0 type2=0"
+      }
+    }
+  ],
+  "mwh5okyh-1": [
+    {
+      "cursor": 1413,
+      "date": "2026-11-15",
+      "received_ts": 1794706121835,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706114842,
+        "sid": "mwh5okyh-1",
+        "seq": 1,
+        "level": "info",
+        "tag": "page",
+        "msg": "MainAbility"
+      }
+    },
+    {
+      "cursor": 1414,
+      "date": "2026-11-15",
+      "received_ts": 1794706121841,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706114843,
+        "sid": "mwh5okyh-1",
+        "seq": 2,
+        "level": "info",
+        "tag": "console",
+        "msg": "Application onCreate"
+      }
+    },
+    {
+      "cursor": 1415,
+      "date": "2026-11-15",
+      "received_ts": 1794706123817,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121785,
+        "sid": "mwh5okyh-1",
+        "seq": 3,
+        "level": "info",
+        "tag": "console",
+        "msg": "WE-HOST-HTTPS-9eb9af98edcfb02f"
+      }
+    },
+    {
+      "cursor": 1416,
+      "date": "2026-11-15",
+      "received_ts": 1794706123822,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121785,
+        "sid": "mwh5okyh-1",
+        "seq": 4,
+        "level": "info",
+        "tag": "WE/SDK_CALL",
+        "msg": "code=0 arg1=0 arg2=0"
+      }
+    },
+    {
+      "cursor": 1417,
+      "date": "2026-11-15",
+      "received_ts": 1794706123827,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121786,
+        "sid": "mwh5okyh-1",
+        "seq": 5,
+        "level": "info",
+        "tag": "WE/VER_OK",
+        "msg": "code=0 arg1=0 arg2=0"
+      }
+    },
+    {
+      "cursor": 1418,
+      "date": "2026-11-15",
+      "received_ts": 1794706123831,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121786,
+        "sid": "mwh5okyh-1",
+        "seq": 6,
+        "level": "info",
+        "tag": "WE/PKG_OK",
+        "msg": "code=0 arg1=0 arg2=0"
+      }
+    },
+    {
+      "cursor": 1419,
+      "date": "2026-11-15",
+      "received_ts": 1794706123835,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121786,
+        "sid": "mwh5okyh-1",
+        "seq": 7,
+        "level": "info",
+        "tag": "WE/CERT_OK",
+        "msg": "code=0 arg1=0 arg2=0"
+      }
+    },
+    {
+      "cursor": 1420,
+      "date": "2026-11-15",
+      "received_ts": 1794706123839,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121786,
+        "sid": "mwh5okyh-1",
+        "seq": 8,
+        "level": "info",
+        "tag": "WE/REG_OK",
+        "msg": "code=0 arg1=0 arg2=0"
+      }
+    },
+    {
+      "cursor": 1421,
+      "date": "2026-11-15",
+      "received_ts": 1794706123844,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121786,
+        "sid": "mwh5okyh-1",
+        "seq": 9,
+        "level": "info",
+        "tag": "WE/HELLO_RECV",
+        "msg": "code=0 arg1=0 arg2=0"
+      }
+    },
+    {
+      "cursor": 1422,
+      "date": "2026-11-15",
+      "received_ts": 1794706123847,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121787,
+        "sid": "mwh5okyh-1",
+        "seq": 10,
+        "level": "info",
+        "tag": "WE/READY_CALL",
+        "msg": "code=0 arg1=0 arg2=0"
+      }
+    },
+    {
+      "cursor": 1423,
+      "date": "2026-11-15",
+      "received_ts": 1794706126772,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121787,
+        "sid": "mwh5okyh-1",
+        "seq": 11,
+        "level": "info",
+        "tag": "WE/READY_OK",
+        "msg": "code=0 arg1=0 arg2=0"
+      }
+    },
+    {
+      "cursor": 1424,
+      "date": "2026-11-15",
+      "received_ts": 1794706126785,
+      "log": {
+        "app": "elcton",
+        "ver": "1.1.16",
+        "device": "unknown",
+        "page": "MainAbility",
+        "ts": 1794706121787,
+        "sid": "mwh5okyh-1",
+        "seq": 12,
+        "level": "info",
+        "tag": "WE/SEND_FAIL",
+        "msg": "code=206 arg1=210301031 arg2=0"
+      }
+    }
+  ]
+}

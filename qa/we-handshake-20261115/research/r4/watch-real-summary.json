@@ -1,0 +1,39 @@
+{
+  "sid": "mwh7l2un-1",
+  "rows": 36,
+  "cursor_min": 1425,
+  "cursor_max": 1460,
+  "seq_min": 1,
+  "seq_max": 37,
+  "seq_missing": [
+    15
+  ],
+  "tags": {
+    "page": 1,
+    "console": 2,
+    "WE/CLOSE": 1,
+    "WE/SDK_CALL": 1,
+    "WE/VER_OK": 1,
+    "WE/BUS_NATIVE": 1,
+    "WE/PKG_CALL": 1,
+    "WE/PKG_OK": 1,
+    "WE/CERT_CALL": 1,
+    "WE/CERT_OK": 1,
+    "WE/REG_CALL": 1,
+    "WE/REG_OK": 1,
+    "WE/READY_PREPARE": 5,
+    "WE/SEND_FAIL": 5,
+    "WE/READY_FAIL": 5,
+    "WE/HELLO_RECV": 4,
+    "WE/READY_PREPARED": 4
+  },
+  "native_fail_args": [
+    "code=206 type1=0 type2=0",
+    "code=206 type1=0 type2=0",
+    "code=206 type1=0 type2=0",
+    "code=206 type1=0 type2=0",
+    "code=206 type1=0 type2=0"
+  ],
+  "host_excluded": "mwh5okyh-1",
+  "complete_execution_log": false
+}

@@ -1,0 +1,73 @@
+{
+  "at": "2026-11-15 11:06:20 +0800",
+  "docs": [
+    {
+      "objectId": "errocode-0000001054450278",
+      "literal_url": "https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/errocode-0000001054450278",
+      "http": 200,
+      "document_code": 0,
+      "raw_sha256": "b93e8892bc7960546c1b97ae54a5ff30b5da44aec31d211aca41c38d14e3719f",
+      "raw_exists": true,
+      "text_path": "official/errocode-0000001054450278.txt",
+      "classification": "OFFICIAL_BODY_SUCCESS"
+    },
+    {
+      "objectId": "p2pclient-0000001060779118",
+      "literal_url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/p2pclient-0000001060779118",
+      "http": 200,
+      "document_code": 92531031,
+      "raw_sha256": "a2f11ec6ca653e379719953553ea780c8d2c99da382c1f68413dcb356505b2b9",
+      "raw_exists": true,
+      "text_path": "official/p2pclient-0000001060779118.txt",
+      "classification": "OFFICIAL_ACQUISITION_REJECTION"
+    },
+    {
+      "objectId": "wearengineerrorcode-0000001059980969",
+      "literal_url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/wearengineerrorcode-0000001059980969",
+      "http": 200,
+      "document_code": 0,
+      "raw_sha256": "b0e99be4fc29c54b706d9f34512f3c5dfc4b30948371c10277dd7422073f8bde",
+      "raw_exists": true,
+      "text_path": "official/wearengineerrorcode-0000001059980969.txt",
+      "classification": "OFFICIAL_BODY_SUCCESS"
+    },
+    {
+      "objectId": "point-to-point-message-0000001052164296",
+      "literal_url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/point-to-point-message-0000001052164296",
+      "http": 200,
+      "document_code": 0,
+      "raw_sha256": "d47a00b63bc4a5876a618d9672cff2a9d94f286e8600cdb67ceb5eeb8bbb8624",
+      "raw_exists": true,
+      "text_path": "official/point-to-point-message-0000001052164296.txt",
+      "classification": "OFFICIAL_BODY_SUCCESS"
+    },
+    {
+      "objectId": "send-message-0000001052460491",
+      "literal_url": "https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/send-message-0000001052460491",
+      "http": 200,
+      "document_code": 0,
+      "raw_sha256": "f30f7a19f3dcc78a2354f72f18705ff19e81628e5b5f5efa73fe693d054fe9bc",
+      "raw_exists": true,
+      "text_path": "official/send-message-0000001052460491.txt",
+      "classification": "OFFICIAL_BODY_SUCCESS"
+    }
+  ],
+  "exact_error_semantics_210301031": null,
+  "used_host_code_as_native_evidence": false,
+  "additional_android_reference": {
+    "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/p2pclient-0000001061098712",
+    "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+    "payload": {
+      "objectId": "p2pclient-0000001061098712",
+      "language": "cn",
+      "catalogName": "connectivity-References"
+    },
+    "retrieved_utc": "2026-11-15T02:48:57.594677+00:00",
+    "http": 200,
+    "code": 0,
+    "title": "P2pClient",
+    "raw_bytes": 48065,
+    "raw_sha256": "d43fe51433384217464cfd872cdf5d83e14b7befd7486a9f8d126b12ed02611e",
+    "contains_connectChannel": false
+  }
+}

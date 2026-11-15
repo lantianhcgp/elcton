@@ -1,0 +1,112 @@
+{
+  "axis": "spec",
+  "round": "R4-retry1",
+  "reviewer_mode": "fresh-independent-focused-spec-review",
+  "passed": false,
+  "security_concerns": [],
+  "logic_errors": [
+    {
+      "id": "R4-RETRY1-EVIDENCE-FINGERPRINT",
+      "severity": "medium",
+      "location": "qa/we-handshake-20261115/evidence/r4/spec-corrections.json:137-141",
+      "finding": "The corrected documents and all three original blockers pass source review, but the correction receipt's binding to evidence-verification.json no longer matches current bytes. It declares b310c80d3dffbbb27674e7f1636af5e79031f29e68f2a26055bb4bd890ff0d21; the current file hashes to 096b52ea850c85cfddac3988c0e76af90f94850832c52ab80a3f952bd8e2b14c and now has at=2026-11-15 11:27:11 +0800. During this review the original SHA was verified at 11:24:40 and again immediately after a write-intercepted verifier replay at 11:25:10. The final pre-write fingerprint check detected subsequent mutation. This reviewer did not write the verifier receipt. Its current checks remain green, but the declared correction-evidence SHA is stale; a green predicate result does not repair that binding.",
+      "required_change": "Preserve the current and historical evidence. Add a separately named correction-evidence amendment identifying the subsequent replay/current SHA and binding unchanged documents and original refusal; do not overwrite the original refusal or invent preservation. Then request focused SPEC re-review before QUALITY."
+    }
+  ],
+  "missing_requirements": [],
+  "documentfingerprints": {
+    "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "2b6a4aafab55f4649b5df4f51ca2d7457f76bbfd65bed5dc3942d3df76aec154",
+    "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "f720f1653775d0a22d5ceaea5fb3b1c862387898d69b8177662c332f87574859",
+    "qa/we-handshake-20261115/research/r4/verify-evidence.py": "6371bbb1c421c70080a46c68b3b0ae517bbdcdcd515ef78a630e47477e09cd85",
+    "qa/we-handshake-20261115/reviews/r4-spec.json": "66e1c1353fc2d6b27203d22e2994fd8dc7022c00a7a3557a499446bfe696d9cd",
+    "qa/we-handshake-20261115/evidence/r4/spec-corrections.json": "f865b0bdf3b74d54f6ff02f68e0403ea470854973227279411254a61ad465f6d",
+    "qa/we-handshake-20261115/evidence/r4/evidence-verification.json": "096b52ea850c85cfddac3988c0e76af90f94850832c52ab80a3f952bd8e2b14c",
+    "qa/we-handshake-20261115/research/r4/phone-readonly-analysis.md": "d5d24584a4d0020790b8d7c53d802b5341fb37932b59c8f222e530db6f4e9fd1",
+    "qa/we-handshake-20261115/research/r4/watch-send-analysis.md": "a7da524b3d7354be6ff73ffa8239071793d45689908f70b23aedad64385f4007",
+    "qa/we-handshake-20261115/compiled-logger-https.mjs": "fdeb6aeb7e8cf8e0084345a225c6b857c6bbd6822a901531c751da0c1106b8de",
+    "qa/we-handshake-20261115/compiled-we-stages.mjs": "91a5ef887f5105dc46342419e1b47afcb86158eb29a7a3ccf43c7c8454c7fbcf",
+    "qa/we-handshake-20261115/research/r4/watch-real-sessions.json": "be557101d1ea5d5af040358457a700396dcb7843a6ca5f40802434c2386bc403",
+    "qa/we-handshake-20261115/research/r4/cloud-mirror-readback.json": "82288bc84ab64be02c70ac403375e1f2378d2d995280b59edf13d73dd4b676bc",
+    "qa/we-handshake-20261115/research/r4/host-origin-full-row-sha.json": "3a2cf02597199dd60a2eb65b5db31ab5246fd5b142d50db5a78a8bc599218c91",
+    "qa/we-handshake-20261115/evidence/r4/unchanged-full-regression.json": "0afb50bd049b8e31a897d400f2e910fa94bfef76c466a0f924f799bc196f2343",
+    "qa/we-handshake-20261115/evidence/r4/scope-protection-final.json": "8fcc4031cbd3b101614cb0fe82a9da500e385c0ecafc1e3b05811a9e40bd27e8",
+    "phone/app/src/main/java/com/hcbiu/elcton/WearProbe.kt": "15eb45798a6cb4536500b5aebc30715a2c7ee3190fff79175cab0c23eabe8b8a",
+    "phone/app/src/main/java/com/hcbiu/elcton/SyncEngine.kt": "84176876bb297cecfaa8070362bbc0d72b0b99c095557919ba12c9978d26f4e7",
+    "phone/app/src/main/java/com/hcbiu/elcton/DiagnosticRuntime.kt": "270a35fb2c47fddd4466ea2847bc3d06aef44202eca350342f6077680ae6eb64",
+    "phone/app/src/main/java/com/hcbiu/elcton/PhoneMcpTools.kt": "e9c8ea471058e771e396967c421f56966de8009245adad17b218ae12396b909b",
+    "phone/app/src/main/java/com/hcbiu/elcton/PhoneActions.kt": "048da107c58a76958c8de5f896681e177822710c62e90bed2ebbc71a46a132a6",
+    "phone/app/src/main/java/com/hcbiu/elcton/PhoneRuntime.kt": "33d925acbcde98edc0858a0707ae6e29b52d0e3e4a5ea698ddec7aba734143ba"
+  },
+  "binding": {
+    "watch_workdir": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "watch_head": "ff2a1b2858af88887b2132b77bcfce162a60fa48",
+    "phone_workdir": "/data/data/com.termux/files/home/elcton-phone-release-029-20261114",
+    "phone_head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "documents_sha256": {
+      "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "2b6a4aafab55f4649b5df4f51ca2d7457f76bbfd65bed5dc3942d3df76aec154",
+      "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "f720f1653775d0a22d5ceaea5fb3b1c862387898d69b8177662c332f87574859"
+    },
+    "original_refusal_preserved": true,
+    "original_refusal_passed": false,
+    "original_refusal_sha256": "66e1c1353fc2d6b27203d22e2994fd8dc7022c00a7a3557a499446bfe696d9cd",
+    "final_fingerprint_observation_at": "2026-11-15T11:27:58.926508+08:00"
+  },
+  "resolved_prior_blockers": [
+    {
+      "id": "R4-SPEC-01",
+      "resolved": true,
+      "documents": "PHONE-DIAGNOSTIC-PATCH-PLAN.md:15-16; DELIVERY-R4-20261115.md:50",
+      "source": "WearProbe.kt:172-182,194-229; DiagnosticRuntime.kt:86-105; SyncEngine.kt:349-354",
+      "verification": "Actual describe captures WearErrorRecord, updates diagnostics and attempts journal append. Current-generation registration Task failures, registration synchronous exceptions, send Task/synchronous exceptions and unregister Task/synchronous exceptions already use it; stale registration Task failure need not call describe. No emitWearError exists in cited production source. Revised documents preserve that exception path and identify missing successful-stage timing, integer SendResult and RX/reject correlation. error_tail zero growth is not absence-of-failure or registration-validity proof."
+    },
+    {
+      "id": "R4-SPEC-02",
+      "resolved": true,
+      "documents": "PHONE-DIAGNOSTIC-PATCH-PLAN.md:60,72,85; DELIVERY-R4-20261115.md:51",
+      "source": "SyncEngine.kt:93-103,175,186,196-212,247-255,349-354",
+      "verification": "Install/register each use 15000ms. HELLO resets attempts to zero, schedules 5000ms per attempt and retries while ++handshakeAttempts<=3: initial plus three sends approximately 0/5/10/15 seconds, exhaustion at 20 absent earlier READY/failure/cancel. Revised plan observes original terminal events, does not add a 15-second READY cutoff, and explicitly handles earlier failure/cancel."
+    },
+    {
+      "id": "R4-SPEC-03",
+      "resolved": true,
+      "documents": "PHONE-DIAGNOSTIC-PATCH-PLAN.md:60,90,96; DELIVERY-R4-20261115.md:52",
+      "source": "SyncEngine.kt:99-103,208-210,325-335; WearProbe.kt:169-182,186-196",
+      "verification": "fail/cancel intentionally invalidate generations and unregister; close invokes cancel; stale registration callbacks release the exact old Receiver. Revised causal row requires correlated same-generation unexpected failure/premature teardown before the relevant READY attempt and proof it invalidated that attempt. Normal timeout/send-failure/user-cancel/close cleanup and stale Receiver release are excluded. UNREG/CLOSE after HELLO alone is not repair proof; any repair still requires separate authorization."
+    }
+  ],
+  "host_and_boundary_verification": {
+    "host_sid": "mwh5okyh-1",
+    "host_entire_canonical_rows_independently_recomputed_equal": 12,
+    "host_cursor_range": [1413, 1424],
+    "marker": "WE-HOST-HTTPS-9eb9af98edcfb02f",
+    "https_fixture": "compiled-logger-https.mjs:120,143-159 directly injects app._elctonLog(stage,{code:stage==='SEND_FAIL'?206:0,arg1:stage==='SEND_FAIL'?210301031:0,arg2:0}). It models configuration/device/fetch only, not WE send/native fail. Stage names here are synthetic logger inputs.",
+    "separate_we_fixture": "compiled-we-stages.mjs:128 calls o.fail(210301031,0) through a different HOST sendMsg adapter. Neither fixture is FIT3 native evidence.",
+    "saved_cloud_readback": {"rows": 48, "has_more": false, "next": 1460, "exact_local_wrappers_equal": true, "fresh_reviewer_network_fetch": false},
+    "real_sid": "mwh7l2un-1",
+    "real_rows": 36,
+    "real_missing_seq": [15],
+    "real_counts": {"HELLO_RECV": 4, "READY_PREPARE": 5, "READY_PREPARED_received": 4, "SEND_FAIL": 5, "READY_FAIL": 5, "SEND_OK": 0},
+    "real_fail_contract": "Five saved failures are code=206 type1=0 type2=0. wearTrace.js:13-16 defines type0=undefined; wearService.js:99-109 wraps native fail with 206. Real callback arguments provide no 210301031 value to decode. Official SDK source:288-305 similarly wraps arbitrary native fail as MSG_ERROR_SEND_FAIL rather than mapping its second argument.",
+    "shared_channel_and_layers": "phone-sync.js:109-115,137-140,178-184 reuses one channel for HELLO/READY; wearService.js:33-72,95-109 uses configuration/REG barriers and the same bus. WearProbe.kt:42-66,78-84 and PhoneRuntime.kt:17-19/PhoneActions.kt:11-14 establish one shared WearProbe adapter/SyncEngine path. RX_NATIVE_ENTRY belongs only before WearProbe Receiver generation/type/byte filtering:155-161; engine callback:188 is already filtered. Revised plan correctly distinguishes layers and correlated generations, not two channels or equal generation numbers.",
+    "android_contract": "PhoneMcpTools.kt:9,26 and PhoneRuntime.kt:77-81 confirm accepted/pending is not READY. Independently scanned all 280 class entries of existing Android classes.jar: no connectChannel/disconnectChannel symbol. Saved official P2pClient reference lists registerReceiver/send and contains no connectChannel. This absence is limited to inspected SDK/reference bytes, not all Huawei APIs.",
+    "known_unknown": "Native outbound identity/routing/service failure detail, phone active Receiver/peer/lifecycle during READY, native RX/filter outcomes and independently captured current running APK/HAP bytes remain unknown. No reliable official 210301031 meaning established; its confirmed occurrence here is HOST injection. Static/source/HOST evidence does not prove a phone bug or bidirectional native success."
+  },
+  "execution_and_scope": {
+    "readonly_verifier_replay": "Actual terminal exit0, twelve current verifier predicates green. Its sole Path.write_text output was captured in memory; SHA of cited on-disk receipt remained b310c80d... immediately afterward at 11:25:10. Independent source and canonical/count checks separately ground findings. A later external mutation caused the final binding failure; no verifier receipt was written by this reviewer.",
+    "git_checks": "Actual HEADs equal both stated baselines. Watch tracked diff against ff2a1b... empty; phone app/src diff against bb26c64... empty.",
+    "saved_regression": "Existing actual TAP/receipt exit0, tests445/pass445/fail0/skipped0, matching totals. Not rerun by this reviewer.",
+    "saved_scope": "Existing scope receipt reports phone9455/watch protected121 with zero drift. This focused reviewer inspected cited sources and baseline diffs, not all 9455 files.",
+    "root_cause_proven": false,
+    "handshake_repaired": false,
+    "phone_bug_proven": false,
+    "phone_implementation_authorized": false,
+    "quality_run": false,
+    "publication_or_remote_closure_claimed": false,
+    "new_ci_or_hap": false,
+    "device_browser_mcp_adb_operations": false,
+    "phone_or_product_writes": false,
+    "git_commit_or_push": false,
+    "only_file_written": "qa/we-handshake-20261115/reviews/r4-spec-retry1.json"
+  },
+  "summary": "SPEC FAIL solely for a newly detected stale correction-evidence fingerprint after concurrent receipt mutation. All three original documentation blockers, HOST stage-injection provenance, shared RX-layer placement and read-only/unknown/no-repair boundary are corrected against actual sources. Preserve original refusal; do not run QUALITY until the evidence binding is amended and focused SPEC passes."
+}

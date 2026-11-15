@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "suggestions": [],
+  "binding": {
+    "documents_sha256": {
+      "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "2b6a4aafab55f4649b5df4f51ca2d7457f76bbfd65bed5dc3942d3df76aec154",
+      "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "f720f1653775d0a22d5ceaea5fb3b1c862387898d69b8177662c332f87574859"
+    },
+    "sha256": {
+      "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "2b6a4aafab55f4649b5df4f51ca2d7457f76bbfd65bed5dc3942d3df76aec154",
+      "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "f720f1653775d0a22d5ceaea5fb3b1c862387898d69b8177662c332f87574859",
+      "qa/we-handshake-20261115/reviews/r4-spec.json": "66e1c1353fc2d6b27203d22e2994fd8dc7022c00a7a3557a499446bfe696d9cd",
+      "qa/we-handshake-20261115/reviews/r4-spec-retry1.json": "f7c3fb579ae32f5c9b01311ce5f182bc79c9461e45d033aa7ec0d9dae726eb10",
+      "qa/we-handshake-20261115/reviews/r4-spec-retry2.json": "c449fed275c6974ae371771dd8a4820788286bfda6f1938d716ace23e9143e22",
+      "qa/we-handshake-20261115/evidence/r4/correction-evidence-amendment-1127.json": "cd4f8aaaa1b3e9def6b206f7a64ba6d4c0e173a060207beae4f728d40be82331",
+      "qa/we-handshake-20261115/evidence/r4/spec-corrections.json": "f865b0bdf3b74d54f6ff02f68e0403ea470854973227279411254a61ad465f6d",
+      "qa/we-handshake-20261115/evidence/r4/evidence-verification.json": "096b52ea850c85cfddac3988c0e76af90f94850832c52ab80a3f952bd8e2b14c",
+      "qa/we-handshake-20261115/evidence/r4/verifier-corrections-green.txt": "ed32a90c6324e695be9bebe44ca37ea21ff9cb491e8e81b530fbb6fd9fa1b765",
+      "qa/we-handshake-20261115/evidence/r4/verifier-parent-final-output.txt": "a401956152f8951d0dd881c56fbee258b0bdd70919405aa9b682effaa6eebff6",
+      "qa/we-handshake-20261115/evidence/r4/unchanged-full-regression.json": "0afb50bd049b8e31a897d400f2e910fa94bfef76c466a0f924f799bc196f2343",
+      "qa/we-handshake-20261115/evidence/r4/unchanged-full-regression.tap": "29fd6cf3be02d030407e2e37f18a90bf2a2a0cea03849f85071cfdfa3691fa6a",
+      "qa/we-handshake-20261115/evidence/r4/scope-protection-final.json": "8fcc4031cbd3b101614cb0fe82a9da500e385c0ecafc1e3b05811a9e40bd27e8",
+      "qa/we-handshake-20261115/evidence/r4/host-route-402.json": "b3617a73c4dfac8ed33124e45512aeefffd2daa7966b83faf73bc07e7e1c7190",
+      "qa/we-handshake-20261115/evidence/r4/host-route402-parent-binding.json": "168609b0b581f6187119cb6c8c5add05f48114050c513afcecf08a12592defbe",
+      "qa/we-handshake-20261115/evidence/r4/host-parent-binding.json": "95914aad347068caf0c423e4a6d14ef4ec19ea55b8bbb9383a4a7079010fd26d",
+      "qa/we-handshake-20261115/evidence/r4/compiled-stage-parent-recheck.json": "51c6e2d059938508df0a35254fe6c2e9c847a78c4e0dbc099110d3e5f53c57c1",
+      "qa/we-handshake-20261115/evidence/r4/remote-reader-selftest.json": "c3d4566377e3ed62e0f386dc802326f4f423081de259c482e0a7d6d209f78668",
+      "qa/we-handshake-20261115/research/r4/cloud-mirror-readback.json": "82288bc84ab64be02c70ac403375e1f2378d2d995280b59edf13d73dd4b676bc",
+      "qa/we-handshake-20261115/research/r4/watch-real-sessions.json": "be557101d1ea5d5af040358457a700396dcb7843a6ca5f40802434c2386bc403",
+      "qa/we-handshake-20261115/research/r4/host-origin-full-row-sha.json": "3a2cf02597199dd60a2eb65b5db31ab5246fd5b142d50db5a78a8bc599218c91",
+      "qa/we-handshake-20261115/research/r4/phone-readonly-analysis.md": "d5d24584a4d0020790b8d7c53d802b5341fb37932b59c8f222e530db6f4e9fd1",
+      "qa/we-handshake-20261115/research/r4/phone-readonly-hashes.json": "37829e68aacf27de2035737ca2d37d9ebd6f833933242edec462db2409c3570c",
+      "qa/we-handshake-20261115/research/r4/watch-send-analysis.md": "a7da524b3d7354be6ff73ffa8239071793d45689908f70b23aedad64385f4007",
+      "qa/we-handshake-20261115/research/r4/watch-read-hashes.json": "33130263c73f0273072552b02b301955bfed7d6ae071da671d423e2ca3f00a4f",
+      "qa/we-handshake-20261115/research/r4/phone-artifact-parent-readback.json": "7c4f2c47444482f20d8b4ae65d9002bae6d0b49b4e0c70f43633cc4035e94d93",
+      "qa/we-handshake-20261115/research/r4/official-body-parent-readback.json": "0eb6baa370a2395a1106302aac1f9e98565575a9d077329885f34e1e0940dfbe",
+      "qa/we-handshake-20261115/compiled-we-stages.mjs": "91a5ef887f5105dc46342419e1b47afcb86158eb29a7a3ccf43c7c8454c7fbcf",
+      "qa/we-handshake-20261115/compiled-logger-https.mjs": "fdeb6aeb7e8cf8e0084345a225c6b857c6bbd6822a901531c751da0c1106b8de",
+      "qa/we-handshake-20261115/research/r4/verify-evidence.py": "6371bbb1c421c70080a46c68b3b0ae517bbdcdcd515ef78a630e47477e09cd85",
+      "qa/we-handshake-20261115/research/r4/verify-scope.py": "a89ddd7a4bde08b988b666a90a286f5f8641ff74ded25f63b316e8a55e88d376",
+      "qa/we-handshake-20261115/research/r4/audit-publish.py": "02167bbacacc84b686ac20af133fb1c6d0974bc49efcff0fdfe436cd6a5059da",
+      "qa/we-handshake-20261115/research/r4/make-manifest.py": "0423e288f833fc893054f0ac9439e3e6d1d3f25c872f890da859e082c4e15d3c",
+      "qa/we-handshake-20261115/research/r4/local-closure.py": "6fea69516805d1a88c7e6ac7594ccee3f58db2ee1f86d9e1ec6fb2d25727be38",
+      "qa/we-handshake-20261115/research/r4/stage-reviewed-evidence.py": "80b6ca671fb803d5f893624bb4b51dad0370486a6fad461bf23c9e6158678f56",
+      "qa/we-handshake-20261115/research/r4/remote-readback.py": "bf86867158c3da7fc816f2a980b27bfa96e7cf90cb50830a91024f83b6f6763e",
+      "qa/we-handshake-20261115/research/r4/host-route-402.mjs": "b75afc472cc8dc52e4a408545b3e43226bedbd03e7b5f7bcc0a25f19133e9970"
+    }
+  },
+  "summary": "Independent final QUALITY PASS for the exact retry2-SPEC-approved R4 evidence, phone pure-observation plan and QA scripts only. Document and SPEC bindings match; both earlier FALSE refusals remain preserved; timestamp-only verifier mutation and lost historical on-disk bytes are honestly disclosed. Actual in-memory execution of unchanged verify-evidence.py passed 12 predicates, rejected malformed/changed evidence, and preserved its frozen report; unchanged host-route-402.mjs passed 68 checks across two modes with five no-argument failures, one channel factory and zero final timers per mode, no app.onCreate/network/device calls, and intercepted report writes. A prospective in-memory local-closure run passed 66 predicates and rejected malformed review JSON; this is not completed publication closure. Independent scan of the current 72 candidate files found no credential-pattern or either known logger-key hit and printed no secret values; manifest paths exist, are unique, resolve inside the QA prefix and contain no APK/HAP/key artifacts. Tracked/index diffs are empty; phone status matches its pre-existing baseline, five cited phone files and 121 protected watch files match baseline hashes. Existing 445/445 zero-skip regression TAP and scope receipts are verified, not newly rerun in this review. Phone exception journaling, native-versus-engine ingress, original HELLO 0/5/10/15-to-20-second timing and normal cleanup exclusions are correctly retained. HOST controls are not transparent native proof; root cause remains unknown, handshake unrepaired, and phone implementation/device operations require separate authorization. No frozen file, product, test, phone repository or Git index was written; the only new file is this receipt. Mutable publication/audit/HAP-inventory/closure outputs are intentionally unbound and must be refreshed by the parent; the existing remote-reader selftest proves two R3 files only, not R4 publication."
+}

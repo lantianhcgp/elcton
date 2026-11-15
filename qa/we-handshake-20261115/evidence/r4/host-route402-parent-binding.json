@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "at": "2026-11-15 11:33:30 +0800",
+  "existing_evidence_untouched": true,
+  "report_sha256": "b3617a73c4dfac8ed33124e45512aeefffd2daa7966b83faf73bc07e7e1c7190",
+  "script_sha256": "b75afc472cc8dc52e4a408545b3e43226bedbd03e7b5f7bcc0a25f19133e9970",
+  "source_hashes_exact": true,
+  "modes2_sends5_factory1_timers0": true,
+  "checks": {
+    "passed": 68,
+    "failed": 0
+  },
+  "host_only": true,
+  "native": false
+}

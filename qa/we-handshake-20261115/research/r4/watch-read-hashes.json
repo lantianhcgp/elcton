@@ -1,0 +1,434 @@
+{
+  "at": "2026-11-15T10:49:52+08:00",
+  "head": "ff2a1b2858af88887b2132b77bcfce162a60fa48",
+  "read_only": true,
+  "read_inputs": [
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/app.js",
+      "bytes": 2426,
+      "sha256": "090a31d2044ea42b6093c18537baefc1404fc1eee584ccb65ff145ebf3023b6a"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/config.json",
+      "bytes": 648,
+      "sha256": "abb04bf7503030436745f1d42eb844d72691a4c927e97aea3e1415fcef4a668b"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearService.js",
+      "bytes": 7798,
+      "sha256": "345614a459483b531c9ada8d2e07b40b59a8ee060df7b8ffd6821be32dfa030a"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearChannel.js",
+      "bytes": 1012,
+      "sha256": "711eddb54a622d7547e0661569a4e2560029c244bad346e8fc1ceb34f180a179"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearCompat.js",
+      "bytes": 5120,
+      "sha256": "f1a7c1629afdc94f5c8f9236c69ac1728399666537c3d1b7061cb2f139598e7e"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearIdentity.js",
+      "bytes": 216,
+      "sha256": "3241bdb6fd2785424885f3e8f6013f660341dabbca02d2934fa6bf31710d2b57"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearTrace.js",
+      "bytes": 3065,
+      "sha256": "d9e123e7dec20db0b76eedb8f101a3d48fd1920f15f5fb73bad228454483fa21"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearProtocol.js",
+      "bytes": 5846,
+      "sha256": "d2135b5e9cb3a71599ed300c4ccc9ac03d86d7b3e1d8266e0df71475301905b1"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/common/wearReceiver.js",
+      "bytes": 9718,
+      "sha256": "fa4c0f49e458822b2912bfaed457b3a35bb6e0fdfe1005272b6da10e4aaaf51c"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js",
+      "bytes": 13804,
+      "sha256": "f6e36ef533889bf7a41fee69a972175bbdd3258bf4e33919063378fb6c701cfe"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tools/sign/sign-app-to-hap.js",
+      "bytes": 11613,
+      "sha256": "562b510c2feb483b837c16160742d443c052fbee6018babeca6a7f25ee8740be"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/tools/sign/verify_sign.py",
+      "bytes": 5329,
+      "sha256": "aaa1275b6512bfcf333d67a9eb5a9b5f7a27631039eb3dfa3e20d6b143697c29"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/official-sdk-5.0.2.306.source.txt",
+      "bytes": 17576,
+      "sha256": "8c7f1100c840abdb237991b0d436ef9ab49a215269c5fecdb3dd59fe63a71471"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/sdk/wearengine-official.js",
+      "bytes": 17576,
+      "sha256": "8c7f1100c840abdb237991b0d436ef9ab49a215269c5fecdb3dd59fe63a71471"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/WearEngine-LiteWearable-5.0.2.306.zip",
+      "bytes": 4406,
+      "sha256": "64130a347647f00d734662523b5a26daca015e87ece7d5d916f19753759a1b56"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/watch-real-sessions.json",
+      "bytes": 18960,
+      "sha256": "be557101d1ea5d5af040358457a700396dcb7843a6ca5f40802434c2386bc403"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/session-origin-proof.json",
+      "bytes": 2138,
+      "sha256": "d8476f323701439dd871d368aab3231060187ccc1ca41890f146806afa9965a4"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/shared-strong.json",
+      "bytes": 3225,
+      "sha256": "26d7c42d35cf0c1c84bcc67dcf2cb5e6540cdf73eeb8435e30aabb7cb19a4d1e"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/evidence/r3/shared-exact-native.json",
+      "bytes": 2294,
+      "sha256": "48c72e2c96fd9290453ea4d9264d9c370e421253a0e1215113329d1531baa400"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/apk/public-dual-identity-actual.json",
+      "bytes": 1337,
+      "sha256": "9e3483b67a73a05e5d9c2caee789dae416647a9356e3cd377fc6d9ed99bdff49"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/evidence/apk/elcton-phone-probe.apk.signer.stdout.bin.txt",
+      "bytes": 964,
+      "sha256": "38bf21670b38408766ab32fe3142860c85aceec7ffa86c2cd99b2b2901e536c5"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/dist/elcton-default-unsigned.app",
+      "bytes": 231673,
+      "sha256": "1930aea4c158df1af3e496246bae570b7e4fefa91d278710e08c63c55b857c34"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/configured-elcton-1.1.16.app",
+      "bytes": 231715,
+      "sha256": "b315d67dbd19c0403b0c404a8b1e3a462d8254dc1b40c6e8575ae73d2c7567d8"
+    },
+    {
+      "path": "/data/data/com.termux/files/home/lw_build/we-handshake-20261115/r3-ci-43661966735/elcton-20261115-WE分阶段日志常亮-1.1.16-cbd1715.hap",
+      "bytes": 900659,
+      "sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a"
+    },
+    {
+      "path": "/storage/emulated/0/haps/elcton-20261115-WE分阶段日志常亮-1.1.16-cbd1715.hap",
+      "bytes": 900659,
+      "sha256": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a"
+    }
+  ],
+  "protected_source_equals_HEAD": {
+    "entry/src/main/js/MainAbility/app.js": true,
+    "entry/src/main/config.json": true,
+    "entry/src/main/js/MainAbility/common/wearService.js": true,
+    "entry/src/main/js/MainAbility/common/wearChannel.js": true,
+    "entry/src/main/js/MainAbility/common/wearCompat.js": true,
+    "entry/src/main/js/MainAbility/common/wearIdentity.js": true,
+    "entry/src/main/js/MainAbility/common/wearTrace.js": true,
+    "entry/src/main/js/MainAbility/common/wearProtocol.js": true,
+    "entry/src/main/js/MainAbility/common/wearReceiver.js": true,
+    "entry/src/main/js/MainAbility/pages/phone-sync/phone-sync.js": true
+  },
+  "tracked_diff_empty": true,
+  "hap": {
+    "header": "watchapp.nexus.0zzip",
+    "unsigned_end": 893808,
+    "signed_bin_sha256": "dc2fb778803e7a39c07ce293d4395d22272e186fa468fe45974391da59a64a98",
+    "config": {
+      "bundle": "watchapp.nexus.0zzip",
+      "module_package": "com.hcbiu.elcton",
+      "version": {
+        "code": 1000119,
+        "name": "1.1.16"
+      }
+    },
+    "entry_count": 28,
+    "bc_count": 0,
+    "entries": [
+      {
+        "path": "assets/entry/resources.index",
+        "bytes": 544,
+        "sha256": "75ee7a5928a547fcc5f27e7563fcaceaf7637d274da7238a50aa19a9f7ebeb26"
+      },
+      {
+        "path": "assets/entry/resources/base/media/icon.png",
+        "bytes": 5763,
+        "sha256": "54e5854a9166af398a8a3a1fd69ee47c407743baf7220480a1dc0553a0898a19"
+      },
+      {
+        "path": "assets/entry/resources/base/media/icon.png.bin",
+        "bytes": 51992,
+        "sha256": "94fad400d26c342c5f967bdd20249533810c8ae898ae9521cae2e01198bca0ce"
+      },
+      {
+        "path": "assets/entry/resources/base/media/icon_small.png",
+        "bytes": 1813,
+        "sha256": "4221ba2cbdd750d58755db30264bd79e85a29c6aa92bc64bba46a56fb80855bc"
+      },
+      {
+        "path": "assets/entry/resources/base/media/icon_small.png.bin",
+        "bytes": 4104,
+        "sha256": "ff3011e574f4338c8f4b3f2ff4fffbc48fee9f73933bc7cf13631a412208ccbb"
+      },
+      {
+        "path": "assets/entry/resources/base/media/icon_small_new.png",
+        "bytes": 1813,
+        "sha256": "4221ba2cbdd750d58755db30264bd79e85a29c6aa92bc64bba46a56fb80855bc"
+      },
+      {
+        "path": "assets/entry/resources/base/media/icon_small_new.png.bin",
+        "bytes": 4104,
+        "sha256": "ff3011e574f4338c8f4b3f2ff4fffbc48fee9f73933bc7cf13631a412208ccbb"
+      },
+      {
+        "path": "assets/entry/resources/rawfile/seed-schedule.json",
+        "bytes": 7718,
+        "sha256": "80103df4cc833414ddc3ce20e87cb38a438d01642788c45adf22e5241010156b"
+      },
+      {
+        "path": "assets/js/MainAbility/app.js",
+        "bytes": 20818,
+        "sha256": "b568c9988155357dc2c86d61ed2b77b311b0419f8ecfd52214e91f0bf0109377"
+      },
+      {
+        "path": "assets/js/MainAbility/app.js.map",
+        "bytes": 57218,
+        "sha256": "c50287b465b97af8bf420736f108dfbfc904aef0aa52d8f9b651b5880dd938f8"
+      },
+      {
+        "path": "assets/js/MainAbility/i18n/en-US.json",
+        "bytes": 665,
+        "sha256": "598364948416761c522724c70d08d174c5f248f2659903388460fb9343fa5558"
+      },
+      {
+        "path": "assets/js/MainAbility/i18n/zh-CN.json",
+        "bytes": 768,
+        "sha256": "4ab889f8a4c629791f0e3a1f8425d084c51679f224497bd0f5f86d94d9c6ec58"
+      },
+      {
+        "path": "assets/js/MainAbility/image_convert_result.txt",
+        "bytes": 12,
+        "sha256": "49ab4dfe7ddef300e71fa70066a6afa9833d776a840213fb08e1cb22d2eea686"
+      },
+      {
+        "path": "assets/js/MainAbility/manifest.json",
+        "bytes": 301,
+        "sha256": "7f5f1721baa2bb235d9b2e9eca69f711908ef82214fba45c9d94924d21ec545a"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/code/code.js",
+        "bytes": 10614,
+        "sha256": "6cada3719acddec4581f1045e1021e4fd9690a67ee29d7331dc0fb43ff8da16e"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/code/code.js.map",
+        "bytes": 27272,
+        "sha256": "c2cb887ea05ae7236d41842922b070dfbb7390b0297c529688b6091e910a95ab"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/detail/detail.js",
+        "bytes": 35072,
+        "sha256": "a1c28ba7726d8dc38f99fc522657bf40b4a26dad11d1ffce57a42ea7c49572f6"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/detail/detail.js.map",
+        "bytes": 85898,
+        "sha256": "6267c6c8043777d43bd6a8bda1fed9ad56edbd9bc81df08c3e7f8c671f3874a1"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/index/index.js",
+        "bytes": 36851,
+        "sha256": "7a86fd2cad91eca61622d8ff3dcd58705b9927057ce9fa7d10ebcea172369f23"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/index/index.js.map",
+        "bytes": 90807,
+        "sha256": "522933196a34b60da4d96a1be44a1b3c5eac1e43a3dd7a6e2ecc9b845145351f"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js",
+        "bytes": 43898,
+        "sha256": "196ff66d8a6aa7788283233071a1d5d0fee7f34e3b1473150eb86b0cb8b1292d"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/phone-sync/phone-sync.js.map",
+        "bytes": 108198,
+        "sha256": "bcb8955344ef537d22438709c158c32dd06ef3a077a9a3d50f529efa3d9bd614"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/sync/sync.js",
+        "bytes": 43685,
+        "sha256": "5f035f1e67745d603bb81c1801985650f5b9a0758419e07b65a67bb192bdcfc5"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/sync/sync.js.map",
+        "bytes": 108880,
+        "sha256": "c2556db8bbaf2f9401c39dd863850cdf5b3067fab3f25c9de618eedad3102536"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/week/week.js",
+        "bytes": 41651,
+        "sha256": "26a9b433663eac3bad4c644bd25d06eb4839d0e51e930d0bec8f932701e30260"
+      },
+      {
+        "path": "assets/js/MainAbility/pages/week/week.js.map",
+        "bytes": 100295,
+        "sha256": "900ef91189a8d6ebd3ec75d63f6102d25ef5d961d0da690e5ada27ce337c0a0f"
+      },
+      {
+        "path": "config.json",
+        "bytes": 805,
+        "sha256": "d5c94cdb46e1d9036c5d2f33545a8a33838ee09daba2da5653fd441731529bda"
+      },
+      {
+        "path": "pack.info",
+        "bytes": 628,
+        "sha256": "47b9f95231e7977d432c2b9e2e58189d4427806bc50714b11505996ad827dab1"
+      }
+    ],
+    "comparisons": {
+      "original": {
+        "same_paths": true,
+        "different_paths": [
+          "config.json",
+          "assets/js/MainAbility/app.js",
+          "assets/js/MainAbility/app.js.map"
+        ],
+        "all_js_equal": false
+      },
+      "configured": {
+        "same_paths": true,
+        "different_paths": [
+          "config.json"
+        ],
+        "all_js_equal": true
+      }
+    },
+    "canonical_module_622": {
+      "original_equal": true,
+      "bytes": 5826,
+      "sha256": "52a3b5a52828cbc1c2584aa560f5f3140d99a84540b618469e43fc93dc3f4b33"
+    }
+  },
+  "real_sid": {
+    "id": "mwh7l2un-1",
+    "rows": 36,
+    "seq_missing": [
+      15
+    ],
+    "counts": {
+      "page": 1,
+      "console": 2,
+      "WE/CLOSE": 1,
+      "WE/SDK_CALL": 1,
+      "WE/VER_OK": 1,
+      "WE/BUS_NATIVE": 1,
+      "WE/PKG_CALL": 1,
+      "WE/PKG_OK": 1,
+      "WE/CERT_CALL": 1,
+      "WE/CERT_OK": 1,
+      "WE/REG_CALL": 1,
+      "WE/REG_OK": 1,
+      "WE/READY_PREPARE": 5,
+      "WE/SEND_FAIL": 5,
+      "WE/READY_FAIL": 5,
+      "WE/HELLO_RECV": 4,
+      "WE/READY_PREPARED": 4
+    },
+    "elapsed_ms": {
+      "REG_to_initial_SEND_FAIL": 954,
+      "REG_to_first_HELLO": 101490,
+      "HELLO_to_SEND_FAIL": [
+        192,
+        201,
+        219,
+        197
+      ]
+    }
+  },
+  "independent_installed_watch_bytes_acquired": false,
+  "phone_current_native_or_APK_verified": false,
+  "signature_scope": "Fresh profile CMS via stdin succeeded; full HAP CMS binding only existing R3 evidence with exact new-read HAP SHA",
+  "forbidden_operations_used": [],
+  "host_VM_execution": {
+    "source": "actual HAP-equal signed-native-js/0.js and 4.js, read-only inline node VM; no file rewrite",
+    "native": false,
+    "device": false,
+    "network": false,
+    "app_onCreate_called": false,
+    "synchronous": {
+      "passed": true,
+      "service_version": 402,
+      "channel_factory_count": 1,
+      "READY_send_count": 5,
+      "each_same_channel": true,
+      "fields": {
+        "deviceId": "remote",
+        "bundleName": "com.hcbiu.elcton",
+        "abilityName": "",
+        "sender": "watch",
+        "type": "READY"
+      },
+      "bytes_each": [
+        207,
+        207,
+        207,
+        207,
+        207
+      ],
+      "ascii": true,
+      "fail_arguments_types": [
+        "undefined",
+        "undefined"
+      ],
+      "trace_type1_type2": [
+        0,
+        0
+      ],
+      "wrapper_code": 206,
+      "isNegotiated_after_fail": true,
+      "cleanup_timers": 0
+    },
+    "deferred": {
+      "passed": true,
+      "before_version_package_fingerprint_registration_and_preREG_HELLO_send_counts": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "REG_initial_and_post_four_HELLO_send_counts": [
+        1,
+        5
+      ],
+      "factory_count": 1,
+      "cleanup_timers": 0
+    },
+    "official_sdk_VM": {
+      "passed": true,
+      "version": 402,
+      "send_fields_same": true,
+      "noarg_fail_wrapper_code": 206,
+      "errorMessage_undefined": true,
+      "note": "Official import/export seams replaced in memory only"
+    }
+  },
+  "report": {
+    "path": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/watch-send-analysis.md",
+    "bytes": 13631,
+    "sha256": "a7da524b3d7354be6ff73ffa8239071793d45689908f70b23aedad64385f4007"
+  }
+}

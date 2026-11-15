@@ -1,0 +1,445 @@
+  
+点对点消息 
+
+导入模块import { P2pClient, Message, Builder } from '../wearengine'  
+P2pClient.setPeerPkgName(string)
+设置手机侧应用包名。 
+请求参数 
+表1 请求参数
+
+参数  
+类型  
+必填  
+说明    
+
+peerPkgName  
+string  
+是  
+手机侧应用包名，区分大小写。      
+示例代码// 创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+
+// 设置需要通信的手机侧对应的应用包名
+p2pClient.setPeerPkgName(peerPkgName);   
+P2pClient.setPeerFingerPrint(string)
+设置手机侧应用指纹信息。 
+ 
+
+轻量级智能穿戴设备系统 10.1.3.28以下版本不支持调用setPeerFingerPrint方法，请使用config.json配置方式获取手机侧应用指纹信息。// 在工程的config.json文件的module模块中配置手机侧应用指纹信息metaData。
+"metaData": {
+  "customizeData": [
+    {
+      "name": "supportLists",
+      // 由包名和指纹信息组成，最长支持255
+      "value": "com.huawei.idehelper:69178F8F5B8DF***"
+      "extra": ""
+    }
+  ]
+}   
+请求参数 
+表2 请求参数
+
+参数  
+类型  
+必填  
+说明    
+
+fingerPrint  
+string  
+是  
+手机侧应用指纹信息。      
+示例代码// 创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerFinger = "67DFB7FD********";
+
+// 设置需要通信的手机侧对应的应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 设置需要通信的手机侧对应的应用指纹信息
+p2pClient.setPeerFingerPrint(peerFinger);   
+P2pClient.ping(Object)
+检测手机侧是否已安装指定应用，若手机侧应用未安装，则返回错误码204，若已安装返回205。 
+请求参数 
+表3 请求参数
+
+参数  
+类型  
+必填  
+说明    
+
+pingCallback  
+Object  
+是  
+ping消息回调。      
+pingCallback 
+
+
+参数  
+类型  
+必填  
+说明    
+
+onSuccess  
+Function  
+是  
+接口调用成功的回调函数。   
+
+onFailure  
+Function  
+是  
+接口调用失败的回调函数。   
+
+onPingResult  
+Function  
+是  
+接口调用结果回调函数。       
+示例代码// 创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+
+// 设置需要通信的手机侧对应的应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 检测手机侧对应的应用是否安装
+p2pClient.ping({
+  onSuccess: function() {
+    console.log('ping success.');
+  },
+  onFailure: function() {
+    console.log('ping failed');
+  },
+  onPingResult: function(resultCode) {
+    console.log(resultCode.data + resultCode.code);
+  },
+});   
+P2pClient.send(Object)
+向手机侧发送消息及文件。 
+请求参数 
+表4 请求参数
+
+参数  
+类型  
+必填  
+说明    
+
+message  
+Object  
+是  
+发送的消息。   
+
+sendCallback  
+Object  
+是  
+发送消息的回调。      
+message 
+
+
+参数  
+类型  
+必填  
+说明    
+
+builder  
+Object  
+是  
+发送消息或文件的对象。      
+builder（消息） 
+
+
+参数  
+类型  
+必填  
+说明    
+
+text  
+string  
+是  
+发送的消息具体内容。      
+builder（文件） 
+
+
+参数  
+类型  
+必填  
+说明    
+
+fileObject  
+Object  
+是  
+发送的文件对象。      
+fileObject 
+
+
+参数  
+类型  
+必填  
+说明    
+
+name  
+string  
+是  
+文件路径。如"internal://app/XX.png" 
+ 说明： 
+
+若发送失败且错误码为208，则说明穿戴设备版本过低，提示用户进行版本升级。    
+
+mode  
+string  
+否  
+文件类型。可选值为"text","binary"。   
+
+mode2  
+string  
+否  
+文件属性。可选值为"R","W","RW"。        
+sendCallback 
+
+
+参数  
+类型  
+必填  
+说明    
+
+onSuccess  
+Function  
+是  
+接口调用成功的回调函数。   
+
+onFailure  
+Function  
+是  
+接口调用失败的回调函数。   
+
+onSendResult  
+Function  
+否  
+消息发送的回调函数。   
+
+onSendProgress  
+Function  
+否  
+消息发送的过程中回调函数。       
+示例代码（发送消息）// 创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+var peerFinger = "67DFB7FD********";
+
+// 设置需要通信的手机侧对应的应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 设置手机侧应用指纹信息
+p2pClient.setPeerFingerPrint(peerFinger);
+
+// 构造Builder对象
+var builderClient = new Builder();
+var messageStr = "Hello, Wear Engine!";
+builderClient.setDescription(messageStr);
+// 构造Message对象
+var sendMessage = new Message();
+sendMessage.builder = builderClient;
+// 定义回调函数
+var sendCallback ={
+  onSuccess: function() {
+    // send任务执行成功时，应用处理相关的逻辑
+  },
+  onFailure: function() {
+    // send任务执行失败时，应用处理相关的逻辑
+  },
+  onSendResult: function(resultCode) {
+    // send任务执行结束后返回的错误码和信息进行处理
+    console.log(resultCode.data + resultCode.code);
+  },
+}
+if(sendMessage != null && sendCallback != null){
+  p2pClient.send(sendMessage, sendCallback);
+};   
+示例代码（发送文件）// 创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+var peerFinger = "67DFB7FD********";
+
+// 设置需要通信的手机侧对应的应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 设置手机侧应用指纹信息
+p2pClient.setPeerFingerPrint(peerFinger);
+
+// 发送文件到手机侧对应的应用
+// 构造Builder对象
+var testFile = {
+  "name" : "internal://app/testPhoto.png",  // 文件路径，若发送失败且错误码为208，则说明穿戴设备版本过低，提示用户进行版本升级
+  "mode" : "",  // 文件类型，'text' or 'binary'
+  "mode2" : "",  // 文件属性，'R', 'W', 'RW'
+};
+var builderClient = new Builder();
+builderClient.setPayload(testFile);
+// 构造Message对象
+var sendMessage = new Message();
+sendMessage.builder = builderClient;
+// 定义回调函数
+var sendCallback = {
+  onSuccess: function() {
+    // send任务执行成功时，应用处理相关的逻辑
+  },
+  onFailure: function() {
+    // send任务执行失败时，应用处理相关的逻辑
+  },
+  onSendResult: function(resultCode) {
+    // send任务执行结束后返回的错误码和信息进行处理
+    console.log(resultCode.data + resultCode.code);
+  },
+  onSendProgress: function(count) {
+    // send任务执行返回进度信息
+    console.log("Progress" + count);
+  },
+}
+if(sendMessage != null && sendCallback != null){
+  p2pClient.send(sendMessage, sendCallback);
+};  
+P2pClient.registerReceiver(Object)
+注册接收器，用于接收手机侧发送过来的消息及文件。 
+接收到的文件将存储在应用私有目录"internal://app/"下。 
+请求参数 
+表5 请求参数
+
+参数  
+类型  
+必填  
+说明    
+
+receiver  
+Object  
+是  
+注册接收消息的回调。      
+receiver 
+
+
+参数值  
+类型  
+说明    
+
+onSuccess  
+Function  
+注册成功的回调函数。   
+
+onFailure  
+Function  
+注册失败的回调函数。   
+
+onReceiveMessage  
+Function  
+注册消息返回的回调函数。      
+onReceiveMessage返回值（消息） 
+
+
+参数  
+类型  
+必填  
+说明    
+
+data  
+string  
+是  
+手机侧发送回来消息的具体内容。      
+onReceiveMessage返回值（文件） 
+
+
+参数  
+类型  
+必填  
+说明    
+
+data  
+Object  
+是  
+手机侧发送回来文件信息。      
+data（文件） 
+
+
+参数  
+类型  
+必填  
+说明    
+
+isFileType  
+boolean  
+是  
+接收到的消息是否是文件类型。   
+
+name  
+string  
+是  
+接收到的文件地址及名称，格式如：internal://app/文件名 或app/ace/data/应用包名/文件名         
+示例代码// 创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+var peerFinger = "67DFB7FD********";
+
+// 设置需要通信的手机侧对应的应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 设置手机侧应用指纹信息
+p2pClient.setPeerFingerPrint(peerFinger);
+
+// 接收手机侧应用发过来的简短消息或文件
+// 定义接收器
+var flash = this;
+var receiver = {
+  onSuccess: function() {
+    // 处理注册接收手机侧简短消息或文件成功的回调函数 
+    flash.receiveMessageOK = "接受消息成功";
+  },
+  onFailure :function() {
+    // 处理注册接收手机侧简短消息或文件失败的回调函数 
+    flash.receiveMessageOK = "接受消息失败";
+  },
+  onReceiveMessage: function (data) {
+    if (data && data.isFileType) {
+      // 处理手机侧应用发过来的文件
+      flash.receiveMessageOK = "文件:" + data.name;
+    } else {
+      // 处理手机侧应用发过来的简短消息
+      flash.receiveMessageOK = "消息:" + data;
+    }
+  },
+}
+p2pClient.registerReceiver(receiver);   
+P2pClient.unregisterReceiver(Object)
+取消注册接收手机侧发送过来的消息或文件，建议在应用的onDestroy生命周期里或之前调用本方法，以释放服务端资源。 
+请求参数 
+表6 请求参数
+
+参数  
+类型  
+必填  
+说明    
+
+receiver  
+Object  
+是  
+停止接收消息的回调。      
+receiver 
+
+
+参数  
+类型  
+必填  
+说明    
+
+onSuccess  
+Function  
+是  
+停止接收消息成功的回调函数。   
+
+onFail  
+Function  
+是  
+停止接收消息失败的回调函数（轻量级智能穿戴设备不支持）。       
+示例代码// 创建点对点通信对象
+var p2pClient = new P2pClient();
+p2pClient.unregisterReceiver({
+  onSuccess:function() {
+    console.log("停止接收消息发送成功");
+  },
+);    

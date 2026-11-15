@@ -1,0 +1,237 @@
+   
+应用间消息通信   
+    
+在穿戴设备侧和手机侧构建应用到应用的通信隧道，用于收发第三方应用自定义的消息以及文件。    
+          穿戴设备侧的第三方应用检测手机侧对应的第三方应用是否安装     
+在发送点对点消息前，可以用ping方法检测穿戴设备上的第三方应用是否能跟手机侧对应的第三方应用正常通信。           
+创建P2pClient对象。      
+调用setPeerPkgName方法，指定需要ping通信的手机侧对应的第三方应用包名。      
+调用P2pClient对象的ping方法，检测手机侧是否已安装指定应用，若手机侧应用未安装，则返回错误码204，若已安装返回205。       
+       // 步骤1：创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+
+// 步骤2：设置需要通信的手机侧对应的三方应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 步骤3：检测手机侧对应的第三方应用是否安装
+p2pClient.ping({
+  onSuccess: function() {
+    console.log('ping success.');
+  },
+  onFailure: function() {
+    console.log('ping failed');
+  },
+  onPingResult: function(resultCode) {
+    console.log(resultCode.data + resultCode.code);
+  },
+});       
+             
+          穿戴设备侧的第三方应用发送点对点消息或文件到手机侧第三方应用     
+消息长度大小的限制为1KB。针对消息长度超过限制的情况可以采用发送文件（文件大小不超过4MB）的方式或进行消息的分包控制。     
+穿戴设备侧实现发送消息和文件功能后，手机侧第三方应用需要对应实现接收消息和文件的功能。参见手机侧接收穿戴设备侧应用发过来的点对点消息或文件。        
+          [h2]发送点对点消息           
+创建P2pClient对象。      
+调用setPeerPkgName方法，指定需要通信的手机侧对应的第三方应用包名。      
+调用setPeerFingerPrint方法，指定需要通信的手机侧应用指纹SHA256信息（请参见生成签名证书指纹获取签名证书的SHA256证书指纹，指纹信息中不带冒号，指纹设置为手机侧应用在开发者联盟申请账号服务时注册的指纹之一，即注册账号及申请账号服务步骤4中的SHA256证书指纹之一）。       
+       
+                 
+         
+          轻量级智能穿戴设备系统 HarmonyOS 2.0以下版本不支持调用setPeerFingerPrint方法，请使用config.json配置方式获取手机侧应用指纹信息。          // 在工程的config.json文件的module模块中配置手机侧应用指纹信息metaData。
+"metaData": {
+  "customizeData": [
+    {
+      "name": "supportLists",
+      // 由包名和指纹信息组成，最长支持255。指纹信息获取方式参见《发送文件》章节的步骤3
+      "value": "com.huawei.idehelper:69178F8F5B8DF***"
+      "extra": ""
+    }
+  ]
+}                               
+      
+调用P2pClient对象的send方法，从穿戴设备上的第三方应用发送简短消息到手机侧对应的第三方应用。       
+               
+创建Builder对象，定义第三方应用需要发送的消息。        
+创建Message对象，将Builder对象进行封装提供给send方法。         // 步骤1：创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+var peerFinger = "67DFB7FD********";
+
+// 步骤2：设置需要通信的手机侧对应的三方应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 步骤3：设置手机侧应用指纹信息
+p2pClient.setPeerFingerPrint(peerFinger);
+
+// 步骤4：发送简短消息到手机侧对应的第三方应用
+// 构造Builder对象
+var builderClient = new Builder();
+var messageStr = "Hello, Wear Engine!";
+builderClient.setDescription(messageStr);
+// 构造Message对象
+var sendMessage = new Message();
+sendMessage.builder = builderClient;
+// 定义回调函数
+var sendCallback = {
+  onSuccess: function() {
+    // send任务执行成功时三方应用处理相关的逻辑
+  },
+  onFailure: function() {
+    // send任务执行失败时三方应用处理相关的逻辑
+  },
+  onSendResult: function(resultCode) {
+    // send任务执行结束后返回的错误码和信息进行处理
+    console.log(resultCode.data + resultCode.code);
+  },
+}
+if(sendMessage != null && sendCallback != null){
+  p2pClient.send(sendMessage, sendCallback);
+};              
+             
+          [h2]发送文件           
+创建P2pClient对象。      
+调用setPeerPkgName方法，指定需要通信的手机侧对应的第三方应用包名。      
+调用setPeerFingerPrint方法，指定需要通信的手机侧应用指纹SHA256信息（请参见生成签名证书指纹获取签名证书的SHA256证书指纹，指纹信息中不带冒号，指纹设置为手机侧应用在开发者联盟申请账号服务时注册的指纹之一，即注册账号及申请账号服务步骤4中的SHA256证书指纹之一）。       
+       
+                 
+         
+轻量级智能穿戴设备系统 HarmonyOS 2.0以下版本不支持调用setPeerFingerPrint方法，请参见发送点对点消息的步骤3，使用config.json配置方式获取手机侧应用指纹信息。                      
+      
+调用P2pClient对象的send方法，从穿戴设备上的第三方应用发送文件到手机侧对应的第三方应用（由于轻量级智能穿戴设备不支持同类型文件并行传输，向手机传输文件时，在当前文件传输完成之前，不要发送另一文件，否则会直接返回失败）。       
+               
+创建Builder对象，定义第三方应用需要发送的文件（文件大小要小于4M）。        
+创建Message对象，将Builder对象进行包装提供给send方法。              // 步骤1：创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+var peerFinger = "67DFB7FD********";
+
+// 步骤2：设置需要通信的手机侧对应的三方应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 步骤3：设置手机侧应用指纹信息
+p2pClient.setPeerFingerPrint(peerFinger);
+
+// 步骤4：发送文件到手机侧对应的第三方应用
+// 构造Builder对象
+var testFile = {
+  "name" : "internal://app/testPhoto.png",  // 文件路径，若发送失败且错误码为208，则说明穿戴设备版本过低，请提示用户进行版本升级
+  "mode" : "",  // 文件类型，'text' or 'binary'
+  "mode2" : "",  // 文件属性，'R', 'W', 'RW'
+};
+var builderClient = new Builder();
+builderClient.setPayload(testFile);
+// 构造Message对象
+var sendMessage = new Message();
+sendMessage.builder = builderClient;
+// 定义回调函数
+var sendCallback = {
+  onSuccess: function() {
+    // send任务执行成功时三方应用处理相关的逻辑
+  },
+  onFailure: function() {
+    // send任务执行失败时三方应用处理相关的逻辑
+  },
+  onSendResult: function(resultCode) {
+    // send任务执行结束后返回的错误码和信息进行处理
+    console.log(resultCode.data + resultCode.code);
+  },
+  onSendProgress: function(count) {
+    // send任务执行返回进度信息
+    console.log("Progress" + count);
+  },
+}
+if(sendMessage != null && sendCallback != null){
+  p2pClient.send(sendMessage, sendCallback);
+};       
+             
+          接收手机侧第三方应用发过来的点对点消息或文件           
+创建P2pClient对象。      
+调用setPeerPkgName方法，指定需要通信的手机侧对应的第三方应用包名。      
+调用setPeerFingerPrint方法，指定需要通信的手机侧应用指纹SHA256信息（请参见生成签名证书指纹获取签名证书的SHA256证书指纹，指纹信息中不带冒号，指纹设置为手机侧应用在开发者联盟申请账号服务时注册的指纹之一，即注册账号及申请账号服务步骤4中的SHA256证书指纹之一）。       
+       
+                 
+         
+轻量级智能穿戴设备系统 HarmonyOS 2.0以下版本不支持调用setPeerFingerPrint方法，请参见发送点对点消息的步骤3，使用config.json配置方式获取手机侧应用指纹信息。                      
+      
+调用registerReceiver方法，穿戴设备侧第三方应用接收手机侧第三方应用发过来的简短消息或者文件（接收到的文件将存储在应用私有目录"internal://app/"下），其实现原理即是向Wear Engine注册一个监测器。      
+调用unregisterReceiver方法，穿戴设备侧第三方应用取消接收手机侧第三方应用发过来的消息或者文件，其实现原理即是向Wear Engine取消已经注册的监测器。建议在第三方应用的onDestroy生命周期里或之前调用unregisterReceiver方法，以释放服务端资源。       
+       // 步骤1：创建点对点通信对象
+var p2pClient = new P2pClient();
+var peerPkgName = "com.*.*";
+var peerFinger = "67DFB7FD********";
+
+// 步骤2：设置需要通信的手机侧对应的三方应用包名
+p2pClient.setPeerPkgName(peerPkgName);
+
+// 步骤3：设置手机侧应用指纹信息
+p2pClient.setPeerFingerPrint(peerFinger);
+
+// 步骤4：接收手机侧第三方应用发过来的简短消息或文件
+// 定义接收器
+var flash = this;
+var receiver = {
+  onSuccess: function() {
+    // 处理注册接收手机侧简短消息或文件成功的回调函数 
+    flash.receiveMessageOK = "接收消息成功";
+  },
+  onFailure :function() {
+    // 处理注册接收手机侧简短消息或文件失败的回调函数 
+    flash.receiveMessageOK = "接收消息失败";
+  },
+  onReceiveMessage: function (data) {
+    if (data && data.isFileType) {
+      // 处理手机侧第三方App发过来的文件
+      flash.receiveMessageOK = "文件:" + data.name;
+    } else {
+      // 处理手机侧第三方App发过来的简短消息
+      flash.receiveMessageOK = "消息:" + data;
+    }
+  },
+}
+p2pClient.registerReceiver(receiver);
+
+// 步骤5：取消接收手机侧第三方应用发过来的消息或者文件
+p2pClient.unregisterReceiver({
+    onSuccess:function() {
+        console.log = ("停止接收消息操作成功");
+    },
+    onFailure:function() {
+        console.log = ("停止接收消息操作失败");
+    }
+});       
+             
+          手机侧App通过ping方法拉起穿戴设备侧App     
+当手机侧App启动，穿戴设备侧App没有启动时，手机App可以通过ping方法拉起穿戴设备App。           
+如果穿戴设备JS应用的deviceType属性配置包含liteWearable，表明支持轻量级智能穿戴设备（运动表）安装，无需其他额外配置，在手机侧调用ping方法，即可拉起穿戴设备侧应用。      
+如果穿戴设备JS应用的deviceType属性配置只包含wearable，表明只支持智能穿戴设备安装，需要创建指定的Page Ability才可以被拉起。步骤如下：                
+在穿戴设备侧创建JS Page Ability，命名为HiWearMainAbility.java。可以通过在工程目录单击右键New > Ability ，创建Page Ability；或者手动编写代码创建。示例代码如下：       
+       public class HiWearMainAbility extends AceAbility {
+    @Override
+    public void onStart(Intent intent) {
+        super.onStart(intent);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+    }
+}       
+                 
+                   
+Ability的名称为HiWearMainAbility.java，不支持自定义。HiWearMainAbility的包名需要和应用的包名对应。          
+需要继承AceAbility，而不是Ability。                               
+      
+在config.json文件中声明该Ability。type设置为page，visible设置为true。       
+       "abilities": [ 
+  ...... 
+  {
+    ......
+    "visible": true,
+    "name": ".HiWearMainAbility",
+    "type": "page",
+    ......
+  }, 
+  ...... 
+],       
+      
+完成以上配置后，在手机侧调用ping方法，即可拉起穿戴设备侧应用。具体请参见手机侧应用检测穿戴设备侧对应的应用是否在线。               

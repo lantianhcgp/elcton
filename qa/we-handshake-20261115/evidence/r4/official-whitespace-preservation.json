@@ -1,0 +1,28 @@
+{
+  "kind": "Literal evidence whitespace preservation",
+  "at": "2026-11-15 11:48:01 +0800",
+  "all_staged_check_exit": 2,
+  "raw_refusal_path": "qa/we-handshake-20261115/evidence/r4/raw-official-whitespace-git-refusal.txt",
+  "raw_refusal_sha256": "c973b5496373f699bb83b3ed8319d671d610c34dc5b060da65dee88cc70a983f",
+  "all_flagged_paths": [
+    "qa/we-handshake-20261115/research/r4/official/errocode-0000001054450278.txt",
+    "qa/we-handshake-20261115/research/r4/official/p2pclient-0000001061098712.txt",
+    "qa/we-handshake-20261115/research/r4/official/point-to-point-message-0000001052164296.txt",
+    "qa/we-handshake-20261115/research/r4/official/send-message-0000001052460491.txt",
+    "qa/we-handshake-20261115/research/r4/official/wearengineerrorcode-0000001059980969.txt"
+  ],
+  "flagged_sha256": {
+    "qa/we-handshake-20261115/research/r4/official/errocode-0000001054450278.txt": "8335815e5fa13ac2681a16084f6a98957427c741e694acb620f4629fca2684b8",
+    "qa/we-handshake-20261115/research/r4/official/p2pclient-0000001061098712.txt": "2cd13f83a7e5099f74a75aaba3cf03e3e17d0fd27ad7533937d5baa6e30f8b3f",
+    "qa/we-handshake-20261115/research/r4/official/point-to-point-message-0000001052164296.txt": "cfc47ee751338025a28a1548d0422ae832ff63e6144b47c60343520e6eb12258",
+    "qa/we-handshake-20261115/research/r4/official/send-message-0000001052460491.txt": "be8be4cb578efa212bc1e22a77711170a77cc72c174d4b793f705e73897dedbd",
+    "qa/we-handshake-20261115/research/r4/official/wearengineerrorcode-0000001059980969.txt": "76fe933d30b6bd01196cfbb83ca02a01001edd38f23c59f8ba634ccc0d4f2579"
+  },
+  "exception_scope": "qa/we-handshake-20261115/research/r4/official/",
+  "authored_files_checked": 56,
+  "authored_diff_check_exit": 0,
+  "source_or_assertions_modified": false,
+  "official_evidence_bytes_trimmed": false,
+  "meaning": "All failing whitespace locations are preserved external official-source extraction bytes. Authored QA/scripts/reports pass normal staged whitespace check. Original failure remains and is not relabeled as green.",
+  "independent_exception_review": "pending"
+}

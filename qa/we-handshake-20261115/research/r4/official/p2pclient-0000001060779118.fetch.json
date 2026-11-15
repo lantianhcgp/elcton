@@ -1,0 +1,19 @@
+{
+  "obj": "p2pclient-0000001060779118",
+  "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/p2pclient-0000001060779118",
+  "payload": {
+    "objectId": "p2pclient-0000001060779118",
+    "language": "cn",
+    "catalogName": "connectivity-References"
+  },
+  "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+  "time": "2026-11-15T02:41:49.405804+00:00",
+  "http": 200,
+  "code": 92531031,
+  "title": null,
+  "content_type": "str",
+  "body_chars": 0,
+  "sha256": "a2f11ec6ca653e379719953553ea780c8d2c99da382c1f68413dcb356505b2b9",
+  "mentions210301031": false,
+  "mentionsconnectChannel": false
+}

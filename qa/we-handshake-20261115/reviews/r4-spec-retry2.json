@@ -1,0 +1,103 @@
+{
+  "axis": "spec",
+  "round": "R4-retry2",
+  "reviewer_mode": "fresh-independent-focused-read-only-spec-re-review",
+  "reviewed_at": "2026-11-15T11:35:35.565813+08:00",
+  "scope": "Only the stale correction-evidence binding and its separately named amendment; unchanged exact R4 documents and preserved historical/current proofs. No new root-cause investigation or implementation approval.",
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "missing_requirements": [],
+  "binding": {
+    "watch_workdir": "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch",
+    "documents_sha256": {
+      "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "2b6a4aafab55f4649b5df4f51ca2d7457f76bbfd65bed5dc3942d3df76aec154",
+      "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "f720f1653775d0a22d5ceaea5fb3b1c862387898d69b8177662c332f87574859"
+    },
+    "sha256": {
+      "qa/we-handshake-20261115/evidence/r4/correction-evidence-amendment-1127.json": "cd4f8aaaa1b3e9def6b206f7a64ba6d4c0e173a060207beae4f728d40be82331",
+      "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "2b6a4aafab55f4649b5df4f51ca2d7457f76bbfd65bed5dc3942d3df76aec154",
+      "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "f720f1653775d0a22d5ceaea5fb3b1c862387898d69b8177662c332f87574859",
+      "qa/we-handshake-20261115/research/r4/verify-evidence.py": "6371bbb1c421c70080a46c68b3b0ae517bbdcdcd515ef78a630e47477e09cd85",
+      "qa/we-handshake-20261115/reviews/r4-spec.json": "66e1c1353fc2d6b27203d22e2994fd8dc7022c00a7a3557a499446bfe696d9cd",
+      "qa/we-handshake-20261115/reviews/r4-spec-retry1.json": "f7c3fb579ae32f5c9b01311ce5f182bc79c9461e45d033aa7ec0d9dae726eb10",
+      "qa/we-handshake-20261115/evidence/r4/spec-corrections.json": "f865b0bdf3b74d54f6ff02f68e0403ea470854973227279411254a61ad465f6d",
+      "qa/we-handshake-20261115/evidence/r4/evidence-verification.json": "096b52ea850c85cfddac3988c0e76af90f94850832c52ab80a3f952bd8e2b14c",
+      "qa/we-handshake-20261115/evidence/r4/verifier-corrections-green.txt": "ed32a90c6324e695be9bebe44ca37ea21ff9cb491e8e81b530fbb6fd9fa1b765",
+      "qa/we-handshake-20261115/evidence/r4/verifier-parent-final-output.txt": "a401956152f8951d0dd881c56fbee258b0bdd70919405aa9b682effaa6eebff6"
+    },
+    "all_amendment_declared_fingerprints_independently_recomputed_equal": true,
+    "initial_amendment_sha256_matches_delegated_exact_value": true,
+    "final_pre_write_fingerprint_observation_at": "2026-11-15T11:35:35.565813+08:00",
+    "frozen_files_rechecked_before_write": 10,
+    "fingerprint_drift": [],
+    "original_refusal_preserved": true,
+    "original_refusal_passed": false,
+    "retry1_refusal_preserved": true,
+    "retry1_refusal_passed": false,
+    "spec_corrections_preserved_with_historical_binding": true
+  },
+  "resolved_original_blockers": [
+    {
+      "id": "R4-RETRY1-EVIDENCE-FINGERPRINT",
+      "resolved": true,
+      "verification": "The immutable original correction receipt retains its historical b310c80d3dffbbb27674e7f1636af5e79031f29e68f2a26055bb4bd890ff0d21 binding. The new separately named amendment identifies the parent replay, the new 11:27:11 timestamp and current 096b52ea850c85cfddac3988c0e76af90f94850832c52ab80a3f952bd8e2b14c SHA; binds both exact unchanged documents, verifier source, both original refusals, correction receipt, and historical/current stdout; and honestly discloses that old on-disk report bytes were overwritten. All declared current SHA bindings match actual files."
+    },
+    {
+      "id": "R4-SPEC-01",
+      "resolved": true,
+      "verification": "Preserved retry1 source-review resolution remains applicable to byte-identical documents. Plan lines 15-16 and delivery line 50 preserve existing describe-to-diagnostics exception/journal handling and identify successful-stage, integer SendResult and RX/reject gaps. This focused re-review does not repeat the phone source investigation."
+    },
+    {
+      "id": "R4-SPEC-02",
+      "resolved": true,
+      "verification": "Preserved retry1 source-review resolution remains applicable to byte-identical documents. Plan lines 60,72,85 and delivery line 51 distinguish install/register 15-second timers from the original 5-second-per-HELLO, initial-plus-three-retry sequence with approximately 20-second exhaustion absent earlier terminal events. No new 15-second READY cutoff is introduced."
+    },
+    {
+      "id": "R4-SPEC-03",
+      "resolved": true,
+      "verification": "Preserved retry1 source-review resolution remains applicable to byte-identical documents. Plan lines 60,90,96 and delivery line 52 require same-correlated-generation unexpected failure or premature teardown with causal proof before the relevant READY attempt; normal failure/timeout/cancel/close cleanup and stale Receiver release are excluded. Separate repair authorization remains required."
+    }
+  ],
+  "historical_current_proof": {
+    "historical_report_at": "2026-11-15 11:19:56 +0800",
+    "current_report_at": "2026-11-15 11:27:11 +0800",
+    "report_difference_keys": ["at"],
+    "timestamp_only": true,
+    "historical_complete_stdout_equals_spec_corrections_report": true,
+    "current_complete_stdout_equals_current_on_disk_report": true,
+    "verifier_predicate_count": 12,
+    "all_predicates_identical_and_green": true,
+    "passed_and_device_root_hap_flags_identical": true,
+    "historical_declared_sha256": "b310c80d3dffbbb27674e7f1636af5e79031f29e68f2a26055bb4bd890ff0d21",
+    "historical_sha256_rederived_in_memory_using_verifier_serialization": "b310c80d3dffbbb27674e7f1636af5e79031f29e68f2a26055bb4bd890ff0d21",
+    "current_exact_bytes_match_verifier_json_indent2_plus_newline_serialization": true,
+    "historical_exact_on_disk_bytes_retained": false,
+    "historical_file_recreated": false,
+    "interpretation": "In-memory serialization of retained complete historical report data reproduces the recorded old SHA using the reviewed verifier format. This corroborates timestamp-only mutation; it does not claim possession or preservation of the overwritten old file. No reconstructed file was written."
+  },
+  "execution_and_scope": {
+    "actual_read_only_binding_check_exit_code": 0,
+    "actual_final_pre_write_fingerprint_check_exit_code": 0,
+    "verifier_replayed": false,
+    "full_product_regression_rerun": false,
+    "new_host_402_script_executed": false,
+    "sdk_or_root_investigation_reopened": false,
+    "phone_repository_written": false,
+    "product_or_old_tests_written": false,
+    "frozen_document_or_evidence_writes": false,
+    "git_operations": false,
+    "network_operations": false,
+    "device_browser_mcp_adb_operations": false,
+    "installs": false,
+    "quality_run": false,
+    "new_ci_or_hap": false,
+    "publication_or_remote_closure_claimed": false,
+    "only_file_written": "qa/we-handshake-20261115/reviews/r4-spec-retry2.json"
+  },
+  "root_cause_proven": false,
+  "handshake_repaired": false,
+  "phone_bug_proven": false,
+  "phone_implementation_authorized": false,
+  "summary": "Focused SPEC PASS: the sole retry1 stale correction-evidence binding is resolved by the exact separately named amendment, with unchanged frozen documents, retained complete historical/current report data and stdout, timestamp-only predicate equivalence, and successful final pre-write SHA recheck. Both prior FALSE refusals remain immutable. This passes only the evidence/phone-observation-plan SPEC gate, not native root-cause proof, repaired handshake, phone implementation, QUALITY, or publication."
+}

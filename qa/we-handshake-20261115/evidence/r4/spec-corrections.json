@@ -1,0 +1,164 @@
+{
+  "kind": "R4 documentation and new-QA contract corrections; not independent SPEC approval",
+  "at": "2026-11-15T11:21:05.024873+08:00",
+  "baseline": {
+    "watch_tracked_count": 1509,
+    "watch_tracked_sha256": "cc385a8280e12843d92427234d7ae7d1a4584186d65c32512a7d68d5ad5a49bd",
+    "phone_tracked_count": 9455,
+    "phone_tracked_sha256": "54eb2eb6d6f88af08f26bfe3887b4ea24acf84e79e82888cc9b3d335c6e8b541",
+    "documents": {
+      "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "0f304f695eb90970526953ff75fed30601ca6b34030362ddedc6197d2cb0f783",
+      "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "d5d5a90e43094ef9c5799561dd658d1fe44fa76e2e3c16a15b227b09d102cc67",
+      "qa/we-handshake-20261115/research/r4/verify-evidence.py": "b4f78bb8f368d5e3bb692e330cded6ba5fd2db28f2f6306c1b3d3970f699baad",
+      "qa/we-handshake-20261115/reviews/r4-spec.json": "66e1c1353fc2d6b27203d22e2994fd8dc7022c00a7a3557a499446bfe696d9cd",
+      "qa/we-handshake-20261115/research/r4/phone-readonly-analysis.md": "d5d24584a4d0020790b8d7c53d802b5341fb37932b59c8f222e530db6f4e9fd1",
+      "qa/we-handshake-20261115/research/r4/watch-send-analysis.md": "a7da524b3d7354be6ff73ffa8239071793d45689908f70b23aedad64385f4007",
+      "qa/we-handshake-20261115/evidence/r4/verifier-marker-red.txt": "e33d2d6e115ef5c5beb3747a72b66dedaf3b8ac62f946505c6f72be01c1217b2"
+    },
+    "watch_head": "ff2a1b2858af88887b2132b77bcfce162a60fa48",
+    "phone_head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "phone_status": " M qa/release-029/evidence/resume-1720/CONTINUATION-R10.md\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/full-artifact/artifact-original.zip\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/exact-cloud-pipeline/full-verification/raw/artifact-original.zip\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/FINAL-CLOSURE.json\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/commit.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/commit.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.failed1-timeout.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.failed1-timeout.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/continuation-readback.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/push.exit\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/push.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/readback.log\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback-continuation.failed1-timeout/\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback-continuation/\n?? qa/release-029/evidence/resume-1720/resume-fourth/r11/tail-final/remote-readback/\n?? qa/release-029/evidence/resume-1720/resume-fourth/resume_tail_readback.py\n",
+    "phase": "before_correction",
+    "red_injection": {
+      "command": "python3 qa/we-handshake-20261115/research/r4/verify-evidence.py",
+      "exit_code": 1,
+      "output_file": "qa/we-handshake-20261115/evidence/r4/verifier-injection-red.txt",
+      "classification": "QA contract error, not a product RED"
+    }
+  },
+  "after_scope_verification": {
+    "watch_tracked_count": 1509,
+    "watch_tracked_sha256": "cc385a8280e12843d92427234d7ae7d1a4584186d65c32512a7d68d5ad5a49bd",
+    "phone_tracked_count": 9455,
+    "phone_tracked_sha256": "54eb2eb6d6f88af08f26bfe3887b4ea24acf84e79e82888cc9b3d335c6e8b541",
+    "watch_tracked_unchanged": true,
+    "phone_tracked_unchanged": true,
+    "phone_status_unchanged": true,
+    "watch_head_unchanged": true,
+    "phone_head_unchanged": true,
+    "frozen_documents_unchanged": {
+      "qa/we-handshake-20261115/reviews/r4-spec.json": true,
+      "qa/we-handshake-20261115/research/r4/phone-readonly-analysis.md": true,
+      "qa/we-handshake-20261115/research/r4/watch-send-analysis.md": true,
+      "qa/we-handshake-20261115/evidence/r4/verifier-marker-red.txt": true
+    },
+    "spec_refusal_passed": false
+  },
+  "modified_files": {
+    "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "2b6a4aafab55f4649b5df4f51ca2d7457f76bbfd65bed5dc3942d3df76aec154",
+    "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "f720f1653775d0a22d5ceaea5fb3b1c862387898d69b8177662c332f87574859",
+    "qa/we-handshake-20261115/research/r4/verify-evidence.py": "6371bbb1c421c70080a46c68b3b0ae517bbdcdcd515ef78a630e47477e09cd85"
+  },
+  "corrections": [
+    {
+      "id": "R4-SPEC-01",
+      "change": "Preserve actual WearProbe.describe -> diagnostics.record exception/journal channel, including current-generation registration guard. Gaps are successful stages, integer SendResult, native RX and rejects; error_tail zero growth is not absence-of-failure proof.",
+      "source": [
+        "phone WearProbe.kt:172-182,194-225",
+        "phone DiagnosticRuntime.kt:86-99",
+        "phone SyncEngine.kt:349-354"
+      ]
+    },
+    {
+      "id": "R4-SPEC-02",
+      "change": "Install/register each 15s; HELLO timer 5s per attempt, initial plus three retries, approximately 0/5/10/15s sends and 20s exhaustion absent earlier READY/failure/cancel. Observe original terminal event, never add a 15s READY cutoff.",
+      "source": [
+        "phone SyncEngine.kt:175,186,196-212"
+      ]
+    },
+    {
+      "id": "R4-SPEC-03",
+      "change": "Require correlated same-generation unexpected failure/premature teardown causally before relevant READY attempt, exclude stale receiver release and normal failure/timeout/cancel/close cleanup. No attribution without proof; separate repair authorization remains required.",
+      "source": [
+        "phone SyncEngine.kt:99-103,208-210,325-335",
+        "phone WearProbe.kt:169-177,186-196"
+      ]
+    },
+    {
+      "id": "R4-SUGGESTION-LAYERS",
+      "change": "WearProbe adapter and SyncEngine engine share one transport; true native RX entry only WearProbe before generation/type/bytes filters, engine callback already filtered. Corrected citations and proposed layer/generation correlation fields.",
+      "source": [
+        "phone WearProbe.kt:42-66,78-84,150-161",
+        "phone SyncEngine.kt:162-218"
+      ]
+    },
+    {
+      "id": "R4-HOST-HTTPS-ANNOTATION",
+      "change": "compiled-logger-https.mjs:159 directly injects app._elctonLog(stage,{code:stage==='SEND_FAIL'?206:0,arg1:stage==='SEND_FAIL'?210301031:0,arg2:0}); no WE send/native fail in this HTTPS fixture. Separate compiled-we-stages.mjs:128 calls o.fail(210301031,0). QA checks exact direct injection and stage-only native dispatcher/exercise.",
+      "source": [
+        "qa/we-handshake-20261115/compiled-logger-https.mjs:120,143-159",
+        "qa/we-handshake-20261115/compiled-we-stages.mjs:128"
+      ]
+    }
+  ],
+  "verification": {
+    "command": "python3 qa/we-handshake-20261115/research/r4/verify-evidence.py",
+    "red_runs": [
+      {
+        "file": "evidence/r4/verifier-marker-red.txt",
+        "exit_code": null,
+        "classification": "Previously retained actual traceback for guessed HOST tag; not rerun or modified; actual marker tag console/seq3."
+      },
+      {
+        "file": "evidence/r4/verifier-injection-red.txt",
+        "exit_code": 1,
+        "classification": "Reproduced pre-correction wrong fail(210301031,0) QA contract; actual captured stdout/stderr, not product RED."
+      },
+      {
+        "file": "evidence/r4/verifier-stage-slice-red.txt",
+        "exit_code": 1,
+        "classification": "Intermediate new stage-only QA check used an unmatched native-dispatch delimiter and included later exercise/log-injection source; corrected native-dispatch boundary, not product defect."
+      }
+    ],
+    "green_exit_code": 0,
+    "green_output_file": "evidence/r4/verifier-corrections-green.txt",
+    "green_checks": 12,
+    "report": {
+      "passed": true,
+      "checks": {
+        "host_marker": true,
+        "host_12_entire_canonical_rows_match": true,
+        "host_injected_210301031_not_device": true,
+        "host_https_stage_only_no_we_send": true,
+        "real_row_count_and_seq_gap": true,
+        "real_hello4_fail5_prepared4": true,
+        "real_native_args_undefined": true,
+        "cloud48_no_more_exact_wrapper_equality": true,
+        "real_regression445_totals": true,
+        "scope_phone9455_watch121_receipt": true,
+        "official_exact_206_207_contract": true,
+        "android_document_no_connectChannel": true
+      },
+      "at": "2026-11-15 11:19:56 +0800",
+      "device_operations": false,
+      "root_cause_resolved": false,
+      "new_hap": false
+    },
+    "sha256": {
+      "verifier-injection-red.txt": "af2e9d3f75729d7e661f5065b31275054ff556bb1da638b0718310464c394759",
+      "verifier-stage-slice-red.txt": "98709d21d95e3a6df50567de7fe37e764d58d669507ae681b3c27e32f3a50d04",
+      "verifier-corrections-green.txt": "ed32a90c6324e695be9bebe44ca37ea21ff9cb491e8e81b530fbb6fd9fa1b765",
+      "evidence-verification.json": "b310c80d3dffbbb27674e7f1636af5e79031f29e68f2a26055bb4bd890ff0d21"
+    },
+    "regression": "Verifier checked existing unchanged-full-regression TAP/receipt totals 445/445; this correction subtask did NOT rerun the full product regression."
+  },
+  "supporting_reports": "phone-readonly-analysis.md and watch-send-analysis.md preserved byte-for-byte; corrected report/plan are the amendment, not retroactive rewrites. Supporting phone report already described direct HOST log injection.",
+  "review_gate": {
+    "original_spec_refusal_file": "qa/we-handshake-20261115/reviews/r4-spec.json",
+    "original_spec_passed": false,
+    "original_spec_sha256_unchanged": true,
+    "independent_spec_rerun": false,
+    "quality_run": false,
+    "required_next": "Parent runs fresh separate independent SPEC, then QUALITY only after SPEC passes; never overwrite original refusal."
+  },
+  "limitations": {
+    "root_cause_proven": false,
+    "handshake_repaired": false,
+    "phone_implementation_authorized": false,
+    "product_changes": false,
+    "old_test_assertions_changed": false,
+    "new_ci_or_hap": false,
+    "device_browser_network_operations": false,
+    "git_commit_or_push": false
+  }
+}

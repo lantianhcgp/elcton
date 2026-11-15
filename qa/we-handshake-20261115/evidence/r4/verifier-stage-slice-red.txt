@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/verify-evidence.py", line 38, in <module>
+    check('host_https_stage_only_no_we_send',
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          "if(name==='system.fetch')" in native_dispatch
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<2 lines>...
+          and not re.search(r'wearengine|sendMsg\s*\(|\.send\s*\(|\.fail\s*\(', native_dispatch + exercise)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          and 'fail(210301031,0)' not in compact)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/verify-evidence.py", line 19, in check
+    raise AssertionError(name)
+AssertionError: host_https_stage_only_no_we_send

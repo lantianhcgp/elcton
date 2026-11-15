@@ -1,0 +1,27 @@
+{
+  "passed": true,
+  "commit": "ff2a1b2858af88887b2132b77bcfce162a60fa48",
+  "remote_branch_head_exact": true,
+  "requested_files": 2,
+  "verified_files": 2,
+  "bytes_read_back": 13713,
+  "rows": [
+    {
+      "path": "qa/we-handshake-20261115/DELIVERY-R3-20261115.md",
+      "git_blob": "9543a5ee1d0bb75ce9382f5940bfd574e76b0ced",
+      "bytes": 9990,
+      "sha256": "901f5b3e7051dc74ee7d20e98e9c4d18bb6dbb6548e9c70d79a77ff2234f0b07",
+      "byte_equal": true
+    },
+    {
+      "path": "qa/we-handshake-20261115/remote-readback-r3.py",
+      "git_blob": "bb4fffd23e66afbf50b7cce50c213c0f99e5174b",
+      "bytes": 3723,
+      "sha256": "b0905abe2733f9b3be0259f70cf35ae9a8a4a35ae4eaf8bcccbf8e2e1501f60c",
+      "byte_equal": true
+    }
+  ],
+  "failures": [],
+  "credential_values_printed": false,
+  "verified_at": "2026-11-15 11:24:07 +0800"
+}

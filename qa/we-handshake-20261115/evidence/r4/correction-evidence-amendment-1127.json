@@ -1,0 +1,47 @@
+{
+  "kind": "r4-correction-evidence-amendment",
+  "at": "2026-11-15 11:32:19 +0800",
+  "scope": "Timestamp-only verifier receipt mutation, not production correction or root-cause proof",
+  "superseded_binding": {
+    "file": "evidence/r4/spec-corrections.json",
+    "field": "verification.sha256.evidence-verification.json",
+    "historical_report_sha256": "b310c80d3dffbbb27674e7f1636af5e79031f29e68f2a26055bb4bd890ff0d21",
+    "historical_report_at": "2026-11-15 11:19:56 +0800"
+  },
+  "actual_mutation": {
+    "actor": "parent controller",
+    "operation": "reran verify-evidence.py which overwrites its report with a new at timestamp",
+    "current_report_at": "2026-11-15 11:27:11 +0800",
+    "predicates_unchanged": true,
+    "current_report_sha256": "096b52ea850c85cfddac3988c0e76af90f94850832c52ab80a3f952bd8e2b14c"
+  },
+  "historical_preservation": {
+    "original_refusal_bytes_retained": true,
+    "retry1_refusal_bytes_retained": true,
+    "spec_corrections_bytes_retained": true,
+    "historical_green_stdout_retained": true,
+    "historical_complete_report_data_in_spec_corrections": true,
+    "historical_verifier_report_exact_on_disk_bytes_retained": false,
+    "note": "Old evidence-verification.json was overwritten by actual replay at 11:27:11. Its complete historical stdout and report data remain, but no claim is made that the overwritten file original bytes were preserved. No fabricated original file is created."
+  },
+  "binding": {
+    "sha256": {
+      "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "2b6a4aafab55f4649b5df4f51ca2d7457f76bbfd65bed5dc3942d3df76aec154",
+      "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "f720f1653775d0a22d5ceaea5fb3b1c862387898d69b8177662c332f87574859",
+      "qa/we-handshake-20261115/research/r4/verify-evidence.py": "6371bbb1c421c70080a46c68b3b0ae517bbdcdcd515ef78a630e47477e09cd85",
+      "qa/we-handshake-20261115/reviews/r4-spec.json": "66e1c1353fc2d6b27203d22e2994fd8dc7022c00a7a3557a499446bfe696d9cd",
+      "qa/we-handshake-20261115/reviews/r4-spec-retry1.json": "f7c3fb579ae32f5c9b01311ce5f182bc79c9461e45d033aa7ec0d9dae726eb10",
+      "qa/we-handshake-20261115/evidence/r4/spec-corrections.json": "f865b0bdf3b74d54f6ff02f68e0403ea470854973227279411254a61ad465f6d",
+      "qa/we-handshake-20261115/evidence/r4/evidence-verification.json": "096b52ea850c85cfddac3988c0e76af90f94850832c52ab80a3f952bd8e2b14c",
+      "qa/we-handshake-20261115/evidence/r4/verifier-corrections-green.txt": "ed32a90c6324e695be9bebe44ca37ea21ff9cb491e8e81b530fbb6fd9fa1b765",
+      "qa/we-handshake-20261115/evidence/r4/verifier-parent-final-output.txt": "a401956152f8951d0dd881c56fbee258b0bdd70919405aa9b682effaa6eebff6"
+    },
+    "frozen_from_now": true,
+    "documents_unchanged": true
+  },
+  "root_cause_proven": false,
+  "handshake_repaired": false,
+  "phone_implementation_authorized": false,
+  "product_changed": false,
+  "new_ci_or_hap": false
+}

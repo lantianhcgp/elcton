@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "at": "2026-11-15 11:00:11 +0800",
+  "phone_files_checked": 9455,
+  "phone_drift": [],
+  "phone_head_equal": true,
+  "phone_status_equal": true,
+  "watch_protected_files_checked": 121,
+  "watch_drift": [],
+  "device_operations_used": false
+}

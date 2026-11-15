@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "checks": {
+    "fresh_host_exec_pass": true,
+    "same_compiled_app": true,
+    "same_compiled_page": true,
+    "timer_zero": true,
+    "host_only_not_device": true
+  },
+  "fresh_adapter_version": 401,
+  "real_log_service_version": 402,
+  "new_ci": false
+}

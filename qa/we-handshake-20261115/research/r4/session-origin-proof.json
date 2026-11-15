@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "early_sid": "mwh5okyh-1",
+  "classification": "HOST_HTTPS_QA_NOT_WATCH",
+  "provenance_marker": "WE-HOST-HTTPS-9eb9af98edcfb02f",
+  "matched_rows": 12,
+  "injected_arg1": 210301031,
+  "injection_source": "qa/we-handshake-20261115/compiled-logger-https.mjs:159",
+  "r3_readback_source": "qa/we-handshake-20261115/evidence/r3/cloud-canonical-collector-readback.json",
+  "genuine_sid": "mwh7l2un-1",
+  "genuine_rows": 36,
+  "genuine_send_fail_count": 5,
+  "genuine_arg1_present": false,
+  "matches": [
+    {
+      "cursor": 1413,
+      "seq": 1,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1414,
+      "seq": 2,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1415,
+      "seq": 3,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1416,
+      "seq": 4,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1417,
+      "seq": 5,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1418,
+      "seq": 6,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1419,
+      "seq": 7,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1420,
+      "seq": 8,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1421,
+      "seq": 9,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1422,
+      "seq": 10,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1423,
+      "seq": 11,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    },
+    {
+      "cursor": 1424,
+      "seq": 12,
+      "same_r3_cursor": true,
+      "same_r3_tag": true,
+      "same_r3_msg": true
+    }
+  ]
+}

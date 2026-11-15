@@ -1,0 +1,1 @@
+{"passed": true, "commit": "ff2a1b2858af88887b2132b77bcfce162a60fa48", "remote_branch_head_exact": true, "requested_files": 2, "verified_files": 2, "bytes_read_back": 13713, "credential_values_printed": false, "verified_at": "2026-11-15 11:24:07 +0800"}

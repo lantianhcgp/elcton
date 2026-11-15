@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "security_concerns": [],
+  "logic_errors": [],
+  "binding": {
+    "sha256": {
+      "qa/we-handshake-20261115/evidence/r4/official-whitespace-preservation.json": "411eacad2534355b719a38810494fdb42a9d4fee1053499fdfa72b19a325aa49",
+      "qa/we-handshake-20261115/evidence/r4/raw-official-whitespace-git-refusal.txt": "c973b5496373f699bb83b3ed8319d671d610c34dc5b060da65dee88cc70a983f",
+      "qa/we-handshake-20261115/reviews/r4-quality.json": "6d660c419c077677d783da280557d55fbe5ec6d22343bfca4e2f921f6e9231a0",
+      "qa/we-handshake-20261115/research/r4/official-body-parent-readback.json": "0eb6baa370a2395a1106302aac1f9e98565575a9d077329885f34e1e0940dfbe",
+      "qa/we-handshake-20261115/research/r4/official/acquisition.json": "d219282be7238600f8c6353c801594ee86ff46c15aac3afbe8418b6e06fe005c",
+      "qa/we-handshake-20261115/research/r4/official/errocode-0000001054450278.txt": "8335815e5fa13ac2681a16084f6a98957427c741e694acb620f4629fca2684b8",
+      "qa/we-handshake-20261115/research/r4/official/errocode-0000001054450278.raw.json": "b93e8892bc7960546c1b97ae54a5ff30b5da44aec31d211aca41c38d14e3719f",
+      "qa/we-handshake-20261115/research/r4/official/errocode-0000001054450278.fetch.json": "9035a772d1f8b833fbd4d06904003efc5336376857cc4ae6d62736496964cb56",
+      "qa/we-handshake-20261115/research/r4/official/p2pclient-0000001061098712.txt": "2cd13f83a7e5099f74a75aaba3cf03e3e17d0fd27ad7533937d5baa6e30f8b3f",
+      "qa/we-handshake-20261115/research/r4/official/p2pclient-0000001061098712.raw.json": "d43fe51433384217464cfd872cdf5d83e14b7befd7486a9f8d126b12ed02611e",
+      "qa/we-handshake-20261115/research/r4/official/p2pclient-0000001061098712.fetch.json": "f611b48279ba8feb460f2f5eccb9aae040ac5d5afc2ab511cd9b6fcd4111ef96",
+      "qa/we-handshake-20261115/research/r4/official/point-to-point-message-0000001052164296.txt": "cfc47ee751338025a28a1548d0422ae832ff63e6144b47c60343520e6eb12258",
+      "qa/we-handshake-20261115/research/r4/official/point-to-point-message-0000001052164296.raw.json": "d47a00b63bc4a5876a618d9672cff2a9d94f286e8600cdb67ceb5eeb8bbb8624",
+      "qa/we-handshake-20261115/research/r4/official/point-to-point-message-0000001052164296.fetch.json": "e75ff1bafff206ccc15c97f3a9e96290d914a8c8c545ff61c6e51299525d3ce5",
+      "qa/we-handshake-20261115/research/r4/official/send-message-0000001052460491.txt": "be8be4cb578efa212bc1e22a77711170a77cc72c174d4b793f705e73897dedbd",
+      "qa/we-handshake-20261115/research/r4/official/send-message-0000001052460491.raw.json": "f30f7a19f3dcc78a2354f72f18705ff19e81628e5b5f5efa73fe693d054fe9bc",
+      "qa/we-handshake-20261115/research/r4/official/send-message-0000001052460491.fetch.json": "91f371305294e017d63a0638e54ecb8e64e8562ea7cd582464249dc5d687e281",
+      "qa/we-handshake-20261115/research/r4/official/wearengineerrorcode-0000001059980969.txt": "76fe933d30b6bd01196cfbb83ca02a01001edd38f23c59f8ba634ccc0d4f2579",
+      "qa/we-handshake-20261115/research/r4/official/wearengineerrorcode-0000001059980969.raw.json": "b0e99be4fc29c54b706d9f34512f3c5dfc4b30948371c10277dd7422073f8bde",
+      "qa/we-handshake-20261115/research/r4/official/wearengineerrorcode-0000001059980969.fetch.json": "c9155e264ab1b4437df9466fb7b311c96b78cbd9c10308942cf1160972b020c8"
+    }
+  },
+  "summary": "Independent focused QUALITY PASS for a controlled documentation/external-forensic-data whitespace-preservation exception ONLY. The actual full staged git diff --cached --check remains exit 2, not PASS. The saved refusal is exactly 228219 bytes, SHA256 c973b5496373f699bb83b3ed8319d671d610c34dc5b060da65dee88cc70a983f, byte-identical to a fresh read-only staged check. All current flagged paths are exactly the five SHA-bound official extracted TXT files below; all are literal whitespace/new-blank-EOF evidence, match receipt hashes and staged blobs, and retain unchanged successful HTTP-200/code-0 raw JSON/HTML acquisition with hashes agreeing with acquisition/fetch metadata and official-body-parent-readback. Actual HTML is preserved inside value.content (a structured object); no undocumented upstream plaintext/body SHA is invented. The 56 authored staged QA/scripts/reports pass normal scoped whitespace check exit 0 with no output; all 75 staged files are QA-only. All 37 frozen existing QUALITY inputs remain hash-identical, including retry2 SPEC, assertions, and scope/staging/publishing scripts; frozen QUALITY itself is separately bound. In response to explicit additional authorization, the single exact SHA-bound raw refusal transcript is also approved as preserved external forensic data: it is presently unstaged, and a read-only git diff --no-index --check /dev/null <exact transcript path> returns actual exit 3 (no-index differences plus whitespace diagnostics) with warnings confined to that transcript. This is prospective artifact verification, NOT a claimed already-staged combined run. Exception membership is exactly five original TXT paths plus that one transcript, each enumerated in binding.sha256; not the official directory generally, and not authored code/docs or other evidence. No trimming, git-config changes, gate/source/test changes, new HAP, device/phone work, or index mutation occurred. Mutable publication outputs are not newly bound; publication/product/SDK/safety gates remain intact. Root cause is unknown and no handshake repair/install/push success is implied. The only written file is this new focused review; the parent must explicitly stage and recheck, preserving honest raw exit 2 alongside authored exit 0. Exact exception paths: qa/we-handshake-20261115/research/r4/official/errocode-0000001054450278.txt, qa/we-handshake-20261115/research/r4/official/p2pclient-0000001061098712.txt, qa/we-handshake-20261115/research/r4/official/point-to-point-message-0000001052164296.txt, qa/we-handshake-20261115/research/r4/official/send-message-0000001052460491.txt, qa/we-handshake-20261115/research/r4/official/wearengineerrorcode-0000001059980969.txt, qa/we-handshake-20261115/evidence/r4/raw-official-whitespace-git-refusal.txt."
+}

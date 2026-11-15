@@ -1,0 +1,19 @@
+{
+  "obj": "point-to-point-message-0000001052164296",
+  "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/point-to-point-message-0000001052164296",
+  "payload": {
+    "objectId": "point-to-point-message-0000001052164296",
+    "language": "cn",
+    "catalogName": "connectivity-References"
+  },
+  "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+  "time": "2026-11-15T02:41:49.406646+00:00",
+  "http": 200,
+  "code": 0,
+  "title": "点对点消息",
+  "content_type": "str",
+  "body_chars": 6482,
+  "sha256": "d47a00b63bc4a5876a618d9672cff2a9d94f286e8600cdb67ceb5eeb8bbb8624",
+  "mentions210301031": false,
+  "mentionsconnectChannel": false
+}

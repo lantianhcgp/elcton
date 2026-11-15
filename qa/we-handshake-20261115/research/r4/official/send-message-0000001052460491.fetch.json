@@ -1,0 +1,19 @@
+{
+  "obj": "send-message-0000001052460491",
+  "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/send-message-0000001052460491",
+  "payload": {
+    "objectId": "send-message-0000001052460491",
+    "language": "cn",
+    "catalogName": "connectivity-Guides"
+  },
+  "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+  "time": "2026-11-15T02:41:49.810196+00:00",
+  "http": 200,
+  "code": 0,
+  "title": "应用间消息通信",
+  "content_type": "str",
+  "body_chars": 7394,
+  "sha256": "f30f7a19f3dcc78a2354f72f18705ff19e81628e5b5f5efa73fe693d054fe9bc",
+  "mentions210301031": false,
+  "mentionsconnectChannel": false
+}

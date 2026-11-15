@@ -1,0 +1,19 @@
+{
+  "obj": "errocode-0000001054450278",
+  "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-Guides/errocode-0000001054450278",
+  "payload": {
+    "objectId": "errocode-0000001054450278",
+    "language": "cn",
+    "catalogName": "connectivity-Guides"
+  },
+  "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+  "time": "2026-11-15T02:41:49.404959+00:00",
+  "http": 200,
+  "code": 0,
+  "title": "返回码",
+  "content_type": "str",
+  "body_chars": 15058,
+  "sha256": "b93e8892bc7960546c1b97ae54a5ff30b5da44aec31d211aca41c38d14e3719f",
+  "mentions210301031": false,
+  "mentionsconnectChannel": false
+}

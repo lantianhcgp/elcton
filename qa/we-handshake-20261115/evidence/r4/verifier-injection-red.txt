@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/verify-evidence.py", line 32, in <module>
+    check('host_injected_210301031_not_device', 'fail(210301031,0)' in source.replace(' ', ''))
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/data/com.termux/files/home/we-handshake-repair-20261115-watch/qa/we-handshake-20261115/research/r4/verify-evidence.py", line 19, in check
+    raise AssertionError(name)
+AssertionError: host_injected_210301031_not_device

@@ -1,0 +1,114 @@
+{
+  "axis": "spec",
+  "round": "R4",
+  "passed": false,
+  "reviewer_mode": "independent-read-only-spec-review",
+  "reviewed_at": "2026-11-15T11:08:49+08:00",
+  "scope": "R4 evidence and PHONE-DIAGNOSTIC-PATCH-PLAN; not implementation approval, native root-cause proof, or handshake acceptance",
+  "requirement_source": {
+    "session_id": "20261115_000006_962a82",
+    "user_message_id": 371739,
+    "verified": "Full originating user message read from local session database in read-only mode after session_search returned a truncated excerpt.",
+    "requirements": [
+      "Investigate official 210301031 semantics and its relationship to 206; verify actual evidence before attribution.",
+      "Inspect watch send prerequisites, HELLO/READY channel identity and timing; inspect phone sync_connect/connectChannel read-only.",
+      "Only a proven watch defect permits RED-to-GREEN watch repair, full regression, new CI and same-chain signed HAP.",
+      "Phone changes require a separate user-approved iteration; deliver phone patch plan and evidence, not phone code changes or push.",
+      "Preserve working KEEP_ON/logger, tests, unrelated watchface/liubai work and existing HAPs; initiator organizes device testing."
+    ]
+  },
+  "binding": {
+    "watch_head": "ff2a1b2858af88887b2132b77bcfce162a60fa48",
+    "phone_head": "bb26c64b67e1cfa7903cd709c2aac482f6490e6b",
+    "documents_sha256": {
+      "qa/we-handshake-20261115/DELIVERY-R4-20261115.md": "0f304f695eb90970526953ff75fed30601ca6b34030362ddedc6197d2cb0f783",
+      "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md": "d5d5a90e43094ef9c5799561dd658d1fe44fa76e2e3c16a15b227b09d102cc67",
+      "qa/we-handshake-20261115/research/r4/watch-send-analysis.md": "a7da524b3d7354be6ff73ffa8239071793d45689908f70b23aedad64385f4007",
+      "qa/we-handshake-20261115/research/r4/phone-readonly-analysis.md": "d5d24584a4d0020790b8d7c53d802b5341fb37932b59c8f222e530db6f4e9fd1"
+    },
+    "hap_sha256_independently_recomputed": "1d013924b2f2123b67f63926cc641bbf7e4fd9468db53e2ab2a4b04792d87f9a"
+  },
+  "security_concerns": [],
+  "logic_errors": [
+    {
+      "id": "R4-SPEC-01",
+      "severity": "medium",
+      "location": "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md:15",
+      "requirement": "Write the actual phone sending-chain telemetry gap into the plan; do not invent missing evidence.",
+      "finding": "The plan says P2P registration/send/unregister failures are not connected to an existing emitWearError. No emitWearError exists in current production source. Current SDK Task/synchronous failures do invoke describe, which captures and calls diagnostics.record; the missing evidence is successful stages, integer SendResult and receive/drop events, not all SDK failure logging.",
+      "evidence": [
+        "phone app/src/main/java/com/hcbiu/elcton/WearProbe.kt:172-182,194-208,211-225",
+        "phone app/src/main/java/com/hcbiu/elcton/DiagnosticRuntime.kt:86-99",
+        "research/r4/phone-readonly-analysis.md:122-126"
+      ],
+      "required_change": "Describe which existing failures are journaled and which callbacks/stages remain unobserved. Preserve the existing exception channel and avoid treating error_tail zero growth as proof of no SDK failures."
+    },
+    {
+      "id": "R4-SPEC-02",
+      "severity": "medium",
+      "location": "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md:59,71,84",
+      "requirement": "The proposed diagnostic-only iteration freezes retry counts and timeout behavior.",
+      "finding": "The plan incorrectly specifies an original 15-second READY cutoff. Fifteen seconds is the install/register stage timeout; hello schedules a 5-second timer and permits three retries. With no READY or earlier failure, sends are at approximately 0/5/10/15 seconds and READY exhaustion at 20 seconds. Ending collection at 15 seconds misses the fourth attempt's terminal timeout; implementing that cutoff would change frozen behavior.",
+      "evidence": [
+        "phone app/src/main/java/com/hcbiu/elcton/SyncEngine.kt:175,186,206-212"
+      ],
+      "required_change": "Separate install/register 15-second timers from the existing 5-second-per-HELLO, four-attempt READY sequence. Observe its actual terminal event without introducing a new deadline."
+    },
+    {
+      "id": "R4-SPEC-03",
+      "severity": "medium",
+      "location": "qa/we-handshake-20261115/research/r4/PHONE-DIAGNOSTIC-PATCH-PLAN.md:89",
+      "requirement": "Repair only an evidenced responsibility boundary; no blind phone lifecycle or subscription changes.",
+      "finding": "The decision table treats REG_TASK_FAIL or any UNREG/CLOSE after HELLO as evidence to repair that phone boundary. Current fail and cancel intentionally unregister, including normal cleanup after READY exhaustion. Thus a valid timeout-induced UNREG satisfies this row even when it is only a consequence of the native sending failure, not its cause.",
+      "evidence": [
+        "phone app/src/main/java/com/hcbiu/elcton/SyncEngine.kt:99-103,208-210,325-332",
+        "phone app/src/main/java/com/hcbiu/elcton/WearProbe.kt:186-191"
+      ],
+      "required_change": "Require same-generation causal ordering showing an unexpected registration failure or premature teardown before the relevant READY attempt, excluding authorized cancel/normal timeout cleanup. Otherwise retain root unknown and collect more evidence; any repair still needs separate authorization."
+    }
+  ],
+  "missing_requirements": [],
+  "suggestions": [
+    "Correct plan line 12 citations: registration/HELLO sequencing is SyncEngine.kt:162-213, not :94-112; WearProbe send is :199-208.",
+    "Treat probe and sync as adapter/engine observation layers of one shared transport, not two independently connected paths. RX_NATIVE_ENTRY belongs at WearProbe Receiver entry; the engine callback is already past type/byte filtering.",
+    "Keep unique root-cause diagnosis and repaired handshake explicitly unresolved. Diagnostics-only delivery is a scoped evidence/plan stop, not completion of the user's repair goal."
+  ],
+  "verified_spec_evidence": {
+    "origin_separation": "Authenticated cloud readback contains 48 rows. All 48 selected log objects match the saved cloud log objects by cursor. Twelve rows belong to HOST SID mwh5okyh-1 with an explicit WE-HOST-HTTPS marker; compiled-logger-https.mjs:159 injects 210301031. Do not decode that fixture as a FIT3 native error.",
+    "real_window": {
+      "sid": "mwh7l2un-1",
+      "rows": 36,
+      "missing_seq": [15],
+      "hello_recv": 4,
+      "ready_prepare": 5,
+      "ready_prepared_received": 4,
+      "send_fail": 5,
+      "ready_fail": 5,
+      "send_ok": 0,
+      "native_fail_message": "code=206 type1=0 type2=0",
+      "reg_to_first_send_fail_ms": 954,
+      "reg_to_first_hello_ms": 101490,
+      "hello_to_send_fail_ms": [192, 201, 219, 197]
+    },
+    "official_contract": "Saved official return-code bodies and original SDK source were read. The JS native fail(errorMessage, code) unconditionally wraps MSG_ERROR_SEND_FAIL=206; success is 207. Current wearService does the same. Real type0 denotes undefined, so there is no real arg1 value to decode. No reliable official 210301031 meaning is established.",
+    "watch_root_branch": "Actual wearService source gates version/config/REG before send, uses the same bus, and sends remote/com.hcbiu.elcton/empty abilityName. Source/artifact audit finds no reproducible watch JS cause. Native identity/routing remains unproven; header/module static identity differences are hypotheses, not permission to alter identity or issue a new HAP.",
+    "phone_root_branch": "Current PhoneMcpTools/PhoneActions/WearProbe/SyncEngine confirm accepted is asynchronous, register Task success precedes HELLO, and only a legal current-generation READY sets ready. Current Android SDK/documents do not establish a connectChannel API requirement. No proven phone defect follows from HELLO arrival or error_tail zero growth.",
+    "scope_protection": {
+      "watch_protected_files_independently_hashed": 121,
+      "watch_drift": [],
+      "phone_production_files_independently_hashed": 37,
+      "phone_drift": [],
+      "phone_source_git_diff_empty": true,
+      "product_patch_present": false,
+      "reviewer_device_operations": false,
+      "reviewer_source_or_test_writes": false
+    },
+    "existing_regression_receipt": "Existing full-regression output footer reports tests=445, pass=445, fail=0, skipped=0. Reviewed saved execution receipt, not rerun by this reviewer. No new CI/signature/repair claim is warranted because product bytes are unchanged.",
+    "publication_boundary": "GitHub publication/readback and final closure are parent-owned later gates; this SPEC receipt does not assert they are complete."
+  },
+  "root_cause_proven": false,
+  "handshake_repaired": false,
+  "blind_watch_patch_authorized_by_evidence": false,
+  "phone_implementation_authorized": false,
+  "summary": "SPEC FAIL for three correctable plan errors: existing failure telemetry, READY timeout contract, and overbroad lifecycle-repair attribution. R4 provenance correction and protected read-only scope are sound; diagnostics-only continuation is justified, but unique native root and repaired handshake remain unresolved. Only this verdict file was written."
+}

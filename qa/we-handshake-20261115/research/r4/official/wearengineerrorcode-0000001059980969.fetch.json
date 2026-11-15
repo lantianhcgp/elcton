@@ -1,0 +1,19 @@
+{
+  "obj": "wearengineerrorcode-0000001059980969",
+  "url": "https://developer.huawei.com/consumer/cn/doc/connectivity-References/wearengineerrorcode-0000001059980969",
+  "payload": {
+    "objectId": "wearengineerrorcode-0000001059980969",
+    "language": "cn",
+    "catalogName": "connectivity-References"
+  },
+  "endpoint": "https://svc-drcn.developer.huawei.com/community/servlet/consumer/cn/documentPortal/getDocumentById",
+  "time": "2026-11-15T02:41:49.406209+00:00",
+  "http": 200,
+  "code": 0,
+  "title": "WearEngineErrorCode",
+  "content_type": "str",
+  "body_chars": 16544,
+  "sha256": "b0e99be4fc29c54b706d9f34512f3c5dfc4b30948371c10277dd7422073f8bde",
+  "mentions210301031": false,
+  "mentionsconnectChannel": false
+}
