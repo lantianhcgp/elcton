@@ -17,6 +17,17 @@ const markers=['BUS_UNVERSIONED','SDK_UNAVAILABLE','PKG_CALL','CERT_CALL','REG_C
 const apis=['setPackageName','setFingerprint','subscribeMsg','unsubscribeMsg','sendMsg'];
 function walk(n,fn){if(!n||typeof n!=='object')return; if(typeof n.type==='string')fn(n);for(const [k,v]of Object.entries(n)){if(k==='start'||k==='end'||k==='loc')continue;if(Array.isArray(v)){for(const c of v)walk(c,fn);}else if(v&&typeof v==='object')walk(v,fn);}}
 function clean(n){if(Array.isArray(n))return n.map(clean);if(!n||typeof n!=='object')return n;const o={};for(const [k,v]of Object.entries(n))if(!['start','end','loc','raw'].includes(k))o[k]=clean(v);return o;}
+const INERT_NATIVE_STUB=JSON.stringify(clean(parse('function requireModule(moduleName){return requireNative(moduleName.slice(1))}',{ecmaVersion:5}).body[0]));
+function nativeScanText(code,n){
+  let dynamic=false;walk(n,s=>{if((s.type==='Identifier'&&(s.name==='eval'||s.name==='Function'))||(s.type==='Literal'&&(s.value==='eval'||s.value==='Function'))||(s.type==='MemberExpression'&&s.computed&&s.property.type!=='Literal'&&(s.object.type==='ThisExpression'||(s.object.type==='Identifier'&&['globalThis','window','self'].includes(s.object.name)))))dynamic=true;});
+  if(dynamic)return 'requireNative';
+  // Only the fixed SDK declaration in the module scope, with no other identifier
+  // occurrence (including calls, aliases, shadowing or writes), is inert.
+  const stubs=n.body.body.filter(s=>s.type==='FunctionDeclaration'&&JSON.stringify(clean(s))===INERT_NATIVE_STUB),refs=[];
+  walk(n,s=>{if(s.type==='Identifier'&&s.name==='requireModule')refs.push(s);});
+  if(stubs.length===1&&refs.length===1&&refs[0]===stubs[0].id)return code.slice(n.start,stubs[0].start)+code.slice(stubs[0].end,n.end);
+  return code.slice(n.start,n.end);
+}
 function key(n){return n.type==='Literal'?String(n.value):n.name;}
 function isStaticMember(n,name){return n?.type==='MemberExpression'&&(n.computed?n.property.type==='Literal'&&n.property.value===name:n.property.type==='Identifier'&&n.property.name===name);}
 function inspect(code,label){
@@ -26,7 +37,7 @@ function inspect(code,label){
   for(const m of modules){const text=code.slice(m.node.start,m.node.end);if(!markers.every(t=>text.includes(t))||!apis.every(t=>text.includes(t)))continue;
     const factories=[];walk(m.node.body,n=>{if((n.type==='FunctionDeclaration'||n.type==='FunctionExpression')&&n.params.length===3){const text=code.slice(n.start,n.end);if(markers.every(t=>text.includes(t))&&apis.every(t=>text.includes(t)))factories.push(n);}});
     if(factories.length!==1)throw Error(label+': ambiguous compatibility factory');
-    if(/requireNative|@system\./.test(text))throw Error(label+': native initialization in compat module');
+    if(/requireNative|@system\./.test(nativeScanText(code,m.node)))throw Error(label+': native initialization in compat module');
     candidates.push({...m,factory:factories[0],text});
   }
   if(candidates.length!==1)throw Error(label+': expected exactly one pinned compatibility webpack module, got '+candidates.length);

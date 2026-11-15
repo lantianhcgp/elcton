@@ -1,0 +1,21 @@
+{
+  "review": "native-stub-quality-r1",
+  "axis": "QUALITY",
+  "passed": false,
+  "verdict": "FAIL_SCOPED_QUALITY_DYNAMIC_STUB_REACHABILITY",
+  "hashes": {
+    "scripts/share_we_compat_app.mjs": "9b44bf47f4cfc8ac37ee38d0ef771ea1420e8dc17c516ae6695873fc44bae625",
+    "tests/weCompatSharingNativeStub.test.mjs": "e8687cef0cfeccebe6a0db7452a467f0ff4411137667b5e395db9423cc63264c",
+    ".github/workflows/wearengine.yml": "bae9a2f2ae2123f170c4cfee181bbbb4ef7aebb5b53677b710cef59987089dc8",
+    "tests/weSdkFailureEvidence.test.mjs": "025c606887e58a12d96b8a26d677c89f51154b62e400426a9d3590218f327e88"
+  },
+  "summary": [
+    "BLOCKER scripts/share_we_compat_app.mjs:21-26,38: existing fixture appTail=STUB+';eval(\"require\"+\"Module\")(\"system.wearengine\");' was accepted by shareCompatApp. Initializing that APP module in node:vm called injected requireNative once. Identifier counting misses dynamic references to the exempted stub; old full-text guard rejects this module. HOST-only reproduction, no native device claim.",
+    "Focused new tests: 34 passed, 0 failed, exit 0; lexical calls/tampering/nesting/writes/duplicates and payload preservation are covered, dynamic eval is not. All four hashes match SPEC PASS_SCOPED_SPEC_HOST_ONLY; SPEC has no passed key. Removing only scan delta and five workflow lines exactly reproduces HEAD; git diff --check exit 0.",
+    "Public APP copy is post-compaction/pre-share, outside signing/build input globs; upload remains failure-only and original gates unchanged. Only this JSON was written. No SDK/CI/signing/native/HAP scope extension. Exceeded 90s: first tool timestamp 08:41:05, probe finished 08:42:40 (+95s); total later exceeded 3min per parent. Initial shell quoting error was retried successfully in memory."
+  ],
+  "actualSDKVerified": false,
+  "nativeVerified": false,
+  "actualCIArtifactReadbackVerified": false,
+  "releaseOrInstallApproval": false
+}
